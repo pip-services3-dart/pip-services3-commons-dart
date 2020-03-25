@@ -7,6 +7,7 @@ import '../convert/LongConverter.dart';
 import '../convert/FloatConverter.dart';
 import '../convert/DoubleConverter.dart';
 import '../convert/DateTimeConverter.dart';
+import '../convert/DurationConverter.dart';
 import '../convert/MapConverter.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
@@ -46,23 +47,29 @@ class StringValueMap {
   Map<String, String> _values;
 
   /*
-     * Creates a new instance of the map and assigns its value.
-     * 
-     * @param value     (optional) values to initialize this map.
-     */
+   * Creates a new instance of the map and assigns its value.
+   * 
+   * @param value     (optional) values to initialize this map.
+   */
   StringValueMap([map = null]) {
     this._values = new Map<String, String>();
-    if (map != null) this.append(map);
+
+    if (map is Map) {
+      this.append(map);
+    } else if (map != null) {
+      this.append(MapConverter.toMap(map));
+    }
   }
 
-/*
-     * Gets an map with values.
-     * 
-     * @returns         the value of the map elements.
-     */
-  Map<String, dynamic> getValue(){
+  /*
+   * Gets an map with values.
+   * 
+   * @returns         the value of the map elements.
+   */
+  Map<String, String> getValue(){
     return this._values;
   }
+
   /*
      * Gets a map element specified by its key.
      * 
@@ -74,65 +81,66 @@ class StringValueMap {
   }
 
   /* 
-     * Gets keys of all elements stored in this map.
-     * 
-     * @returns a list with all map keys. 
-     */
+   * Gets keys of all elements stored in this map.
+   * 
+   * @returns a list with all map keys. 
+   */
   List<String> getKeys() {
     List<String> keys = [];
 
     for (var key in this._values.keys) {
-      //if (this.hasOwnProperty(key)) {
       keys.add(key);
-      //}
     }
 
     return keys;
   }
 
   /*
-     * Puts a new value into map element specified by its key.
-     * 
-     * @param key       a key of the element to put.
-     * @param value     a new value for map element.
-     */
-  void put(String key, dynamic value) {
+   * Puts a new value into map element specified by its key.
+   * 
+   * @param key       a key of the element to put.
+   * @param value     a new value for map element.
+   */
+  void put(String key, value) {
     this._values[key] = StringConverter.toNullableString(value);
   }
 
   /*
-     * Removes a map element specified by its key
-     * 
-     * @param key     a key of the element to remove.
-     */
+   * Removes a map element specified by its key
+   * 
+   * @param key     a key of the element to remove.
+   */
   void remove(String key) {
     this._values.remove(key);
   }
 
   /*
-     * Appends new elements to this map.
-     * 
-     * @param map  a map with elements to be added.
-     */
-  void append(dynamic map) {
+   * Appends new elements to this map.
+   * 
+   * @param map  a map with elements to be added.
+   */
+  void append(map) {
     if (map == null) return;
 
-    for (var key in map) {
-      var value = map[key];
-      //if (map.hasOwnProperty(key))
-      this._values[key] = StringConverter.toNullableString(value);
+    if (map is StringValueMap)
+      map = map.getValue();
+    if (map is AnyValueMap)
+      map = map.getValue();
+
+    if (map is Map) {
+      for (var key in map.keys) {
+        var value = map[key];
+        this._values[StringConverter.toNullableString(key)]
+          = StringConverter.toNullableString(value);
+      }
     }
   }
 
   /*
-     * Clears this map by removing all its elements.
-     */
+   * Clears this map by removing all its elements.
+   */
   void clear() {
-    for (var key in this._values.keys) {
-      //var value = this._values[key];
-      // if (this.hasOwnProperty(key))
-      this._values.remove(key);
-    }
+    this._values.clear();
   }
 
   /* 
@@ -141,12 +149,7 @@ class StringValueMap {
      * @returns the number of elements in this map.
      */
   int length() {
-    var count = 0;
-    for (var key in this._values.keys) {
-      //if (this.hasOwnProperty(key))
-      count++;
-    }
-    return count;
+    return this._values.length;
   }
 
   /*
@@ -156,17 +159,16 @@ class StringValueMap {
      * @param key       (optional) a key of the element to get
      * @returns the element value or value of the map when index is not defined. 
      */
-  dynamic getAsObject([String key = null]) {
+  getAsObject([String key = null]) {
     if (key == null) {
-      var result;
+      var result = new Map<String, String>();
       for (var key in this._values.keys) {
         var value = this._values[key];
-        //if (this.hasOwnProperty(key))
         result[key] = value;
       }
       return result;
     } else {
-      return this.get(key);
+      return this[key];
     }
   }
 
@@ -180,14 +182,14 @@ class StringValueMap {
      * 
      * @see [[MapConverter.toMap]]
      */
-  void setAsObject(dynamic key, [dynamic value = null]) {
+  void setAsObject(key, [value = null]) {
     if (value == null) {
-      //value = key
       this.clear();
       var values = MapConverter.toMap(key);
       this.append(values);
     } else {
-      this.put(key, value);
+        this._values[StringConverter.toNullableString(key)]
+          = StringConverter.toNullableString(value);
     }
   }
 
@@ -426,10 +428,10 @@ class StringValueMap {
   }
 
   /* 
-     * Converts map element into a Date or returns null if conversion is not possible.
+     * Converts map element into a DateTime or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
-     * @returns Date value of the element or null if conversion is not supported. 
+     * @returns DateTime value of the element or null if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -439,10 +441,10 @@ class StringValueMap {
   }
 
   /* 
-     * Converts map element into a Date or returns the current date if conversion is not possible.
+     * Converts map element into a DateTime or returns the current date if conversion is not possible.
      * 
      * @param key       a key of element to get.
-     * @returns Date value of the element or the current date if conversion is not supported. 
+     * @returns DateTime value of the element or the current date if conversion is not supported. 
      * 
      * @see [[getAsDateTimeWithDefault]]
      */
@@ -451,17 +453,56 @@ class StringValueMap {
   }
 
   /*
-     * Converts map element into a Date or returns default value if conversion is not possible.
+     * Converts map element into a DateTime or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
      * @param defaultValue  the default value
-     * @returns Date value of the element or default value if conversion is not supported. 
+     * @returns DateTime value of the element or default value if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
   DateTime getAsDateTimeWithDefault(String key, DateTime defaultValue) {
     var value = this.get(key);
     return DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
+  }
+
+  /* 
+     * Converts map element into a Duration or returns null if conversion is not possible.
+     * 
+     * @param key       a key of element to get.
+     * @returns Duration value of the element or null if conversion is not supported. 
+     * 
+     * @see [[DurationConverter.toNullableDuration]]
+     */
+  Duration getAsNullableDuration(String key) {
+    var value = this.get(key);
+    return DurationConverter.toNullableDuration(value);
+  }
+
+  /* 
+     * Converts map element into a Duration or returns the current date if conversion is not possible.
+     * 
+     * @param key       a key of element to get.
+     * @returns Duration value of the element or the current date if conversion is not supported. 
+     * 
+     * @see [[getAsDurationWithDefault]]
+     */
+  Duration getAsDuration(String key) {
+    return this.getAsDurationWithDefault(key, new Duration());
+  }
+
+  /*
+     * Converts map element into a Duration or returns default value if conversion is not possible.
+     * 
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns Duration value of the element or default value if conversion is not supported. 
+     * 
+     * @see [[DurationConverter.toDDurationWithDefault]]
+     */
+  Duration getAsDurationWithDefault(String key, Duration defaultValue) {
+    var value = this.get(key);
+    return DurationConverter.toDurationWithDefault(value, defaultValue);
   }
 
   /* 
@@ -618,7 +659,6 @@ class StringValueMap {
 
     // Todo: User encoder
     for (var key in this._values.keys) {
-      //if (this.hasOwnProperty(key)) {
       var value = this._values[key];
 
       if (builder.length > 0) builder += ';';
@@ -627,7 +667,6 @@ class StringValueMap {
         builder += key + '=' + value;
       else
         builder += key;
-      // }
     }
 
     return builder;
@@ -638,7 +677,7 @@ class StringValueMap {
      * 
      * @returns a clone of this object.
      */
-  dynamic clone() {
+  clone() {
     return new StringValueMap(this);
   }
 
@@ -662,7 +701,7 @@ class StringValueMap {
      * 
      * @see [[fromTuplesArray]]
      */
-  static StringValueMap fromTuples(List<dynamic> tuples) {
+  static StringValueMap fromTuples(List tuples) {
     //...tuples: any[]
     return StringValueMap.fromTuplesArray(tuples);
   }
@@ -674,14 +713,14 @@ class StringValueMap {
      * @param tuples    a list of values where odd elements are keys and the following even elements are values
      * @returns         a newly created StringValueMap.
      */
-  static StringValueMap fromTuplesArray(List<dynamic> tuples) {
+  static StringValueMap fromTuplesArray(List tuples) {
     var result = new StringValueMap();
     if (tuples == null || tuples.length == 0) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;
 
-      var name = StringConverter.toString2(tuples[index]);
+      var name = StringConverter.toNullableString(tuples[index]);
       var value = StringConverter.toNullableString(tuples[index + 1]);
 
       result[name] = value;
@@ -722,14 +761,22 @@ class StringValueMap {
      * @param maps  an array of maps to be merged
      * @returns     a newly created AnyValueMap.
      */
-  static StringValueMap fromMaps(List<Map<String, dynamic>> maps) {
-    //...maps: any[]
+  static StringValueMap fromMaps(List maps) {
     var result = new StringValueMap();
     if (maps != null && maps.length > 0) {
       for (var index = 0; index < maps.length; index++)
         result.append(maps[index]);
     }
     return result;
+  }
+
+  Map<String, dynamic> toJson() {
+    return this._values;
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this._values = null;
+    append(json);
   }
 
   operator [](String key) {
@@ -739,4 +786,5 @@ class StringValueMap {
   void operator []=(String key, String value) {
     this._values[key] = value;
   }
+
 }

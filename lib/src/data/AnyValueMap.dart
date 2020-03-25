@@ -7,10 +7,12 @@ import '../convert/LongConverter.dart';
 import '../convert/FloatConverter.dart';
 import '../convert/DoubleConverter.dart';
 import '../convert/DateTimeConverter.dart';
+import '../convert/DurationConverter.dart';
 import '../convert/MapConverter.dart';
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
+import './StringValueMap.dart';
 
 /*
  * Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
@@ -55,7 +57,7 @@ class AnyValueMap implements ICloneable {
      * 
      * @returns     the value of the map elements.
      */
-  Map<String, String> getValue() {
+  Map<String, dynamic> getValue() {
     return this._values;
   }
 
@@ -65,7 +67,7 @@ class AnyValueMap implements ICloneable {
      * @param key     a key of the element to get.
      * @returns       the value of the map element.
      */
-  dynamic get(String key) {
+  get(String key) {
     return this[key];
   }
 
@@ -78,9 +80,7 @@ class AnyValueMap implements ICloneable {
     var keys = List<String>();
 
     for (var key in this._values.keys) {
-      // if (this.hasOwnProperty(key)) {
       keys.add(key);
-      // }
     }
 
     return keys;
@@ -92,7 +92,7 @@ class AnyValueMap implements ICloneable {
      * @param key       a key of the element to put.
      * @param value     a new value for map element.
      */
-  dynamic put(String key, dynamic value) {
+  void put(String key, dynamic value) {
     this[key] = value;
   }
 
@@ -110,13 +110,19 @@ class AnyValueMap implements ICloneable {
      * 
      * @param map  a map with elements to be added.
      */
-  void append(Map<String, dynamic> map) {
+  void append(map) {
     if (map == null) return;
 
-    for (var key in map.keys) {
-      var value = map[key];
-      //if (map.hasOwnProperty(key))
-      this[key] = value;
+    if (map is StringValueMap)
+      map = map.getValue();
+    if (map is AnyValueMap)
+      map = map.getValue();
+
+    if (map is Map) {
+      for (var key in map.keys) {
+        var value = map[key];
+        this[StringConverter.toNullableString(key)] = value;
+      }
     }
   }
 
@@ -124,12 +130,7 @@ class AnyValueMap implements ICloneable {
      * Clears this map by removing all its elements.
      */
   void clear() {
-    for (var key in this._values.keys) {
-      //var value = this[key];
-      //if (this.hasOwnProperty(key))
-      //devare this[key];
-      _values.remove(key);
-    }
+    _values.clear();
   }
 
   /*
@@ -137,15 +138,9 @@ class AnyValueMap implements ICloneable {
      *  
      * @returns the number of elements in this map.
      */
-  // int length() {
-  //     var count: number = 0;
-  // 	for (var key in this) {
-  // 		if (this.hasOwnProperty(key) && !_.isFunction(this[key])) {
-  //             count ++;
-  //         }
-  // 	}
-  //     return count;
-  // }
+  int length() {
+    return this._values.length;
+  }
 
   /*
      * Gets the value stored in map element without any conversions.
@@ -154,17 +149,16 @@ class AnyValueMap implements ICloneable {
      * @param key       (optional) a key of the element to get
      * @returns the element value or value of the map when index is not defined. 
      */
-  dynamic getAsObject(String key) {
+  getAsObject([String key = null]) {
     if (key == null) {
-      dynamic result;
+      var result = new Map<String, dynamic>();
       for (var key in this._values.keys) {
         var value = this[key];
-        //if (this.hasOwnProperty(key))
         result[key] = value;
       }
       return result;
     } else {
-      return this.get(key);
+      return this._values[key];
     }
   }
 
@@ -178,14 +172,13 @@ class AnyValueMap implements ICloneable {
      * 
      * @see [[MapConverter.toMap]]
      */
-  void setAsObject(dynamic key, dynamic value) {
+  void setAsObject(key, [value = null]) {
     if (value == null) {
-      //value = key
       this.clear();
       var values = MapConverter.toMap(key);
       this.append(values);
     } else {
-      this.put(key, value);
+      this._values[key] = value;
     }
   }
 
@@ -424,10 +417,10 @@ class AnyValueMap implements ICloneable {
   }
 
   /*
-     * Converts map element into a Date or returns null if conversion is not possible.
+     * Converts map element into a DateTime or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
-     * @returns Date value of the element or null if conversion is not supported. 
+     * @returns DateTime value of the element or null if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -437,10 +430,10 @@ class AnyValueMap implements ICloneable {
   }
 
   /*
-     * Converts map element into a Date or returns the current date if conversion is not possible.
+     * Converts map element into a DateTime or returns the current date if conversion is not possible.
      * 
      * @param key       a key of element to get.
-     * @returns Date value of the element or the current date if conversion is not supported. 
+     * @returns DateTime value of the element or the current date if conversion is not supported. 
      * 
      * @see [[getAsDateTimeWithDefault]]
      */
@@ -449,17 +442,56 @@ class AnyValueMap implements ICloneable {
   }
 
   /*
-     * Converts map element into a Date or returns default value if conversion is not possible.
+     * Converts map element into a DateTime or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
      * @param defaultValue  the default value
-     * @returns Date value of the element or default value if conversion is not supported. 
+     * @returns DateTime value of the element or default value if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
   DateTime getAsDateTimeWithDefault(String key, DateTime defaultValue) {
     var value = this.get(key);
     return DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
+  }
+
+  /*
+     * Converts map element into a Duration or returns null if conversion is not possible.
+     * 
+     * @param key       a key of element to get.
+     * @returns Duration value of the element or null if conversion is not supported. 
+     * 
+     * @see [[DurationConverter.toNullableDuration]]
+     */
+  Duration getAsNullableDuration(String key) {
+    var value = this.get(key);
+    return DurationConverter.toNullableDuration(value);
+  }
+
+  /*
+     * Converts map element into a Duration or returns the current date if conversion is not possible.
+     * 
+     * @param key       a key of element to get.
+     * @returns Duration value of the element or the current date if conversion is not supported. 
+     * 
+     * @see [[getAsDurationWithDefault]]
+     */
+  Duration getAsDuration(String key) {
+    return this.getAsDurationWithDefault(key, null);
+  }
+
+  /*
+     * Converts map element into a Duration or returns default value if conversion is not possible.
+     * 
+     * @param key           a key of element to get.
+     * @param defaultValue  the default value
+     * @returns Duration value of the element or default value if conversion is not supported. 
+     * 
+     * @see [[DurationConverter.toDurationWithDefault]]
+     */
+  Duration getAsDurationWithDefault(String key, Duration defaultValue) {
+    var value = this.get(key);
+    return DurationConverter.toDurationWithDefault(value, defaultValue);
   }
 
   /*
@@ -611,12 +643,12 @@ class AnyValueMap implements ICloneable {
      * 
      * @returns a String representation of the object.
      */
+  @override
   String toString() {
     var builder = '';
 
     // Todo: User encoder
     for (var key in this._values.keys) {
-      //if (this.hasOwnProperty(key)) {
       var value = this[key];
 
       if (builder.length > 0) builder += ';';
@@ -625,7 +657,6 @@ class AnyValueMap implements ICloneable {
         builder += key + '=' + value;
       else
         builder += key;
-      // }
     }
 
     return builder;
@@ -636,8 +667,8 @@ class AnyValueMap implements ICloneable {
      * 
      * @returns a clone of this object.
      */
-  dynamic clone() {
-    return new AnyValueMap(this);
+  clone() {
+    return new AnyValueMap(this._values);
   }
 
   /*
@@ -650,7 +681,7 @@ class AnyValueMap implements ICloneable {
      */
   static AnyValueMap fromValue(dynamic value) {
     var result = new AnyValueMap();
-    result.setAsObject(value, null);
+    result.setAsObject(value);
     return result;
   }
 
@@ -662,8 +693,7 @@ class AnyValueMap implements ICloneable {
      * 
      * @see [[fromTuplesArray]]
      */
-  // TOTO: fix parameters in this method
-  static AnyValueMap fromTuples(List<dynamic> tuples) {
+  static AnyValueMap fromTuples(List tuples) {
     return AnyValueMap.fromTuplesArray(tuples);
   }
 
@@ -674,14 +704,14 @@ class AnyValueMap implements ICloneable {
      * @param tuples    a list of values where odd elements are keys and the following even elements are values
      * @returns         a newly created AnyValueArray.
      */
-  static AnyValueMap fromTuplesArray(List<dynamic> tuples) {
+  static AnyValueMap fromTuplesArray(List tuples) {
     var result = new AnyValueMap();
     if (tuples == null || tuples.length == 0) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;
 
-      var name = StringConverter.toString2(tuples[index]);
+      var name = StringConverter.toNullableString(tuples[index]);
       var value = tuples[index + 1];
 
       result.setAsObject(name, value);
@@ -697,8 +727,7 @@ class AnyValueMap implements ICloneable {
      * @param maps  an array of maps to be merged
      * @returns     a newly created AnyValueMap.
      */
-  static AnyValueMap fromMaps(Map<String, dynamic> maps) // ...maps: any[]
-  {
+  static AnyValueMap fromMaps(List maps) {
     var result = new AnyValueMap();
     if (maps != null && maps.length > 0) {
       for (var index = 0; index < maps.length; index++)

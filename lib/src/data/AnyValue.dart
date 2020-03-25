@@ -1,7 +1,7 @@
 import "../convert/convert.dart";
 import "./ICloneable.dart";
-// import "./AnyValueArray.dart";
-// import "./AnyValueMap.dart";
+import "./AnyValueArray.dart";
+import "./AnyValueMap.dart";
 
 /**
  * Cross-language implementation of dynamic object what can hold value of any type.
@@ -27,7 +27,7 @@ import "./ICloneable.dart";
  */
 class AnyValue implements ICloneable {
     /** The value stored by this object. */
-	var value;
+	var _value;
 
     /**
      * Creates a new instance of the object and assigns its value.
@@ -36,9 +36,9 @@ class AnyValue implements ICloneable {
      */
     AnyValue([value = null]) {
     	if (value is AnyValue)
-    		this.value = value.value;
+    		this._value = value._value;
     	else
-			  this.value = value;
+			  this._value = value;
     }
 
     /** 
@@ -49,7 +49,7 @@ class AnyValue implements ICloneable {
      * @see [[TypeConverter.toTypeCode]]
      */
     TypeCode getTypeCode() {
-    	return TypeConverter.toTypeCode(this.value);
+    	return TypeConverter.toTypeCode(this._value);
     }
     
     /** 
@@ -58,7 +58,7 @@ class AnyValue implements ICloneable {
      * @returns the object value. 
      */
     getAsObject() {
-        return this.value;
+        return this._value;
     }
 
     /** 
@@ -68,9 +68,9 @@ class AnyValue implements ICloneable {
      */
     void setAsObject(value) {
         if (value is AnyValue)
-            this.value = value.value;
+            this._value = value._value;
         else
-            this.value = value;
+            this._value = value;
     }
 
     /** 
@@ -81,7 +81,7 @@ class AnyValue implements ICloneable {
      * @see [[StringConverter.toNullableString]]
      */
     String getAsNullableString() {
-        return StringConverter.toNullableString(this.value);
+        return StringConverter.toNullableString(this._value);
     }
 
     /** 
@@ -104,7 +104,7 @@ class AnyValue implements ICloneable {
      * @see [[StringConverter.toStringWithDefault]]
      */
     String getAsStringWithDefault(String defaultValue) {
-        return StringConverter.toStringWithDefault(this.value, defaultValue);
+        return StringConverter.toStringWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -115,7 +115,7 @@ class AnyValue implements ICloneable {
      * @see [[BooleanConverter.toNullableBoolean]]
      */
     bool getAsNullableBoolean() {
-        return BooleanConverter.toNullableBoolean(this.value);
+        return BooleanConverter.toNullableBoolean(this._value);
     }
 
     /** 
@@ -138,7 +138,7 @@ class AnyValue implements ICloneable {
      * @see [[BooleanConverter.toBooleanWithDefault]]
      */
     bool getAsBooleanWithDefault(bool defaultValue) {
-        return BooleanConverter.toBooleanWithDefault(this.value, defaultValue);
+        return BooleanConverter.toBooleanWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -149,7 +149,7 @@ class AnyValue implements ICloneable {
      * @see [[IntegerConverter.toNullableInteger]]
      */
     int getAsNullableInteger() {
-        return IntegerConverter.toNullableInteger(this.value);
+        return IntegerConverter.toNullableInteger(this._value);
     }
 
     /** 
@@ -172,7 +172,7 @@ class AnyValue implements ICloneable {
      * @see [[IntegerConverter.toIntegerWithDefault]]
      */
     int getAsIntegerWithDefault(int defaultValue) {
-        return IntegerConverter.toIntegerWithDefault(this.value, defaultValue);
+        return IntegerConverter.toIntegerWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -183,7 +183,7 @@ class AnyValue implements ICloneable {
      * @see [[LongConverter.toNullableLong]]
      */
     int getAsNullableLong() {
-        return LongConverter.toNullableLong(this.value);
+        return LongConverter.toNullableLong(this._value);
     }
 
     /** 
@@ -206,7 +206,7 @@ class AnyValue implements ICloneable {
      * @see [[LongConverter.toLongWithDefault]]
      */
     int getAsLongWithDefault(int defaultValue) {
-        return LongConverter.toLongWithDefault(this.value, defaultValue);
+        return LongConverter.toLongWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -217,7 +217,7 @@ class AnyValue implements ICloneable {
      * @see [[FloatConverter.toNullableFloat]]
      */
     double getAsNullableFloat() {
-        return FloatConverter.toNullableFloat(this.value);
+        return FloatConverter.toNullableFloat(this._value);
     }
 
     /**
@@ -240,7 +240,7 @@ class AnyValue implements ICloneable {
      * @see [[FloatConverter.toFloatWithDefault]]
      */
     double getAsFloatWithDefault(double defaultValue) {
-        return FloatConverter.toFloatWithDefault(this.value, defaultValue);
+        return FloatConverter.toFloatWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -251,7 +251,7 @@ class AnyValue implements ICloneable {
      * @see [[DoubleConverter.toNullableDouble]]
      */
     double getAsNullableDouble() {
-        return DoubleConverter.toNullableDouble(this.value);
+        return DoubleConverter.toNullableDouble(this._value);
     }
 
     /** 
@@ -274,7 +274,7 @@ class AnyValue implements ICloneable {
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
     double getAsDoubleWithDefault(double defaultValue) {
-        return DoubleConverter.toDoubleWithDefault(this.value, defaultValue);
+        return DoubleConverter.toDoubleWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -285,7 +285,7 @@ class AnyValue implements ICloneable {
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
     DateTime getAsNullableDateTime() {
-        return DateTimeConverter.toNullableDateTime(this.value);
+        return DateTimeConverter.toNullableDateTime(this._value);
     }
 
     /** 
@@ -308,7 +308,7 @@ class AnyValue implements ICloneable {
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
     DateTime getAsDateTimeWithDefault(DateTime defaultValue) {
-        return DateTimeConverter.toDateTimeWithDefault(this.value, defaultValue);
+        return DateTimeConverter.toDateTimeWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -319,7 +319,7 @@ class AnyValue implements ICloneable {
      * @see [[DurationConverter.toNullableDuration]]
      */
     Duration getAsNullableDuration() {
-        return DurationConverter.toNullableDuration(this.value);
+        return DurationConverter.toNullableDuration(this._value);
     }
 
     /** 
@@ -342,7 +342,7 @@ class AnyValue implements ICloneable {
      * @see [[DurationConverter.toDurationWithDefault]]
      */
     Duration getAsDurationWithDefault(Duration defaultValue) {
-        return DurationConverter.toDurationWithDefault(this.value, defaultValue);
+        return DurationConverter.toDurationWithDefault(this._value, defaultValue);
     }
 
     /** 
@@ -355,7 +355,7 @@ class AnyValue implements ICloneable {
      * @see [[TypeConverter.toNullableType]]
      */
     T getAsNullableType<T>(TypeCode type) {
-        return TypeConverter.toNullableType<T>(type, this.value);
+        return TypeConverter.toNullableType<T>(type, this._value);
     }
 
     /** 
@@ -382,7 +382,7 @@ class AnyValue implements ICloneable {
      * @see [[TypeConverter.toTypeWithDefault]]
      */
     T getAsTypeWithDefault<T>(TypeCode typeCode, T defaultValue) {
-        return TypeConverter.toTypeWithDefault<T>(typeCode, this.value, defaultValue);
+        return TypeConverter.toTypeWithDefault<T>(typeCode, this._value, defaultValue);
     }
 
     /** 
@@ -392,9 +392,9 @@ class AnyValue implements ICloneable {
      * 
      * @see [[AnyValueArray.fromValue]]
      */
-    // AnyValueArray getAsArray() {
-    // 	return AnyValueArray.fromValue(this.value);
-    // }
+    AnyValueArray getAsArray() {
+    	return AnyValueArray.fromValue(this._value);
+    }
 
     /** 
      * Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.
@@ -403,9 +403,9 @@ class AnyValue implements ICloneable {
      * 
      * @see [[AnyValueMap.fromValue]]
      */
-    // AnyValueMap getAsMap() {
-    // 	return AnyValueMap.fromValue(this.value);
-    // }
+    AnyValueMap getAsMap() {
+    	return AnyValueMap.fromValue(this._value);
+    }
 
     /**
      * Compares this object value to specified specified value.
@@ -416,13 +416,13 @@ class AnyValue implements ICloneable {
      * @returns     true when objects are equal and false otherwise.
      */
     bool equals(obj) {
-        if (obj == null && this.value == null) return true;
-        if (obj == null || this.value == null) return false;
+        if (obj == null && this._value == null) return true;
+        if (obj == null || this._value == null) return false;
 
         if (obj is AnyValue)
         	obj = obj.value;
 
-        var strThisValue = StringConverter.toNullableString(this.value);
+        var strThisValue = StringConverter.toNullableString(this._value);
         var strValue = StringConverter.toNullableString(obj);
         
         if (strThisValue == null && strValue == null) return true;
@@ -441,13 +441,13 @@ class AnyValue implements ICloneable {
      * @see [[TypeConverter.toType]]
      */
     bool equalsAsType<T>(TypeCode type, obj) {
-        if (obj == null && this.value == null) return true;
-        if (obj == null || this.value == null) return false;
+        if (obj == null && this._value == null) return true;
+        if (obj == null || this._value == null) return false;
 
         if (obj is AnyValue)
         	obj = obj.value;
 
-        var typedThisValue = TypeConverter.toType<T>(type, this.value);
+        var typedThisValue = TypeConverter.toType<T>(type, this._value);
         var typedValue = TypeConverter.toType<T>(type, obj);
         
         if (typedThisValue == null && typedValue == null) return true;
@@ -461,7 +461,7 @@ class AnyValue implements ICloneable {
      * @returns a clone of this object.
      */
     clone() {
-    	return new AnyValue(this.value);
+    	return new AnyValue(this._value);
     }
     
     /** 
@@ -473,7 +473,7 @@ class AnyValue implements ICloneable {
      */
     @override
     String toString() {
-        return StringConverter.toNullableString(this.value);
+        return StringConverter.toNullableString(this._value);
     }
 
     /**
@@ -483,6 +483,6 @@ class AnyValue implements ICloneable {
      */
     @override
     int get hashCode {
-        return this.value != null ? this.value.hashCode: 0;
+        return this._value != null ? this._value.hashCode: 0;
     }
 }
