@@ -1,24 +1,23 @@
-// let assert = require('chai').assert;
+import "package:test/test.dart";
+import "../../lib/src/convert/TypeCode.dart";
+import "../../lib/src/data/AnyValueArray.dart";
 
-// import { TypeCode } from '../../src/convert/TypeCode';
-// import { AnyValueArray } from '../../src/data/AnyValueArray';
+void main() {
+  group('AnyValueArray', () {
+      test('Create', () {
+        var array = new AnyValueArray();
+        expect(array.length(), 0);
 
-// suite('AnyValueArray', ()=> {
-    
-//     test('Create', () => {
-//         let array = new AnyValueArray();
-//         assert.equal(0, array.length);
+        array = new AnyValueArray([ 1, 2, 3 ]);
+        expect(3, array.length());
+        expect("1,2,3", array.toString());
 
-//         array = new AnyValueArray([ 1, 2, 3 ]);
-//         assert.equal(3, array.length);
-//         assert.equal("1,2,3", array.toString());
+        array = AnyValueArray.fromString("Fatal,Error,Info,", ",");
+        expect(4, array.length());
 
-//         array = AnyValueArray.fromString("Fatal,Error,Info,", ",");
-//         assert.equal(4, array.length);
-
-//         array = new AnyValueArray([ 1, 2, 3 ]);
-//         assert.equal(3, array.length);
-//         assert.isTrue(array.contains(1));
-//     });    
-
-// });
+        array = new AnyValueArray([ 1, 2, 3 ]);
+        expect(3, array.length());
+        expect(array.contains(1), isTrue);
+      });
+  });
+}
