@@ -1,38 +1,52 @@
-// /** @module data */
-// import { SortField } from './SortField';
+import 'dart:svg';
 
-// /**
-//  * Defines a field name and order used to sort query results.
-//  * 
-//  * @see [[SortField]]
-//  * 
-//  * ### Example ###
-//  * 
-//  *     let filter = FilterParams.fromTuples("type", "Type1");
-//  *     let paging = new PagingParams(0, 100);
-//  *     let sorting = new SortingParams(new SortField("create_time", true));
-//  *     
-//  *     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
-//  */
-// export class SortParams extends Array<SortField> {
-// 	/**
-// 	 * Creates a new instance and initializes it with specified sort fields.
-// 	 * 
-//      * @param fields    a list of fields to sort by.
-//      */
-// 	public constructor(...fields: SortField[]) {
-//         super();
+import './SortField.dart';
+import 'dart:collection';
 
-//         // Set the prototype explicitly.
-//         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-//         (<any>this).__proto__ = SortParams.prototype;
+/**
+ * Defines a field name and order used to sort query results.
+ * 
+ * @see [[SortField]]
+ * 
+ * ### Example ###
+ * 
+ *     let filter = FilterParams.fromTuples("type", "Type1");
+ *     let paging = new PagingParams(0, 100);
+ *     let sorting = new SortingParams(new SortField("create_time", true));
+ *     
+ *     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
+ */
+class SortParams extends ListBase<SortField> {
+  List<SortField> _values;
+  /**
+	 * Creates a new instance and initializes it with specified sort fields.
+	 * 
+     * @param fields    a list of fields to sort by.
+     */
+  SortParams(List<SortField> fields) : _values = new List<SortField>() {
+    //...fields: SortField[]
+    //super();
 
-// 		if (fields != null) {
-// 			for (let index = 0; index < fields.length; index++)
-// 				this.push(fields[index]);
-// 		}
-// 	}
-	
-// 	// Todo: add fromTuples factory method.
+    if (fields != null) {
+      for (var index = 0; index < fields.length; index++)
+        this.add(fields[index]);
+    }
+  }
 
-// }
+  // Todo: add fromTuples factory method.
+  @override
+  void set length(int l) {
+    this._values.length = l;
+  }
+
+  @override
+  int get length => _values.length;
+
+  SortField operator [](int index) {
+    return this._values[index];
+  }
+
+  void operator []=(int index, SortField item) {
+    this._values[index] = item;
+  }
+}

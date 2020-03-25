@@ -1,108 +1,110 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
+import  '../../lib/src/data/ProjectionParams.dart';
 
-// import { ProjectionParams } from '../../src/data/ProjectionParams';
+void main(){
+group('ProjectionParams', () {
 
-// suite('ProjectionParams', ()=> {
+    test('From Null', ()  {
+        var parameters = new ProjectionParams(null);
 
-//     test('From Null', () => {
-//         let parameters = new ProjectionParams(null);
-
-//         assert.lengthOf(parameters, 0);
-//     });
+        expect(parameters.length, 0);
+    });
     
-//     test('From Value', () => {
-//         let parameters = ProjectionParams.fromValue([ "field1", "field2", "field3" ]);
+    test('From Value', ()  {
+        var parameters = ProjectionParams.fromValue([ "field1", "field2", "field3" ]);
 
-//         assert.lengthOf(parameters, 3);
-//         assert.equal("field1", parameters[0]);
-//         assert.equal("field2", parameters[1]);
-//         assert.equal("field3", parameters[2]);
-//     });
+        expect(parameters.length, 3);
+        expect("field1", parameters[0]);
+        expect("field2", parameters[1]);
+        expect("field3", parameters[2]);
+    });
     
-//     test('Convert to string', () => {
-//         let parameters = ProjectionParams.fromValue([ "field1", "field2", "field3" ]);
+    test('Convert to string', ()  {
+        var parameters = ProjectionParams.fromValue([ "field1", "field2", "field3" ]);
 
-//         assert.equal(typeof(parameters.toString()), "string");
-//         assert.equal(parameters, "field1,field2,field3");
-//     });
+        //expect(typeof(parameters.toString()), "string");
+        expect(parameters.toString() is String, isTrue);
+        expect(parameters, "field1,field2,field3");
+    });
 
-//     test('Parse', () => {
-//         let parameters = ProjectionParams.fromString("field1", "field2", "field3");
+    test('Parse', ()  {
+        var parameters = ProjectionParams.fromString(["field1", "field2", "field3"]);
 
-//         assert.equal(3, parameters.length);
-//         assert.equal("field1", parameters[0]);
-//         assert.equal("field2", parameters[1]);
-//         assert.equal("field3", parameters[2]);
+        expect(3, parameters.length);
+        expect("field1", parameters[0]);
+        expect("field2", parameters[1]);
+        expect("field3", parameters[2]);
 
-//         parameters = ProjectionParams.fromString("field1,field2, field3");
+        parameters = ProjectionParams.fromString(["field1,field2, field3"]);
 
-//         assert.equal(3, parameters.length);
-//         assert.equal("field1", parameters[0]);
-//         assert.equal("field2", parameters[1]);
-//         assert.equal("field3", parameters[2]);
+        expect(3, parameters.length);
+        expect("field1", parameters[0]);
+        expect("field2", parameters[1]);
+        expect("field3", parameters[2]);
 
-//         parameters = ProjectionParams.fromString("object1(field1)", "object2(field1, field2)", "field3");
+        parameters = ProjectionParams.fromString(["object1(field1)", "object2(field1, field2)", "field3"]);
 
-//         assert.equal(4, parameters.length);
-//         assert.equal("object1.field1", parameters[0]);
-//         assert.equal("object2.field1", parameters[1]);
-//         assert.equal("object2.field2", parameters[2]);
-//         assert.equal("field3", parameters[3]);
+        expect(4, parameters.length);
+        expect("object1.field1", parameters[0]);
+        expect("object2.field1", parameters[1]);
+        expect("object2.field2", parameters[2]);
+        expect("field3", parameters[3]);
 
-//         parameters = ProjectionParams.fromString("object1(object2(field1,field2,object3(field1)))");
+        parameters = ProjectionParams.fromString(["object1(object2(field1,field2,object3(field1)))"]);
 
-//         assert.equal(3, parameters.length);
-//         assert.equal("object1.object2.field1", parameters[0]);
-//         assert.equal("object1.object2.field2", parameters[1]);
-//         assert.equal("object1.object2.object3.field1", parameters[2]);
+        expect(3, parameters.length);
+        expect("object1.object2.field1", parameters[0]);
+        expect("object1.object2.field2", parameters[1]);
+        expect("object1.object2.object3.field1", parameters[2]);
 
-//         parameters = ProjectionParams.fromString("object1(field1, object2(field1, field2, field3, field4), field3)", "field2");
+        parameters = ProjectionParams.fromString(["object1(field1, object2(field1, field2, field3, field4), field3)", "field2"]);
         
-//         assert.equal(7, parameters.length);
-//         assert.equal("object1.field1", parameters[0]);
-//         assert.equal("object1.object2.field1", parameters[1]);
-//         assert.equal("object1.object2.field2", parameters[2]);
-//         assert.equal("object1.object2.field3", parameters[3]);
-//         assert.equal("object1.object2.field4", parameters[4]);
-//         assert.equal("object1.field3", parameters[5]);
-//         assert.equal("field2", parameters[6]);
+        expect(7, parameters.length);
+        expect("object1.field1", parameters[0]);
+        expect("object1.object2.field1", parameters[1]);
+        expect("object1.object2.field2", parameters[2]);
+        expect("object1.object2.field3", parameters[3]);
+        expect("object1.object2.field4", parameters[4]);
+        expect("object1.field3", parameters[5]);
+        expect("field2", parameters[6]);
 
-//         parameters = ProjectionParams.fromString("object1(field1, object2(field1), field3)", "field2");
+        parameters = ProjectionParams.fromString(["object1(field1, object2(field1), field3)", "field2"]);
 
-//         assert.equal(4, parameters.length);
-//         assert.equal("object1.field1", parameters[0]);
-//         assert.equal("object1.object2.field1", parameters[1]);
-//         assert.equal("object1.field3", parameters[2]);
-//         assert.equal("field2", parameters[3]);
+        expect(4, parameters.length);
+        expect("object1.field1", parameters[0]);
+        expect("object1.object2.field1", parameters[1]);
+        expect("object1.field3", parameters[2]);
+        expect("field2", parameters[3]);
 
-//         parameters = ProjectionParams.fromString("object1(field1, object2(field1, field2, object3(field1), field4), field3)", "field2");
+        parameters = ProjectionParams.fromString(["object1(field1, object2(field1, field2, object3(field1), field4), field3)", "field2"]);
 
-//         assert.equal(7, parameters.length);
-//         assert.equal("object1.field1", parameters[0]);
-//         assert.equal("object1.object2.field1", parameters[1]);
-//         assert.equal("object1.object2.field2", parameters[2]);
-//         assert.equal("object1.object2.object3.field1", parameters[3]);
-//         assert.equal("object1.object2.field4", parameters[4]);
-//         assert.equal("object1.field3", parameters[5]);
-//         assert.equal("field2", parameters[6]);
+        expect(7, parameters.length);
+        expect("object1.field1", parameters[0]);
+        expect("object1.object2.field1", parameters[1]);
+        expect("object1.object2.field2", parameters[2]);
+        expect("object1.object2.object3.field1", parameters[3]);
+        expect("object1.object2.field4", parameters[4]);
+        expect("object1.field3", parameters[5]);
+        expect("field2", parameters[6]);
 
-//         parameters = ProjectionParams.fromString("object1(object2(object3(field1)), field2)", "field2");
+        parameters = ProjectionParams.fromString(["object1(object2(object3(field1)), field2)", "field2"]);
 
-//         assert.equal(3, parameters.length);
-//         assert.equal("object1.object2.object3.field1", parameters[0]);
-//         assert.equal("object1.field2", parameters[1]);
-//         assert.equal("field2", parameters[2]);
+        expect(3, parameters.length);
+        expect("object1.object2.object3.field1", parameters[0]);
+        expect("object1.field2", parameters[1]);
+        expect("field2", parameters[2]);
 
-//         parameters = ProjectionParams.fromString("field1,object1(field1),object2(field1,field2),object3(field1),field2,field3");
+        parameters = ProjectionParams.fromString(["field1,object1(field1),object2(field1,field2),object3(field1),field2,field3"]);
 
-//         assert.equal(7, parameters.length);
-//         assert.equal("field1", parameters[0]);
-//         assert.equal("object1.field1", parameters[1]);
-//         assert.equal("object2.field1", parameters[2]);
-//         assert.equal("object2.field2", parameters[3]);
-//         assert.equal("object3.field1", parameters[4]);
-//         assert.equal("field2", parameters[5]);
-//         assert.equal("field3", parameters[6]);        
-//     });
+        expect(7, parameters.length);
+        expect("field1", parameters[0]);
+        expect("object1.field1", parameters[1]);
+        expect("object2.field1", parameters[2]);
+        expect("object2.field2", parameters[3]);
+        expect("object3.field1", parameters[4]);
+        expect("field2", parameters[5]);
+        expect("field3", parameters[6]);        
+    });
     
-// });
+});
+}

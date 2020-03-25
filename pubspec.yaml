@@ -7,5 +7,8 @@ homepage: https://github.com/pip-services3-dart/pip-services3-commons-dart
 environment:
   sdk: ">=2.0.0 <3.0.0"
 
+dependencies:
+  uuid: 2.0.4
+
 dev_dependencies:
   test: '>=1.14.2 <2.0.0'

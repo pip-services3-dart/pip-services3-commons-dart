@@ -1,14 +1,15 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
+import  '../../lib/src/data/SortField.dart';
+import  '../../lib/src/data/SortParams.dart';
 
-// import { SortField } from '../../src/data/SortField';
-// import { SortParams } from '../../src/data/SortParams';
-
-// suite('SortParams', ()=> {
+void main(){
+group('SortParams', () {
     
-//     test('Create and Push', () => {
-//         let sort = new SortParams(new SortField("f1"), new SortField("f2"));
-//         sort.push(new SortField("f3", false));
-//         assert.equal(3, sort.length);
-//     });    
+    test('Create and Push', () {
+        var sort = new SortParams([new SortField("f1"), new SortField("f2")]);
+        sort.add(new SortField("f3", false));
+        expect(3, sort.length);
+    });    
 
-// });
+});
+}

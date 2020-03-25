@@ -1,22 +1,21 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
+import '../../lib/src/data/MultiString.dart';
 
-// import { MultiString } from '../../src/data/MultiString';
+void main() {
+  group('MultiString', () {
+    test('Get and Set', () {
+      var value = new MultiString();
+      expect(value.get('en'), isNull);
 
-// suite('MultiString', ()=> {
-    
-//     test('Get and Set', () => {
-//         let value = new MultiString();
-//         assert.isNull(value.get('en') || null);
+      value.put('ru', 'Russian');
+      expect('Russian', value.get('ru'));
+      expect('Russian', value.get('en'));
+      expect('Russian', value.get('pt'));
 
-//         value.put('ru', 'Russian');
-//         assert.equal('Russian', value.get('ru'));
-//         assert.equal('Russian', value.get('en'));
-//         assert.equal('Russian', value.get('pt'));
-
-//         value.put('en', 'English');
-//         assert.equal('Russian', value.get('ru'));
-//         assert.equal('English', value.get('en'));
-//         assert.equal('English', value.get('pt'));
-//     });    
-
-// });
+      value.put('en', 'English');
+      expect('Russian', value.get('ru'));
+      expect('English', value.get('en'));
+      expect('English', value.get('pt'));
+    });
+  });
+}

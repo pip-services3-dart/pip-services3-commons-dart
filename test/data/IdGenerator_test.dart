@@ -1,29 +1,28 @@
-// let assert = require('chai').assert;
+import "package:test/test.dart";
+import '../../lib/src/data/IdGenerator.dart';
 
-// import { IdGenerator } from '../../src/data/IdGenerator';
+void main() {
+  group('IdGenerator', () {
+    test('Short Id', () {
+      var id1 = IdGenerator.nextShort();
+      expect(id1, isNotNull);
+      expect(id1.length >= 9, isTrue);
 
-// suite('IdGenerator', ()=> {
-    
-//     test('Short Id', () => {
-// 			let id1 = IdGenerator.nextShort();
-// 			assert.isNotNull(id1);
-// 			assert.isTrue(id1.length >= 9);
-			
-// 			let id2 = IdGenerator.nextShort();
-// 			assert.isNotNull(id2);
-// 			assert.isTrue(id2.length >= 9);
-// 			assert.isFalse(id1 == id2);
-//     });    
+      var id2 = IdGenerator.nextShort();
+      expect(id2, isNotNull);
+      expect(id2.length >= 9, isTrue);
+      expect(id1 == id2, isFalse);
+    });
 
-//     test('Long Id', () => {
-// 			let id1 = IdGenerator.nextLong();
-// 			assert.isNotNull(id1);
-// 			assert.isTrue(id1.length >= 32);
-			
-// 			let id2 = IdGenerator.nextLong();
-// 			assert.isNotNull(id2);
-// 			assert.isTrue(id2.length >= 32);
-// 			assert.isFalse(id1 == id2);
-//     });    
+    test('Long Id', () {
+      var id1 = IdGenerator.nextLong();
+      expect(id1, isNotNull);
+      expect(id1.length >= 32, isTrue);
 
-// });
+      var id2 = IdGenerator.nextLong();
+      expect(id2, isNotNull);
+      expect(id2.length >= 32, isTrue);
+      expect(id1 == id2, isFalse);
+    });
+  });
+}

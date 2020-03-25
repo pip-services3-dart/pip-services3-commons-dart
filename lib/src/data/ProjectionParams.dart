@@ -1,178 +1,193 @@
-// /** @module data */
-// import { AnyValueArray } from "./AnyValueArray";
-// /** @hidden */ 
-// const _ = require('lodash');
+import 'dart:collection';
+import "./AnyValueArray.dart";
 
-// /**
-//  * Defines projection parameters with list if fields to include into query results.
-//  * 
-//  * The parameters support two formats: dot format and nested format.
-//  * 
-//  * The dot format is the standard way to define included fields and subfields using
-//  * dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
-//  * 
-//  * As alternative the nested format offers a more compact representation:
-//  * <code>"field1,field2(field21,field22(field221))"</code>.
-//  * 
-//  * ### Example ###
-//  * 
-//  *     let filter = FilterParams.fromTuples("type", "Type1");
-//  *     let paging = new PagingParams(0, 100);
-//  *     let projection = ProjectionParams.fromString("field1,field2(field21,field22)")
-//  *     
-//  *     myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
-//  * 
-//  */
-// export class ProjectionParams extends Array<string> {
+/*
+ * Defines projection parameters with list if fields to include into query results.
+ * 
+ * The parameters support two formats: dot format and nested format.
+ * 
+ * The dot format is the standard way to define included fields and subfields using
+ * dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
+ * 
+ * As alternative the nested format offers a more compact representation:
+ * <code>"field1,field2(field21,field22(field221))"</code>.
+ * 
+ * ### Example ###
+ * 
+ *     var filter = FilterParams.fromTuples("type", "Type1");
+ *     var paging = new PagingParams(0, 100);
+ *     var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
+ *     
+ *     myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
+ * 
+ */
+class ProjectionParams extends ListBase<String> {
+  List<String> _values;
+  /*
+     * Creates a new instance of the projection parameters and assigns its value.
+     * 
+     * @param value     (optional) values to initialize this object.
+     */
+  ProjectionParams([List<dynamic> values = null]): _values = new List<String>() {
 
-//     /**
-//      * Creates a new instance of the projection parameters and assigns its value.
-//      * 
-//      * @param value     (optional) values to initialize this object.
-//      */
-//     public constructor(values: any[] = null) {
-//         super();
+    if (values != null) {
+      for (var value in values) this._values.add("" + value);
+    }
+  }
 
-//         // Set the prototype explicitly.
-//         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-//         (<any>this).__proto__ = ProjectionParams.prototype;
+  /*
+     * Gets a string representation of the object.
+     * The result is a comma-separated list of projection fields
+     * "field1,field2.field21,field2.field22.field221"
+     * 
+     * @returns a string representation of the object.
+     */
+  String toString() {
+    var builder = "";
 
-//         if (values != null) {
-//             for (let value of values)
-//                 this.push("" + value);
-//         }
-//     }
+    for (var index = 0; index < this._values.length; index++) {
+      if (index > 0) {
+        builder += ',';
+      }
 
-//     /** 
-//      * Gets a string representation of the object.
-//      * The result is a comma-separated list of projection fields
-//      * "field1,field2.field21,field2.field22.field221"
-//      * 
-//      * @returns a string representation of the object.
-//      */
-//     public toString(): string {
-//         let builder = "";
+      builder += this._values[index];
+    }
 
-//         for (let index = 0; index < this.length; index++) {
-//             if (index > 0) {
-//                 builder += ',';
-//             }
+    return builder;
+  }
 
-//             builder += this[index];
-//         }
+  static void _parseValue(
+      String prefix, ProjectionParams result, String value) {
+    value = value.trim();
 
-//         return builder;
-//     }
+    var openBracket = 0;
+    var openBracketIndex = -1;
+    var closeBracketIndex = -1;
+    var commaIndex = -1;
 
-//     private static parseValue(prefix: string, result: ProjectionParams, value: string): void {
-//         value = value.trim();
+    var breakCycleRequired = false;
+    for (var index = 0; index < value.length; index++) {
+      switch (value[index]) {
+        case '(':
+          if (openBracket == 0) {
+            openBracketIndex = index;
+          }
 
-//         let openBracket = 0;
-//         let openBracketIndex = -1;
-//         let closeBracketIndex = -1;
-//         let commaIndex = -1;
+          openBracket++;
+          break;
+        case ')':
+          openBracket--;
 
-//         let breakCycleRequired = false;
-//         for (let index = 0; index < value.length; index++) {
-//             switch (value[index]) {
-//                 case '(':
-//                     if (openBracket == 0) {
-//                         openBracketIndex = index;
-//                     }
+          if (openBracket == 0) {
+            closeBracketIndex = index;
 
-//                     openBracket++;
-//                     break;
-//                 case ')':
-//                     openBracket--;
+            if (openBracketIndex >= 0 && closeBracketIndex > 0) {
+              var previousPrefix = prefix;
 
-//                     if (openBracket == 0) {
-//                         closeBracketIndex = index;
+              if (prefix != null && prefix.length > 0) {
+                prefix = prefix + "." + value.substring(0, openBracketIndex);
+              } else {
+                prefix = value.substring(0, openBracketIndex);
+              }
 
-//                         if (openBracketIndex >= 0 && closeBracketIndex > 0) {
-//                             let previousPrefix = prefix;
+              var subValue =
+                  value.substring(openBracketIndex + 1, closeBracketIndex);
+              ProjectionParams._parseValue(prefix, result, subValue);
 
-//                             if (prefix && prefix.length > 0) {
-//                                 prefix = prefix + "." + value.substring(0, openBracketIndex);
-//                             } else {
-//                                 prefix = value.substring(0, openBracketIndex);
-//                             }
+              subValue = value.substring(closeBracketIndex + 1);
+              ProjectionParams._parseValue(previousPrefix, result, subValue);
+              breakCycleRequired = true;
+            }
+          }
+          break;
+        case ',':
+          if (openBracket == 0) {
+            commaIndex = index;
 
-//                             let subValue = value.substring(openBracketIndex + 1, closeBracketIndex);
-//                             this.parseValue(prefix, result, subValue);
+            var subValue = value.substring(0, commaIndex);
 
-//                             subValue = value.substring(closeBracketIndex + 1);
-//                             this.parseValue(previousPrefix, result, subValue);
-//                             breakCycleRequired = true;
-//                         }
-//                     }
-//                     break;
-//                 case ',':
-//                     if (openBracket == 0) {
-//                         commaIndex = index;
+            if (subValue != null && subValue.length > 0) {
+              if (prefix != null && prefix.length > 0) {
+                result._values.add(prefix + "." + subValue);
+              } else {
+                result._values.add(subValue);
+              }
+            }
 
-//                         let subValue = value.substring(0, commaIndex);
+            subValue = value.substring(commaIndex + 1);
 
-//                         if (subValue && subValue.length > 0) {
-//                             if (prefix && prefix.length > 0) {
-//                                 result.push(prefix + "." + subValue);
-//                             } else {
-//                                 result.push(subValue);
-//                             }
-//                         }
+            if (subValue != null && subValue.length > 0) {
+              ProjectionParams._parseValue(prefix, result, subValue);
+              breakCycleRequired = true;
+            }
+          }
+          break;
+      }
 
-//                         subValue = value.substring(commaIndex + 1);
+      if (breakCycleRequired) {
+        break;
+      }
+    }
 
-//                         if (subValue && subValue.length > 0) {
-//                             this.parseValue(prefix, result, subValue);
-//                             breakCycleRequired = true;
-//                         }
-//                     }
-//                     break;
-//             }
+    if (value != null &&
+        value.length > 0 &&
+        openBracketIndex == -1 &&
+        commaIndex == -1) {
+      if (prefix != null && prefix.length > 0) {
+        result._values.add(prefix + "." + value);
+      } else {
+        result._values.add(value);
+      }
+    }
+  }
 
-//             if (breakCycleRequired) {
-//                 break;
-//             }
-//         }
+  /*
+     * Converts specified value into ProjectionParams.
+     * 
+     * @param value     value to be converted
+     * @returns         a newly created ProjectionParams.
+     * 
+     * @see [[AnyValueArray.fromValue]]
+     */
+  static ProjectionParams fromValue(dynamic value) {
+    if (!value is List) value = AnyValueArray.fromValue(value);
 
-//         if (value && value.length > 0 && openBracketIndex == -1 && commaIndex == -1) {
-//             if (prefix && prefix.length > 0) {
-//                 result.push(prefix + "." + value);
-//             } else {
-//                 result.push(value);
-//             }
-//         }
-//     }
+    return new ProjectionParams(value);
+  }
 
-//     /**
-//      * Converts specified value into ProjectionParams.
-//      * 
-//      * @param value     value to be converted
-//      * @returns         a newly created ProjectionParams.
-//      * 
-//      * @see [[AnyValueArray.fromValue]]
-//      */
-//     public static fromValue(value: any): ProjectionParams {
-//         if (!_.isArray(value))
-//             value = AnyValueArray.fromValue(value);
+  /*
+     * Parses comma-separated list of projection fields.
+     * 
+     * @param values    one or more comma-separated lists of projection fields
+     * @returns         a newly created ProjectionParams.
+     */
+  static fromString(List<dynamic> values) {
+    //...values: string[]
+    var result = new ProjectionParams();
 
-//         return new ProjectionParams(value);
-//     }
+    for (var value in values) {
+      ProjectionParams._parseValue("", result, value);
+    }
 
-//     /**
-//      * Parses comma-separated list of projection fields.
-//      * 
-//      * @param values    one or more comma-separated lists of projection fields
-//      * @returns         a newly created ProjectionParams.
-//      */
-//     public static fromString(...values: string[]) {
-//         let result = new ProjectionParams();
+    return result;
+  }
 
-//         for (let value of values) {
-//             this.parseValue("", result, value);
-//         }
+  @override
+  void set length(int l) {
+    this._values.length = l;
+  }
 
-//         return result;    
-//     }
+  @override
+  int get length => this._values.length;
 
-// }
+  @override
+  String operator [](int index) {
+    // TODO: implement []
+    return this._values[index];
+  }
+
+  @override
+  void operator []=(int index, String value) {
+    this._values[index] = value;
+  }
+}
