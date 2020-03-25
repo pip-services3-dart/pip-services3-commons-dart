@@ -27,10 +27,10 @@
  */
 class DataPage<T> {
     /** The items of the retrieved page. */
-    get List<T> data();
+    List<T> data;
 
     /** The total amount of items in a request. */
-    get int total();
+    int total;
 
     /**
      * Creates a new instance of data page and assigns its values.
@@ -38,7 +38,7 @@ class DataPage<T> {
      * @param data      a list of items from the retrieved page.
      * @param total     (optional) .
      */
-    DataPage(List<T> data: null, int total = null) {
+    DataPage(List<T> data, int total) {
 		  this.total = total;
 		  this.data = data;
     }

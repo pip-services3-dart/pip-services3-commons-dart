@@ -13,5 +13,5 @@
  */
 abstract class INamed {
 	/** The object's humand-readable name. */
-	get string name();
+	String get name;
 }

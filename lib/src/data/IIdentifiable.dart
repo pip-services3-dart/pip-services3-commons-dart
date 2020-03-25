@@ -14,5 +14,5 @@
  */
 abstract class IIdentifiable<K> {
 	/** The unique object identifier of type K. */
-	get K id();
+	K id;
 }
