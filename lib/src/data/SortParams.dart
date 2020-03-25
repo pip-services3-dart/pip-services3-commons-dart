@@ -1,5 +1,3 @@
-import 'dart:svg';
-
 import './SortField.dart';
 import 'dart:collection';
 
@@ -25,8 +23,7 @@ class SortParams extends ListBase<SortField> {
      */
   SortParams(List<SortField> fields) : this._values = new List<SortField>() {
     //...fields: SortField[]
-    //super();
-
+  
     if (fields != null) {
       for (var index = 0; index < fields.length; index++)
         this.add(fields[index]);
