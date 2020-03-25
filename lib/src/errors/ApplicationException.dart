@@ -50,8 +50,7 @@ class ApplicationException implements Exception {
     String code = 'UNKNOWN';
     /** A map with additional details that can be used to restore error description in other languages */
     // Todo: Complete implementation!
-    //StringValueMap details; 
-    var details;
+    StringValueMap details; 
     /** A unique transaction id to trace execution throug call chain */   
     String correlation_id;
     /** Stack trace of the exception */ 
@@ -165,8 +164,8 @@ class ApplicationException implements Exception {
      * @returns this exception object
      */ 
     ApplicationException withDetails(String key, value) {
-        this.details = this.details; // ?? new StringValueMap();
-        //!!this.details.setAsObject(key, value);
+        this.details = this.details ?? new StringValueMap();
+        this.details.setAsObject(key, value);
         return this;
     }
     

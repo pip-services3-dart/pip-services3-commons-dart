@@ -1,3 +1,7 @@
+import '../../pip_services3_commons.dart';
+import "../convert/StringConverter.dart";
+import "../convert/IntegerConverter.dart";
+
 /**
  * Serializeable error description. It is use to pass information about errors
  * between microservices implemented in different languages. On the receiving side
@@ -26,4 +30,30 @@ class ErrorDescription {
 	String cause;
     /** Stack trace of the exception */ 
 	String stack_trace;
+
+  Map<String, dynamic> toJson() {
+    var json = new Map<String, dynamic>();
+    json["type"] = this.type;
+    json["category"] = this.category;
+    json["status"] = this.status;
+    json["code"] = this.code;
+    json["message"] = this.message;
+    json["details"] = this.details;
+    json["correlation_id"] = this.correlation_id;
+    json["cause"] = this.cause;
+    json["stack_trace"] = this.stack_trace;
+    return json;
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this.type = StringConverter.toNullableString(json["type"]);
+    this.category = StringConverter.toNullableString(json["category"]);
+    this.status = IntegerConverter.toNullableInteger(json["status"]);
+    this.code = StringConverter.toNullableString(json["code"]);
+    this.message = StringConverter.toNullableString(json["message"]);
+    this.details = json["details"];
+    this.correlation_id = StringConverter.toNullableString(json["correlation_id"]);
+    this.cause = StringConverter.toNullableString(json["cause"]);
+    this.stack_trace = StringConverter.toNullableString(json["stack_trace"]);
+  }
 }

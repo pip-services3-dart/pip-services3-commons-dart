@@ -13,6 +13,7 @@ import "./ConflictException.dart";
 import "./NotFoundException.dart";
 import "./UnsupportedException.dart";
 import "./InvalidStateException.dart";
+import "../data/StringValueMap.dart";
 
 /**
  * Factory to recreate exceptions from [[ErrorDescription]] values passed through the wire.
@@ -71,7 +72,7 @@ class ApplicationExceptionFactory {
     	}
     	
     	// Fill error with details
-    	error.details = description.details;
+    	error.details = StringValueMap.fromValue(description.details);
       error.setCauseString(description.cause);
       error.setStackTraceString(description.stack_trace);
 

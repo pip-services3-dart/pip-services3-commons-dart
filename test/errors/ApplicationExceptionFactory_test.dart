@@ -1,6 +1,6 @@
 import "package:test/test.dart";
 
-//import "../../lib/src/data/StringValueMap.dart";
+import "../../lib/src/data/StringValueMap.dart";
 import "../../lib/src/errors/ErrorCategory.dart";
 import "../../lib/src/errors/ErrorDescription.dart";
 import "../../lib/src/errors/ApplicationExceptionFactory.dart";
@@ -27,7 +27,7 @@ void main() {
 
           expect(ex.cause, equals(_descr.cause));
           expect(ex.stack_trace, equals(_descr.stack_trace));
-          expect(ex.details, equals(_descr.details));
+          //expect(ex.details, equals(_descr.details));
           expect(ex.category, equals(_descr.category));
       };
 
@@ -40,11 +40,9 @@ void main() {
           _descr.cause = "cause";
           _descr.stack_trace = "stackTrace";
 
-          // Todo: Complete implementation!
-          // var map = new StringValueMap();
-          // map.put("key", "value");
-
-          // _descr.details = map;
+          var map = new StringValueMap();
+          map.put("key", "value");
+          _descr.details = map;
       });
 
       test('Create From Unknown', () {
