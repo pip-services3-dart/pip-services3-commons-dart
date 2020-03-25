@@ -1,4 +1,4 @@
-import "DoubleConverter.dart";
+import 'DoubleConverter.dart';
 
 /**
  * Converts arbitrary values into float using extended conversion rules:

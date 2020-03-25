@@ -1,4 +1,4 @@
-import "LongConverter.dart";
+import 'LongConverter.dart';
 
 /**
  * Converts arbitrary values into integers using extended conversion rules:

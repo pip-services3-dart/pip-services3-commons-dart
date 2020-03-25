@@ -1,7 +1,7 @@
-import "../convert/convert.dart";
-import "./ICloneable.dart";
-import "./AnyValueArray.dart";
-import "./AnyValueMap.dart";
+import '../convert/convert.dart';
+import './ICloneable.dart';
+import './AnyValueArray.dart';
+import './AnyValueMap.dart';
 
 /**
  * Cross-language implementation of dynamic object what can hold value of any type.

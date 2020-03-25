@@ -12,10 +12,10 @@
  * 
  * ### Example ###
  * 
- *     export class MyClass implements IConfigurable {
- *         private _myParam: string = "default value";
+ *     class MyClass implements IConfigurable {
+ *         var _myParam = "default value";
  *              
- *         public configure(config: ConfigParams): void  {
+ *         void configure(ConfigParams config) {
  *             this._myParam = config.getAsStringWithDefault("options.param", myParam);
  *             ...
  *         }
@@ -27,5 +27,5 @@ abstract class IConfigurable {
      * 
      * @param config    configuration parameters to be set.
      */
-   // void configure(ConfigParams config);
+   void configure(ConfigParams config);
 }

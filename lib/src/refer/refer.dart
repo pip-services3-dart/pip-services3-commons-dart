@@ -1,10 +1,10 @@
-// export { Descriptor } from './Descriptor';
-// export { DependencyResolver } from './DependencyResolver';
+export './Descriptor.dart';
+export './DependencyResolver.dart';
 
-// export { IReferences } from './IReferences';
-// export { IReferenceable } from './IReferenceable';
-// export { IUnreferenceable } from './IUnreferenceable';
-// export { Reference } from './Reference';
-// export { Referencer } from './Referencer';
-// export { References } from './References';
-// export { ReferenceException } from './ReferenceException';
+export './IReferences.dart';
+export './IReferenceable.dart';
+export './IUnreferenceable.dart';
+export './Reference.dart';
+export './Referencer.dart';
+export './References.dart';
+export './ReferenceException.dart';

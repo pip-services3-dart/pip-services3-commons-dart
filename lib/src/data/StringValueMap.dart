@@ -54,7 +54,11 @@ class StringValueMap {
   StringValueMap([map = null]) {
     this._values = new Map<String, String>();
 
-    if (map is Map) {
+    if (map is StringValueMap) {
+      this.append(map);
+    } else if (map is AnyValueMap) {
+      this.append(map);
+    } else if (map is Map) {
       this.append(map);
     } else if (map != null) {
       this.append(MapConverter.toMap(map));
