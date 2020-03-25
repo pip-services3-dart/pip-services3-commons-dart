@@ -28,7 +28,7 @@ void main() {
           expect(descr.status, equals(ex.status));
           expect(descr.cause, equals(ex.cause));
           expect(descr.stack_trace, equals(ex.stack_trace));
-          expect(descr.details, equals(ex.details.getValue()));
+          expect(descr.details.getValue(), equals(ex.details.getValue()));
       });
 
       test('Create From Error', () {

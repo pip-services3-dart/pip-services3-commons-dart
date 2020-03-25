@@ -30,7 +30,7 @@ class ErrorDescriptionFactory {
             description.status = ex.status;
             description.code  = ex.code;
             description.message = ex.message;
-            description.details = ex.details != null ? ex.details.getValue() : null;
+            description.details = ex.details;
             description.correlation_id = ex.correlation_id;
             description.cause = ex.getCauseString();
             description.stack_trace = ex.getStackTraceString();
