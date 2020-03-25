@@ -1,66 +1,68 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { ConfigParams } from '../../src/config/ConfigParams';
-// import { AnyValueMap } from '../../src/data/AnyValueMap';
-// import { AnyValueArray } from '../../src/data/AnyValueArray';
+import '../../lib/src/config/ConfigParams.dart';
+import '../../lib/src/data/AnyValueMap.dart';
+import '../../lib/src/data/AnyValueArray.dart';
 
-// suite('ConfigParams', ()=> {
+void main() {
+  group('ConfigParams', () {
 
-//     test('Config Sections', () => {
-//         var config = ConfigParams.fromTuples(
-//             "Section1.Key1", "Value1",
-//             "Section1.Key2", "Value2",
-//             "Section1.Key3", "Value3"
-//         );
+      test('Config Sections', () {
+          var config = ConfigParams.fromTuples([
+              "Section1.Key1", "Value1",
+              "Section1.Key2", "Value2",
+              "Section1.Key3", "Value3"
+          ]);
 
-//         assert.equal(config.length(), 3);
-// 		assert.equal(config.get("Section1.Key1"), "Value1");
-// 		assert.equal(config.get("Section1.Key2"), "Value2");
-// 		assert.equal(config.get("Section1.Key3"), "Value3");
-// 		assert.isNull(config.get("Section1.Key4"));
+          expect(config.length(), equals(3));
+          expect(config.get("Section1.Key1"), equals("Value1"));
+          expect(config.get("Section1.Key2"), equals("Value2"));
+          expect(config.get("Section1.Key3"), equals("Value3"));
+          expect(config.get("Section1.Key4"), isNull);
 
-//         var section2 = ConfigParams.fromTuples(
-//             "Key1", "ValueA",
-//             "Key2", "ValueB",
-//         );
+          var section2 = ConfigParams.fromTuples([
+              "Key1", "ValueA",
+              "Key2", "ValueB",
+          ]);
 
-//         config.addSection("Section2", section2);
-//         assert.equal(config.length(), 5);
-// 		assert.equal(config.get("Section2.Key1"), "ValueA");
-// 		assert.equal(config.get("Section2.Key2"), "ValueB");
+          config.addSection("Section2", section2);
+          expect(config.length(), equals(5));
+          expect(config.get("Section2.Key1"), equals("ValueA"));
+          expect(config.get("Section2.Key2"), equals("ValueB"));
 
-//         var section1 = config.getSection("Section1");
-//         assert.equal(section1.length(), 3);
-// 		assert.equal(section1.get("Key1"), "Value1");
-// 		assert.equal(section1.get("Key2"), "Value2");
-// 		assert.equal(section1.get("Key3"), "Value3");
-        
-//     });    
+          var section1 = config.getSection("Section1");
+          expect(section1.length(), equals(3));
+          expect(section1.get("Key1"), equals("Value1"));
+          expect(section1.get("Key2"), equals("Value2"));
+          expect(section1.get("Key3"), equals("Value3"));
+      });    
 
-//     test('Config From String', () => {
-//         var config = ConfigParams.fromString("Queue=TestQueue;Endpoint=sb://cvctestbus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=K70UpCUXN1Q5RFykll6/gz4Et14iJrYFnGPlwiFBlow=");
-//         assert.equal(config.length(), 4);
-//         assert.equal(config.get("Queue"), "TestQueue");
-//     });    
+      test('Config From String', () {
+          var config = ConfigParams.fromString("Queue=TestQueue;Endpoint=sb://cvctestbus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=K70UpCUXN1Q5RFykll6/gz4Et14iJrYFnGPlwiFBlow=");
+          expect(config.length(), equals(4));
+          expect(config.get("Queue"), equals("TestQueue"));
+      });    
 
-//     test('Config From Object', () => {
-//         var value = AnyValueMap.fromTuples(
-//             "field1", ConfigParams.fromString("field11=123;field12=ABC"),
-//             "field2", AnyValueArray.fromValues(
-//                 123, "ABC", ConfigParams.fromString("field21=543;field22=XYZ")
-//             ),
-//             "field3", true
-//         );
+      test('Config From Object', () {
+          var value = AnyValueMap.fromTuples([
+              "field1", ConfigParams.fromString("field11=123;field12=ABC"),
+              "field2", AnyValueArray.fromValues([
+                  123, "ABC", ConfigParams.fromString("field21=543;field22=XYZ")
+              ]),
+              "field3", true
+          ]);
 
-//         var config = ConfigParams.fromValue(value);
-//         assert.equal(config.length(), 7);
-//         assert.equal(config.getAsInteger("field1.field11"), 123);
-//         assert.equal(config.get("field1.field12"), "ABC");
-//         assert.equal(config.getAsInteger("field2.0"), 123);
-//         assert.equal(config.get("field2.1"), "ABC");
-//         assert.equal(config.getAsInteger("field2.2.field21"), 543);
-//         assert.equal(config.get("field2.2.field22"), "XYZ");
-//         assert.equal(config.getAsBoolean("field3"), true);
-//     });    
+          // Todo: Complete implementation!
+          // var config = ConfigParams.fromValue(value);
+          // expect(config.length(), equals(7));
+          // expect(config.getAsInteger("field1.field11"), equals(123));
+          // expect(config.get("field1.field12"), equals("ABC"));
+          // expect(config.getAsInteger("field2.0"), equals(123));
+          // expect(config.get("field2.1"), equals("ABC"));
+          // expect(config.getAsInteger("field2.2.field21"), equals(543));
+          // expect(config.get("field2.2.field22"), equals("XYZ"));
+          // expect(config.getAsBoolean("field3"), equals(true));
+      });    
 
-// });
+  });
+}

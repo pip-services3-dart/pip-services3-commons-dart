@@ -1,24 +1,25 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { ConfigParams } from '../../src/config/ConfigParams';
-// import { NameResolver } from '../../src/config/NameResolver';
+import '../../lib/src/config/ConfigParams.dart';
+import '../../lib/src/config/NameResolver.dart';
 
-// suite('NameResolver', ()=> {
+void main() {
+  group('NameResolver', () {
+      test('Resolve Name', () {
+          var config = ConfigParams.fromTuples(["id", "ABC"]);
+          var name = NameResolver.resolve(config);
+          expect(name, equals('ABC'));
 
-//     test('Resolve Name', () => {
-//         var config = ConfigParams.fromTuples("id", "ABC");
-//         var name = NameResolver.resolve(config);
-// 		assert.equal(name, 'ABC');
+          config = ConfigParams.fromTuples(["name", "ABC"]);
+          name = NameResolver.resolve(config);
+          expect(name, equals('ABC'));
+      });    
 
-//         var config = ConfigParams.fromTuples("name", "ABC");
-//         var name = NameResolver.resolve(config);
-// 		assert.equal(name, 'ABC');
-//     });    
+      test('Resolve Empty Name', () {
+          var config = ConfigParams.fromTuples([]);
+          var name = NameResolver.resolve(config);
+          expect(name, isNull);
+      });    
 
-//     test('Resolve Empty Name', () => {
-//         var config = ConfigParams.fromTuples();
-//         var name = NameResolver.resolve(config);
-// 		assert.isNull(name);
-//     });    
-
-// });
+  });
+}
