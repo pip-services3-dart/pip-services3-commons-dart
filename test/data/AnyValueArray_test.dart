@@ -1,5 +1,4 @@
 import "package:test/test.dart";
-import "../../lib/src/convert/TypeCode.dart";
 import "../../lib/src/data/AnyValueArray.dart";
 
 void main() {

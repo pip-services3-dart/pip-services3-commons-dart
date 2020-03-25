@@ -25,9 +25,8 @@ class FilterParams extends StringValueMap {
 	 * 
 	 * @param map 	a map to initialize this instance.
 	 */
-    FilterParams([map = null]) {
-		//super(map);
-	}
+  FilterParams([map = null]) 
+    : super(map);
 	
 	/*
      * Converts specified value into FilterParams.
@@ -45,7 +44,7 @@ class FilterParams extends StringValueMap {
      * @param tuples    a list of values where odd elements are keys and the following even elements are values
      * @returns         a newly created FilterParams.
 	 */
-	static FilterParams fromTuples(List<dynamic> tuples) { // ...tuples: any[]
+	static FilterParams fromTuples(List tuples) {
 		var map = StringValueMap.fromTuplesArray(tuples);
 		return new FilterParams(map);
 	}

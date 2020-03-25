@@ -1,8 +1,8 @@
-import "dart:convert";
+import 'dart:convert';
 
-import "./TypeCode.dart";
-import "./TypeConverter.dart";
-import "./MapConverter.dart";
+import './TypeCode.dart';
+import './TypeConverter.dart';
+import './MapConverter.dart';
 
 /**
  * Converts arbitrary values from and to JSON (JavaScript Object Notation) strings.
@@ -10,7 +10,7 @@ import "./MapConverter.dart";
  * ### Example ###
  * 
  *     var value1 = JsonConverter.fromJson("{\"key\":123}"); // Result: { "key": 123 }
- *     var value2 = JsonConverter.toMap({ key: 123 }); // Result: "{ "key": 123 }"
+ *     var value2 = JsonConverter.toMap({ "key": 123 }); // Result: "{ "key": 123 }"
  * 
  * @see [[TypeCode]]
  */

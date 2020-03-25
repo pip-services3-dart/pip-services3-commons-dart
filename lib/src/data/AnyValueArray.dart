@@ -7,6 +7,7 @@ import '../convert/LongConverter.dart';
 import '../convert/FloatConverter.dart';
 import '../convert/DoubleConverter.dart';
 import '../convert/DateTimeConverter.dart';
+import '../convert/DurationConverter.dart';
 import '../convert/ArrayConverter.dart';
 import './ICloneable.dart';
 import './AnyValue.dart';
@@ -36,28 +37,27 @@ import './AnyValueMap.dart';
  * @see [[ICloneable]]
  */
 class AnyValueArray implements ICloneable {
-  List<dynamic> _values;
-  /*
-     * Creates a new instance of the array and assigns its value.
-     * 
-     * @param value     (optional) values to initialize this array.
-     */
+  List _values;
 
-  AnyValueArray([List<dynamic> values = null]) {
-    this._values= new List<dynamic>();
-    // Set the prototype explicitly.
-    // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-    //(<any>this).__proto__ = AnyValueArray.prototype;
+  /*
+   * Creates a new instance of the array and assigns its value.
+   * 
+   * @param value     (optional) values to initialize this array.
+   */
+  AnyValueArray([Iterable values = null]) {
+    this._values= new List();
+
     if (values != null) {
       this._values.addAll(values);
     }
   }
- /*
-     * Gets an array with values.
-     * 
-     * @returns         the value of the array elements.
-     */
-  List<dynamic> getValue(){
+
+  /*
+    * Gets an array with values.
+    * 
+    * @returns         the value of the array elements.
+    */
+  List getValue() {
     return this._values;
   }
 
@@ -67,7 +67,7 @@ class AnyValueArray implements ICloneable {
      * @param index     an index of the element to get.
      * @returns         the value of the array element.
      */
-  dynamic get(int index) {
+  get(int index) {
     return this._values[index];
   }
 
@@ -77,7 +77,7 @@ class AnyValueArray implements ICloneable {
      * @param index     an index of the element to put.
      * @param value     a new value for array element.
      */
-  void put(int index, dynamic value) {
+  void put(int index, value) {
     this._values[index] = value;
   }
 
@@ -101,10 +101,10 @@ class AnyValueArray implements ICloneable {
      * 
      * @param elements  a list of elements to be added.
      */
-  void append(List<dynamic> elements) {
-    if (elements != null) {
-      for (var index = 0; index < elements.length; index++)
-        this._values.add(elements[index]);
+  void append(elements) {
+    if (elements is Iterable) {
+      for (var item in elements)
+        this._values.add(item);
     }
   }
 
@@ -112,7 +112,7 @@ class AnyValueArray implements ICloneable {
      * Clears this array by removing all its elements.
     */
   void clear() {
-    this._values.removeRange(0, this._values.length - 1);
+    this._values.clear();
   }
 
   /*
@@ -122,11 +122,11 @@ class AnyValueArray implements ICloneable {
      * @param index     (optional) an index of the element to get
      * @returns the element value or value of the array when index is not defined. 
      */
-  dynamic getAsObject(int index) {
+  getAsObject([int index = null]) {
     if (index == null) {
-      var result = List<dynamic>();
-      for (index = 0; index < this._values.length; index++)
-        result.add(this._values[index]);
+      var result = List();
+      for (var item in this._values)
+        result.add(item);
       return result;
     } else {
       return this._values[index];
@@ -145,7 +145,6 @@ class AnyValueArray implements ICloneable {
      */
   void setAsObject(dynamic index, dynamic value) {
     if (value == null) {
-      //value = index //originally was not present - added by Mark Makarychev.
       this.clear();
       var elements = ArrayConverter.toArray(index);
       this.append(elements);
@@ -389,10 +388,10 @@ class AnyValueArray implements ICloneable {
   }
 
   /* 
-     * Converts array element into a Date or returns null if conversion is not possible.
+     * Converts array element into a DateTime or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
-     * @returns Date value of the element or null if conversion is not supported. 
+     * @returns DateTime value of the element or null if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toNullableDateTime]]
      */
@@ -402,10 +401,10 @@ class AnyValueArray implements ICloneable {
   }
 
   /* 
-     * Converts array element into a Date or returns the current date if conversion is not possible.
+     * Converts array element into a DateTime or returns the current date if conversion is not possible.
      * 
      * @param index     an index of element to get.
-     * @returns Date value ot the element or the current date if conversion is not supported. 
+     * @returns DateTime value ot the element or the current date if conversion is not supported. 
      * 
      * @see [[getAsDateTimeWithDefault]]
      */
@@ -414,17 +413,56 @@ class AnyValueArray implements ICloneable {
   }
 
   /*
-     * Converts array element into a Date or returns default value if conversion is not possible.
+     * Converts array element into a DateTime or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
      * @param defaultValue  the default value
-     * @returns Date value ot the element or default value if conversion is not supported. 
+     * @returns DateTime value ot the element or default value if conversion is not supported. 
      * 
      * @see [[DateTimeConverter.toDateTimeWithDefault]]
      */
   DateTime getAsDateTimeWithDefault(int index, DateTime defaultValue) {
     var value = this._values[index];
     return DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
+  }
+
+  /* 
+     * Converts array element into a Duration or returns null if conversion is not possible.
+     * 
+     * @param index     an index of element to get.
+     * @returns Duration value of the element or null if conversion is not supported. 
+     * 
+     * @see [[DurationConverter.toNullableDuration]]
+     */
+  Duration getAsNullableDuration(int index) {
+    var value = this._values[index];
+    return DurationConverter.toNullableDuration(value);
+  }
+
+  /* 
+     * Converts array element into a Duration or returns the current date if conversion is not possible.
+     * 
+     * @param index     an index of element to get.
+     * @returns Duration value ot the element or the current date if conversion is not supported. 
+     * 
+     * @see [[getAsDurationWithDefault]]
+     */
+  Duration getAsDuration(int index) {
+    return this.getAsDurationWithDefault(index, new Duration());
+  }
+
+  /*
+     * Converts array element into a Duration or returns default value if conversion is not possible.
+     * 
+     * @param index         an index of element to get.
+     * @param defaultValue  the default value
+     * @returns Duration value ot the element or default value if conversion is not supported. 
+     * 
+     * @see [[DurationConverter.toDurationWithDefault]]
+     */
+  Duration getAsDurationWithDefault(int index, Duration defaultValue) {
+    var value = this._values[index];
+    return DurationConverter.toDurationWithDefault(value, defaultValue);
   }
 
   /* 
@@ -618,7 +656,7 @@ class AnyValueArray implements ICloneable {
      * 
      * @returns a clone of this object.
      */
-  dynamic clone() {
+  clone() {
     return new AnyValueArray(this._values);
   }
 
@@ -631,6 +669,7 @@ class AnyValueArray implements ICloneable {
      *
      * @see [[StringConverter.toString]]
      */
+  @override
   String toString() {
     var builder = '';
     for (var index = 0; index < this._values.length; index++) {
@@ -646,7 +685,7 @@ class AnyValueArray implements ICloneable {
      * @param values    a list of values to initialize the created AnyValueArray
      * @returns         a newly created AnyValueArray.
      */
-  static AnyValueArray fromValues(List<dynamic> values) {
+  static AnyValueArray fromValues(List values) {
     return new AnyValueArray(values);
   }
 
@@ -658,7 +697,7 @@ class AnyValueArray implements ICloneable {
      * 
      * @see [[ArrayConverter.toNullableArray]]
      */
-  static AnyValueArray fromValue(dynamic value) {
+  static AnyValueArray fromValue(value) {
     var values = ArrayConverter.toNullableArray(value);
     return new AnyValueArray(values);
   }

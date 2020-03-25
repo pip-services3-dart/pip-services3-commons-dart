@@ -1,4 +1,3 @@
-// /** @module config */
 import './IConfigurable.dart';
 
 /**
@@ -10,5 +9,5 @@ import './IConfigurable.dart';
  * 
  * @see [[IConfigurable]]
  */
-abstract class IReconfigurable extends IConfigurable {
+abstract class IReconfigurable implements IConfigurable {
 }

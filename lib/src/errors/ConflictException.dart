@@ -1,29 +1,23 @@
-// /** @module errors */
-// import { ErrorCategory } from './ErrorCategory';
-// import { ApplicationException } from './ApplicationException';
+import "./ErrorCategory.dart";
+import "./ApplicationException.dart";
 
-// /**
-//  * Errors raised by conflicts between object versions that were
-//  * posted by the user and those that are stored on the server.
-//  */
-// export class ConflictException extends ApplicationException {
+/**
+ * Errors raised by conflicts between object versions that were
+ * posted by the user and those that are stored on the server.
+ */
+class ConflictException extends ApplicationException {
 
-// 	/**
-// 	 * Creates an error instance and assigns its values.
-// 	 * 
-//      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
-//      * @param code              (optional) a unique error code. Default: "UNKNOWN"
-//      * @param message           (optional) a human-readable description of the error.
-// 	 * 
-// 	 * @see [[ErrorCategory]]
-// 	 */
-// 	public constructor(correlation_id: string = null, code: string = null, message: string = null) {
-// 		super(ErrorCategory.Conflict, correlation_id, code, message);
-
-//         // Set the prototype explicitly.
-//         // https://github.com/Microsoft/TypeScript-wiki/blob/master/Breaking-Changes.md#extending-built-ins-like-error-array-and-map-may-no-longer-work
-//         (<any>this).__proto__ = ConflictException.prototype;
-
-// 		this.status = 409;
-// 	}
-// }
+	/**
+	 * Creates an error instance and assigns its values.
+	 * 
+     * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
+     * @param code              (optional) a unique error code. Default: "UNKNOWN"
+     * @param message           (optional) a human-readable description of the error.
+	 * 
+	 * @see [[ErrorCategory]]
+	 */
+	ConflictException([String correlation_id = null, String code = null, String message = null])
+		: super(ErrorCategory.Conflict, correlation_id, code, message) {
+		this.status = 409;
+	}
+}
