@@ -28,7 +28,7 @@ class ProjectionParams extends ListBase<String> {
      * 
      * @param value     (optional) values to initialize this object.
      */
-  ProjectionParams([List<dynamic> values = null]): _values = new List<String>() {
+  ProjectionParams([List<dynamic> values = null]): this._values = new List<String>() {
 
     if (values != null) {
       for (var value in values) this._values.add("" + value);
@@ -150,7 +150,7 @@ class ProjectionParams extends ListBase<String> {
      * @see [[AnyValueArray.fromValue]]
      */
   static ProjectionParams fromValue(dynamic value) {
-    if (!value is List) value = AnyValueArray.fromValue(value);
+    if (!(value is List)) value = AnyValueArray.fromValue(value);
 
     return new ProjectionParams(value);
   }

@@ -23,8 +23,8 @@ group('ProjectionParams', () {
         var parameters = ProjectionParams.fromValue([ "field1", "field2", "field3" ]);
 
         //expect(typeof(parameters.toString()), "string");
-        expect(parameters.toString() is String, isTrue);
-        expect(parameters, "field1,field2,field3");
+        expect((parameters.toString() is String), isTrue);
+        expect(parameters.toString(), "field1,field2,field3");
     });
 
     test('Parse', ()  {

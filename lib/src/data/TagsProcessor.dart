@@ -125,7 +125,7 @@ class TagsProcessor {
   static String _extractString(dynamic field) {
     if (field == null) return '';
     if (field is String) return field;
-    if (!field is Object) return '';
+    if (!(field is Object)) return '';
 
     var result = '';
     for (var prop in field) {

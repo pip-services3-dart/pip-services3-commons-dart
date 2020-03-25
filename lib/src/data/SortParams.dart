@@ -23,7 +23,7 @@ class SortParams extends ListBase<SortField> {
 	 * 
      * @param fields    a list of fields to sort by.
      */
-  SortParams(List<SortField> fields) : _values = new List<SortField>() {
+  SortParams(List<SortField> fields) : this._values = new List<SortField>() {
     //...fields: SortField[]
     //super();
 
