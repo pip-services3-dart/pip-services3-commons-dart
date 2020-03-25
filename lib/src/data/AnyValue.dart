@@ -34,7 +34,7 @@ class AnyValue implements ICloneable {
      * 
      * @param value     (optional) value to initialize this object.
      */
-    AnyValue({value: null}) {
+    AnyValue([value = null]) {
     	if (value is AnyValue)
     		this.value = value.value;
     	else
@@ -461,7 +461,7 @@ class AnyValue implements ICloneable {
      * @returns a clone of this object.
      */
     clone() {
-    	return new AnyValue(value: this.value);
+    	return new AnyValue(this.value);
     }
     
     /** 
