@@ -1,169 +1,171 @@
-// let assert = require('chai').assert;
+import "package:test/test.dart";
 
-// import { StringValueMap } from '../../src/data/StringValueMap';
-// import { ErrorCategory } from '../../src/errors/ErrorCategory';
-// import { ErrorDescription } from '../../src/errors/ErrorDescription';
-// import { ApplicationExceptionFactory } from '../../src/errors/ApplicationExceptionFactory';
-// import { ApplicationException } from '../../src/errors/ApplicationException';
-// import { UnknownException } from '../../src/errors/UnknownException';
-// import { InternalException } from '../../src/errors/InternalException';
-// import { InvalidStateException } from '../../src/errors/InvalidStateException';
-// import { ConfigException } from '../../src/errors/ConfigException';
-// import { ConnectionException } from '../../src/errors/ConnectionException';
-// import { InvocationException } from '../../src/errors/InvocationException';
-// import { FileException } from '../../src/errors/FileException';
-// import { BadRequestException } from '../../src/errors/BadRequestException';
-// import { UnauthorizedException } from '../../src/errors/UnauthorizedException';
-// import { ConflictException } from '../../src/errors/ConflictException';
-// import { NotFoundException } from '../../src/errors/NotFoundException';
-// import { UnsupportedException } from '../../src/errors/UnsupportedException';
+//import "../../lib/src/data/StringValueMap.dart";
+import "../../lib/src/errors/ErrorCategory.dart";
+import "../../lib/src/errors/ErrorDescription.dart";
+import "../../lib/src/errors/ApplicationExceptionFactory.dart";
+import "../../lib/src/errors/ApplicationException.dart";
+import "../../lib/src/errors/UnknownException.dart";
+import "../../lib/src/errors/InternalException.dart";
+//import "../../lib/src/errors/InvalidStateException.dart";
+import "../../lib/src/errors/ConfigException.dart";
+import "../../lib/src/errors/ConnectionException.dart";
+import "../../lib/src/errors/InvocationException.dart";
+import "../../lib/src/errors/FileException.dart";
+import "../../lib/src/errors/BadRequestException.dart";
+import "../../lib/src/errors/UnauthorizedException.dart";
+import "../../lib/src/errors/ConflictException.dart";
+import "../../lib/src/errors/NotFoundException.dart";
+import "../../lib/src/errors/UnsupportedException.dart";
 
-// suite('ApplicationExceptionFactory', ()=> {
+void main() {
+  group('ApplicationExceptionFactory', () {
+      ErrorDescription _descr;
 
-//     var _descr: ErrorDescription;
+      var checkProperties = (ApplicationException ex) {
+          expect(ex, isNotNull);
 
-//     var checkProperties = (ex: ApplicationException): void => {
-//         assert.isNotNull(ex);
+          expect(ex.cause, equals(_descr.cause));
+          expect(ex.stack_trace, equals(_descr.stack_trace));
+          expect(ex.details, equals(_descr.details));
+          expect(ex.category, equals(_descr.category));
+      };
 
-//         assert.equal(_descr.cause, ex.cause);
-//         assert.equal(_descr.stack_trace, ex.stack_trace);
-//         assert.equal(_descr.details, ex.details);
-//         assert.equal(_descr.category, ex.category);
-//     }
+      setUp(() {
+          _descr = new ErrorDescription();
+          _descr.correlation_id = "correlationId";
+          _descr.code = "code";
+          _descr.message = "message";
+          _descr.status = 777;
+          _descr.cause = "cause";
+          _descr.stack_trace = "stackTrace";
 
-//     beforeEach(() => {
-//         _descr = new ErrorDescription();
-//         _descr.correlation_id = "correlationId";
-//         _descr.code = "code";
-//         _descr.message = "message";
-//         _descr.status = 777;
-//         _descr.cause = "cause";
-//         _descr.stack_trace = "stackTrace";
+          // Todo: Complete implementation!
+          // var map = new StringValueMap();
+          // map.put("key", "value");
 
-//         var map = new StringValueMap();
-//         map.put("key", "value");
+          // _descr.details = map;
+      });
 
-//         _descr.details = map;
-//     });
+      test('Create From Unknown', () {
+          _descr.category = ErrorCategory.Unknown;
 
-//     test('Create From Unknown', () => {
-//         _descr.category = ErrorCategory.Unknown;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<UnknownException>());
+      });
 
-//         assert.isTrue(ex instanceof UnknownException);
-//     });
+      test('Create From Internal', () {
+          _descr.category = ErrorCategory.Internal;
 
-//     test('Create From Internal', () => {
-//         _descr.category = ErrorCategory.Internal;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<InternalException>());
+      });
 
-//         assert.isTrue(ex instanceof InternalException);
-//     });
+      test('Create From Misconfiguration', () {
+          _descr.category = ErrorCategory.Misconfiguration;
 
-//     test('Create From Misconfiguration', () => {
-//         _descr.category = ErrorCategory.Misconfiguration;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<ConfigException>());
+      });
 
-//         assert.isTrue(ex instanceof ConfigException);
-//     });
+      test('Create From No Response', () {
+          _descr.category = ErrorCategory.NoResponse;
 
-//     test('Create From No Response', () => {
-//         _descr.category = ErrorCategory.NoResponse;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<ConnectionException>());
+      });
 
-//         assert.isTrue(ex instanceof ConnectionException);
-//     });
+      test('Create From Failed Invocation', () {
+          _descr.category = ErrorCategory.FailedInvocation;
 
-//     test('Create From Failed Invocation', () => {
-//         _descr.category = ErrorCategory.FailedInvocation;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<InvocationException>());
+      });
 
-//         assert.isTrue(ex instanceof InvocationException);
-//     });
+      test('Create From No File Access', () {
+          _descr.category = ErrorCategory.FileError;
 
-//     test('Create From No File Access', () => {
-//         _descr.category = ErrorCategory.FileError;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<FileException>());
+      });
 
-//         assert.isTrue(ex instanceof FileException);
-//     });
+      test('Create From Bad Request', () {
+          _descr.category = ErrorCategory.BadRequest;
 
-//     test('Create From Bad Request', () => {
-//         _descr.category = ErrorCategory.BadRequest;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<BadRequestException>());
+      });
 
-//         assert.isTrue(ex instanceof BadRequestException);
-//     });
+      test('Create From From Unauthorized', () {
+          _descr.category = ErrorCategory.Unauthorized;
 
-//     test('Create From From Unauthorized', () => {
-//         _descr.category = ErrorCategory.Unauthorized;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<UnauthorizedException>());
+      });
 
-//         assert.isTrue(ex instanceof UnauthorizedException);
-//     });
+      test('Create From Conflict', () {
+          _descr.category = ErrorCategory.Conflict;
 
-//     test('Create From Conflict', () => {
-//         _descr.category = ErrorCategory.Conflict;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<ConflictException>());
+      });
 
-//         assert.isTrue(ex instanceof ConflictException);
-//     });
+      test('Create From Not Found', () {
+          _descr.category = ErrorCategory.NotFound;
 
-//     test('Create From Not Found', () => {
-//         _descr.category = ErrorCategory.NotFound;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<NotFoundException>());
+      });
 
-//         assert.isTrue(ex instanceof NotFoundException);
-//     });
+      test('Create From Unsupported', () {
+          _descr.category = ErrorCategory.Unsupported;
 
-//     test('Create From Unsupported', () => {
-//         _descr.category = ErrorCategory.Unsupported;
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<UnsupportedException>());
+      });
 
-//         assert.isTrue(ex instanceof UnsupportedException);
-//     });
+      test('Create From Default', () {
+          _descr.category = "any_other";
 
-//     test('Create From Default', () => {
-//         _descr.category = "any_other";
+          var ex = ApplicationExceptionFactory.create(_descr);
 
-//         var ex = ApplicationExceptionFactory.create(_descr);
+          checkProperties(ex);
 
-//         checkProperties(ex);
+          expect(ex, TypeMatcher<UnknownException>());
+      });
 
-//         assert.isTrue(ex instanceof UnknownException);
-//     });
-
-// });
+  });
+}

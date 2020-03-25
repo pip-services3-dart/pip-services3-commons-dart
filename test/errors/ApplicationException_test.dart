@@ -1,78 +1,79 @@
-// let assert = require('chai').assert;
+import "package:test/test.dart";
 
-// import { ApplicationException } from '../../src/errors/ApplicationException';
-// import { StringValueMap } from '../../src/data/StringValueMap';
+import "../../lib/src/errors/ApplicationException.dart";
+//import "../../lib/src/data/StringValueMap.dart";
 
-// suite('ApplicationException', ()=> {
+void main () {
+  group('ApplicationException', () {
+      ApplicationException _appEx;
+      Exception _ex;
 
-//     let _appEx: ApplicationException;
-//     let _ex: Error;
+      var Category = "category";
+      var CorrelationId = "correlationId";
+      var Code = "code";
+      var Message = "message";
 
-//     const Category: string = "category";
-//     const CorrelationId: string = "correlationId";
-//     const Code: string = "code";
-//     const Message: string = "message";
+      setUp(() {
+          _ex = new Exception("Cause exception");
 
-//     beforeEach(function() {
-//         _ex = new Error("Cause exception");
+          _appEx = new ApplicationException(Category, CorrelationId, Code, Message);
+      });
 
-//         _appEx = new ApplicationException(Category, CorrelationId, Code, Message);
-//     });
+      test('With Cause', () {
+          _appEx.withCause(_ex);
 
-//     test('With Cause', () => {
-//         _appEx.withCause(_ex);
+          expect(_appEx.cause, equals(_ex.toString()));
+      });
 
-//         assert.equal(_ex.message, _appEx.cause);
-//     });
+      test('Check Parameters', () {
+          expect(_appEx.category, equals(Category));
+          expect(_appEx.correlation_id, equals(CorrelationId));
+          expect(_appEx.code, equals(Code));
+          expect(_appEx.message, equals(Message));
+      });
 
-//     test('Check Parameters', () => {
-//         assert.equal(Category, _appEx.category);
-//         assert.equal(CorrelationId, _appEx.correlation_id);
-//         assert.equal(Code, _appEx.code);
-//         assert.equal(Message, _appEx.message);
-//     });
+      test('With Code', () {
+          var newCode = "newCode";
+          var appEx = _appEx.withCode(newCode);
 
-//     test('With Code', () => {
-//         var newCode = "newCode";
-//         var appEx = _appEx.withCode(newCode);
+          expect(appEx, equals(_appEx));
+          expect(appEx.code, equals(newCode));
+      });
 
-//         assert.equal(_appEx, appEx);
-//         assert.equal(newCode, appEx.code);
-//     });
+      test('With CorrelationId', () {
+          var newCorrelationId = "newCorrelationId";
+          var appEx = _appEx.withCorrelationId(newCorrelationId);
 
-//     test('With CorrelationId', () => {
-//         var newCorrelationId = "newCorrelationId";
-//         var appEx = _appEx.withCorrelationId(newCorrelationId);
+          expect(appEx, equals(_appEx));
+          expect(appEx.correlation_id, equals(newCorrelationId));
+      });
 
-//         assert.equal(_appEx, appEx);
-//         assert.equal(newCorrelationId, appEx.correlation_id);
-//     });
+      test('With Status', () {
+          var newStatus = 777;
+          var appEx = _appEx.withStatus(newStatus);
 
-//     test('With Status', () => {
-//         var newStatus = 777;
-//         var appEx = _appEx.withStatus(newStatus);
+          expect(appEx, equals(_appEx));
+          expect(appEx.status, equals(newStatus));
+      });
 
-//         assert.equal(_appEx, appEx);
-//         assert.equal(newStatus, appEx.status);
-//     });
+      test('With Details', () {
+          var key = "key";
+          var obj = {};
 
-//     test('With Details', () => {
-//         var key = "key";
-//         let obj = {};
+          var appEx = _appEx.withDetails(key, obj);
 
-//         var appEx = _appEx.withDetails(key, obj);
+          //var newObj = appEx.details.getAsObject(key);
 
-//         var newObj = appEx.details.getAsObject(key);
+          expect(appEx, equals(_appEx));
+      });
 
-//         assert.equal(_appEx, appEx);
-//     });
+      test('With Stack Trace', () {
+          var newTrace = "newTrace";
+          var appEx = _appEx.withStackTrace(newTrace);
 
-//     test('With Stack Trace', () => {
-//         var newTrace = "newTrace";
-//         var appEx = _appEx.withStackTrace(newTrace);
+          expect(appEx, equals(_appEx));
+          expect(appEx.stack_trace, equals(newTrace));
+      });
 
-//         assert.equal(_appEx, appEx);
-//         assert.equal(newTrace, appEx.stack_trace);
-//     });
-
-// });
+  });
+}
