@@ -18,7 +18,7 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test required', (done) => {
 //         var schema = new Schema().makeRequired();
@@ -26,7 +26,7 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test unexpected', (done) => {
 //         var schema = new ObjectSchema();
@@ -35,7 +35,7 @@
 //         assert.equal(results.length, 10);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test optional properties', (done) => {
 //         var schema = new ObjectSchema()
@@ -53,7 +53,7 @@
 //         assert.equal(results.length, 2);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test required properties', (done) => {
 //         var schema = new ObjectSchema()
@@ -75,7 +75,7 @@
 //         assert.equal(results.length, 2);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test types', (done) => {
 //         var schema = new ObjectSchema()
@@ -95,7 +95,7 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test sub schema', (done) => {
 //         var sunSchema = new ObjectSchema()
@@ -120,7 +120,7 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 //     test('Test array and map schemas', (done) => {
 //         var sunSchema = new ObjectSchema()
@@ -145,6 +145,6 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 // });

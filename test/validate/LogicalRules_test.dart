@@ -20,7 +20,7 @@
 //         assert.equal(results.length, 2);
 
 //         done();
-//     });    
+//     });
 
 //     test('AndRule', (done) => {
 //         var schema = new Schema().withRule(new AndRule(new ValueComparisonRule(">", 0), new ValueComparisonRule("<", 200)));
@@ -35,6 +35,6 @@
 //         assert.equal(results3.length, 1);
 
 //         done();
-//     });    
+//     });
 
 // });

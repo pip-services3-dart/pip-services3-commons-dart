@@ -1,11 +1,11 @@
 import './IValidationRule.dart';
-import  './ValidationResult.dart';
+import './ValidationResult.dart';
 import './ValidationResultType.dart';
 import './Schema.dart';
 import '../reflect/ObjectReader.dart';
 import '../convert/TypeCode.dart';
-import  '../convert/TypeConverter.dart';
-import  '../convert/StringConverter.dart';
+import '../convert/TypeConverter.dart';
+import '../convert/StringConverter.dart';
 
 /**
  * Schema to validate maps.
@@ -19,10 +19,10 @@ import  '../convert/StringConverter.dart';
  *     schema.validate([ 1, 2, 3 ]);                        // Result: type mismatch
  */
 class MapSchema extends Schema {
-    dynamic _keyType;
-    dynamic _valueType;
-    
-    /**
+  dynamic _keyType;
+  dynamic _valueType;
+
+  /**
      * Creates a new instance of validation schema and sets its values.
      * 
      * @param keyType       a type of map keys. Null means that keys may have any type.
@@ -33,90 +33,95 @@ class MapSchema extends Schema {
      * @see [[IValidationRule]]
      * @see [[TypeCode]]
      */
-    MapSchema([dynamic keyType, dynamic valueType, bool req, List<IValidationRule> rules]):
-        super(req, rules){
+  MapSchema(
+      [dynamic keyType,
+      dynamic valueType,
+      bool req,
+      List<IValidationRule> rules])
+      : super(req, rules) {
+    this._keyType = keyType;
+    this._valueType = valueType;
+  }
 
-        this._keyType = keyType;
-        this._valueType = valueType;
-    }
-
-    /**
+  /**
      * Gets the type of map keys.
      * Null means that keys may have any type.
      * 
      * @returns the type of map keys.
      */
-    dynamic getKeyType() {
-        return this._keyType; 
-    }
+  dynamic getKeyType() {
+    return this._keyType;
+  }
 
-    /**
+  /**
      * Sets the type of map keys.
      * Null means that keys may have any type.
      * 
      * @param value     a type of map keys.
      */
-    setKeyType(dynamic value) {
-        this._keyType = value; 
-    }
+  setKeyType(dynamic value) {
+    this._keyType = value;
+  }
 
-    /**
+  /**
      * Gets the type of map values.
      * Null means that values may have any type.
      * 
      * @returns the type of map values.
      */
-    dynamic getValueType() {
-        return this._valueType; 
-    }
+  dynamic getValueType() {
+    return this._valueType;
+  }
 
-    /**
+  /**
      * Sets the type of map values.
      * Null means that values may have any type.
      * 
      * @param value     a type of map values.
      */
-    setValueType(dynamic value) {
-        this._valueType = value; 
-    }
+  setValueType(dynamic value) {
+    this._valueType = value;
+  }
 
-    /**
+  /**
      * Validates a given value against the schema and configured validation rules.
      * 
      * @param path      a dot notation path to the value.
      * @param value     a value to be validated.
      * @param results   a list with validation results to add new results.
      */
-    void performValidation(String path, dynamic value, List<ValidationResult> results) {
-        value = ObjectReader.getValue(value);
+  void performValidation(
+      String path, dynamic value, List<ValidationResult> results) {
+    value = ObjectReader.getValue(value);
 
-        super.performValidation(path, value, results);
+    super.performValidation(path, value, results);
 
-        if (!value) return;
+    if (!value) return;
 
-        var name = path != null? path: "value";
-        var valueType = TypeConverter.toTypeCode(value);
-        var map = valueType == TypeCode.Map ? value : null;
+    var name = path != null ? path : "value";
+    var valueType = TypeConverter.toTypeCode(value);
+    var map = valueType == TypeCode.Map ? value : null;
 
-        if (map) {
-            for (var key in map) {
-                var elementPath = path != "" ? path + "." + key : StringConverter.toString2(key);
+    if (map) {
+      for (var key in map) {
+        var elementPath =
+            path != "" ? path + "." + key : StringConverter.toString2(key);
 
-                this.performTypeValidation(elementPath, this.getKeyType(), key, results);
-                this.performTypeValidation(elementPath, this.getValueType(), map[key], results);
-            }
-        } else {
-            if (this.isRequired()) {
-                results.add(new ValidationResult(
-                    path,
-                    ValidationResultType.Error,
-                    "VALUE_ISNOT_MAP",
-                    name + " type must be Map",
-                    TypeCode.Map,
-                    valueType
-                ));
-            }
-        }
+        this.performTypeValidation(
+            elementPath, this.getKeyType(), key, results);
+        this.performTypeValidation(
+            elementPath, this.getValueType(), map[key], results);
+      }
+    } else {
+      if (this.isRequired()) {
+        results.add(new ValidationResult(
+            path,
+            ValidationResultType.Error,
+            "VALUE_ISNOT_MAP",
+            name + " type must be Map",
+            TypeCode.Map,
+            valueType));
+      }
     }
-
+  }
 }

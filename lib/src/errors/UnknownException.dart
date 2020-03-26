@@ -5,8 +5,7 @@ import "./ApplicationException.dart";
  * Unknown or unexpected errors.
  */
 class UnknownException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -15,8 +14,9 @@ class UnknownException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	UnknownException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.Unknown, correlation_id, code, message) {
-		this.status = 500;
-	}
+  UnknownException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.Unknown, correlation_id, code, message) {
+    this.status = 500;
+  }
 }

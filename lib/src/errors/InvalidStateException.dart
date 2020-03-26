@@ -7,8 +7,7 @@ import "./ApplicationException.dart";
  * For instance: business calls when the component is not ready.
  */
 class InvalidStateException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -17,8 +16,9 @@ class InvalidStateException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	InvalidStateException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.InvalidState, correlation_id, code, message) {
-		this.status = 500;
-	}
+  InvalidStateException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.InvalidState, correlation_id, code, message) {
+    this.status = 500;
+  }
 }

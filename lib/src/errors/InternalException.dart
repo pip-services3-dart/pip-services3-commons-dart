@@ -5,8 +5,7 @@ import "./ApplicationException.dart";
  * Errors caused by programming mistakes.
  */
 class InternalException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -15,8 +14,9 @@ class InternalException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	InternalException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.Internal, correlation_id, code, message) {
-		this.status = 500;
-	}
+  InternalException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.Internal, correlation_id, code, message) {
+    this.status = 500;
+  }
 }

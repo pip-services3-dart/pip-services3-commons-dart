@@ -4,11 +4,10 @@ import '../../lib/src/reflect/TypeDescriptor.dart';
 
 void main() {
   group('TypeDescriptor', () {
-
     test('From String', () {
       var descriptor = TypeDescriptor.fromString(null);
       expect(descriptor, isNull);
-      
+
       descriptor = TypeDescriptor.fromString("xxx,yyy");
       expect(descriptor.getName(), equals("xxx"));
       expect(descriptor.getLibrary(), equals("yyy"));
@@ -24,6 +23,5 @@ void main() {
         // Ok...
       }
     });
-
   });
 }

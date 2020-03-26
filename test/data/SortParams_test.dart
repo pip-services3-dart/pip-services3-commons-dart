@@ -1,4 +1,3 @@
-
 import 'package:test/test.dart';
 import '../../lib/src/data/SortField.dart';
 import '../../lib/src/data/SortParams.dart';

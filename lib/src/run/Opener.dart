@@ -8,7 +8,7 @@ import './IOpenable.dart';
  * [[IOpenable]]
  */
 class Opener {
-	/**
+  /**
 	 * Checks if specified component is opened.
 	 * 
 	 * To be checked components must implement [[IOpenable]] interface.
@@ -19,14 +19,14 @@ class Opener {
 	 * 
 	 * @see [[IOpenable]]
 	 */
-	static bool isOpenOne(component) {
-		if (component is IOpenable)
-			return component.isOpen();
-		else
-			return true;
-	}	
+  static bool isOpenOne(component) {
+    if (component is IOpenable)
+      return component.isOpen();
+    else
+      return true;
+  }
 
-	/**
+  /**
 	 * Checks if all components are opened.
 	 * 
 	 * To be checked components must implement [[IOpenable]] interface.
@@ -38,17 +38,17 @@ class Opener {
 	 * @see [[isOpenOne]]
 	 * @see [[IOpenable]]
 	 */
-	static bool isOpen(List components) {
-		if (components == null) return true;
-		
-		var result = true;
-		for (var component in components)
-			result = result && Opener.isOpenOne(component);
-		
-		return result;
-	}
+  static bool isOpen(List components) {
+    if (components == null) return true;
 
-	/**
+    var result = true;
+    for (var component in components)
+      result = result && Opener.isOpenOne(component);
+
+    return result;
+  }
+
+  /**
 	 * Opens specific component.
 	 * 
 	 * To be opened components must implement [[IOpenable]] interface.
@@ -60,12 +60,11 @@ class Opener {
 	 * 
 	 * @see [[IOpenable]]
 	 */
-	static Future openOne(String correlationId, component) async {
-    if (component is IOpenable)
-      await component.open(correlationId);
-	}	
+  static Future openOne(String correlationId, component) async {
+    if (component is IOpenable) await component.open(correlationId);
+  }
 
-	/**
+  /**
 	 * Opens multiple components.
 	 * 
 	 * To be opened components must implement [[IOpenable]] interface.
@@ -78,13 +77,11 @@ class Opener {
 	 * @see [[openOne]]
 	 * @see [[IOpenable]]
 	 */
-	static Future open(String correlationId, List components) async {
-		if (components == null) return true;
+  static Future open(String correlationId, List components) async {
+    if (components == null) return true;
 
     for (var component in components) {
-      if (component is IOpenable)
-        await component.open(correlationId);
+      if (component is IOpenable) await component.open(correlationId);
     }
-	}
-
+  }
 }

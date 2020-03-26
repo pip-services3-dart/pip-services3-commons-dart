@@ -12,25 +12,24 @@
  *     var value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
  */
 class DoubleConverter {
-
-    /**
+  /**
      * Converts value into doubles or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
      * @returns         double value or null when conversion is not supported.
      */
-    static double toNullableDouble(value) {
-        if (value == null) return null;
-        if (value is double) return value;
-        if (value is DateTime) return value.millisecondsSinceEpoch.toDouble();
-        if (value is Duration) return value.inMilliseconds.toDouble();
-        if (value is bool) return value ? 1 : 0;
+  static double toNullableDouble(value) {
+    if (value == null) return null;
+    if (value is double) return value;
+    if (value is DateTime) return value.millisecondsSinceEpoch.toDouble();
+    if (value is Duration) return value.inMilliseconds.toDouble();
+    if (value is bool) return value ? 1 : 0;
 
-        var result = double.tryParse(value.toString());
-        return result;
-    }
+    var result = double.tryParse(value.toString());
+    return result;
+  }
 
-    /**
+  /**
      * Converts value into doubles or returns 0 when conversion is not possible.
      * 
      * @param value     the value to convert.
@@ -38,11 +37,11 @@ class DoubleConverter {
      * 
      * @see [[toDoubleWithDefault]]
      */
-    static double toDouble(value) {
-        return DoubleConverter.toDoubleWithDefault(value, 0);
-    }
+  static double toDouble(value) {
+    return DoubleConverter.toDoubleWithDefault(value, 0);
+  }
 
-    /**
+  /**
      * Converts value into integer or returns default value when conversion is not possible.
      * 
      * @param value         the value to convert.
@@ -51,9 +50,8 @@ class DoubleConverter {
      * 
      * @see [[toNullableDouble]]
      */
-    static double toDoubleWithDefault(value, double defaultValue) {
-        var result = DoubleConverter.toNullableDouble(value);
-        return result != null ? result : defaultValue;
-    }
-
+  static double toDoubleWithDefault(value, double defaultValue) {
+    var result = DoubleConverter.toNullableDouble(value);
+    return result != null ? result : defaultValue;
+  }
 }

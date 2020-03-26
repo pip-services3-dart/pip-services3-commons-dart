@@ -16,7 +16,7 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 //     test('ExcludedRule', (done) => {
 //         var schema = new Schema().withRule(new ExcludedRule("AAA", "BBB", "CCC", null));
@@ -28,6 +28,6 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 // });

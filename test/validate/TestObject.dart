@@ -8,7 +8,7 @@
 
 //     private privateField: number = 124;
 //     private privateProperty: string = "XYZ";
-        
+
 //     public intField: number = 12345;
 //     public stringProperty: string = "ABC";
 //     public nullProperty: any = null;

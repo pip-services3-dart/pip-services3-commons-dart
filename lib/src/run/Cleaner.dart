@@ -8,7 +8,7 @@ import './ICleanable.dart';
  * @see [[ICleanable]]
  */
 class Cleaner {
-	/**
+  /**
 	 * Clears state of specific component.
 	 * 
 	 * To be cleaned state components must implement [[ICleanable]] interface.
@@ -20,12 +20,11 @@ class Cleaner {
 	 * 
 	 * @see [[ICleanable]]
 	 */
-	static Future clearOne(String correlationId, component) async {
-    if (component is ICleanable)
-      await component.clear(correlationId);
-	}
+  static Future clearOne(String correlationId, component) async {
+    if (component is ICleanable) await component.clear(correlationId);
+  }
 
-	/**
+  /**
 	 * Clears state of multiple components.
 	 * 
 	 * To be cleaned state components must implement [[ICleanable]] interface.
@@ -38,10 +37,10 @@ class Cleaner {
 	 * @see [[clearOne]]
 	 * @see [[ICleanable]]
 	 */
-	static Future clear(String correlationId, List components) async {		
-		if (components == null) return;
+  static Future clear(String correlationId, List components) async {
+    if (components == null) return;
 
     for (var component in components)
-			await	Cleaner.clearOne(correlationId, component);
-	}
+      await Cleaner.clearOne(correlationId, component);
+  }
 }

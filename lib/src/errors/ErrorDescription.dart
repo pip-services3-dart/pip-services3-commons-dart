@@ -12,24 +12,24 @@ import "../data/StringValueMap.dart";
  * @see [[ApplicationExceptionFactory]]
  */
 class ErrorDescription {
-	/** Data type of the original error */
-	String type;
-	/** Standard error category */
-	String category;
-    /** HTTP status code associated with this error type */
-	int status;
-    /** A unique error code */
-	String code;
-    /** A human-readable error description (usually written in English) */
-	String message;
-    /** A map with additional details that can be used to restore error description in other languages */
-	StringValueMap details;
-    /** A unique transaction id to trace execution throug call chain */   
-	String correlation_id;
-    /** Original error wrapped by this exception */ 
-	String cause;
-    /** Stack trace of the exception */ 
-	String stack_trace;
+  /** Data type of the original error */
+  String type;
+  /** Standard error category */
+  String category;
+  /** HTTP status code associated with this error type */
+  int status;
+  /** A unique error code */
+  String code;
+  /** A human-readable error description (usually written in English) */
+  String message;
+  /** A map with additional details that can be used to restore error description in other languages */
+  StringValueMap details;
+  /** A unique transaction id to trace execution throug call chain */
+  String correlation_id;
+  /** Original error wrapped by this exception */
+  String cause;
+  /** Stack trace of the exception */
+  String stack_trace;
 
   Map<String, dynamic> toJson() {
     var json = new Map<String, dynamic>();
@@ -52,7 +52,8 @@ class ErrorDescription {
     this.code = StringConverter.toNullableString(json["code"]);
     this.message = StringConverter.toNullableString(json["message"]);
     this.details = StringValueMap.fromValue(json["details"]);
-    this.correlation_id = StringConverter.toNullableString(json["correlation_id"]);
+    this.correlation_id =
+        StringConverter.toNullableString(json["correlation_id"]);
     this.cause = StringConverter.toNullableString(json["cause"]);
     this.stack_trace = StringConverter.toNullableString(json["stack_trace"]);
   }

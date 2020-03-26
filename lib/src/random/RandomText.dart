@@ -5,9 +5,9 @@
 
 // /**
 //  * Random generator for various text values like names, addresses or phone numbers.
-//  * 
+//  *
 //  * ### Example ###
-//  * 
+//  *
 //  *     let value1 = RandomText.name();     // Possible result: "Segio"
 //  *     let value2 = RandomText.verb();      // Possible result: "Run"
 //  *     let value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
@@ -78,7 +78,7 @@
 //     /**
 //      * Generates a random color name.
 //      * The result value is capitalized.
-//      * 
+//      *
 //      * @returns a random color name.
 //      */
 //     public static color(): string {
@@ -88,7 +88,7 @@
 //     /**
 //      * Generates a random noun.
 //      * The result value is capitalized.
-//      * 
+//      *
 //      * @returns a random noun.
 //      */
 //     public static noun(): string {
@@ -98,7 +98,7 @@
 //     /**
 //      * Generates a random adjective.
 //      * The result value is capitalized.
-//      * 
+//      *
 //      * @returns a random adjective.
 //      */
 //     public static adjective(): string {
@@ -108,7 +108,7 @@
 //     /**
 //      * Generates a random verb.
 //      * The result value is capitalized.
-//      * 
+//      *
 //      * @returns a random verb.
 //      */
 //     public static verb(): string {
@@ -118,7 +118,7 @@
 //     /**
 //      * Generates a random phrase which consists of few words separated by spaces.
 //      * The first word is capitalized, others are not.
-//      * 
+//      *
 //      * @param minLength     (optional) minimum string length.
 //      * @param maxLength     maximum string length.
 //      * @returns a random phrase.
@@ -140,7 +140,7 @@
 //     /**
 //      * Generates a random person's name which has the following structure
 //      * <optional prefix> <first name> <second name> <optional suffix>
-//      * 
+//      *
 //      * @returns a random name.
 //      */
 //     public static fullName(): string {
@@ -160,7 +160,7 @@
 
 //     /**
 //      * Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.
-//      * 
+//      *
 //      * @returns a random word.
 //      */
 //     public static word(): string {
@@ -169,7 +169,7 @@
 
 //     /**
 //      * Generates a random text that consists of random number of random words separated by spaces.
-//      * 
+//      *
 //      * @param min   (optional) a minimum number of words.
 //      * @param max   a maximum number of words.
 //      * @returns     a random text.
@@ -187,7 +187,7 @@
 //     /**
 //      * Generates a random phone number.
 //      * The phone number has the format: (XXX) XXX-YYYY
-//      * 
+//      *
 //      * @returns a random phone number.
 //      */
 //     public static phone(): string {
@@ -205,7 +205,7 @@
 
 //     /**
 //      * Generates a random email address.
-//      * 
+//      *
 //      * @returns a random email address.
 //      */
 //     public static email(): string {
@@ -214,7 +214,7 @@
 
 //     /**
 //      * Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs, and punctuation marks.
-//      * 
+//      *
 //      * @param minLength   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
 //      * @param maxLength   (optional) maximum amount of words to generate.
 //      * @returns         a random text.

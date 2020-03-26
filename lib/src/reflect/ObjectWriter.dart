@@ -31,7 +31,7 @@ import '../convert/IntegerConverter.dart';
  *     ObjectWriter.setProperty(myArray, "0", 123);
  */
 class ObjectWriter {
-	/**
+  /**
 	 * Sets value of object property specified by its name.
 	 * 
      * The object can be a user defined object, map or array.
@@ -44,16 +44,13 @@ class ObjectWriter {
 	 * @param obj 	an object to write property to.
 	 * @param name 	a name of the property to set.
 	 * @param value a new value for the property to set.
-	 */ 
-	static void setProperty(obj, String name, value) {
-		if (obj == null)
-			throw new Exception("Object cannot be null");
-		if (name == null)
-			throw new Exception("Property name cannot be null");
+	 */
+  static void setProperty(obj, String name, value) {
+    if (obj == null) throw new Exception("Object cannot be null");
+    if (name == null) throw new Exception("Property name cannot be null");
 
-    if (obj is IValueWrapper)
-      obj = obj.innerValue();
-    
+    if (obj is IValueWrapper) obj = obj.innerValue();
+
     if (obj is Map) {
       try {
         var targetKey = name.toLowerCase();
@@ -70,23 +67,23 @@ class ObjectWriter {
         // Ignore exceptions
       }
     } else if (obj is List) {
-        try {
-          var index = IntegerConverter.toNullableInteger(name);
-          if (index >= 0) {
-              while (index > obj.length - 1) {
-                  obj.add(null);
-              }
-              obj[index] = value;
+      try {
+        var index = IntegerConverter.toNullableInteger(name);
+        if (index >= 0) {
+          while (index > obj.length - 1) {
+            obj.add(null);
           }
-        } catch (e) {
-          // Ignore exceptions
+          obj[index] = value;
         }
+      } catch (e) {
+        // Ignore exceptions
+      }
     } else {
-        return PropertyReflector.setProperty(obj, name, value);
+      return PropertyReflector.setProperty(obj, name, value);
     }
-	}
+  }
 
-	/**
+  /**
 	 * Sets values of some (all) object properties.
 	 * 
      * The object can be a user defined object, map or array.
@@ -101,12 +98,12 @@ class ObjectWriter {
 	 * 
 	 * @see [[setProperty]]
 	 */
-	static void setProperties(obj, Map<String, dynamic> values) {
-		if (values == null) return;
-		
-		for (var key in values.keys) {
+  static void setProperties(obj, Map<String, dynamic> values) {
+    if (values == null) return;
+
+    for (var key in values.keys) {
       var value = values[key];
-			ObjectWriter.setProperty(obj, key, value);
-		}
-	}
+      ObjectWriter.setProperty(obj, key, value);
+    }
+  }
 }

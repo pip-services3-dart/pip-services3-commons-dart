@@ -73,7 +73,8 @@ class ArraySchema extends Schema {
 
     if (value is List) {
       for (var index = 0; index < value.length; index++) {
-        var elementPath = path != "" ? path + "." + index.toString() : index.toString();
+        var elementPath =
+            path != "" ? path + "." + index.toString() : index.toString();
         this.performTypeValidation(
             elementPath, this.getValueType(), value[index], results);
       }

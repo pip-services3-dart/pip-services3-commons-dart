@@ -7,7 +7,7 @@ import './INotifiable.dart';
  * [[INotifiable]]
  */
 class Notifier {
-	/**
+  /**
 	 * Notifies specific component.
 	 * 
 	 * To be notiied components must implement [[INotifiable]] interface.
@@ -19,12 +19,11 @@ class Notifier {
 	 * 
 	 * @see [[INotifiable]]
 	 */
-	static void notifyOne(String correlationId, component, Parameters args) {
-    if (component is INotifiable)
-			component.notify(correlationId, args);
-	}
+  static void notifyOne(String correlationId, component, Parameters args) {
+    if (component is INotifiable) component.notify(correlationId, args);
+  }
 
-	/**
+  /**
 	 * Notifies multiple components.
 	 * 
 	 * To be notified components must implement [[INotifiable]] interface.
@@ -38,9 +37,9 @@ class Notifier {
 	 * @see [[INotifiable]]
 	 */
   static void notify(String correlationId, List components, Parameters args) {
-		if (components == null) return;
-		
-		for (var component in components) 
+    if (components == null) return;
+
+    for (var component in components)
       Notifier.notifyOne(correlationId, component, args);
-	}
+  }
 }

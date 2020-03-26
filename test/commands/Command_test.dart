@@ -15,7 +15,7 @@
 //         assert.equal(command.getName(), 'name');
 
 //         done();
-//     });    
+//     });
 
 //     test('Execute', (done) => {
 //         var command = new Command("name", null, new CommandExec());
@@ -30,6 +30,6 @@
 
 //             done();
 //         });
-//     });    
+//     });
 
 // });

@@ -5,17 +5,17 @@
  * @see [[TypeConverter]]
  */
 enum TypeCode {
-	Unknown,
-	String,
-	Boolean,
-	Integer,
-	Long,
-	Float,
-	Double,
-	DateTime,
-	Duration,
-	Object,
-	Enum,
-	Array,
-	Map
+  Unknown,
+  String,
+  Boolean,
+  Integer,
+  Long,
+  Float,
+  Double,
+  DateTime,
+  Duration,
+  Object,
+  Enum,
+  Array,
+  Map
 }

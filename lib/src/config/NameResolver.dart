@@ -16,8 +16,7 @@ import '../refer/Descriptor.dart';
  *     let name = NameResolver.resolve(config); // Result: connector1
  */
 class NameResolver {
-
-    /**
+  /**
      * Resolves a component name from configuration parameters.
      * The name can be stored in "id", "name" fields or inside a component descriptor.
      * If name cannot be determined it returns a defaultName.
@@ -26,16 +25,16 @@ class NameResolver {
      * @param defaultName   (optional) a default component name.
      * @returns             resolved name or default name if the name cannot be determined.
      */
-    static String resolve(ConfigParams config, [String defaultName = null]) {
-        var name = config.getAsNullableString("name") ?? config.getAsNullableString("id");
+  static String resolve(ConfigParams config, [String defaultName = null]) {
+    var name =
+        config.getAsNullableString("name") ?? config.getAsNullableString("id");
 
-        if (name == null) {
-            var descriptorStr = config.getAsNullableString("descriptor");
-            var descriptor = Descriptor.fromString(descriptorStr);
-            if (descriptor != null)
-                name = descriptor.getName();
-        }
-
-        return name ?? defaultName;
+    if (name == null) {
+      var descriptorStr = config.getAsNullableString("descriptor");
+      var descriptor = Descriptor.fromString(descriptorStr);
+      if (descriptor != null) name = descriptor.getName();
     }
+
+    return name ?? defaultName;
+  }
 }

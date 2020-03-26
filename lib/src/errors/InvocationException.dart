@@ -5,8 +5,7 @@ import "./ApplicationException.dart";
  * Errors returned by remote services or by the network during call attempts.
  */
 class InvocationException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -15,8 +14,9 @@ class InvocationException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	InvocationException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.FailedInvocation, correlation_id, code, message) {
-		this.status = 500;
-	}
+  InvocationException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.FailedInvocation, correlation_id, code, message) {
+    this.status = 500;
+  }
 }

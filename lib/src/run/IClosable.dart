@@ -27,11 +27,11 @@ import 'dart:async';
  * 
  */
 abstract class IClosable {
-	/**
+  /**
 	 * Closes component and frees used resources.
 	 * 
 	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param callback 			callback function that receives error or null no errors occured.
 	 */
-	Future close(String correlationId);
+  Future close(String correlationId);
 }

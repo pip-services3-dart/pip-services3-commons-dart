@@ -14,37 +14,34 @@ import "./ApplicationException.dart";
  * @see [[ApplicationException]]
  */
 class ErrorDescriptionFactory {
-
-	/**
+  /**
      * Creates a serializable ErrorDescription from error object.
      * 
 	 * @param error  	an error object
 	 * @returns a serializeable ErrorDescription object that describes the error.
 	 */
-	static ErrorDescription create(error) {        
-        var description = new ErrorDescription();
+  static ErrorDescription create(error) {
+    var description = new ErrorDescription();
 
-        if (error is ApplicationException) {
-            var ex = error;
-            description.category = ex.category;
-            description.status = ex.status;
-            description.code  = ex.code;
-            description.message = ex.message;
-            description.details = ex.details;
-            description.correlation_id = ex.correlation_id;
-            description.cause = ex.getCauseString();
-            description.stack_trace = ex.getStackTraceString();
-        } else {
-            description.type = error != null ? error.runtimeType.toString() : null;
-            description.category = ErrorCategory.Unknown;
-            description.status = 500;
-            description.code = "UNKNOWN";
-            description.message = error != null ? error.toString() : null;
-            if (error is Error)
-              description.stack_trace = error.stackTrace.toString();
-        }
-
-        return description;
+    if (error is ApplicationException) {
+      var ex = error;
+      description.category = ex.category;
+      description.status = ex.status;
+      description.code = ex.code;
+      description.message = ex.message;
+      description.details = ex.details;
+      description.correlation_id = ex.correlation_id;
+      description.cause = ex.getCauseString();
+      description.stack_trace = ex.getStackTraceString();
+    } else {
+      description.type = error != null ? error.runtimeType.toString() : null;
+      description.category = ErrorCategory.Unknown;
+      description.status = 500;
+      description.code = "UNKNOWN";
+      description.message = error != null ? error.toString() : null;
+      if (error is Error) description.stack_trace = error.stackTrace.toString();
     }
 
+    return description;
+  }
 }

@@ -13,8 +13,7 @@ import './ValidationResult.dart';
  * This interface allows to implement custom rules.
  */
 abstract class IValidationRule {
-
-    /**
+  /**
      * Validates a given value against this rule.
      * 
      * @param path      a dot notation path to the value.
@@ -22,5 +21,6 @@ abstract class IValidationRule {
      * @param value     a value to be validated.
      * @param results   a list with validation results to add new results.
      */
-    void validate(String path, Schema schema, dynamic value, List<ValidationResult> results);
+  void validate(String path, Schema schema, dynamic value,
+      List<ValidationResult> results);
 }

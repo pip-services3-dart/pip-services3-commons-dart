@@ -9,5 +9,4 @@ import './IConfigurable.dart';
  * 
  * @see [[IConfigurable]]
  */
-abstract class IReconfigurable implements IConfigurable {
-}
+abstract class IReconfigurable implements IConfigurable {}

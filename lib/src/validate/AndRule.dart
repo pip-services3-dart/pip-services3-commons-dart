@@ -1,5 +1,4 @@
-
-import  './IValidationRule.dart';
+import './IValidationRule.dart';
 import './Schema.dart';
 import './ValidationResult.dart';
 
@@ -23,17 +22,16 @@ import './ValidationResult.dart';
  *     schema.validate(20);         // Result: 20 must be letter or equal 10
  */
 class AndRule implements IValidationRule {
-    final List< IValidationRule>_rules;
+  final List<IValidationRule> _rules;
 
-    /**
+  /**
      * Creates a new validation rule and sets its values.
      * 
      * @param rules     a list of rules to join with AND operator
      */
-    AndRule(List< IValidationRule> rules) :this._rules = rules{
-    }
+  AndRule(List<IValidationRule> rules) : this._rules = rules {}
 
-    /**
+  /**
      * Validates a given value against this rule.
      * 
      * @param path      a dot notation path to the value.
@@ -41,13 +39,13 @@ class AndRule implements IValidationRule {
      * @param value     a value to be validated.
      * @param results   a list with validation results to add new results.
      */
-    void validate(String path, Schema schema, dynamic value, List<ValidationResult>results) {
-        if (this._rules == null) return;
+  void validate(String path, Schema schema, dynamic value,
+      List<ValidationResult> results) {
+    if (this._rules == null) return;
 
-        for (var i = 0; i < this._rules.length; i++) {
-            var rule = this._rules[i];
-            rule.validate(path, schema, value, results);
-        }
+    for (var i = 0; i < this._rules.length; i++) {
+      var rule = this._rules[i];
+      rule.validate(path, schema, value, results);
     }
-
+  }
 }

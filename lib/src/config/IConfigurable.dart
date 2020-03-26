@@ -1,4 +1,4 @@
- import './ConfigParams.dart';
+import './ConfigParams.dart';
 
 /**
  * An interface to set configuration parameters to an object.
@@ -22,10 +22,10 @@
  *     }
  */
 abstract class IConfigurable {
-    /**
+  /**
      * Configures component by passing configuration parameters.
      * 
      * @param config    configuration parameters to be set.
      */
-   void configure(ConfigParams config);
+  void configure(ConfigParams config);
 }

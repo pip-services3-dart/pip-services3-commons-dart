@@ -14,8 +14,7 @@ import 'LongConverter.dart';
  *     var value4 = IntegerConverter.toNullableInteger(new Date()); // Result: current milliseconds
  */
 class IntegerConverter {
-
-    /**
+  /**
      * Converts value into integer or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
@@ -23,11 +22,11 @@ class IntegerConverter {
      * 
      * @see [[LongConverter.toNullableLong]]
      */
-    static int toNullableInteger(value) {
-        return LongConverter.toNullableLong(value);
-    }
-    
-    /**
+  static int toNullableInteger(value) {
+    return LongConverter.toNullableLong(value);
+  }
+
+  /**
      * Converts value into integer or returns 0 when conversion is not possible.
      *  
      * @param value     the value to convert.
@@ -36,11 +35,11 @@ class IntegerConverter {
      * @see [[LongConverter.toLong]]
      * @see [[LongConverter.toLongWithDefault]]
      */
-    static int toInteger(value) {
-        return LongConverter.toLong(value);
-    }
+  static int toInteger(value) {
+    return LongConverter.toLong(value);
+  }
 
-    /**
+  /**
      * Converts value into integer or returns default value when conversion is not possible.
      * 
      * @param value         the value to convert.
@@ -50,8 +49,7 @@ class IntegerConverter {
      * @see [[LongConverter.toLongWithDefault]]
      * @see [[LongConverter.toNullableLong]]
      */
-    static int toIntegerWithDefault(value, int defaultValue) {
-        return LongConverter.toLongWithDefault(value, defaultValue);
-    }
-
+  static int toIntegerWithDefault(value, int defaultValue) {
+    return LongConverter.toLongWithDefault(value, defaultValue);
+  }
 }

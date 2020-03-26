@@ -22,8 +22,8 @@
  *     }
  */
 abstract class IUnreferenceable {
-	/**
+  /**
 	 * Unsets (clears) previously set references to dependent components. 
 	 */
-	void unsetReferences();
+  void unsetReferences();
 }

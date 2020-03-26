@@ -4,7 +4,7 @@
 // import { FixedRateTimer } from '../../src/run/FixedRateTimer';
 
 // suite('FixedRateTimer', ()=> {
-    
+
 //     test('Run with task', (done) => {
 //         let counter = 0;
 
@@ -42,5 +42,5 @@
 //             done();
 //         }, 500);
 //     });
-    
+
 // });

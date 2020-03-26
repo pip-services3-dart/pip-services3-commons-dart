@@ -15,7 +15,7 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 //     test('String Equal Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("EQ", "ABC"));
@@ -26,7 +26,7 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 //     test('Number Not Equal Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("NE", 123));
@@ -37,7 +37,7 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 //     test('String Not Equal Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("NE", "ABC"));
@@ -48,7 +48,7 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 //     test('Less Than or Equal Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("LE", 123));
@@ -59,7 +59,7 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 //     test('Less Than Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("LT", 123));
@@ -70,7 +70,7 @@
 //         assert.equal(results.length, 0);
 
 //         done();
-//     });    
+//     });
 
 //     test('More Than or Equal Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("GE", 123));
@@ -85,7 +85,7 @@
 
 //         done();
 
-//     });    
+//     });
 
 //     test('More Than Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("GT", 123));
@@ -99,7 +99,7 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 //     test('Match Comparison', (done) => {
 //         var schema = new Schema().withRule(new ValueComparisonRule("LIKE", "A.*"));
@@ -110,6 +110,6 @@
 //         assert.equal(results.length, 1);
 
 //         done();
-//     });    
+//     });
 
 // });

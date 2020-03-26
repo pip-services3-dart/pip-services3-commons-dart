@@ -22,49 +22,49 @@ class MethodReflector {
     var name = field.toString();
     var pos = name.indexOf('("');
     name = name.substring(pos + 2, name.length - 2);
-    if (name.endsWith('='))
-      name = name.substring(0, name.length - 1);
+    if (name.endsWith('=')) name = name.substring(0, name.length - 1);
     return name;
   }
 
-	static bool _matchMethod(Symbol field, String expectedName) {
+  static bool _matchMethod(Symbol field, String expectedName) {
     if (expectedName == null) return true;
 
     var fieldName = field.toString().toLowerCase();
     var matchName = 'symbol("' + expectedName + '")';
     return fieldName == matchName;
-	}
+  }
 
   static Symbol _findMethod(obj, String name) {
     name = name.toLowerCase();
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.instanceMembers.values) {
-      if (dm is MethodMirror && !dm.isGetter && !dm.isSetter && !dm.isStatic && !dm.isPrivate) {
-        if (_matchMethod(dm.simpleName, name))
-          return dm.simpleName;
+      if (dm is MethodMirror &&
+          !dm.isGetter &&
+          !dm.isSetter &&
+          !dm.isStatic &&
+          !dm.isPrivate) {
+        if (_matchMethod(dm.simpleName, name)) return dm.simpleName;
       }
     }
     return null;
   }
 
-	/**
+  /**
 	 * Checks if object has a method with specified name..
 	 * 
 	 * @param obj 	an object to introspect.
 	 * @param name 	a name of the method to check.
 	 * @returns true if the object has the method and false if it doesn't.
 	 */
-	static bool hasMethod(obj, String name) {
-		if (obj == null)
-			throw new Exception("Object cannot be null");
-		if (name == null)
-			throw new Exception("Method name cannot be null");
-		
+  static bool hasMethod(obj, String name) {
+    if (obj == null) throw new Exception("Object cannot be null");
+    if (name == null) throw new Exception("Method name cannot be null");
+
     var foundName = _findMethod(obj, name);
     return foundName != null;
-	}
+  }
 
-	/**
+  /**
 	 * Invokes an object method by its name with specified parameters.
 	 * 
 	 * @param obj 	an object to invoke.
@@ -72,12 +72,10 @@ class MethodReflector {
 	 * @param args 	a list of method arguments.
 	 * @returns the result of the method invocation or null if method returns void.
 	 */
-	static invokeMethod(obj, String name, List args) {
-		if (obj == null)
-			throw new Exception("Object cannot be null");
-		if (name == null)
-			throw new Exception("Method name cannot be null");
-		
+  static invokeMethod(obj, String name, List args) {
+    if (obj == null) throw new Exception("Object cannot be null");
+    if (name == null) throw new Exception("Method name cannot be null");
+
     var foundName = _findMethod(obj, name);
     if (foundName != null) {
       try {
@@ -89,29 +87,30 @@ class MethodReflector {
     }
 
     return null;
-	}
+  }
 
-  	/**
+  /**
      * Gets names of all methods implemented in specified object.
      * 
      * @param obj   an objec to introspect.
      * @returns a list with method names.
      */
-	static List<String> getMethodNames(obj) {
+  static List<String> getMethodNames(obj) {
     var methods = new List<String>();
-		
+
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.instanceMembers.values) {
       Symbol foundName = null;
-      
-      if (dm is MethodMirror && !dm.isGetter && !dm.isSetter && !dm.isStatic && !dm.isPrivate)
-        foundName = dm.simpleName;
 
-      if (foundName != null)
-        methods.add(_extractName(foundName));
+      if (dm is MethodMirror &&
+          !dm.isGetter &&
+          !dm.isSetter &&
+          !dm.isStatic &&
+          !dm.isPrivate) foundName = dm.simpleName;
+
+      if (foundName != null) methods.add(_extractName(foundName));
     }
-		        
-		return methods;
-	}
 
+    return methods;
+  }
 }

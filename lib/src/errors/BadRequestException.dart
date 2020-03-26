@@ -7,8 +7,7 @@ import "./ApplicationException.dart";
  * For example: missing or incorrect parameters.
  */
 class BadRequestException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -17,8 +16,9 @@ class BadRequestException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	BadRequestException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.BadRequest, correlation_id, code, message) {
-		this.status = 400;
-	}
+  BadRequestException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.BadRequest, correlation_id, code, message) {
+    this.status = 400;
+  }
 }

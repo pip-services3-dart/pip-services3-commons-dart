@@ -1,4 +1,3 @@
-import '../../pip_services3_commons.dart';
 import './IReferences.dart';
 import './IReferenceable.dart';
 import './IUnreferenceable.dart';
@@ -10,7 +9,7 @@ import './IUnreferenceable.dart';
  * @see [[IUnreferenceable]]
  */
 class Referencer {
-	/**
+  /**
 	 * Sets references to specific component.
 	 * 
 	 * To set references components must implement [[IReferenceable]] interface.
@@ -21,12 +20,11 @@ class Referencer {
 	 * 
 	 * @see [[IReferenceable]]
 	 */
-	static void setReferencesForOne(IReferences references, component) {
-    if (component is IReferenceable)
-			component.setReferences(references);
-	}
+  static void setReferencesForOne(IReferences references, component) {
+    if (component is IReferenceable) component.setReferences(references);
+  }
 
-	/**
+  /**
 	 * Sets references to multiple components.
 	 * 
 	 * To set references components must implement [[IReferenceable]] interface.
@@ -37,12 +35,12 @@ class Referencer {
 	 * 
 	 * @see [[IReferenceable]]
 	 */
-	static void setReferences(IReferences references, List components) {
-		for (var component in components)
-			Referencer.setReferencesForOne(references, component);
-	}
+  static void setReferences(IReferences references, List components) {
+    for (var component in components)
+      Referencer.setReferencesForOne(references, component);
+  }
 
-	/**
+  /**
 	 * Unsets references in specific component.
 	 * 
 	 * To unset references components must implement [[IUnreferenceable]] interface.
@@ -52,12 +50,11 @@ class Referencer {
 	 * 
 	 * @see [[IUnreferenceable]]
 	 */
-	static void unsetReferencesForOne(component) {
-      if (component is IUnreferenceable)
-			  component.unsetReferences();
-	}
+  static void unsetReferencesForOne(component) {
+    if (component is IUnreferenceable) component.unsetReferences();
+  }
 
-	/**
+  /**
 	 * Unsets references in multiple components.
 	 * 
 	 * To unset references components must implement [[IUnreferenceable]] interface.
@@ -67,8 +64,8 @@ class Referencer {
 	 * 
 	 * @see [[IUnreferenceable]]
 	 */
-	static void unsetReferences(List components) {
-		for (var component in components)
-			Referencer.unsetReferencesForOne(component);
-	}
+  static void unsetReferences(List components) {
+    for (var component in components)
+      Referencer.unsetReferencesForOne(component);
+  }
 }

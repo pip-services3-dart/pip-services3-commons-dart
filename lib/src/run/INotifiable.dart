@@ -24,11 +24,11 @@ import './Parameters.dart';
  *     myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
  */
 abstract class INotifiable {
-	/**
+  /**
 	 * Notifies the component about occured event.
 	 * 
 	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
 	 * @param args 				notification arguments.
 	 */
-	void notify(String correlationId, Parameters args);
+  void notify(String correlationId, Parameters args);
 }

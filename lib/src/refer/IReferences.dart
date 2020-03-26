@@ -40,15 +40,15 @@
  * 	
  */
 abstract class IReferences {
-	/**
+  /**
 	 * Puts a new reference into this reference map.
 	 * 
 	 * @param locator 	a locator to find the reference by.
 	 * @param component a component reference to be added.
 	 */
-	put(locator, component);
+  put(locator, component);
 
-	/**
+  /**
 	 * Removes a previously added reference that matches specified locator.
 	 * If many references match the locator, it removes only the first one.
 	 * When all references shall be removed, use [[removeAll]] method instead.
@@ -58,39 +58,39 @@ abstract class IReferences {
 	 * 
 	 * @see [[removeAll]]
 	 */
-	remove(locator);	
+  remove(locator);
 
-	/**
+  /**
 	 * Removes all component references that match the specified locator. 
 	 * 
 	 * @param locator 	the locator to remove references by.
 	 * @returns a list, containing all removed references.
 	 */
-	List removeAll(locator);	
-	
-	/**
+  List removeAll(locator);
+
+  /**
 	 * Gets locators for all registered component references in this reference map.
 	 * 
 	 * @returns a list with component locators.
 	 */
-	List getAllLocators();	
+  List getAllLocators();
 
-	/**
+  /**
 	 * Gets all component references registered in this reference map.
 	 * 	
 	 * @returns a list with component references.
 	 */
-	List getAll();	
-		
-	/**
+  List getAll();
+
+  /**
 	 * Gets all component references that match specified locator.
 	 * 
 	 * @param locator 	the locator to find references by.	 
 	 * @returns a list with matching component references or empty list if nothing was found.
 	 */
-	List<T> getOptional<T>(locator);
+  List<T> getOptional<T>(locator);
 
-	/**
+  /**
 	 * Gets all component references that match specified locator.
 	 * At least one component reference must be present.
 	 * If it doesn't the method throws an error.
@@ -100,26 +100,26 @@ abstract class IReferences {
 	 * 
 	 * @throws a [[ReferenceException]] when no references found.
 	 */
-	List<T> getRequired<T>(locator);
+  List<T> getRequired<T>(locator);
 
-	/**
+  /**
 	 * Gets an optional component reference that matches specified locator.
 	 * 
 	 * @param locator 	the locator to find references by.	 
 	 * @returns a matching component reference or null if nothing was found.
 	 */
-	T getOneOptional<T>(locator);
-	
-	/**
+  T getOneOptional<T>(locator);
+
+  /**
 	 * Gets a required component reference that matches specified locator.
 	 * 
 	 * @param locator 	the locator to find a reference by.	 
 	 * @returns a matching component reference.
 	 * @throws a [[ReferenceException]] when no references found.
 	 */
-	T getOneRequired<T>(locator);
+  T getOneRequired<T>(locator);
 
-	/**
+  /**
 	 * Gets all component references that match specified locator.
 	 * 
 	 * @param locator 	the locator to find a reference by.
@@ -128,5 +128,5 @@ abstract class IReferences {
 	 * 
 	 * @throws a [[ReferenceException]] when required is set to true but no references found.
 	 */
-	List<T> find<T>(locator, bool required);
+  List<T> find<T>(locator, bool required);
 }

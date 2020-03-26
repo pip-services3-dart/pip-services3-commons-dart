@@ -22,18 +22,16 @@ import './ValidationResultType.dart';
  *     schema.validate(5);          // Result: no error
  */
 class NotRule implements IValidationRule {
-    final IValidationRule _rule;
+  final IValidationRule _rule;
 
-    /**
+  /**
      * Creates a new validation rule and sets its values
      * 
      * @param rule     a rule to be negated.
      */
-    NotRule(IValidationRule rule):this._rule = rule {
-        
-    }
+  NotRule(IValidationRule rule) : this._rule = rule {}
 
-    /**
+  /**
      * Validates a given value against this rule.
      * 
      * @param path      a dot notation path to the value.
@@ -41,26 +39,18 @@ class NotRule implements IValidationRule {
      * @param value     a value to be validated.
      * @param results   a list with validation results to add new results.
      */
-    void validate(String path, Schema schema, dynamic value, List<ValidationResult>results) {
-        if (this._rule == null) return;
+  void validate(String path, Schema schema, dynamic value,
+      List<ValidationResult> results) {
+    if (this._rule == null) return;
 
-        var name = path != null? path: "value";
-        var localResults =  List<ValidationResult>();
+    var name = path != null ? path : "value";
+    var localResults = List<ValidationResult>();
 
-        this._rule.validate(path, schema, value, localResults);
+    this._rule.validate(path, schema, value, localResults);
 
-        if (localResults.length > 0) return;
+    if (localResults.length > 0) return;
 
-        results.add(
-            new ValidationResult(
-                path,
-                ValidationResultType.Error,
-                "NOT_FAILED",
-                "Negative check for " + name + " failed",
-                null,
-                null
-            )
-        );
-    }
-
+    results.add(new ValidationResult(path, ValidationResultType.Error,
+        "NOT_FAILED", "Negative check for " + name + " failed", null, null));
+  }
 }

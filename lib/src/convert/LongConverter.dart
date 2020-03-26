@@ -12,25 +12,25 @@
  *     var value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
  */
 class LongConverter {
-    /**
+  /**
      * Converts value into long or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
      * @returns         long value or null when conversion is not supported.
      */
-    static int toNullableLong(value) {
-        if (value == null) return null;
-        if (value is int) return value;
-        if (value is double) return value.ceil();
-        if (value is DateTime) return value.millisecondsSinceEpoch;
-        if (value is Duration) return value.inMilliseconds;
-        if (value is bool) return value ? 1 : 0;
+  static int toNullableLong(value) {
+    if (value == null) return null;
+    if (value is int) return value;
+    if (value is double) return value.ceil();
+    if (value is DateTime) return value.millisecondsSinceEpoch;
+    if (value is Duration) return value.inMilliseconds;
+    if (value is bool) return value ? 1 : 0;
 
-        var result = double.tryParse(value.toString());
-        return result == null ? null : result.truncate();
-    }
+    var result = double.tryParse(value.toString());
+    return result == null ? null : result.truncate();
+  }
 
-    /**
+  /**
      * Converts value into long or returns 0 when conversion is not possible.
      * 
      * @param value     the value to convert.
@@ -38,11 +38,11 @@ class LongConverter {
      * 
      * @see [[toLongWithDefault]]
      */
-    static int toLong(value) {
-        return LongConverter.toLongWithDefault(value, 0);
-    }
+  static int toLong(value) {
+    return LongConverter.toLongWithDefault(value, 0);
+  }
 
-    /**
+  /**
      * Converts value into integer or returns default when conversion is not possible.
      * 
      * @param value         the value to convert.
@@ -51,9 +51,8 @@ class LongConverter {
      * 
      * @see [[toNullableLong]]
      */
-    static int toLongWithDefault(value, int defaultValue) {
-        var result = LongConverter.toNullableLong(value);
-        return result != null ? result : defaultValue;
-    }
-
+  static int toLongWithDefault(value, int defaultValue) {
+    var result = LongConverter.toNullableLong(value);
+    return result != null ? result : defaultValue;
+  }
 }

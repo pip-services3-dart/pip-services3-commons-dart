@@ -10,7 +10,6 @@ void main() {
       filter["id"] = "1234";
       expect("key1", filter["key"]);
       expect("1234", filter["id"]);
-
     });
 
     test('Create FilterParams with set values', () {

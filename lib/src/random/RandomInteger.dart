@@ -10,9 +10,9 @@ import 'dart:math';
  *     var value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
  */
 class RandomInteger {
-    static final _random = new Random();
-    
-    /**
+  static final _random = new Random();
+
+  /**
      * Generates a integer in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
      * 
      * @param min   minimum value of the integer that will be generated. 
@@ -20,33 +20,32 @@ class RandomInteger {
      * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
      * @returns     generated random integer value.
      */
-    static int nextInteger(int min, [int max = null]) {
-        if (max == null) {
-            max = min;
-            min = 0;
-        }
-
-        if (max - min <= 0)
-            return min;
-
-        return (min + _random.nextDouble() * (max - min)).floor();
+  static int nextInteger(int min, [int max = null]) {
+    if (max == null) {
+      max = min;
+      min = 0;
     }
 
-    /**
+    if (max - min <= 0) return min;
+
+    return (min + _random.nextDouble() * (max - min)).floor();
+  }
+
+  /**
      * Updates (drifts) a integer value within specified range defined
      * 
      * @param value     a integer value to drift.
      * @param range     (optional) a range. Default: 10% of the value
      */
-    static int updateInteger(int value, [int range = null]) {
-        if (range == null) range = 0;
-        range = range == 0 ? (0.1 * value).floor() : range;
-        var minValue = value - range;
-        var maxValue = value + range;
-        return RandomInteger.nextInteger(minValue, maxValue);
-    }
+  static int updateInteger(int value, [int range = null]) {
+    if (range == null) range = 0;
+    range = range == 0 ? (0.1 * value).floor() : range;
+    var minValue = value - range;
+    var maxValue = value + range;
+    return RandomInteger.nextInteger(minValue, maxValue);
+  }
 
-    /**
+  /**
      * Generates a random sequence of integers starting from 0 like: [0,1,2,3...??]
      * 
      * @param min   minimum value of the integer that will be generated. 
@@ -54,14 +53,13 @@ class RandomInteger {
      * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
      * @returns     generated array of integers.
      */
-    static List<int> sequence(int min, [int max = null]) {
-        max = max != null ? max : min;
-        var count = RandomInteger.nextInteger(min, max);
+  static List<int> sequence(int min, [int max = null]) {
+    max = max != null ? max : min;
+    var count = RandomInteger.nextInteger(min, max);
 
-        var result = new List<int>();
-        for (var i = 0; i < count; i++)
-            result.add(i);
+    var result = new List<int>();
+    for (var i = 0; i < count; i++) result.add(i);
 
-        return result;
-    }
+    return result;
+  }
 }

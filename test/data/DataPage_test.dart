@@ -40,7 +40,7 @@ void main() {
       expect(3, page2.total);
     });
 
-     test('JSON DataPage<String> convert', () {
+    test('JSON DataPage<String> convert', () {
       var page = new DataPage<String>(["23", "564", "59"], 3);
       expect("23", page.data[0]);
       expect("564", page.data[1]);

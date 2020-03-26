@@ -23,30 +23,29 @@ class PropertyReflector {
     var name = field.toString();
     var pos = name.indexOf('("');
     name = name.substring(pos + 2, name.length - 2);
-    if (name.endsWith('='))
-      name = name.substring(0, name.length - 1);
+    if (name.endsWith('=')) name = name.substring(0, name.length - 1);
     return name;
   }
 
-	static bool _matchField(Symbol field, String expectedName) {
+  static bool _matchField(Symbol field, String expectedName) {
     if (expectedName == null) return true;
 
     var fieldName = field.toString().toLowerCase();
     var matchName = 'symbol("' + expectedName + '")';
     return fieldName == matchName;
-	}
+  }
 
   static Symbol _findReadField(obj, String name) {
     name = name.toLowerCase();
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
       if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
-        if (_matchField(dm.simpleName, name))
-          return dm.simpleName;
-      }
-      else if (dm is MethodMirror && dm.isGetter && !dm.isStatic && !dm.isPrivate) {
-        if (_matchField(dm.simpleName, name))
-          return dm.simpleName;
+        if (_matchField(dm.simpleName, name)) return dm.simpleName;
+      } else if (dm is MethodMirror &&
+          dm.isGetter &&
+          !dm.isStatic &&
+          !dm.isPrivate) {
+        if (_matchField(dm.simpleName, name)) return dm.simpleName;
       }
     }
     return null;
@@ -57,47 +56,43 @@ class PropertyReflector {
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
       if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
-        if (_matchField(dm.simpleName, name))
-          return dm.simpleName;
-      }
-      else if (dm is MethodMirror && dm.isSetter && !dm.isStatic && !dm.isPrivate) {
-        if (_matchField(dm.simpleName, name + "="))
-          return dm.simpleName;
+        if (_matchField(dm.simpleName, name)) return dm.simpleName;
+      } else if (dm is MethodMirror &&
+          dm.isSetter &&
+          !dm.isStatic &&
+          !dm.isPrivate) {
+        if (_matchField(dm.simpleName, name + "=")) return dm.simpleName;
       }
     }
     return null;
   }
 
-	/**
+  /**
 	 * Checks if object has a property with specified name..
 	 * 
 	 * @param obj 	an object to introspect.
 	 * @param name 	a name of the property to check.
 	 * @returns true if the object has the property and false if it doesn't.
 	 */
-	static bool hasProperty(obj, String name) {
-		if (obj == null)
-			throw new Exception("Object cannot be null");
-		if (name == null)
-			throw new Exception("Property name cannot be null");
-		
+  static bool hasProperty(obj, String name) {
+    if (obj == null) throw new Exception("Object cannot be null");
+    if (name == null) throw new Exception("Property name cannot be null");
+
     var foundName = _findReadField(obj, name);
 
     return foundName != null;
-	}
+  }
 
-	/**
+  /**
 	 * Gets value of object property specified by its name.
 	 * 
 	 * @param obj 	an object to read property from.
 	 * @param name 	a name of the property to get.
 	 * @returns the property value or null if property doesn't exist or introspection failed.
 	 */
-	static getProperty(obj, String name) {
-		if (obj == null)
-			throw new Exception("Object cannot be null");
-		if (name == null)
-			throw new Exception("Property name cannot be null");
+  static getProperty(obj, String name) {
+    if (obj == null) throw new Exception("Object cannot be null");
+    if (name == null) throw new Exception("Property name cannot be null");
 
     var foundName = _findReadField(obj, name);
     if (foundName != null) {
@@ -108,54 +103,57 @@ class PropertyReflector {
         // Ignore exceptions
       }
     }
-		
+
     return null;
-	}
-	
-	/**
+  }
+
+  /**
      * Gets names of all properties implemented in specified object.
      * 
      * @param obj   an objec to introspect.
      * @returns a list with property names.
      */
-	static List<String> getPropertyNames(obj) {
+  static List<String> getPropertyNames(obj) {
     var properties = new List<String>();
-		
+
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
       Symbol foundName = null;
-      
+
       if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate)
         foundName = dm.simpleName;
-      else if (dm is MethodMirror && dm.isGetter && !dm.isStatic && !dm.isPrivate)
-        foundName = dm.simpleName;
+      else if (dm is MethodMirror &&
+          dm.isGetter &&
+          !dm.isStatic &&
+          !dm.isPrivate) foundName = dm.simpleName;
 
-      if (foundName != null)
-        properties.add(_extractName(foundName));
+      if (foundName != null) properties.add(_extractName(foundName));
     }
-		        
-		return properties;
-	}
 
-	/**
+    return properties;
+  }
+
+  /**
      * Get values of all properties in specified object
 	 * and returns them as a map.
      * 
      * @param obj   an object to get properties from.
      * @returns a map, containing the names of the object's properties and their values.
      */
-	static Map<String, dynamic> getProperties(obj) {
+  static Map<String, dynamic> getProperties(obj) {
     var map = new Map<String, dynamic>();
-		
+
     var cm = reflectClass(obj.runtimeType);
     var im = reflect(obj);
     for (var dm in cm.declarations.values) {
       Symbol foundName = null;
-      
+
       if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate)
         foundName = dm.simpleName;
-      else if (dm is MethodMirror && dm.isGetter && !dm.isStatic && !dm.isPrivate)
-        foundName = dm.simpleName;
+      else if (dm is MethodMirror &&
+          dm.isGetter &&
+          !dm.isStatic &&
+          !dm.isPrivate) foundName = dm.simpleName;
 
       if (foundName != null) {
         try {
@@ -167,11 +165,11 @@ class PropertyReflector {
         }
       }
     }
-		        
-		return map;
-	}
-	
-	/**
+
+    return map;
+  }
+
+  /**
 	 * Sets value of object property specified by its name.
 	 * 
 	 * If the property does not exist or introspection fails
@@ -181,11 +179,9 @@ class PropertyReflector {
 	 * @param name 	a name of the property to set.
 	 * @param value a new value for the property to set.
      */
-	static void setProperty(obj, String name, value) {
-		if (obj == null)
-			throw new Exception("Object cannot be null");
-		if (name == null)
-			throw new Exception("Property name cannot be null");
+  static void setProperty(obj, String name, value) {
+    if (obj == null) throw new Exception("Object cannot be null");
+    if (name == null) throw new Exception("Property name cannot be null");
 
     var foundName = _findWriteField(obj, name);
     if (foundName != null) {
@@ -198,9 +194,9 @@ class PropertyReflector {
         // Ignore exceptions...
       }
     }
-	}
-	
-	/**
+  }
+
+  /**
 	 * Sets values of some (all) object properties.
 	 * 
 	 * If some properties do not exist or introspection fails
@@ -211,12 +207,12 @@ class PropertyReflector {
 	 * 
 	 * @see [[setProperty]]
 	 */
-	static void setProperties(obj, Map<String, dynamic> values) {
-		if (values == null) return;
-		
-		for (var field in values.keys) {
+  static void setProperties(obj, Map<String, dynamic> values) {
+    if (values == null) return;
+
+    for (var field in values.keys) {
       var fieldValue = values[field];
-			PropertyReflector.setProperty(obj, field, fieldValue);
-		}
-	}
+      PropertyReflector.setProperty(obj, field, fieldValue);
+    }
+  }
 }

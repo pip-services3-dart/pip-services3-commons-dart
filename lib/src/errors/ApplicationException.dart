@@ -40,25 +40,25 @@ import "../data/StringValueMap.dart";
  * @see [[ErrorDescription]]
  */
 class ApplicationException implements Exception {
-    /** A human-readable error description (usually written in English) */
-    String message;
-    /** Standard error category */
-    String category;
-    /** HTTP status code associated with this error type */
-    int status = 500;
-    /** A unique error code */
-    String code = 'UNKNOWN';
-    /** A map with additional details that can be used to restore error description in other languages */
-    // Todo: Complete implementation!
-    StringValueMap details; 
-    /** A unique transaction id to trace execution throug call chain */   
-    String correlation_id;
-    /** Stack trace of the exception */ 
-    String stack_trace;
-    /** Original error wrapped by this exception */ 
-    String cause;
+  /** A human-readable error description (usually written in English) */
+  String message;
+  /** Standard error category */
+  String category;
+  /** HTTP status code associated with this error type */
+  int status = 500;
+  /** A unique error code */
+  String code = 'UNKNOWN';
+  /** A map with additional details that can be used to restore error description in other languages */
+  // Todo: Complete implementation!
+  StringValueMap details;
+  /** A unique transaction id to trace execution throug call chain */
+  String correlation_id;
+  /** Stack trace of the exception */
+  String stack_trace;
+  /** Original error wrapped by this exception */
+  String cause;
 
-    /**
+  /**
      * Creates a new instance of application exception and assigns its values.
      * 
      * @param category          (optional) a standard error category. Default: Unknown
@@ -66,51 +66,55 @@ class ApplicationException implements Exception {
      * @param code              (optional) a unique error code. Default: "UNKNOWN"
      * @param message           (optional) a human-readable description of the error.
      */
-    ApplicationException([String category = null, String correlation_id = null, String code = null, String message = null]) {
-        this.category = category ?? ErrorCategory.Unknown;
-        this.correlation_id = correlation_id;
-        this.code = code ?? 'UNKNOWN';
-        if (this.message == null) this.message = message ?? 'Unknown error';
-        this.stack_trace = StackTrace.current.toString();
-    }
-    
-    /**
+  ApplicationException(
+      [String category = null,
+      String correlation_id = null,
+      String code = null,
+      String message = null]) {
+    this.category = category ?? ErrorCategory.Unknown;
+    this.correlation_id = correlation_id;
+    this.code = code ?? 'UNKNOWN';
+    if (this.message == null) this.message = message ?? 'Unknown error';
+    this.stack_trace = StackTrace.current.toString();
+  }
+
+  /**
      * Gets original error wrapped by this exception as a string message.
      * 
      * @returns an original error message.
-     */ 
-    String getCauseString() { 
-        return this.cause != null ? this.cause.toString() : null;
-    }
+     */
+  String getCauseString() {
+    return this.cause != null ? this.cause.toString() : null;
+  }
 
-    /**
+  /**
      * Sets original error wrapped by this exception as a string message.
      * 
      * @param value an original error message.
-     */ 
-    void setCauseString(String value) {
-    	this.cause = value;
-    }    
+     */
+  void setCauseString(String value) {
+    this.cause = value;
+  }
 
-    /**
+  /**
      * Gets a stack trace where this exception occured.
      * 
      * @returns a stack trace as a string.
-     */ 
-    String getStackTraceString() {
-        return this.stack_trace; // ?? super.stack;
-    }
+     */
+  String getStackTraceString() {
+    return this.stack_trace; // ?? super.stack;
+  }
 
-    /**
+  /**
      * Sets a stack trace where this exception occured.
      * 
      * @param value a stack trace as a string
-     */ 
-    void setStackTraceString(String value) {
-    	this.stack_trace = value;
-    }
+     */
+  void setStackTraceString(String value) {
+    this.stack_trace = value;
+  }
 
-    /**
+  /**
      * Sets a unique error code. 
      * 
      * This method returns reference to this exception to implement Builder pattern
@@ -119,12 +123,12 @@ class ApplicationException implements Exception {
      * @param code a unique error code
      * @returns this exception object
      */
-    ApplicationException withCode(String code) {
-        this.code = code ?? 'UNKNOWN';
-        return this;
-    }
-        
-    /**
+  ApplicationException withCode(String code) {
+    this.code = code ?? 'UNKNOWN';
+    return this;
+  }
+
+  /**
      * Sets a original error wrapped by this exception
      * 
      * This method returns reference to this exception to implement Builder pattern
@@ -133,13 +137,12 @@ class ApplicationException implements Exception {
      * @param cause original error object
      * @returns this exception object
      */
-    ApplicationException withCause(cause) {
-        if (cause != null)
-            this.cause = cause.toString();
-        return this;
-    }
-        
-    /**
+  ApplicationException withCause(cause) {
+    if (cause != null) this.cause = cause.toString();
+    return this;
+  }
+
+  /**
      * Sets a HTTP status code which shall be returned by REST calls. 
      * 
      * This method returns reference to this exception to implement Builder pattern
@@ -148,12 +151,12 @@ class ApplicationException implements Exception {
      * @param status an HTTP error code.
      * @returns this exception object
      */
-    ApplicationException withStatus(int status) {
-        this.status = status ?? 500;
-        return this;
-    }
-    
-    /**
+  ApplicationException withStatus(int status) {
+    this.status = status ?? 500;
+    return this;
+  }
+
+  /**
      * Sets a parameter for additional error details. 
      * This details can be used to restore error description in other languages.
      * 
@@ -163,14 +166,14 @@ class ApplicationException implements Exception {
      * @param key a details parameter name
      * @param value a details parameter name
      * @returns this exception object
-     */ 
-    ApplicationException withDetails(String key, value) {
-        this.details = this.details ?? new StringValueMap();
-        this.details.setAsObject(key, value);
-        return this;
-    }
-    
-    /**
+     */
+  ApplicationException withDetails(String key, value) {
+    this.details = this.details ?? new StringValueMap();
+    this.details.setAsObject(key, value);
+    return this;
+  }
+
+  /**
      * Sets a correlation id which can be used to trace this error through a call chain.
      * 
      * This method returns reference to this exception to implement Builder pattern
@@ -178,13 +181,13 @@ class ApplicationException implements Exception {
      * 
      * @param correlationId a unique transaction id to trace error through call chain
      * @returns this exception object
-     */ 
-    ApplicationException withCorrelationId(String correlationId) {
-        this.correlation_id = correlationId;
-        return this;
-    }
+     */
+  ApplicationException withCorrelationId(String correlationId) {
+    this.correlation_id = correlationId;
+    return this;
+  }
 
-    /**
+  /**
      * Sets a stack trace for this error. 
      * 
      * This method returns reference to this exception to implement Builder pattern
@@ -192,13 +195,13 @@ class ApplicationException implements Exception {
      * 
      * @param stackTrace a stack trace where this error occured
      * @returns this exception object
-     */ 
-    ApplicationException withStackTrace(String stackTrace) {
-        this.stack_trace = stackTrace;
-        return this;
-    }
+     */
+  ApplicationException withStackTrace(String stackTrace) {
+    this.stack_trace = stackTrace;
+    return this;
+  }
 
-    /** 
+  /** 
      * Wraps another exception into an application exception object.
      * 
      * If original exception is of ApplicationException type it is returned without changes.
@@ -207,22 +210,21 @@ class ApplicationException implements Exception {
      * @param cause     an original error object
      * @returns an original or newly created ApplicationException
      */
-    ApplicationException wrap(cause) {
-        cause = ApplicationException.unwrapError(cause);
+  ApplicationException wrap(cause) {
+    cause = ApplicationException.unwrapError(cause);
 
-        if (cause is ApplicationException) 
-            return cause;
+    if (cause is ApplicationException) return cause;
 
-        this.withCause(cause);
-        return this;
-    }
+    this.withCause(cause);
+    return this;
+  }
 
-    @override
-    String toString() {
-      return this.message ?? this.code;
-    }
-    
-    /** 
+  @override
+  String toString() {
+    return this.message ?? this.code;
+  }
+
+  /** 
      * Wraps another exception into specified application exception object.
      * 
      * If original exception is of ApplicationException type it is returned without changes.
@@ -234,17 +236,16 @@ class ApplicationException implements Exception {
      * 
      * @see [[wrap]]
      */
-    static ApplicationException wrapError(ApplicationException error, cause) {
-        cause = ApplicationException.unwrapError(cause);
+  static ApplicationException wrapError(ApplicationException error, cause) {
+    cause = ApplicationException.unwrapError(cause);
 
-        if (cause is ApplicationException) 
-            return cause;
+    if (cause is ApplicationException) return cause;
 
-        error.withCause(cause);
-        return error;
-    }
+    error.withCause(cause);
+    return error;
+  }
 
-    /** 
+  /** 
      * Unwraps original exception through wrapped exception objects.
      * 
      * Many frameworks like Seneca or restify wrap original exception.
@@ -254,14 +255,13 @@ class ApplicationException implements Exception {
      * @param error     an error object
      * @returns         an original error object
      */
-    static unwrapError(error) {
-        if (error == null) return null;
-                
-        // // Unwrapping restify exceptions 
-        // if (error.body && !_.isEmpty(error.body))
-        //     error = error.body;
-        
-        return error;
-    }
-    
+  static unwrapError(error) {
+    if (error == null) return null;
+
+    // // Unwrapping restify exceptions
+    // if (error.body && !_.isEmpty(error.body))
+    //     error = error.body;
+
+    return error;
+  }
 }

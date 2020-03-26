@@ -40,18 +40,18 @@ import './IClosable.dart';
  *     }
  */
 abstract class IOpenable implements IClosable {
-	/**
+  /**
 	 * Checks if the component is opened.
 	 * 
 	 * @returns true if the component has been opened and false otherwise.
 	 */
-	bool isOpen();
+  bool isOpen();
 
-	/**
+  /**
 	 * Opens the component.
 	 * 
 	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
    * @param callback 			callback function that receives error or null no errors occured.
 	 */
-	Future open(String correlationId);
+  Future open(String correlationId);
 }

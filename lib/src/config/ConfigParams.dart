@@ -38,30 +38,27 @@ import '../reflect/RecursiveObjectReader.dart';
  *  
  */
 class ConfigParams extends StringValueMap {
-
-	/**
+  /**
 	 * Creates a new ConfigParams and fills it with values.
 	 * 
 	 * @param values 	(optional) an object to be converted into key-value pairs to initialize this config map.
 	 * 
 	 * @see [[StringValueMap.constructor]]
 	 */
-	ConfigParams([values = null])
-		 : super(values);
+  ConfigParams([values = null]) : super(values);
 
-	/**
+  /**
 	 * Gets a list with all 1st level section names.
 	 * 
 	 * @returns a list of section names stored in this ConfigMap.
 	 */
-	List<String> getSectionNames() {
-		var sections = new List<String>();
+  List<String> getSectionNames() {
+    var sections = new List<String>();
 
-		for (var key in this.getKeys()) {
+    for (var key in this.getKeys()) {
       var pos = key.indexOf('.');
       var section = key;
-      if (pos > 0)
-        section = key.substring(0, pos);
+      if (pos > 0) section = key.substring(0, pos);
 
       // Perform case sensitive search
       var found = false;
@@ -72,28 +69,26 @@ class ConfigParams extends StringValueMap {
         }
       }
 
-      if (!found)
-        sections.add(section);
-		}
+      if (!found) sections.add(section);
+    }
 
-		return sections;
-	}
+    return sections;
+  }
 
-	/**
+  /**
 	 * Gets parameters from specific section stored in this ConfigMap.
 	 * The section name is removed from parameter keys.
 	 * 
 	 * @param section	name of the section to retrieve configuration parameters from.
 	 * @returns 		all configuration parameters that belong to the section named 'section'. 
 	 */
-	ConfigParams getSection(String section) {
-		var result = new ConfigParams();
-		var prefix = section + ".";
+  ConfigParams getSection(String section) {
+    var result = new ConfigParams();
+    var prefix = section + ".";
 
-		for (var key in this.getKeys()) {
+    for (var key in this.getKeys()) {
       // Prevents exception on the next line
-      if (key.length < prefix.length)
-        continue;
+      if (key.length < prefix.length) continue;
 
       // Perform case sensitive match
       var keyPrefix = key.substring(0, prefix.length);
@@ -101,39 +96,37 @@ class ConfigParams extends StringValueMap {
         var name = key.substring(prefix.length);
         result.put(name, this[key]);
       }
-		}
+    }
 
-		return result;
-	}
+    return result;
+  }
 
-	/**
+  /**
 	 * Adds parameters into this ConfigParams under specified section.
 	 * Keys for the new parameters are appended with section dot prefix.
 	 * 
 	 * @param section 			name of the section where add new parameters
 	 * @param sectionParams 	new parameters to be added.
 	 */
-	void addSection(String section, ConfigParams sectionParams) {
-		if (section == null)
-			throw new Exception("Section name cannot be null");
+  void addSection(String section, ConfigParams sectionParams) {
+    if (section == null) throw new Exception("Section name cannot be null");
 
-		if (sectionParams != null) {
-			for (var key in sectionParams.getKeys()) {
+    if (sectionParams != null) {
+      for (var key in sectionParams.getKeys()) {
         var name = key;
 
         if (name.length > 0 && section.length > 0)
           name = section + "." + name;
-        else if (name.length == 0)
-          name = section;
+        else if (name.length == 0) name = section;
 
         var value = sectionParams[key];
 
         this.put(name, value);
-			}
-		}
-	}
+      }
+    }
+  }
 
-	/**
+  /**
 	 * Overrides parameters with new values from specified ConfigParams
 	 * and returns a new ConfigParams object.
 	 * 
@@ -142,12 +135,12 @@ class ConfigParams extends StringValueMap {
 	 * 
 	 * @see [[setDefaults]]
 	 */
-	ConfigParams override(ConfigParams configParams) {
-		var map = StringValueMap.fromMaps([this, configParams]);
-		return new ConfigParams(map);
-	}
+  ConfigParams override(ConfigParams configParams) {
+    var map = StringValueMap.fromMaps([this, configParams]);
+    return new ConfigParams(map);
+  }
 
-	/**
+  /**
 	 * Set default values from specified ConfigParams and returns a new ConfigParams object.
 	 * 
 	 * @param defaultConfigParams	ConfigMap with default parameter values.
@@ -155,23 +148,23 @@ class ConfigParams extends StringValueMap {
 	 * 
 	 * @see [[override]]
 	 */
-	ConfigParams setDefaults(ConfigParams defaultConfigParams) {
-		var map = StringValueMap.fromMaps([defaultConfigParams, this]);
-		return new ConfigParams(map);
-	}
+  ConfigParams setDefaults(ConfigParams defaultConfigParams) {
+    var map = StringValueMap.fromMaps([defaultConfigParams, this]);
+    return new ConfigParams(map);
+  }
 
-	/**
+  /**
 	 * Creates a new ConfigParams object filled with key-value pairs from specified object.
 	 * 
 	 * @param value		an object with key-value pairs used to initialize a new ConfigParams.
 	 * @returns			a new ConfigParams object.
 	 */
-	static ConfigParams fromValue(value) {
-		var map = RecursiveObjectReader.getProperties(value);
-		return new ConfigParams(map);
-	}
+  static ConfigParams fromValue(value) {
+    var map = RecursiveObjectReader.getProperties(value);
+    return new ConfigParams(map);
+  }
 
-	/**
+  /**
 	 * Creates a new ConfigParams object filled with provided key-value pairs called tuples.
 	 * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
 	 * 
@@ -180,12 +173,12 @@ class ConfigParams extends StringValueMap {
 	 * 
 	 * @see [[StringValueMap.fromTuplesArray]]
 	 */
-	static ConfigParams fromTuples(List tuples) {
-		var map = StringValueMap.fromTuplesArray(tuples);
-		return new ConfigParams(map);
-	}
+  static ConfigParams fromTuples(List tuples) {
+    var map = StringValueMap.fromTuplesArray(tuples);
+    return new ConfigParams(map);
+  }
 
-	/**
+  /**
 	 * Creates a new ConfigParams object filled with key-value pairs serialized as a string.
 	 * 
 	 * @param line 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."
@@ -194,12 +187,12 @@ class ConfigParams extends StringValueMap {
 	 * 
 	 * @see [[StringValueMap.fromString]]
 	 */
-	static ConfigParams fromString(String line) {
-		var map = StringValueMap.fromString(line);
-		return new ConfigParams(map);
-	}
+  static ConfigParams fromString(String line) {
+    var map = StringValueMap.fromString(line);
+    return new ConfigParams(map);
+  }
 
-	/**
+  /**
 	 * Merges two or more ConfigParams into one. The following ConfigParams override
 	 * previously defined parameters.
 	 * 
@@ -208,8 +201,8 @@ class ConfigParams extends StringValueMap {
 	 * 
 	 * @see [[StringValueMap.fromMaps]]
 	 */
-	static ConfigParams mergeConfigs(List<ConfigParams> configs) {
-		var map = StringValueMap.fromMaps(configs);
-		return new ConfigParams(map);
-	}
+  static ConfigParams mergeConfigs(List<ConfigParams> configs) {
+    var map = StringValueMap.fromMaps(configs);
+    return new ConfigParams(map);
+  }
 }

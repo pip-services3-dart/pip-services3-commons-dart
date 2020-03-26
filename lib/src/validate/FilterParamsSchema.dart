@@ -8,11 +8,8 @@ import './MapSchema.dart';
  * @see [[FilterParams]]
  */
 class FilterParamsSchema extends MapSchema {
-
-    /**
+  /**
      * Creates a new instance of validation schema.
      */
-    FilterParamsSchema() : super(TypeCode.String, null){
-    }
-
+  FilterParamsSchema() : super(TypeCode.String, null) {}
 }

@@ -21,11 +21,11 @@ import 'dart:async';
  * 
  */
 abstract class ICleanable {
-	/**
+  /**
 	 * Clears component state.
 	 * 
 	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
    * @param callback 			callback function that receives error or null no errors occured.
 	 */
-	Future clear(String correlationId);
+  Future clear(String correlationId);
 }

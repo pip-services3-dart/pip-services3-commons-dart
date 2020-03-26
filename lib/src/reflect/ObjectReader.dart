@@ -35,8 +35,7 @@ import '../convert/IntegerConverter.dart';
  *     var value = ObjectReader.getProperty(myArray, "0");
  */
 class ObjectReader {
-    
-    /**
+  /**
      * Gets a real object value.
      * If object is a wrapper, it unwraps the value behind it. 
      * Otherwise it returns the same object value.
@@ -44,13 +43,12 @@ class ObjectReader {
      * @param obj   an object to unwrap..
      * @returns an actual (unwrapped) object value. 
      */
-    static getValue(obj) {
-      if (obj is IValueWrapper)
-        return obj.innerValue();
-      return obj;
-    }
+  static getValue(obj) {
+    if (obj is IValueWrapper) return obj.innerValue();
+    return obj;
+  }
 
-    /**
+  /**
 	 * Checks if object has a property with specified name.
      * 
      * The object can be a user defined object, map or array.
@@ -61,31 +59,29 @@ class ObjectReader {
 	 * @param name 	a name of the property to check.
 	 * @returns true if the object has the property and false if it doesn't.
      */
-	static bool hasProperty(obj, String name) {
-      if (obj == null || name == null) {
-        return false;
-      } 
-
-      if (obj is IValueWrapper)
-        obj = obj.innerValue();
-      
-      if (obj is Map) {
-        var targetKey = name.toLowerCase();
-        for (var key in obj.keys) {
-          if (key.toString().toString() == targetKey)
-            return true;
-        }
-      } else if (obj is List) {
-          var index = IntegerConverter.toNullableInteger(name);
-          return index != null && index < obj.length;
-      } else {
-          return PropertyReflector.hasProperty(obj, name);
-      }
-
+  static bool hasProperty(obj, String name) {
+    if (obj == null || name == null) {
       return false;
+    }
+
+    if (obj is IValueWrapper) obj = obj.innerValue();
+
+    if (obj is Map) {
+      var targetKey = name.toLowerCase();
+      for (var key in obj.keys) {
+        if (key.toString().toString() == targetKey) return true;
+      }
+    } else if (obj is List) {
+      var index = IntegerConverter.toNullableInteger(name);
+      return index != null && index < obj.length;
+    } else {
+      return PropertyReflector.hasProperty(obj, name);
+    }
+
+    return false;
   }
 
-    /**
+  /**
 	 * Gets value of object property specified by its name.
 	 * 
      * The object can be a user defined object, map or array.
@@ -96,31 +92,29 @@ class ObjectReader {
 	 * @param name 	a name of the property to get.
 	 * @returns the property value or null if property doesn't exist or introspection failed.
      */
-	static getProperty(obj, String name) {
-      if (obj == null || name == null) {
-        return null;
-      } 
-
-      if (obj is IValueWrapper)
-        obj = obj.innerValue();
-      
-      if (obj is Map) {
-        var targetKey = name.toLowerCase();
-        for (var key in obj.keys) {
-          if (key.toString().toString() == targetKey)
-            return obj[key];
-        }
-      } else if (obj is List) {
-          var index = IntegerConverter.toNullableInteger(name);
-          return index != null && index < obj.length ? obj[index] : null;
-      } else {
-          return PropertyReflector.getProperty(obj, name);
-      }
-
+  static getProperty(obj, String name) {
+    if (obj == null || name == null) {
       return null;
+    }
+
+    if (obj is IValueWrapper) obj = obj.innerValue();
+
+    if (obj is Map) {
+      var targetKey = name.toLowerCase();
+      for (var key in obj.keys) {
+        if (key.toString().toString() == targetKey) return obj[key];
+      }
+    } else if (obj is List) {
+      var index = IntegerConverter.toNullableInteger(name);
+      return index != null && index < obj.length ? obj[index] : null;
+    } else {
+      return PropertyReflector.getProperty(obj, name);
+    }
+
+    return null;
   }
 
-    /**
+  /**
      * Gets names of all properties implemented in specified object.
      * 
      * The object can be a user defined object, map or array.
@@ -130,11 +124,10 @@ class ObjectReader {
      * @param obj   an objec to introspect.
      * @returns a list with property names.
      */
-	static List<String> getPropertyNames(obj) {
+  static List<String> getPropertyNames(obj) {
     var properties = new List<String>();
-    
-    if (obj is IValueWrapper)
-      obj = obj.innerValue();
+
+    if (obj is IValueWrapper) obj = obj.innerValue();
 
     if (obj == null) {
       // Do nothing
@@ -147,13 +140,13 @@ class ObjectReader {
         properties.add(index.toString());
       }
     } else {
-       properties = PropertyReflector.getPropertyNames(obj);
+      properties = PropertyReflector.getPropertyNames(obj);
     }
 
     return properties;
   }
 
-    /**
+  /**
      * Get values of all properties in specified object
 	 * and returns them as a map.
      * 
@@ -164,11 +157,10 @@ class ObjectReader {
      * @param obj   an object to get properties from.
      * @returns a map, containing the names of the object's properties and their values.
      */
-	static Map<String, dynamic> getProperties(obj) {
+  static Map<String, dynamic> getProperties(obj) {
     var map = new Map<String, dynamic>();
-      
-    if (obj is IValueWrapper)
-      obj = obj.innerValue();
+
+    if (obj is IValueWrapper) obj = obj.innerValue();
 
     if (obj == null) {
       // Do nothing
@@ -181,7 +173,7 @@ class ObjectReader {
         map[index.toString()] = obj[index];
       }
     } else {
-       map = PropertyReflector.getProperties(obj);
+      map = PropertyReflector.getProperties(obj);
     }
 
     return map;

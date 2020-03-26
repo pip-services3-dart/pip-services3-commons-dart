@@ -4,9 +4,9 @@
 
 // /**
 //  * Random generator for string values.
-//  * 
+//  *
 //  * ### Example ###
-//  * 
+//  *
 //  *     let value1 = RandomString.pickChar("ABC");     // Possible result: "C"
 //  *     let value2 = RandomString.pick(["A","B","C"]); // Possible result: "gBW"
 //  */
@@ -20,7 +20,7 @@
 
 //     /**
 //      * Picks a random character from a string.
-//      * 
+//      *
 //      * @param values    a string to pick a char from
 //      * @returns         a randomly picked char.
 //      */
@@ -34,7 +34,7 @@
 
 //     /**
 //      * Picks a random string from an array of string.
-//      * 
+//      *
 //      * @param values    strings to pick from.
 //      * @returns         a randomly picked string.
 //      */
@@ -48,7 +48,7 @@
 
 //     /**
 //      * Distorts a string by randomly replacing characters in it.
-//      * 
+//      *
 //      * @param value    a string to distort.
 //      * @returns        a distored string.
 //      */
@@ -59,7 +59,7 @@
 //         if (RandomBoolean.chance(1, 5))
 //             value = value.substring(0, 1).toUpperCase() + value.substring(1);
 
-//         //Add a symbol to the end of the string 'value' 
+//         //Add a symbol to the end of the string 'value'
 //         if (RandomBoolean.chance(1, 3))
 //             value = value + RandomString.pickChar(RandomString._symbols);
 
@@ -68,7 +68,7 @@
 
 //     /**
 //      * Generates random alpha characted [A-Za-z]
-//      * 
+//      *
 //      * @returns a random characted.
 //      */
 //     public static nextAlphaChar(): string {
@@ -77,9 +77,9 @@
 //     }
 
 //     /**
-//      * Generates a random string, consisting of upper and lower case letters (of the English alphabet), 
+//      * Generates a random string, consisting of upper and lower case letters (of the English alphabet),
 //      * digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
-//      * 
+//      *
 //      * @param minLength     (optional) minimum string length.
 //      * @param maxLength     maximum string length.
 //      * @returns             a random string.

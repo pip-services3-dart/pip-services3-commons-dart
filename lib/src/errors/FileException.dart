@@ -5,8 +5,7 @@ import "./ApplicationException.dart";
  * Errors in read/write local disk operations.
  */
 class FileException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -15,8 +14,9 @@ class FileException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	FileException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.FileError, correlation_id, code, message) {
-		this.status = 500;
-	}
+  FileException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.FileError, correlation_id, code, message) {
+    this.status = 500;
+  }
 }

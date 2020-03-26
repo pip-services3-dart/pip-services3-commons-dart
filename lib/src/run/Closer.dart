@@ -8,7 +8,7 @@ import './IClosable.dart';
  * [[ICloseable]]
  */
 class Closer {
-	/**
+  /**
 	 * Closes specific component.
 	 * 
 	 * To be closed components must implement [[ICloseable]] interface.
@@ -20,12 +20,11 @@ class Closer {
 	 * 
 	 * @see [[IClosable]]
 	 */
-	static Future closeOne(String correlationId, component) async {
-    if (component is IClosable)
-      await component.close(correlationId);
-	}
+  static Future closeOne(String correlationId, component) async {
+    if (component is IClosable) await component.close(correlationId);
+  }
 
-	/**
+  /**
 	 * Closes multiple components.
 	 * 
 	 * To be closed components must implement [[ICloseable]] interface.
@@ -38,11 +37,11 @@ class Closer {
 	 * @see [[closeOne]]
 	 * @see [[IClosable]]
 	 */
-	static Future close(String correlationId, List components) async {
-		if (components == null) return;
+  static Future close(String correlationId, List components) async {
+    if (components == null) return;
 
     for (var component in components) {
       await Closer.closeOne(correlationId, component);
     }
-	}
+  }
 }

@@ -10,24 +10,23 @@
  *     var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
  */
 class DateTimeConverter {
-
-    /**
+  /**
      * Converts value into Date or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
      * @returns         Date value or null when conversion is not supported.
      */
-    static DateTime toNullableDateTime(value) {
-        if (value == null) return null;
-        if (value is DateTime) return value;
-        if (value is Duration) value = value.millisecondsSinceEpoch;
-        if (value is num) return new DateTime.fromMillisecondsSinceEpoch(value);
+  static DateTime toNullableDateTime(value) {
+    if (value == null) return null;
+    if (value is DateTime) return value;
+    if (value is Duration) value = value.millisecondsSinceEpoch;
+    if (value is num) return new DateTime.fromMillisecondsSinceEpoch(value);
 
-        var result = DateTime.tryParse(value.toString());
-        return result;
-    }
+    var result = DateTime.tryParse(value.toString());
+    return result;
+  }
 
-    /**
+  /**
      * Converts value into Date or returns current date when conversion is not possible.
      * 
      * @param value     the value to convert.
@@ -35,11 +34,11 @@ class DateTimeConverter {
      * 
      * @see [[toDateTimeWithDefault]]
      */
-    static DateTime toDateTime(value) {
-        return DateTimeConverter.toDateTimeWithDefault(value, DateTime.now());
-    }
+  static DateTime toDateTime(value) {
+    return DateTimeConverter.toDateTimeWithDefault(value, DateTime.now());
+  }
 
-    /**
+  /**
      * Converts value into Date or returns default when conversion is not possible.
      * 
      * @param value         the value to convert.
@@ -48,9 +47,8 @@ class DateTimeConverter {
      * 
      * @see [[toNullableDateTime]]
      */
-    static DateTime toDateTimeWithDefault(value, DateTime defaultValue) {
-        var result = DateTimeConverter.toNullableDateTime(value);
-        return result != null ? result : defaultValue;
-    }
-
+  static DateTime toDateTimeWithDefault(value, DateTime defaultValue) {
+    var result = DateTimeConverter.toNullableDateTime(value);
+    return result != null ? result : defaultValue;
+  }
 }

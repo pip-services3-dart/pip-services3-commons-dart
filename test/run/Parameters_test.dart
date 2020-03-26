@@ -5,7 +5,7 @@
 // import { Parameters } from '../../src/run/Parameters';
 
 // suite('Parameters', ()=> {
-    
+
 //     test('Defaults', () => {
 //         var result = Parameters.fromTuples(
 //             "value1", 123,
@@ -96,7 +96,7 @@
 
 //         boolVal = config.containsKey("valueA.valueB.valueC");
 //         assert.isFalse(boolVal);
-//     });    
+//     });
 
 //     test('Contains', () => {
 //         var config = Parameters.fromJson(

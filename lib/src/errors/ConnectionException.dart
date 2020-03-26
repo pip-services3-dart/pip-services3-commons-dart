@@ -6,8 +6,7 @@ import "./ApplicationException.dart";
  * They can be related to misconfiguration, network issues, or the remote service itself.
  */
 class ConnectionException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -16,8 +15,9 @@ class ConnectionException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	ConnectionException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.NoResponse, correlation_id, code, message) {
-		this.status = 500;
-	}
+  ConnectionException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.NoResponse, correlation_id, code, message) {
+    this.status = 500;
+  }
 }

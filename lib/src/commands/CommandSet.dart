@@ -14,26 +14,26 @@
 // /**
 //  * Contains a set of commands and events supported by a [[ICommandable commandable]] object.
 //  * The CommandSet supports command interceptors to extend and the command call chain.
-//  * 
+//  *
 //  * CommandSets can be used as alternative commandable interface to a business object.
 //  * It can be used to auto generate multiple external services for the business object
 //  * without writing much code.
-//  * 
+//  *
 //  * @see [[Command]]
 //  * @see [[Event]]
 //  * @see [[ICommandable]]
-//  * 
+//  *
 //  * ### Example ###
-//  * 
+//  *
 //  *     export class MyDataCommandSet extends CommandSet {
 //  *         private _controller: IMyDataController;
-//  *      
+//  *
 //  *         constructor(controller: IMyDataController) { // Any data controller interface
 //  *             super();
 //  *             this._controller = controller;
 //  *             this.addCommand(this.makeGetMyDataCommand());
-//  *         }   
-//  *      
+//  *         }
+//  *
 //  *         private makeGetMyDataCommand(): ICommand {
 //  *             return new Command(
 //  *               'get_mydata',
@@ -61,9 +61,9 @@
 
 //     /**
 //      * Gets all commands registered in this command set.
-//      * 
+//      *
 //      * @returns a list of commands.
-//      * 
+//      *
 //      * @see [[ICommand]]
 //      */
 //     public getCommands(): ICommand[] {
@@ -72,9 +72,9 @@
 
 //     /**
 //      * Gets all events registred in this command set.
-//      * 
+//      *
 //      * @returns a list of events.
-//      * 
+//      *
 //      * @see [[IEvent]]
 //      */
 //     public getEvents(): IEvent[] {
@@ -83,10 +83,10 @@
 
 //     /**
 //      * Searches for a command by its name.
-//      * 
+//      *
 //      * @param commandName the name of the command to search for.
 //      * @returns the command, whose name matches the provided name.
-//      * 
+//      *
 //      * @see [[ICommand]]
 //      */
 //     public findCommand(commandName: string): ICommand {
@@ -95,10 +95,10 @@
 
 //     /**
 //      * Searches for an event by its name in this command set.
-//      * 
+//      *
 //      * @param eventName the name of the event to search for.
 //      * @returns the event, whose name matches the provided name.
-//      * 
+//      *
 //      * @see [[IEvent]]
 //      */
 //     public findEvent(eventName: string): IEvent {
@@ -125,9 +125,9 @@
 
 //     /**
 //      * Adds a [[ICommand command]] to this command set.
-//      * 
+//      *
 //      * @param command   the command to add.
-//      * 
+//      *
 //      * @see [[ICommand]]
 //      */
 //     public addCommand(command: ICommand): void {
@@ -137,19 +137,19 @@
 
 //     /**
 //      * Adds multiple [[ICommand commands]] to this command set.
-//      * 
+//      *
 //      * @param commands the array of commands to add.
-//      * 
+//      *
 //      * @see [[ICommand]]
 //      */
 //     public addCommands(commands: ICommand[]): void {
-//         for (var i = 0; i < commands.length; i++) 
+//         for (var i = 0; i < commands.length; i++)
 //             this.addCommand(commands[i]);
 //     }
 
 //     /**
 //      * Adds an [[IEvent event]] to this command set.
-//      * 
+//      *
 //      * @param event the event to add.
 //      * @see [[IEvent]]
 //      */
@@ -160,9 +160,9 @@
 
 //     /**
 //      * Adds multiple [[IEvent events]] to this command set.
-//      * 
+//      *
 //      * @param events the array of events to add.
-//      * 
+//      *
 //      * @see [[IEvent]]
 //      */
 //     public addEvents(events: IEvent[]): void {
@@ -173,7 +173,7 @@
 //     /**
 //      * Adds all of the commands and events from specified [[CommandSet command set]]
 //      * into this one.
-//      * 
+//      *
 //      * @param commandSet the CommandSet to add.
 //      */
 //     public addCommandSet(commandSet: CommandSet): void {
@@ -183,9 +183,9 @@
 
 //     /**
 //      * Adds a [[IEventListener listener]] to receive notifications on fired events.
-//      * 
+//      *
 //      * @param listener  the listener to add.
-//      * 
+//      *
 //      * @see [[IEventListener]]
 //      */
 //     public addListener(listener: IEventListener): void {
@@ -195,9 +195,9 @@
 
 //     /**
 //      * Removes previosly added [[IEventListener listener]].
-//      * 
+//      *
 //      * @param listener  the listener to remove.
-//      * 
+//      *
 //      * @see [[IEventListener]]
 //      */
 //     public removeListener(listener: IEventListener): void {
@@ -207,9 +207,9 @@
 
 //     /**
 //      * Adds a [[ICommandInterceptor command interceptor]] to this command set.
-//      * 
+//      *
 //      * @param interceptor     the interceptor to add.
-//      * 
+//      *
 //      * @see [[ICommandInterceptor]]
 //      */
 //     public addInterceptor(interceptor: ICommandInterceptor): void {
@@ -219,13 +219,13 @@
 
 //     /**
 //      * Executes a [[ICommand command]] specificed by its name.
-//      * 
+//      *
 //      * @param correlationId (optional) transaction id to trace execution through call chain.
 //      * @param commandName   the name of that command that is to be executed.
 //      * @param args          the parameters (arguments) to pass to the command for execution.
 //      * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
 //      *                      it will be called with the error (for example: a ValidationException can be thrown).
-//      * 
+//      *
 //      * @see [[ICommand]]
 //      * @see [[Parameters]]
 //      */
@@ -260,13 +260,13 @@
 //      * Validates [[Parameters args]] for command specified by its name using defined schema.
 //      * If validation schema is not defined than the methods returns no errors.
 //      * It returns validation error if the command is not found.
-//      * 
+//      *
 //      * @param commandName   the name of the command for which the 'args' must be validated.
 //      * @param args          the parameters (arguments) to validate.
-//      * @returns             an array of ValidationResults. If no command is found by the given 
-//      *                      name, then the returned array of ValidationResults will contain a 
+//      * @returns             an array of ValidationResults. If no command is found by the given
+//      *                      name, then the returned array of ValidationResults will contain a
 //      *                      single entry, whose type will be ValidationResultType.Error.
-//      * 
+//      *
 //      * @see [[Command]]
 //      * @see [[Parameters]]
 //      * @see [[ValidationResult]]
@@ -277,11 +277,11 @@
 //         if (!cref) {
 //             let result: ValidationResult[] = [];
 //             result.push(new ValidationResult(
-//                 null, 
-//                 ValidationResultType.Error, 
-//                 "CMD_NOT_FOUND", 
-//                 "Requested command does not exist", 
-//                 null, 
+//                 null,
+//                 ValidationResultType.Error,
+//                 "CMD_NOT_FOUND",
+//                 "Requested command does not exist",
+//                 null,
 //                 null
 //             ));
 //             return result;
@@ -290,11 +290,10 @@
 //         return cref.validate(args);
 //     }
 
-    
 //     /**
 //      * Fires event specified by its name and notifies all registered
 //      * [[IEventListener listeners]]
-//      * 
+//      *
 //      * @param correlationId     (optional) transaction id to trace execution through call chain.
 //      * @param eventName         the name of the event that is to be fired.
 //      * @param args              the event arguments (parameters).

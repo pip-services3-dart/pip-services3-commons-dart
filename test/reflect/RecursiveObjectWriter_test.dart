@@ -5,15 +5,14 @@ import '../../lib/src/reflect/RecursiveObjectWriter.dart';
 
 void main() {
   group('RecursiveObjectWriter', () {
-
-    test('Set Property', () {       
-      var obj = { 
-          "value1": 123, 
-          "value2": { 
-              "value21": 111, 
-              "value22": 222 
-          }, 
-          "value3": [ 444, { "value311": 555, "value312": "XXX" } ] 
+    test('Set Property', () {
+      var obj = {
+        "value1": 123,
+        "value2": {"value21": 111, "value22": 222},
+        "value3": [
+          444,
+          {"value311": 555, "value312": "XXX"}
+        ]
       };
 
       //RecursiveObjectWriter.setProperty(obj, "", null);
@@ -22,7 +21,7 @@ void main() {
       RecursiveObjectWriter.setProperty(obj, "value3.1.value312", "CCC");
       RecursiveObjectWriter.setProperty(obj, "value3.3", "DDD");
       RecursiveObjectWriter.setProperty(obj, "value4.1", "EEE");
-      
+
       var values = RecursiveObjectReader.getProperties(obj);
       //assert.equal(8, values.length);
       expect(values["value1"], equals("AAA"));
@@ -36,14 +35,14 @@ void main() {
       expect(values["value4.1"], equals("EEE"));
     });
 
-    test('Set Properties', () {       
-      var obj = { 
-          "value1": 123, 
-          "value2": { 
-              "value21": 111, 
-              "value22": 222 
-          }, 
-          "value3": [ 444, { "value311": 555, "value312": "XXX" } ] 
+    test('Set Properties', () {
+      var obj = {
+        "value1": 123,
+        "value2": {"value21": 111, "value22": 222},
+        "value3": [
+          444,
+          {"value311": 555, "value312": "XXX"}
+        ]
       };
 
       Map<String, dynamic> values = {
@@ -55,7 +54,7 @@ void main() {
         "value4.1": "EEE"
       };
       RecursiveObjectWriter.setProperties(obj, values);
-      
+
       values = RecursiveObjectReader.getProperties(obj);
       //assert.equal(8, values.length);
       expect(values["value1"], equals("AAA"));
@@ -68,6 +67,5 @@ void main() {
       expect(values["value3.3"], equals("DDD"));
       expect(values["value4.1"], equals("EEE"));
     });
-
   });
 }

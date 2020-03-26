@@ -5,8 +5,7 @@ import "./ApplicationException.dart";
  * Access errors caused by missing user identity (authentication error) or incorrect security permissions (authorization error).
  */
 class UnauthorizedException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -15,8 +14,9 @@ class UnauthorizedException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	UnauthorizedException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.Unauthorized, correlation_id, code, message) {
-		this.status = 401;
-	}
+  UnauthorizedException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.Unauthorized, correlation_id, code, message) {
+    this.status = 401;
+  }
 }

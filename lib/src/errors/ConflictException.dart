@@ -6,8 +6,7 @@ import "./ApplicationException.dart";
  * posted by the user and those that are stored on the server.
  */
 class ConflictException extends ApplicationException {
-
-	/**
+  /**
 	 * Creates an error instance and assigns its values.
 	 * 
      * @param correlation_id    (optional) a unique transaction id to trace execution through call chain.
@@ -16,8 +15,9 @@ class ConflictException extends ApplicationException {
 	 * 
 	 * @see [[ErrorCategory]]
 	 */
-	ConflictException([String correlation_id = null, String code = null, String message = null])
-		: super(ErrorCategory.Conflict, correlation_id, code, message) {
-		this.status = 409;
-	}
+  ConflictException(
+      [String correlation_id = null, String code = null, String message = null])
+      : super(ErrorCategory.Conflict, correlation_id, code, message) {
+    this.status = 409;
+  }
 }

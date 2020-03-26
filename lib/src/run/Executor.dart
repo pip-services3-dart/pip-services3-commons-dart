@@ -9,7 +9,7 @@ import './IExecutable.dart';
  * [[IExecutable]]
  */
 class Executor {
-    /**
+  /**
 	 * Executes specific component.
 	 * 
 	 * To be executed components must implement [[IExecutable]] interface.
@@ -23,10 +23,11 @@ class Executor {
 	 * @see [[IExecutable]]
      * @see [[Parameters]]
 	 */
-	static Future<dynamic> executeOne(String correlationId, component, Parameters args) async {
+  static Future<dynamic> executeOne(
+      String correlationId, component, Parameters args) async {
     if (component is IExecutable)
       return await component.execute(correlationId, args);
-	}
+  }
 
   /**
 	 * Executes multiple components.
@@ -43,10 +44,11 @@ class Executor {
 	 * @see [[IExecutable]]
      * @see [[Parameters]]
 	 */
-  static Future<List> execute(String correlationId, List components, Parameters args) async {
-    var results = new List();				
+  static Future<List> execute(
+      String correlationId, List components, Parameters args) async {
+    var results = new List();
 
-		if (components == null) return results;
+    if (components == null) return results;
 
     for (var component in components) {
       var result = await executeOne(correlationId, component, args);
@@ -54,5 +56,5 @@ class Executor {
     }
 
     return results;
-	}
+  }
 }

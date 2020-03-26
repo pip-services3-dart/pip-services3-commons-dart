@@ -14,8 +14,7 @@ import 'DoubleConverter.dart';
  *     var value4 = FloatConverter.toNullableFloat(new Date()); // Result: current milliseconds
  */
 class FloatConverter {
-
-    /**
+  /**
      * Converts value into float or returns null when conversion is not possible.
      * 
      * @param value     the value to convert.
@@ -23,11 +22,11 @@ class FloatConverter {
      * 
      * @see [[DoubleConverter.toNullableDouble]]
      */
-    static double toNullableFloat(value) {
-        return DoubleConverter.toNullableDouble(value);
-    }
+  static double toNullableFloat(value) {
+    return DoubleConverter.toNullableDouble(value);
+  }
 
-    /**
+  /**
      * Converts value into float or returns 0 when conversion is not possible.
      * 
      * @param value     the value to convert.
@@ -36,11 +35,11 @@ class FloatConverter {
      * @see [[DoubleConverter.toDouble]]
      * @see [[DoubleConverter.toDoubleWithDefault]]
      */
-    static double toFloat(value) {
-        return DoubleConverter.toDouble(value);
-    }
+  static double toFloat(value) {
+    return DoubleConverter.toDouble(value);
+  }
 
-    /**
+  /**
      * Converts value into float or returns default when conversion is not possible.
      * 
      * @param value         the value to convert.
@@ -50,8 +49,7 @@ class FloatConverter {
      * @see [[DoubleConverter.toDoubleWithDefault]]
      * @see [[DoubleConverter.toNullableDouble]]
      */
-    static double toFloatWithDefault(value, double defaultValue) {
-        return DoubleConverter.toDoubleWithDefault(value, defaultValue);
-    }
-
+  static double toFloatWithDefault(value, double defaultValue) {
+    return DoubleConverter.toDoubleWithDefault(value, defaultValue);
+  }
 }

@@ -41,7 +41,7 @@ void main() {
       expect(25, paging.skip);
       expect(50, paging.take);
       expect(false, paging.total);
-      
+
       var json = paging.toJson();
       var paging2 = PagingParams.fromJson(json);
 

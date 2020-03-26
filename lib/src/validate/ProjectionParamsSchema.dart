@@ -1,5 +1,5 @@
 /** @module validate */
-import  '../convert/TypeCode.dart';
+import '../convert/TypeCode.dart';
 import './ArraySchema.dart';
 
 /**
@@ -8,11 +8,8 @@ import './ArraySchema.dart';
  * @see [[ProjectionParams]]
  */
 class ProjectionParamsSchema extends ArraySchema {
-
-    /**
+  /**
      * Creates a new instance of validation schema.
      */
-    ProjectionParamsSchema() :  super(TypeCode.String){
-    }
-
+  ProjectionParamsSchema() : super(TypeCode.String) {}
 }

@@ -13,19 +13,19 @@ import './ObjectReader.dart';
  * @see [[ObjectReader]]
  */
 class RecursiveObjectReader {
-
   static bool _performHasProperty(obj, List<String> names, int nameIndex) {
-		if (nameIndex < names.length - 1) {
-			var value  = ObjectReader.getProperty(obj, names[nameIndex]);
-			if (value != null)
-				return RecursiveObjectReader._performHasProperty(value, names, nameIndex + 1);
-			else
-				return false;
-		} else
-			return ObjectReader.hasProperty(obj, names[nameIndex]);
-	}
+    if (nameIndex < names.length - 1) {
+      var value = ObjectReader.getProperty(obj, names[nameIndex]);
+      if (value != null)
+        return RecursiveObjectReader._performHasProperty(
+            value, names, nameIndex + 1);
+      else
+        return false;
+    } else
+      return ObjectReader.hasProperty(obj, names[nameIndex]);
+  }
 
-	/**
+  /**
 	 * Checks recursively if object or its subobjects has a property with specified name.
      * 
      * The object can be a user defined object, map or array.
@@ -36,28 +36,28 @@ class RecursiveObjectReader {
 	 * @param name 	a name of the property to check.
 	 * @returns true if the object has the property and false if it doesn't.
 	 */
-	static bool hasProperty(obj, String name) {
+  static bool hasProperty(obj, String name) {
     if (obj == null || name == null) return false;
 
     var names = name.split(".");
-    if (names == null || names.length == 0) 
-      return false;
+    if (names == null || names.length == 0) return false;
 
     return RecursiveObjectReader._performHasProperty(obj, names, 0);
-	}
+  }
 
   static _performGetProperty(obj, List<String> names, int nameIndex) {
-		if (nameIndex < names.length - 1) {
-			var value = ObjectReader.getProperty(obj, names[nameIndex]);
-			if (value != null)
-				return RecursiveObjectReader._performGetProperty(value, names, nameIndex + 1);
-			else
-				return null;
-		} else
-			return ObjectReader.getProperty(obj, names[nameIndex]);
-	}
+    if (nameIndex < names.length - 1) {
+      var value = ObjectReader.getProperty(obj, names[nameIndex]);
+      if (value != null)
+        return RecursiveObjectReader._performGetProperty(
+            value, names, nameIndex + 1);
+      else
+        return null;
+    } else
+      return ObjectReader.getProperty(obj, names[nameIndex]);
+  }
 
-    /**
+  /**
 	 * Recursively gets value of object or its subobjects property specified by its name.
 	 * 
      * The object can be a user defined object, map or array.
@@ -68,55 +68,54 @@ class RecursiveObjectReader {
 	 * @param name 	a name of the property to get.
 	 * @returns the property value or null if property doesn't exist or introspection failed.
      */
-	static getProperty(obj, String name) {
+  static getProperty(obj, String name) {
     if (obj == null || name == null) return null;
 
     var names = name.split(".");
-    if (names == null || names.length == 0) 
-      return null;
+    if (names == null || names.length == 0) return null;
 
     return RecursiveObjectReader._performGetProperty(obj, names, 0);
-	}
+  }
 
-	static bool _isSimpleValue(value) {
-		var code = TypeConverter.toTypeCode(value);
-		return code != TypeCode.Array && code != TypeCode.Map && code != TypeCode.Object;
-	}
-	
-	static _performGetPropertyNames(obj, String path, List<String> result, List cycleDetect) {
-		var map = ObjectReader.getProperties(obj);
-		
-    if (map.length > 0 && cycleDetect.length < 100) {		
-			cycleDetect.add(obj);
-			try {
-				for (var key in map.keys) {
+  static bool _isSimpleValue(value) {
+    var code = TypeConverter.toTypeCode(value);
+    return code != TypeCode.Array &&
+        code != TypeCode.Map &&
+        code != TypeCode.Object;
+  }
+
+  static _performGetPropertyNames(
+      obj, String path, List<String> result, List cycleDetect) {
+    var map = ObjectReader.getProperties(obj);
+
+    if (map.length > 0 && cycleDetect.length < 100) {
+      cycleDetect.add(obj);
+      try {
+        for (var key in map.keys) {
           var value = map[key];
-					
-					// Prevent cycles 
-					if (cycleDetect.indexOf(value) >= 0)
-						continue;
 
-					var newPath = path != null ? path + "." + key : key;
-					
-					// Add simple values directly
-					if (_isSimpleValue(value))
-						result.add(newPath);
-					// Recursively go to elements
-					else
-						_performGetPropertyNames(value, newPath, result, cycleDetect);				
-				}
-			} finally {
+          // Prevent cycles
+          if (cycleDetect.indexOf(value) >= 0) continue;
+
+          var newPath = path != null ? path + "." + key : key;
+
+          // Add simple values directly
+          if (_isSimpleValue(value))
+            result.add(newPath);
+          // Recursively go to elements
+          else
+            _performGetPropertyNames(value, newPath, result, cycleDetect);
+        }
+      } finally {
         var index = cycleDetect.indexOf(obj);
-        if (index >= 0)
-          cycleDetect.removeAt(index);
-			}
-		} else {
-			if (path != null)
-				result.add(path);
-		}
-	}
+        if (index >= 0) cycleDetect.removeAt(index);
+      }
+    } else {
+      if (path != null) result.add(path);
+    }
+  }
 
-    /**
+  /**
      * Recursively gets names of all properties implemented in specified object and its subobjects.
      * 
      * The object can be a user defined object, map or array.
@@ -126,52 +125,50 @@ class RecursiveObjectReader {
      * @param obj   an objec to introspect.
      * @returns a list with property names.
      */
-	static List<String> getPropertyNames(obj) {
-        var propertyNames = new List<String>();
-		
-        if (obj == null) {
-        	return propertyNames;
-        } else {
-          var cycleDetect = [];
-        	_performGetPropertyNames(obj, null, propertyNames, cycleDetect);
-        	return propertyNames;
-        }
-	}
+  static List<String> getPropertyNames(obj) {
+    var propertyNames = new List<String>();
 
-	static void _performGetProperties(obj, String path, result, List cycleDetect) {
-		var map = ObjectReader.getProperties(obj);
-		
-    if (map.length > 0 && cycleDetect.length < 100) {		
-			cycleDetect.add(obj);
-			try {
-				for (var key in map.keys) {
+    if (obj == null) {
+      return propertyNames;
+    } else {
+      var cycleDetect = [];
+      _performGetPropertyNames(obj, null, propertyNames, cycleDetect);
+      return propertyNames;
+    }
+  }
+
+  static void _performGetProperties(
+      obj, String path, result, List cycleDetect) {
+    var map = ObjectReader.getProperties(obj);
+
+    if (map.length > 0 && cycleDetect.length < 100) {
+      cycleDetect.add(obj);
+      try {
+        for (var key in map.keys) {
           var value = map[key];
-					
-					// Prevent cycles 
-					if (cycleDetect.indexOf(value) >= 0)
-						continue;
 
-					var newPath = path != null ? path + "." + key : key;
-					
-					// Add simple values directly
-					if (_isSimpleValue(value))
+          // Prevent cycles
+          if (cycleDetect.indexOf(value) >= 0) continue;
+
+          var newPath = path != null ? path + "." + key : key;
+
+          // Add simple values directly
+          if (_isSimpleValue(value))
             result[newPath] = value;
-					// Recursively go to elements
-					else
-						_performGetProperties(value, newPath, result, cycleDetect);				
-				}
-			} finally {
+          // Recursively go to elements
+          else
+            _performGetProperties(value, newPath, result, cycleDetect);
+        }
+      } finally {
         var index = cycleDetect.indexOf(obj);
-        if (index >= 0)
-          cycleDetect.removeAt(index);
-			}
-		} else {
-			if (path != null)
-        result[path] = obj;
-		}
-	}
+        if (index >= 0) cycleDetect.removeAt(index);
+      }
+    } else {
+      if (path != null) result[path] = obj;
+    }
+  }
 
-    /**
+  /**
      * Get values of all properties in specified object and its subobjects
 	 * and returns them as a map.
      * 
@@ -182,7 +179,7 @@ class RecursiveObjectReader {
      * @param obj   an object to get properties from.
      * @returns a map, containing the names of the object's properties and their values.
      */
-	static Map<String, dynamic> getProperties(obj) {
+  static Map<String, dynamic> getProperties(obj) {
     var properties = new Map<String, dynamic>();
 
     if (obj != null) {
@@ -191,6 +188,5 @@ class RecursiveObjectReader {
     }
 
     return properties;
-	}
-	
+  }
 }

@@ -24,11 +24,11 @@ import './IReferences.dart';
  *     }
  */
 abstract class IReferenceable {
-	/**
+  /**
 	 * Sets references to dependent components.
 	 * 
 	 * @param references 	references to locate the component dependencies. 
 	 * @see [[IReferences]]
 	 */
-	void setReferences(IReferences references);
+  void setReferences(IReferences references);
 }

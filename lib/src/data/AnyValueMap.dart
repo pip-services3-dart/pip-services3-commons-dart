@@ -13,7 +13,6 @@ import '../reflect/IValueWrapper.dart';
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
-import './StringValueMap.dart';
 import 'dart:collection';
 
 /*
