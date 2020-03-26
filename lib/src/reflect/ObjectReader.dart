@@ -164,7 +164,7 @@ class ObjectReader {
      * @param obj   an object to get properties from.
      * @returns a map, containing the names of the object's properties and their values.
      */
-	static getProperties(obj) {
+	static Map<String, dynamic> getProperties(obj) {
     var map = new Map<String, dynamic>();
       
     if (obj is IValueWrapper)
