@@ -108,7 +108,7 @@ class Parameters extends AnyValueMap {
      * @param key     a key to be checked
      * @returns       true if this map contains the key or false otherwise.
 	 */
-	bool containsKey(String key) {
+	bool contains(String key) {
 		return RecursiveObjectReader.hasProperty(this, key.toString());
 	}
 	
@@ -201,7 +201,7 @@ class Parameters extends AnyValueMap {
 	 * 
 	 * @returns	a JSON representation of this map.
 	 */
-	String toJson() {
+	String toJsonString() {
 		return JsonConverter.toJson(this.innerValue());
 	}
 	
@@ -251,7 +251,7 @@ class Parameters extends AnyValueMap {
 	 * 
 	 * @see [[JsonConverter.toNullableMap]]
 	 */
-	static Parameters fromJson(String json) {
+	static Parameters fromJsonString(String json) {
 		var map = JsonConverter.toNullableMap(json);
 		return new Parameters(map);
 	}

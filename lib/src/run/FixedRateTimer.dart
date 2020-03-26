@@ -1,8 +1,9 @@
+import 'dart:math';
+import 'dart:async';
+
 import './IClosable.dart';
 import './INotifiable.dart';
 import './Parameters.dart';
-import 'dart:math';
-import 'dart:async';
 
 /**
  * Timer that is triggered in equal time intervals.
@@ -191,13 +192,11 @@ class FixedRateTimer implements IClosable {
      */
   stop() {
     if (this._timeout != null) {
-      //clearTimeout(this._timeout);
       this._timeout.cancel();
       this._timeout = null;
     }
 
     if (this._timer != null) {
-      //clearInterval(this._timer);
       this._timer.cancel();
       this._timer = null;
     }
@@ -214,9 +213,9 @@ class FixedRateTimer implements IClosable {
      * 
      * @see [[stop]]
      */
-  close(String correlationId, [callback(dynamic err)]) {
+  Future close(String correlationId) {
     this.stop();
 
-    if (callback != null) callback(null);
+    return new Future.delayed(new Duration());
   }
 }
