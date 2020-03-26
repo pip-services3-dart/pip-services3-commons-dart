@@ -13,6 +13,7 @@ import '../reflect/IValueWrapper.dart';
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueMap.dart';
+import 'dart:collection';
 
 /*
  * Cross-language implementation of dynamic object array what can hold values of any type.
@@ -37,7 +38,8 @@ import './AnyValueMap.dart';
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
  */
-class AnyValueArray implements ICloneable, IValueWrapper {
+class AnyValueArray extends ListBase<dynamic>
+    implements ICloneable, IValueWrapper {
   List _values;
 
   /*
@@ -46,15 +48,28 @@ class AnyValueArray implements ICloneable, IValueWrapper {
    * @param value     (optional) values to initialize this array.
    */
   AnyValueArray([Iterable values = null]) {
-    this._values= new List();
+    this._values = new List();
 
     if (values != null) {
       this._values.addAll(values);
     }
   }
 
+  factory AnyValueArray.fromJson(Map<String, dynamic> json) {
+    return new AnyValueArray(json["values"]);
+  }
+
   innerValue() {
     return this._values;
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{"values": this._values};
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this._values = null;
+    append(json["values"]);
   }
 
   /*
@@ -89,17 +104,21 @@ class AnyValueArray implements ICloneable, IValueWrapper {
   /*
    Retruns length of array
   */
-  int length() {
-    return _values.length;
+  @override
+  void set length(int l) {
+    this._values.length = l;
   }
+
+  @override
+  int get length => _values.length;
   /*
      * Removes an array element specified by its index
      * 
      * @param index     an index of the element to remove.
      */
-  void remove(int index) {
-      this._values.removeAt(index);
-  }
+  //  void removes(int index) {
+  //      this._values.removeAt(index);
+  //  }
 
   /*
      * Appends new elements to this array.
@@ -108,8 +127,7 @@ class AnyValueArray implements ICloneable, IValueWrapper {
      */
   void append(elements) {
     if (elements is Iterable) {
-      for (var item in elements)
-        this._values.add(item);
+      for (var item in elements) this._values.add(item);
     }
   }
 
@@ -130,8 +148,7 @@ class AnyValueArray implements ICloneable, IValueWrapper {
   getAsObject([int index = null]) {
     if (index == null) {
       var result = List();
-      for (var item in this._values)
-        result.add(item);
+      for (var item in this._values) result.add(item);
       return result;
     } else {
       return this._values[index];
@@ -716,8 +733,8 @@ class AnyValueArray implements ICloneable, IValueWrapper {
      * @param removeDuplicates  (optional) true to remove duplicated elements
      * @returns                 a newly created AnyValueArray.
      */
-  static AnyValueArray fromString(
-      String values, String separator, [bool removeDuplicates = false]) {
+  static AnyValueArray fromString(String values, String separator,
+      [bool removeDuplicates = false]) {
     var result = new AnyValueArray();
 
     if (values == null || values.length == 0) return result;
@@ -735,7 +752,7 @@ class AnyValueArray implements ICloneable, IValueWrapper {
     return this._values[index];
   }
 
-  void operator []=(int index, List<dynamic> item) {
+  void operator []=(int index, dynamic item) {
     this._values[index] = item;
   }
 }

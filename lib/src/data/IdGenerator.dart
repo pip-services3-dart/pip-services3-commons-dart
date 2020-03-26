@@ -40,7 +40,7 @@ class IdGenerator {
      */
   static String nextLong() {
     var uuid = Uuid();
-    var id = uuid.v4() ;
-    return id.replaceAll("-","");
+    var id = uuid.v4();
+    return id.replaceAll("-", "");
   }
 }

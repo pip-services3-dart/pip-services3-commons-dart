@@ -14,6 +14,7 @@ import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
 import './StringValueMap.dart';
+import 'dart:collection';
 
 /*
  * Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
@@ -38,7 +39,8 @@ import './StringValueMap.dart';
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
  */
-class AnyValueMap implements ICloneable, IValueWrapper {
+class AnyValueMap extends MapBase<String, dynamic>
+    implements ICloneable, IValueWrapper {
   Map<String, dynamic> _values;
   /*
      * Creates a new instance of the map and assigns its value.
@@ -51,8 +53,21 @@ class AnyValueMap implements ICloneable, IValueWrapper {
     this.append(values);
   }
 
+  factory AnyValueMap.fromJson(Map<String, dynamic> json) {
+    return new AnyValueMap(json);
+  }
+
   innerValue() {
     return this._values;
+  }
+
+  Map<String, dynamic> toJson() {
+    return this._values;
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this._values = null;
+    append(json);
   }
 
   /*
@@ -104,8 +119,9 @@ class AnyValueMap implements ICloneable, IValueWrapper {
      * 
      * @param key     a key of the element to remove.
      */
-  void remove(String key){
-      _values.remove(key);
+  @override
+  void remove(dynamic key) {
+    _values.remove(key);
   }
 
   /*
@@ -116,8 +132,7 @@ class AnyValueMap implements ICloneable, IValueWrapper {
   void append(map) {
     if (map == null) return;
 
-    if (map is IValueWrapper)
-      map = map.innerValue();
+    if (map is IValueWrapper) map = map.innerValue();
 
     if (map is Map) {
       for (var key in map.keys) {
@@ -139,9 +154,9 @@ class AnyValueMap implements ICloneable, IValueWrapper {
      *  
      * @returns the number of elements in this map.
      */
-  int length() {
-    return this._values.length;
-  }
+  // int length() {
+  //   return this._values.length;
+  // }
 
   /*
      * Gets the value stored in map element without any conversions.
@@ -737,11 +752,17 @@ class AnyValueMap implements ICloneable, IValueWrapper {
     return result;
   }
 
-  operator [](String key) {
+  operator [](dynamic key) {
     return this._values[key];
   }
 
-  void operator []=(String key, String value) {
+  void operator []=(String key, dynamic value) {
     this._values[key] = value;
   }
+
+  @override
+  Iterable<String> get keys => this._values.keys;
+
+  @override
+  Iterable<String> get values => this._values.values;
 }

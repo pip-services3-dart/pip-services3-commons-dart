@@ -44,6 +44,7 @@ import './AnyValueMap.dart';
  * @see [[DateTimeConverter]]
  * 
  */
+
 class StringValueMap implements IValueWrapper {
   Map<String, String> _values;
 
@@ -58,12 +59,16 @@ class StringValueMap implements IValueWrapper {
     if (map is IValueWrapper) {
       map = map.innerValue();
     }
-    
+
     if (map is Map) {
       this.append(map);
     } else if (map != null) {
       this.append(MapConverter.toMap(map));
     }
+  }
+
+  factory StringValueMap.fromJson(Map<String, dynamic> json) {
+    return new StringValueMap(json);
   }
 
   innerValue() {
@@ -75,7 +80,7 @@ class StringValueMap implements IValueWrapper {
    * 
    * @returns         the value of the map elements.
    */
-  Map<String, String> getValue(){
+  Map<String, String> getValue() {
     return this._values;
   }
 
@@ -131,14 +136,13 @@ class StringValueMap implements IValueWrapper {
   void append(map) {
     if (map == null) return;
 
-    if (map is IValueWrapper)
-      map = map.innerValue();
+    if (map is IValueWrapper) map = map.innerValue();
 
     if (map is Map) {
       for (var key in map.keys) {
         var value = map[key];
-        this._values[StringConverter.toNullableString(key)]
-          = StringConverter.toNullableString(value);
+        this._values[StringConverter.toNullableString(key)] =
+            StringConverter.toNullableString(value);
       }
     }
   }
@@ -195,8 +199,8 @@ class StringValueMap implements IValueWrapper {
       var values = MapConverter.toMap(key);
       this.append(values);
     } else {
-        this._values[StringConverter.toNullableString(key)]
-          = StringConverter.toNullableString(value);
+      this._values[StringConverter.toNullableString(key)] =
+          StringConverter.toNullableString(value);
     }
   }
 
@@ -793,5 +797,4 @@ class StringValueMap implements IValueWrapper {
   void operator []=(String key, String value) {
     this._values[key] = value;
   }
-
 }

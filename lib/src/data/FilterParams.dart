@@ -1,4 +1,3 @@
-
 import './StringValueMap.dart';
 
 /*
@@ -19,37 +18,38 @@ import './StringValueMap.dart';
  *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 class FilterParams extends StringValueMap {
-
-	/*
+  /*
 	 * Creates a new instance and initalizes it with elements from the specified map.
 	 * 
 	 * @param map 	a map to initialize this instance.
 	 */
-  FilterParams([map = null]) 
-    : super(map);
-	
-	/*
+  FilterParams([map = null]) : super(map);
+
+  factory FilterParams.fromJson(Map<String, dynamic> json) {
+    return new FilterParams(json);
+  }
+  /*
      * Converts specified value into FilterParams.
      * 
      * @param value     value to be converted
      * @returns         a newly created FilterParams.
 	 */
-	static FilterParams fromValue(value)  {
-		return new FilterParams(value);
-	}
-		
-	/*
+  static FilterParams fromValue(value) {
+    return new FilterParams(value);
+  }
+
+  /*
      * Creates a new FilterParams from a list of key-value pairs called tuples.
      * 
      * @param tuples    a list of values where odd elements are keys and the following even elements are values
      * @returns         a newly created FilterParams.
 	 */
-	static FilterParams fromTuples(List tuples) {
-		var map = StringValueMap.fromTuplesArray(tuples);
-		return new FilterParams(map);
-	}
+  static FilterParams fromTuples(List tuples) {
+    var map = StringValueMap.fromTuplesArray(tuples);
+    return new FilterParams(map);
+  }
 
-	/*
+  /*
      * Parses semicolon-separated key-value pairs and returns them as a FilterParams.
      * 
      * @param line      semicolon-separated key-value list to initialize FilterParams.
@@ -57,8 +57,8 @@ class FilterParams extends StringValueMap {
 	 * 
 	 * @see [[StringValueMap.fromString]]
 	 */
-	static FilterParams fromString(String line)  {
-		var map = StringValueMap.fromString(line);
-		return new FilterParams(map);
-	}
+  static FilterParams fromString(String line) {
+    var map = StringValueMap.fromString(line);
+    return new FilterParams(map);
+  }
 }
