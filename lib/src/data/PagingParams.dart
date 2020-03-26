@@ -1,5 +1,6 @@
 import '../convert/IntegerConverter.dart';
 import '../convert/BooleanConverter.dart';
+
 import './AnyValueMap.dart';
 
 /*
@@ -108,7 +109,6 @@ class PagingParams {
      * @returns         a newly created PagingParams.
 	 */
   static PagingParams fromTuples(List<dynamic> tuples) {
-    //...tuples: any[]
     var map = AnyValueMap.fromTuplesArray(tuples);
     return PagingParams.fromMap(map);
   }

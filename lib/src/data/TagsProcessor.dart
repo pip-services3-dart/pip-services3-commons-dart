@@ -22,7 +22,7 @@ class TagsProcessor {
      */
   static String normalizeTag(String tag) {
     return tag != null
-        ? tag.replaceAll(new RegExp(TagsProcessor._NORMALIZE_REGEX), ' ').trim()
+        ? tag.replaceAll(new RegExp(_NORMALIZE_REGEX), ' ').trim()
         : null;
   }
 
@@ -37,7 +37,7 @@ class TagsProcessor {
   static String compressTag(String tag) {
     return tag != null
         ? tag
-            .replaceAll(new RegExp(TagsProcessor._COMPRESS_REGEX), '')
+            .replaceAll(new RegExp(_COMPRESS_REGEX), '')
             .toLowerCase()
         : null;
   }
@@ -52,7 +52,7 @@ class TagsProcessor {
   static bool equalTags(String tag1, String tag2) {
     if (tag1 == null && tag2 == null) return true;
     if (tag1 == null || tag2 == null) return false;
-    return TagsProcessor.compressTag(tag1) == TagsProcessor.compressTag(tag2);
+    return compressTag(tag1) == compressTag(tag2);
   }
 
   /*
@@ -62,7 +62,7 @@ class TagsProcessor {
      * @return      a list with normalized tags.
      */
   static List<String> normalizeTags(List<String> tags) {
-    return tags.map((String tag) => TagsProcessor.normalizeTag(tag)).toList();
+    return tags.map((String tag) => normalizeTag(tag)).toList();
   }
 
   /*
@@ -72,11 +72,8 @@ class TagsProcessor {
      * @return      a list with normalized tags.
      */
   static List<String> normalizeTagList(String tagList) {
-    var tags = tagList.split(new RegExp(TagsProcessor._SPLIT_REGEX));
-    // Remove separators (JS only)
-    // for (var index = 0; index < tags.length - 1; index++)
-    //    tags.splice(index + 1, 1);
-    return TagsProcessor.normalizeTags(tags);
+    var tags = tagList.split(new RegExp(_SPLIT_REGEX));
+    return normalizeTags(tags);
   }
 
   /*
@@ -86,7 +83,7 @@ class TagsProcessor {
      * @return      a list with normalized tags.
      */
   static List<String> compressTags(List<String> tags) {
-    return tags.map((String tag) => TagsProcessor.compressTag(tag)).toList();
+    return tags.map((String tag) => compressTag(tag)).toList();
   }
 
   /*
@@ -96,11 +93,8 @@ class TagsProcessor {
      * @return      a list with compressed tags.
      */
   static List<String> compressTagList(String tagList) {
-    var tags = tagList.split(new RegExp(TagsProcessor._SPLIT_REGEX));
-    // // Remove separators (JS only)
-    // for (let index = 0; index < tags.length - 1; index++)
-    //    tags.splice(index + 1, 1);
-    return TagsProcessor.compressTags(tags);
+    var tags = tagList.split(new RegExp(_SPLIT_REGEX));
+    return compressTags(tags);
   }
 
   /*
@@ -113,27 +107,26 @@ class TagsProcessor {
     var tags = new List<String>();
 
     if (text != '') {
-      //var hashTags = text.match(TagsProcessor.HASHTAG_REGEX);
-      var regexp = new RegExp(TagsProcessor._HASHTAG_REGEX);
+      //var hashTags = text.match(HASHTAG_REGEX);
+      var regexp = new RegExp(_HASHTAG_REGEX);
       var hashTags = regexp.allMatches(text);
       hashTags.forEach((RegExpMatch match) {
         tags.add(text.substring(match.start, match.end));
       });
-      tags = TagsProcessor.compressTags(tags);
+      tags = compressTags(tags);
     }
 
     return tags.toSet().toList(); // uniq
   }
 
-  static String _extractString(dynamic field) {
+  static String _extractString(field) {
     if (field == null) return '';
     if (field is String) return field;
-    if (!(field is Object)) return '';
 
     var result = '';
     var keys = Map.from(field);
     for (var prop in keys.keys) {
-      result += ' ' + TagsProcessor._extractString(field[prop]);
+      result += ' ' + _extractString(field[prop]);
     }
     return result;
   }
@@ -147,21 +140,20 @@ class TagsProcessor {
      */
   static List<String> extractHashTagsFromValue(
       dynamic obj, List<String> searchFields) {
-    //...searchFields: string[]
     // Todo: Use recursive
-    var tags = TagsProcessor.compressTags(obj['tags']);
+    var tags = compressTags(obj['tags']);
 
     searchFields.forEach((String field) {
-      var text = TagsProcessor._extractString(obj[field]);
+      var text = _extractString(obj[field]);
 
       if (text != '') {
-        var regexp = new RegExp(TagsProcessor._HASHTAG_REGEX);
+        var regexp = new RegExp(_HASHTAG_REGEX);
         var matches = regexp.allMatches(text);
         var hashTags = new List<String>();
         matches.forEach((RegExpMatch match) {
           hashTags.add(text.substring(match.start, match.end));
         });
-        tags.addAll(TagsProcessor.compressTags(hashTags));
+        tags.addAll(compressTags(hashTags));
       }
     });
 

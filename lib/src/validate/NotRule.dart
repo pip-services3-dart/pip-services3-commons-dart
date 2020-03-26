@@ -1,4 +1,3 @@
-/** @module validate */
 import './IValidationRule.dart';
 import './Schema.dart';
 import './ValidationResult.dart';

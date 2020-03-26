@@ -10,6 +10,7 @@ import '../convert/DateTimeConverter.dart';
 import '../convert/DurationConverter.dart';
 import '../convert/MapConverter.dart';
 import '../reflect/IValueWrapper.dart';
+
 import './AnyValue.dart';
 import './AnyValueArray.dart';
 import './AnyValueMap.dart';
@@ -374,45 +375,45 @@ class StringValueMap implements IValueWrapper {
   }
 
   /* 
-     * Converts map element into a float or returns 0 if conversion is not possible.
-     * 
-     * @param key       a key of element to get.
-     * @returns float value of the element or 0 if conversion is not supported. 
-     * 
-     * @see [[getAsFloatWithDefault]]
-     */
+    * Converts map element into a float or returns 0 if conversion is not possible.
+    * 
+    * @param key       a key of element to get.
+    * @returns float value of the element or 0 if conversion is not supported. 
+    * 
+    * @see [[getAsFloatWithDefault]]
+    */
   double getAsFloat(String key) {
     return this.getAsFloatWithDefault(key, 0);
   }
 
-  /*
-     * Converts map element into a flot or returns default value if conversion is not possible.
-     * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns flot value of the element or default value if conversion is not supported. 
-     * 
-     * @see [[FloatConverter.toFloatWithDefault]]
-     */
+  /**
+    * Converts map element into a flot or returns default value if conversion is not possible.
+    * 
+    * @param key           a key of element to get.
+    * @param defaultValue  the default value
+    * @returns flot value of the element or default value if conversion is not supported. 
+    * 
+    * @see [[FloatConverter.toFloatWithDefault]]
+    */
   double getAsFloatWithDefault(String key, double defaultValue) {
     var value = this.get(key);
     return FloatConverter.toFloatWithDefault(value, defaultValue);
   }
 
-  /* 
-     * Converts map element into a double or returns null if conversion is not possible.
-     * 
-     * @param key       a key of element to get.
-     * @returns double value of the element or null if conversion is not supported. 
-     * 
-     * @see [[DoubleConverter.toNullableDouble]]
-     */
+  /** 
+    * Converts map element into a double or returns null if conversion is not possible.
+    * 
+    * @param key       a key of element to get.
+    * @returns double value of the element or null if conversion is not supported. 
+    * 
+    * @see [[DoubleConverter.toNullableDouble]]
+    */
   double getAsNullableDouble(String key) {
     var value = this.get(key);
     return DoubleConverter.toNullableDouble(value);
   }
 
-  /* 
+  /** 
      * Converts map element into a double or returns 0 if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -713,7 +714,6 @@ class StringValueMap implements IValueWrapper {
      * @see [[fromTuplesArray]]
      */
   static StringValueMap fromTuples(List tuples) {
-    //...tuples: any[]
     return StringValueMap.fromTuplesArray(tuples);
   }
 
@@ -750,7 +750,6 @@ class StringValueMap implements IValueWrapper {
     var result = new StringValueMap();
     if (line == null || line.length == 0) return result;
 
-    // Todo: User tokenizer / decoder
     var tokens = line.split(";");
 
     for (var index = 0; index < tokens.length; index++) {

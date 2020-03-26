@@ -1,10 +1,10 @@
+import '../reflect/ObjectReader.dart';
 import './IValidationRule.dart';
 import './ValidationResult.dart';
 import './ValidationResultType.dart';
+import './ObjectComparator.dart';
 import './Schema.dart';
 import './PropertySchema.dart';
-import './ObjectComparator.dart';
-import '../reflect/ObjectReader.dart';
 
 /**
  * Schema to validate user defined objects.

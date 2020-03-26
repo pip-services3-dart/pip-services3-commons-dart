@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import '../convert/TypeCode.dart';
 import '../convert/TypeConverter.dart';
 import '../convert/StringConverter.dart';
@@ -10,10 +12,10 @@ import '../convert/DateTimeConverter.dart';
 import '../convert/DurationConverter.dart';
 import '../convert/ArrayConverter.dart';
 import '../reflect/IValueWrapper.dart';
+
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueMap.dart';
-import 'dart:collection';
 
 /*
  * Cross-language implementation of dynamic object array what can hold values of any type.
@@ -39,7 +41,7 @@ import 'dart:collection';
  * @see [[ICloneable]]
  */
 class AnyValueArray extends ListBase<dynamic>
-    implements ICloneable, IValueWrapper {
+  implements ICloneable, IValueWrapper {
   List _values;
 
   /*

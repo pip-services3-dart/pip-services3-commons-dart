@@ -33,15 +33,16 @@ class DataPage<T> {
   int total;
 
   /**
-     * Creates a new instance of data page and assigns its values.
-     * 
-     * @param data      a list of items from the retrieved page.
-     * @param total     (optional) .
-     */
+   * Creates a new instance of data page and assigns its values.
+   * 
+   * @param data      a list of items from the retrieved page.
+   * @param total     (optional) .
+   */
   DataPage(List<T> data, int total) {
     this.total = total;
     this.data = data;
   }
+  
   factory DataPage.fromJson(Map<String, dynamic> json, Function fromJson) {
     //final items = json['data'].cast<Map<String, dynamic>>();
     final items = json['data'];

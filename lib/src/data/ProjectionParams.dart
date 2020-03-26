@@ -175,7 +175,6 @@ class ProjectionParams extends ListBase<String> {
      * @returns         a newly created ProjectionParams.
      */
   static fromString(List<dynamic> values) {
-    //...values: string[]
     var result = new ProjectionParams();
 
     for (var value in values) {

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import '../convert/TypeCode.dart';
 import '../convert/TypeConverter.dart';
 import '../convert/StringConverter.dart';
@@ -10,10 +12,10 @@ import '../convert/DateTimeConverter.dart';
 import '../convert/DurationConverter.dart';
 import '../convert/MapConverter.dart';
 import '../reflect/IValueWrapper.dart';
+
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
-import 'dart:collection';
 
 /*
  * Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.

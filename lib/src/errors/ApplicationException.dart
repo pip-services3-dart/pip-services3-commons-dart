@@ -1,5 +1,5 @@
-import "./ErrorCategory.dart";
-import "../data/StringValueMap.dart";
+import '../data/StringValueMap.dart';
+import './ErrorCategory.dart';
 
 /**
  * Defines a base class to defive various application exceptions.

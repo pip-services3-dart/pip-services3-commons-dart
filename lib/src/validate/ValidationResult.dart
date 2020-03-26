@@ -1,4 +1,3 @@
-/** @module validate */
 import './ValidationResultType.dart';
 
 /**

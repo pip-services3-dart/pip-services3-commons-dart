@@ -1,3 +1,4 @@
+import '../reflect/IValueWrapper.dart';
 import '../convert/StringConverter.dart';
 
 /*
@@ -16,8 +17,9 @@ import '../convert/StringConverter.dart';
  *     var value1 = values.get('ru'); // Result: "Привет мир!"
  *     var value2 = values.get('pt'); // Result: "Hello World!"
  */
-class MultiString {
-  Map<String, String> _values = new Map<String, String>();
+class MultiString implements IValueWrapper {
+  var _values = new Map<String, String>();
+
   /*
      * Creates a new MultiString object and initializes it with values.
      * 
@@ -25,6 +27,10 @@ class MultiString {
      */
   MultiString([map = null]) {
     if (map != null) this.append(map);
+  }
+
+  innerValue() {
+    return _values;
   }
 
   factory MultiString.fromJson(Map<String, dynamic> json) {
@@ -76,9 +82,7 @@ class MultiString {
     var languages = new List<String>();
 
     for (var key in this._values.keys) {
-      //if (this.hasOwnProperty(key)) {
       languages.add(key);
-      //}
     }
 
     return languages;
@@ -90,7 +94,7 @@ class MultiString {
      * @param language  a language two-symbol code.
      * @param value     a new translation for the specified language.
      */
-  dynamic put(String language, dynamic value) {
+  put(String language, value) {
     this._values[language] = StringConverter.toNullableString(value);
   }
 
@@ -108,13 +112,17 @@ class MultiString {
      * 
      * @param map   the map with language-translation pairs.
      */
-  void append(dynamic map) {
+  void append(map) {
     if (map == null) return;
 
-    for (var key in map) {
-      var value = map[key];
-      if (map.hasOwnProperty(key))
+    if (map is IValueWrapper)
+      map = map.innerValue();
+
+    if (map is Map) {
+      for (var key in map.keys) {
+        var value = map[key];
         this._values[key] = StringConverter.toNullableString(value);
+      }
     }
   }
 
@@ -122,11 +130,7 @@ class MultiString {
      * Clears all translations from this MultiString object.
      */
   void clear() {
-    for (var key in this._values.keys) {
-      var value = this._values[key];
-      //if (this.hasOwnProperty(key))
-      this._values.remove(key);
-    }
+    this._values.clear();
   }
 
   /* 
@@ -159,7 +163,6 @@ class MultiString {
      * @see [[fromTuplesArray]]
      */
   static MultiString fromTuples(List<dynamic> tuples) {
-    //...tuples: any[]
     return MultiString.fromTuplesArray(tuples);
   }
 

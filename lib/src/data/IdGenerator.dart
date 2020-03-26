@@ -1,6 +1,6 @@
-import 'package:uuid/uuid.dart';
 import 'dart:core';
 import 'dart:math';
+import 'package:uuid/uuid.dart';
 
 /**
  * Helper class to generate unique object IDs.
@@ -16,10 +16,6 @@ import 'dart:math';
  *     IdGenerator.nextShort();     // Possible result: "23495247"
  * 
  */
-
-// Maps for number <-> hex string conversion
-/** @hidden */
-
 class IdGenerator {
   /**
      * Generates a random 9-digit random ID (code).

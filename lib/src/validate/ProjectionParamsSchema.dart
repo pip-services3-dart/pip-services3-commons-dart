@@ -1,4 +1,3 @@
-/** @module validate */
 import '../convert/TypeCode.dart';
 import './ArraySchema.dart';
 

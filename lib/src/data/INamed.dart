@@ -4,14 +4,14 @@
  * ### Example ###
  * 
  *     class MyData implements IStringIdentifiable, INamed {
- *         id: string;
- *         name: string;
- *         field1: string;
- *         field2: number;
+ *         String id;
+ *         String name;
+ *         String field1;
+ *         String field2;
  *         ...
  *     }
  */
 abstract class INamed {
   /** The object's humand-readable name. */
-  String get name;
+  String name;
 }

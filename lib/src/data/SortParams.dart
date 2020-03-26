@@ -16,14 +16,14 @@ import 'dart:collection';
  */
 class SortParams extends ListBase<SortField> {
   List<SortField> _values;
+
   /**
 	 * Creates a new instance and initializes it with specified sort fields.
 	 * 
-     * @param fields    a list of fields to sort by.
-     */
-  SortParams(List<SortField> fields) : this._values = new List<SortField>() {
-    //...fields: SortField[]
-
+   * @param fields    a list of fields to sort by.
+   */
+  SortParams(List<SortField> fields)
+    : this._values = new List<SortField>() {
     if (fields != null) {
       for (var index = 0; index < fields.length; index++)
         this.add(fields[index]);

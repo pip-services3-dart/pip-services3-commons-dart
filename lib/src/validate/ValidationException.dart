@@ -1,4 +1,3 @@
-/** @module validate */
 import './ValidationResult.dart';
 import './ValidationResultType.dart';
 import '../errors/BadRequestException.dart';
