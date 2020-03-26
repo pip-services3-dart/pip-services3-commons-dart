@@ -1,5 +1,4 @@
-
-import  '../convert/StringConverter.dart';
+import '../convert/StringConverter.dart';
 
 /*
  * An object that contains string translations for multiple languages.
@@ -19,17 +18,29 @@ import  '../convert/StringConverter.dart';
  */
 class MultiString {
   Map<String, String> _values = new Map<String, String>();
-    /*
+  /*
      * Creates a new MultiString object and initializes it with values.
      * 
      * @param map    a map with language-text pairs.
      */
-    MultiString([map = null]) {
-        if (map != null)
-    	    this.append(map);
-    }
+  MultiString([map = null]) {
+    if (map != null) this.append(map);
+  }
 
-    /*
+  factory MultiString.fromJson(Map<String, dynamic> json) {
+    return new MultiString(json);
+  }
+
+  Map<String, dynamic> toJson() {
+    return this._values;
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this._values = null;
+    append(json);
+  }
+
+  /*
      * Gets a string translation by specified language.
      * When language is not found it defaults to English ('en').
      * When English is not found it takes the first value.
@@ -37,98 +48,97 @@ class MultiString {
      * @param language  a language two-symbol code.
      * @returns         a translation for the specified language or default translation.
      */
-    String get(String language) {
-        // Get specified language
-        var value = this._values[language];
+  String get(String language) {
+    // Get specified language
+    var value = this._values[language];
 
-        // Default to english
-        if (value == null)
-            value = this._values['en'];
-        
-        // Default to the first property
-        if (value == null) {
-            for (var language in this._values.keys) {
-                //if (this.hasOwnProperty(language))
-                value = this._values[language];
-                break;
-            }
-        }
+    // Default to english
+    if (value == null) value = this._values['en'];
 
-        return value;
+    // Default to the first property
+    if (value == null) {
+      for (var language in this._values.keys) {
+        //if (this.hasOwnProperty(language))
+        value = this._values[language];
+        break;
+      }
     }
 
-    /* 
+    return value;
+  }
+
+  /* 
      * Gets all languages stored in this MultiString object,
      * 
      * @returns a list with language codes. 
      */
-	List<String> getLanguages() {
-        var languages = new List<String>();
-		
-		for (var key in this._values.keys) {
-            //if (this.hasOwnProperty(key)) {
-                languages.add(key);
-            //}
-        }
+  List<String> getLanguages() {
+    var languages = new List<String>();
 
-        return languages;
-    }            
-    
-    /*
+    for (var key in this._values.keys) {
+      //if (this.hasOwnProperty(key)) {
+      languages.add(key);
+      //}
+    }
+
+    return languages;
+  }
+
+  /*
      * Puts a new translation for the specified language.
      * 
      * @param language  a language two-symbol code.
      * @param value     a new translation for the specified language.
      */
-	dynamic put(String language, dynamic value) {
-        this._values[language] = StringConverter.toNullableString(value);
-    }
+  dynamic put(String language, dynamic value) {
+    this._values[language] = StringConverter.toNullableString(value);
+  }
 
-    /*
+  /*
      * Removes translation for the specified language.
      * 
      * @param language  a language two-symbol code.
      */
-    void remove(String language) {
-        this._values.remove(language);
-    }
-    
-    /*
+  void remove(String language) {
+    this._values.remove(language);
+  }
+
+  /*
      * Appends a map with language-translation pairs.
      * 
      * @param map   the map with language-translation pairs.
      */
-    void append(dynamic map) {
-    	if (map == null) return;
-    	
-		for (var key in map) {
-            var value = map[key];
-            if (map.hasOwnProperty(key))
-                this._values[key] = StringConverter.toNullableString(value);
-		}
-    }
+  void append(dynamic map) {
+    if (map == null) return;
 
-    /*
+    for (var key in map) {
+      var value = map[key];
+      if (map.hasOwnProperty(key))
+        this._values[key] = StringConverter.toNullableString(value);
+    }
+  }
+
+  /*
      * Clears all translations from this MultiString object.
      */
-    void clear() {
-    	for (var key in this._values.keys) {
-            var value = this._values[key];
-            //if (this.hasOwnProperty(key))
-    		    this._values.remove(key);
-    	}
+  void clear() {
+    for (var key in this._values.keys) {
+      var value = this._values[key];
+      //if (this.hasOwnProperty(key))
+      this._values.remove(key);
     }
+  }
 
-    /* 
+  /* 
      * Returns the number of translations stored in this MultiString object.
      *  
      * @returns the number of translations.
      */
-    int length() {  
-        return this._values.length;
-    } 
-        
-    /*
+  int length() {
+    return this._values.length;
+  }
+
+  /*
      * Creates a new MultiString object from a value that contains language-translation pairs.
      * 
      * @param value     the value to initialize MultiString.
@@ -136,11 +146,11 @@ class MultiString {
      * 
      * @see [[StringValueMap]]
      */
-    static MultiString fromValue(dynamic value) {
-        return new MultiString(value);
-    }
+  static MultiString fromValue(dynamic value) {
+    return new MultiString(value);
+  }
 
-    /*
+  /*
      * Creates a new MultiString object from language-translation pairs (tuples).
      * 
      * @param tuples    an array that contains language-translation tuples.
@@ -148,30 +158,30 @@ class MultiString {
      * 
      * @see [[fromTuplesArray]]
      */
-    static MultiString fromTuples(List<dynamic> tuples)  { //...tuples: any[]
-        return MultiString.fromTuplesArray(tuples);
-    }
-    
-    /*
+  static MultiString fromTuples(List<dynamic> tuples) {
+    //...tuples: any[]
+    return MultiString.fromTuplesArray(tuples);
+  }
+
+  /*
      * Creates a new MultiString object from language-translation pairs (tuples) specified as array.
      * 
      * @param tuples    an array that contains language-translation tuples.
      * @returns         a MultiString Object.
      */
-    static MultiString fromTuplesArray(List<dynamic> tuples) {
-    	var result = new MultiString();
-    	if (tuples == null || tuples.length == 0)
-    		return result;
-    	
-        for (var index = 0; index < tuples.length; index += 2) {
-            if (index + 1 >= tuples.length) break;
+  static MultiString fromTuplesArray(List<dynamic> tuples) {
+    var result = new MultiString();
+    if (tuples == null || tuples.length == 0) return result;
 
-            var name = StringConverter.toString2(tuples[index]);
-            var value = StringConverter.toNullableString(tuples[index + 1]);
+    for (var index = 0; index < tuples.length; index += 2) {
+      if (index + 1 >= tuples.length) break;
 
-            result._values[name] = value;
-        }
-        
-    	return result;
-    }    
+      var name = StringConverter.toString2(tuples[index]);
+      var value = StringConverter.toNullableString(tuples[index + 1]);
+
+      result._values[name] = value;
+    }
+
+    return result;
+  }
 }

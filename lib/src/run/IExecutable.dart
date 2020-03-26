@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import 'dart:async';
 
 import './Parameters.dart';
 
+=======
+/** @module run */
+import './Parameters.dart';
+
+>>>>>>> 6bfeb7c92f5e99eeea08c8f0dc4514882833fedb
 /**
  * Interface for components that can be called to execute work.
  * 
@@ -35,5 +41,9 @@ abstract class IExecutable {
 	 * @param args 				execution arguments.
      * @param callback 			callback function that receives execution result or error.
 	 */
+<<<<<<< HEAD
 	Future<dynamic> execute(String correlationId, Parameters args);
+=======
+	void execute(String correlationId, Parameters args, callback (dynamic err , dynamic result));
+>>>>>>> 6bfeb7c92f5e99eeea08c8f0dc4514882833fedb
 }

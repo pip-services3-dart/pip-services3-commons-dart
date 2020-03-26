@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'dart:async';
+=======
+>>>>>>> 6bfeb7c92f5e99eeea08c8f0dc4514882833fedb
 
 /**
  * Interface for components that require explicit closure.
@@ -33,5 +36,9 @@ abstract class IClosable {
 	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
      * @param callback 			callback function that receives error or null no errors occured.
 	 */
+<<<<<<< HEAD
 	Future close(String correlationId);
+=======
+	void close(String correlationId, [callback (dynamic err)]);
+>>>>>>> 6bfeb7c92f5e99eeea08c8f0dc4514882833fedb
 }

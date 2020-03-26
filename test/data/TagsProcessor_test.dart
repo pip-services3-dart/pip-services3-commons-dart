@@ -52,7 +52,7 @@ group('TagsProcessor', () {
             ['name', 'description']
         );
 
-        //expect(sameMembers(['tag1','tag2','tag3','tag4','tag5'], tags));
+        expect(['tag1','tag2','tag3','tag4','tag5'], unorderedEquals(tags));
     });
 
     test('Extract Hash Tags from Object', ()  {
@@ -71,7 +71,7 @@ group('TagsProcessor', () {
             ['name', 'description']
         );
 
-       // expect(sameMembers(['tag1','tag2','tag3','tag4','tag5'], tags));
+       expect(['tag1','tag2','tag3','tag4','tag5'], unorderedEquals(tags));
     });
     
 });

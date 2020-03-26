@@ -6,8 +6,12 @@
 class TagsProcessor {
   static final _NORMALIZE_REGEX = r"(_|#)+"; //"/(_|#)+/g"
   static final _COMPRESS_REGEX = r"( |_|#)+"; //"/( |_|#)+/g"
-  static final _SPLIT_REGEX = r"(,|;)+";  ///(,|;)+/
-  static final _HASHTAG_REGEX = r"#\w+";   ///#\w+/g
+  static final _SPLIT_REGEX = r"(,|;)+";
+
+  ///(,|;)+/
+  static final _HASHTAG_REGEX = r"#\w+";
+
+  ///#\w+/g
 
   /*
      * Normalizes a tag by replacing special symbols like '_' and '#' with spaces.
@@ -112,7 +116,6 @@ class TagsProcessor {
       //var hashTags = text.match(TagsProcessor.HASHTAG_REGEX);
       var regexp = new RegExp(TagsProcessor._HASHTAG_REGEX);
       var hashTags = regexp.allMatches(text);
-      var tags = new List<String>();
       hashTags.forEach((RegExpMatch match) {
         tags.add(text.substring(match.start, match.end));
       });
@@ -128,7 +131,8 @@ class TagsProcessor {
     if (!(field is Object)) return '';
 
     var result = '';
-    for (var prop in field) {
+    var keys = Map.from(field);
+    for (var prop in keys.keys) {
       result += ' ' + TagsProcessor._extractString(field[prop]);
     }
     return result;
@@ -145,7 +149,7 @@ class TagsProcessor {
       dynamic obj, List<String> searchFields) {
     //...searchFields: string[]
     // Todo: Use recursive
-    var tags = TagsProcessor.compressTags(obj.tags);
+    var tags = TagsProcessor.compressTags(obj['tags']);
 
     searchFields.forEach((String field) {
       var text = TagsProcessor._extractString(obj[field]);

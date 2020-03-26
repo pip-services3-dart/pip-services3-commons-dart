@@ -27,6 +27,6 @@
  *     }
  */
 abstract class IVersioned {
-	/** The object's version. */
-	String version;
+  /** The object's version. */
+  String version;
 }

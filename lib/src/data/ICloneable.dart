@@ -17,10 +17,10 @@
  *     }
  */
 abstract class ICloneable {
-    /** 
+  /** 
      * Creates a binary clone of this object.
      * 
      * @returns a clone of this object.
      */
-	clone();
+  clone();
 }

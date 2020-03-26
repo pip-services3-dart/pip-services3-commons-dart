@@ -28,11 +28,24 @@ class ProjectionParams extends ListBase<String> {
      * 
      * @param value     (optional) values to initialize this object.
      */
-  ProjectionParams([List<dynamic> values = null]): this._values = new List<String>() {
-
+  ProjectionParams([List<dynamic> values = null])
+      : this._values = new List<String>() {
     if (values != null) {
       for (var value in values) this._values.add("" + value);
     }
+  }
+
+  factory ProjectionParams.fromJson(Map<String, dynamic> json) {
+    return new ProjectionParams(json["values"]);
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{"values": this._values};
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this._values = null;
+    addAll(json["values"]);
   }
 
   /*

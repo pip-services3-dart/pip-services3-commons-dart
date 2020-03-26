@@ -20,6 +20,6 @@ import "./IIdentifiable.dart";
  *     }
  */
 abstract class IStringIdentifiable implements IIdentifiable<String> {
-	/** The object's unique string id. */
-	//String id;
+  /** The object's unique string id. */
+  //String id;
 }

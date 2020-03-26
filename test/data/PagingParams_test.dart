@@ -35,5 +35,19 @@ void main() {
       expect(10, paging.getSkip(10));
       expect(10, paging.getTake(10));
     });
+
+    test('JSON convert', () {
+      var paging = new PagingParams(25, 50, false);
+      expect(25, paging.skip);
+      expect(50, paging.take);
+      expect(false, paging.total);
+      
+      var json = paging.toJson();
+      var paging2 = PagingParams.fromJson(json);
+
+      expect(25, paging2.skip);
+      expect(50, paging2.take);
+      expect(false, paging2.total);
+    });
   });
 }

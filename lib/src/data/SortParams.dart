@@ -23,11 +23,24 @@ class SortParams extends ListBase<SortField> {
      */
   SortParams(List<SortField> fields) : this._values = new List<SortField>() {
     //...fields: SortField[]
-  
+
     if (fields != null) {
       for (var index = 0; index < fields.length; index++)
         this.add(fields[index]);
     }
+  }
+
+  factory SortParams.fromJson(Map<String, dynamic> json) {
+    return new SortParams(json["values"]);
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{"values": this._values};
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    this._values = null;
+    addAll(json["values"]);
   }
 
   // Todo: add fromTuples factory method.
