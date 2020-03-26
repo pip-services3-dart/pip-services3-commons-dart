@@ -1,22 +1,21 @@
-// /** @module validate */
-// import { TypeCode } from '../convert/TypeCode';
-// import { ObjectSchema } from './ObjectSchema';
+/** @module validate */
+import '../convert/TypeCode.dart';
+import './ObjectSchema.dart';
 
-// /**
-//  * Schema to validate [[PagingParams]].
-//  * 
-//  * @see [[PagingParams]]
-//  */
-// export class PagingParamsSchema extends ObjectSchema {
+/**
+ * Schema to validate [[PagingParams]].
+ * 
+ * @see [[PagingParams]]
+ */
+class PagingParamsSchema extends ObjectSchema {
 
-//     /**
-//      * Creates a new instance of validation schema.
-//      */
-//     public constructor() {
-//         super();
-//         this.withOptionalProperty("skip", TypeCode.Long);
-//         this.withOptionalProperty("take", TypeCode.Long);
-//         this.withOptionalProperty("total", TypeCode.Boolean);
-//     }
+    /**
+     * Creates a new instance of validation schema.
+     */
+    PagingParamsSchema(): super() {
+        this.withOptionalProperty("skip", TypeCode.Long);
+        this.withOptionalProperty("take", TypeCode.Long);
+        this.withOptionalProperty("total", TypeCode.Boolean);
+    }
 
-// }
+}

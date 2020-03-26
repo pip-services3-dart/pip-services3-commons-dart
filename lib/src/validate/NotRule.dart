@@ -1,66 +1,66 @@
-// /** @module validate */
-// import { IValidationRule } from './IValidationRule';
-// import { Schema } from './Schema';
-// import { ValidationResult } from './ValidationResult';
-// import { ValidationResultType } from './ValidationResultType';
+/** @module validate */
+import './IValidationRule.dart';
+import './Schema.dart';
+import './ValidationResult.dart';
+import './ValidationResultType.dart';
 
-// /**
-//  * Validation rule negate another rule.
-//  * When embedded rule returns no errors, than this rule return an error.
-//  * When embedded rule return errors, than the rule returns no errors.
-//  * 
-//  * @see [[IValidationRule]]
-//  * 
-//  * ### Example ###
-//  * 
-//  *     let schema = new Schema()
-//  *         .withRule(new NotRule(
-//  *             new ValueComparisonRule("EQ", 1)
-//  *         ));
-//  *     
-//  *     schema.validate(1);          // Result: error
-//  *     schema.validate(5);          // Result: no error
-//  */
-// export class NotRule implements IValidationRule {
-//     private readonly _rule: IValidationRule;
+/**
+ * Validation rule negate another rule.
+ * When embedded rule returns no errors, than this rule return an error.
+ * When embedded rule return errors, than the rule returns no errors.
+ * 
+ * @see [[IValidationRule]]
+ * 
+ * ### Example ###
+ * 
+ *     var schema = new Schema()
+ *         .withRule(new NotRule(
+ *             new ValueComparisonRule("EQ", 1)
+ *         ));
+ *     
+ *     schema.validate(1);          // Result: error
+ *     schema.validate(5);          // Result: no error
+ */
+class NotRule implements IValidationRule {
+    final IValidationRule _rule;
 
-//     /**
-//      * Creates a new validation rule and sets its values
-//      * 
-//      * @param rule     a rule to be negated.
-//      */
-//     public constructor(rule: IValidationRule) {
-//         this._rule = rule;
-//     }
+    /**
+     * Creates a new validation rule and sets its values
+     * 
+     * @param rule     a rule to be negated.
+     */
+    NotRule(IValidationRule rule):this._rule = rule {
+        
+    }
 
-//     /**
-//      * Validates a given value against this rule.
-//      * 
-//      * @param path      a dot notation path to the value.
-//      * @param schema    a schema this rule is called from
-//      * @param value     a value to be validated.
-//      * @param results   a list with validation results to add new results.
-//      */
-//     public validate(path: string, schema: Schema, value: any, results: ValidationResult[]): void {
-//         if (!this._rule) return;
+    /**
+     * Validates a given value against this rule.
+     * 
+     * @param path      a dot notation path to the value.
+     * @param schema    a schema this rule is called from
+     * @param value     a value to be validated.
+     * @param results   a list with validation results to add new results.
+     */
+    void validate(String path, Schema schema, dynamic value, List<ValidationResult>results) {
+        if (this._rule == null) return;
 
-//         let name = path || "value";
-//         let localResults: ValidationResult[] = [];
+        var name = path != null? path: "value";
+        var localResults =  List<ValidationResult>();
 
-//         this._rule.validate(path, schema, value, localResults);
+        this._rule.validate(path, schema, value, localResults);
 
-//         if (localResults.length > 0) return;
+        if (localResults.length > 0) return;
 
-//         results.push(
-//             new ValidationResult(
-//                 path,
-//                 ValidationResultType.Error,
-//                 "NOT_FAILED",
-//                 "Negative check for " + name + " failed",
-//                 null,
-//                 null
-//             )
-//         );
-//     }
+        results.add(
+            new ValidationResult(
+                path,
+                ValidationResultType.Error,
+                "NOT_FAILED",
+                "Negative check for " + name + " failed",
+                null,
+                null
+            )
+        );
+    }
 
-// }
+}
