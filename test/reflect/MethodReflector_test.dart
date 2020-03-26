@@ -6,14 +6,17 @@ import '../../lib/src/reflect/MethodReflector.dart';
 void main() {
   group('MethodReflector', () {
 
-    // test('Get Methods', () => {       
-    //     let obj = new TestClass();
-    //     let methods = MethodReflector.getMethodNames(obj);
-    //     assert.equal(3, methods.length);
+    test('Get Methods', () {       
+        var obj = new TestClass();
+        var methods = MethodReflector.getMethodNames(obj);
+        expect(methods.length, equals(4));
+    });
 
-    //     let result = MethodReflector.invokeMethod(obj, "PUBLICMETHOD", 1, 2);
-    //     assert.equal(3, result);
-    // });
+    test('Invoke Method', () {       
+        var obj = new TestClass();
+        var result = MethodReflector.invokeMethod(obj, "PUBLICMETHOD",[1, 2]);
+        expect(result, equals(3));
+    });
 
   });
 }

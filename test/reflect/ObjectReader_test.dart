@@ -6,102 +6,102 @@ import '../../lib/src/reflect/ObjectReader.dart';
 void main() {
   group('ObjectReader', () {
 
-    // test('Get Object Property', () => {       
-    //   let obj = new TestClass();
+    test('Get Object Property', () {       
+      var obj = new TestClass();
 
-    //   let value = ObjectReader.getProperty(obj, "privateField");
-    //   //assert.isNull(value);
+      var value = ObjectReader.getProperty(obj, "privateField");
+      //assert.isNull(value);
       
-    //   value = ObjectReader.getProperty(obj, "publicField");
-    //   assert.equal("ABC", value);
+      value = ObjectReader.getProperty(obj, "publicField");
+      expect(value, equals("ABC"));
       
-    //   value = ObjectReader.getProperty(obj, "PublicProp");
-    //   assert.isNotNull(value);
-    // });
+      value = ObjectReader.getProperty(obj, "PublicProp");
+      expect(value, isNotNull);
+    });
 
-    // test('Get Map Property', () => {       
-    //   let map = {
-    //     "key1": 123,
-    //     "key2": "ABC"
-    //       };
+    test('Get Map Property', () {       
+      var map = {
+        "key1": 123,
+        "key2": "ABC"
+      };
 
-    //   let value = ObjectReader.getProperty(map, "key3");
-    //   assert.isNull(value);
+      var value = ObjectReader.getProperty(map, "key3");
+      expect(value, isNull);
       
-    //   value = ObjectReader.getProperty(map, "Key1");
-    //   assert.equal(123, value);
+      value = ObjectReader.getProperty(map, "Key1");
+      expect(value, equals(123));
       
-    //   value = ObjectReader.getProperty(map, "KEY2");
-    //   assert.equal("ABC", value);
-    // });
+      value = ObjectReader.getProperty(map, "KEY2");
+      expect(value, equals("ABC"));
+    });
 
-    // test('Get Array Property', () => {       
-    //       let list: any[] = [ 123, "ABC" ];
+    test('Get Array Property', () {       
+      var list = [ 123, "ABC" ];
 
-    //   let value = ObjectReader.getProperty(list, "3");
-    //   assert.isNull(value);
+      var value = ObjectReader.getProperty(list, "3");
+      expect(value, isNull);
       
-    //   value = ObjectReader.getProperty(list, "0");
-    //   assert.equal(123, value);
+      value = ObjectReader.getProperty(list, "0");
+      expect(value, equals(123));
       
-    //   value = ObjectReader.getProperty(list, "1");
-    //   assert.equal("ABC", value);
-    // });
+      value = ObjectReader.getProperty(list, "1");
+      expect(value, equals("ABC"));
+    });
 
-    // test('Get Object Properties', () => {       
-    //   let obj = new TestClass();
-    //   let names = ObjectReader.getPropertyNames(obj);
-    //     //assert.equal(2, names.length);
-    //   assert.isTrue(names.indexOf("publicField") >= 0);
-    //   assert.isTrue(names.indexOf("publicProp") >= 0);
+    test('Get Object Properties', () {       
+      var obj = new TestClass();
+      var names = ObjectReader.getPropertyNames(obj);
+        //assert.equal(2, names.length);
+      expect(names.indexOf("publicField") >= 0, isTrue);
+      expect(names.indexOf("publicProp") >= 0, isTrue);
       
-    //   let map = ObjectReader.getProperties(obj);
-    //   //assert.equals(2, map.length);
-    //       assert.equal("ABC", map["publicField"]);
-    //   assert.isNotNull(map["publicProp"]);
-    // });
+      var map = ObjectReader.getProperties(obj);
+      //assert.equals(2, map.length);
+      expect(map["publicField"], equals("ABC"));
+      expect(map["publicProp"], isNotNull);
+    });
 
-    // test('Get Map Properties', () => {       
-    //   let map = {
-    //     "key1": 123,
-    //     "key2": "ABC"
-    //       };
-    //   let names = ObjectReader.getPropertyNames(map);
-    //   assert.equal(2, names.length);
-    //   assert.isTrue(names.indexOf("key1") >= 0);
-    //   assert.isTrue(names.indexOf("key2") >= 0);
+    test('Get Map Properties', () {       
+      var map = {
+        "key1": 123,
+        "key2": "ABC"
+      };
+      var names = ObjectReader.getPropertyNames(map);
+      expect(names.length, equals(2));
+      expect(names.indexOf("key1") >= 0, isTrue);
+      expect(names.indexOf("key2") >= 0, isTrue);
       
-    //   let values = ObjectReader.getProperties(map);
-    //   //assert.equal(2, values.lemgth);
-    //   assert.equal(123, values["key1"]);
-    //       assert.equal("ABC", values["key2"]);
-    // });
+      var values = ObjectReader.getProperties(map);
+      //assert.equal(2, values.lemgth);
+      expect(values["key1"], equals(123));
+      expect(values["key2"], equals("ABC"));
+    });
 
-    // test('Get Map Properties', () => {       
-    //       let list = [ 123, "ABC" ];
+    test('Get Array Properties', () {       
+      var list = [ 123, "ABC" ];
       
-    //   let names = ObjectReader.getPropertyNames(list);
-    //   assert.equal(2, names.length);
-    //   assert.isTrue(names.indexOf("0") >= 0);
-    //   assert.isTrue(names.indexOf("1") >= 0);
+      var names = ObjectReader.getPropertyNames(list);
+      expect(names.length, equals(2));
+      expect(names.indexOf("0") >= 0, isTrue);
+      expect(names.indexOf("1") >= 0, isTrue);
       
-    //   let values = ObjectReader.getProperties(list);
-    //   //assert.equal(2, values.lenth);
-    //       assert.equal(123, values["0"]);
-    //       assert.equal("ABC", values["1"]);
+      var values = ObjectReader.getProperties(list);
+      //assert.equal(2, values.lenth);
+      expect(values["0"], equals(123));
+      expect(values["1"], equals("ABC"));
       
-    //       let array: any[] = [ 123, "ABC" ];
+      var array = [ 123, "ABC" ];
 
-    //   names = ObjectReader.getPropertyNames(array);
-    //   assert.equal(2, names.length);
-    //   assert.isTrue(names.indexOf("0") >= 0);
-    //   assert.isTrue(names.indexOf("1") >= 0);
+      names = ObjectReader.getPropertyNames(array);
+      expect(names.length, equals(2));
+      expect(names.indexOf("0") >= 0, isTrue);
+      expect(names.indexOf("1") >= 0, isTrue);
       
-    //   values = ObjectReader.getProperties(array);
-    //   //assert.equal(2, values.length);
-    //       assert.equal(123, values["0"]);
-    //       assert.equal("ABC", values["1"]);
-    // });
+      values = ObjectReader.getProperties(array);
+      //assert.equal(2, values.length);
+      expect(values["0"], equals(123));
+      expect(values["1"], equals("ABC"));
+    });
 
   });
 }

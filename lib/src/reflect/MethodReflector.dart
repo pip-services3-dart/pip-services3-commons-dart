@@ -1,99 +1,117 @@
-// /** @module reflect */
-// /** @hidden */ 
-// let _ = require('lodash');
+import 'dart:mirrors';
 
-// /**
-//  * Helper class to perform method introspection and dynamic invocation.
-//  * 
-//  * This class has symmetric implementation across all languages supported
-//  * by Pip.Services toolkit and used to support dynamic data processing.
-//  * 
-//  * Because all languages have different casing and case sensitivity rules,
-//  * this MethodReflector treats all method names as case insensitive.
-//  * 
-//  * ### Example ###
-//  * 
-//  *     let myObj = new MyObject();
-//  *     
-//  *     let methods = MethodReflector.getMethodNames();
-//  *     MethodReflector.hasMethod(myObj, "myMethod");
-//  *     MethodReflector.invokeMethod(myObj, "myMethod", 123);
-//  */
-// export class MethodReflector {
-//    private static matchMethod(methodName: string, methodValue: any, expectedName: string): boolean {
-//         if (!_.isFunction(methodValue)) return false;
-//         if (_.startsWith(methodName, '_')) return false;
-//         if (expectedName == null) return true;
-//         return methodName.toLowerCase() == expectedName;
-//     }
+/**
+ * Helper class to perform method introspection and dynamic invocation.
+ * 
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ * 
+ * Because all languages have different casing and case sensitivity rules,
+ * this MethodReflector treats all method names as case insensitive.
+ * 
+ * ### Example ###
+ * 
+ *     let myObj = new MyObject();
+ *     
+ *     let methods = MethodReflector.getMethodNames();
+ *     MethodReflector.hasMethod(myObj, "myMethod");
+ *     MethodReflector.invokeMethod(myObj, "myMethod", 123);
+ */
+class MethodReflector {
+  static String _extractName(Symbol field) {
+    var name = field.toString();
+    var pos = name.indexOf('("');
+    name = name.substring(pos + 2, name.length - 2);
+    if (name.endsWith('='))
+      name = name.substring(0, name.length - 1);
+    return name;
+  }
 
-// 	/**
-// 	 * Checks if object has a method with specified name..
-// 	 * 
-// 	 * @param obj 	an object to introspect.
-// 	 * @param name 	a name of the method to check.
-// 	 * @returns true if the object has the method and false if it doesn't.
-// 	 */
-// 	public static hasMethod(obj: any, name: string): boolean {
-// 		if (obj == null)
-// 			throw new Error("Object cannot be null");
-// 		if (name == null)
-// 			throw new Error("Method name cannot be null");
+	static bool _matchMethod(Symbol field, String expectedName) {
+    if (expectedName == null) return true;
+
+    var fieldName = field.toString().toLowerCase();
+    var matchName = 'symbol("' + expectedName + '")';
+    return fieldName == matchName;
+	}
+
+  static Symbol _findMethod(obj, String name) {
+    name = name.toLowerCase();
+    var cm = reflectClass(obj.runtimeType);
+    for (var dm in cm.instanceMembers.values) {
+      if (dm is MethodMirror && !dm.isGetter && !dm.isSetter && !dm.isStatic && !dm.isPrivate) {
+        if (_matchMethod(dm.simpleName, name))
+          return dm.simpleName;
+      }
+    }
+    return null;
+  }
+
+	/**
+	 * Checks if object has a method with specified name..
+	 * 
+	 * @param obj 	an object to introspect.
+	 * @param name 	a name of the method to check.
+	 * @returns true if the object has the method and false if it doesn't.
+	 */
+	static bool hasMethod(obj, String name) {
+		if (obj == null)
+			throw new Exception("Object cannot be null");
+		if (name == null)
+			throw new Exception("Method name cannot be null");
 		
-//         name = name.toLowerCase();
-//         for (let method in obj) {
-//             let methodValue = obj[method];
-//         	if (MethodReflector.matchMethod(method, methodValue, name))
-//         		return true;
-//         }
+    var foundName = _findMethod(obj, name);
+    return foundName != null;
+	}
 
-//         return false;
-// 	}
-
-// 	/**
-// 	 * Invokes an object method by its name with specified parameters.
-// 	 * 
-// 	 * @param obj 	an object to invoke.
-// 	 * @param name 	a name of the method to invoke.
-// 	 * @param args 	a list of method arguments.
-// 	 * @returns the result of the method invocation or null if method returns void.
-// 	 */
-// 	public static invokeMethod(obj: any, name: string, ...args: any[]): any {
-// 		if (obj == null)
-// 			throw new Error("Object cannot be null");
-// 		if (name == null)
-// 			throw new Error("Method name cannot be null");
+	/**
+	 * Invokes an object method by its name with specified parameters.
+	 * 
+	 * @param obj 	an object to invoke.
+	 * @param name 	a name of the method to invoke.
+	 * @param args 	a list of method arguments.
+	 * @returns the result of the method invocation or null if method returns void.
+	 */
+	static invokeMethod(obj, String name, List args) {
+		if (obj == null)
+			throw new Exception("Object cannot be null");
+		if (name == null)
+			throw new Exception("Method name cannot be null");
 		
-//         name = name.toLowerCase();
-//         for (let method in obj) {
-//             let methodValue = obj[method];
-//         	try {
-//         	    if (MethodReflector.matchMethod(method, methodValue, name))
-//                     return methodValue.apply(obj, args);
-//         	} catch (ex) {
-//         		// Ignore exceptions
-//         	}
-//         }
+    var foundName = _findMethod(obj, name);
+    if (foundName != null) {
+      try {
+        var im = reflect(obj);
+        return im.invoke(foundName, args).reflectee;
+      } catch (ex) {
+        // Ignore exceptions
+      }
+    }
 
-//         return null;
-// 	}
+    return null;
+	}
 
-//   	/**
-//      * Gets names of all methods implemented in specified object.
-//      * 
-//      * @param obj   an objec to introspect.
-//      * @returns a list with method names.
-//      */
-// 	public static getMethodNames(obj: any): string[] {
-//         let methods: string[] = [];
+  	/**
+     * Gets names of all methods implemented in specified object.
+     * 
+     * @param obj   an objec to introspect.
+     * @returns a list with method names.
+     */
+	static List<String> getMethodNames(obj) {
+    var methods = new List<String>();
 		
-//         for (let method in obj) {
-//             let methodValue = obj[method];
-//         	if (MethodReflector.matchMethod(method, methodValue, null))
-//         		methods.push(method);
-//         }
-        
-// 		return methods;
-// 	}
+    var cm = reflectClass(obj.runtimeType);
+    for (var dm in cm.instanceMembers.values) {
+      Symbol foundName = null;
+      
+      if (dm is MethodMirror && !dm.isGetter && !dm.isSetter && !dm.isStatic && !dm.isPrivate)
+        foundName = dm.simpleName;
 
-// }
+      if (foundName != null)
+        methods.add(_extractName(foundName));
+    }
+		        
+		return methods;
+	}
+
+}
