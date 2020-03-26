@@ -1,7 +1,5 @@
-/** @module commands */
-import './ICommand.dart';
-import './IEventListener.dart';
 import '../run/INotifiable.dart';
+import './IEventListener.dart';
 
 /**
  * An interface for Events, which are part of the Command design pattern.

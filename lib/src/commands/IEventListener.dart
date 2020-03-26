@@ -1,6 +1,5 @@
-/** @module commands */
-import './IEvent.dart';
 import '../run/Parameters.dart';
+import './IEvent.dart';
 
 /**
  * An interface for listener objects that receive notifications on fired events.

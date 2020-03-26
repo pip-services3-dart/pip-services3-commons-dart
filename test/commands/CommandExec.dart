@@ -1,12 +1,12 @@
-// import { ApplicationException } from '../../src/errors/ApplicationException';
-// import { IExecutable } from '../../src/run/IExecutable';
-// import { Parameters } from '../../src/run/Parameters';
+import 'dart:async';
 
-// export class CommandExec implements IExecutable {
-//     public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) => void): void {
-//         if (correlationId == "wrongId")
-//             throw new Error("Test error");
+import '../../lib/src/run/IExecutable.dart';
+import '../../lib/src/run/Parameters.dart';
 
-//         callback(null, 0);
-//     }
-// }
+class CommandExec implements IExecutable {
+  Future<dynamic> execute(String correlationId, Parameters args) async {
+    if (correlationId == "wrongId") throw new Exception("Test error");
+
+    return await new Future.value(123);
+  }
+}

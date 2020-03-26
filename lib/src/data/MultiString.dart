@@ -115,8 +115,7 @@ class MultiString implements IValueWrapper {
   void append(map) {
     if (map == null) return;
 
-    if (map is IValueWrapper)
-      map = map.innerValue();
+    if (map is IValueWrapper) map = map.innerValue();
 
     if (map is Map) {
       for (var key in map.keys) {

@@ -36,9 +36,7 @@ class TagsProcessor {
      */
   static String compressTag(String tag) {
     return tag != null
-        ? tag
-            .replaceAll(new RegExp(_COMPRESS_REGEX), '')
-            .toLowerCase()
+        ? tag.replaceAll(new RegExp(_COMPRESS_REGEX), '').toLowerCase()
         : null;
   }
 

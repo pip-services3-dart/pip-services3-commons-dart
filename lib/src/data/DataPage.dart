@@ -42,7 +42,7 @@ class DataPage<T> {
     this.total = total;
     this.data = data;
   }
-  
+
   factory DataPage.fromJson(Map<String, dynamic> json, Function fromJson) {
     //final items = json['data'].cast<Map<String, dynamic>>();
     final items = json['data'];

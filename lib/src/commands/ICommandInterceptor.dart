@@ -1,7 +1,9 @@
-/** @module commands */
-import './ICommand.dart';
+import 'dart:async';
+
 import '../run/Parameters.dart';
 import '../validate/ValidationResult.dart';
+
+import './ICommand.dart';
 
 /**
  * An interface for stackable command intercepters, which can extend
@@ -38,8 +40,8 @@ abstract class ICommandInterceptor {
      * 
      * @see [[Parameters]]
      */
-  void execute(String correlationId, ICommand command, Parameters args,
-      callback(dynamic err, dynamic result));
+  Future<dynamic> execute(
+      String correlationId, ICommand command, Parameters args);
 
   /**
      * Validates arguments of the wrapped command before its execution.

@@ -19,5 +19,4 @@ import "./IIdentifiable.dart";
  *         ...
  *     }
  */
-abstract class IStringIdentifiable implements IIdentifiable<String> {
-}
+abstract class IStringIdentifiable implements IIdentifiable<String> {}

@@ -1,8 +1,8 @@
-/** @module commands */
-import './IEvent.dart';
-import './IEventListener.dart';
 import '../errors/InvocationException.dart';
 import '../run/Parameters.dart';
+
+import './IEvent.dart';
+import './IEventListener.dart';
 
 /**
  * Concrete implementation of [[IEvent IEvent]] interface.

@@ -1,35 +1,29 @@
-// let assert = require('chai').assert;
-// let async = require('async');
+import 'package:test/test.dart';
 
-// import { CommandExec } from './CommandExec';
-// import { Command } from '../../src/commands/Command';
-// import { Parameters } from '../../src/run/Parameters';
+import './CommandExec.dart';
+import '../../lib/src/commands/Command.dart';
+import '../../lib/src/run/Parameters.dart';
 
-// suite('Command', ()=> {
+void main() {
+  group('Command', () {
+    test('Get Name', () {
+      var command = new Command("name", null, new CommandExec());
 
-//     test('Get Name', (done) => {
-//         var command = new Command("name", null, new CommandExec());
+      // Check match by individual fields
+      expect(command, isNotNull);
+      expect(command.getName(), equals('name'));
+    });
 
-// 		// Check match by individual fields
-//         assert.isNotNull(command);
-//         assert.equal(command.getName(), 'name');
+    test('Execute', () async {
+      var command = new Command("name", null, new CommandExec());
 
-//         done();
-//     });
+      var map = new Map();
+      map[8] = "title 8";
+      map[11] = "title 11";
+      var param = new Parameters(map);
 
-//     test('Execute', (done) => {
-//         var command = new Command("name", null, new CommandExec());
-
-//         var map: { [id: number] : any } = {};
-//         map[8] = "title 8";
-//         map[11] = "title 11";
-//         var param = new Parameters(map);
-
-//         command.execute("a", param, (err, result) => {
-//             assert.equal(result, 0);
-
-//             done();
-//         });
-//     });
-
-// });
+      var result = await command.execute("a", param);
+      expect(result, equals(123));
+    });
+  });
+}

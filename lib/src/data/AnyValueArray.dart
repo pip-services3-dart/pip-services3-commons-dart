@@ -41,7 +41,7 @@ import './AnyValueMap.dart';
  * @see [[ICloneable]]
  */
 class AnyValueArray extends ListBase<dynamic>
-  implements ICloneable, IValueWrapper {
+    implements ICloneable, IValueWrapper {
   List _values;
 
   /*
