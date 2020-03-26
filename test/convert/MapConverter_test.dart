@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/MapConverter.dart";
+import '../../lib/src/convert/MapConverter.dart';
 
 void main() {
   group('MapConverter', () {

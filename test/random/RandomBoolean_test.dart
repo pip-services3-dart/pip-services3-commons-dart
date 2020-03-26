@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/random/RandomBoolean.dart";
+import '../../lib/src/random/RandomBoolean.dart';
 
 void main() {
   group('RandomBoolean', () {

@@ -1,5 +1,5 @@
-import "./ErrorCategory.dart";
-import "./ApplicationException.dart";
+import './ErrorCategory.dart';
+import './ApplicationException.dart';
 
 /**
  * Errors raised by conflicts between object versions that were

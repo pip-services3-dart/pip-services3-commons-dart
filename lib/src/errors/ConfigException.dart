@@ -1,5 +1,5 @@
-import "./ErrorCategory.dart";
-import "./ApplicationException.dart";
+import './ErrorCategory.dart';
+import './ApplicationException.dart';
 
 /**
  * Errors related to mistakes in the microservice's user-defined configurations.

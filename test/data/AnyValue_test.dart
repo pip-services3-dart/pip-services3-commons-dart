@@ -1,11 +1,6 @@
-// let assert = require('chai').assert;
-
-// import { TypeCode } from '../../src/convert/TypeCode';
-// import { AnyValue } from '../../src/data/AnyValue';
-
-import "package:test/test.dart";
-import "../../lib/src/data/AnyValue.dart";
-import "../../lib/src/convert/TypeCode.dart";
+import 'package:test/test.dart';
+import '../../lib/src/data/AnyValue.dart';
+import '../../lib/src/convert/TypeCode.dart';
 
 void main() {
   group('AnyValue', () {

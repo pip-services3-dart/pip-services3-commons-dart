@@ -1,5 +1,5 @@
-import "./ErrorCategory.dart";
-import "./ApplicationException.dart";
+import './ErrorCategory.dart';
+import './ApplicationException.dart';
 
 /**
  * Errors returned by remote services or by the network during call attempts.

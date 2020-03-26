@@ -1,5 +1,5 @@
-import "./ErrorCategory.dart";
-import "./ApplicationException.dart";
+import './ErrorCategory.dart';
+import './ApplicationException.dart';
 
 /**
  * Errors caused by attempts to access missing objects.

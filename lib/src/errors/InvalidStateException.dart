@@ -1,5 +1,5 @@
-import "./ErrorCategory.dart";
-import "./ApplicationException.dart";
+import './ErrorCategory.dart';
+import './ApplicationException.dart';
 
 /**
  * Errors related to calling operations, which require the component to be in a specific state.

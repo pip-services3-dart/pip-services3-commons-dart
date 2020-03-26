@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/IntegerConverter.dart";
+import '../../lib/src/convert/IntegerConverter.dart';
 
 void main() {
   group('IntegerConverter', () {

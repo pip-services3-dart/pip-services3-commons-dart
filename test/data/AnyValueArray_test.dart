@@ -1,5 +1,5 @@
-import "package:test/test.dart";
-import "../../lib/src/data/AnyValueArray.dart";
+import 'package:test/test.dart';
+import '../../lib/src/data/AnyValueArray.dart';
 
 void main() {
   group('AnyValueArray', () {

@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/StringConverter.dart";
+import '../../lib/src/convert/StringConverter.dart';
 
 void main() {
   group('StringConverter', () {

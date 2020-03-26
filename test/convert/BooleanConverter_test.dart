@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/BooleanConverter.dart";
+import '../../lib/src/convert/BooleanConverter.dart';
 
 void main() {
   group('BooleanConverter', () {

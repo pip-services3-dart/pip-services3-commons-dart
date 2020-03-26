@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/DoubleConverter.dart";
+import '../../lib/src/convert/DoubleConverter.dart';
 
 void main() {
   group('DoubleConverter', () {

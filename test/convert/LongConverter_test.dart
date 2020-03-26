@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/LongConverter.dart";
+import '../../lib/src/convert/LongConverter.dart';
 
 void main() {
   group('LongConverter', () {

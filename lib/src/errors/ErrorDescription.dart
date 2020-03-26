@@ -1,6 +1,6 @@
-import "../convert/StringConverter.dart";
-import "../convert/IntegerConverter.dart";
-import "../data/StringValueMap.dart";
+import '../convert/StringConverter.dart';
+import '../convert/IntegerConverter.dart';
+import '../data/StringValueMap.dart';
 
 /**
  * Serializeable error description. It is use to pass information about errors

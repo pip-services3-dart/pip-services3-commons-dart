@@ -1,6 +1,6 @@
-import "./ErrorCategory.dart";
-import "./ErrorDescription.dart";
-import "./ApplicationException.dart";
+import './ErrorCategory.dart';
+import './ErrorDescription.dart';
+import './ApplicationException.dart';
 
 /**
  * Factory to create serializeable [[ErrorDescription]] from [[ApplicationException]]

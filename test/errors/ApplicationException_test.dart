@@ -1,7 +1,7 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/errors/ApplicationException.dart";
-//import "../../lib/src/data/StringValueMap.dart";
+import '../../lib/src/errors/ApplicationException.dart';
+//import '../../lib/src/data/StringValueMap.dart';
 
 void main() {
   group('ApplicationException', () {

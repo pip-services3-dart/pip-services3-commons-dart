@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/ArrayConverter.dart";
+import '../../lib/src/convert/ArrayConverter.dart';
 
 void main() {
   group('ArrayConverter', () {

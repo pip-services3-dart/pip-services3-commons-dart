@@ -1,22 +1,22 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/data/StringValueMap.dart";
-import "../../lib/src/errors/ErrorCategory.dart";
-import "../../lib/src/errors/ErrorDescription.dart";
-import "../../lib/src/errors/ApplicationExceptionFactory.dart";
-import "../../lib/src/errors/ApplicationException.dart";
-import "../../lib/src/errors/UnknownException.dart";
-import "../../lib/src/errors/InternalException.dart";
-//import "../../lib/src/errors/InvalidStateException.dart";
-import "../../lib/src/errors/ConfigException.dart";
-import "../../lib/src/errors/ConnectionException.dart";
-import "../../lib/src/errors/InvocationException.dart";
-import "../../lib/src/errors/FileException.dart";
-import "../../lib/src/errors/BadRequestException.dart";
-import "../../lib/src/errors/UnauthorizedException.dart";
-import "../../lib/src/errors/ConflictException.dart";
-import "../../lib/src/errors/NotFoundException.dart";
-import "../../lib/src/errors/UnsupportedException.dart";
+import '../../lib/src/data/StringValueMap.dart';
+import '../../lib/src/errors/ErrorCategory.dart';
+import '../../lib/src/errors/ErrorDescription.dart';
+import '../../lib/src/errors/ApplicationExceptionFactory.dart';
+import '../../lib/src/errors/ApplicationException.dart';
+import '../../lib/src/errors/UnknownException.dart';
+import '../../lib/src/errors/InternalException.dart';
+//import '../../lib/src/errors/InvalidStateException.dart';
+import '../../lib/src/errors/ConfigException.dart';
+import '../../lib/src/errors/ConnectionException.dart';
+import '../../lib/src/errors/InvocationException.dart';
+import '../../lib/src/errors/FileException.dart';
+import '../../lib/src/errors/BadRequestException.dart';
+import '../../lib/src/errors/UnauthorizedException.dart';
+import '../../lib/src/errors/ConflictException.dart';
+import '../../lib/src/errors/NotFoundException.dart';
+import '../../lib/src/errors/UnsupportedException.dart';
 
 void main() {
   group('ApplicationExceptionFactory', () {

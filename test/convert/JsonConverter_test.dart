@@ -1,8 +1,8 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/TypeCode.dart";
-import "../../lib/src/convert/DateTimeConverter.dart";
-import "../../lib/src/convert/JsonConverter.dart";
+import '../../lib/src/convert/TypeCode.dart';
+import '../../lib/src/convert/DateTimeConverter.dart';
+import '../../lib/src/convert/JsonConverter.dart';
 
 void main() {
   group('JsonConverter', () {

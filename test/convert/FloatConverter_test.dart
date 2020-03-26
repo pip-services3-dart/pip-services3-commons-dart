@@ -1,6 +1,6 @@
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
-import "../../lib/src/convert/FloatConverter.dart";
+import '../../lib/src/convert/FloatConverter.dart';
 
 void main() {
   group('FloatConverter', () {
