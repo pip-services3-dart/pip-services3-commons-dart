@@ -9,6 +9,7 @@ import '../convert/DoubleConverter.dart';
 import '../convert/DateTimeConverter.dart';
 import '../convert/DurationConverter.dart';
 import '../convert/ArrayConverter.dart';
+import '../reflect/IValueWrapper.dart';
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueMap.dart';
@@ -36,7 +37,7 @@ import './AnyValueMap.dart';
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
  */
-class AnyValueArray implements ICloneable {
+class AnyValueArray implements ICloneable, IValueWrapper {
   List _values;
 
   /*
@@ -50,6 +51,10 @@ class AnyValueArray implements ICloneable {
     if (values != null) {
       this._values.addAll(values);
     }
+  }
+
+  innerValue() {
+    return this._values;
   }
 
   /*

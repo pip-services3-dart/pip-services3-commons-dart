@@ -1,17 +1,19 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { TypeReflector } from '../../src/reflect/TypeReflector';
+import '../../lib/src/reflect/TypeReflector.dart';
 
-// suite('TypeReflector', ()=> {
+void main() {
+  group('TypeReflector', () {
 
-//    test('Get Type', () => {
-// 		let type = TypeReflector.getType("TestClass", __dirname + "/TestClass");
-// 		assert.isNotNull(type);
-//    });
+    test('Get Type', () {
+      var type = TypeReflector.getType("TestClass", "./test/reflect/TestClass.dart");
+      expect(type, isNotNull);
+    });
 
-//    test('Create Instance', () => {
-// 		let value = TypeReflector.createInstance("TestClass", __dirname + "/TestClass", 123);
-// 		assert.isNotNull(value);
-//    });
+    test('Create Instance', () {
+      var value = TypeReflector.createInstance("TestClass", "./test/reflect/TestClass.dart", [123]);
+      expect(value, isNotNull);
+    });
 
-// });
+  });
+}

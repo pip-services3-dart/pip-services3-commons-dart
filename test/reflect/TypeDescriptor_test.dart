@@ -1,27 +1,29 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { TypeDescriptor } from '../../src/reflect/TypeDescriptor';
+import '../../lib/src/reflect/TypeDescriptor.dart';
 
-// suite('TypeDescriptor', ()=> {
+void main() {
+  group('TypeDescriptor', () {
 
-//    test('From String', () => {
-// 		let descriptor = TypeDescriptor.fromString(null);
-// 		assert.isNull(descriptor);
-		
-// 		descriptor = TypeDescriptor.fromString("xxx,yyy");
-// 		assert.equal("xxx", descriptor.getName());
-// 		assert.equal("yyy", descriptor.getLibrary());
+    test('From String', () {
+      var descriptor = TypeDescriptor.fromString(null);
+      expect(descriptor, isNull);
+      
+      descriptor = TypeDescriptor.fromString("xxx,yyy");
+      expect(descriptor.getName(), equals("xxx"));
+      expect(descriptor.getLibrary(), equals("yyy"));
 
-// 		descriptor = TypeDescriptor.fromString("xxx");
-// 		assert.equal("xxx", descriptor.getName());
-// 		assert.isNull(descriptor.getLibrary());
+      descriptor = TypeDescriptor.fromString("xxx");
+      expect(descriptor.getName(), equals("xxx"));
+      expect(descriptor.getLibrary(), isNull);
 
-// 		try {
-// 			descriptor = TypeDescriptor.fromString("xxx,yyy,zzz");
-// 			assert.fail("Wrong descriptor shall raise an exception");
-// 		} catch (ex) {
-// 			// Ok...
-// 		}
-//    });
+      try {
+        descriptor = TypeDescriptor.fromString("xxx,yyy,zzz");
+        fail("Wrong descriptor shall raise an exception");
+      } catch (ex) {
+        // Ok...
+      }
+    });
 
-// });
+  });
+}

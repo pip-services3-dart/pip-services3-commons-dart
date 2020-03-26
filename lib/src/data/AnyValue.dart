@@ -2,6 +2,7 @@ import '../convert/convert.dart';
 import './ICloneable.dart';
 import './AnyValueArray.dart';
 import './AnyValueMap.dart';
+import '../reflect/IValueWrapper.dart';
 
 /**
  * Cross-language implementation of dynamic object what can hold value of any type.
@@ -25,7 +26,7 @@ import './AnyValueMap.dart';
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
  */
-class AnyValue implements ICloneable {
+class AnyValue implements ICloneable, IValueWrapper {
     /** The value stored by this object. */
 	var _value;
 
@@ -39,6 +40,10 @@ class AnyValue implements ICloneable {
     		this._value = value._value;
     	else
 			  this._value = value;
+    }
+
+    innerValue() {
+      return this._value;
     }
 
     /** 

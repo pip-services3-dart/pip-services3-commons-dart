@@ -1,19 +1,19 @@
-// export class TestClass {
-// 	private privateField: number = 123;
-// 	public publicField: string = "ABC";
-//     private _publicProp: Date = new Date();
+class TestClass {
+	int _privateField = 123;
+	String publicField = "ABC";
+  DateTime _publicProp = DateTime.now();
 	
-// 	public TestClass(arg1: number = null) {}
+	TestClass([int arg1 = null]) {}
 	
-// 	protected get privateProp(): number { return 543; }
-// 	protected set privateProp(value: number) {}
+	int get _privateProp { return 543; }
+	set _privateProp(int value) {}
 	
-// 	public get publicProp(): Date { return this._publicProp; }
-// 	public set publicProp(value: Date) { this._publicProp = value; }
+	DateTime get publicProp { return this._publicProp; }
+	set publicProp(DateTime value) { this._publicProp = value; }
 	
-// 	private privateMethod(): void {}
+	void _privateMethod() {}
 	
-// 	public publicMethod(arg1: number, arg2: number): number {
-// 		return arg1 + arg2;
-// 	}
-// }
+	int publicMethod(int arg1, int arg2) {
+		return arg1 + arg2;
+	}
+}

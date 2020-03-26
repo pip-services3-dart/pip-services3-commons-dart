@@ -9,6 +9,7 @@ import '../convert/DoubleConverter.dart';
 import '../convert/DateTimeConverter.dart';
 import '../convert/DurationConverter.dart';
 import '../convert/MapConverter.dart';
+import '../reflect/IValueWrapper.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
 import './AnyValueMap.dart';
@@ -43,7 +44,7 @@ import './AnyValueMap.dart';
  * @see [[DateTimeConverter]]
  * 
  */
-class StringValueMap {
+class StringValueMap implements IValueWrapper {
   Map<String, String> _values;
 
   /*
@@ -54,15 +55,19 @@ class StringValueMap {
   StringValueMap([map = null]) {
     this._values = new Map<String, String>();
 
-    if (map is StringValueMap) {
-      this.append(map);
-    } else if (map is AnyValueMap) {
-      this.append(map);
-    } else if (map is Map) {
+    if (map is IValueWrapper) {
+      map = map.innerValue();
+    }
+    
+    if (map is Map) {
       this.append(map);
     } else if (map != null) {
       this.append(MapConverter.toMap(map));
     }
+  }
+
+  innerValue() {
+    return this._values;
   }
 
   /*
@@ -126,10 +131,8 @@ class StringValueMap {
   void append(map) {
     if (map == null) return;
 
-    if (map is StringValueMap)
-      map = map.getValue();
-    if (map is AnyValueMap)
-      map = map.getValue();
+    if (map is IValueWrapper)
+      map = map.innerValue();
 
     if (map is Map) {
       for (var key in map.keys) {

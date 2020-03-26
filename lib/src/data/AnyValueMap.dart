@@ -9,6 +9,7 @@ import '../convert/DoubleConverter.dart';
 import '../convert/DateTimeConverter.dart';
 import '../convert/DurationConverter.dart';
 import '../convert/MapConverter.dart';
+import '../reflect/IValueWrapper.dart';
 import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
@@ -37,7 +38,7 @@ import './StringValueMap.dart';
  * @see [[DateTimeConverter]]
  * @see [[ICloneable]]
  */
-class AnyValueMap implements ICloneable {
+class AnyValueMap implements ICloneable, IValueWrapper {
   Map<String, dynamic> _values;
   /*
      * Creates a new instance of the map and assigns its value.
@@ -47,12 +48,14 @@ class AnyValueMap implements ICloneable {
 
   AnyValueMap([values = null]) {
     this._values = new Map<String, dynamic>();
-    if (values != null) {
-      this.append(values);
-    }
+    this.append(values);
   }
 
-/*
+  innerValue() {
+    return this._values;
+  }
+
+  /*
      * Gets an map with values.
      * 
      * @returns     the value of the map elements.
@@ -113,10 +116,8 @@ class AnyValueMap implements ICloneable {
   void append(map) {
     if (map == null) return;
 
-    if (map is StringValueMap)
-      map = map.getValue();
-    if (map is AnyValueMap)
-      map = map.getValue();
+    if (map is IValueWrapper)
+      map = map.innerValue();
 
     if (map is Map) {
       for (var key in map.keys) {

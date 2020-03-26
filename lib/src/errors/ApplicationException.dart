@@ -71,6 +71,7 @@ class ApplicationException implements Exception {
         this.correlation_id = correlation_id;
         this.code = code ?? 'UNKNOWN';
         if (this.message == null) this.message = message ?? 'Unknown error';
+        this.stack_trace = StackTrace.current.toString();
     }
     
     /**

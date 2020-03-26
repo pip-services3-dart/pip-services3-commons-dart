@@ -1,9 +1,9 @@
-// export { MethodReflector } from './MethodReflector';
-// export { ObjectReader } from './ObjectReader';
-// export { ObjectWriter } from './ObjectWriter';
-// export { PropertyReflector } from './PropertyReflector';
-// export { RecursiveObjectReader } from './RecursiveObjectReader';
-// export { RecursiveObjectWriter } from './RecursiveObjectWriter';
-// export { TypeDescriptor } from './TypeDescriptor';
-// export { TypeMatcher } from './TypeMatcher';
-// export { TypeReflector } from './TypeReflector';
+export './MethodReflector.dart';
+export './ObjectReader.dart';
+export './ObjectWriter.dart';
+export './PropertyReflector.dart';
+export './RecursiveObjectReader.dart';
+export './RecursiveObjectWriter.dart';
+export './TypeDescriptor.dart';
+export './TypeMatcher.dart';
+export './TypeReflector.dart';
