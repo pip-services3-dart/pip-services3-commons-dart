@@ -1,148 +1,147 @@
 import 'package:test/test.dart';
 
-import './TestClass.dart';
 import '../../lib/src/reflect/RecursiveObjectReader.dart';
 
 void main() {
   group('RecursiveObjectReader', () {
 
-    // test('Has Property', () => {       
-    //       let obj = { 
-    //           "value1": 123, 
-    //           "value2": { 
-    //               "value21": 111, 
-    //               "value22": 222 
-    //           }, 
-    //           "value3": [ 444, { "value311": 555 } ] 
-    //       };
+    test('Has Property', () {       
+          var obj = { 
+              "value1": 123, 
+              "value2": { 
+                  "value21": 111, 
+                  "value22": 222 
+              }, 
+              "value3": [ 444, { "value311": 555 } ] 
+          };
 
-    //       let has = RecursiveObjectReader.hasProperty(obj, "");
-    //       assert.isFalse(has);
+          var has = RecursiveObjectReader.hasProperty(obj, "");
+          expect(has, isFalse);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value1");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value1");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value2");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value2");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value2.value21");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value2.value21");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value2.value31");
-    //       assert.isFalse(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value2.value31");
+          expect(has, isFalse);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value2.value21.value211");
-    //       assert.isFalse(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value2.value21.value211");
+          expect(has, isFalse);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "valueA.valueB.valueC");
-    //       assert.isFalse(has);
+          has = RecursiveObjectReader.hasProperty(obj, "valueA.valueB.valueC");
+          expect(has, isFalse);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value3");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value3");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value3.0");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value3.0");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value3.0.value311");
-    //       assert.isFalse(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value3.0.value311");
+          expect(has, isFalse);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value3.1");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value3.1");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value3.1.value311");
-    //       assert.isTrue(has);
+          has = RecursiveObjectReader.hasProperty(obj, "value3.1.value311");
+          expect(has, isTrue);
 
-    //       has = RecursiveObjectReader.hasProperty(obj, "value3.2");
-    //       assert.isFalse(has);
-    // });
+          has = RecursiveObjectReader.hasProperty(obj, "value3.2");
+          expect(has, isFalse);
+    });
 
-    // test('Get Property', () => {       
-    //       let obj = { 
-    //           "value1": 123, 
-    //           "value2": { 
-    //               "value21": 111, 
-    //               "value22": 222 
-    //           }, 
-    //           "value3": [ 444, { "value311": 555 } ] 
-    //       };
+    test('Get Property', () {       
+          var obj = { 
+              "value1": 123, 
+              "value2": { 
+                  "value21": 111, 
+                  "value22": 222 
+              }, 
+              "value3": [ 444, { "value311": 555 } ] 
+          };
 
-    //       let value = RecursiveObjectReader.getProperty(obj, "");
-    //       assert.isNull(value);
+          var value = RecursiveObjectReader.getProperty(obj, "");
+          expect(value, isNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value1");
-    //       assert.equal(123, value);
+          value = RecursiveObjectReader.getProperty(obj, "value1");
+          expect(value, equals(123));
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value2");
-    //       assert.isNotNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "value2");
+          expect(value, isNotNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value2.value21");
-    //       assert.equal(111, value);
+          value = RecursiveObjectReader.getProperty(obj, "value2.value21");
+          expect(value, equals(111));
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value2.value31");
-    //       assert.isNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "value2.value31");
+          expect(value, isNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value2.value21.value211");
-    //       assert.isNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "value2.value21.value211");
+          expect(value, isNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "valueA.valueB.valueC");
-    //       assert.isNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "valueA.valueB.valueC");
+          expect(value, isNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value3");
-    //       assert.isNotNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "value3");
+          expect(value, isNotNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value3.0");
-    //       assert.equal(444, value);
+          value = RecursiveObjectReader.getProperty(obj, "value3.0");
+          expect(value, equals(444));
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value3.0.value311");
-    //       assert.isNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "value3.0.value311");
+          expect(value, isNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value3.1");
-    //       assert.isNotNull(value);
+          value = RecursiveObjectReader.getProperty(obj, "value3.1");
+          expect(value, isNotNull);
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value3.1.value311");
-    //       assert.equal(555, value);
+          value = RecursiveObjectReader.getProperty(obj, "value3.1.value311");
+          expect(value, equals(555));
 
-    //       value = RecursiveObjectReader.getProperty(obj, "value3.2");
-    //       assert.isNull(value);
-    // });
+          value = RecursiveObjectReader.getProperty(obj, "value3.2");
+          expect(value, isNull);
+    });
 
-    // test('Get Property Names', () => {       
-    //       let obj = { 
-    //           "value1": 123, 
-    //           "value2": { 
-    //               "value21": 111, 
-    //               "value22": 222 
-    //           }, 
-    //           "value3": [ 444, { "value311": 555 } ] 
-    //       };
+    test('Get Property Names', () {       
+          var obj = { 
+              "value1": 123, 
+              "value2": { 
+                  "value21": 111, 
+                  "value22": 222 
+              }, 
+              "value3": [ 444, { "value311": 555 } ] 
+          };
 
-    //       let names = RecursiveObjectReader.getPropertyNames(obj);
-    //       assert.equal(5, names.length);
-    //       assert.isTrue(names.indexOf("value1") >= 0);
-    //       assert.isTrue(names.indexOf("value2.value21") >= 0);
-    //       assert.isTrue(names.indexOf("value2.value22") >= 0);
-    //       assert.isTrue(names.indexOf("value3.0") >= 0);
-    //       assert.isTrue(names.indexOf("value3.1.value311") >= 0);
-    // });
+          var names = RecursiveObjectReader.getPropertyNames(obj);
+          expect(names.length, equals(5));
+          expect(names, contains("value1"));
+          expect(names, contains("value2.value21"));
+          expect(names, contains("value2.value22"));
+          expect(names, contains("value3.0"));
+          expect(names, contains("value3.1.value311"));
+    });
 
-    // test('Get Properties', () => {       
-    //       let obj = { 
-    //           "value1": 123, 
-    //           "value2": { 
-    //               "value21": 111, 
-    //               "value22": 222 
-    //           }, 
-    //           "value3": [ 444, { "value311": 555 } ] 
-    //       };
+    test('Get Properties', () {       
+          var obj = { 
+              "value1": 123, 
+              "value2": { 
+                  "value21": 111, 
+                  "value22": 222 
+              }, 
+              "value3": [ 444, { "value311": 555 } ] 
+          };
 
-    //       let values = RecursiveObjectReader.getProperties(obj);
-    //       //assert.equal(5, values.length);
-    //       assert.equal(123, values["value1"]);
-    //       assert.equal(111, values["value2.value21"]);
-    //       assert.equal(222, values["value2.value22"]);
-    //       assert.equal(444, values["value3.0"]);
-    //       assert.equal(555, values["value3.1.value311"]);
-    // });
+          var values = RecursiveObjectReader.getProperties(obj);
+          //assert.equal(5, values.length);
+          expect(values["value1"], equals(123));
+          expect(values["value2.value21"], equals(111));
+          expect(values["value2.value22"], equals(222));
+          expect(values["value3.0"], equals(444));
+          expect(values["value3.1.value311"], equals(555));
+    });
 
   });
 }
