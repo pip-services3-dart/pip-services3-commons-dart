@@ -1,55 +1,61 @@
 import 'package:test/test.dart';
 
 import '../../lib/src/convert/TypeCode.dart';
-import '../../lib/src/reflect/TypeMatcher.dart';
+import '../../lib/src/reflect/TypeMatcher.dart' as reflect;
 
 void main() {
   group('TypeMatcher', () {
 
-    // test('Match Integer', () => {
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("int", 123));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("Integer", 123));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.Long, 123));
-    // });
+    test('Match Integer', () {
+      expect(reflect.TypeMatcher.matchValueTypeByName("int", 123), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("Integer", 123), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Long, 123), isTrue);
+    });
 
-    // test('Match Boolean', () => {
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("bool", true));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("Boolean", true));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.Boolean, true));
-    // });
+    test('Match Boolean', () {
+      expect(reflect.TypeMatcher.matchValueTypeByName("bool", true), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("Boolean", true), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Boolean, true), isTrue);
+    });
 
-    // test('Match Double', () => {
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("double", 123.456));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("Double", 123.456));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.Double, 123.456));
-    // });
+    test('Match Double', () {
+      expect(reflect.TypeMatcher.matchValueTypeByName("double", 123.456), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("Double", 123.456), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Double, 123.456), isTrue);
+    });
 
-    // test('Match String', () => {
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("string", "ABC"));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.String, "ABC"));
-    // });
+    test('Match String', () {
+      expect(reflect.TypeMatcher.matchValueTypeByName("string", "ABC"), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.String, "ABC"), isTrue);
+    });
 
-    // test('Match DateTime', () => {
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("date", new Date()));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("DateTime", new Date()));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.DateTime, new Date()));
-    // });
+    test('Match DateTime', () {
+      expect(reflect.TypeMatcher.matchValueTypeByName("date", DateTime.now()), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("DateTime", DateTime.now()), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.DateTime, DateTime.now()), isTrue);
+    });
 
-    // test('Match Map', () => {
-    //       let map = {};
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("map", map));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("dict", map));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("Dictionary", map));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.Map, map));
-    // });
+    test('Match Duration', () {
+      expect(reflect.TypeMatcher.matchValueTypeByName("timespan", new Duration()), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("Duration", new Duration()), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Duration, new Duration()), isTrue);
+    });
 
-    // test('Match Array', () => {
-    //       let array: number[] = [];
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("list", array));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("array", array));
-    //   assert.isTrue(TypeMatcher.matchValueTypeByName("object[]", array));
-    //   assert.isTrue(TypeMatcher.matchValueType(TypeCode.Array, array));
-    // });
+    test('Match Map', () {
+      var map = {};
+      expect(reflect.TypeMatcher.matchValueTypeByName("map", map), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("dict", map), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("Dictionary", map), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Map, map), isTrue);
+    });
+
+    test('Match Array', () {
+      var array = [];
+      expect(reflect.TypeMatcher.matchValueTypeByName("list", array), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("array", array), isTrue);
+      expect(reflect.TypeMatcher.matchValueTypeByName("object[]", array), isTrue);
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Array, array), isTrue);
+    });
 
   });
 }

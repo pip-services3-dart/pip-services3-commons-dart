@@ -1,174 +1,222 @@
-// /** @module reflect */
-// /** @hidden */ 
-// let _ = require('lodash');
+import 'dart:mirrors';
 
-// /**
-//  * Helper class to perform property introspection and dynamic reading and writing.
-//  * 
-//  * This class has symmetric implementation across all languages supported
-//  * by Pip.Services toolkit and used to support dynamic data processing.
-//  * 
-//  * Because all languages have different casing and case sensitivity rules,
-//  * this PropertyReflector treats all property names as case insensitive.
-//  * 
-//  * ### Example ###
-//  * 
-//  *     let myObj = new MyObject();
-//  *     
-//  *     let properties = PropertyReflector.getPropertyNames();
-//  *     PropertyReflector.hasProperty(myObj, "myProperty");
-//  *     let value = PropertyReflector.getProperty(myObj, "myProperty");
-//  *     PropertyReflector.setProperty(myObj, "myProperty", 123);
-//  */
-// export class PropertyReflector {
-// 	private static matchField(fieldName: string, fieldValue: any, expectedName: string): boolean {
-//         if (_.isFunction(fieldValue)) return false;
-//         if (_.startsWith(fieldName, '_')) return false;
-//         if (expectedName == null) return true;
-//         return fieldName.toLowerCase() == expectedName;
-// 	}
+/**
+ * Helper class to perform property introspection and dynamic reading and writing.
+ * 
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ * 
+ * Because all languages have different casing and case sensitivity rules,
+ * this PropertyReflector treats all property names as case insensitive.
+ * 
+ * ### Example ###
+ * 
+ *     var myObj = new MyObject();
+ *     
+ *     var properties = PropertyReflector.getPropertyNames();
+ *     PropertyReflector.hasProperty(myObj, "myProperty");
+ *     let value = PropertyReflector.getProperty(myObj, "myProperty");
+ *     PropertyReflector.setProperty(myObj, "myProperty", 123);
+ */
+class PropertyReflector {
+  static String _extractName(Symbol field) {
+    var name = field.toString();
+    var pos = name.indexOf('("');
+    name = name.substring(pos + 2, name.length - 2);
+    if (name.endsWith('='))
+      name = name.substring(0, name.length - 1);
+    return name;
+  }
 
-// 	/**
-// 	 * Checks if object has a property with specified name..
-// 	 * 
-// 	 * @param obj 	an object to introspect.
-// 	 * @param name 	a name of the property to check.
-// 	 * @returns true if the object has the property and false if it doesn't.
-// 	 */
-// 	public static hasProperty(obj: any, name: string): boolean {
-// 		if (obj == null)
-// 			throw new Error("Object cannot be null");
-// 		if (name == null)
-// 			throw new Error("Property name cannot be null");
+	static bool _matchField(Symbol field, String expectedName) {
+    if (expectedName == null) return true;
+
+    var fieldName = field.toString().toLowerCase();
+    var matchName = 'symbol("' + expectedName + '")';
+    return fieldName == matchName;
+	}
+
+  static Symbol _findReadField(obj, String name) {
+    name = name.toLowerCase();
+    var cm = reflectClass(obj.runtimeType);
+    for (var dm in cm.declarations.values) {
+      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
+        if (_matchField(dm.simpleName, name))
+          return dm.simpleName;
+      }
+      else if (dm is MethodMirror && dm.isGetter && !dm.isStatic && !dm.isPrivate) {
+        if (_matchField(dm.simpleName, name))
+          return dm.simpleName;
+      }
+    }
+    return null;
+  }
+
+  static Symbol _findWriteField(obj, String name) {
+    name = name.toLowerCase();
+    var cm = reflectClass(obj.runtimeType);
+    for (var dm in cm.declarations.values) {
+      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
+        if (_matchField(dm.simpleName, name))
+          return dm.simpleName;
+      }
+      else if (dm is MethodMirror && dm.isSetter && !dm.isStatic && !dm.isPrivate) {
+        if (_matchField(dm.simpleName, name + "="))
+          return dm.simpleName;
+      }
+    }
+    return null;
+  }
+
+	/**
+	 * Checks if object has a property with specified name..
+	 * 
+	 * @param obj 	an object to introspect.
+	 * @param name 	a name of the property to check.
+	 * @returns true if the object has the property and false if it doesn't.
+	 */
+	static bool hasProperty(obj, String name) {
+		if (obj == null)
+			throw new Exception("Object cannot be null");
+		if (name == null)
+			throw new Exception("Property name cannot be null");
 		
-//         name = name.toLowerCase();
-//         for (let field in obj) {
-//             let fieldValue = obj[field];
-//         	if (PropertyReflector.matchField(field, fieldValue, name))
-//         		return true;
-//         }
-		
-//         return false;
-// 	}
+    var foundName = _findReadField(obj, name);
 
-// 	/**
-// 	 * Gets value of object property specified by its name.
-// 	 * 
-// 	 * @param obj 	an object to read property from.
-// 	 * @param name 	a name of the property to get.
-// 	 * @returns the property value or null if property doesn't exist or introspection failed.
-// 	 */
-// 	public static getProperty(obj: any, name: string): any {
-// 		if (obj == null)
-// 			throw new Error("Object cannot be null");
-// 		if (name == null)
-// 			throw new Error("Property name cannot be null");
+    return foundName != null;
+	}
 
-//         name = name.toLowerCase()
-//         for (let field in obj) {
-//             let fieldValue = obj[field];
-//         	try {
-// 	        	if (PropertyReflector.matchField(field, fieldValue, name))
-// 	        		return fieldValue;
-//         	} catch (ex) {
-//         		// Ignore exceptions
-//         	}
-//         }
+	/**
+	 * Gets value of object property specified by its name.
+	 * 
+	 * @param obj 	an object to read property from.
+	 * @param name 	a name of the property to get.
+	 * @returns the property value or null if property doesn't exist or introspection failed.
+	 */
+	static getProperty(obj, String name) {
+		if (obj == null)
+			throw new Exception("Object cannot be null");
+		if (name == null)
+			throw new Exception("Property name cannot be null");
+
+    var foundName = _findReadField(obj, name);
+    if (foundName != null) {
+      try {
+        var im = reflect(obj);
+        return im.getField(foundName).reflectee;
+      } catch (e) {
+        // Ignore exceptions
+      }
+    }
 		
-//         return null;
-// 	}
+    return null;
+	}
 	
-// 	/**
-//      * Gets names of all properties implemented in specified object.
-//      * 
-//      * @param obj   an objec to introspect.
-//      * @returns a list with property names.
-//      */
-// 	public static getPropertyNames(obj: any): string[] {
-//         let properties: string[] = [];
+	/**
+     * Gets names of all properties implemented in specified object.
+     * 
+     * @param obj   an objec to introspect.
+     * @returns a list with property names.
+     */
+	static List<String> getPropertyNames(obj) {
+    var properties = new List<String>();
 		
-//         for (let field in obj) {
-//             let fieldValue = obj[field];
-//         	if (PropertyReflector.matchField(field, fieldValue, null))
-//         		properties.push(field);
-//         }
+    var cm = reflectClass(obj.runtimeType);
+    for (var dm in cm.declarations.values) {
+      Symbol foundName = null;
+      
+      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate)
+        foundName = dm.simpleName;
+      else if (dm is MethodMirror && dm.isGetter && !dm.isStatic && !dm.isPrivate)
+        foundName = dm.simpleName;
+
+      if (foundName != null)
+        properties.add(_extractName(foundName));
+    }
 		        
-// 		return properties;
-// 	}
+		return properties;
+	}
 
-// 	/**
-//      * Get values of all properties in specified object
-// 	 * and returns them as a map.
-//      * 
-//      * @param obj   an object to get properties from.
-//      * @returns a map, containing the names of the object's properties and their values.
-//      */
-// 	public static getProperties(obj: any): any {
-//         let map: any = {};
+	/**
+     * Get values of all properties in specified object
+	 * and returns them as a map.
+     * 
+     * @param obj   an object to get properties from.
+     * @returns a map, containing the names of the object's properties and their values.
+     */
+	static Map<String, dynamic> getProperties(obj) {
+    var map = new Map<String, dynamic>();
 		
-//         for (let field in obj) {
-//             let fieldValue = obj[field];
-//         	try {
-// 	        	if (PropertyReflector.matchField(field, fieldValue, null))
-// 	        		map[field] = fieldValue;
-//         	} catch (ex) {
-//         		// Ignore exception
-//         	}
-//         }
+    var cm = reflectClass(obj.runtimeType);
+    var im = reflect(obj);
+    for (var dm in cm.declarations.values) {
+      Symbol foundName = null;
+      
+      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate)
+        foundName = dm.simpleName;
+      else if (dm is MethodMirror && dm.isGetter && !dm.isStatic && !dm.isPrivate)
+        foundName = dm.simpleName;
+
+      if (foundName != null) {
+        try {
+          var name = _extractName(foundName);
+          var value = im.getField(foundName).reflectee;
+          map[name] = value;
+        } catch (ex) {
+          // Ignore exceptions...
+        }
+      }
+    }
 		        
-// 		return map;
-// 	}
+		return map;
+	}
 	
-// 	/**
-// 	 * Sets value of object property specified by its name.
-// 	 * 
-// 	 * If the property does not exist or introspection fails
-// 	 * this method doesn't do anything and doesn't any throw errors.
-// 	 * 
-// 	 * @param obj 	an object to write property to.
-// 	 * @param name 	a name of the property to set.
-// 	 * @param value a new value for the property to set.
-//      */
-// 	public static setProperty(obj: any, name: string, value: any): void {
-// 		if (obj == null)
-// 			throw new Error("Object cannot be null");
-// 		if (name == null)
-// 			throw new Error("Property name cannot be null");
+	/**
+	 * Sets value of object property specified by its name.
+	 * 
+	 * If the property does not exist or introspection fails
+	 * this method doesn't do anything and doesn't any throw errors.
+	 * 
+	 * @param obj 	an object to write property to.
+	 * @param name 	a name of the property to set.
+	 * @param value a new value for the property to set.
+     */
+	static void setProperty(obj, String name, value) {
+		if (obj == null)
+			throw new Exception("Object cannot be null");
+		if (name == null)
+			throw new Exception("Property name cannot be null");
 
-//         let expectedName = name.toLowerCase();
-//         for (let field in obj) {
-//             let fieldValue = obj[field];
-// 	    	try {        		
-// 	            if (PropertyReflector.matchField(field, fieldValue, expectedName)) { 
-// 	        		obj[field] = value;
-// 	        		return;
-// 	            }
-// 	    	} catch (ex) {
-// 	    		// Ignore exception
-// 	    	}
-//         }
-
-//         // If no existing properties found set it directly
-//         obj[name] = value;
-// 	}
+    var foundName = _findWriteField(obj, name);
+    if (foundName != null) {
+      try {
+        var im = reflect(obj);
+        // Fix name for setters which have '=' at the end
+        foundName = new Symbol(_extractName(foundName));
+        im.setField(foundName, value);
+      } catch (ex) {
+        // Ignore exceptions...
+      }
+    }
+	}
 	
-// 	/**
-// 	 * Sets values of some (all) object properties.
-// 	 * 
-// 	 * If some properties do not exist or introspection fails
-// 	 * they are just silently skipped and no errors thrown.
-// 	 * 
-// 	 * @param obj 		 an object to write properties to.
-// 	 * @param values 	a map, containing property names and their values.
-// 	 * 
-// 	 * @see [[setProperty]]
-// 	 */
-// 	public static setProperties(obj: any, values: any): void {
-// 		if (values == null) return;
+	/**
+	 * Sets values of some (all) object properties.
+	 * 
+	 * If some properties do not exist or introspection fails
+	 * they are just silently skipped and no errors thrown.
+	 * 
+	 * @param obj 		 an object to write properties to.
+	 * @param values 	a map, containing property names and their values.
+	 * 
+	 * @see [[setProperty]]
+	 */
+	static void setProperties(obj, Map<String, dynamic> values) {
+		if (values == null) return;
 		
-// 		for (let field in values) {
-//             let fieldValue = values[field];
-// 			PropertyReflector.setProperty(obj, field, fieldValue);
-// 		}
-// 	}
-// }
+		for (var field in values.keys) {
+      var fieldValue = values[field];
+			PropertyReflector.setProperty(obj, field, fieldValue);
+		}
+	}
+}
