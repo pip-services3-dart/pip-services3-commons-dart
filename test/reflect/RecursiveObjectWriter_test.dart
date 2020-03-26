@@ -1,74 +1,73 @@
 import 'package:test/test.dart';
 
-import './TestClass.dart';
 import '../../lib/src/reflect/RecursiveObjectReader.dart';
 import '../../lib/src/reflect/RecursiveObjectWriter.dart';
 
 void main() {
   group('RecursiveObjectWriter', () {
 
-    // test('Set Property', () => {       
-    //       let obj = { 
-    //           "value1": 123, 
-    //           "value2": { 
-    //               "value21": 111, 
-    //               "value22": 222 
-    //           }, 
-    //           "value3": [ 444, { "value311": 555 } ] 
-    //       };
+    test('Set Property', () {       
+      var obj = { 
+          "value1": 123, 
+          "value2": { 
+              "value21": 111, 
+              "value22": 222 
+          }, 
+          "value3": [ 444, { "value311": 555, "value312": "XXX" } ] 
+      };
 
-    //       //RecursiveObjectWriter.setProperty(obj, "", null);
-    //       RecursiveObjectWriter.setProperty(obj, "value1", "AAA");
-    //       RecursiveObjectWriter.setProperty(obj, "value2", "BBB");
-    //       RecursiveObjectWriter.setProperty(obj, "value3.1.value312", "CCC");
-    //       RecursiveObjectWriter.setProperty(obj, "value3.3", "DDD");
-    //       RecursiveObjectWriter.setProperty(obj, "value4.1", "EEE");
-          
-    //       let values = RecursiveObjectReader.getProperties(obj);
-    //       //assert.equal(8, values.length);
-    //       assert.equal("AAA", values["value1"]);
-    //       assert.equal("BBB", values["value2"]);
-    //       assert.isUndefined(values["value2.value21"]);
-    //       assert.equal(444, values["value3.0"]);
-    //       assert.equal(555, values["value3.1.value311"]);
-    //       assert.equal("CCC", values["value3.1.value312"]);
-    //       assert.isUndefined(values["value3.2"]);
-    //       assert.equal("DDD", values["value3.3"]);
-    //       assert.equal("EEE", values["value4.1"]);
-    // });
+      //RecursiveObjectWriter.setProperty(obj, "", null);
+      RecursiveObjectWriter.setProperty(obj, "value1", "AAA");
+      RecursiveObjectWriter.setProperty(obj, "value2", "BBB");
+      RecursiveObjectWriter.setProperty(obj, "value3.1.value312", "CCC");
+      RecursiveObjectWriter.setProperty(obj, "value3.3", "DDD");
+      RecursiveObjectWriter.setProperty(obj, "value4.1", "EEE");
+      
+      var values = RecursiveObjectReader.getProperties(obj);
+      //assert.equal(8, values.length);
+      expect(values["value1"], equals("AAA"));
+      expect(values["value2"], equals("BBB"));
+      expect(values["value2.value21"], isNull);
+      expect(values["value3.0"], equals(444));
+      expect(values["value3.1.value311"], equals(555));
+      expect(values["value3.1.value312"], equals("CCC"));
+      expect(values["value3.2"], isNull);
+      expect(values["value3.3"], equals("DDD"));
+      expect(values["value4.1"], equals("EEE"));
+    });
 
-    // test('Set Properties', () => {       
-    //       let obj = { 
-    //           "value1": 123, 
-    //           "value2": { 
-    //               "value21": 111, 
-    //               "value22": 222 
-    //           }, 
-    //           "value3": [ 444, { "value311": 555 } ] 
-    //       };
+    test('Set Properties', () {       
+      var obj = { 
+          "value1": 123, 
+          "value2": { 
+              "value21": 111, 
+              "value22": 222 
+          }, 
+          "value3": [ 444, { "value311": 555, "value312": "XXX" } ] 
+      };
 
-    //       let values = {
-    //       //"", null,
-    //       "value1": "AAA",
-    //       "value2": "BBB",
-    //       "value3.1.value312": "CCC",
-    //       "value3.3": "DDD",
-    //       "value4.1": "EEE"
-    //       };
-    //       RecursiveObjectWriter.setProperties(obj, values);
-          
-    //       values = RecursiveObjectReader.getProperties(obj);
-    //       //assert.equal(8, values.length);
-    //       assert.equal("AAA", values["value1"]);
-    //       assert.equal("BBB", values["value2"]);
-    //       assert.isUndefined(values["value2.value21"]);
-    //       assert.equal(444, values["value3.0"]);
-    //       assert.equal(555, values["value3.1.value311"]);
-    //       assert.equal("CCC", values["value3.1.value312"]);
-    //       assert.isUndefined(values["value3.2"]);
-    //       assert.equal("DDD", values["value3.3"]);
-    //       assert.equal("EEE", values["value4.1"]);
-    // });
+      Map<String, dynamic> values = {
+        //"", null,
+        "value1": "AAA",
+        "value2": "BBB",
+        "value3.1.value312": "CCC",
+        "value3.3": "DDD",
+        "value4.1": "EEE"
+      };
+      RecursiveObjectWriter.setProperties(obj, values);
+      
+      values = RecursiveObjectReader.getProperties(obj);
+      //assert.equal(8, values.length);
+      expect(values["value1"], equals("AAA"));
+      expect(values["value2"], equals("BBB"));
+      expect(values["value2.value21"], isNull);
+      expect(values["value3.0"], equals(444));
+      expect(values["value3.1.value311"], equals(555));
+      expect(values["value3.1.value312"], equals("CCC"));
+      expect(values["value3.2"], isNull);
+      expect(values["value3.3"], equals("DDD"));
+      expect(values["value4.1"], equals("EEE"));
+    });
 
   });
 }

@@ -1,5 +1,5 @@
 import '../data/StringValueMap.dart';
-//import '../reflect/RecursiveObjectReader.dart';
+import '../reflect/RecursiveObjectReader.dart';
 
 /**
  * Contains a key-value map with configuration parameters. 
@@ -167,9 +167,7 @@ class ConfigParams extends StringValueMap {
 	 * @returns			a new ConfigParams object.
 	 */
 	static ConfigParams fromValue(value) {
-    // Todo: Complete implementation!
-		//var map = RecursiveObjectReader.getProperties(value);
-    var map = null;
+		var map = RecursiveObjectReader.getProperties(value);
 		return new ConfigParams(map);
 	}
 

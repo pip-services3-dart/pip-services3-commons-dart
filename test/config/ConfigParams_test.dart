@@ -52,16 +52,15 @@ void main() {
               "field3", true
           ]);
 
-          // Todo: Complete implementation!
-          // var config = ConfigParams.fromValue(value);
-          // expect(config.length(), equals(7));
-          // expect(config.getAsInteger("field1.field11"), equals(123));
-          // expect(config.get("field1.field12"), equals("ABC"));
-          // expect(config.getAsInteger("field2.0"), equals(123));
-          // expect(config.get("field2.1"), equals("ABC"));
-          // expect(config.getAsInteger("field2.2.field21"), equals(543));
-          // expect(config.get("field2.2.field22"), equals("XYZ"));
-          // expect(config.getAsBoolean("field3"), equals(true));
+          var config = ConfigParams.fromValue(value);
+          expect(config.length(), equals(7));
+          expect(config.getAsInteger("field1.field11"), equals(123));
+          expect(config.get("field1.field12"), equals("ABC"));
+          expect(config.getAsInteger("field2.0"), equals(123));
+          expect(config.get("field2.1"), equals("ABC"));
+          expect(config.getAsInteger("field2.2.field21"), equals(543));
+          expect(config.get("field2.2.field22"), equals("XYZ"));
+          expect(config.getAsBoolean("field3"), equals(true));
       });    
 
   });

@@ -55,23 +55,31 @@ class ObjectWriter {
       obj = obj.innerValue();
     
     if (obj is Map) {
-      var targetKey = name.toLowerCase();
-      var foundKey = null;
-      for (var key in obj.keys) {
-        if (key.toString().toString() == targetKey) {
-          foundKey = key;
-          break;
+      try {
+        var targetKey = name.toLowerCase();
+        var foundKey = null;
+        for (var key in obj.keys) {
+          if (key.toString().toString() == targetKey) {
+            foundKey = key;
+            break;
+          }
         }
+        foundKey = foundKey ?? name;
+        obj[foundKey] = value;
+      } catch (e) {
+        // Ignore exceptions
       }
-      foundKey = foundKey ?? name;
-      obj[foundKey] = value;
     } else if (obj is List) {
-        var index = IntegerConverter.toNullableInteger(name);
-        if (index >= 0) {
-            while (index > obj.length - 1) {
-                obj.add(null);
-            }
-            obj[index] = value;
+        try {
+          var index = IntegerConverter.toNullableInteger(name);
+          if (index >= 0) {
+              while (index > obj.length - 1) {
+                  obj.add(null);
+              }
+              obj[index] = value;
+          }
+        } catch (e) {
+          // Ignore exceptions
         }
     } else {
         return PropertyReflector.setProperty(obj, name, value);
