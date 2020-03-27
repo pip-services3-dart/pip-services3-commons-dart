@@ -1,37 +1,37 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { RandomText } from '../../src/random/RandomText';
+import '../../lib/src/random/RandomText.dart';
 
-// suite('RandomText', ()=> {
+void main() {
+  group('RandomText', () {
+    test('Phrase', () {
+      expect(RandomText.phrase(-1) == "", isTrue);
+      expect(RandomText.phrase(-1, -2) == "", isTrue);
+      expect(RandomText.phrase(-1, 0) == "", isTrue);
+      expect(RandomText.phrase(-2, -1) == "", isTrue);
 
-//     test('Phrase', () => {
-//     	assert.isTrue(RandomText.phrase(-1) == "");
-//     	assert.isTrue(RandomText.phrase(-1, -2) == "");
-//     	assert.isTrue(RandomText.phrase(-1, 0) == "");
-//     	assert.isTrue(RandomText.phrase(-2, -1) == "");
+      var text = RandomText.phrase(4);
+      expect(text.length >= 4 && text.length <= 10, isTrue);
+      text = RandomText.phrase(4, 10);
+      expect(text.length >= 4, isTrue);
+    });
 
-//     	let text = RandomText.phrase(4);
-//     	assert.isTrue(text.length >= 4 && text.length <= 10 );
-//     	text = RandomText.phrase(4, 10);
-//     	assert.isTrue(text.length >= 4);
-//    });
+    test('FullName', () {
+      var text = RandomText.fullName();
+      expect(text.indexOf(" ") != -1, isTrue);
+    });
 
-//     test('FullName', () => {
-//     	let text = RandomText.fullName();
-//     	assert.isTrue(text.indexOf(" ") != -1);
-//    });
+    test('Phone', () {
+      var text = RandomText.phone();
+      expect(text.indexOf("(") != -1, isTrue);
+      expect(text.indexOf(")") != -1, isTrue);
+      expect(text.indexOf("-") != -1, isTrue);
+    });
 
-//     test('Phone', () => {
-//     	let text = RandomText.phone();
-//     	assert.isTrue(text.indexOf("(") != -1);
-//     	assert.isTrue(text.indexOf(")") != -1);
-//     	assert.isTrue(text.indexOf("-") != -1);
-//    });
-
-//     test('Email', () => {
-//     	let text = RandomText.email();
-//     	assert.isTrue(text.indexOf("@") != -1);
-//     	assert.isTrue(text.indexOf(".com") != -1);
-//    });
-
-// });
+    test('Email', () {
+      var text = RandomText.email();
+      expect(text.indexOf("@") != -1, isTrue);
+      expect(text.indexOf(".com") != -1, isTrue);
+    });
+  });
+}

@@ -1,24 +1,24 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { RandomArray } from '../../src/random/RandomArray';
+import '../../lib/src/random/RandomArray.dart';
 
-// suite('RandomArray', ()=> {
+void main() {
+  group('RandomArray', () {
+    test('Pick', () {
+      var listEmpty = [];
+      var value = RandomArray.pick(listEmpty);
+      expect(value, isNull);
 
-//     test('Pick', () => {
-//         let listEmpty = [];
-//     	let value = RandomArray.pick(listEmpty);
-//     	assert.isTrue(value == null);
+      var array = [1, 2];
+      value = RandomArray.pick<int>(array);
+      expect(value == 1 || value == 2, isTrue);
 
-//         let array: number[] = [1, 2];
-//     	value = RandomArray.pick<number>(array);
-//     	assert.isTrue(value == 1 || value == 2);
+      var list = [];
+      expect(RandomArray.pick(list), isNull);
 
-//         let list: number[] = [];
-//     	assert.isNull(RandomArray.pick(list));
-
-//         list = [1, 2];
-//     	value = RandomArray.pick(array);
-//     	assert.isTrue(value == 1 || value == 2);
-//    });
-
-// });
+      list = [1, 2];
+      value = RandomArray.pick(array);
+      expect(value == 1 || value == 2, isTrue);
+    });
+  });
+}

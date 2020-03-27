@@ -1,31 +1,41 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { RandomDateTime } from '../../src/random/RandomDateTime';
+import '../../lib/src/random/RandomDateTime.dart';
 
-// suite('RandomDateTime', ()=> {
+void main() {
+  group('RandomDateTime', () {
+    test('Next Date', () {
+      var date = RandomDateTime.nextDate(
+          new DateTime(2015, 1, 1), new DateTime(2016, 1, 1));
+      expect(date.year == 2015 || date.year == 2016, isTrue);
 
-//     test('Next Date', () => {
-// 		let date = RandomDateTime.nextDate(new Date(2015, 1, 1), new Date(2016, 1, 1));
-//     	assert.isTrue(date.getFullYear() == 2015 || date.getFullYear() == 2016 );
+      date = RandomDateTime.nextDate(DateTime.now());
+      var now = DateTime.now();
+      expect(date.year >= now.year - 10 && date.year <= now.year, isTrue);
+    });
 
-// 		date = RandomDateTime.nextDate(new Date());
-//         assert.isTrue(date.getFullYear() >= new Date().getFullYear() - 10
-//             && date.getFullYear() <= new Date().getFullYear());
-//    });
+    test('Update Date Time', () {
+      var oldDate = new DateTime(2016, 10, 10, 0, 0, 0, 0);
 
-//     test('Update Date Time', () => {
-//     	let oldDate = new Date(2016, 10, 10, 0, 0, 0, 0);
+      var date = RandomDateTime.updateDateTime(oldDate);
+      expect(
+          date.millisecondsSinceEpoch >=
+                  oldDate.millisecondsSinceEpoch - 10 * 24 * 3600000 ||
+              date.millisecondsSinceEpoch >=
+                  oldDate.millisecondsSinceEpoch + 10 * 24 * 3600000,
+          isTrue);
 
-//     	let date = RandomDateTime.updateDateTime(oldDate);
-//         assert.isTrue(date.getTime() >= oldDate.getTime() - 10 * 24 * 3600000
-// 			|| date.getTime() >= oldDate.getTime() + 10 * 24 * 3600000);
+      date = RandomDateTime.updateDateTime(oldDate, 3 * 24 * 3600000);
+      expect(
+          date.millisecondsSinceEpoch >=
+                  oldDate.millisecondsSinceEpoch - 3 * 24 * 3600000 ||
+              date.millisecondsSinceEpoch >=
+                  oldDate.millisecondsSinceEpoch + 3 * 24 * 3600000,
+          isTrue);
 
-//     	date = RandomDateTime.updateDateTime(oldDate, 3 * 24 * 3600000);
-//         assert.isTrue(date.getTime() >= oldDate.getTime() - 3 * 24 * 3600000
-// 			|| date.getTime() >= oldDate.getTime() + 3 * 24 * 3600000);
-
-//     	date = RandomDateTime.updateDateTime(oldDate, -3);
-//     	assert.isTrue(date.getTime() == oldDate.getTime());
-//    });
-
-// });
+      date = RandomDateTime.updateDateTime(oldDate, -3);
+      expect(date.millisecondsSinceEpoch == oldDate.millisecondsSinceEpoch,
+          isTrue);
+    });
+  });
+}

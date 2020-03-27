@@ -1,50 +1,51 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { RandomString } from '../../src/random/RandomString';
+import '../../lib/src/random/RandomString.dart';
 
-// suite('RandomString', ()=> {
-//     let symbols = "_,.:-/.[].{},#-!,$=%.+^.&*-() ";
-//     let chars ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//     let digits = "01234956789";
+void main() {
+  group('RandomString', () {
+    var symbols = "_,.:-/.[].{},#-!,\$=%.+^.&*-() ";
+    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var digits = "01234956789";
 
-//     test('Pick', () => {
-//     	 assert.isTrue(RandomString.pickChar("") == '');
-//     	 let charVariable = RandomString.pickChar(chars);
-//     	 assert.isTrue(chars.indexOf(charVariable) != -1);
+    test('Pick', () {
+      expect(RandomString.pickChar("") == '', isTrue);
+      var charVariable = RandomString.pickChar(chars);
+      expect(chars.indexOf(charVariable) != -1, isTrue);
 
-//          let valuesEmpty: string[] = [];
-//     	 assert.isTrue(RandomString.pick(valuesEmpty) == "");
+      var valuesEmpty = new List<String>();
+      expect(RandomString.pick(valuesEmpty) == "", isTrue);
 
-//          let values = [ "ab", "cd" ];
-//     	 let result = RandomString.pick(values);
-//     	 assert.isTrue(result == "ab" || result == "cd");
-//    });
+      var values = ["ab", "cd"];
+      var result = RandomString.pick(values);
+      expect(result == "ab" || result == "cd", isTrue);
+    });
 
-//     test('Distort', () => {
-//     	let value = RandomString.distort("abc");
-//    	 	assert.isTrue(value.length == 3 || value.length == 4);
-//    	 	assert.isTrue(value.substring(0,3) == "Abc"
-//  			|| value.substring(0,3) == "abc"
-// 		);
+    test('Distort', () {
+      var value = RandomString.distort("abc");
+      expect(value.length == 3 || value.length == 4, isTrue);
+      expect(value.substring(0, 3) == "Abc" || value.substring(0, 3) == "abc",
+          isTrue);
 
-// 	   	if (value.length == 4)
-// 	   		assert.isTrue(symbols.indexOf(value.substring(3)) != -1);
-//    });
+      if (value.length == 4)
+        expect(symbols.indexOf(value.substring(3)) != -1, isTrue);
+    });
 
-//     test('Next Alpha Char', () => {
-//     	assert.isTrue(chars.indexOf(RandomString.nextAlphaChar()) != -1);
-//    });
+    test('Next Alpha Char', () {
+      expect(chars.indexOf(RandomString.nextAlphaChar()) != -1, isTrue);
+    });
 
-//     test('Next String', () => {
-//     	let value = RandomString.nextString(3,5);
-//     	assert.isTrue(value.length <= 5 && value.length >= 3);
+    test('Next String', () {
+      var value = RandomString.nextString(3, 5);
+      expect(value.length <= 5 && value.length >= 3, isTrue);
 
-//     	for (let i = 0; i < value.length; i++) {
-//     		assert.isTrue(chars.indexOf(value.charAt(i)) != -1
-// 				|| symbols.indexOf(value.charAt(i)) != -1
-// 				|| digits.indexOf(value.charAt(i)) != -1
-// 			);
-//     	}
-//    });
-
-// });
+      for (var i = 0; i < value.length; i++) {
+        expect(
+            chars.indexOf(value.substring(i, i + 1)) != -1 ||
+                symbols.indexOf(value.substring(i, i + 1)) != -1 ||
+                digits.indexOf(value.substring(i, i + 1)) != -1,
+            isTrue);
+      }
+    });
+  });
+}

@@ -1,43 +1,43 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { RandomInteger } from '../../src/random/RandomInteger';
+import '../../lib/src/random/RandomInteger.dart';
 
-// suite('RandomInteger', ()=> {
+void main() {
+  group('RandomInteger', () {
+    test('Next Integer', () {
+      var value = RandomInteger.nextInteger(5);
+      expect(value, lessThanOrEqualTo(5));
 
-//     test('Next Integer', () => {
-//     	let value = RandomInteger.nextInteger(5);
-//         assert.isTrue(value <= 5);
+      value = RandomInteger.nextInteger(2, 5);
+      expect(value <= 5 && value >= 2, isTrue);
+    });
 
-//     	value = RandomInteger.nextInteger(2,5);
-//     	assert.isTrue(value <= 5 && value >= 2);
-//    });
+    test('Update Integer', () {
+      var value = RandomInteger.updateInteger(0, 5);
+      expect(value <= 5 && value >= -5, isTrue);
 
-//     test('Update Integer', () => {
-//     	let value = RandomInteger.updateInteger(0, 5);
-//         assert.isTrue(value <= 5 && value >= -5);
+      value = RandomInteger.updateInteger(5, 0);
+      expect(value == 5, isTrue);
 
-//         value = RandomInteger.updateInteger(5, 0);
-//         assert.isTrue(value == 5);
+      value = RandomInteger.updateInteger(0);
+      expect(value == 0, isTrue);
+    });
 
-//         value = RandomInteger.updateInteger(0);
-//         assert.isTrue(value == 0);
-//    });
+    test('Sequence', () {
+      var list = RandomInteger.sequence(1, 5);
+      expect(list.length <= 5 && list.length >= 1, isTrue);
 
-//    test('Sequence', () => {
-//         let list = RandomInteger.sequence(1,5);
-//         assert.isTrue(list.length <= 5 && list.length >= 1);
+      list = RandomInteger.sequence(-1, 0);
+      expect(list.length == 0, isTrue);
 
-//         list = RandomInteger.sequence(-1, 0);
-//         assert.isTrue(list.length == 0);
+      list = RandomInteger.sequence(-1, -4);
+      expect(list.length == 0, isTrue);
 
-//         list = RandomInteger.sequence(-1, -4);
-//         assert.isTrue(list.length == 0);
+      list = RandomInteger.sequence(4, 4);
+      expect(list.length == 4, isTrue);
 
-//         list = RandomInteger.sequence(4, 4);
-//         assert.isTrue(list.length == 4);
-
-//         list = RandomInteger.sequence(5);
-//         assert.isTrue(list.length == 5);
-//     });
-
-// });
+      list = RandomInteger.sequence(5);
+      expect(list.length == 5, isTrue);
+    });
+  });
+}

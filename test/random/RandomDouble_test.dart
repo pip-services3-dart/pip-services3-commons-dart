@@ -1,25 +1,25 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
 
-// import { RandomDouble } from '../../src/random/RandomDouble';
+import '../../lib/src/random/RandomDouble.dart';
 
-// suite('RandomDouble', ()=> {
+void main() {
+  group('RandomDouble', () {
+    test('Next Double', () {
+      var value = RandomDouble.nextDouble(5);
+      expect(value <= 5, isTrue);
 
-//     test('Next Double', () => {
-//     	let value = RandomDouble.nextDouble(5);
-//         assert.isTrue(value <= 5);
+      value = RandomDouble.nextDouble(2, 5);
+      expect(value <= 5 && value >= 2, isTrue);
+    });
 
-//     	value = RandomDouble.nextDouble(2,5);
-//     	assert.isTrue(value <= 5 && value >= 2);
-//    });
+    test('Update Double', () {
+      var value = RandomDouble.updateDouble(0, 5);
+      expect(value <= 5 && value >= -5, isTrue);
 
-//     test('Update Double', () => {
-//     	let value = RandomDouble.updateDouble(0, 5);
-//         assert.isTrue(value <= 5 && value >= -5);
+      value = RandomDouble.updateDouble(5, 0);
 
-//         value = RandomDouble.updateDouble(5, 0);
-
-//         value = RandomDouble.updateDouble(0);
-//         assert.isTrue(value == 0);
-//    });
-
-// });
+      value = RandomDouble.updateDouble(0);
+      expect(value == 0, isTrue);
+    });
+  });
+}
