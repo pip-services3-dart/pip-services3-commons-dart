@@ -27,6 +27,9 @@ class Parameters extends AnyValueMap {
 	 */
   Parameters([values = null]) : super(values);
 
+  factory  Parameters.fromJson(Map<String, dynamic> json){
+    return Parameters(json);
+  }
   /**
      * Gets a map element specified by its key.
 	 * 
@@ -106,9 +109,9 @@ class Parameters extends AnyValueMap {
      * @param key     a key to be checked
      * @returns       true if this map contains the key or false otherwise.
 	 */
-  bool contains(String key) {
-    return RecursiveObjectReader.hasProperty(this, key.toString());
-  }
+	bool containsKey(Object key) {
+		return RecursiveObjectReader.hasProperty(this, key.toString());
+	}
 
   /**
 	 * Overrides parameters with new values from specified Parameters

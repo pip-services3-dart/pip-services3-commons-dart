@@ -106,7 +106,7 @@ class ObjectSchema extends Schema {
      */
   withProperty(PropertySchema schema) {
     this._properties =
-        this._properties != null ? this._properties : List<dynamic>();
+        this._properties != null ? this._properties : List<PropertySchema>();
     this._properties.add(schema);
     return this;
   }
@@ -121,7 +121,10 @@ class ObjectSchema extends Schema {
   ObjectSchema withRequiredProperty(String name,
       [dynamic type, List<IValidationRule> rules]) {
     var schema = new PropertySchema(name, type);
-    schema.setRules(List.from(rules));
+    if (rules!= null) {
+      schema.setRules(List.from(rules));
+    }
+    
     schema.makeRequired();
 
     return this.withProperty(schema);
@@ -137,7 +140,9 @@ class ObjectSchema extends Schema {
   ObjectSchema withOptionalProperty(String name,
       [dynamic type, List<IValidationRule> rules]) {
     var schema = new PropertySchema(name, type);
-    schema.setRules(List.from(rules));
+    if (rules!= null) {
+      schema.setRules(List.from(rules));
+    }
     schema.makeOptional();
 
     return this.withProperty(schema);
@@ -154,7 +159,7 @@ class ObjectSchema extends Schema {
       String path, dynamic value, List<ValidationResult> results) {
     super.performValidation(path, value, results);
 
-    if (!value) return;
+    if (value == null) return;
 
     var name = path != null ? path : "value";
     var properties = ObjectReader.getProperties(value);
@@ -176,14 +181,14 @@ class ObjectSchema extends Schema {
           }
         }
 
-        if (processedName)
+        if (processedName != null)
           properties.remove(processedName);
         else
           propertySchema.performValidation(path, null, results);
       }
     }
 
-    if (!this._allowUndefined)
+    if (this._allowUndefined == null || this._allowUndefined == false)
       for (var key in properties.keys) {
         var propertyPath = key != null && path != "" ? path + "." + key : key;
 

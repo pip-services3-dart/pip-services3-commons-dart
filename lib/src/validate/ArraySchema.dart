@@ -69,7 +69,7 @@ class ArraySchema extends Schema {
 
     super.performValidation(path, value, results);
 
-    if (!value) return;
+    if (value == null) return;
 
     if (value is List) {
       for (var index = 0; index < value.length; index++) {

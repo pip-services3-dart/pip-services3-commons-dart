@@ -32,6 +32,7 @@ class Schema {
      */
   Schema([bool req, List<IValidationRule> rules]) {
     this._required = req;
+    this._required =  this._required != null? this._required:false;
     this._rules = rules;
   }
 
@@ -200,7 +201,7 @@ class Schema {
             " but found " +
             this._typeToString(valueType),
         type,
-        valueType.toString()));
+        valueType));
   }
 
   /**

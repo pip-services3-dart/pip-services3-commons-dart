@@ -52,7 +52,8 @@ class ObjectComparator {
   static bool areEqual(dynamic value1, dynamic value2) {
     if (value1 == null && value2 == null) return true;
     if (value1 == null || value2 == null) return false;
-    return identical(value1, value2);
+    // TODO: must check this code
+    return value1 == value2;    
   }
 
   /**

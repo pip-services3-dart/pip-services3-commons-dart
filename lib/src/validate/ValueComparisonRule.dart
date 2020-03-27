@@ -50,12 +50,12 @@ class ValueComparisonRule implements IValidationRule {
           "BAD_VALUE",
           name +
               " must " +
-              this._operation +
+              this._operation.toString() +
               " " +
-              this._value +
+              this._value.toString() +
               " but found " +
-              value,
-          this._operation + " " + this._value,
+              value.toString(),
+          this._operation.toString() + " " + this._value.toString(),
           value));
     }
   }

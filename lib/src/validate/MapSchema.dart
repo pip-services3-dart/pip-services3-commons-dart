@@ -96,14 +96,14 @@ class MapSchema extends Schema {
 
     super.performValidation(path, value, results);
 
-    if (!value) return;
+    if (value== null) return;
 
     var name = path != null ? path : "value";
     var valueType = TypeConverter.toTypeCode(value);
-    var map = valueType == TypeCode.Map ? value : null;
+    var map = valueType == TypeCode.Map ? Map.from(value) : null;
 
-    if (map) {
-      for (var key in map) {
+    if (map != null) {
+      for (var key in map.keys) {
         var elementPath =
             path != "" ? path + "." + key : StringConverter.toString2(key);
 

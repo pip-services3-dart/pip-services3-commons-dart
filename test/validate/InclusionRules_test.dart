@@ -1,33 +1,30 @@
-// let assert = require('chai').assert;
+import 'package:test/test.dart';
+import '../../lib/src/validate/Schema.dart';
+import '../../lib/src/validate/IncludedRule.dart';
+import '../../lib/src/validate/ExcludedRule.dart';
 
-// import { Schema } from '../../src/validate/Schema';
-// import { IncludedRule } from '../../src/validate/IncludedRule';
-// import { ExcludedRule } from '../../src/validate/ExcludedRule';
+void main() {
+  group('Inclusion Rules', () {
+    test('IncludedRule', () {
+      var schema =
+          new Schema().withRule(new IncludedRule(["AAA", "BBB", "CCC", null]));
 
-// suite('Inclusion Rules', ()=> {
+      var results = schema.validate("AAA");
+      expect(results.length, 0);
 
-//     test('IncludedRule', (done) => {
-//         var schema = new Schema().withRule(new IncludedRule("AAA", "BBB", "CCC", null));
+      results = schema.validate("ABC");
+      expect(results.length, 1);
+    });
 
-//         var results = schema.validate("AAA");
-//         assert.equal(results.length, 0);
+    test('ExcludedRule', () {
+      var schema =
+          new Schema().withRule(new ExcludedRule(["AAA", "BBB", "CCC", null]));
 
-//         results = schema.validate("ABC");
-//         assert.equal(results.length, 1);
+      var results = schema.validate("AAA");
+      expect(results.length, 1);
 
-//         done();
-//     });
-
-//     test('ExcludedRule', (done) => {
-//         var schema = new Schema().withRule(new ExcludedRule("AAA", "BBB", "CCC", null));
-
-//         var results = schema.validate("AAA");
-//         assert.equal(results.length, 1);
-
-//         results = schema.validate("ABC");
-//         assert.equal(results.length, 0);
-
-//         done();
-//     });
-
-// });
+      results = schema.validate("ABC");
+      expect(results.length, 0);
+    });
+  });
+}

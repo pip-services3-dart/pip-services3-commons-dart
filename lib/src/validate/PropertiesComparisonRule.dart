@@ -59,11 +59,11 @@ class PropertiesComparisonRule implements IValidationRule {
           "PROPERTIES_NOT_MATCH",
           name +
               " must have " +
-              this._property1 +
+              this._property1.toString() +
               " " +
-              this._operation +
+              this._operation.toString() +
               " " +
-              this._property2,
+              this._property2.toString(),
           value2,
           value1));
     }

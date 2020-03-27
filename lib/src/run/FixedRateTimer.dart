@@ -4,6 +4,7 @@ import 'dart:async';
 import './IClosable.dart';
 import './INotifiable.dart';
 import './Parameters.dart';
+import '../reflect/ObjectReader.dart';
 
 /**
  * Timer that is triggered in equal time intervals.
@@ -59,7 +60,7 @@ class FixedRateTimer implements IClosable {
      */
   FixedRateTimer(
       [dynamic taskOrCallback = null, int interval = null, int delay = null]) {
-    if (taskOrCallback.notify is Function) //
+    if (taskOrCallback != null &&  (taskOrCallback is INotifiable)) //
       this.setTask(taskOrCallback);
     else
       this.setCallback(taskOrCallback);
@@ -175,7 +176,7 @@ class FixedRateTimer implements IClosable {
       this._timeout = null;
 
       // Set a new timer
-      this._timer = Timer(new Duration(milliseconds: this._interval), () {
+      this._timer = Timer.periodic(new Duration(milliseconds: this._interval), (Timer tm) {
         try {
           if (this._callback != null) this._callback();
         } catch (ex) {

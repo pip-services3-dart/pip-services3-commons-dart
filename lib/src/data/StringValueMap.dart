@@ -15,6 +15,8 @@ import './AnyValue.dart';
 import './AnyValueArray.dart';
 import './AnyValueMap.dart';
 
+import 'dart:collection';
+
 /*
  * Cross-language implementation of a map (dictionary) where all keys and values are strings.
  * The stored values can be converted to different types using variety of accessor methods.
@@ -46,7 +48,7 @@ import './AnyValueMap.dart';
  * 
  */
 
-class StringValueMap implements IValueWrapper {
+class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   Map<String, String> _values;
 
   /*
@@ -125,9 +127,9 @@ class StringValueMap implements IValueWrapper {
    * 
    * @param key     a key of the element to remove.
    */
-  void remove(String key) {
-    this._values.remove(key);
-  }
+  // void remove(String key) {
+  //   this._values.remove(key);
+  // }
 
   /*
    * Appends new elements to this map.
@@ -160,9 +162,9 @@ class StringValueMap implements IValueWrapper {
      *  
      * @returns the number of elements in this map.
      */
-  int length() {
-    return this._values.length;
-  }
+  // int length() {
+  //   return this._values.length;
+  // }
 
   /*
      * Gets the value stored in map element without any conversions.
@@ -789,11 +791,22 @@ class StringValueMap implements IValueWrapper {
     append(json);
   }
 
-  operator [](String key) {
+  @override
+  String operator [](Object key) {
     return this._values[key];
   }
 
+  @override
   void operator []=(String key, String value) {
     this._values[key] = value;
+  }
+
+  @override
+  Iterable<String> get keys => this._values.keys;
+
+  @override
+  String remove(Object key) {
+    this._values.remove(key);
+    return null;
   }
 }

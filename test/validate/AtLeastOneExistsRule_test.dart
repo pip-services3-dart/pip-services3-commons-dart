@@ -1,29 +1,28 @@
-// let assert = require('chai').assert;
-// let async = require('async');
+import 'package:test/test.dart';
+import './TestObject.dart';
+import './TestSubObject.dart';
+import '../../lib/src/validate/Schema.dart';
+import '../../lib/src/validate/AtLeastOneExistsRule.dart';
 
-// import { TestObject } from './TestObject';
-// import { TestSubObject } from './TestSubObject';
-// import { Schema } from '../../src/validate/Schema';
-// import { AtLeastOneExistsRule } from '../../src/validate/AtLeastOneExistsRule';
+void main() {
+  group('AtLeastOneExistsRule', () {
+    test('Only One Exists Rule', () {
+      var obj = new TestObject();
 
-// suite('AtLeastOneExistsRule', ()=> {
+      var schema = new Schema().withRule(new AtLeastOneExistsRule(
+          ["missingProperty", "stringProperty", "nullProperty"]));
+      var results = schema.validate(obj);
+      expect(results.length, 0);
 
-//     test('Only One Exists Rule', (done) => {
-//         var obj = new TestObject();
+      schema = new Schema().withRule(new AtLeastOneExistsRule(
+          ["stringProperty", "nullProperty", "intField"]));
+      results = schema.validate(obj);
+      expect(results.length, 0);
 
-//         var schema = new Schema().withRule(new AtLeastOneExistsRule("missingProperty", "stringProperty", "nullProperty"));
-//         var results = schema.validate(obj);
-//         assert.equal(results.length, 0);
-
-//         var schema = new Schema().withRule(new AtLeastOneExistsRule("stringProperty", "nullProperty", "intField"));
-//         var results = schema.validate(obj);
-//         assert.equal(results.length, 0);
-
-//         var schema = new Schema().withRule(new AtLeastOneExistsRule("missingProperty", "nullProperty"));
-//         var results = schema.validate(obj);
-//         assert.equal(results.length, 1);
-
-//         done();
-//     });
-
-// });
+      schema = new Schema().withRule(
+          new AtLeastOneExistsRule(["missingProperty", "nullProperty"]));
+      results = schema.validate(obj);
+      expect(results.length, 1);
+    });
+  });
+}

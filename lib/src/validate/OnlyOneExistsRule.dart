@@ -46,7 +46,7 @@ class OnlyOneExistsRule implements IValidationRule {
 
       var propertyValue = ObjectReader.getProperty(value, property);
 
-      if (propertyValue) found.add(property);
+      if (propertyValue != null) found.add(property);
     }
 
     if (found.length == 0) {

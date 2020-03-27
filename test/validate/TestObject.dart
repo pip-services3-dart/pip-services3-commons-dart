@@ -1,20 +1,23 @@
-// import { TestSubObject } from './TestSubObject';
+import './TestSubObject.dart';
 
-// export class TestObject {
-//     public constructor() {
-//         this.mapProperty["Key1"] = 111;
-//         this.mapProperty["Key2"] = 222;
-//     }
+class TestObject {
+  TestObject() {
+    this.mapProperty["Key1"] = 111;
+    this.mapProperty["Key2"] = 222;
+  }
 
-//     private privateField: number = 124;
-//     private privateProperty: string = "XYZ";
+  int _privateField = 124;
+  String _privateProperty = "XYZ";
 
-//     public intField: number = 12345;
-//     public stringProperty: string = "ABC";
-//     public nullProperty: any = null;
-//     public intArrayProperty: number[] = [ 1, 2, 3 ];
-//     public stringListProperty: string[] = [ "AAA", "BBB" ];
-//     public mapProperty: { [key: string] : number } = {};
-//     public subObjectProperty: TestSubObject = new TestSubObject("1");
-//     public subArrayProperty: TestSubObject[] = [ new TestSubObject("2"), new TestSubObject("3") ];
-// }
+  int intField = 12345;
+  String stringProperty = "ABC";
+  dynamic nullProperty = null;
+  List<int> intArrayProperty = [1, 2, 3];
+  List<String> stringListProperty = ["AAA", "BBB"];
+  Map<String, int> mapProperty = {};
+  TestSubObject subObjectProperty = new TestSubObject("1");
+  List<TestSubObject> subArrayProperty = [
+    new TestSubObject("2"),
+    new TestSubObject("3")
+  ];
+}
