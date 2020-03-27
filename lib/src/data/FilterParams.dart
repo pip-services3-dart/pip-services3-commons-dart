@@ -1,6 +1,6 @@
 import './StringValueMap.dart';
 
-/*
+/**
  * Data transfer object used to pass filter parameters as simple key-value pairs.
  * 
  * @see [[StringValueMap]]
@@ -18,7 +18,7 @@ import './StringValueMap.dart';
  *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 class FilterParams extends StringValueMap {
-  /*
+  /**
 	 * Creates a new instance and initalizes it with elements from the specified map.
 	 * 
 	 * @param map 	a map to initialize this instance.
@@ -29,7 +29,7 @@ class FilterParams extends StringValueMap {
     return new FilterParams(json);
   }
 
-  /*
+  /**
    * Converts specified value into FilterParams.
    * 
    * @param value     value to be converted
@@ -39,7 +39,7 @@ class FilterParams extends StringValueMap {
     return new FilterParams(value);
   }
 
-  /*
+  /**
     * Creates a new FilterParams from a list of key-value pairs called tuples.
     * 
     * @param tuples    a list of values where odd elements are keys and the following even elements are values
@@ -50,7 +50,7 @@ class FilterParams extends StringValueMap {
     return new FilterParams(map);
   }
 
-  /*
+  /**
     * Parses semicolon-separated key-value pairs and returns them as a FilterParams.
     * 
     * @param line      semicolon-separated key-value list to initialize FilterParams.

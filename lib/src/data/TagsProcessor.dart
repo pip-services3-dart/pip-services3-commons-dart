@@ -1,4 +1,4 @@
-/*
+/**
  * Helper class to extract and process search tags from objects.
  * The search tags can be kept individually or embedded as hash tags inside text
  * like "This text has #hash_tag that can be used for search."
@@ -13,7 +13,7 @@ class TagsProcessor {
 
   ///#\w+/g
 
-  /*
+  /**
      * Normalizes a tag by replacing special symbols like '_' and '#' with spaces.
      * When tags are normalized then can be presented to user in similar shape and form.
      *
@@ -26,7 +26,7 @@ class TagsProcessor {
         : null;
   }
 
-  /*
+  /**
      * Compress a tag by removing special symbols like spaces, '_' and '#'
      * and converting the tag to lower case.
      * When tags are compressed they can be matched in search queries.
@@ -40,7 +40,7 @@ class TagsProcessor {
         : null;
   }
 
-  /*
+  /**
      * Compares two tags using their compressed form.
      *
      * @param tag1  the first tag.
@@ -53,7 +53,7 @@ class TagsProcessor {
     return compressTag(tag1) == compressTag(tag2);
   }
 
-  /*
+  /**
      * Normalizes a list of tags.
      *
      * @param tags  the tags to normalize.
@@ -63,7 +63,7 @@ class TagsProcessor {
     return tags.map((String tag) => normalizeTag(tag)).toList();
   }
 
-  /*
+  /**
      * Normalizes a comma-separated list of tags.
      *
      * @param tagList  a comma-separated list of tags to normalize.
@@ -74,7 +74,7 @@ class TagsProcessor {
     return normalizeTags(tags);
   }
 
-  /*
+  /**
      * Compresses a list of tags.
      *
      * @param tags  the tags to compress.
@@ -84,7 +84,7 @@ class TagsProcessor {
     return tags.map((String tag) => compressTag(tag)).toList();
   }
 
-  /*
+  /**
      * Compresses a comma-separated list of tags.
      *
      * @param tagList  a comma-separated list of tags to compress.
@@ -95,7 +95,7 @@ class TagsProcessor {
     return compressTags(tags);
   }
 
-  /*
+  /**
      * Extracts hash tags from a text.
      *
      * @param text    a text that contains hash tags
@@ -129,7 +129,7 @@ class TagsProcessor {
     return result;
   }
 
-  /*
+  /**
      * Extracts hash tags from selected fields in an object.
      *
      * @param obj           an object which contains hash tags.

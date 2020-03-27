@@ -17,7 +17,7 @@ import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueMap.dart';
 
-/*
+/**
  * Cross-language implementation of dynamic object array what can hold values of any type.
  * The stored values can be converted to different types using variety of accessor methods.
  * 
@@ -44,7 +44,7 @@ class AnyValueArray extends ListBase<dynamic>
     implements ICloneable, IValueWrapper {
   List _values;
 
-  /*
+  /**
    * Creates a new instance of the array and assigns its value.
    * 
    * @param value     (optional) values to initialize this array.
@@ -74,7 +74,7 @@ class AnyValueArray extends ListBase<dynamic>
     append(json["values"]);
   }
 
-  /*
+  /**
     * Gets an array with values.
     * 
     * @returns         the value of the array elements.
@@ -83,7 +83,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this._values;
   }
 
-  /*
+  /**
      * Gets an array element specified by its index.
      * 
      * @param index     an index of the element to get.
@@ -93,7 +93,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this._values[index];
   }
 
-  /*
+  /**
      * Puts a new value into array element specified by its index.
      * 
      * @param index     an index of the element to put.
@@ -103,7 +103,7 @@ class AnyValueArray extends ListBase<dynamic>
     this._values[index] = value;
   }
 
-  /*
+  /**
    Retruns length of array
   */
   @override
@@ -113,7 +113,7 @@ class AnyValueArray extends ListBase<dynamic>
 
   @override
   int get length => _values.length;
-  /*
+  /**
      * Removes an array element specified by its index
      * 
      * @param index     an index of the element to remove.
@@ -122,7 +122,7 @@ class AnyValueArray extends ListBase<dynamic>
   //      this._values.removeAt(index);
   //  }
 
-  /*
+  /**
      * Appends new elements to this array.
      * 
      * @param elements  a list of elements to be added.
@@ -133,14 +133,14 @@ class AnyValueArray extends ListBase<dynamic>
     }
   }
 
-  /*
+  /**
      * Clears this array by removing all its elements.
     */
   void clear() {
     this._values.clear();
   }
 
-  /*
+  /**
      * Gets the value stored in array element without any conversions.
      * When element index is not defined it returns the entire array value.
      * 
@@ -157,7 +157,7 @@ class AnyValueArray extends ListBase<dynamic>
     }
   }
 
-  /*
+  /**
      * Sets a new value to array element specified by its index.
      * When the index is not defined, it resets the entire array value.
      * This method has double purpose because method overrides are not supported in JavaScript.
@@ -177,7 +177,7 @@ class AnyValueArray extends ListBase<dynamic>
     }
   }
 
-  /* 
+  /**
      * Converts array element into a string or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -190,7 +190,7 @@ class AnyValueArray extends ListBase<dynamic>
     return StringConverter.toNullableString(value);
   }
 
-  /* 
+  /**
      * Converts array element into a string or returns "" if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -202,7 +202,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsStringWithDefault(index, null);
   }
 
-  /*
+  /**
      * Converts array element into a string or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -216,7 +216,7 @@ class AnyValueArray extends ListBase<dynamic>
     return StringConverter.toStringWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a boolean or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -229,7 +229,7 @@ class AnyValueArray extends ListBase<dynamic>
     return BooleanConverter.toNullableBoolean(value);
   }
 
-  /* 
+  /**
      * Converts array element into a boolean or returns false if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -241,7 +241,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsBooleanWithDefault(index, false);
   }
 
-  /*
+  /**
      * Converts array element into a boolean or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -255,7 +255,7 @@ class AnyValueArray extends ListBase<dynamic>
     return BooleanConverter.toBooleanWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into an integer or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -268,7 +268,7 @@ class AnyValueArray extends ListBase<dynamic>
     return IntegerConverter.toNullableInteger(value);
   }
 
-  /* 
+  /**
      * Converts array element into an integer or returns 0 if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -280,7 +280,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsIntegerWithDefault(index, 0);
   }
 
-  /*
+  /**
      * Converts array element into an integer or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -294,7 +294,7 @@ class AnyValueArray extends ListBase<dynamic>
     return IntegerConverter.toIntegerWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a long or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -307,7 +307,7 @@ class AnyValueArray extends ListBase<dynamic>
     return LongConverter.toNullableLong(value);
   }
 
-  /* 
+  /**
      * Converts array element into a long or returns 0 if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -319,7 +319,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsLongWithDefault(index, 0);
   }
 
-  /*
+  /**
      * Converts array element into a long or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -333,7 +333,7 @@ class AnyValueArray extends ListBase<dynamic>
     return LongConverter.toLongWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a float or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -346,7 +346,7 @@ class AnyValueArray extends ListBase<dynamic>
     return FloatConverter.toNullableFloat(value);
   }
 
-  /* 
+  /**
      * Converts array element into a float or returns 0 if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -358,7 +358,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsFloatWithDefault(index, 0);
   }
 
-  /*
+  /**
      * Converts array element into a float or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -372,7 +372,7 @@ class AnyValueArray extends ListBase<dynamic>
     return FloatConverter.toFloatWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a double or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -385,7 +385,7 @@ class AnyValueArray extends ListBase<dynamic>
     return DoubleConverter.toNullableDouble(value);
   }
 
-  /* 
+  /**
      * Converts array element into a double or returns 0 if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -397,7 +397,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsDoubleWithDefault(index, 0);
   }
 
-  /*
+  /**
      * Converts array element into a double or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -411,7 +411,7 @@ class AnyValueArray extends ListBase<dynamic>
     return DoubleConverter.toDoubleWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a DateTime or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -424,7 +424,7 @@ class AnyValueArray extends ListBase<dynamic>
     return DateTimeConverter.toNullableDateTime(value);
   }
 
-  /* 
+  /**
      * Converts array element into a DateTime or returns the current date if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -436,7 +436,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsDateTimeWithDefault(index, new DateTime.now());
   }
 
-  /*
+  /**
      * Converts array element into a DateTime or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -450,7 +450,7 @@ class AnyValueArray extends ListBase<dynamic>
     return DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a Duration or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -463,7 +463,7 @@ class AnyValueArray extends ListBase<dynamic>
     return DurationConverter.toNullableDuration(value);
   }
 
-  /* 
+  /**
      * Converts array element into a Duration or returns the current date if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -475,7 +475,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsDurationWithDefault(index, new Duration());
   }
 
-  /*
+  /**
      * Converts array element into a Duration or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -489,7 +489,7 @@ class AnyValueArray extends ListBase<dynamic>
     return DurationConverter.toDurationWithDefault(value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into a value defined by specied typecode.
      * If conversion is not possible it returns null.
      * 
@@ -504,7 +504,7 @@ class AnyValueArray extends ListBase<dynamic>
     return TypeConverter.toNullableType<T>(type, value);
   }
 
-  /* 
+  /**
      * Converts array element into a value defined by specied typecode.
      * If conversion is not possible it returns default value for the specified type.
      * 
@@ -518,7 +518,7 @@ class AnyValueArray extends ListBase<dynamic>
     return this.getAsTypeWithDefault(type, index, null);
   }
 
-  /*
+  /**
      * Converts array element into a value defined by specied typecode.
      * If conversion is not possible it returns default value.
      * 
@@ -534,7 +534,7 @@ class AnyValueArray extends ListBase<dynamic>
     return TypeConverter.toTypeWithDefault(type, value, defaultValue);
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -548,7 +548,7 @@ class AnyValueArray extends ListBase<dynamic>
     return new AnyValue(value);
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValueArray or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -561,7 +561,7 @@ class AnyValueArray extends ListBase<dynamic>
     return value != null ? AnyValueArray.fromValue(value) : null;
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -574,7 +574,7 @@ class AnyValueArray extends ListBase<dynamic>
     return AnyValueArray.fromValue(value);
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValueArray or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -588,7 +588,7 @@ class AnyValueArray extends ListBase<dynamic>
     return result != null ? result : defaultValue;
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValueMap or returns null if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -602,7 +602,7 @@ class AnyValueArray extends ListBase<dynamic>
     return value != null ? AnyValueMap.fromValue(value) : null;
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
      * 
      * @param index     an index of element to get.
@@ -616,7 +616,7 @@ class AnyValueArray extends ListBase<dynamic>
     return AnyValueMap.fromValue(value);
   }
 
-  /* 
+  /**
      * Converts array element into an AnyValueMap or returns default value if conversion is not possible.
      * 
      * @param index         an index of element to get.
@@ -630,7 +630,7 @@ class AnyValueArray extends ListBase<dynamic>
     return result != null ? AnyValueMap.fromValue(result) : defaultValue;
   }
 
-  /*
+  /**
      * Checks if this array contains a value.
      * The check uses direct comparison between elements and the specified value.
      * 
@@ -649,7 +649,7 @@ class AnyValueArray extends ListBase<dynamic>
     return false;
   }
 
-  /*
+  /**
      * Checks if this array contains a value.
      * The check before comparison converts elements and the value to type specified by type code.
      * 
@@ -675,7 +675,7 @@ class AnyValueArray extends ListBase<dynamic>
     return false;
   }
 
-  /* 
+  /**
      * Creates a binary clone of this object.
      * 
      * @returns a clone of this object.
@@ -684,7 +684,7 @@ class AnyValueArray extends ListBase<dynamic>
     return new AnyValueArray(this._values);
   }
 
-  /* 
+  /**
      * Gets a string representation of the object.
      * The result is a comma-separated list of string representations of individual elements as
      * "value1,value2,value3"
@@ -703,7 +703,7 @@ class AnyValueArray extends ListBase<dynamic>
     return builder;
   }
 
-  /*
+  /**
      * Creates a new AnyValueArray from a list of values
      * 
      * @param values    a list of values to initialize the created AnyValueArray
@@ -713,7 +713,7 @@ class AnyValueArray extends ListBase<dynamic>
     return new AnyValueArray(values);
   }
 
-  /*
+  /**
      * Converts specified value into AnyValueArray.
      * 
      * @param value     value to be converted
@@ -726,7 +726,7 @@ class AnyValueArray extends ListBase<dynamic>
     return new AnyValueArray(values);
   }
 
-  /*
+  /**
      * Splits specified string into elements using a separator and assigns 
      * the elements to a newly created AnyValueArray.
      * 

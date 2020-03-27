@@ -1,7 +1,7 @@
 import '../reflect/IValueWrapper.dart';
 import '../convert/StringConverter.dart';
 
-/*
+/**
  * An object that contains string translations for multiple languages.
  * Language keys use two-varter codes like: 'en', 'sp', 'de', 'ru', 'fr', 'pr'.
  * When translation for specified language does not exists it defaults to English ('en').
@@ -20,7 +20,7 @@ import '../convert/StringConverter.dart';
 class MultiString implements IValueWrapper {
   var _values = new Map<String, String>();
 
-  /*
+  /**
      * Creates a new MultiString object and initializes it with values.
      * 
      * @param map    a map with language-text pairs.
@@ -46,7 +46,7 @@ class MultiString implements IValueWrapper {
     append(json);
   }
 
-  /*
+  /**
      * Gets a string translation by specified language.
      * When language is not found it defaults to English ('en').
      * When English is not found it takes the first value.
@@ -73,7 +73,7 @@ class MultiString implements IValueWrapper {
     return value;
   }
 
-  /* 
+  /**
      * Gets all languages stored in this MultiString object,
      * 
      * @returns a list with language codes. 
@@ -88,7 +88,7 @@ class MultiString implements IValueWrapper {
     return languages;
   }
 
-  /*
+  /**
      * Puts a new translation for the specified language.
      * 
      * @param language  a language two-symbol code.
@@ -98,7 +98,7 @@ class MultiString implements IValueWrapper {
     this._values[language] = StringConverter.toNullableString(value);
   }
 
-  /*
+  /**
      * Removes translation for the specified language.
      * 
      * @param language  a language two-symbol code.
@@ -107,7 +107,7 @@ class MultiString implements IValueWrapper {
     this._values.remove(language);
   }
 
-  /*
+  /**
      * Appends a map with language-translation pairs.
      * 
      * @param map   the map with language-translation pairs.
@@ -125,14 +125,14 @@ class MultiString implements IValueWrapper {
     }
   }
 
-  /*
+  /**
      * Clears all translations from this MultiString object.
      */
   void clear() {
     this._values.clear();
   }
 
-  /* 
+  /**
      * Returns the number of translations stored in this MultiString object.
      *  
      * @returns the number of translations.
@@ -141,7 +141,7 @@ class MultiString implements IValueWrapper {
     return this._values.length;
   }
 
-  /*
+  /**
      * Creates a new MultiString object from a value that contains language-translation pairs.
      * 
      * @param value     the value to initialize MultiString.
@@ -153,7 +153,7 @@ class MultiString implements IValueWrapper {
     return new MultiString(value);
   }
 
-  /*
+  /**
      * Creates a new MultiString object from language-translation pairs (tuples).
      * 
      * @param tuples    an array that contains language-translation tuples.
@@ -165,7 +165,7 @@ class MultiString implements IValueWrapper {
     return MultiString.fromTuplesArray(tuples);
   }
 
-  /*
+  /**
      * Creates a new MultiString object from language-translation pairs (tuples) specified as array.
      * 
      * @param tuples    an array that contains language-translation tuples.

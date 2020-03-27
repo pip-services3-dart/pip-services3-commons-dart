@@ -1,4 +1,4 @@
-/*
+/**
  * Defines a field name and order used to sort query results.
  * 
  * @see [[SortParams]]
@@ -12,12 +12,12 @@
  *     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) => {...});
  */
 class SortField {
-  /* The field name to sort by */
+  /**The field name to sort by */
   String name;
-  /* The flag to define sorting order. True to sort ascending, false to sort descending */
+  /**The flag to define sorting order. True to sort ascending, false to sort descending */
   bool ascending;
 
-  /*
+  /**
 	 * Creates a new instance and assigns its values.
 	 * 
 	 * @param name 			the name of the field to sort by.

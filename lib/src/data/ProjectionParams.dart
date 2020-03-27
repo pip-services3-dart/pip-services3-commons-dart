@@ -1,7 +1,7 @@
 import 'dart:collection';
 import "./AnyValueArray.dart";
 
-/*
+/**
  * Defines projection parameters with list if fields to include into query results.
  * 
  * The parameters support two formats: dot format and nested format.
@@ -23,7 +23,7 @@ import "./AnyValueArray.dart";
  */
 class ProjectionParams extends ListBase<String> {
   List<String> _values;
-  /*
+  /**
      * Creates a new instance of the projection parameters and assigns its value.
      * 
      * @param value     (optional) values to initialize this object.
@@ -48,7 +48,7 @@ class ProjectionParams extends ListBase<String> {
     addAll(json["values"]);
   }
 
-  /*
+  /**
      * Gets a string representation of the object.
      * The result is a comma-separated list of projection fields
      * "field1,field2.field21,field2.field22.field221"
@@ -154,7 +154,7 @@ class ProjectionParams extends ListBase<String> {
     }
   }
 
-  /*
+  /**
      * Converts specified value into ProjectionParams.
      * 
      * @param value     value to be converted
@@ -168,7 +168,7 @@ class ProjectionParams extends ListBase<String> {
     return new ProjectionParams(value);
   }
 
-  /*
+  /**
      * Parses comma-separated list of projection fields.
      * 
      * @param values    one or more comma-separated lists of projection fields

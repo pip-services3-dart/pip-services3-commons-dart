@@ -17,7 +17,7 @@ import './ICloneable.dart';
 import './AnyValue.dart';
 import './AnyValueArray.dart';
 
-/*
+/**
  * Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
  * The stored values can be converted to different types using variety of accessor methods.
  * 
@@ -43,7 +43,7 @@ import './AnyValueArray.dart';
 class AnyValueMap extends MapBase<String, dynamic>
     implements ICloneable, IValueWrapper {
   Map<String, dynamic> _values;
-  /*
+  /**
      * Creates a new instance of the map and assigns its value.
      * 
      * @param value     (optional) values to initialize this map.
@@ -71,7 +71,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     append(json);
   }
 
-  /*
+  /**
      * Gets an map with values.
      * 
      * @returns     the value of the map elements.
@@ -80,7 +80,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this._values;
   }
 
-  /*
+  /**
      * Gets a map element specified by its key.
      * 
      * @param key     a key of the element to get.
@@ -90,7 +90,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this[key];
   }
 
-  /*
+  /**
      * Gets keys of all elements stored in this map.
      * 
      * @returns a list with all map keys. 
@@ -105,7 +105,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return keys;
   }
 
-  /*
+  /**
      * Puts a new value into map element specified by its key.
      * 
      * @param key       a key of the element to put.
@@ -115,7 +115,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     this[key] = value;
   }
 
-  /*
+  /**
      * Removes a map element specified by its key
      * 
      * @param key     a key of the element to remove.
@@ -125,7 +125,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     _values.remove(key);
   }
 
-  /*
+  /**
      * Appends new elements to this map.
      * 
      * @param map  a map with elements to be added.
@@ -143,14 +143,14 @@ class AnyValueMap extends MapBase<String, dynamic>
     }
   }
 
-  /*
+  /**
      * Clears this map by removing all its elements.
      */
   void clear() {
     _values.clear();
   }
 
-  /*
+  /**
      * Gets a number of elements stored in this map.
      *  
      * @returns the number of elements in this map.
@@ -159,7 +159,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   //   return this._values.length;
   // }
 
-  /*
+  /**
      * Gets the value stored in map element without any conversions.
      * When element key is not defined it returns the entire map value.
      * 
@@ -179,7 +179,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     }
   }
 
-  /*
+  /**
      * Sets a new value to map element specified by its index.
      * When the index is not defined, it resets the entire map value.
      * This method has double purpose because method overrides are not supported in JavaScript.
@@ -199,7 +199,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     }
   }
 
-  /*
+  /**
      * Converts map element into a String or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -212,7 +212,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return StringConverter.toNullableString(value);
   }
 
-  /*
+  /**
      * Converts map element into a String or returns "" if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -224,7 +224,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsStringWithDefault(key, null);
   }
 
-  /*
+  /**
      * Converts map element into a String or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -238,7 +238,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return StringConverter.toStringWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a boolean or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -251,7 +251,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return BooleanConverter.toNullableBoolean(value);
   }
 
-  /*
+  /**
      * Converts map element into a boolean or returns false if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -263,7 +263,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsBooleanWithDefault(key, false);
   }
 
-  /*
+  /**
      * Converts map element into a boolean or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -277,7 +277,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return BooleanConverter.toBooleanWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into an integer or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -290,7 +290,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return IntegerConverter.toNullableInteger(value);
   }
 
-  /*
+  /**
      * Converts map element into an integer or returns 0 if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -302,7 +302,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsIntegerWithDefault(key, 0);
   }
 
-  /*
+  /**
      * Converts map element into an integer or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -316,7 +316,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return IntegerConverter.toIntegerWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a long or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -329,7 +329,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return LongConverter.toNullableLong(value);
   }
 
-  /*
+  /**
      * Converts map element into a long or returns 0 if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -341,7 +341,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsLongWithDefault(key, 0);
   }
 
-  /*
+  /**
      * Converts map element into a long or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -355,7 +355,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return LongConverter.toLongWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a float or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -368,7 +368,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return FloatConverter.toNullableFloat(value);
   }
 
-  /*
+  /**
      * Converts map element into a float or returns 0 if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -380,7 +380,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsFloatWithDefault(key, 0);
   }
 
-  /*
+  /**
      * Converts map element into a flot or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -394,7 +394,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return FloatConverter.toFloatWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a double or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -407,7 +407,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return DoubleConverter.toNullableDouble(value);
   }
 
-  /*
+  /**
      * Converts map element into a double or returns 0 if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -419,7 +419,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsDoubleWithDefault(key, 0);
   }
 
-  /*
+  /**
      * Converts map element into a double or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -433,7 +433,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return DoubleConverter.toDoubleWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a DateTime or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -446,7 +446,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return DateTimeConverter.toNullableDateTime(value);
   }
 
-  /*
+  /**
      * Converts map element into a DateTime or returns the current date if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -458,7 +458,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsDateTimeWithDefault(key, null);
   }
 
-  /*
+  /**
      * Converts map element into a DateTime or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -472,7 +472,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a Duration or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -485,7 +485,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return DurationConverter.toNullableDuration(value);
   }
 
-  /*
+  /**
      * Converts map element into a Duration or returns the current date if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -497,7 +497,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsDurationWithDefault(key, null);
   }
 
-  /*
+  /**
      * Converts map element into a Duration or returns default value if conversion is not possible.
      * 
      * @param key           a key of element to get.
@@ -511,7 +511,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return DurationConverter.toDurationWithDefault(value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into a value defined by specied typecode.
      * If conversion is not possible it returns null.
      * 
@@ -526,7 +526,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return TypeConverter.toNullableType<T>(type, value);
   }
 
-  /*
+  /**
      * Converts map element into a value defined by specied typecode.
      * If conversion is not possible it returns default value for the specified type.
      * 
@@ -540,7 +540,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return this.getAsTypeWithDefault<T>(type, key, null);
   }
 
-  /*
+  /**
      * Converts map element into a value defined by specied typecode.
      * If conversion is not possible it returns default value.
      * 
@@ -556,7 +556,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return TypeConverter.toTypeWithDefault(type, value, defaultValue);
   }
 
-  /*
+  /**
      * Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -570,7 +570,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return new AnyValue(value);
   }
 
-  /*
+  /**
      * Converts map element into an AnyValueArray or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -584,7 +584,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return value != null ? AnyValueArray.fromValue(value) : null;
   }
 
-  /*
+  /**
      * Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -598,7 +598,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return AnyValueArray.fromValue(value);
   }
 
-  /*
+  /**
      * Converts map element into an AnyValueArray or returns default value if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -613,7 +613,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return result != null ? result : defaultValue;
   }
 
-  /*
+  /**
      * Converts map element into an AnyValueMap or returns null if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -626,7 +626,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return value != null ? AnyValueMap.fromValue(value) : null;
   }
 
-  /*
+  /**
      * Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -639,7 +639,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return AnyValueMap.fromValue(value);
   }
 
-  /*
+  /**
      * Converts map element into an AnyValueMap or returns default value if conversion is not possible.
      * 
      * @param key       a key of element to get.
@@ -653,7 +653,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return result != null ? result : defaultValue;
   }
 
-  /*
+  /**
      * Gets a String representation of the object.
      * The result is a semicolon-separated list of key-value pairs as
      * "key1=value1;key2=value2;key=value3"
@@ -679,7 +679,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return builder;
   }
 
-  /*
+  /**
      * Creates a binary clone of this object.
      * 
      * @returns a clone of this object.
@@ -688,7 +688,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return new AnyValueMap(this._values);
   }
 
-  /*
+  /**
      * Converts specified value into AnyValueMap.
      * 
      * @param value     value to be converted
@@ -702,7 +702,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return result;
   }
 
-  /*
+  /**
      * Creates a new AnyValueMap from a list of key-value pairs called tuples.
      * 
      * @param tuples    a list of values where odd elements are keys and the following even elements are values
@@ -714,7 +714,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return AnyValueMap.fromTuplesArray(tuples);
   }
 
-  /*
+  /**
      * Creates a new AnyValueMap from a list of key-value pairs called tuples.
      * The method is similar to [[fromTuples]] but tuples are passed as array instead of parameters.
      * 
@@ -737,7 +737,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     return result;
   }
 
-  /*
+  /**
      * Creates a new AnyValueMap by merging two or more maps.
      * Maps defined later in the list override values from previously defined maps.
      * 

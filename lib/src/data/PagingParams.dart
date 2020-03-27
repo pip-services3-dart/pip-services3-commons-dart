@@ -3,7 +3,7 @@ import '../convert/BooleanConverter.dart';
 
 import './AnyValueMap.dart';
 
-/*
+/**
  * Data transfer object to pass paging parameters for queries.
  * 
  * The page is defined by two parameters:
@@ -22,14 +22,14 @@ import './AnyValueMap.dart';
  *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  */
 class PagingParams {
-  /* The number of items to skip. */
+  /**The number of items to skip. */
   int skip;
-  /* The number of items to return.  */
+  /**The number of items to return.  */
   int take;
-  /* The flag to return the total number of items. */
+  /**The flag to return the total number of items. */
   bool total;
 
-  /*
+  /**
 	 * Creates a new instance and sets its values.
 	 * 
 	 * @param skip 		the number of items to skip.
@@ -64,7 +64,7 @@ class PagingParams {
     };
   }
 
-  /*
+  /**
 	 * Gets the number of items to skip.
 	 * 
 	 * @param minSkip 	the minimum number of items to skip.
@@ -76,7 +76,7 @@ class PagingParams {
     return this.skip;
   }
 
-  /*
+  /**
 	 * Gets the number of items to return in a page.
 	 * 
 	 * @param maxTake 	the maximum number of items to return.
@@ -89,7 +89,7 @@ class PagingParams {
     return this.take;
   }
 
-  /*
+  /**
      * Converts specified value into PagingParams.
      * 
      * @param value     value to be converted
@@ -102,7 +102,7 @@ class PagingParams {
     return PagingParams.fromMap(map);
   }
 
-  /*
+  /**
      * Creates a new PagingParams from a list of key-value pairs called tuples.
      * 
      * @param tuples    a list of values where odd elements are keys and the following even elements are values
@@ -113,7 +113,7 @@ class PagingParams {
     return PagingParams.fromMap(map);
   }
 
-  /*
+  /**
      * Creates a new PagingParams and sets it parameters from the specified map
      * 
      * @param map    	a AnyValueMap or StringValueMap to initialize this PagingParams
