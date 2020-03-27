@@ -13,8 +13,8 @@ class DurationConverter {
   /**
      * Converts value into Date or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         Date value or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         Date value or null when conversion is not supported.
      */
   static Duration toNullableDuration(value) {
     if (value == null) return null;
@@ -29,10 +29,10 @@ class DurationConverter {
   /**
      * Converts value into Date or returns current date when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         Date value or current date when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         Date value or current date when conversion is not supported.
      * 
-     * @see [[toDurationWithDefault]]
+     * See [[toDurationWithDefault]]
      */
   static Duration toDuration(value) {
     return DurationConverter.toDurationWithDefault(value, new Duration());
@@ -41,11 +41,11 @@ class DurationConverter {
   /**
      * Converts value into Date or returns default when conversion is not possible.
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             Date value or default when conversion is not supported.
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             Date value or default when conversion is not supported.
      * 
-     * @see [[toNullableDuration]]
+     * See [[toNullableDuration]]
      */
   static Duration toDurationWithDefault(value, Duration defaultValue) {
     var result = DurationConverter.toNullableDuration(value);

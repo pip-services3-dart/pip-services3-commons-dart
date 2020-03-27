@@ -202,8 +202,8 @@ support dot notation and able to access properties
 in the entire object graph.</p>
 <p>This class is often use to pass execution and notification
 arguments, and parameterize classes before execution.</p>
-<p>@see [<a href="pip_services3_commons/IParameterized-class.html">IParameterized</a>]
-@see [<a href="pip_services3_commons/AnyValueMap-class.html">AnyValueMap</a>]</p>
+<p>See [<a href="pip_services3_commons/IParameterized-class.html">IParameterized</a>]
+See [<a href="pip_services3_commons/AnyValueMap-class.html">AnyValueMap</a>]</p>
     </section>
     
     <section>
@@ -236,7 +236,11 @@ arguments, and parameterize classes before execution.</p>
 <li>Creates a new instance of the map and assigns its value.
 <ul>
 <li></li>
-<li>@param values     (optional) values to initialize this map.</li>
+<li>
+<ul>
+<li>values     (optional) values to initialize this map.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -335,7 +339,11 @@ arguments, and parameterize classes before execution.</p>
 <li>Assigns (copies over) properties from the specified value to this map.
 <ul>
 <li></li>
-<li>@param value 	value whose properties shall be copied over.</li>
+<li>
+<ul>
+<li>value 	value whose properties shall be copied over.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -354,8 +362,12 @@ arguments, and parameterize classes before execution.</p>
 <li>The key can be defined using dot notation</li>
 <li>and allows to recursively access elements of elements.</li>
 <li></li>
-<li>@param key     a key to be checked</li>
-<li>@returns       true if this map contains the key or false otherwise.</li>
+<li>
+<ul>
+<li>key     a key to be checked</li>
+</ul>
+</li>
+<li>Returns       true if this map contains the key or false otherwise.</li>
 </ul>
 </li>
 
@@ -374,8 +386,12 @@ arguments, and parameterize classes before execution.</p>
 <li>The key can be defined using dot notation</li>
 <li>and allows to recursively access elements of elements.</li>
 <li></li>
-<li>@param key     a key of the element to get.</li>
-<li>@returns       the value of the map element.</li>
+<li>
+<ul>
+<li>key     a key of the element to get.</li>
+</ul>
+</li>
+<li>Returns       the value of the map element.</li>
 </ul>
 </li>
 
@@ -418,8 +434,12 @@ arguments, and parameterize classes before execution.</p>
 <li>Omits selected parameters from this Parameters and returns the rest as a new Parameters object.
 <ul>
 <li></li>
-<li>@param paths 	keys to be omitted from copying over to new Parameters.</li>
-<li>@returns a new Parameters object.</li>
+<li>
+<ul>
+<li>paths 	keys to be omitted from copying over to new Parameters.</li>
+</ul>
+</li>
+<li>Returns a new Parameters object.</li>
 </ul>
 </li>
 
@@ -436,11 +456,19 @@ arguments, and parameterize classes before execution.</p>
 <ul>
 <li>and returns a new Parameters object.</li>
 <li></li>
-<li>@param parameters		Parameters with parameters to override the current values.</li>
-<li>@param recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false</li>
-<li>@returns					a new Parameters object.</li>
+<li>
+<ul>
+<li>parameters		Parameters with parameters to override the current values.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false</li>
+</ul>
+</li>
+<li>Returns					a new Parameters object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/Parameters/setDefaults.html">setDefaults</a>]</li>
+<li>See [<a href="pip_services3_commons/Parameters/setDefaults.html">setDefaults</a>]</li>
 </ul>
 </li>
 
@@ -456,8 +484,12 @@ arguments, and parameterize classes before execution.</p>
 <li>Picks select parameters from this Parameters and returns them as a new Parameters object.
 <ul>
 <li></li>
-<li>@param paths 	keys to be picked and copied over to new Parameters.</li>
-<li>@returns a new Parameters object.</li>
+<li>
+<ul>
+<li>paths 	keys to be picked and copied over to new Parameters.</li>
+</ul>
+</li>
+<li>Returns a new Parameters object.</li>
 </ul>
 </li>
 
@@ -476,8 +508,16 @@ arguments, and parameterize classes before execution.</p>
 <li>The key can be defined using dot notation</li>
 <li>and allows to recursively access elements of elements.</li>
 <li></li>
-<li>@param key       a key of the element to put.</li>
-<li>@param value     a new value for map element.</li>
+<li>
+<ul>
+<li>key       a key of the element to put.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>value     a new value for map element.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -493,11 +533,19 @@ arguments, and parameterize classes before execution.</p>
 <li>Set default values from specified Parameters and returns a new Parameters object.
 <ul>
 <li></li>
-<li>@param defaultParameters	Parameters with default parameter values.</li>
-<li>@param recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false</li>
-<li>@returns						a new Parameters object.</li>
+<li>
+<ul>
+<li>defaultParameters	Parameters with default parameter values.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false</li>
+</ul>
+</li>
+<li>Returns						a new Parameters object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/Parameters/override.html">override</a>]</li>
+<li>See [<a href="pip_services3_commons/Parameters/override.html">override</a>]</li>
 </ul>
 </li>
 
@@ -513,7 +561,7 @@ arguments, and parameterize classes before execution.</p>
 <li>Converts this map to JSON object.
 <ul>
 <li></li>
-<li>@returns	a JSON representation of this map.</li>
+<li>Returns	a JSON representation of this map.</li>
 </ul>
 </li>
 
@@ -1092,10 +1140,14 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Creates new Parameters from ConfigMap object.
 <ul>
 <li></li>
-<li>@param config 	a ConfigParams that contain parameters.</li>
-<li>@returns			a new Parameters object.</li>
+<li>
+<ul>
+<li>config 	a ConfigParams that contain parameters.</li>
+</ul>
+</li>
+<li>Returns			a new Parameters object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>]</li>
+<li>See [<a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>]</li>
 </ul>
 </li>
 
@@ -1111,10 +1163,14 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Creates new Parameters from JSON object.
 <ul>
 <li></li>
-<li>@param json 	a JSON string containing parameters.</li>
-<li>@returns a new Parameters object.</li>
+<li>
+<ul>
+<li>json 	a JSON string containing parameters.</li>
+</ul>
+</li>
+<li>Returns a new Parameters object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/JsonConverter/toNullableMap.html">JsonConverter.toNullableMap</a>]</li>
+<li>See [<a href="pip_services3_commons/JsonConverter/toNullableMap.html">JsonConverter.toNullableMap</a>]</li>
 </ul>
 </li>
 
@@ -1131,10 +1187,14 @@ The result is a semicolon-separated list of key-value pairs as
 <ul>
 <li>Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.</li>
 <li></li>
-<li>@param tuples	the tuples to fill a new Parameters object.</li>
-<li>@returns			a new Parameters object.</li>
+<li>
+<ul>
+<li>tuples	the tuples to fill a new Parameters object.</li>
+</ul>
+</li>
+<li>Returns			a new Parameters object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/AnyValueMap/fromTuplesArray.html">AnyValueMap.fromTuplesArray</a>]</li>
+<li>See [<a href="pip_services3_commons/AnyValueMap/fromTuplesArray.html">AnyValueMap.fromTuplesArray</a>]</li>
 </ul>
 </li>
 
@@ -1150,8 +1210,12 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Creates a new Parameters object filled with key-value pairs from specified object.
 <ul>
 <li></li>
-<li>@param value		an object with key-value pairs used to initialize a new Parameters.</li>
-<li>@returns			a new Parameters object.</li>
+<li>
+<ul>
+<li>value		an object with key-value pairs used to initialize a new Parameters.</li>
+</ul>
+</li>
+<li>Returns			a new Parameters object.</li>
 </ul>
 </li>
 
@@ -1168,10 +1232,14 @@ The result is a semicolon-separated list of key-value pairs as
 <ul>
 <li>previously defined parameters.</li>
 <li></li>
-<li>@param configs 	a list of Parameters objects to be merged.</li>
-<li>@returns			a new Parameters object.</li>
+<li>
+<ul>
+<li>configs 	a list of Parameters objects to be merged.</li>
+</ul>
+</li>
+<li>Returns			a new Parameters object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/AnyValueMap/fromMaps.html">AnyValueMap.fromMaps</a>]</li>
+<li>See [<a href="pip_services3_commons/AnyValueMap/fromMaps.html">AnyValueMap.fromMaps</a>]</li>
 </ul>
 </li>
 

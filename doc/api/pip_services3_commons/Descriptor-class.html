@@ -235,11 +235,31 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Creates a new instance of the descriptor.
 <ul>
 <li></li>
-<li>@param group 	a logical component group</li>
-<li>@param type 		a logical component type or contract</li>
-<li>@param kind 		a component implementation type</li>
-<li>@param name		a unique component name</li>
-<li>@param version 	a component implementation version</li>
+<li>
+<ul>
+<li>group 	a logical component group</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>type 		a logical component type or contract</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>kind 		a component implementation type</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>name		a unique component name</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>version 	a component implementation version</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -285,10 +305,14 @@ locator1.exactMatch(locator2);	// Result: false
 <li>If value is a Descriptor it tries to match them,</li>
 <li>otherwise the method returns false.</li>
 <li></li>
-<li>@param value 	the value to match against this descriptor.</li>
-<li>@returns true if the value is matching descriptor and false otherwise.</li>
+<li>
+<ul>
+<li>value 	the value to match against this descriptor.</li>
+</ul>
+</li>
+<li>Returns true if the value is matching descriptor and false otherwise.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/Descriptor/match.html">match</a>]</li>
+<li>See [<a href="pip_services3_commons/Descriptor/match.html">match</a>]</li>
 </ul>
 </li>
 
@@ -305,10 +329,14 @@ locator1.exactMatch(locator2);	// Result: false
 <ul>
 <li>No exceptions are made.</li>
 <li></li>
-<li>@param descriptor 	the descriptor to match this one against.</li>
-<li>@returns true if descriptors match and false otherwise. </li>
+<li>
+<ul>
+<li>descriptor 	the descriptor to match this one against.</li>
+</ul>
+</li>
+<li>Returns true if descriptors match and false otherwise. </li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/Descriptor/match.html">match</a>]</li>
+<li>See [<a href="pip_services3_commons/Descriptor/match.html">match</a>]</li>
 </ul>
 </li>
 
@@ -324,7 +352,7 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Gets the component's logical group.
 <ul>
 <li></li>
-<li>@returns the component's logical group</li>
+<li>Returns the component's logical group</li>
 </ul>
 </li>
 
@@ -340,7 +368,7 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Gets the component's implementation type.
 <ul>
 <li></li>
-<li>@returns the component's implementation type.</li>
+<li>Returns the component's implementation type.</li>
 </ul>
 </li>
 
@@ -356,7 +384,7 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Gets the unique component's name.
 <ul>
 <li></li>
-<li>@returns the unique component's name.</li>
+<li>Returns the unique component's name.</li>
 </ul>
 </li>
 
@@ -372,7 +400,7 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Gets the component's logical type.
 <ul>
 <li></li>
-<li>@returns the component's logical type.</li>
+<li>Returns the component's logical type.</li>
 </ul>
 </li>
 
@@ -388,7 +416,7 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Gets the component's implementation version.
 <ul>
 <li></li>
-<li>@returns the component's implementation version.</li>
+<li>Returns the component's implementation version.</li>
 </ul>
 </li>
 
@@ -405,7 +433,7 @@ locator1.exactMatch(locator2);	// Result: false
 <ul>
 <li>If descriptor has at least one "*" or null field it is considered "incomplete",</li>
 <li></li>
-<li>@returns true if all descriptor fields are defined and false otherwise.</li>
+<li>Returns true if all descriptor fields are defined and false otherwise.</li>
 </ul>
 </li>
 
@@ -422,10 +450,14 @@ locator1.exactMatch(locator2);	// Result: false
 <ul>
 <li>Fields that contain "*" or null are excluded from the match.</li>
 <li></li>
-<li>@param descriptor 	the descriptor to match this one against.</li>
-<li>@returns true if descriptors match and false otherwise </li>
+<li>
+<ul>
+<li>descriptor 	the descriptor to match this one against.</li>
+</ul>
+</li>
+<li>Returns true if descriptors match and false otherwise </li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/Descriptor/exactMatch.html">exactMatch</a>]</li>
+<li>See [<a href="pip_services3_commons/Descriptor/exactMatch.html">exactMatch</a>]</li>
 </ul>
 </li>
 
@@ -443,7 +475,7 @@ locator1.exactMatch(locator2);	// Result: false
 <li>The result is a colon-separated list of descriptor fields as</li>
 <li>"mygroup:connector:aws:default:1.0"</li>
 <li></li>
-<li>@returns a string representation of the object.</li>
+<li>Returns a string representation of the object.</li>
 </ul>
 </li>
 
@@ -490,8 +522,12 @@ locator1.exactMatch(locator2);	// Result: false
 <li>Parses colon-separated list of descriptor fields and returns them as a Descriptor.
 <ul>
 <li></li>
-<li>@param value      colon-separated descriptor fields to initialize Descriptor.</li>
-<li>@returns         a newly created Descriptor.</li>
+<li>
+<ul>
+<li>value      colon-separated descriptor fields to initialize Descriptor.</li>
+</ul>
+</li>
+<li>Returns         a newly created Descriptor.</li>
 <li>@throws a [<a href="pip_services3_commons/ConfigException-class.html">ConfigException</a>] if the descriptor string is of a wrong format.</li>
 </ul>
 </li>

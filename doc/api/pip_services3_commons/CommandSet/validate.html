@@ -105,14 +105,16 @@
       <p>Validates [<code>Parameters args</code>] for command specified by its name using defined schema.
 If validation schema is not defined than the methods returns no errors.
 It returns validation error if the command is not found.</p>
-<p>@param commandName   the name of the command for which the 'args' must be validated.
-@param args          the parameters (arguments) to validate.
-@returns             an array of ValidationResults. If no command is found by the given
+<ul>
+<li>commandName   the name of the command for which the 'args' must be validated.</li>
+<li>args          the parameters (arguments) to validate.
+Returns             an array of ValidationResults. If no command is found by the given
 name, then the returned array of ValidationResults will contain a
-single entry, whose type will be ValidationResultType.Error.</p>
-<p>@see [<a href="pip_services3_commons/Command-class.html">Command</a>]
-@see [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]
-@see [<a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>]</p>
+single entry, whose type will be ValidationResultType.Error.</li>
+</ul>
+<p>See [<a href="pip_services3_commons/Command-class.html">Command</a>]
+See [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]
+See [<a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>]</p>
     </section>
     
     

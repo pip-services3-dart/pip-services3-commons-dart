@@ -196,7 +196,7 @@
 
     <section class="desc markdown">
       <p>Data transfer object used to pass filter parameters as simple key-value pairs.</p>
-<p>@see [<a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>]</p>
+<p>See [<a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var filter = FilterParams.fromTuples(
     "type", "Type1",
@@ -240,7 +240,11 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Creates a new instance and initalizes it with elements from the specified map.
 <ul>
 <li></li>
-<li>@param map 	a map to initialize this instance.</li>
+<li>
+<ul>
+<li>map 	a map to initialize this instance.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -929,10 +933,14 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Parses semicolon-separated key-value pairs and returns them as a FilterParams.
 <ul>
 <li></li>
-<li>@param line      semicolon-separated key-value list to initialize FilterParams.</li>
-<li>@returns         a newly created FilterParams.</li>
+<li>
+<ul>
+<li>line      semicolon-separated key-value list to initialize FilterParams.</li>
+</ul>
+</li>
+<li>Returns         a newly created FilterParams.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a>]</li>
+<li>See [<a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a>]</li>
 </ul>
 </li>
 
@@ -948,8 +956,12 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Creates a new FilterParams from a list of key-value pairs called tuples.
 <ul>
 <li></li>
-<li>@param tuples    a list of values where odd elements are keys and the following even elements are values</li>
-<li>@returns         a newly created FilterParams.</li>
+<li>
+<ul>
+<li>tuples    a list of values where odd elements are keys and the following even elements are values</li>
+</ul>
+</li>
+<li>Returns         a newly created FilterParams.</li>
 </ul>
 </li>
 
@@ -965,8 +977,12 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Converts specified value into FilterParams.
 <ul>
 <li></li>
-<li>@param value     value to be converted</li>
-<li>@returns         a newly created FilterParams.</li>
+<li>
+<ul>
+<li>value     value to be converted</li>
+</ul>
+</li>
+<li>Returns         a newly created FilterParams.</li>
 </ul>
 </li>
 

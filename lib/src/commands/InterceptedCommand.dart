@@ -6,33 +6,33 @@ import './ICommand.dart';
 import './ICommandInterceptor.dart';
 
 /**
- * Implements a [[ICommand command]] wrapped by an interceptor.
+ * Implements a [ICommand command] wrapped by an interceptor.
  * It allows to build command call chains. The interceptor can alter execution
  * and delegate calls to a next command, which can be intercepted or concrete.
  *
- * @see [[ICommand]]
- * @see [[ICommandInterceptor]]
+ * See [ICommand]
+ * See [ICommandInterceptor]
  *
  * ### Example ###
  *
- *     export class CommandLogger implements ICommandInterceptor {
+ *     class CommandLogger implements ICommandInterceptor {
  *
- *         public getName(command: ICommand): string {
+ *         String getName(ICommand command) {
  *             return command.getName();
  *         }
  *
- *         public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) => void): void {
- *             console.log("Executed command " + command.getName());
- *             command.execute(correlationId, args, callback);
+ *         void execute(String correlationId, ICommand command , Parameters args,) async {
+ *             print("Executed command " + command.getName());
+ *             return await command.execute(correlationId, args);
  *         }
  *
- *         private validate(command: ICommand, args: Parameters): ValidationResult[] {
+ *         List<ValidationResult> validate(ICommand command, Parameters args) {
  *             return command.validate(args);
  *         }
  *     }
  *
- *     let logger = new CommandLogger();
- *     let loggedCommand = new InterceptedCommand(logger, command);
+ *     var logger = new CommandLogger();
+ *     var loggedCommand = new InterceptedCommand(logger, command);
  *
  *     // Each called command will output: Executed command <command name>
  *
@@ -45,8 +45,8 @@ class InterceptedCommand implements ICommand {
      * Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
      * about the interceptor that is being used and the next command in the chain.
      *
-     * @param interceptor   the interceptor that is intercepting the command.
-     * @param next          (link to) the next command in the command's execution chain.
+     * - interceptor   the interceptor that is intercepting the command.
+     * - next          (link to) the next command in the command's execution chain.
      */
   InterceptedCommand(ICommandInterceptor interceptor, ICommand next) {
     this._interceptor = interceptor;
@@ -54,35 +54,35 @@ class InterceptedCommand implements ICommand {
   }
 
   /**
-     * @returns the name of the command that is being intercepted.
+     * Returns the name of the command that is being intercepted.
      */
   String getName() {
     return this._interceptor.getName(this._next);
   }
 
   /**
-     * Executes the next command in the execution chain using the given [[Parameters parameters]] (arguments).
+     * Executes the next command in the execution chain using the given [Parameters parameters] (arguments).
      *
-     * @param correlationId unique transaction id to trace calls across components.
-     * @param args          the parameters (arguments) to pass to the command for execution.
-     * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
+     * - correlationId unique transaction id to trace calls across components.
+     * - args          the parameters (arguments) to pass to the command for execution.
+     * - callback      the function that is to be called once execution is complete. If an exception is raised, then
      *                      it will be called with the error.
      *
-     * @see [[Parameters]]
+     * See [Parameters]
      */
   Future<dynamic> execute(String correlationId, Parameters args) async {
     return await this._interceptor.execute(correlationId, this._next, args);
   }
 
   /**
-     * Validates the [[Parameters parameters]] (arguments) that are to be passed to the command that is next
+     * Validates the [Parameters parameters] (arguments) that are to be passed to the command that is next
      * in the execution chain.
      *
-     * @param args      the parameters (arguments) to validate for the next command.
-     * @returns         an array of ValidationResults.
+     * - args      the parameters (arguments) to validate for the next command.
+     * Returns         an array of ValidationResults.
      *
-     * @see [[Parameters]]
-     * @see [[ValidationResult]]
+     * See [Parameters]
+     * See [ValidationResult]
      */
   List<ValidationResult> validate(Parameters args) {
     return this._interceptor.validate(this._next, args);

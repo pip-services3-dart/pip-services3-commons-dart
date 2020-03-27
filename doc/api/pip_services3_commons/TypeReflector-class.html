@@ -200,7 +200,7 @@
 by Pip.Services toolkit and used to support dynamic data processing.</p>
 <p>Because all languages have different casing and case sensitivity rules,
 this TypeReflector treats all type names as case insensitive.</p>
-<p>@see [<a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>]</p>
+<p>See [<a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var descriptor = new TypeDescriptor("MyObject", "mylibrary");
 Typeeflector.getTypeByDescriptor(descriptor);
@@ -302,13 +302,25 @@ TypeDescriptor.isPrimitive(123);				// Result: true
 <ul>
 <li>and library where it is defined.</li>
 <li></li>
-<li>@param name 		an object type name.</li>
-<li>@param library 	a library (module) where object type is defined.</li>
-<li>@param args		arguments for the object constructor.</li>
-<li>@returns the created object instance.</li>
+<li>
+<ul>
+<li>name 		an object type name.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>library 	a library (module) where object type is defined.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>args		arguments for the object constructor.</li>
+</ul>
+</li>
+<li>Returns the created object instance.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/TypeReflector/getType.html">getType</a>]</li>
-<li>@see [<a href="pip_services3_commons/TypeReflector/createInstanceByType.html">createInstanceByType</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeReflector/getType.html">getType</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeReflector/createInstanceByType.html">createInstanceByType</a>]</li>
 </ul>
 </li>
 
@@ -324,12 +336,20 @@ TypeDescriptor.isPrimitive(123);				// Result: true
 <li>Creates an instance of an object type specified by type descriptor.
 <ul>
 <li></li>
-<li>@param descriptor 	a type descriptor that points to an object type</li>
-<li>@param args		arguments for the object constructor.</li>
-<li>@returns the created object instance.</li>
+<li>
+<ul>
+<li>descriptor 	a type descriptor that points to an object type</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>args		arguments for the object constructor.</li>
+</ul>
+</li>
+<li>Returns the created object instance.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/TypeReflector/createInstance.html">createInstance</a>]</li>
-<li>@see [<a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeReflector/createInstance.html">createInstance</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>]</li>
 </ul>
 </li>
 
@@ -345,9 +365,17 @@ TypeDescriptor.isPrimitive(123);				// Result: true
 <li>Creates an instance of an object type.
 <ul>
 <li></li>
-<li>@param type 		an object type (factory function) to create.</li>
-<li>@param args		arguments for the object constructor.</li>
-<li>@returns the created object instance.</li>
+<li>
+<ul>
+<li>type 		an object type (factory function) to create.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>args		arguments for the object constructor.</li>
+</ul>
+</li>
+<li>Returns the created object instance.</li>
 </ul>
 </li>
 
@@ -363,9 +391,17 @@ TypeDescriptor.isPrimitive(123);				// Result: true
 <li>Gets object type by its name and library where it is defined.
 <ul>
 <li></li>
-<li>@param name 		an object type name.</li>
-<li>@param library 	a library where the type is defined</li>
-<li>@returns the object type or null is the type wasn't found.</li>
+<li>
+<ul>
+<li>name 		an object type name.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>library 	a library where the type is defined</li>
+</ul>
+</li>
+<li>Returns the object type or null is the type wasn't found.</li>
 </ul>
 </li>
 
@@ -381,11 +417,15 @@ TypeDescriptor.isPrimitive(123);				// Result: true
 <li>Gets object type by type descriptor.
 <ul>
 <li></li>
-<li>@param descriptor 	a type descriptor that points to an object type</li>
-<li>@returns the object type or null is the type wasn't found.</li>
+<li>
+<ul>
+<li>descriptor 	a type descriptor that points to an object type</li>
+</ul>
+</li>
+<li>Returns the object type or null is the type wasn't found.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/TypeReflector/getType.html">getType</a>]</li>
-<li>@see [<a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeReflector/getType.html">getType</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>]</li>
 </ul>
 </li>
 
@@ -404,11 +444,15 @@ TypeDescriptor.isPrimitive(123);				// Result: true
 <li>Primitive types are: numbers, strings, booleans, date and time.</li>
 <li>Complex (non-primitive types are): objects, maps and arrays</li>
 <li></li>
-<li>@param value 	a value to check</li>
-<li>@returns true if the value has primitive type and false if value type is complex.</li>
+<li>
+<ul>
+<li>value 	a value to check</li>
+</ul>
+</li>
+<li>Returns true if the value has primitive type and false if value type is complex.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/TypeConverter/toTypeCode.html">TypeConverter.toTypeCode</a>]</li>
-<li>@see [<a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeConverter/toTypeCode.html">TypeConverter.toTypeCode</a>]</li>
+<li>See [<a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>]</li>
 </ul>
 </li>
 

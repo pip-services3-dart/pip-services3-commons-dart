@@ -9,8 +9,8 @@ import './ObjectReader.dart';
  * through the entire object graph. Nested property names are defined
  * using dot notation as "object.subobject.property"
  *
- * @see [[PropertyReflector]]
- * @see [[ObjectReader]]
+ * See [[PropertyReflector]]
+ * See [[ObjectReader]]
  */
 class RecursiveObjectReader {
   static bool _performHasProperty(obj, List<String> names, int nameIndex) {
@@ -32,9 +32,9 @@ class RecursiveObjectReader {
      * The property name correspondently must be object property,
      * map key or array index.
 	 * 
-	 * @param obj 	an object to introspect.
-	 * @param name 	a name of the property to check.
-	 * @returns true if the object has the property and false if it doesn't.
+	 * - obj 	an object to introspect.
+	 * - name 	a name of the property to check.
+	 * Returns true if the object has the property and false if it doesn't.
 	 */
   static bool hasProperty(obj, String name) {
     if (obj == null || name == null) return false;
@@ -64,9 +64,9 @@ class RecursiveObjectReader {
      * The property name correspondently must be object property,
      * map key or array index.
      * 
-	 * @param obj 	an object to read property from.
-	 * @param name 	a name of the property to get.
-	 * @returns the property value or null if property doesn't exist or introspection failed.
+	 * - obj 	an object to read property from.
+	 * - name 	a name of the property to get.
+	 * Returns the property value or null if property doesn't exist or introspection failed.
      */
   static getProperty(obj, String name) {
     if (obj == null || name == null) return null;
@@ -122,8 +122,8 @@ class RecursiveObjectReader {
      * Returned property name correspondently are object properties,
      * map keys or array indexes.
      * 
-     * @param obj   an objec to introspect.
-     * @returns a list with property names.
+     * - obj   an objec to introspect.
+     * Returns a list with property names.
      */
   static List<String> getPropertyNames(obj) {
     var propertyNames = new List<String>();
@@ -176,8 +176,8 @@ class RecursiveObjectReader {
      * Returned properties correspondently are object properties,
      * map key-pairs or array elements with their indexes.
      * 
-     * @param obj   an object to get properties from.
-     * @returns a map, containing the names of the object's properties and their values.
+     * - obj   an object to get properties from.
+     * Returns a map, containing the names of the object's properties and their values.
      */
   static Map<String, dynamic> getProperties(obj) {
     var properties = new Map<String, dynamic>();

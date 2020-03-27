@@ -16,7 +16,7 @@ import '../convert/IntegerConverter.dart';
  * Because all languages have different casing and case sensitivity rules,
  * this ObjectWriter treats all property names as case insensitive.
  *
- * @see [[PropertyReflector]]
+ * See [[PropertyReflector]]
  * 
  * ### Example ###
  * 
@@ -41,9 +41,9 @@ class ObjectWriter {
 	 * If the property does not exist or introspection fails
 	 * this method doesn't do anything and doesn't any throw errors.
 	 * 
-	 * @param obj 	an object to write property to.
-	 * @param name 	a name of the property to set.
-	 * @param value a new value for the property to set.
+	 * - obj 	an object to write property to.
+	 * - name 	a name of the property to set.
+	 * - value a new value for the property to set.
 	 */
   static void setProperty(obj, String name, value) {
     if (obj == null) throw new Exception("Object cannot be null");
@@ -93,10 +93,10 @@ class ObjectWriter {
 	 * If some properties do not exist or introspection fails
 	 * they are just silently skipped and no errors thrown.
 	 * 
-	 * @param obj 		 an object to write properties to.
-	 * @param values 	a map, containing property names and their values.
+	 * - obj 		 an object to write properties to.
+	 * - values 	a map, containing property names and their values.
 	 * 
-	 * @see [[setProperty]]
+	 * See [[setProperty]]
 	 */
   static void setProperties(obj, Map<String, dynamic> values) {
     if (values == null) return;

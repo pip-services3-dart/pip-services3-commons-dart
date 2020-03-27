@@ -3,7 +3,7 @@
  * It contains items of retrieved page and optional total number of items.
  * 
  * Most often this object type is used to send responses to paginated queries.
- * Pagination parameters are defined by [[PagingParams]] object.
+ * Pagination parameters are defined by [PagingParams] object.
  * The <code>skip</code> parameter in the PagingParams there means how many items to skip.
  * The <code>takes</code> parameter sets number of items to return in the page.
  * And the optional <code>total</code> parameter tells to return total number of items in the query.
@@ -11,7 +11,7 @@
  * Remember: not all implementations support the <code>total</code> parameter
  * because its generation may lead to severe performance implications.
  * 
- * @see [[PagingParams]]
+ * See [PagingParams]
  * 
  * ### Example ###
  * 
@@ -35,14 +35,20 @@ class DataPage<T> {
   /**
    * Creates a new instance of data page and assigns its values.
    * 
-   * @param data      a list of items from the retrieved page.
-   * @param total     (optional) .
+   * - [data]      a list of items from the retrieved page.
+   * - [total]     (optional) .
    */
   DataPage(List<T> data, int total) {
     this.total = total;
     this.data = data;
   }
 
+/**
+   * Creates a new instance of data page and assigns its values.
+   * 
+   * - [json]    json values to initialize this object.
+   * - [fromJson]  convert function for convert from json into <T>
+   */
   factory DataPage.fromJson(Map<String, dynamic> json, Function fromJson) {
     //final items = json['data'].cast<Map<String, dynamic>>();
     final items = json['data'];
@@ -51,7 +57,9 @@ class DataPage<T> {
         new List<T>.from(items.map((itemsJson) => fromJson(itemsJson))),
         json['total']);
   }
-
+/**
+   * Returned JSON Map object from values of this object
+   */
   Map<String, dynamic> toJson() =>
       <String, dynamic>{'total': this.total, 'data': this.data};
 }

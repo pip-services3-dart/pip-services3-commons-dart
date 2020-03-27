@@ -7,7 +7,7 @@ import './ValidationResult.dart';
  * When all rules returns no errors, than this rule also returns no errors.
  * When one of the rules return errors, than the rules returns all errors.
  * 
- * @see [[IValidationRule]]
+ * See [[IValidationRule]]
  * 
  * ### Example ###
  * 
@@ -27,17 +27,17 @@ class AndRule implements IValidationRule {
   /**
      * Creates a new validation rule and sets its values.
      * 
-     * @param rules     a list of rules to join with AND operator
+     * - rules     a list of rules to join with AND operator
      */
   AndRule(List<IValidationRule> rules) : this._rules = rules {}
 
   /**
      * Validates a given value against this rule.
      * 
-     * @param path      a dot notation path to the value.
-     * @param schema    a schema this rule is called from
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - schema    a schema this rule is called from
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {

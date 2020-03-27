@@ -2,7 +2,7 @@
  * Codes for the data types that can be
  * converted using [[TypeConverter]].
  * 
- * @see [[TypeConverter]]
+ * See [[TypeConverter]]
  */
 enum TypeCode {
   Unknown,

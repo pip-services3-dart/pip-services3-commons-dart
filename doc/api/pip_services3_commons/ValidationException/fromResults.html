@@ -114,11 +114,13 @@
     <section class="desc markdown">
       <p>Creates a new ValidationException based on errors in validation results.
 If validation results have no errors, than null is returned.</p>
-<p>@param correlationId     (optional) transaction id to trace execution through call chain.
-@param results           list of validation results that may contain errors
-@param strict            true to treat warnings as errors.
-@returns a newly created ValidationException or null if no errors in found.</p>
-<p>@see [<a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>]</p>
+<ul>
+<li>correlationId     (optional) transaction id to trace execution through call chain.</li>
+<li>results           list of validation results that may contain errors</li>
+<li>strict            true to treat warnings as errors.
+Returns a newly created ValidationException or null if no errors in found.</li>
+</ul>
+<p>See [<a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>]</p>
     </section>
     
     

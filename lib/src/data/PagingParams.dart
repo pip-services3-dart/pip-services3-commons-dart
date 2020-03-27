@@ -16,10 +16,10 @@ import './AnyValueMap.dart';
  * 
  * ### Example ###
  * 
- *     let filter = FilterParams.fromTuples("type", "Type1");
- *     let paging = new PagingParams(0, 100);
+ *     var filter = FilterParams.fromTuples(["type", "Type1"]);
+ *     var paging = new PagingParams(0, 100);
  *     
- *     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
+ *     myDataClient.getDataByFilter(filter, paging, (err, page) {...});
  */
 class PagingParams {
   /**The number of items to skip. */
@@ -32,9 +32,9 @@ class PagingParams {
   /**
 	 * Creates a new instance and sets its values.
 	 * 
-	 * @param skip 		the number of items to skip.
-	 * @param take 		the number of items to return. 
-	 * @param total 	true to return the total number of items.
+	 * - [skip] 		the number of items to skip.
+	 * - [take] 		the number of items to return. 
+	 * - [total] 	true to return the total number of items.
 	 */
   PagingParams(
       [dynamic skip = null, dynamic take = null, dynamic total = null]) {
@@ -46,16 +46,27 @@ class PagingParams {
     if (this.take == 0) this.take = null;
   }
 
+  /**
+	 * Creates a new instance from json.
+	 * 
+	 * - [json] 		json for initialize.
+   */
   factory PagingParams.fromJson(Map<String, dynamic> json) {
     return PagingParams(json['skip'], json['take'], json['total']);
   }
 
+  /**
+   * Initialize this object from JSON Map object
+   */
   void fromJson(Map<String, dynamic> json) {
     this.skip = json['skip'];
     this.take = json['take'];
     this.total = json['total'];
   }
 
+  /**
+   * Returned JSON Map object from values of this object
+   */
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'skip': this.skip,
@@ -67,8 +78,8 @@ class PagingParams {
   /**
 	 * Gets the number of items to skip.
 	 * 
-	 * @param minSkip 	the minimum number of items to skip.
-	 * @returns 		the number of items to skip.
+	 * - [minSkip] 	the minimum number of items to skip.
+	 * Returns 		the number of items to skip.
 	 */
   int getSkip(int minSkip) {
     if (this.skip == null) return minSkip;
@@ -79,8 +90,8 @@ class PagingParams {
   /**
 	 * Gets the number of items to return in a page.
 	 * 
-	 * @param maxTake 	the maximum number of items to return.
-	 * @returns 		the number of items to return.
+	 * - [maxTake] 	the maximum number of items to return.
+	 * Returns 		the number of items to return.
 	 */
   int getTake(int maxTake) {
     if (this.take == null) return maxTake;
@@ -92,8 +103,8 @@ class PagingParams {
   /**
      * Converts specified value into PagingParams.
      * 
-     * @param value     value to be converted
-     * @returns         a newly created PagingParams.
+     * - [value]     value to be converted
+     * Returns         a newly created PagingParams.
 	 */
   static PagingParams fromValue(dynamic value) {
     if (value is PagingParams) return value;
@@ -105,8 +116,8 @@ class PagingParams {
   /**
      * Creates a new PagingParams from a list of key-value pairs called tuples.
      * 
-     * @param tuples    a list of values where odd elements are keys and the following even elements are values
-     * @returns         a newly created PagingParams.
+     * - [tuples]    a list of values where odd elements are keys and the following even elements are values
+     * Returns         a newly created PagingParams.
 	 */
   static PagingParams fromTuples(List<dynamic> tuples) {
     var map = AnyValueMap.fromTuplesArray(tuples);
@@ -116,8 +127,8 @@ class PagingParams {
   /**
      * Creates a new PagingParams and sets it parameters from the specified map
      * 
-     * @param map    	a AnyValueMap or StringValueMap to initialize this PagingParams
-     * @returns         a newly created PagingParams.
+     * - [map]    	a AnyValueMap or StringValueMap to initialize this PagingParams
+     * Returns         a newly created PagingParams.
 	 */
   static PagingParams fromMap(dynamic map) {
     var skip = map.getAsNullableInteger("skip");

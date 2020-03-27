@@ -12,8 +12,8 @@ class ArrayConverter {
      * Converts value into array object.
 	 * Single values are converted into arrays with a single element.
 	 * 
-	 * @param value     the value to convert.
-     * @returns         array object or null when value is null.
+	 * - [value]     the value to convert.
+     * Returns         array object or null when value is null.
      */
   static List toNullableArray(value) {
     // Return null when nothing found
@@ -39,12 +39,12 @@ class ArrayConverter {
 
   /**
      * Converts value into array object with empty array as default.
-	 * Single values are converted into arrays with single element.
+	   * Single values are converted into arrays with single element.
      * 
-     * @param value     the value to convert.
-	 * @returns			array object or empty array when value is null.
+     * - [value]     the value to convert.
+	   * Returns			array object or empty array when value is null.
      * 
-     * @see [[toNullableArray]]
+     * See [[toNullableArray]]
      */
   static List toArray(value) {
     var result = ArrayConverter.toNullableArray(value);
@@ -53,13 +53,13 @@ class ArrayConverter {
 
   /**
      * Converts value into array object with specified default.
-	 * Single values are converted into arrays with single element.
+	   * Single values are converted into arrays with single element.
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  default array object.
-	 * @returns				array object or default array when value is null.
+     * - [value]         the value to convert.
+     * - [defaultValue]  default array object.
+	   * Returns				array object or default array when value is null.
      * 
-     * @see [[toNullableArray]]
+     * See [[toNullableArray]]
      */
   static List toArrayWithDefault(value, List defaultValue) {
     var result = ArrayConverter.toNullableArray(value);
@@ -70,10 +70,10 @@ class ArrayConverter {
 	 * Converts value into array object with empty array as default.
 	 * Strings with comma-delimited values are split into array of strings.
 	 * 
-	 * @param value 	the list to convert.
-	 * @returns			array object or empty array when value is null
+	 * - [value] 	the list to convert.
+	 * Returns			array object or empty array when value is null
 	 * 
-	 * @see [[toArray]]
+	 * See [[toArray]]
 	 */
   static List listToArray(value) {
     if (value == null) return [];

@@ -7,7 +7,7 @@ import '../reflect/ObjectReader.dart';
 /**
  * Validation rule that check that at least one of the object properties is not null.
  * 
- * @see [[IValidationRule]]
+ * See [[IValidationRule]]
  * 
  * ### Example ###
  * 
@@ -24,7 +24,7 @@ class AtLeastOneExistsRule implements IValidationRule {
   /**
      * Creates a new validation rule and sets its values
      * 
-     * @param properties    a list of property names where at least one property must exist
+     * - properties    a list of property names where at least one property must exist
      */
   AtLeastOneExistsRule(List<String> properties)
       : this._properties = properties {}
@@ -32,10 +32,10 @@ class AtLeastOneExistsRule implements IValidationRule {
   /**
      * Validates a given value against this rule.
      * 
-     * @param path      a dot notation path to the value.
-     * @param schema    a schema this rule is called from
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - schema    a schema this rule is called from
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {

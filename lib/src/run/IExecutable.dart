@@ -5,9 +5,9 @@ import './Parameters.dart';
 /**
  * Interface for components that can be called to execute work.
  * 
- * @see [[Executor]]
- * @see [[INotifiable]]
- * @see [[Parameters]]
+ * See [[Executor]]
+ * See [[INotifiable]]
+ * See [[Parameters]]
  * 
  * ### Example ###
  * 
@@ -31,9 +31,9 @@ abstract class IExecutable {
   /**
 	 * Executes component with arguments and receives execution result.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param args 				execution arguments.
-     * @param callback 			callback function that receives execution result or error.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+	 * - args 				execution arguments.
+     * - callback 			callback function that receives execution result or error.
 	 */
   Future<dynamic> execute(String correlationId, Parameters args);
 }

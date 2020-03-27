@@ -11,14 +11,14 @@
  * ### Example ###
  * 
  *     class MyData implements IStringIdentifiable, IVersioned {
- *         public id: string;
- *         public field1: string;
- *         public field2: number;
- *         public version: string;
+ *          String id;
+ *         String  field1;
+ *         int field2;
+ *         String version;
  *         ...
  *     }
  *     
- *     public updateData(correlationId: string, item: MyData): void {
+ *      void updateData(String correlationId, MyData item ) {
  *         ...
  *         if (item.version < oldItem.version) {
  *             throw new ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value");

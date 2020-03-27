@@ -1,3 +1,4 @@
+import '../reflect/ObjectReader.dart';
 /**
  * Converts arbitrary values into map objects using extended conversion rules.
  * This class is similar to [[MapConverter]], but is recursively converts all values
@@ -14,14 +15,14 @@ class RecursiveMapConverter {
     if (value == null) return null;
 
     // Todo: Complete implementation...
-    //var result = new Map<String, dynamic>();
-    // var props = Object.keys(value);
+    var result = new Map<String, dynamic>();
+    var props = ObjectReader.getPropertyNames(value);
 
-    // for (var i = 0; i < props.length; i++) {
-    //     var propValue = value[props[i]];
-    //     propValue = RecursiveMapConverter.valueToMap(propValue);
-    //     result[props[i]] = propValue;
-    // }
+    for (var i = 0; i < props.length; i++) {
+        var propValue = value[props[i]];
+        propValue = RecursiveMapConverter._valueToMap(propValue);
+        result[props[i]] = propValue;
+    }
 
     //return result;
     return null;
@@ -81,8 +82,8 @@ class RecursiveMapConverter {
   /**
      * Converts value into map object or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         map object or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         map object or null when conversion is not supported.
      */
   static toNullableMap(value) {
     return _valueToMap(value);
@@ -91,10 +92,10 @@ class RecursiveMapConverter {
   /**
      * Converts value into map object or returns empty map when conversion is not possible
      * 
-     * @param value     the value to convert.
-     * @returns         map object or empty map when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         map object or empty map when conversion is not supported.
      * 
-     * @see [[toNullableMap]]
+     * See [[toNullableMap]]
      */
   static toMap(value) {
     var result = RecursiveMapConverter.toNullableMap(value);
@@ -104,11 +105,11 @@ class RecursiveMapConverter {
   /**
      * Converts value into map object or returns default when conversion is not possible
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             map object or emptu map when conversion is not supported.
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             map object or emptu map when conversion is not supported.
      * 
-     * @see [[toNullableMap]]
+     * See [[toNullableMap]]
      */
   static toMapWithDefault(value, Map<String, dynamic> defaultValue) {
     var result = RecursiveMapConverter.toNullableMap(value);

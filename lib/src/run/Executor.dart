@@ -15,13 +15,13 @@ class Executor {
 	 * To be executed components must implement [[IExecutable]] interface.
 	 * If they don't the call to this method has no effect.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param component 		the component that is to be executed.
-     * @param args              execution arguments.
-     * @param callback 			callback function that receives execution result or error.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+	 * - component 		the component that is to be executed.
+     * - args              execution arguments.
+     * - callback 			callback function that receives execution result or error.
 	 * 
-	 * @see [[IExecutable]]
-     * @see [[Parameters]]
+	 * See [[IExecutable]]
+     * See [[Parameters]]
 	 */
   static Future<dynamic> executeOne(
       String correlationId, component, Parameters args) async {
@@ -35,14 +35,14 @@ class Executor {
 	 * To be executed components must implement [[IExecutable]] interface.
 	 * If they don't the call to this method has no effect.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param components 		a list of components that are to be executed.
-     * @param args              execution arguments.
-     * @param callback 			callback function that receives execution result or error.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+	 * - components 		a list of components that are to be executed.
+     * - args              execution arguments.
+     * - callback 			callback function that receives execution result or error.
 	 * 
-	 * @see [[executeOne]]
-	 * @see [[IExecutable]]
-     * @see [[Parameters]]
+	 * See [[executeOne]]
+	 * See [[IExecutable]]
+     * See [[Parameters]]
 	 */
   static Future<List> execute(
       String correlationId, List components, Parameters args) async {

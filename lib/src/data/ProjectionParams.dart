@@ -14,11 +14,11 @@ import "./AnyValueArray.dart";
  * 
  * ### Example ###
  * 
- *     var filter = FilterParams.fromTuples("type", "Type1");
+ *     var filter = FilterParams.fromTuples(["type", "Type1"]);
  *     var paging = new PagingParams(0, 100);
  *     var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
  *     
- *     myDataClient.getDataByFilter(filter, paging, projection, (err, page) => {...});
+ *     myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
  * 
  */
 class ProjectionParams extends ListBase<String> {
@@ -26,7 +26,7 @@ class ProjectionParams extends ListBase<String> {
   /**
      * Creates a new instance of the projection parameters and assigns its value.
      * 
-     * @param value     (optional) values to initialize this object.
+     * - [value]     (optional) values to initialize this object.
      */
   ProjectionParams([List<dynamic> values = null])
       : this._values = new List<String>() {
@@ -35,14 +35,25 @@ class ProjectionParams extends ListBase<String> {
     }
   }
 
+  /**
+	 * Creates a new instance from json.
+	 * 
+	 * - [json] 		json for initialize.
+   */
   factory ProjectionParams.fromJson(Map<String, dynamic> json) {
     return new ProjectionParams(json["values"]);
   }
 
+  /**
+   * Initialize this object from JSON Map object
+   */
   Map<String, dynamic> toJson() {
     return <String, dynamic>{"values": this._values};
   }
 
+  /**
+   * Returned JSON Map object from values of this object
+   */
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
     addAll(json["values"]);
@@ -53,7 +64,7 @@ class ProjectionParams extends ListBase<String> {
      * The result is a comma-separated list of projection fields
      * "field1,field2.field21,field2.field22.field221"
      * 
-     * @returns a string representation of the object.
+     * Returns a string representation of the object.
      */
   String toString() {
     var builder = "";
@@ -157,10 +168,10 @@ class ProjectionParams extends ListBase<String> {
   /**
      * Converts specified value into ProjectionParams.
      * 
-     * @param value     value to be converted
-     * @returns         a newly created ProjectionParams.
+     * - value     value to be converted
+     * Returns         a newly created ProjectionParams.
      * 
-     * @see [[AnyValueArray.fromValue]]
+     * See [[AnyValueArray.fromValue]]
      */
   static ProjectionParams fromValue(dynamic value) {
     if (!(value is List)) value = AnyValueArray.fromValue(value);
@@ -171,8 +182,8 @@ class ProjectionParams extends ListBase<String> {
   /**
      * Parses comma-separated list of projection fields.
      * 
-     * @param values    one or more comma-separated lists of projection fields
-     * @returns         a newly created ProjectionParams.
+     * - values    one or more comma-separated lists of projection fields
+     * Returns         a newly created ProjectionParams.
      */
   static fromString(List<dynamic> values) {
     var result = new ProjectionParams();

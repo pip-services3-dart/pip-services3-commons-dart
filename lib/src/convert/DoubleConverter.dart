@@ -15,8 +15,8 @@ class DoubleConverter {
   /**
      * Converts value into doubles or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         double value or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         double value or null when conversion is not supported.
      */
   static double toNullableDouble(value) {
     if (value == null) return null;
@@ -32,10 +32,10 @@ class DoubleConverter {
   /**
      * Converts value into doubles or returns 0 when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         double value or 0 when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         double value or 0 when conversion is not supported.
      * 
-     * @see [[toDoubleWithDefault]]
+     * See [[toDoubleWithDefault]]
      */
   static double toDouble(value) {
     return DoubleConverter.toDoubleWithDefault(value, 0);
@@ -44,11 +44,11 @@ class DoubleConverter {
   /**
      * Converts value into integer or returns default value when conversion is not possible.
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             double value or default when conversion is not supported.
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             double value or default when conversion is not supported.
      * 
-     * @see [[toNullableDouble]]
+     * See [[toNullableDouble]]
      */
   static double toDoubleWithDefault(value, double defaultValue) {
     var result = DoubleConverter.toNullableDouble(value);

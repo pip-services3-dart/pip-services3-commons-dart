@@ -3,11 +3,11 @@
  * 
  * ### Example ###
  * 
- *     export class MyData implements IStringIdentifiable, IChangeable {
- *         public id: string;
- *         public field1: string;
- *         public field2: number;
- *         public change_time: Date;
+ *     class MyData implements IStringIdentifiable, IChangeable {
+ *          String id;
+ *          String field1;
+ *          int field2;
+ *          DateTime change_time;
  *         ...
  *     }
  */

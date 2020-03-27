@@ -12,15 +12,15 @@ import './MapConverter.dart';
  *     var value1 = JsonConverter.fromJson("{\"key\":123}"); // Result: { "key": 123 }
  *     var value2 = JsonConverter.toMap({ "key": 123 }); // Result: "{ "key": 123 }"
  * 
- * @see [[TypeCode]]
+ * See [[TypeCode]]
  */
 class JsonConverter {
   /**
 	 * Converts JSON string into a value of type specified by a TypeCode.
 	 * 
-	 * @param type 		the TypeCode for the data type into which 'value' is to be converted.
-	 * @param value 	the JSON string to convert.
-	 * @returns			converted object value or null when value is null.
+	 * - [type] 		the TypeCode for the data type into which 'value' is to be converted.
+	 * - value 	the JSON string to convert.
+	 * Returns			converted object value or null when value is null.
 	 */
   static T fromJson<T>(TypeCode type, String value) {
     if (value == null) return null;
@@ -42,8 +42,8 @@ class JsonConverter {
   /**
 	 * Converts value into JSON string.
 	 * 
-	 * @param value 	the value to convert.
-	 * @returns			JSON string or null when value is null.
+	 * - [value] 	the value to convert.
+	 * Returns			JSON string or null when value is null.
 	 */
   static String toJson(value) {
     if (value == null) return null;
@@ -53,10 +53,10 @@ class JsonConverter {
   /**
 	 * Converts JSON string into map object or returns null when conversion is not possible.
 	 * 
-	 * @param value 	the JSON string to convert.
-	 * @returns			Map object value or null when conversion is not supported.
+	 * - [value] 	the JSON string to convert.
+	 * Returns			Map object value or null when conversion is not supported.
 	 * 
-	 * @see [[MapConverter.toNullableMap]]
+	 * See [[MapConverter.toNullableMap]]
 	 */
   static Map<String, dynamic> toNullableMap(String value) {
     if (value == null) return null;
@@ -72,10 +72,10 @@ class JsonConverter {
   /**
 	 * Converts JSON string into map object or returns empty map when conversion is not possible.
 	 * 
-	 * @param value 	the JSON string to convert.
-	 * @returns 		Map object value or empty object when conversion is not supported.
+	 * - [value] 	the JSON string to convert.
+	 * Returns 		Map object value or empty object when conversion is not supported.
 	 * 
-	 * @see [[toNullableMap]]
+	 * See [[toNullableMap]]
 	 */
   static Map<String, dynamic> toMap(String value) {
     var result = JsonConverter.toNullableMap(value);
@@ -85,11 +85,11 @@ class JsonConverter {
   /**
      * Converts JSON string into map object or returns default value when conversion is not possible.
      * 
-     * @param value         the JSON string to convert.
-     * @param defaultValue  the default value.
-	 * @returns				Map object value or default when conversion is not supported.
+     * - [value]         the JSON string to convert.
+     * - defaultValue  the default value.
+	 * Returns				Map object value or default when conversion is not supported.
      * 
-     * @see [[toNullableMap]]
+     * See [[toNullableMap]]
      */
   static Map<String, dynamic> toMapWithDefault(
       String value, Map<String, dynamic> defaultValue) {

@@ -7,8 +7,8 @@ import './Parameters.dart';
  * The notification may include optional argument that describe
  * the occured event.
  * 
- * @see [[Notifier]]
- * @see [[IExecutable]]
+ * See [[Notifier]]
+ * See [[IExecutable]]
  * 
  * ### Example ###
  * 
@@ -27,8 +27,8 @@ abstract class INotifiable {
   /**
 	 * Notifies the component about occured event.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param args 				notification arguments.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+	 * - args 				notification arguments.
 	 */
   void notify(String correlationId, Parameters args);
 }

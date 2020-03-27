@@ -70,9 +70,9 @@ class PropertyReflector {
   /**
 	 * Checks if object has a property with specified name..
 	 * 
-	 * @param obj 	an object to introspect.
-	 * @param name 	a name of the property to check.
-	 * @returns true if the object has the property and false if it doesn't.
+	 * - obj 	an object to introspect.
+	 * - name 	a name of the property to check.
+	 * Returns true if the object has the property and false if it doesn't.
 	 */
   static bool hasProperty(obj, String name) {
     if (obj == null) throw new Exception("Object cannot be null");
@@ -86,9 +86,9 @@ class PropertyReflector {
   /**
 	 * Gets value of object property specified by its name.
 	 * 
-	 * @param obj 	an object to read property from.
-	 * @param name 	a name of the property to get.
-	 * @returns the property value or null if property doesn't exist or introspection failed.
+	 * - obj 	an object to read property from.
+	 * - name 	a name of the property to get.
+	 * Returns the property value or null if property doesn't exist or introspection failed.
 	 */
   static getProperty(obj, String name) {
     if (obj == null) throw new Exception("Object cannot be null");
@@ -110,8 +110,8 @@ class PropertyReflector {
   /**
      * Gets names of all properties implemented in specified object.
      * 
-     * @param obj   an objec to introspect.
-     * @returns a list with property names.
+     * - obj   an objec to introspect.
+     * Returns a list with property names.
      */
   static List<String> getPropertyNames(obj) {
     var properties = new List<String>();
@@ -137,8 +137,8 @@ class PropertyReflector {
      * Get values of all properties in specified object
 	 * and returns them as a map.
      * 
-     * @param obj   an object to get properties from.
-     * @returns a map, containing the names of the object's properties and their values.
+     * - obj   an object to get properties from.
+     * Returns a map, containing the names of the object's properties and their values.
      */
   static Map<String, dynamic> getProperties(obj) {
     var map = new Map<String, dynamic>();
@@ -175,9 +175,9 @@ class PropertyReflector {
 	 * If the property does not exist or introspection fails
 	 * this method doesn't do anything and doesn't any throw errors.
 	 * 
-	 * @param obj 	an object to write property to.
-	 * @param name 	a name of the property to set.
-	 * @param value a new value for the property to set.
+	 * - obj 	an object to write property to.
+	 * - name 	a name of the property to set.
+	 * - value a new value for the property to set.
      */
   static void setProperty(obj, String name, value) {
     if (obj == null) throw new Exception("Object cannot be null");
@@ -202,10 +202,10 @@ class PropertyReflector {
 	 * If some properties do not exist or introspection fails
 	 * they are just silently skipped and no errors thrown.
 	 * 
-	 * @param obj 		 an object to write properties to.
-	 * @param values 	a map, containing property names and their values.
+	 * - obj 		 an object to write properties to.
+	 * - values 	a map, containing property names and their values.
 	 * 
-	 * @see [[setProperty]]
+	 * See [[setProperty]]
 	 */
   static void setProperties(obj, Map<String, dynamic> values) {
     if (values == null) return;

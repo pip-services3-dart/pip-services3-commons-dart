@@ -1,8 +1,8 @@
 /**
  * Interface for components that require explicit clearing of references to dependent components.
  * 
- * @see [[IReferences]]
- * @see [[IReferenceable]]
+ * See [[IReferences]]
+ * See [[IReferenceable]]
  * 
  * ### Example ###
  * 

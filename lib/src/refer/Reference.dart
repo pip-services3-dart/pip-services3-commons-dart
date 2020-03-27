@@ -11,8 +11,8 @@ class Reference {
   /**
 	 * Create a new instance of the reference object and assigns its values.
 	 * 
-	 * @param locator 		a locator to find the reference.
-	 * @param reference 	a reference to component.
+	 * - locator 		a locator to find the reference.
+	 * - reference 	a reference to component.
 	 */
   Reference(locator, component) {
     if (component == null) throw new Exception("Component cannot be null");
@@ -27,10 +27,10 @@ class Reference {
 	 * Descriptors are matched using equal method.
 	 * All other locator types are matched using direct comparison.
 	 * 
-	 * @param locator 	the locator to match. 
+	 * - locator 	the locator to match. 
 	 * @return true if locators are matching and false it they don't.
 	 * 
-	 * @see [[Descriptor]]
+	 * See [[Descriptor]]
 	 */
   bool match(locator) {
     // Locate by direct reference matching

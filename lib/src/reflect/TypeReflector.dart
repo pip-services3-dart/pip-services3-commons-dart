@@ -16,7 +16,7 @@ import '../convert/TypeConverter.dart';
  * Because all languages have different casing and case sensitivity rules,
  * this TypeReflector treats all type names as case insensitive.
  * 
- * @see [[TypeDescriptor]]
+ * See [[TypeDescriptor]]
  * 
  * ### Example ###
  * 
@@ -41,9 +41,9 @@ class TypeReflector {
   /**
 	 * Gets object type by its name and library where it is defined.
 	 * 
-	 * @param name 		an object type name.
-	 * @param library 	a library where the type is defined
-	 * @returns the object type or null is the type wasn't found.
+	 * - name 		an object type name.
+	 * - library 	a library where the type is defined
+	 * Returns the object type or null is the type wasn't found.
 	 */
   static Type getType(String name, [String library = null]) {
     // If library is not defined then scan all loaded libraries
@@ -86,11 +86,11 @@ class TypeReflector {
   /**
 	 * Gets object type by type descriptor.
 	 * 
-	 * @param descriptor 	a type descriptor that points to an object type
-	 * @returns the object type or null is the type wasn't found.
+	 * - descriptor 	a type descriptor that points to an object type
+	 * Returns the object type or null is the type wasn't found.
 	 * 
-	 * @see [[getType]]
-	 * @see [[TypeDescriptor]]
+	 * See [[getType]]
+	 * See [[TypeDescriptor]]
 	 */
   static Type getTypeByDescriptor(TypeDescriptor descriptor) {
     if (descriptor == null)
@@ -102,9 +102,9 @@ class TypeReflector {
   /**
 	 * Creates an instance of an object type.
 	 * 
-	 * @param type 		an object type (factory function) to create.
-	 * @param args		arguments for the object constructor.
-	 * @returns the created object instance.
+	 * - type 		an object type (factory function) to create.
+	 * - args		arguments for the object constructor.
+	 * Returns the created object instance.
 	 */
   static createInstanceByType(Type type, List args) {
     if (type == null) throw new Exception("Type constructor cannot be null");
@@ -118,13 +118,13 @@ class TypeReflector {
 	 * Creates an instance of an object type specified by its name
 	 * and library where it is defined.
 	 * 
-	 * @param name 		an object type name.
-	 * @param library 	a library (module) where object type is defined.
-	 * @param args		arguments for the object constructor.
-	 * @returns the created object instance.
+	 * - name 		an object type name.
+	 * - library 	a library (module) where object type is defined.
+	 * - args		arguments for the object constructor.
+	 * Returns the created object instance.
 	 * 
-	 * @see [[getType]]
-	 * @see [[createInstanceByType]]
+	 * See [[getType]]
+	 * See [[createInstanceByType]]
 	 */
   static createInstance(String name, String library, List args) {
     var type = TypeReflector.getType(name, library);
@@ -141,12 +141,12 @@ class TypeReflector {
   /**
 	 * Creates an instance of an object type specified by type descriptor.
 	 * 
-	 * @param descriptor 	a type descriptor that points to an object type
-	 * @param args		arguments for the object constructor.
-	 * @returns the created object instance.
+	 * - descriptor 	a type descriptor that points to an object type
+	 * - args		arguments for the object constructor.
+	 * Returns the created object instance.
 	 * 
-	 * @see [[createInstance]]
-	 * @see [[TypeDescriptor]]
+	 * See [[createInstance]]
+	 * See [[TypeDescriptor]]
 	 */
   static createInstanceByDescriptor(TypeDescriptor descriptor, List args) {
     if (descriptor == null)
@@ -162,11 +162,11 @@ class TypeReflector {
 	 * Primitive types are: numbers, strings, booleans, date and time.
 	 * Complex (non-primitive types are): objects, maps and arrays
 	 * 
-	 * @param value 	a value to check
-	 * @returns true if the value has primitive type and false if value type is complex.
+	 * - value 	a value to check
+	 * Returns true if the value has primitive type and false if value type is complex.
 	 * 
-	 * @see [[TypeConverter.toTypeCode]]
-	 * @see [[TypeCode]]
+	 * See [[TypeConverter.toTypeCode]]
+	 * See [[TypeCode]]
 	 */
   static bool isPrimitive(value) {
     var typeCode = TypeConverter.toTypeCode(value);

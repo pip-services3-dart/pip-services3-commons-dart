@@ -12,8 +12,8 @@
  * But most often PipServices toolkit uses [[Descriptor]] as locators that match
  * by 5 fields: group, type, kind, name and version.
  * 
- * @see [[Descriptor]]
- * @see [[References]]
+ * See [[Descriptor]]
+ * See [[References]]
  * 
  * ### Example ###
  * 
@@ -43,8 +43,8 @@ abstract class IReferences {
   /**
 	 * Puts a new reference into this reference map.
 	 * 
-	 * @param locator 	a locator to find the reference by.
-	 * @param component a component reference to be added.
+	 * - locator 	a locator to find the reference by.
+	 * - component a component reference to be added.
 	 */
   put(locator, component);
 
@@ -53,40 +53,40 @@ abstract class IReferences {
 	 * If many references match the locator, it removes only the first one.
 	 * When all references shall be removed, use [[removeAll]] method instead.
 	 * 
-	 * @param locator 	a locator to remove reference
-	 * @returns the removed component reference.
+	 * - locator 	a locator to remove reference
+	 * Returns the removed component reference.
 	 * 
-	 * @see [[removeAll]]
+	 * See [[removeAll]]
 	 */
   remove(locator);
 
   /**
 	 * Removes all component references that match the specified locator. 
 	 * 
-	 * @param locator 	the locator to remove references by.
-	 * @returns a list, containing all removed references.
+	 * - locator 	the locator to remove references by.
+	 * Returns a list, containing all removed references.
 	 */
   List removeAll(locator);
 
   /**
 	 * Gets locators for all registered component references in this reference map.
 	 * 
-	 * @returns a list with component locators.
+	 * Returns a list with component locators.
 	 */
   List getAllLocators();
 
   /**
 	 * Gets all component references registered in this reference map.
 	 * 	
-	 * @returns a list with component references.
+	 * Returns a list with component references.
 	 */
   List getAll();
 
   /**
 	 * Gets all component references that match specified locator.
 	 * 
-	 * @param locator 	the locator to find references by.	 
-	 * @returns a list with matching component references or empty list if nothing was found.
+	 * - locator 	the locator to find references by.	 
+	 * Returns a list with matching component references or empty list if nothing was found.
 	 */
   List<T> getOptional<T>(locator);
 
@@ -95,8 +95,8 @@ abstract class IReferences {
 	 * At least one component reference must be present.
 	 * If it doesn't the method throws an error.
 	 * 
-	 * @param locator 	the locator to find references by.	 
-	 * @returns a list with matching component references.
+	 * - locator 	the locator to find references by.	 
+	 * Returns a list with matching component references.
 	 * 
 	 * @throws a [[ReferenceException]] when no references found.
 	 */
@@ -105,16 +105,16 @@ abstract class IReferences {
   /**
 	 * Gets an optional component reference that matches specified locator.
 	 * 
-	 * @param locator 	the locator to find references by.	 
-	 * @returns a matching component reference or null if nothing was found.
+	 * - locator 	the locator to find references by.	 
+	 * Returns a matching component reference or null if nothing was found.
 	 */
   T getOneOptional<T>(locator);
 
   /**
 	 * Gets a required component reference that matches specified locator.
 	 * 
-	 * @param locator 	the locator to find a reference by.	 
-	 * @returns a matching component reference.
+	 * - locator 	the locator to find a reference by.	 
+	 * Returns a matching component reference.
 	 * @throws a [[ReferenceException]] when no references found.
 	 */
   T getOneRequired<T>(locator);
@@ -122,9 +122,9 @@ abstract class IReferences {
   /**
 	 * Gets all component references that match specified locator.
 	 * 
-	 * @param locator 	the locator to find a reference by.
-	 * @param required 	forces to raise an exception if no reference is found.
-	 * @returns a list with matching component references.
+	 * - locator 	the locator to find a reference by.
+	 * - required 	forces to raise an exception if no reference is found.
+	 * Returns a list with matching component references.
 	 * 
 	 * @throws a [[ReferenceException]] when required is set to true but no references found.
 	 */

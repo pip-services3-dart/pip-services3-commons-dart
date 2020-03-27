@@ -198,8 +198,8 @@
       <p>Interface for components that can be asynchronously notified.
 The notification may include optional argument that describe
 the occured event.</p>
-<p>@see [<a href="pip_services3_commons/Notifier-class.html">Notifier</a>]
-@see [<a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>]</p>
+<p>See [<a href="pip_services3_commons/Notifier-class.html">Notifier</a>]
+See [<a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyComponent implements INotifable {
     ...
@@ -277,8 +277,16 @@ myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
 <li>Notifies the component about occured event.
 <ul>
 <li></li>
-<li>@param correlationId 	(optional) transaction id to trace execution through call chain.</li>
-<li>@param args 				notification arguments.</li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>args 				notification arguments.</li>
+</ul>
+</li>
 </ul>
 </li>
 

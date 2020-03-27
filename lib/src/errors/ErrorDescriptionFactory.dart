@@ -10,15 +10,15 @@ import './ApplicationException.dart';
  * implemented in different languages. They allow to restore exceptions on the receiving side
  * close to the original type and preserve additional information.
  * 
- * @see [[ErrorDescription]]
- * @see [[ApplicationException]]
+ * See [[ErrorDescription]]
+ * See [[ApplicationException]]
  */
 class ErrorDescriptionFactory {
   /**
      * Creates a serializable ErrorDescription from error object.
      * 
-	 * @param error  	an error object
-	 * @returns a serializeable ErrorDescription object that describes the error.
+	 * - error  	an error object
+	 * Returns a serializeable ErrorDescription object that describes the error.
 	 */
   static ErrorDescription create(error) {
     var description = new ErrorDescription();

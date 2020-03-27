@@ -196,9 +196,9 @@
 
     <section class="desc markdown">
       <p>Interface for components that can be called to execute work.</p>
-<p>@see [<a href="pip_services3_commons/Executor-class.html">Executor</a>]
-@see [<a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>]
-@see [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]</p>
+<p>See [<a href="pip_services3_commons/Executor-class.html">Executor</a>]
+See [<a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>]
+See [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class EchoComponent implements IExecutable {
     ...
@@ -281,9 +281,21 @@ echo.execute("123", Parameters.fromTuples("message", message),
 <li>Executes component with arguments and receives execution result.
 <ul>
 <li></li>
-<li>@param correlationId 	(optional) transaction id to trace execution through call chain.</li>
-<li>@param args 				execution arguments.</li>
-<li>@param callback 			callback function that receives execution result or error.</li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>args 				execution arguments.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>callback 			callback function that receives execution result or error.</li>
+</ul>
+</li>
 </ul>
 </li>
 

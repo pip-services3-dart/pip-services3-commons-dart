@@ -198,8 +198,8 @@
       <p>Interface for components that require explicit opening and closing.</p>
 <p>For components that perform opening on demand consider using
 [<code>ICloseable</code>] interface instead.</p>
-<p>@see [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]
-@see [<a href="pip_services3_commons/Opener-class.html">Opener</a>]</p>
+<p>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]
+See [<a href="pip_services3_commons/Opener-class.html">Opener</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyPersistence implements IOpenable {
     private _client: any;
@@ -294,7 +294,7 @@
 <li>Checks if the component is opened.
 <ul>
 <li></li>
-<li>@returns true if the component has been opened and false otherwise.</li>
+<li>Returns true if the component has been opened and false otherwise.</li>
 </ul>
 </li>
 
@@ -310,8 +310,16 @@
 <li>Opens the component.
 <ul>
 <li></li>
-<li>@param correlationId 	(optional) transaction id to trace execution through call chain.</li>
-<li>@param callback 			callback function that receives error or null no errors occured.</li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>callback 			callback function that receives error or null no errors occured.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -327,8 +335,16 @@
 <li>Closes component and frees used resources.
 <ul>
 <li></li>
-<li>@param correlationId 	(optional) transaction id to trace execution through call chain.</li>
-<li>@param callback 			callback function that receives error or null no errors occured.</li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>callback 			callback function that receives error or null no errors occured.</li>
+</ul>
+</li>
 </ul>
 </li>
 

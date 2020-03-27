@@ -52,9 +52,9 @@ class MethodReflector {
   /**
 	 * Checks if object has a method with specified name..
 	 * 
-	 * @param obj 	an object to introspect.
-	 * @param name 	a name of the method to check.
-	 * @returns true if the object has the method and false if it doesn't.
+	 * - obj 	an object to introspect.
+	 * - name 	a name of the method to check.
+	 * Returns true if the object has the method and false if it doesn't.
 	 */
   static bool hasMethod(obj, String name) {
     if (obj == null) throw new Exception("Object cannot be null");
@@ -67,10 +67,10 @@ class MethodReflector {
   /**
 	 * Invokes an object method by its name with specified parameters.
 	 * 
-	 * @param obj 	an object to invoke.
-	 * @param name 	a name of the method to invoke.
-	 * @param args 	a list of method arguments.
-	 * @returns the result of the method invocation or null if method returns void.
+	 * - obj 	an object to invoke.
+	 * - name 	a name of the method to invoke.
+	 * - args 	a list of method arguments.
+	 * Returns the result of the method invocation or null if method returns void.
 	 */
   static invokeMethod(obj, String name, List args) {
     if (obj == null) throw new Exception("Object cannot be null");
@@ -92,8 +92,8 @@ class MethodReflector {
   /**
      * Gets names of all methods implemented in specified object.
      * 
-     * @param obj   an objec to introspect.
-     * @returns a list with method names.
+     * - obj   an objec to introspect.
+     * Returns a list with method names.
      */
   static List<String> getMethodNames(obj) {
     var methods = new List<String>();

@@ -21,8 +21,8 @@ class RandomString {
   /**
      * Picks a random character from a string.
      *
-     * @param values    a string to pick a char from
-     * @returns         a randomly picked char.
+     * - values    a string to pick a char from
+     * Returns         a randomly picked char.
      */
   static String pickChar(String values) {
     if (values == null || values.length == 0) return '';
@@ -34,8 +34,8 @@ class RandomString {
   /**
      * Picks a random string from an array of string.
      *
-     * @param values    strings to pick from.
-     * @returns         a randomly picked string.
+     * - values    strings to pick from.
+     * Returns         a randomly picked string.
      */
   static String pick(List<String> values) {
     if (values == null || values.length == 0) return '';
@@ -47,8 +47,8 @@ class RandomString {
   /**
      * Distorts a string by randomly replacing characters in it.
      *
-     * @param value    a string to distort.
-     * @returns        a distored string.
+     * - value    a string to distort.
+     * Returns        a distored string.
      */
   static String distort(String value) {
     value = value.toLowerCase();
@@ -67,7 +67,7 @@ class RandomString {
   /**
      * Generates random alpha characted [A-Za-z]
      *
-     * @returns a random characted.
+     * Returns a random characted.
      */
   static String nextAlphaChar() {
     var index = RandomInteger.nextInteger(RandomString._alpha.length);
@@ -78,9 +78,9 @@ class RandomString {
      * Generates a random string, consisting of upper and lower case letters (of the English alphabet),
      * digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
      *
-     * @param minLength     (optional) minimum string length.
-     * @param maxLength     maximum string length.
-     * @returns             a random string.
+     * - minLength     (optional) minimum string length.
+     * - maxLength     maximum string length.
+     * Returns             a random string.
      */
   static String nextString(int minLength, int maxLength) {
     var result = '';

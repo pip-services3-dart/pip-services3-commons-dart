@@ -6,9 +6,9 @@ import './ConfigParams.dart';
  * It can be added to any existing class by implementing a single <code>configure()</code> method.
  * 
  * If you need to emphasis the fact that <code>configure()</code> method can be called multiple times
- * to change object configuration in runtime, use [[IReconfigurable]] interface instead.
+ * to change object configuration in runtime, use [IReconfigurable] interface instead.
  * 
- * @see [[ConfigParams]]
+ * See [ConfigParams]
  * 
  * ### Example ###
  * 
@@ -25,7 +25,7 @@ abstract class IConfigurable {
   /**
      * Configures component by passing configuration parameters.
      * 
-     * @param config    configuration parameters to be set.
+     * - [config]    configuration parameters to be set.
      */
   void configure(ConfigParams config);
 }

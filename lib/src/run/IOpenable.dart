@@ -8,8 +8,8 @@ import './IClosable.dart';
  * For components that perform opening on demand consider using
  * [[ICloseable]] interface instead.
  * 
- * @see [[IOpenable]]
- * @see [[Opener]]
+ * See [[IOpenable]]
+ * See [[Opener]]
  * 
  * ### Example ###
  * 
@@ -43,15 +43,15 @@ abstract class IOpenable implements IClosable {
   /**
 	 * Checks if the component is opened.
 	 * 
-	 * @returns true if the component has been opened and false otherwise.
+	 * Returns true if the component has been opened and false otherwise.
 	 */
   bool isOpen();
 
   /**
 	 * Opens the component.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-   * @param callback 			callback function that receives error or null no errors occured.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+   * - callback 			callback function that receives error or null no errors occured.
 	 */
   Future open(String correlationId);
 }

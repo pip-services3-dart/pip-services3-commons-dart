@@ -4,7 +4,7 @@ import './ObjectSchema.dart';
 /**
  * Schema to validate [[PagingParams]].
  * 
- * @see [[PagingParams]]
+ * See [[PagingParams]]
  */
 class PagingParamsSchema extends ObjectSchema {
   /**

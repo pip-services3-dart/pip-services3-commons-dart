@@ -6,9 +6,9 @@ import './IReferences.dart';
  * If component requires explicit notification to unset references
  * it shall additionally implement [[IUnreferenceable]] interface.
  * 
- * @see [[IReferences]]
- * @see [[IUnreferenceable]]
- * @see [[Referencer]]
+ * See [[IReferences]]
+ * See [[IUnreferenceable]]
+ * See [[Referencer]]
  * 
  * ### Example ###
  * 
@@ -27,8 +27,8 @@ abstract class IReferenceable {
   /**
 	 * Sets references to dependent components.
 	 * 
-	 * @param references 	references to locate the component dependencies. 
-	 * @see [[IReferences]]
+	 * - references 	references to locate the component dependencies. 
+	 * See [[IReferences]]
 	 */
   void setReferences(IReferences references);
 }

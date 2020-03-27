@@ -199,8 +199,8 @@
 <p>It is similar to [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>] but writes properties recursively
 through the entire object graph. Nested property names are defined
 using dot notation as "object.subobject.property"</p>
-<p>@see [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>]
-@see [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>]</p>
+<p>See [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>]
+See [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>]</p>
     </section>
     
 
@@ -295,8 +295,16 @@ using dot notation as "object.subobject.property"</p>
 <li>by recursively reading all properties from source object</li>
 <li>and then recursively writing them to destination object.</li>
 <li></li>
-<li>@param dest 	a destination object to write properties to.</li>
-<li>@param src 	a source object to read properties from</li>
+<li>
+<ul>
+<li>dest 	a destination object to write properties to.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>src 	a source object to read properties from</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -319,10 +327,18 @@ using dot notation as "object.subobject.property"</p>
 <li>If some properties do not exist or introspection fails</li>
 <li>they are just silently skipped and no errors thrown.</li>
 <li></li>
-<li>@param obj 		 an object to write properties to.</li>
-<li>@param values 	a map, containing property names and their values.</li>
+<li>
+<ul>
+<li>obj 		 an object to write properties to.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>values 	a map, containing property names and their values.</li>
+</ul>
+</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/RecursiveObjectWriter/setProperty.html">setProperty</a>]</li>
+<li>See [<a href="pip_services3_commons/RecursiveObjectWriter/setProperty.html">setProperty</a>]</li>
 </ul>
 </li>
 
@@ -345,9 +361,21 @@ using dot notation as "object.subobject.property"</p>
 <li>If the property does not exist or introspection fails</li>
 <li>this method doesn't do anything and doesn't any throw errors.</li>
 <li></li>
-<li>@param obj 	an object to write property to.</li>
-<li>@param name 	a name of the property to set.</li>
-<li>@param value a new value for the property to set.</li>
+<li>
+<ul>
+<li>obj 	an object to write property to.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>name 	a name of the property to set.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>value a new value for the property to set.</li>
+</ul>
+</li>
 </ul>
 </li>
 

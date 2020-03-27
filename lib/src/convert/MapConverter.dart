@@ -13,8 +13,8 @@ class MapConverter {
   /**
      * Converts value into map object or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         map object or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         map object or null when conversion is not supported.
      */
   static Map<String, dynamic> toNullableMap(value) {
     if (value == null)
@@ -47,10 +47,10 @@ class MapConverter {
   /**
      * Converts value into map object or returns empty map when conversion is not possible
      * 
-     * @param value     the value to convert.
-     * @returns         map object or empty map when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         map object or empty map when conversion is not supported.
      * 
-     * @see [[toNullableMap]]
+     * See [[toNullableMap]]
      */
   static Map<String, dynamic> toMap(value) {
     var result = MapConverter.toNullableMap(value);
@@ -60,11 +60,11 @@ class MapConverter {
   /**
      * Converts value into map object or returns default when conversion is not possible
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             map object or emptu map when conversion is not supported.
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             map object or emptu map when conversion is not supported.
      * 
-     * @see [[toNullableMap]]
+     * See [[toNullableMap]]
      */
   static Map<String, dynamic> toMapWithDefault(
       value, Map<String, dynamic> defaultValue) {

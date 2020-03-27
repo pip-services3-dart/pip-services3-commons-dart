@@ -16,7 +16,7 @@ import '../convert/IntegerConverter.dart';
  * Because all languages have different casing and case sensitivity rules,
  * this ObjectReader treats all property names as case insensitive.
  *
- * @see [[PropertyReflector]]
+ * See [[PropertyReflector]]
  * 
  * ### Example ###
  * 
@@ -40,8 +40,8 @@ class ObjectReader {
      * If object is a wrapper, it unwraps the value behind it. 
      * Otherwise it returns the same object value.
      * 
-     * @param obj   an object to unwrap..
-     * @returns an actual (unwrapped) object value. 
+     * - obj   an object to unwrap..
+     * Returns an actual (unwrapped) object value. 
      */
   static getValue(obj) {
     if (obj is IValueWrapper) return obj.innerValue();
@@ -55,9 +55,9 @@ class ObjectReader {
      * The property name correspondently must be object property,
      * map key or array index.
 	 * 
-	 * @param obj 	an object to introspect.
-	 * @param name 	a name of the property to check.
-	 * @returns true if the object has the property and false if it doesn't.
+	 * - obj 	an object to introspect.
+	 * - name 	a name of the property to check.
+	 * Returns true if the object has the property and false if it doesn't.
      */
   static bool hasProperty(obj, String name) {
     if (obj == null || name == null) {
@@ -88,9 +88,9 @@ class ObjectReader {
      * The property name correspondently must be object property,
      * map key or array index.
      * 
-	 * @param obj 	an object to read property from.
-	 * @param name 	a name of the property to get.
-	 * @returns the property value or null if property doesn't exist or introspection failed.
+	 * - obj 	an object to read property from.
+	 * - name 	a name of the property to get.
+	 * Returns the property value or null if property doesn't exist or introspection failed.
      */
   static getProperty(obj, String name) {
     if (obj == null || name == null) {
@@ -121,8 +121,8 @@ class ObjectReader {
      * Returned property name correspondently are object properties,
      * map keys or array indexes.
      * 
-     * @param obj   an objec to introspect.
-     * @returns a list with property names.
+     * - obj   an objec to introspect.
+     * Returns a list with property names.
      */
   static List<String> getPropertyNames(obj) {
     var properties = new List<String>();
@@ -154,8 +154,8 @@ class ObjectReader {
      * Returned properties correspondently are object properties,
      * map key-pairs or array elements with their indexes.
      * 
-     * @param obj   an object to get properties from.
-     * @returns a map, containing the names of the object's properties and their values.
+     * - obj   an object to get properties from.
+     * Returns a map, containing the names of the object's properties and their values.
      */
   static Map<String, dynamic> getProperties(obj) {
     var map = new Map<String, dynamic>();

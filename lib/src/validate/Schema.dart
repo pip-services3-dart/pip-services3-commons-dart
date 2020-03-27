@@ -13,10 +13,10 @@ import '../convert/TypeConverter.dart';
  * This schema is used as a basis for specific schemas to validate 
  * objects, project properties, arrays and maps.
  * 
- * @see [[ObjectSchema]]
- * @see [[PropertySchema]]
- * @see [[ArraySchema]]
- * @see [[MapSchema]]
+ * See [[ObjectSchema]]
+ * See [[PropertySchema]]
+ * See [[ArraySchema]]
+ * See [[MapSchema]]
  */
 class Schema {
   bool _required;
@@ -25,10 +25,10 @@ class Schema {
   /**
      * Creates a new instance of validation schema and sets its values.
      * 
-     * @param required  (optional) true to always require non-null values.
-     * @param rules     (optional) a list with validation rules.
+     * - required  (optional) true to always require non-null values.
+     * - rules     (optional) a list with validation rules.
      * 
-     * @see [[IValidationRule]]
+     * See [[IValidationRule]]
      */
   Schema([bool req, List<IValidationRule> rules]) {
     this._required = req;
@@ -40,7 +40,7 @@ class Schema {
      * Gets a flag that always requires non-null values.
      * For null values it raises a validation error.
      * 
-     * @returns true to always require non-null values and false to allow null values.
+     * Returns true to always require non-null values and false to allow null values.
      */
   bool isRequired() {
     return this._required;
@@ -49,7 +49,7 @@ class Schema {
   /**
      * Sets a flag that always requires non-null values.
      * 
-     * @param value true to always require non-null values and false to allow null values.
+     * - value true to always require non-null values and false to allow null values.
      */
   setRequired(bool value) {
     this._required = value;
@@ -58,7 +58,7 @@ class Schema {
   /**
      * Gets validation rules to check values against.
      * 
-     * @returns a list with validation rules.
+     * Returns a list with validation rules.
      */
   List<IValidationRule> getRules() {
     return this._rules;
@@ -67,7 +67,7 @@ class Schema {
   /**
      * Sets validation rules to check values against.
      * 
-     * @param value a list with validation rules.
+     * - value a list with validation rules.
      */
   setRules(List<IValidationRule> value) {
     this._rules = value;
@@ -80,9 +80,9 @@ class Schema {
      * This method returns reference to this exception to implement Builder pattern
      * to chain additional calls.
      * 
-     * @returns this validation schema
+     * Returns this validation schema
      * 
-     * @see [[makeOptional]]
+     * See [[makeOptional]]
      */
   Schema makeRequired() {
     this._required = true;
@@ -96,9 +96,9 @@ class Schema {
      * This method returns reference to this exception to implement Builder pattern
      * to chain additional calls.
      * 
-     * @returns this validation schema
+     * Returns this validation schema
      * 
-     * @see [[makeRequired]]
+     * See [[makeRequired]]
      */
   Schema makeOptional() {
     this._required = false;
@@ -111,8 +111,8 @@ class Schema {
      * This method returns reference to this exception to implement Builder pattern
      * to chain additional calls.
      * 
-     * @param rule  a validation rule to be added.
-     * @returns this validation schema.
+     * - rule  a validation rule to be added.
+     * Returns this validation schema.
      */
   Schema withRule(IValidationRule rule) {
     if (this._rules == null) {
@@ -125,9 +125,9 @@ class Schema {
   /**
      * Validates a given value against the schema and configured validation rules.
      * 
-     * @param path      a dot notation path to the value.
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
@@ -162,12 +162,12 @@ class Schema {
      * The type can be defined as a Schema, type, a type name or [[TypeCode]]
      * When type is a Schema, it executes validation recursively against that Schema.
      * 
-     * @param path      a dot notation path to the value.
-     * @param type      a type to match the value type
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - type      a type to match the value type
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      * 
-     * @see [[performValidation]]
+     * See [[performValidation]]
      */
   void performTypeValidation(String path, dynamic type, dynamic value,
       List<ValidationResult> results) {
@@ -207,10 +207,10 @@ class Schema {
   /**
      * Validates the given value and results validation results.
      * 
-     * @param value     a value to be validated.
-     * @returns a list with validation results.
+     * - value     a value to be validated.
+     * Returns a list with validation results.
      * 
-     * @see [[ValidationResult]]
+     * See [[ValidationResult]]
      */
   List<ValidationResult> validate(dynamic value) {
     var results = List<ValidationResult>();
@@ -221,9 +221,9 @@ class Schema {
   /**
      * Validates the given value and returns a [[ValidationException]] if errors were found.
      * 
-     * @param correlationId     (optional) transaction id to trace execution through call chain.
-     * @param value             a value to be validated.
-     * @param strict            true to treat warnings as errors.
+     * - correlationId     (optional) transaction id to trace execution through call chain.
+     * - value             a value to be validated.
+     * - strict            true to treat warnings as errors.
      */
   ValidationException validateAndReturnException(
       String correlationId, dynamic value,
@@ -235,11 +235,11 @@ class Schema {
   /**
      * Validates the given value and throws a [[ValidationException]] if errors were found.
      * 
-     * @param correlationId     (optional) transaction id to trace execution through call chain.
-     * @param value             a value to be validated.
-     * @param strict            true to treat warnings as errors.
+     * - correlationId     (optional) transaction id to trace execution through call chain.
+     * - value             a value to be validated.
+     * - strict            true to treat warnings as errors.
      * 
-     * @see [[ValidationException.throwExceptionIfNeeded]]
+     * See [[ValidationException.throwExceptionIfNeeded]]
      */
   void validateAndThrowException(String correlationId, dynamic value,
       [bool strict = false]) {

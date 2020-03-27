@@ -207,8 +207,8 @@ can be extracted from a ConfigMap.</p>
 <p>ConfigParams are used to pass configurations to [<a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>] objects.
 They also serve as a basis for more concrete configurations such as [<code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>]
 or [<code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code>] (in the Pip.Services components package).</p>
-<p>@see [<a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>]
-@see [<a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>]</p>
+<p>See [<a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>]
+See [<a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var config = ConfigParams.fromTuples([
     "section1.key1", "AAA",
@@ -254,9 +254,13 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li>Creates a new ConfigParams and fills it with values.
 <ul>
 <li></li>
-<li>@param values 	(optional) an object to be converted into key-value pairs to initialize this config map.</li>
+<li>
+<ul>
+<li>values 	(optional) an object to be converted into key-value pairs to initialize this config map.</li>
+</ul>
+</li>
 <li></li>
-<li>@see [<code>StringValueMap.constructor</code>]</li>
+<li>See [<code>StringValueMap.constructor</code>]</li>
 </ul>
 </li>
 
@@ -349,8 +353,16 @@ section1.toString(); // Result: key1=AAA;key2=123
 <ul>
 <li>Keys for the new parameters are appended with section dot prefix.</li>
 <li></li>
-<li>@param section 			name of the section where add new parameters</li>
-<li>@param sectionParams 	new parameters to be added.</li>
+<li>
+<ul>
+<li>section 			name of the section where add new parameters</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>sectionParams 	new parameters to be added.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -367,8 +379,12 @@ section1.toString(); // Result: key1=AAA;key2=123
 <ul>
 <li>The section name is removed from parameter keys.</li>
 <li></li>
-<li>@param section	name of the section to retrieve configuration parameters from.</li>
-<li>@returns 		all configuration parameters that belong to the section named 'section'.</li>
+<li>
+<ul>
+<li>section	name of the section to retrieve configuration parameters from.</li>
+</ul>
+</li>
+<li>Returns 		all configuration parameters that belong to the section named 'section'.</li>
 </ul>
 </li>
 
@@ -384,7 +400,7 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li>Gets a list with all 1st level section names.
 <ul>
 <li></li>
-<li>@returns a list of section names stored in this ConfigMap.</li>
+<li>Returns a list of section names stored in this ConfigMap.</li>
 </ul>
 </li>
 
@@ -401,10 +417,14 @@ section1.toString(); // Result: key1=AAA;key2=123
 <ul>
 <li>and returns a new ConfigParams object.</li>
 <li></li>
-<li>@param configParams		ConfigMap with parameters to override the current values.</li>
-<li>@returns					a new ConfigParams object.</li>
+<li>
+<ul>
+<li>configParams		ConfigMap with parameters to override the current values.</li>
+</ul>
+</li>
+<li>Returns					a new ConfigParams object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/ConfigParams/setDefaults.html">setDefaults</a>]</li>
+<li>See [<a href="pip_services3_commons/ConfigParams/setDefaults.html">setDefaults</a>]</li>
 </ul>
 </li>
 
@@ -420,10 +440,14 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li>Set default values from specified ConfigParams and returns a new ConfigParams object.
 <ul>
 <li></li>
-<li>@param defaultConfigParams	ConfigMap with default parameter values.</li>
-<li>@returns						a new ConfigParams object.</li>
+<li>
+<ul>
+<li>defaultConfigParams	ConfigMap with default parameter values.</li>
+</ul>
+</li>
+<li>Returns						a new ConfigParams object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/ConfigParams/override.html">override</a>]</li>
+<li>See [<a href="pip_services3_commons/ConfigParams/override.html">override</a>]</li>
 </ul>
 </li>
 
@@ -1029,14 +1053,18 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Creates a new ConfigParams object filled with key-value pairs serialized as a string.
 <ul>
 <li></li>
-<li>@param line 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."</li>
+<li>
+<ul>
+<li>line 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."</li>
+</ul>
+</li>
 <li>
 <pre class="language-dart"><code>				Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
 </code></pre>
 </li>
-<li>@returns			a new ConfigParams object.</li>
+<li>Returns			a new ConfigParams object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a>]</li>
+<li>See [<a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a>]</li>
 </ul>
 </li>
 
@@ -1053,10 +1081,14 @@ The result is a semicolon-separated list of key-value pairs as
 <ul>
 <li>Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.</li>
 <li></li>
-<li>@param tuples	the tuples to fill a new ConfigParams object.</li>
-<li>@returns			a new ConfigParams object.</li>
+<li>
+<ul>
+<li>tuples	the tuples to fill a new ConfigParams object.</li>
+</ul>
+</li>
+<li>Returns			a new ConfigParams object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">StringValueMap.fromTuplesArray</a>]</li>
+<li>See [<a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">StringValueMap.fromTuplesArray</a>]</li>
 </ul>
 </li>
 
@@ -1072,8 +1104,12 @@ The result is a semicolon-separated list of key-value pairs as
 <li>Creates a new ConfigParams object filled with key-value pairs from specified object.
 <ul>
 <li></li>
-<li>@param value		an object with key-value pairs used to initialize a new ConfigParams.</li>
-<li>@returns			a new ConfigParams object.</li>
+<li>
+<ul>
+<li>value		an object with key-value pairs used to initialize a new ConfigParams.</li>
+</ul>
+</li>
+<li>Returns			a new ConfigParams object.</li>
 </ul>
 </li>
 
@@ -1090,10 +1126,14 @@ The result is a semicolon-separated list of key-value pairs as
 <ul>
 <li>previously defined parameters.</li>
 <li></li>
-<li>@param configs 	a list of ConfigParams objects to be merged.</li>
-<li>@returns			a new ConfigParams object.</li>
+<li>
+<ul>
+<li>configs 	a list of ConfigParams objects to be merged.</li>
+</ul>
+</li>
+<li>Returns			a new ConfigParams object.</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/StringValueMap/fromMaps.html">StringValueMap.fromMaps</a>]</li>
+<li>See [<a href="pip_services3_commons/StringValueMap/fromMaps.html">StringValueMap.fromMaps</a>]</li>
 </ul>
 </li>
 

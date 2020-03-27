@@ -21,9 +21,9 @@ class NameResolver {
      * The name can be stored in "id", "name" fields or inside a component descriptor.
      * If name cannot be determined it returns a defaultName.
      * 
-     * @param config        configuration parameters that may contain a component name.
-     * @param defaultName   (optional) a default component name.
-     * @returns             resolved name or default name if the name cannot be determined.
+     * - [config]        configuration parameters that may contain a component name.
+     * - [defaultName]   (optional) a default component name.
+     * Returns             resolved name or default name if the name cannot be determined.
      */
   static String resolve(ConfigParams config, [String defaultName = null]) {
     var name =

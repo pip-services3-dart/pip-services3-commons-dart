@@ -93,11 +93,13 @@
       <p>Validates arguments of the wrapped command before its execution.</p>
 <p>The interceptor can use this method to intercept and alter validation of the command arguments.
 Otherwise it shall just delegate the call to the wrapped command.</p>
-<p>@param command   the next command in the call chain to be validated against.
-@param args      the parameters (arguments) to validate.
-@returns         an array of ValidationResults.</p>
-<p>@see [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]
-@see [<a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>]</p>
+<ul>
+<li>command   the next command in the call chain to be validated against.</li>
+<li>args      the parameters (arguments) to validate.
+Returns         an array of ValidationResults.</li>
+</ul>
+<p>See [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]
+See [<a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>]</p>
     </section>
     
     

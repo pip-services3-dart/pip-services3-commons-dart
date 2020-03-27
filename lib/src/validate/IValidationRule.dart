@@ -15,10 +15,10 @@ abstract class IValidationRule {
   /**
      * Validates a given value against this rule.
      * 
-     * @param path      a dot notation path to the value.
-     * @param schema    a schema this rule is called from
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - schema    a schema this rule is called from
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results);

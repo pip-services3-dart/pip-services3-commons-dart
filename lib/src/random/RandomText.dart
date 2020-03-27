@@ -139,7 +139,7 @@ class RandomText {
      * Generates a random color name.
      * The result value is capitalized.
      *
-     * @returns a random color name.
+     * Returns a random color name.
      */
   static String color() {
     return RandomString.pick(_colors);
@@ -149,7 +149,7 @@ class RandomText {
      * Generates a random noun.
      * The result value is capitalized.
      *
-     * @returns a random noun.
+     * Returns a random noun.
      */
   static String noun() {
     return RandomString.pick(_stuffs);
@@ -159,7 +159,7 @@ class RandomText {
      * Generates a random adjective.
      * The result value is capitalized.
      *
-     * @returns a random adjective.
+     * Returns a random adjective.
      */
   static String adjective() {
     return RandomString.pick(_adjectives);
@@ -169,7 +169,7 @@ class RandomText {
      * Generates a random verb.
      * The result value is capitalized.
      *
-     * @returns a random verb.
+     * Returns a random verb.
      */
   static String verb() {
     return RandomString.pick(_verbs);
@@ -179,9 +179,9 @@ class RandomText {
      * Generates a random phrase which consists of few words separated by spaces.
      * The first word is capitalized, others are not.
      *
-     * @param minLength     (optional) minimum string length.
-     * @param maxLength     maximum string length.
-     * @returns a random phrase.
+     * - minLength     (optional) minimum string length.
+     * - maxLength     maximum string length.
+     * Returns a random phrase.
      */
   static String phrase(int minLength, [int maxLength = null]) {
     maxLength = max(minLength, maxLength ?? minLength);
@@ -201,7 +201,7 @@ class RandomText {
      * Generates a random person's name which has the following structure
      * <optional prefix> <first name> <second name> <optional suffix>
      *
-     * @returns a random name.
+     * Returns a random name.
      */
   static String fullName() {
     var result = '';
@@ -222,7 +222,7 @@ class RandomText {
   /**
      * Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.
      *
-     * @returns a random word.
+     * Returns a random word.
      */
   static String word() {
     return RandomString.pick(RandomText._allWords);
@@ -231,9 +231,9 @@ class RandomText {
   /**
      * Generates a random text that consists of random number of random words separated by spaces.
      *
-     * @param min   (optional) a minimum number of words.
-     * @param max   a maximum number of words.
-     * @returns     a random text.
+     * - min   (optional) a minimum number of words.
+     * - max   a maximum number of words.
+     * Returns     a random text.
      */
   static String words(int min, [int max = null]) {
     var result = '';
@@ -251,7 +251,7 @@ class RandomText {
      * Generates a random phone number.
      * The phone number has the format: (XXX) XXX-YYYY
      *
-     * @returns a random phone number.
+     * Returns a random phone number.
      */
   static String phone() {
     var result = '';
@@ -269,7 +269,7 @@ class RandomText {
   /**
      * Generates a random email address.
      *
-     * @returns a random email address.
+     * Returns a random email address.
      */
   static String email() {
     return words(2, 6) + "@" + words(1, 3) + ".com";
@@ -278,9 +278,9 @@ class RandomText {
   /**
      * Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs, and punctuation marks.
      *
-     * @param minLength   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
-     * @param maxLength   (optional) maximum amount of words to generate.
-     * @returns         a random text.
+     * - minLength   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
+     * - maxLength   (optional) maximum amount of words to generate.
+     * Returns         a random text.
      */
   static String text(int minLength, [int maxLength = null]) {
     maxLength = max(minLength, maxLength ?? minLength);

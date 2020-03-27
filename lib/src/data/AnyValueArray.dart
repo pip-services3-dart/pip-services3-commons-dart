@@ -30,15 +30,15 @@ import './AnyValueMap.dart';
  *     value1.getAsFloat(1);     // Result: 123.456
  *     value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
  * 
- * @see [[StringConverter]]
- * @see [[TypeConverter]]
- * @see [[BooleanConverter]]
- * @see [[IntegerConverter]]
- * @see [[LongConverter]]
- * @see [[DoubleConverter]]
- * @see [[FloatConverter]]
- * @see [[DateTimeConverter]]
- * @see [[ICloneable]]
+ * See [StringConverter]
+ * See [TypeConverter]
+ * See [BooleanConverter]
+ * See [IntegerConverter]
+ * See [LongConverter]
+ * See [DoubleConverter]
+ * See [FloatConverter]
+ * See [DateTimeConverter]
+ * See [ICloneable]
  */
 class AnyValueArray extends ListBase<dynamic>
     implements ICloneable, IValueWrapper {
@@ -47,7 +47,7 @@ class AnyValueArray extends ListBase<dynamic>
   /**
    * Creates a new instance of the array and assigns its value.
    * 
-   * @param value     (optional) values to initialize this array.
+   * - value     (optional) values to initialize this array.
    */
   AnyValueArray([Iterable values = null]) {
     this._values = new List();
@@ -57,18 +57,32 @@ class AnyValueArray extends ListBase<dynamic>
     }
   }
 
+  /**
+   * Creates a new instance of the array from JSON.
+   * 
+   * - [json]     values to initialize this array.
+   */
   factory AnyValueArray.fromJson(Map<String, dynamic> json) {
     return new AnyValueArray(json["values"]);
   }
 
+  /**
+   * Returned inner values in Map object
+   */
   innerValue() {
     return this._values;
   }
 
+  /**
+   * Returned JSON Map object from values of this object
+   */
   Map<String, dynamic> toJson() {
     return <String, dynamic>{"values": this._values};
   }
 
+/**
+   * Initialize this object from JSON Map object
+   */
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
     append(json["values"]);
@@ -77,7 +91,7 @@ class AnyValueArray extends ListBase<dynamic>
   /**
     * Gets an array with values.
     * 
-    * @returns         the value of the array elements.
+    * Returns         the value of the array elements.
     */
   List getValue() {
     return this._values;
@@ -86,8 +100,8 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Gets an array element specified by its index.
      * 
-     * @param index     an index of the element to get.
-     * @returns         the value of the array element.
+     * - [index]     an index of the element to get.
+     * Returns         the value of the array element.
      */
   get(int index) {
     return this._values[index];
@@ -96,8 +110,8 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Puts a new value into array element specified by its index.
      * 
-     * @param index     an index of the element to put.
-     * @param value     a new value for array element.
+     * - [index]     an index of the element to put.
+     * - [value]     a new value for array element.
      */
   void put(int index, value) {
     this._values[index] = value;
@@ -113,19 +127,11 @@ class AnyValueArray extends ListBase<dynamic>
 
   @override
   int get length => _values.length;
-  /**
-     * Removes an array element specified by its index
-     * 
-     * @param index     an index of the element to remove.
-     */
-  //  void removes(int index) {
-  //      this._values.removeAt(index);
-  //  }
-
+  
   /**
      * Appends new elements to this array.
      * 
-     * @param elements  a list of elements to be added.
+     * - [elements]  a list of elements to be added.
      */
   void append(elements) {
     if (elements is Iterable) {
@@ -144,8 +150,8 @@ class AnyValueArray extends ListBase<dynamic>
      * Gets the value stored in array element without any conversions.
      * When element index is not defined it returns the entire array value.
      * 
-     * @param index     (optional) an index of the element to get
-     * @returns the element value or value of the array when index is not defined. 
+     * - index     (optional) an index of the element to get
+     * Returns the element value or value of the array when index is not defined. 
      */
   getAsObject([int index = null]) {
     if (index == null) {
@@ -162,10 +168,10 @@ class AnyValueArray extends ListBase<dynamic>
      * When the index is not defined, it resets the entire array value.
      * This method has double purpose because method overrides are not supported in JavaScript.
      * 
-     * @param index     (optional) an index of the element to set
-     * @param value     a new element or array value.
+     * - [index]     (optional) an index of the element to set
+     * - [value]     a new element or array value.
      * 
-     * @see [[ArrayConverter.toArray]]
+     * See [ArrayConverter.toArray]
      */
   void setAsObject(dynamic index, dynamic value) {
     if (value == null) {
@@ -180,10 +186,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a string or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns string value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns string value of the element or null if conversion is not supported. 
      * 
-     * @see [[StringConverter.toNullableString]]
+     * See [StringConverter.toNullableString]
      */
   String getAsNullableString(int index) {
     var value = this._values[index];
@@ -193,10 +199,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a string or returns "" if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns string value ot the element or "" if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns string value ot the element or "" if conversion is not supported. 
      * 
-     * @see [[getAsStringWithDefault]]
+     * See [getAsStringWithDefault]
      */
   String getAsString(int index) {
     return this.getAsStringWithDefault(index, null);
@@ -205,11 +211,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a string or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns string value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns string value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[StringConverter.toStringWithDefault]]
+     * See [StringConverter.toStringWithDefault]
      */
   String getAsStringWithDefault(int index, String defaultValue) {
     var value = this._values[index];
@@ -219,10 +225,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a boolean or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns boolean value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns boolean value of the element or null if conversion is not supported. 
      * 
-     * @see [[BooleanConverter.toNullableBoolean]]
+     * See [BooleanConverter.toNullableBoolean]
      */
   bool getAsNullableBoolean(int index) {
     var value = this._values[index];
@@ -232,10 +238,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a boolean or returns false if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns boolean value ot the element or false if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns boolean value ot the element or false if conversion is not supported. 
      * 
-     * @see [[getAsBooleanWithDefault]]
+     * See [getAsBooleanWithDefault]
      */
   bool getAsBoolean(int index) {
     return this.getAsBooleanWithDefault(index, false);
@@ -244,11 +250,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a boolean or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns boolean value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns boolean value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[BooleanConverter.toBooleanWithDefault]]
+     * See [BooleanConverter.toBooleanWithDefault]
      */
   bool getAsBooleanWithDefault(int index, bool defaultValue) {
     var value = this._values[index];
@@ -258,10 +264,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an integer or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns integer value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns integer value of the element or null if conversion is not supported. 
      * 
-     * @see [[IntegerConverter.toNullableInteger]]
+     * See [IntegerConverter.toNullableInteger]
      */
   int getAsNullableInteger(int index) {
     var value = this._values[index];
@@ -271,10 +277,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an integer or returns 0 if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns integer value ot the element or 0 if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns integer value ot the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsIntegerWithDefault]]
+     * See [getAsIntegerWithDefault]
      */
   int getAsInteger(int index) {
     return this.getAsIntegerWithDefault(index, 0);
@@ -283,11 +289,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an integer or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns integer value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns integer value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[IntegerConverter.toIntegerWithDefault]]
+     * See [IntegerConverter.toIntegerWithDefault]
      */
   int getAsIntegerWithDefault(int index, int defaultValue) {
     var value = this._values[index];
@@ -297,10 +303,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a long or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns long value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns long value of the element or null if conversion is not supported. 
      * 
-     * @see [[LongConverter.toNullableLong]]
+     * See [LongConverter.toNullableLong]
      */
   int getAsNullableLong(int index) {
     var value = this._values[index];
@@ -310,10 +316,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a long or returns 0 if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns long value ot the element or 0 if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns long value ot the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsLongWithDefault]]
+     * See [getAsLongWithDefault]
      */
   int getAsLong(int index) {
     return this.getAsLongWithDefault(index, 0);
@@ -322,11 +328,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a long or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns long value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns long value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[LongConverter.toLongWithDefault]]
+     * See [LongConverter.toLongWithDefault]
      */
   int getAsLongWithDefault(int index, int defaultValue) {
     var value = this._values[index];
@@ -336,10 +342,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a float or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns float value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns float value of the element or null if conversion is not supported. 
      * 
-     * @see [[FloatConverter.toNullableFloat]]
+     * See [FloatConverter.toNullableFloat]
      */
   double getAsNullableFloat(int index) {
     var value = this._values[index];
@@ -349,10 +355,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a float or returns 0 if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns float value ot the element or 0 if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns float value ot the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsFloatWithDefault]]
+     * See [getAsFloatWithDefault]
      */
   double getAsFloat(int index) {
     return this.getAsFloatWithDefault(index, 0);
@@ -361,11 +367,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a float or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns float value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns float value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[FloatConverter.toFloatWithDefault]]
+     * See [FloatConverter.toFloatWithDefault]
      */
   double getAsFloatWithDefault(int index, double defaultValue) {
     var value = this._values[index];
@@ -375,10 +381,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a double or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns double value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns double value of the element or null if conversion is not supported. 
      * 
-     * @see [[DoubleConverter.toNullableDouble]]
+     * See [DoubleConverter.toNullableDouble]
      */
   double getAsNullableDouble(int index) {
     var value = this._values[index];
@@ -388,10 +394,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a double or returns 0 if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns double value ot the element or 0 if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns double value ot the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsDoubleWithDefault]]
+     * See [getAsDoubleWithDefault]
      */
   double getAsDouble(index) {
     return this.getAsDoubleWithDefault(index, 0);
@@ -400,11 +406,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a double or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns double value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns double value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[DoubleConverter.toDoubleWithDefault]]
+     * See [DoubleConverter.toDoubleWithDefault]
      */
   double getAsDoubleWithDefault(int index, double defaultValue) {
     var value = this._values[index];
@@ -414,10 +420,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a DateTime or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns DateTime value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns DateTime value of the element or null if conversion is not supported. 
      * 
-     * @see [[DateTimeConverter.toNullableDateTime]]
+     * See [DateTimeConverter.toNullableDateTime]
      */
   DateTime getAsNullableDateTime(int index) {
     var value = this._values[index];
@@ -427,10 +433,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a DateTime or returns the current date if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns DateTime value ot the element or the current date if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns DateTime value ot the element or the current date if conversion is not supported. 
      * 
-     * @see [[getAsDateTimeWithDefault]]
+     * See [getAsDateTimeWithDefault]
      */
   DateTime getAsDateTime(int index) {
     return this.getAsDateTimeWithDefault(index, new DateTime.now());
@@ -439,11 +445,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a DateTime or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns DateTime value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns DateTime value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[DateTimeConverter.toDateTimeWithDefault]]
+     * See [DateTimeConverter.toDateTimeWithDefault]
      */
   DateTime getAsDateTimeWithDefault(int index, DateTime defaultValue) {
     var value = this._values[index];
@@ -453,10 +459,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a Duration or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns Duration value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns Duration value of the element or null if conversion is not supported. 
      * 
-     * @see [[DurationConverter.toNullableDuration]]
+     * See [DurationConverter.toNullableDuration]
      */
   Duration getAsNullableDuration(int index) {
     var value = this._values[index];
@@ -466,10 +472,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a Duration or returns the current date if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns Duration value ot the element or the current date if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns Duration value ot the element or the current date if conversion is not supported. 
      * 
-     * @see [[getAsDurationWithDefault]]
+     * See [getAsDurationWithDefault]
      */
   Duration getAsDuration(int index) {
     return this.getAsDurationWithDefault(index, new Duration());
@@ -478,11 +484,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into a Duration or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns Duration value ot the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns Duration value ot the element or default value if conversion is not supported. 
      * 
-     * @see [[DurationConverter.toDurationWithDefault]]
+     * See [DurationConverter.toDurationWithDefault]
      */
   Duration getAsDurationWithDefault(int index, Duration defaultValue) {
     var value = this._values[index];
@@ -493,11 +499,11 @@ class AnyValueArray extends ListBase<dynamic>
      * Converts array element into a value defined by specied typecode.
      * If conversion is not possible it returns null.
      * 
-     * @param type      the TypeCode that defined the type of the result
-     * @param index     an index of element to get.
-     * @returns element value defined by the typecode or null if conversion is not supported. 
+     * - [type]      the TypeCode that defined the type of the result
+     * - [index]     an index of element to get.
+     * Returns element value defined by the typecode or null if conversion is not supported. 
      * 
-     * @see [[TypeConverter.toNullableType]]
+     * See [TypeConverter.toNullableType]
      */
   T getAsNullableType<T>(TypeCode type, int index) {
     var value = this._values[index];
@@ -508,11 +514,11 @@ class AnyValueArray extends ListBase<dynamic>
      * Converts array element into a value defined by specied typecode.
      * If conversion is not possible it returns default value for the specified type.
      * 
-     * @param type      the TypeCode that defined the type of the result
-     * @param index     an index of element to get.
-     * @returns element value defined by the typecode or default if conversion is not supported. 
+     * - [type]      the TypeCode that defined the type of the result
+     * - [index]     an index of element to get.
+     * Returns element value defined by the typecode or default if conversion is not supported. 
      * 
-     * @see [[getAsTypeWithDefault]]
+     * See [getAsTypeWithDefault]
      */
   T getAsType<T>(TypeCode type, int index) {
     return this.getAsTypeWithDefault(type, index, null);
@@ -522,12 +528,12 @@ class AnyValueArray extends ListBase<dynamic>
      * Converts array element into a value defined by specied typecode.
      * If conversion is not possible it returns default value.
      * 
-     * @param type          the TypeCode that defined the type of the result
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns element value defined by the typecode or default value if conversion is not supported. 
+     * - [type]          the TypeCode that defined the type of the result
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns element value defined by the typecode or default value if conversion is not supported. 
      * 
-     * @see [[TypeConverter.toTypeWithDefault]]
+     * See [TypeConverter.toTypeWithDefault]
      */
   T getAsTypeWithDefault<T>(TypeCode type, int index, T defaultValue) {
     var value = this._values[index];
@@ -537,11 +543,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
      * 
-     * @see [[AnyValue]]
-     * @see [[AnyValue.constructor]]
+     * See [AnyValue]
+     * See [AnyValue.constructor]
      */
   AnyValue getAsValue(int index) {
     var value = this._values[index];
@@ -551,10 +557,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValueArray or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns AnyValueArray value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns AnyValueArray value of the element or null if conversion is not supported. 
      * 
-     * @see [[fromValue]]
+     * See [fromValue]
      */
   AnyValueArray getAsNullableArray(int index) {
     var value = this._values[index];
@@ -564,10 +570,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
      * 
-     * @see [[fromValue]]
+     * See [fromValue]
      */
   AnyValueArray getAsArray(int index) {
     var value = this._values[index];
@@ -577,11 +583,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValueArray or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns AnyValueArray value of the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns AnyValueArray value of the element or default value if conversion is not supported. 
      * 
-     * @see [[getAsNullableArray]]
+     * See [getAsNullableArray]
      */
   AnyValueArray getAsArrayWithDefault(int index, AnyValueArray defaultValue) {
     var result = this.getAsNullableArray(index);
@@ -591,11 +597,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValueMap or returns null if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns AnyValueMap value of the element or null if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns AnyValueMap value of the element or null if conversion is not supported. 
      * 
-     * @see [[AnyValueMap]]
-     * @see [[AnyValueMap.fromValue]]
+     * See [AnyValueMap]
+     * See [AnyValueMap.fromValue]
      */
   AnyValueMap getAsNullableMap(int index) {
     var value = this._values[index];
@@ -605,11 +611,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
      * 
-     * @param index     an index of element to get.
-     * @returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
+     * - [index]     an index of element to get.
+     * Returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
      * 
-     * @see [[AnyValueMap]]
-     * @see [[AnyValueMap.fromValue]]
+     * See [AnyValueMap]
+     * See [AnyValueMap.fromValue]
      */
   AnyValueMap getAsMap(int index) {
     var value = this._values[index];
@@ -619,11 +625,11 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts array element into an AnyValueMap or returns default value if conversion is not possible.
      * 
-     * @param index         an index of element to get.
-     * @param defaultValue  the default value
-     * @returns AnyValueMap value of the element or default value if conversion is not supported. 
+     * - [index]         an index of element to get.
+     * - defaultValue  the default value
+     * Returns AnyValueMap value of the element or default value if conversion is not supported. 
      * 
-     * @see [[getAsNullableMap]]
+     * See [getAsNullableMap]
      */
   AnyValueMap getAsMapWithDefault(int index, AnyValueMap defaultValue) {
     var result = this.getAsNullableMap(index);
@@ -634,8 +640,8 @@ class AnyValueArray extends ListBase<dynamic>
      * Checks if this array contains a value.
      * The check uses direct comparison between elements and the specified value.
      * 
-     * @param value     a value to be checked
-     * @returns         true if this array contains the value or false otherwise.
+     * - [value]     a value to be checked
+     * Returns         true if this array contains the value or false otherwise.
      */
   bool contains(dynamic value) {
     for (var index = 0; index < this._values.length; index++) {
@@ -653,12 +659,12 @@ class AnyValueArray extends ListBase<dynamic>
      * Checks if this array contains a value.
      * The check before comparison converts elements and the value to type specified by type code.
      * 
-     * @param typeCode  a type code that defines a type to convert values before comparison
-     * @param value     a value to be checked
-     * @returns         true if this array contains the value or false otherwise.
+     * - typeCode  a type code that defines a type to convert values before comparison
+     * - [value]     a value to be checked
+     * Returns         true if this array contains the value or false otherwise.
      * 
-     * @see [[TypeConverter.toType]]
-     * @see [[TypeConverter.toNullableType]]
+     * See [TypeConverter.toType]
+     * See [TypeConverter.toNullableType]
      */
   bool containsAsType<T>(TypeCode typeCode, dynamic value) {
     var typedValue = TypeConverter.toType<T>(typeCode, value);
@@ -678,7 +684,7 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Creates a binary clone of this object.
      * 
-     * @returns a clone of this object.
+     * Returns a clone of this object.
      */
   clone() {
     return new AnyValueArray(this._values);
@@ -689,9 +695,9 @@ class AnyValueArray extends ListBase<dynamic>
      * The result is a comma-separated list of string representations of individual elements as
      * "value1,value2,value3"
      * 
-     * @returns a string representation of the object.
+     * Returns a string representation of the object.
      *
-     * @see [[StringConverter.toString]]
+     * See [StringConverter.toString]
      */
   @override
   String toString() {
@@ -706,8 +712,8 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Creates a new AnyValueArray from a list of values
      * 
-     * @param values    a list of values to initialize the created AnyValueArray
-     * @returns         a newly created AnyValueArray.
+     * - [values]    a list of values to initialize the created AnyValueArray
+     * Returns         a newly created AnyValueArray.
      */
   static AnyValueArray fromValues(List values) {
     return new AnyValueArray(values);
@@ -716,10 +722,10 @@ class AnyValueArray extends ListBase<dynamic>
   /**
      * Converts specified value into AnyValueArray.
      * 
-     * @param value     value to be converted
-     * @returns         a newly created AnyValueArray.
+     * - [value]     value to be converted
+     * Returns         a newly created AnyValueArray.
      * 
-     * @see [[ArrayConverter.toNullableArray]]
+     * See [ArrayConverter.toNullableArray]
      */
   static AnyValueArray fromValue(value) {
     var values = ArrayConverter.toNullableArray(value);
@@ -730,10 +736,10 @@ class AnyValueArray extends ListBase<dynamic>
      * Splits specified string into elements using a separator and assigns 
      * the elements to a newly created AnyValueArray.
      * 
-     * @param values            a string value to be split and assigned to AnyValueArray
-     * @param separator         a separator to split the string
-     * @param removeDuplicates  (optional) true to remove duplicated elements
-     * @returns                 a newly created AnyValueArray.
+     * - [values]            a string value to be split and assigned to AnyValueArray
+     * - [separator]         a separator to split the string
+     * - [removeDuplicates]  (optional) true to remove duplicated elements
+     * Returns                 a newly created AnyValueArray.
      */
   static AnyValueArray fromString(String values, String separator,
       [bool removeDuplicates = false]) {
@@ -749,6 +755,7 @@ class AnyValueArray extends ListBase<dynamic>
     }
     return result;
   }
+
 
   dynamic operator [](int index) {
     return this._values[index];

@@ -3,15 +3,15 @@ import './StringValueMap.dart';
 /**
  * Data transfer object used to pass filter parameters as simple key-value pairs.
  * 
- * @see [[StringValueMap]]
+ * See [StringValueMap]
  * 
  * ### Example ###
  * 
  *     var filter = FilterParams.fromTuples(
- *         "type", "Type1",
+ *         ["type", "Type1",
  *         "from_create_time", new Date(2000, 0, 1),
  *         "to_create_time", new Date(),
- *         "compvared", true
+ *         "compvared", true]
  *     );
  *     var paging = new PagingParams(0, 100);
  *     
@@ -21,10 +21,15 @@ class FilterParams extends StringValueMap {
   /**
 	 * Creates a new instance and initalizes it with elements from the specified map.
 	 * 
-	 * @param map 	a map to initialize this instance.
+	 * - [map] 	a map to initialize this instance.
 	 */
   FilterParams([map = null]) : super(map);
 
+/**
+   * Creates a new instance and initalizes it with elements from the specified map.
+   * 
+   * - [json]    json values to initialize this object.
+   */
   factory FilterParams.fromJson(Map<String, dynamic> json) {
     return new FilterParams(json);
   }
@@ -32,8 +37,8 @@ class FilterParams extends StringValueMap {
   /**
    * Converts specified value into FilterParams.
    * 
-   * @param value     value to be converted
-   * @returns         a newly created FilterParams.
+   * - [value]     value to be converted
+   * Returns         a newly created FilterParams.
 	 */
   static FilterParams fromValue(value) {
     return new FilterParams(value);
@@ -42,8 +47,8 @@ class FilterParams extends StringValueMap {
   /**
     * Creates a new FilterParams from a list of key-value pairs called tuples.
     * 
-    * @param tuples    a list of values where odd elements are keys and the following even elements are values
-    * @returns         a newly created FilterParams.
+    * - [tuples]    a list of values where odd elements are keys and the following even elements are values
+    * Returns         a newly created FilterParams.
 	 */
   static FilterParams fromTuples(List tuples) {
     var map = StringValueMap.fromTuplesArray(tuples);
@@ -53,10 +58,10 @@ class FilterParams extends StringValueMap {
   /**
     * Parses semicolon-separated key-value pairs and returns them as a FilterParams.
     * 
-    * @param line      semicolon-separated key-value list to initialize FilterParams.
-    * @returns         a newly created FilterParams.
+    * - [line]      semicolon-separated key-value list to initialize FilterParams.
+    * Returns         a newly created FilterParams.
 	 * 
-	 * @see [[StringValueMap.fromString]]
+	 * See [StringValueMap.fromString]
 	 */
   static FilterParams fromString(String line) {
     var map = StringValueMap.fromString(line);

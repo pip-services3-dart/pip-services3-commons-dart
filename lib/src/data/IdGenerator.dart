@@ -22,7 +22,7 @@ class IdGenerator {
      * 
      * Remember: The returned value is not guaranteed to be unique.
      * 
-     * @returns a generated random 9-digit code
+     * Returns a generated random 9-digit code
      */
   static String nextShort() {
     return (100000000 + Random().nextDouble() * 899999999.0).ceil().toString();
@@ -32,7 +32,7 @@ class IdGenerator {
      * Generates a globally unique 32-digit object ID.
      * The value is a string representation of a GUID value.
      * 
-     * @returns a generated 32-digit object ID
+     * Returns a generated 32-digit object ID
      */
   static String nextLong() {
     var uuid = Uuid();

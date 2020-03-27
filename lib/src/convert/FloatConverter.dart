@@ -17,10 +17,10 @@ class FloatConverter {
   /**
      * Converts value into float or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         float value or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         float value or null when conversion is not supported.
      * 
-     * @see [[DoubleConverter.toNullableDouble]]
+     * See [[DoubleConverter.toNullableDouble]]
      */
   static double toNullableFloat(value) {
     return DoubleConverter.toNullableDouble(value);
@@ -29,11 +29,11 @@ class FloatConverter {
   /**
      * Converts value into float or returns 0 when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         float value or 0 when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         float value or 0 when conversion is not supported.
      * 
-     * @see [[DoubleConverter.toDouble]]
-     * @see [[DoubleConverter.toDoubleWithDefault]]
+     * See [[DoubleConverter.toDouble]]
+     * See [[DoubleConverter.toDoubleWithDefault]]
      */
   static double toFloat(value) {
     return DoubleConverter.toDouble(value);
@@ -42,12 +42,12 @@ class FloatConverter {
   /**
      * Converts value into float or returns default when conversion is not possible.
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             float value or default value when conversion is not supported.
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             float value or default value when conversion is not supported.
      * 
-     * @see [[DoubleConverter.toDoubleWithDefault]]
-     * @see [[DoubleConverter.toNullableDouble]]
+     * See [[DoubleConverter.toDoubleWithDefault]]
+     * See [[DoubleConverter.toNullableDouble]]
      */
   static double toFloatWithDefault(value, double defaultValue) {
     return DoubleConverter.toDoubleWithDefault(value, defaultValue);

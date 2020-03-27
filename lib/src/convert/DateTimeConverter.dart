@@ -13,8 +13,8 @@ class DateTimeConverter {
   /**
      * Converts value into Date or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         Date value or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         Date value or null when conversion is not supported.
      */
   static DateTime toNullableDateTime(value) {
     if (value == null) return null;
@@ -29,10 +29,10 @@ class DateTimeConverter {
   /**
      * Converts value into Date or returns current date when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         Date value or current date when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         Date value or current date when conversion is not supported.
      * 
-     * @see [[toDateTimeWithDefault]]
+     * See [[toDateTimeWithDefault]]
      */
   static DateTime toDateTime(value) {
     return DateTimeConverter.toDateTimeWithDefault(value, DateTime.now());
@@ -41,11 +41,11 @@ class DateTimeConverter {
   /**
      * Converts value into Date or returns default when conversion is not possible.
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             Date value or default when conversion is not supported.
+     * - [value]         the value to convert.
+     * - [defaultValue]  the default value.
+     * Returns             Date value or default when conversion is not supported.
      * 
-     * @see [[toNullableDateTime]]
+     * See [[toNullableDateTime]]
      */
   static DateTime toDateTimeWithDefault(value, DateTime defaultValue) {
     var result = DateTimeConverter.toNullableDateTime(value);

@@ -204,7 +204,7 @@ For arrays properties are elements identified by integer index.</p>
 by Pip.Services toolkit and used to support dynamic data processing.</p>
 <p>Because all languages have different casing and case sensitivity rules,
 this ObjectWriter treats all property names as case insensitive.</p>
-<p>@see [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>]</p>
+<p>See [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var myObj = new MyObject();
 
@@ -315,10 +315,18 @@ ObjectWriter.setProperty(myArray, "0", 123);
 <li>If some properties do not exist or introspection fails</li>
 <li>they are just silently skipped and no errors thrown.</li>
 <li></li>
-<li>@param obj 		 an object to write properties to.</li>
-<li>@param values 	a map, containing property names and their values.</li>
+<li>
+<ul>
+<li>obj 		 an object to write properties to.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>values 	a map, containing property names and their values.</li>
+</ul>
+</li>
 <li></li>
-<li>@see [<a href="pip_services3_commons/ObjectWriter/setProperty.html">setProperty</a>]</li>
+<li>See [<a href="pip_services3_commons/ObjectWriter/setProperty.html">setProperty</a>]</li>
 </ul>
 </li>
 
@@ -341,9 +349,21 @@ ObjectWriter.setProperty(myArray, "0", 123);
 <li>If the property does not exist or introspection fails</li>
 <li>this method doesn't do anything and doesn't any throw errors.</li>
 <li></li>
-<li>@param obj 	an object to write property to.</li>
-<li>@param name 	a name of the property to set.</li>
-<li>@param value a new value for the property to set.</li>
+<li>
+<ul>
+<li>obj 	an object to write property to.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>name 	a name of the property to set.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>value a new value for the property to set.</li>
+</ul>
+</li>
 </ul>
 </li>
 

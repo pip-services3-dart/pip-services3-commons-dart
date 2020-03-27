@@ -7,12 +7,12 @@ To use the commons you can either include dependency into your **pubspec.yaml** 
 {
     ...
     dependencies: 
-        pip-services-commons-dart: ^3.0.*
+        pip-services-commons-dart: ^1.0.0
     
 }
 ``` 
 
-Or install it by npm:
+Or install it by pub get:
 
 ```bash
 pub get pip-services-commons-dart

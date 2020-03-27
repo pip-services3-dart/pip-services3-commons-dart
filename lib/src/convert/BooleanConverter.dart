@@ -15,8 +15,8 @@ class BooleanConverter {
   /**
      * Converts value into boolean or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         boolean value or null when convertion is not supported.
+     * - [value]     the value to convert.
+     * Returns         boolean value or null when convertion is not supported.
      */
   static bool toNullableBoolean(value) {
     if (value == null) return null;
@@ -43,10 +43,10 @@ class BooleanConverter {
   /**
      * Converts value into boolean or returns false when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         boolean value or false when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         boolean value or false when conversion is not supported.
      * 
-     * @see [[toBooleanWithDefault]]
+     * See [[toBooleanWithDefault]]
      */
   static bool toBoolean(value) {
     return BooleanConverter.toBooleanWithDefault(value, false);
@@ -55,11 +55,11 @@ class BooleanConverter {
   /**
      * Converts value into boolean or returns default value when conversion is not possible
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value
-     * @returns             boolean value or default when conversion is not supported.
+     * - [value]         the value to convert.
+     * - [defaultValue]  the default value
+     * Returns             boolean value or default when conversion is not supported.
      * 
-     * @see [[toNullableBoolean]]
+     * See [[toNullableBoolean]]
      */
   static bool toBooleanWithDefault(value, bool defaultValue) {
     var result = BooleanConverter.toNullableBoolean(value);

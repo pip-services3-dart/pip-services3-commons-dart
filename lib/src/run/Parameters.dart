@@ -16,14 +16,14 @@ import '../config/ConfigParams.dart';
  * This class is often use to pass execution and notification
  * arguments, and parameterize classes before execution.
  * 
- * @see [[IParameterized]]
- * @see [[AnyValueMap]]
+ * See [[IParameterized]]
+ * See [[AnyValueMap]]
  */
 class Parameters extends AnyValueMap {
   /**
      * Creates a new instance of the map and assigns its value.
      * 
-     * @param values     (optional) values to initialize this map.
+     * - values     (optional) values to initialize this map.
 	 */
   Parameters([values = null]) : super(values);
 
@@ -36,8 +36,8 @@ class Parameters extends AnyValueMap {
 	 * The key can be defined using dot notation
 	 * and allows to recursively access elements of elements.
 	 * 
-     * @param key     a key of the element to get.
-     * @returns       the value of the map element.
+     * - key     a key of the element to get.
+     * Returns       the value of the map element.
 	 */
   get(String key) {
     if (key == null)
@@ -54,8 +54,8 @@ class Parameters extends AnyValueMap {
 	 * The key can be defined using dot notation
 	 * and allows to recursively access elements of elements.
 	 * 
-     * @param key       a key of the element to put.
-     * @param value     a new value for map element.
+     * - key       a key of the element to put.
+     * - value     a new value for map element.
 	 */
   void put(String key, value) {
     if (key == null)
@@ -69,8 +69,8 @@ class Parameters extends AnyValueMap {
   /** 
      * Converts map element into an Parameters or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns Parameters value of the element or null if conversion is not supported. 
+     * - key       a key of element to get.
+     * Returns Parameters value of the element or null if conversion is not supported. 
      */
   Parameters getAsNullableParameters(String key) {
     var value = this.getAsNullableMap(key);
@@ -80,8 +80,8 @@ class Parameters extends AnyValueMap {
   /** 
      * Converts map element into an Parameters or returns empty Parameters if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns Parameters value of the element or empty Parameters if conversion is not supported. 
+     * - key       a key of element to get.
+     * Returns Parameters value of the element or empty Parameters if conversion is not supported. 
      */
   Parameters getAsParameters(String key) {
     var value = this.getAsMap(key);
@@ -91,9 +91,9 @@ class Parameters extends AnyValueMap {
   /**
      * Converts map element into an Parameters or returns default value if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @param defaultValue  the default value
-     * @returns Parameters value of the element or default value if conversion is not supported. 
+     * - key       a key of element to get.
+     * - defaultValue  the default value
+     * Returns Parameters value of the element or default value if conversion is not supported. 
      */
   Parameters getAsParametersWithDefault(String key, Parameters defaultValue) {
     var result = this.getAsNullableParameters(key);
@@ -106,8 +106,8 @@ class Parameters extends AnyValueMap {
 	 * The key can be defined using dot notation
 	 * and allows to recursively access elements of elements.
 	 * 
-     * @param key     a key to be checked
-     * @returns       true if this map contains the key or false otherwise.
+     * - key     a key to be checked
+     * Returns       true if this map contains the key or false otherwise.
 	 */
 	bool containsKey(Object key) {
 		return RecursiveObjectReader.hasProperty(this, key.toString());
@@ -117,11 +117,11 @@ class Parameters extends AnyValueMap {
 	 * Overrides parameters with new values from specified Parameters
 	 * and returns a new Parameters object.
 	 * 
-	 * @param parameters		Parameters with parameters to override the current values.
-	 * @param recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false
-	 * @returns					a new Parameters object.
+	 * - parameters		Parameters with parameters to override the current values.
+	 * - recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false
+	 * Returns					a new Parameters object.
 	 * 
-	 * @see [[setDefaults]]
+	 * See [[setDefaults]]
 	 */
   Parameters override(Parameters parameters, [bool recursive = false]) {
     var result = new Parameters();
@@ -138,11 +138,11 @@ class Parameters extends AnyValueMap {
   /**
 	 * Set default values from specified Parameters and returns a new Parameters object.
 	 * 
-	 * @param defaultParameters	Parameters with default parameter values.
-	 * @param recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false
-	 * @returns						a new Parameters object.
+	 * - defaultParameters	Parameters with default parameter values.
+	 * - recursive			(optional) true to perform deep copy, and false for shallow copy. Default: false
+	 * Returns						a new Parameters object.
 	 * 
-	 * @see [[override]]
+	 * See [[override]]
 	 */
   Parameters setDefaults(Parameters defaultParameters,
       [bool recursive = false]) {
@@ -161,7 +161,7 @@ class Parameters extends AnyValueMap {
   /**
 	 * Assigns (copies over) properties from the specified value to this map.
 	 * 
-	 * @param value 	value whose properties shall be copied over.
+	 * - value 	value whose properties shall be copied over.
 	 */
   void assignTo(value) {
     if (value == null) return;
@@ -171,8 +171,8 @@ class Parameters extends AnyValueMap {
   /**
 	 * Picks select parameters from this Parameters and returns them as a new Parameters object.
 	 * 
-	 * @param paths 	keys to be picked and copied over to new Parameters.
-	 * @returns a new Parameters object.
+	 * - paths 	keys to be picked and copied over to new Parameters.
+	 * Returns a new Parameters object.
 	 */
   Parameters pick(List<String> paths) {
     var result = new Parameters();
@@ -186,8 +186,8 @@ class Parameters extends AnyValueMap {
   /**
 	 * Omits selected parameters from this Parameters and returns the rest as a new Parameters object.
 	 * 
-	 * @param paths 	keys to be omitted from copying over to new Parameters.
-	 * @returns a new Parameters object.
+	 * - paths 	keys to be omitted from copying over to new Parameters.
+	 * Returns a new Parameters object.
 	 */
   Parameters omit(List<String> paths) {
     var result = new Parameters(this);
@@ -201,7 +201,7 @@ class Parameters extends AnyValueMap {
   /**
 	 * Converts this map to JSON object.
 	 * 
-	 * @returns	a JSON representation of this map.
+	 * Returns	a JSON representation of this map.
 	 */
   String toJsonString() {
     return JsonConverter.toJson(this.innerValue());
@@ -210,8 +210,8 @@ class Parameters extends AnyValueMap {
   /**
 	 * Creates a new Parameters object filled with key-value pairs from specified object.
 	 * 
-	 * @param value		an object with key-value pairs used to initialize a new Parameters.
-	 * @returns			a new Parameters object.
+	 * - value		an object with key-value pairs used to initialize a new Parameters.
+	 * Returns			a new Parameters object.
 	 */
   static Parameters fromValue(value) {
     return new Parameters(value);
@@ -221,10 +221,10 @@ class Parameters extends AnyValueMap {
 	 * Creates a new Parameters object filled with provided key-value pairs called tuples.
 	 * Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
 	 * 
-	 * @param tuples	the tuples to fill a new Parameters object.
-	 * @returns			a new Parameters object.
+	 * - tuples	the tuples to fill a new Parameters object.
+	 * Returns			a new Parameters object.
 	 * 
-	 * @see [[AnyValueMap.fromTuplesArray]]
+	 * See [[AnyValueMap.fromTuplesArray]]
 	 */
   static Parameters fromTuples(List tuples) {
     var map = AnyValueMap.fromTuples(tuples);
@@ -235,10 +235,10 @@ class Parameters extends AnyValueMap {
 	 * Merges two or more Parameters into one. The following Parameters override
 	 * previously defined parameters.
 	 * 
-	 * @param configs 	a list of Parameters objects to be merged.
-	 * @returns			a new Parameters object.
+	 * - configs 	a list of Parameters objects to be merged.
+	 * Returns			a new Parameters object.
 	 * 
-	 * @see [[AnyValueMap.fromMaps]]
+	 * See [[AnyValueMap.fromMaps]]
 	 */
   static Parameters mergeParams(List<Parameters> parameters) {
     var map = AnyValueMap.fromMaps(parameters);
@@ -248,10 +248,10 @@ class Parameters extends AnyValueMap {
   /**
 	 * Creates new Parameters from JSON object.
 	 * 
-	 * @param json 	a JSON string containing parameters.
-	 * @returns a new Parameters object.
+	 * - json 	a JSON string containing parameters.
+	 * Returns a new Parameters object.
 	 * 
-	 * @see [[JsonConverter.toNullableMap]]
+	 * See [[JsonConverter.toNullableMap]]
 	 */
   static Parameters fromJsonString(String json) {
     var map = JsonConverter.toNullableMap(json);
@@ -261,10 +261,10 @@ class Parameters extends AnyValueMap {
   /**
 	 * Creates new Parameters from ConfigMap object.
 	 * 
-	 * @param config 	a ConfigParams that contain parameters.
-	 * @returns			a new Parameters object.
+	 * - config 	a ConfigParams that contain parameters.
+	 * Returns			a new Parameters object.
 	 * 
-	 * @see [[ConfigParams]]
+	 * See [[ConfigParams]]
 	 */
   static Parameters fromConfig(ConfigParams config) {
     var result = new Parameters();

@@ -9,19 +9,19 @@ import '../convert/DateTimeConverter.dart';
  * This class has symmetric implementation across all languages supported
  * by Pip.Services toolkit and used to support dynamic data processing.
  * 
- * @see [[TypeCode]]
+ * See [[TypeCode]]
  */
 class TypeMatcher {
   /**
      * Matches expected type to a type of a value.
      * The expected type can be specified by a type, type name or [[TypeCode]].
      * 
-     * @param expectedType      an expected type to match.
-     * @param actualValue       a value to match its type to the expected one.
-     * @returns true if types are matching and false if they don't.
+     * - expectedType      an expected type to match.
+     * - actualValue       a value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
      * 
-     * @see [[matchType]]
-     * @see [[matchValueTypeByName]] (for matching by types' string names)
+     * See [[matchType]]
+     * See [[matchValueTypeByName]] (for matching by types' string names)
      */
   static bool matchValueType(expectedType, actualValue) {
     if (expectedType == null) return true;
@@ -34,13 +34,13 @@ class TypeMatcher {
      * Matches expected type to an actual type.
      * The types can be specified as types, type names or [[TypeCode]].
      * 
-     * @param expectedType  an expected type to match.
-     * @param actualType    an actual type to match.
-     * @param actualValue   an optional value to match its type to the expected one.
-     * @returns true if types are matching and false if they don't.
+     * - expectedType  an expected type to match.
+     * - actualType    an actual type to match.
+     * - actualValue   an optional value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
      * 
-     * @see [[matchTypeByName]]
-     * @see [[matchTypeByName]] (for matching by types' string names)
+     * See [[matchTypeByName]]
+     * See [[matchTypeByName]] (for matching by types' string names)
      */
   static bool matchType(expectedType, TypeCode actualType,
       [actualValue = null]) {
@@ -82,9 +82,9 @@ class TypeMatcher {
   /**
      * Matches expected type to a type of a value.
      * 
-     * @param expectedType  an expected type name to match.
-     * @param actualValue       a value to match its type to the expected one.
-     * @returns true if types are matching and false if they don't.
+     * - expectedType  an expected type name to match.
+     * - actualValue       a value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
      */
   static bool matchValueTypeByName(String expectedType, actualValue) {
     if (expectedType == null) return true;
@@ -96,10 +96,10 @@ class TypeMatcher {
   /**
      * Matches expected type to an actual type.
      * 
-     * @param expectedType  an expected type name to match.
-     * @param actualType    an actual type to match defined by type code.
-     * @param actualValue   an optional value to match its type to the expected one.
-     * @returns true if types are matching and false if they don't.
+     * - expectedType  an expected type name to match.
+     * - actualType    an actual type to match defined by type code.
+     * - actualValue   an optional value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
      */
   static bool matchTypeByName(String expectedType, TypeCode actualType,
       [actualValue = null]) {

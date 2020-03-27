@@ -14,8 +14,8 @@ class TypeDescriptor {
   /**
 	 * Creates a new instance of the type descriptor and sets its values.
 	 * 
-	 * @param name 		a name of the object type.
-	 * @param library 	a library or module where this object type is implemented.
+	 * - name 		a name of the object type.
+	 * - library 	a library or module where this object type is implemented.
 	 */
   TypeDescriptor(String name, String library) {
     this._name = name;
@@ -25,7 +25,7 @@ class TypeDescriptor {
   /**
 	 * Get the name of the object type.
 	 * 
-	 * @returns the name of the object type.
+	 * Returns the name of the object type.
 	 */
   String getName() {
     return this._name;
@@ -34,7 +34,7 @@ class TypeDescriptor {
   /**
 	 * Gets the name of the library or module where the object type is defined.
 	 * 
-	 * @returns the name of the library or module.
+	 * Returns the name of the library or module.
 	 */
   String getLibrary() {
     return this._library;
@@ -45,8 +45,8 @@ class TypeDescriptor {
 	 * If the value is also a TypeDescriptor it compares their name and library fields.
 	 * Otherwise this method returns false.
 	 * 
-	 * @param value		a value to compare.
-	 * @returns true if value is identical TypeDescriptor and false otherwise.
+	 * - value		a value to compare.
+	 * Returns true if value is identical TypeDescriptor and false otherwise.
 	 */
   bool equals(value) {
     if (value is TypeDescriptor) {
@@ -65,9 +65,9 @@ class TypeDescriptor {
    * Gets a string representation of the object.
    * The result has format name[,library]
    * 
-   * @returns a string representation of the object.
+   * Returns a string representation of the object.
 	 * 
-	 * @see [[fromString]]
+	 * See [[fromString]]
 	 */
   @override
   String toString() {
@@ -80,11 +80,11 @@ class TypeDescriptor {
    * Parses a string to get descriptor fields and returns them as a Descriptor.
 	 * The string must have format name[,library]
    * 
-   * @param value     a string to parse.
-   * @returns         a newly created Descriptor.
+   * - value     a string to parse.
+   * Returns         a newly created Descriptor.
 	 * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
 	 * 
-	 * @see [[toString]]
+	 * See [[toString]]
 	 */
   static TypeDescriptor fromString(String value) {
     if (value == null || value.length == 0) return null;

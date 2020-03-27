@@ -25,26 +25,26 @@ import 'dart:collection';
  * sent over the wire.
  * 
  * This class is widely used in Pip.Services as a basis for variety of classes, such as
- * [[ConfigParams]], [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]], 
- * [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams]] and others.
+ * [ConfigParams], [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams], 
+ * [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams] and others.
  * 
  * ### Example ###
  * 
- *     var value1 = StringValueMap.fromString("key1=1;key2=123.456;key3=2018-01-01");
+ *     var value1 = StringValueMap.fromString(["key1=1;key2=123.456;key3=2018-01-01"]);
  *     
  *     value1.getAsBoolean("key1");   // Result: true
  *     value1.getAsInteger("key2");   // Result: 123
  *     value1.getAsFloat("key2");     // Result: 123.456
  *     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
  * 
- * @see [[StringConverter]]
- * @see [[TypeConverter]]
- * @see [[BooleanConverter]]
- * @see [[IntegerConverter]]
- * @see [[LongConverter]]
- * @see [[DoubleConverter]]
- * @see [[FloatConverter]]
- * @see [[DateTimeConverter]]
+ * See [StringConverter]
+ * See [TypeConverter]
+ * See [BooleanConverter]
+ * See [IntegerConverter]
+ * See [LongConverter]
+ * See [DoubleConverter]
+ * See [FloatConverter]
+ * See [DateTimeConverter]
  * 
  */
 
@@ -54,7 +54,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
    * Creates a new instance of the map and assigns its value.
    * 
-   * @param value     (optional) values to initialize this map.
+   * - [value]     (optional) values to initialize this map.
    */
   StringValueMap([map = null]) {
     this._values = new Map<String, String>();
@@ -70,10 +70,18 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     }
   }
 
+  /**
+   * Creates a new instance of the map from json.
+   * 
+   * - [json]     values to initialize this map.
+   */
   factory StringValueMap.fromJson(Map<String, dynamic> json) {
     return new StringValueMap(json);
   }
 
+  /**
+   * Returned inner values in Map object
+   */
   innerValue() {
     return this._values;
   }
@@ -81,7 +89,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
    * Gets an map with values.
    * 
-   * @returns         the value of the map elements.
+   * Returns         the value of the map elements.
    */
   Map<String, String> getValue() {
     return this._values;
@@ -90,8 +98,8 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Gets a map element specified by its key.
      * 
-     * @param key     a key of the element to get.
-     * @returns       the value of the map element.
+     * - [key]     a key of the element to get.
+     * Returns       the value of the map element.
      */
   String get(String key) {
     return this._values[key];
@@ -100,7 +108,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
    * Gets keys of all elements stored in this map.
    * 
-   * @returns a list with all map keys. 
+   * Returns a list with all map keys. 
    */
   List<String> getKeys() {
     List<String> keys = [];
@@ -115,26 +123,17 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
    * Puts a new value into map element specified by its key.
    * 
-   * @param key       a key of the element to put.
-   * @param value     a new value for map element.
+   * - [key]       a key of the element to put.
+   * - [value]     a new value for map element.
    */
   void put(String key, value) {
     this._values[key] = StringConverter.toNullableString(value);
   }
 
   /**
-   * Removes a map element specified by its key
-   * 
-   * @param key     a key of the element to remove.
-   */
-  // void remove(String key) {
-  //   this._values.remove(key);
-  // }
-
-  /**
    * Appends new elements to this map.
    * 
-   * @param map  a map with elements to be added.
+   * - [map]  a map with elements to be added.
    */
   void append(map) {
     if (map == null) return;
@@ -158,20 +157,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   }
 
   /**
-     * Gets a number of elements stored in this map.
-     *  
-     * @returns the number of elements in this map.
-     */
-  // int length() {
-  //   return this._values.length;
-  // }
-
-  /**
      * Gets the value stored in map element without any conversions.
      * When element key is not defined it returns the entire map value.
      * 
-     * @param key       (optional) a key of the element to get
-     * @returns the element value or value of the map when index is not defined. 
+     * - [key]       (optional) a key of the element to get
+     * Returns the element value or value of the map when index is not defined. 
      */
   getAsObject([String key = null]) {
     if (key == null) {
@@ -191,10 +181,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      * When the index is not defined, it resets the entire map value.
      * This method has double purpose because method overrides are not supported in JavaScript.
      * 
-     * @param key       (optional) a key of the element to set
-     * @param value     a new element or map value.
+     * - [key]       (optional) a key of the element to set
+     * - [value]     a new element or map value.
      * 
-     * @see [[MapConverter.toMap]]
+     * See [MapConverter.toMap]
      */
   void setAsObject(key, [value = null]) {
     if (value == null) {
@@ -210,10 +200,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a string or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns string value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns string value of the element or null if conversion is not supported. 
      * 
-     * @see [[StringConverter.toNullableString]]
+     * See [StringConverter.toNullableString]
      */
   String getAsNullableString(String key) {
     var value = this.get(key);
@@ -223,10 +213,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a string or returns "" if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns string value of the element or "" if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns string value of the element or "" if conversion is not supported. 
      * 
-     * @see [[getAsStringWithDefault]]
+     * See [getAsStringWithDefault]
      */
   String getAsString(key) {
     return this.getAsStringWithDefault(key, null);
@@ -235,11 +225,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a string or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns string value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - [defaultValue]  the default value
+     * Returns string value of the element or default value if conversion is not supported. 
      * 
-     * @see [[StringConverter.toStringWithDefault]]
+     * See [StringConverter.toStringWithDefault]
      */
   String getAsStringWithDefault(String key, String defaultValue) {
     var value = this.get(key);
@@ -249,10 +239,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a boolean or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns boolean value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns boolean value of the element or null if conversion is not supported. 
      * 
-     * @see [[BooleanConverter.toNullableBoolean]]
+     * See [BooleanConverter.toNullableBoolean]
      */
   bool getAsNullableBoolean(String key) {
     var value = this.get(key);
@@ -262,10 +252,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a boolean or returns false if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns boolean value of the element or false if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns boolean value of the element or false if conversion is not supported. 
      * 
-     * @see [[getAsBooleanWithDefault]]
+     * See [getAsBooleanWithDefault]
      */
   bool getAsBoolean(String key) {
     return this.getAsBooleanWithDefault(key, false);
@@ -274,11 +264,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a boolean or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns boolean value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - [defaultValue]  the default value
+     * Returns boolean value of the element or default value if conversion is not supported. 
      * 
-     * @see [[BooleanConverter.toBooleanWithDefault]]
+     * See [BooleanConverter.toBooleanWithDefault]
      */
   bool getAsBooleanWithDefault(String key, bool defaultValue) {
     var value = this.get(key);
@@ -288,10 +278,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an integer or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns integer value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns integer value of the element or null if conversion is not supported. 
      * 
-     * @see [[IntegerConverter.toNullableInteger]]
+     * See [IntegerConverter.toNullableInteger]
      */
   int getAsNullableInteger(String key) {
     var value = this.get(key);
@@ -301,10 +291,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an integer or returns 0 if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns integer value of the element or 0 if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns integer value of the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsIntegerWithDefault]]
+     * See [getAsIntegerWithDefault]
      */
   int getAsInteger(String key) {
     return this.getAsIntegerWithDefault(key, 0);
@@ -313,11 +303,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an integer or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns integer value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - [defaultValue]  the default value
+     * Returns integer value of the element or default value if conversion is not supported. 
      * 
-     * @see [[IntegerConverter.toIntegerWithDefault]]
+     * See [IntegerConverter.toIntegerWithDefault]
      */
   int getAsIntegerWithDefault(String key, int defaultValue) {
     var value = this.get(key);
@@ -327,10 +317,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a long or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns long value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns long value of the element or null if conversion is not supported. 
      * 
-     * @see [[LongConverter.toNullableLong]]
+     * See [LongConverter.toNullableLong]
      */
   int getAsNullableLong(String key) {
     var value = this.get(key);
@@ -340,10 +330,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a long or returns 0 if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns long value of the element or 0 if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns long value of the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsLongWithDefault]]
+     * See [getAsLongWithDefault]
      */
   int getAsLong(String key) {
     return this.getAsLongWithDefault(key, 0);
@@ -352,11 +342,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a long or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns long value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - [defaultValue]  the default value
+     * Returns long value of the element or default value if conversion is not supported. 
      * 
-     * @see [[LongConverter.toLongWithDefault]]
+     * See [LongConverter.toLongWithDefault]
      */
   int getAsLongWithDefault(String key, int defaultValue) {
     var value = this.get(key);
@@ -366,10 +356,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a float or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns float value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns float value of the element or null if conversion is not supported. 
      * 
-     * @see [[FloatConverter.toNullableFloat]]
+     * See [FloatConverter.toNullableFloat]
      */
   double getAsNullableFloat(String key) {
     var value = this.get(key);
@@ -379,10 +369,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
     * Converts map element into a float or returns 0 if conversion is not possible.
     * 
-    * @param key       a key of element to get.
-    * @returns float value of the element or 0 if conversion is not supported. 
+    * - [key]       a key of element to get.
+    * Returns float value of the element or 0 if conversion is not supported. 
     * 
-    * @see [[getAsFloatWithDefault]]
+    * See [getAsFloatWithDefault]
     */
   double getAsFloat(String key) {
     return this.getAsFloatWithDefault(key, 0);
@@ -391,11 +381,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
     * Converts map element into a flot or returns default value if conversion is not possible.
     * 
-    * @param key           a key of element to get.
-    * @param defaultValue  the default value
-    * @returns flot value of the element or default value if conversion is not supported. 
+    * - [key]           a key of element to get.
+    * - defaultValue  the default value
+    * Returns flot value of the element or default value if conversion is not supported. 
     * 
-    * @see [[FloatConverter.toFloatWithDefault]]
+    * See [FloatConverter.toFloatWithDefault]
     */
   double getAsFloatWithDefault(String key, double defaultValue) {
     var value = this.get(key);
@@ -405,10 +395,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /** 
     * Converts map element into a double or returns null if conversion is not possible.
     * 
-    * @param key       a key of element to get.
-    * @returns double value of the element or null if conversion is not supported. 
+    * - [key]       a key of element to get.
+    * Returns double value of the element or null if conversion is not supported. 
     * 
-    * @see [[DoubleConverter.toNullableDouble]]
+    * See [DoubleConverter.toNullableDouble]
     */
   double getAsNullableDouble(String key) {
     var value = this.get(key);
@@ -418,10 +408,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /** 
      * Converts map element into a double or returns 0 if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns double value of the element or 0 if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns double value of the element or 0 if conversion is not supported. 
      * 
-     * @see [[getAsDoubleWithDefault]]
+     * See [getAsDoubleWithDefault]
      */
   double getAsDouble(String key) {
     return this.getAsDoubleWithDefault(key, 0);
@@ -430,11 +420,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a double or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns double value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - defaultValue  the default value
+     * Returns double value of the element or default value if conversion is not supported. 
      * 
-     * @see [[DoubleConverter.toDoubleWithDefault]]
+     * See [DoubleConverter.toDoubleWithDefault]
      */
   double getAsDoubleWithDefault(String key, double defaultValue) {
     var value = this.get(key);
@@ -444,10 +434,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a DateTime or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns DateTime value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns DateTime value of the element or null if conversion is not supported. 
      * 
-     * @see [[DateTimeConverter.toNullableDateTime]]
+     * See [DateTimeConverter.toNullableDateTime]
      */
   DateTime getAsNullableDateTime(String key) {
     var value = this.get(key);
@@ -457,10 +447,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a DateTime or returns the current date if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns DateTime value of the element or the current date if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns DateTime value of the element or the current date if conversion is not supported. 
      * 
-     * @see [[getAsDateTimeWithDefault]]
+     * See [getAsDateTimeWithDefault]
      */
   DateTime getAsDateTime(String key) {
     return this.getAsDateTimeWithDefault(key, new DateTime.now());
@@ -469,11 +459,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a DateTime or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns DateTime value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - defaultValue  the default value
+     * Returns DateTime value of the element or default value if conversion is not supported. 
      * 
-     * @see [[DateTimeConverter.toDateTimeWithDefault]]
+     * See [DateTimeConverter.toDateTimeWithDefault]
      */
   DateTime getAsDateTimeWithDefault(String key, DateTime defaultValue) {
     var value = this.get(key);
@@ -483,10 +473,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a Duration or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns Duration value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns Duration value of the element or null if conversion is not supported. 
      * 
-     * @see [[DurationConverter.toNullableDuration]]
+     * See [DurationConverter.toNullableDuration]
      */
   Duration getAsNullableDuration(String key) {
     var value = this.get(key);
@@ -496,10 +486,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a Duration or returns the current date if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns Duration value of the element or the current date if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns Duration value of the element or the current date if conversion is not supported. 
      * 
-     * @see [[getAsDurationWithDefault]]
+     * See [getAsDurationWithDefault]
      */
   Duration getAsDuration(String key) {
     return this.getAsDurationWithDefault(key, new Duration());
@@ -508,11 +498,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into a Duration or returns default value if conversion is not possible.
      * 
-     * @param key           a key of element to get.
-     * @param defaultValue  the default value
-     * @returns Duration value of the element or default value if conversion is not supported. 
+     * - [key]           a key of element to get.
+     * - defaultValue  the default value
+     * Returns Duration value of the element or default value if conversion is not supported. 
      * 
-     * @see [[DurationConverter.toDDurationWithDefault]]
+     * See [DurationConverter.toDDurationWithDefault]
      */
   Duration getAsDurationWithDefault(String key, Duration defaultValue) {
     var value = this.get(key);
@@ -523,11 +513,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      * Converts map element into a value defined by specied typecode.
      * If conversion is not possible it returns null.
      * 
-     * @param type      the TypeCode that defined the type of the result
-     * @param key       a key of element to get.
-     * @returns element value defined by the typecode or null if conversion is not supported. 
+     * - [type]      the TypeCode that defined the type of the result
+     * - [key]       a key of element to get.
+     * Returns element value defined by the typecode or null if conversion is not supported. 
      * 
-     * @see [[TypeConverter.toNullableType]]
+     * See [TypeConverter.toNullableType]
      */
   T getAsNullableType<T>(TypeCode type, String key) {
     var value = this.get(key);
@@ -538,11 +528,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      * Converts map element into a value defined by specied typecode.
      * If conversion is not possible it returns default value for the specified type.
      * 
-     * @param type      the TypeCode that defined the type of the result
-     * @param key       a key of element to get.
-     * @returns element value defined by the typecode or default if conversion is not supported. 
+     * - [type]      the TypeCode that defined the type of the result
+     * - [key]       a key of element to get.
+     * Returns element value defined by the typecode or default if conversion is not supported. 
      * 
-     * @see [[getAsTypeWithDefault]]
+     * See [getAsTypeWithDefault]
      */
   T getAsType<T>(TypeCode type, String key) {
     return this.getAsTypeWithDefault<T>(type, key, null);
@@ -552,12 +542,12 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      * Converts map element into a value defined by specied typecode.
      * If conversion is not possible it returns default value.
      * 
-     * @param type          the TypeCode that defined the type of the result
-     * @param key       a key of element to get.
-     * @param defaultValue  the default value
-     * @returns element value defined by the typecode or default value if conversion is not supported. 
+     * - [type]          the TypeCode that defined the type of the result
+     * - [key]       a key of element to get.
+     * - [defaultValue]  the default value
+     * Returns element value defined by the typecode or default value if conversion is not supported. 
      * 
-     * @see [[TypeConverter.toTypeWithDefault]]
+     * See [TypeConverter.toTypeWithDefault]
      */
   T getAsTypeWithDefault<T>(TypeCode type, String key, T defaultValue) {
     var value = this.get(key);
@@ -567,11 +557,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
      * 
-     * @see [[AnyValue]]
-     * @see [[AnyValue.constructor]]
+     * See [AnyValue]
+     * See [AnyValue.constructor]
      */
   AnyValue getAsValue(String key) {
     var value = this.get(key);
@@ -581,11 +571,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValueArray or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns AnyValueArray value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns AnyValueArray value of the element or null if conversion is not supported. 
      * 
-     * @see [[AnyValueArray]]
-     * @see [[AnyValueArray.fromValue]]
+     * See [AnyValueArray]
+     * See [AnyValueArray.fromValue]
      */
   AnyValueArray getAsNullableArray(String key) {
     var value = this.get(key);
@@ -595,11 +585,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
      * 
-     * @see [[AnyValueArray]]
-     * @see [[AnyValueArray.fromValue]]
+     * See [AnyValueArray]
+     * See [AnyValueArray.fromValue]
      */
   AnyValueArray getAsArray(String key) {
     var value = this.get(key);
@@ -609,12 +599,12 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValueArray or returns default value if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @param defaultValue  the default value
-     * @returns AnyValueArray value of the element or default value if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * - defaultValue  the default value
+     * Returns AnyValueArray value of the element or default value if conversion is not supported. 
      * 
-     * @see [[AnyValueArray]]
-     * @see [[getAsNullableArray]]
+     * See [AnyValueArray]
+     * See [getAsNullableArray]
      */
   AnyValueArray getAsArrayWithDefault(String key, AnyValueArray defaultValue) {
     var result = this.getAsNullableArray(key);
@@ -624,10 +614,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValueMap or returns null if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns AnyValueMap value of the element or null if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns AnyValueMap value of the element or null if conversion is not supported. 
      * 
-     * @see [[fromValue]]
+     * See [fromValue]
      */
   AnyValueMap getAsNullableMap(String key) {
     var value = this.get(key);
@@ -637,10 +627,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * Returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
      * 
-     * @see [[fromValue]]
+     * See [fromValue]
      */
   AnyValueMap getAsMap(String key) {
     var value = this.get(key);
@@ -650,11 +640,11 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts map element into an AnyValueMap or returns default value if conversion is not possible.
      * 
-     * @param key       a key of element to get.
-     * @param defaultValue  the default value
-     * @returns AnyValueMap value of the element or default value if conversion is not supported. 
+     * - [key]       a key of element to get.
+     * - defaultValue  the default value
+     * Returns AnyValueMap value of the element or default value if conversion is not supported. 
      * 
-     * @see [[getAsNullableMap]]
+     * See [getAsNullableMap]
      */
   AnyValueMap getAsMapWithDefault(String key, AnyValueMap defaultValue) {
     var result = this.getAsNullableMap(key);
@@ -666,7 +656,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      * The result is a semicolon-separated list of key-value pairs as
      * "key1=value1;key2=value2;key=value3"
      * 
-     * @returns a string representation of the object.
+     * Returns a string representation of the object.
      */
   String toString() {
     var builder = '';
@@ -689,7 +679,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Creates a binary clone of this object.
      * 
-     * @returns a clone of this object.
+     * Returns a clone of this object.
      */
   clone() {
     return new StringValueMap(this);
@@ -698,10 +688,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Converts specified value into StringValueMap.
      * 
-     * @param value     value to be converted
-     * @returns         a newly created StringValueMap.
+     * - [value]     value to be converted
+     * Returns         a newly created StringValueMap.
      * 
-     * @see [[setAsObject]]
+     * See [setAsObject]
      */
   static StringValueMap fromValue(value) {
     return new StringValueMap(value);
@@ -710,10 +700,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Creates a new StringValueMap from a list of key-value pairs called tuples.
      * 
-     * @param tuples    a list of values where odd elements are keys and the following even elements are values
-     * @returns         a newly created StringValueMap.
+     * - [tuples]    a list of values where odd elements are keys and the following even elements are values
+     * Returns         a newly created StringValueMap.
      * 
-     * @see [[fromTuplesArray]]
+     * See [fromTuplesArray]
      */
   static StringValueMap fromTuples(List tuples) {
     return StringValueMap.fromTuplesArray(tuples);
@@ -721,10 +711,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
 
   /**
      * Creates a new StringValueMap from a list of key-value pairs called tuples.
-     * The method is similar to [[fromTuples]] but tuples are passed as array instead of parameters.
+     * The method is similar to [fromTuples] but tuples are passed as array instead of parameters.
      * 
-     * @param tuples    a list of values where odd elements are keys and the following even elements are values
-     * @returns         a newly created StringValueMap.
+     * - [tuples]    a list of values where odd elements are keys and the following even elements are values
+     * Returns         a newly created StringValueMap.
      */
   static StringValueMap fromTuplesArray(List tuples) {
     var result = new StringValueMap();
@@ -745,8 +735,8 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /**
      * Parses semicolon-separated key-value pairs and returns them as a StringValueMap.
      * 
-     * @param line      semicolon-separated key-value list to initialize StringValueMap.
-     * @returns         a newly created StringValueMap.
+     * - [line]      semicolon-separated key-value list to initialize StringValueMap.
+     * Returns         a newly created StringValueMap.
      */
   static StringValueMap fromString(String line) {
     var result = new StringValueMap();
@@ -770,8 +760,8 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      * Creates a new AnyValueMap by merging two or more maps.
      * Maps defined later in the list override values from previously defined maps.
      * 
-     * @param maps  an array of maps to be merged
-     * @returns     a newly created AnyValueMap.
+     * - [maps]  an array of maps to be merged
+     * Returns     a newly created AnyValueMap.
      */
   static StringValueMap fromMaps(List maps) {
     var result = new StringValueMap();
@@ -782,10 +772,16 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     return result;
   }
 
+/**
+   * Initialize this object from JSON Map object
+   */
   Map<String, dynamic> toJson() {
     return this._values;
   }
 
+  /**
+   * Returned JSON Map object from values of this object
+   */
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
     append(json);

@@ -5,7 +5,7 @@ import './Schema.dart';
 /**
  * Schema to validate object properties
  * 
- * @see [[ObjectSchema]]
+ * See [[ObjectSchema]]
  * 
  * ### Example ###
  * 
@@ -23,13 +23,13 @@ class PropertySchema extends Schema {
   /**
      * Creates a new validation schema and sets its values.
      * 
-     * @param name          (optional) a property name
-     * @param type          (optional) a property type
-     * @param required      (optional) true to always require non-null values.
-     * @param rules         (optional) a list with validation rules.
+     * - name          (optional) a property name
+     * - type          (optional) a property type
+     * - required      (optional) true to always require non-null values.
+     * - rules         (optional) a list with validation rules.
      * 
-     * @see [[IValidationRule]]
-     * @see [[TypeCode]]
+     * See [[IValidationRule]]
+     * See [[TypeCode]]
      */
   PropertySchema(
       [String name, dynamic type, bool req, List<IValidationRule> rules])
@@ -41,7 +41,7 @@ class PropertySchema extends Schema {
   /**
      * Gets the property name.
      * 
-     * @returns the property name.
+     * Returns the property name.
      */
   String getName() {
     return this._name;
@@ -50,7 +50,7 @@ class PropertySchema extends Schema {
   /**
      * Sets the property name.
      * 
-     * @param value     a new property name.
+     * - value     a new property name.
      */
   setName(String value) {
     this._name = value;
@@ -59,7 +59,7 @@ class PropertySchema extends Schema {
   /**
      * Gets the property type.
      * 
-     * @returns the property type.
+     * Returns the property type.
      */
   dynamic getType() {
     return this._type;
@@ -69,7 +69,7 @@ class PropertySchema extends Schema {
      * Sets a new property type.
      * The type can be defined as type, type name or [[TypeCode]]
      * 
-     * @param value     a new property type.
+     * - value     a new property type.
      */
   setType(dynamic value) {
     this._type = value;
@@ -78,9 +78,9 @@ class PropertySchema extends Schema {
   /**
      * Validates a given value against the schema and configured validation rules.
      * 
-     * @param path      a dot notation path to the value.
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {

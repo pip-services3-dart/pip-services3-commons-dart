@@ -4,7 +4,7 @@ import './MapSchema.dart';
 /**
  * Schema to validate [[FilterParams]].
  * 
- * @see [[FilterParams]]
+ * See [[FilterParams]]
  */
 class FilterParamsSchema extends MapSchema {
   /**

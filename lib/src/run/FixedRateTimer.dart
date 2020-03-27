@@ -13,7 +13,7 @@ import '../reflect/ObjectReader.dart';
  * and is often used by Pip.Services toolkit to
  * perform periodic processing and cleanup in microservices.
  * 
- * @see [[INotifiable]]
+ * See [[INotifiable]]
  * 
  * ### Example ###
  * 
@@ -49,14 +49,14 @@ class FixedRateTimer implements IClosable {
   /**
      * Creates new instance of the timer and sets its values.
      * 
-     * @param taskOrCallback    (optional) a Notifiable object or callback function to call when timer is triggered.
-     * @param interval          (optional) an interval to trigger timer in milliseconds.
-     * @param delay             (optional) a delay before the first triggering in milliseconds.
+     * - taskOrCallback    (optional) a Notifiable object or callback function to call when timer is triggered.
+     * - interval          (optional) an interval to trigger timer in milliseconds.
+     * - delay             (optional) a delay before the first triggering in milliseconds.
      * 
-     * @see [[setTask]]
-     * @see [[setCallback]]
-     * @see [[setInterval]] 
-     * @see [[setDelay]]
+     * See [[setTask]]
+     * See [[setCallback]]
+     * See [[setInterval]] 
+     * See [[setDelay]]
      */
   FixedRateTimer(
       [dynamic taskOrCallback = null, int interval = null, int delay = null]) {
@@ -72,7 +72,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Gets the INotifiable object that receives notifications from this timer.
      * 
-     * @returns the INotifiable object or null if it is not set.
+     * Returns the INotifiable object or null if it is not set.
      */
   INotifiable getTask() {
     return this._task;
@@ -81,7 +81,7 @@ class FixedRateTimer implements IClosable {
   /**
      * Sets a new INotifiable object to receive notifications from this timer.
      * 
-     * @param value a INotifiable object to be triggered.
+     * - value a INotifiable object to be triggered.
      */
   void setTask(INotifiable value) {
     this._task = value;
@@ -93,7 +93,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Gets the callback function that is called when this timer is triggered.
      * 
-     * @returns the callback function or null if it is not set. 
+     * Returns the callback function or null if it is not set. 
      */
   Function() getCallback() {
     return this._callback;
@@ -102,7 +102,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Sets the callback function that is called when this timer is triggered.
      * 
-     * @param value the callback function to be called.
+     * - value the callback function to be called.
      */
   setCallback(Function() value) {
     this._callback = value;
@@ -112,7 +112,7 @@ class FixedRateTimer implements IClosable {
   /**
      * Gets initial delay before the timer is triggered for the first time.
      * 
-     * @returns the delay in milliseconds.
+     * Returns the delay in milliseconds.
      */
   int getDelay() {
     return this._delay;
@@ -121,7 +121,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Sets initial delay before the timer is triggered for the first time.
      * 
-     * @param value a delay in milliseconds. 
+     * - value a delay in milliseconds. 
      */
   void setDelay(int value) {
     this._delay = value;
@@ -130,7 +130,7 @@ class FixedRateTimer implements IClosable {
   /**
      * Gets periodic timer triggering interval.
      * 
-     * @returns the interval in milliseconds
+     * Returns the interval in milliseconds
      */
   int getInterval() {
     return this._interval;
@@ -139,7 +139,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Sets periodic timer triggering interval.
      * 
-     * @param value an interval in milliseconds.
+     * - value an interval in milliseconds.
      */
   void setInterval(int value) {
     this._interval = value;
@@ -148,7 +148,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Checks if the timer is started.
      * 
-     * @returns true if the timer is started and false if it is stopped.
+     * Returns true if the timer is started and false if it is stopped.
      */
   bool isStarted() {
     return this._timer != null;
@@ -160,7 +160,7 @@ class FixedRateTimer implements IClosable {
      * Initially the timer is triggered after delay.
      * After that it is triggered after interval until it is stopped.
      * 
-     * @see [[stop]]
+     * See [[stop]]
      */
   void start() {
     // Stop previously set timer
@@ -189,7 +189,7 @@ class FixedRateTimer implements IClosable {
   /**
      * Stops the timer.
      * 
-     * @see [[start]]
+     * See [[start]]
      */
   stop() {
     if (this._timeout != null) {
@@ -209,10 +209,10 @@ class FixedRateTimer implements IClosable {
      * This is required by [[ICloseable]] interface,
      * but besides that it is identical to stop().
      * 
-     * @param correlationId     (optional) transaction id to trace execution through call chain.
-     * @param callback 			callback function that receives error or null no errors occured.
+     * - correlationId     (optional) transaction id to trace execution through call chain.
+     * - callback 			callback function that receives error or null no errors occured.
      * 
-     * @see [[stop]]
+     * See [[stop]]
      */
   Future close(String correlationId) {
     this.stop();

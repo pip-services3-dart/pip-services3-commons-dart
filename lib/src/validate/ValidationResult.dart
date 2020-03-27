@@ -14,14 +14,14 @@ class ValidationResult {
   /**
      * Creates a new instance of validation ressult and sets its values.
      * 
-     * @param path      a dot notation path of the validated element.
-     * @param type      a type of the validation result: Information, Warning, or Error.
-     * @param code      an error code.
-     * @param message   a human readable message.
-     * @param expected  an value expected by schema validation.
-     * @param actual    an actual value found by schema validation.
+     * - path      a dot notation path of the validated element.
+     * - type      a type of the validation result: Information, Warning, or Error.
+     * - code      an error code.
+     * - message   a human readable message.
+     * - expected  an value expected by schema validation.
+     * - actual    an actual value found by schema validation.
      * 
-     * @see [[ValidationResultType]]
+     * See [[ValidationResultType]]
      */
   ValidationResult(
       [String path = null,
@@ -41,7 +41,7 @@ class ValidationResult {
   /** 
      * Gets dot notation path of the validated element.
      * 
-     * @returns the path of the validated element.
+     * Returns the path of the validated element.
      */
   String getPath() {
     return this._path;
@@ -50,9 +50,9 @@ class ValidationResult {
   /** 
      * Gets the type of the validation result: Information, Warning, or Error.
      * 
-     * @returns the type of the validation result.
+     * Returns the type of the validation result.
      * 
-     * @see [[ValidationResultType]]
+     * See [[ValidationResultType]]
      */
   ValidationResultType getType() {
     return this._type;
@@ -61,7 +61,7 @@ class ValidationResult {
   /**
      * Gets the error code.
      * 
-     * @returns the error code
+     * Returns the error code
      */
   String getCode() {
     return this._code;
@@ -70,7 +70,7 @@ class ValidationResult {
   /**
      * Gets the human readable message.
      * 
-     * @returns the result message.
+     * Returns the result message.
      */
   String getMessage() {
     return this._message;
@@ -79,7 +79,7 @@ class ValidationResult {
   /**
      * Gets the value expected by schema validation.
      * 
-     * @returns the expected value.
+     * Returns the expected value.
      */
   dynamic getExpected() {
     return this._expected;
@@ -88,7 +88,7 @@ class ValidationResult {
   /**
      * Gets the actual value found by schema validation.
      * 
-     * @returns the actual value.
+     * Returns the actual value.
      */
   dynamic getActual() {
     return this._actual;

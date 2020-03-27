@@ -8,8 +8,8 @@ import '../data/StringValueMap.dart';
  * [[ErrorDescription]] is used to recreate exception object close to its original type
  * without missing additional details.
  * 
- * @see [[ApplicationException]]
- * @see [[ApplicationExceptionFactory]]
+ * See [[ApplicationException]]
+ * See [[ApplicationExceptionFactory]]
  */
 class ErrorDescription {
   /** Data type of the original error */

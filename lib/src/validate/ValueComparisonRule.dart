@@ -7,7 +7,7 @@ import './ValidationResultType.dart';
 /**
  * Validation rule that compares value to a constant.
  * 
- * @see [[IValidationRule]]
+ * See [[IValidationRule]]
  * 
  * ### Example ###
  * 
@@ -24,8 +24,8 @@ class ValueComparisonRule implements IValidationRule {
   /**
      * Creates a new validation rule and sets its values.
      * 
-     * @param operation    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
-     * @param value        a constant value to compare to
+     * - operation    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+     * - value        a constant value to compare to
      */
   ValueComparisonRule(String operation, dynamic value)
       : this._operation = operation,
@@ -34,10 +34,10 @@ class ValueComparisonRule implements IValidationRule {
   /**
      * Validates a given value against this rule.
      * 
-     * @param path      a dot notation path to the value.
-     * @param schema    a schema this rule is called from
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - schema    a schema this rule is called from
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {

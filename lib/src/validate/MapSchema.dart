@@ -25,13 +25,13 @@ class MapSchema extends Schema {
   /**
      * Creates a new instance of validation schema and sets its values.
      * 
-     * @param keyType       a type of map keys. Null means that keys may have any type.
-     * @param valueType     a type of map values. Null means that values may have any type.
-     * @param required      (optional) true to always require non-null values.
-     * @param rules         (optional) a list with validation rules.
+     * - keyType       a type of map keys. Null means that keys may have any type.
+     * - valueType     a type of map values. Null means that values may have any type.
+     * - required      (optional) true to always require non-null values.
+     * - rules         (optional) a list with validation rules.
      * 
-     * @see [[IValidationRule]]
-     * @see [[TypeCode]]
+     * See [[IValidationRule]]
+     * See [[TypeCode]]
      */
   MapSchema(
       [dynamic keyType,
@@ -47,7 +47,7 @@ class MapSchema extends Schema {
      * Gets the type of map keys.
      * Null means that keys may have any type.
      * 
-     * @returns the type of map keys.
+     * Returns the type of map keys.
      */
   dynamic getKeyType() {
     return this._keyType;
@@ -57,7 +57,7 @@ class MapSchema extends Schema {
      * Sets the type of map keys.
      * Null means that keys may have any type.
      * 
-     * @param value     a type of map keys.
+     * - value     a type of map keys.
      */
   setKeyType(dynamic value) {
     this._keyType = value;
@@ -67,7 +67,7 @@ class MapSchema extends Schema {
      * Gets the type of map values.
      * Null means that values may have any type.
      * 
-     * @returns the type of map values.
+     * Returns the type of map values.
      */
   dynamic getValueType() {
     return this._valueType;
@@ -77,7 +77,7 @@ class MapSchema extends Schema {
      * Sets the type of map values.
      * Null means that values may have any type.
      * 
-     * @param value     a type of map values.
+     * - value     a type of map values.
      */
   setValueType(dynamic value) {
     this._valueType = value;
@@ -86,9 +86,9 @@ class MapSchema extends Schema {
   /**
      * Validates a given value against the schema and configured validation rules.
      * 
-     * @param path      a dot notation path to the value.
-     * @param value     a value to be validated.
-     * @param results   a list with validation results to add new results.
+     * - path      a dot notation path to the value.
+     * - value     a value to be validated.
+     * - results   a list with validation results to add new results.
      */
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {

@@ -14,10 +14,10 @@ class Opener {
 	 * To be checked components must implement [[IOpenable]] interface.
 	 * If they don't the call to this method returns true.
 	 * 
-	 * @param component 	the component that is to be checked.
-	 * @returns true if component is opened and false otherwise.
+	 * - component 	the component that is to be checked.
+	 * Returns true if component is opened and false otherwise.
 	 * 
-	 * @see [[IOpenable]]
+	 * See [[IOpenable]]
 	 */
   static bool isOpenOne(component) {
     if (component is IOpenable)
@@ -32,11 +32,11 @@ class Opener {
 	 * To be checked components must implement [[IOpenable]] interface.
 	 * If they don't the call to this method returns true.
 	 * 
-	 * @param components 	a list of components that are to be checked.
-	 * @returns true if all components are opened and false if at least one component is closed.
+	 * - components 	a list of components that are to be checked.
+	 * Returns true if all components are opened and false if at least one component is closed.
 	 * 
-	 * @see [[isOpenOne]]
-	 * @see [[IOpenable]]
+	 * See [[isOpenOne]]
+	 * See [[IOpenable]]
 	 */
   static bool isOpen(List components) {
     if (components == null) return true;
@@ -54,11 +54,11 @@ class Opener {
 	 * To be opened components must implement [[IOpenable]] interface.
 	 * If they don't the call to this method has no effect.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param component 		the component that is to be opened.
-     * @param callback 			callback function that returns error or null no errors occured.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+	 * - component 		the component that is to be opened.
+     * - callback 			callback function that returns error or null no errors occured.
 	 * 
-	 * @see [[IOpenable]]
+	 * See [[IOpenable]]
 	 */
   static Future openOne(String correlationId, component) async {
     if (component is IOpenable) await component.open(correlationId);
@@ -70,12 +70,12 @@ class Opener {
 	 * To be opened components must implement [[IOpenable]] interface.
 	 * If they don't the call to this method has no effect.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-	 * @param components 		the list of components that are to be closed.
-     * @param callback 			callback function that returns error or null no errors occured.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+	 * - components 		the list of components that are to be closed.
+     * - callback 			callback function that returns error or null no errors occured.
 	 * 
-	 * @see [[openOne]]
-	 * @see [[IOpenable]]
+	 * See [[openOne]]
+	 * See [[IOpenable]]
 	 */
   static Future open(String correlationId, List components) async {
     if (components == null) return true;

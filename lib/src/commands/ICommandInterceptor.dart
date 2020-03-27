@@ -11,8 +11,8 @@ import './ICommand.dart';
  * 
  * This mechanism can be used for authentication, logging, and other functions.
  * 
- * @see [[ICommand]]
- * @see [[InterceptedCommand]]
+ * See [ICommand]
+ * See [InterceptedCommand]
  */
 abstract class ICommandInterceptor {
   /**
@@ -21,8 +21,8 @@ abstract class ICommandInterceptor {
      * The interceptor can use this method to override the command name.
      * Otherwise it shall just delegate the call to the wrapped command.
      * 
-     * @param command   the next command in the call chain.
-     * @returns the name of the wrapped command.
+     * - [command]   the next command in the call chain.
+     * Returns the name of the wrapped command.
      */
   String getName(ICommand command);
 
@@ -32,13 +32,13 @@ abstract class ICommandInterceptor {
      * The interceptor can use this method to intercept and alter the command execution.
      * Otherwise it shall just delete the call to the wrapped command.
      * 
-     * @param correlationId (optional) transaction id to trace execution through call chain.
-     * @param command       the next command in the call chain that is to be executed.
-     * @param args          the parameters (arguments) to pass to the command for execution.
-     * @param callback      the function that is to be called once execution is complete. If an exception is raised, then
-     *                      it will be called with the error.
+     * - [correlationId] (optional) transaction id to trace execution through call chain.
+     * - [command]       the next command in the call chain that is to be executed.
+     * - [args]          the parameters (arguments) to pass to the command for execution.
+     *   Returns         execution result. If an exception is raised, then
+     *                      it will be throw exception.
      * 
-     * @see [[Parameters]]
+     * See [Parameters]
      */
   Future<dynamic> execute(
       String correlationId, ICommand command, Parameters args);
@@ -49,12 +49,12 @@ abstract class ICommandInterceptor {
      * The interceptor can use this method to intercept and alter validation of the command arguments.
      * Otherwise it shall just delegate the call to the wrapped command.
      * 
-     * @param command   the next command in the call chain to be validated against.
-     * @param args      the parameters (arguments) to validate.
-     * @returns         an array of ValidationResults.
+     * - [command]   the next command in the call chain to be validated against.
+     * - [args]      the parameters (arguments) to validate.
+     * Returns         an array of ValidationResults.
      * 
-     * @see [[Parameters]]
-     * @see [[ValidationResult]]
+     * See [Parameters]
+     * See [ValidationResult]
      */
   List<ValidationResult> validate(ICommand command, Parameters args);
 }

@@ -13,29 +13,28 @@ import './ICommand.dart';
  *
  * ### Example ###
  *
- *     let command = new Command("add", null, (correlationId, args, callback) => {
- *         let param1 = args.getAsFloat("param1");
- *         let param2 = args.getAsFloat("param2");
- *         let result = param1 + param2;
- *         callback(null, result);
+ *     var command = new Command("add", null, (correlationId, args) {
+ *         var param1 = args.getAsFloat("param1");
+ *         var param2 = args.getAsFloat("param2");
+ *         var result = param1 + param2;
+ *         return result;
  *     });
  *
- *     command.execute(
+ *     result = await command.execute(
  *       "123",
  *       Parameters.fromTuples(
- *         "param1", 2,
- *         "param2", 2
- *       ),
- *       (err, result) => {
- *         if (err) console.error(err);
- *         else console.log("2 + 2 = " + result);
+ *         ["param1", 2,
+ *         "param2", 2]
+ *       )).catch(err) {
+ *         if (err!= null) print(err);
+ *         else print("2 + 2 = " + result);
  *       }
  *     );
  *
  *     // Console output: 2 + 2 = 4
  *
- * @see [[ICommand]]
- * @see [[CommandSet]]
+ * See [[ICommand]]
+ * See [[CommandSet]]
  */
 class Command implements ICommand {
   String _name;
@@ -45,9 +44,9 @@ class Command implements ICommand {
   /**
      * Creates a new command object and assigns it's parameters.
      *
-     * @param name      the command name.
-     * @param schema    the schema to validate command arguments.
-     * @param func      the function to be executed by this command.
+     * - name      the command name.
+     * - schema    the schema to validate command arguments.
+     * - func      the function to be executed by this command.
      */
   Command(String name, Schema schema, func) {
     if (name == null) throw new Exception("Name cannot be null");
@@ -67,7 +66,7 @@ class Command implements ICommand {
 
   /**
      * Gets the command name.
-     * @returns the name of this command.
+     * Returns the name of this command.
      */
   String getName() {
     return this._name;
@@ -78,11 +77,11 @@ class Command implements ICommand {
      * the defined schema. The command execution intercepts exceptions raised
      * by the called function and returns them as an error in callback.
      *
-     * @param correlationId (optional) transaction id to trace execution through call chain.
-     * @param args          the parameters (arguments) to pass to this command for execution.
-     * @param callback      function to be called when command is complete
+     * - correlationId (optional) transaction id to trace execution through call chain.
+     * - args          the parameters (arguments) to pass to this command for execution.
+     * - callback      function to be called when command is complete
      *
-     * @see [[Parameters]]
+     * See [[Parameters]]
      */
   Future<dynamic> execute(String correlationId, Parameters args) async {
     if (this._schema != null) {
@@ -103,11 +102,11 @@ class Command implements ICommand {
   /**
      * Validates the command [[Parameters args]] before execution using the defined schema.
      *
-     * @param args  the parameters (arguments) to validate using this command's schema.
-     * @returns     an array of ValidationResults or an empty array (if no schema is set).
+     * - args  the parameters (arguments) to validate using this command's schema.
+     * Returns     an array of ValidationResults or an empty array (if no schema is set).
      *
-     * @see [[Parameters]]
-     * @see [[ValidationResult]]
+     * See [[Parameters]]
+     * See [[ValidationResult]]
      */
   List<ValidationResult> validate(Parameters args) {
     if (this._schema != null) return this._schema.validate(args);

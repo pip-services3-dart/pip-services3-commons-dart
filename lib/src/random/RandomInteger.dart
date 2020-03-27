@@ -15,10 +15,10 @@ class RandomInteger {
   /**
      * Generates a integer in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
      * 
-     * @param min   minimum value of the integer that will be generated. 
+     * - min   minimum value of the integer that will be generated. 
      *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-     * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
-     * @returns     generated random integer value.
+     * - max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
+     * Returns     generated random integer value.
      */
   static int nextInteger(int min, [int max = null]) {
     if (max == null) {
@@ -34,8 +34,8 @@ class RandomInteger {
   /**
      * Updates (drifts) a integer value within specified range defined
      * 
-     * @param value     a integer value to drift.
-     * @param range     (optional) a range. Default: 10% of the value
+     * - value     a integer value to drift.
+     * - range     (optional) a range. Default: 10% of the value
      */
   static int updateInteger(int value, [int range = null]) {
     if (range == null) range = 0;
@@ -48,10 +48,10 @@ class RandomInteger {
   /**
      * Generates a random sequence of integers starting from 0 like: [0,1,2,3...??]
      * 
-     * @param min   minimum value of the integer that will be generated. 
+     * - min   minimum value of the integer that will be generated. 
      *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-     * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
-     * @returns     generated array of integers.
+     * - max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
+     * Returns     generated array of integers.
      */
   static List<int> sequence(int min, [int max = null]) {
     max = max != null ? max : min;

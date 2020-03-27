@@ -6,8 +6,8 @@ import 'dart:async';
  * For components that require opening as well as closing 
  * use [[IOpenable]] interface instead.
  * 
- * @see [[IOpenable]]
- * @see [[Closer]]
+ * See [[IOpenable]]
+ * See [[Closer]]
  * 
  * ### Example ###
  * 
@@ -30,8 +30,8 @@ abstract class IClosable {
   /**
 	 * Closes component and frees used resources.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-     * @param callback 			callback function that receives error or null no errors occured.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+     * - callback 			callback function that receives error or null no errors occured.
 	 */
   Future close(String correlationId);
 }

@@ -198,8 +198,8 @@
       <p>Interface for components that require explicit closure.</p>
 <p>For components that require opening as well as closing 
 use [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface instead.</p>
-<p>@see [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]
-@see [<a href="pip_services3_commons/Closer-class.html">Closer</a>]</p>
+<p>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]
+See [<a href="pip_services3_commons/Closer-class.html">Closer</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyConnector implements ICloseable {
     private _client: any = null;
@@ -281,8 +281,16 @@ use [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interfa
 <li>Closes component and frees used resources.
 <ul>
 <li></li>
-<li>@param correlationId 	(optional) transaction id to trace execution through call chain.</li>
-<li>@param callback 			callback function that receives error or null no errors occured.</li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>callback 			callback function that receives error or null no errors occured.</li>
+</ul>
+</li>
 </ul>
 </li>
 

@@ -6,9 +6,9 @@
  * ### Example ###
  * 
  *     class MyData implements IIdentifiable<string> {
- *         public id: string;
- *         public field1: string;
- *         public field2: number; 
+ *          String id;
+ *          String field1;
+ *          int field2; 
  *         ...
  *     }
  */

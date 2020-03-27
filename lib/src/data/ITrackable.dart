@@ -4,18 +4,18 @@ import "./IChangeable.dart";
 /**
  * Interface for data objects that can track their changes, including logical deletion.
  * 
- * @see [[IChangeable]]
+ * See [IChangeable]
  * 
  * ### Example ###
  * 
  *     class MyData implements IStringIdentifiable, ITrackable {
- *         public id: string;
- *         public field1: string;
- *         public field2: number;
+ *         String id;
+ *         String  field1;
+ *         int field2;
  *         ...
- *         public change_time: Date;
- *         public create_time: Date;
- *         public deleted: boolean;
+ *         DateTime change_time;
+ *         DateTime create_time;
+ *         bool deleted;
  *     }
  */
 abstract class ITrackable implements IChangeable {

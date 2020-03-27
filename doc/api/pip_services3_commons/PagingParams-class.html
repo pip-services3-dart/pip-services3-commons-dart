@@ -225,9 +225,21 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Creates a new instance and sets its values.
 <ul>
 <li></li>
-<li>@param skip 		the number of items to skip.</li>
-<li>@param take 		the number of items to return. </li>
-<li>@param total 	true to return the total number of items.</li>
+<li>
+<ul>
+<li>skip 		the number of items to skip.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>take 		the number of items to return. </li>
+</ul>
+</li>
+<li>
+<ul>
+<li>total 	true to return the total number of items.</li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -311,8 +323,12 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Gets the number of items to skip.
 <ul>
 <li></li>
-<li>@param minSkip 	the minimum number of items to skip.</li>
-<li>@returns 		the number of items to skip.</li>
+<li>
+<ul>
+<li>minSkip 	the minimum number of items to skip.</li>
+</ul>
+</li>
+<li>Returns 		the number of items to skip.</li>
 </ul>
 </li>
 
@@ -328,8 +344,12 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Gets the number of items to return in a page.
 <ul>
 <li></li>
-<li>@param maxTake 	the maximum number of items to return.</li>
-<li>@returns 		the number of items to return.</li>
+<li>
+<ul>
+<li>maxTake 	the maximum number of items to return.</li>
+</ul>
+</li>
+<li>Returns 		the number of items to return.</li>
 </ul>
 </li>
 
@@ -394,8 +414,12 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Creates a new PagingParams and sets it parameters from the specified map
 <ul>
 <li></li>
-<li>@param map    	a AnyValueMap or StringValueMap to initialize this PagingParams</li>
-<li>@returns         a newly created PagingParams.</li>
+<li>
+<ul>
+<li>map    	a AnyValueMap or StringValueMap to initialize this PagingParams</li>
+</ul>
+</li>
+<li>Returns         a newly created PagingParams.</li>
 </ul>
 </li>
 
@@ -411,8 +435,12 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Creates a new PagingParams from a list of key-value pairs called tuples.
 <ul>
 <li></li>
-<li>@param tuples    a list of values where odd elements are keys and the following even elements are values</li>
-<li>@returns         a newly created PagingParams.</li>
+<li>
+<ul>
+<li>tuples    a list of values where odd elements are keys and the following even elements are values</li>
+</ul>
+</li>
+<li>Returns         a newly created PagingParams.</li>
 </ul>
 </li>
 
@@ -428,8 +456,12 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li>Converts specified value into PagingParams.
 <ul>
 <li></li>
-<li>@param value     value to be converted</li>
-<li>@returns         a newly created PagingParams.</li>
+<li>
+<ul>
+<li>value     value to be converted</li>
+</ul>
+</li>
+<li>Returns         a newly created PagingParams.</li>
 </ul>
 </li>
 

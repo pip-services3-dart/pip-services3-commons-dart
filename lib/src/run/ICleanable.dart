@@ -6,7 +6,7 @@ import 'dart:async';
  * Cleaning state most often is used during testing. 
  * But there may be situations when it can be done in production.
  * 
- * @see [[Cleaner]]
+ * See [[Cleaner]]
  * 
  * ### Example ###
  * 
@@ -24,8 +24,8 @@ abstract class ICleanable {
   /**
 	 * Clears component state.
 	 * 
-	 * @param correlationId 	(optional) transaction id to trace execution through call chain.
-   * @param callback 			callback function that receives error or null no errors occured.
+	 * - correlationId 	(optional) transaction id to trace execution through call chain.
+   * - callback 			callback function that receives error or null no errors occured.
 	 */
   Future clear(String correlationId);
 }

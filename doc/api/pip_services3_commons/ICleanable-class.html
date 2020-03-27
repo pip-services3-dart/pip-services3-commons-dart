@@ -198,7 +198,7 @@
       <p>Interface for components that should clean their state.</p>
 <p>Cleaning state most often is used during testing. 
 But there may be situations when it can be done in production.</p>
-<p>@see [<a href="pip_services3_commons/Cleaner-class.html">Cleaner</a>]</p>
+<p>See [<a href="pip_services3_commons/Cleaner-class.html">Cleaner</a>]</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyObjectWithState implements ICleanable {
     private _state: any = {};
@@ -261,8 +261,16 @@ But there may be situations when it can be done in production.</p>
 <li>Clears component state.
 <ul>
 <li></li>
-<li>@param correlationId 	(optional) transaction id to trace execution through call chain.</li>
-<li>@param callback 			callback function that receives error or null no errors occured.</li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>callback 			callback function that receives error or null no errors occured.</li>
+</ul>
+</li>
 </ul>
 </li>
 

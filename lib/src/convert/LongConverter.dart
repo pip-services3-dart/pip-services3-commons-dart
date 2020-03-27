@@ -15,8 +15,8 @@ class LongConverter {
   /**
      * Converts value into long or returns null when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         long value or null when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         long value or null when conversion is not supported.
      */
   static int toNullableLong(value) {
     if (value == null) return null;
@@ -33,10 +33,10 @@ class LongConverter {
   /**
      * Converts value into long or returns 0 when conversion is not possible.
      * 
-     * @param value     the value to convert.
-     * @returns         long value or 0 when conversion is not supported.
+     * - [value]     the value to convert.
+     * Returns         long value or 0 when conversion is not supported.
      * 
-     * @see [[toLongWithDefault]]
+     * See [[toLongWithDefault]]
      */
   static int toLong(value) {
     return LongConverter.toLongWithDefault(value, 0);
@@ -45,11 +45,11 @@ class LongConverter {
   /**
      * Converts value into integer or returns default when conversion is not possible.
      * 
-     * @param value         the value to convert.
-     * @param defaultValue  the default value.
-     * @returns             long value or default when conversion is not supported
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             long value or default when conversion is not supported
      * 
-     * @see [[toNullableLong]]
+     * See [[toNullableLong]]
      */
   static int toLongWithDefault(value, int defaultValue) {
     var result = LongConverter.toNullableLong(value);

@@ -15,10 +15,10 @@ class RandomFloat {
   /**
      * Generates a float in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
      *
-     * @param min   minimum value of the float that will be generated.
+     * - min   minimum value of the float that will be generated.
      *              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-     * @param max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
-     * @returns     generated random float value.
+     * - max   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
+     * Returns     generated random float value.
      */
   static double nextFloat(double min, [double max = null]) {
     if (max == null) {
@@ -34,8 +34,8 @@ class RandomFloat {
   /**
      * Updates (drifts) a float value within specified range defined
      *
-     * @param value     a float value to drift.
-     * @param range     (optional) a range. Default: 10% of the value
+     * - value     a float value to drift.
+     * - range     (optional) a range. Default: 10% of the value
      */
   static double updateFloat(double value, [double range = null]) {
     if (range == null) range = 0;
