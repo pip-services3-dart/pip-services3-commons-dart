@@ -8,16 +8,16 @@ It currently supports Java, .NET, Python, Node.js, Dart, and Golang. The code pr
 
 The framework's functionality is decomposed into several packages:
 
-- [**Commands**]() - commanding and eventing patterns
-- [**Config**]() - configuration framework
-- [**Convert**]() - soft value converters
-- [**Data**]() - data patterns
-- [**Errors**]() - application errors
-- [**Random**]() - random data generators
-- [**Refer**]() - locator (IoC) pattern
-- [**Reflect**]() - reflection framework
-- [**Run**]() - execution framework
-- [**Validate**]() - validation framework
+- **Commands** - commanding and eventing patterns
+- **Config** - configuration framework
+- **Convert** - soft value converters
+- **Data** - data patterns
+- **Errors** - application errors
+- **Random** - random data generators
+- **Refer** - locator (IoC) pattern
+- **Reflect** - reflection framework
+- **Run** - execution framework
+- **Validate** - validation framework
 
 Quick Links:
 

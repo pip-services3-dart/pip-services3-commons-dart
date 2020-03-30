@@ -9,9 +9,9 @@ import './RandomBoolean.dart';
  *
  * ### Example ###
  *
- *     let value1 = RandomText.name();     // Possible result: "Segio"
- *     let value2 = RandomText.verb();      // Possible result: "Run"
- *     let value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
+ *     var value1 = RandomText.name();     // Possible result: "Segio"
+ *     var value2 = RandomText.verb();      // Possible result: "Run"
+ *     var value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
  */
 class RandomText {
   static var _namePrefixes = ["Dr.", "Mr.", "Mrs"];

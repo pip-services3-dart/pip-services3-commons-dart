@@ -13,7 +13,7 @@ import '../refer/Descriptor.dart';
  *         "param2", 123
  *     ]);
  *     
- *     let name = NameResolver.resolve(config); // Result: connector1
+ *     var name = NameResolver.resolve(config); // Result: connector1
  */
 class NameResolver {
   /**

@@ -5,7 +5,7 @@ import './RandomInteger.dart';
  * 
  * ### Example ###
  * 
- *     let value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
+ *     var value1 = RandomArray.pick([1, 2, 3, 4]); // Possible result: 3
  */
 class RandomArray {
   /**

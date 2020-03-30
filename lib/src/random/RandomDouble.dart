@@ -5,9 +5,9 @@ import 'dart:math';
  *
  * ### Example ###
  *
- *     let value1 = RandomDouble.nextDouble(5, 10);     // Possible result: 7.3
- *     let value2 = RandomDouble.nextDouble(10);        // Possible result: 3.7
- *     let value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
+ *     var value1 = RandomDouble.nextDouble(5, 10);     // Possible result: 7.3
+ *     var value2 = RandomDouble.nextDouble(10);        // Possible result: 3.7
+ *     var value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
  */
 class RandomDouble {
   static var _random = new Random();
