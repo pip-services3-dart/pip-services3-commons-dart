@@ -14,8 +14,8 @@ class TypeDescriptor {
   /**
 	 * Creates a new instance of the type descriptor and sets its values.
 	 * 
-	 * - name 		a name of the object type.
-	 * - library 	a library or module where this object type is implemented.
+	 * - [name] 		a name of the object type.
+	 * - [library] 	a library or module where this object type is implemented.
 	 */
   TypeDescriptor(String name, String library) {
     this._name = name;
@@ -45,7 +45,7 @@ class TypeDescriptor {
 	 * If the value is also a TypeDescriptor it compares their name and library fields.
 	 * Otherwise this method returns false.
 	 * 
-	 * - value		a value to compare.
+	 * - [value]		a value to compare.
 	 * Returns true if value is identical TypeDescriptor and false otherwise.
 	 */
   bool equals(value) {
@@ -67,7 +67,7 @@ class TypeDescriptor {
    * 
    * Returns a string representation of the object.
 	 * 
-	 * See [[fromString]]
+	 * See [fromString]
 	 */
   @override
   String toString() {
@@ -80,11 +80,11 @@ class TypeDescriptor {
    * Parses a string to get descriptor fields and returns them as a Descriptor.
 	 * The string must have format name[,library]
    * 
-   * - value     a string to parse.
+   * - [value]     a string to parse.
    * Returns         a newly created Descriptor.
-	 * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
+	 * Throws a [ConfigException] if the descriptor string is of a wrong format.
 	 * 
-	 * See [[toString]]
+	 * See [toString]
 	 */
   static TypeDescriptor fromString(String value) {
     if (value == null || value.length == 0) return null;

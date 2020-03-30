@@ -7,11 +7,11 @@ import '../reflect/ObjectReader.dart';
 /**
  * Validation rule that check that at least one of the object properties is not null.
  * 
- * See [[IValidationRule]]
+ * See [IValidationRule]
  * 
  * ### Example ###
  * 
- *     let schema = new Schema()
+ *     var schema = new Schema()
  *         .withRule(new AtLeastOneExistsRule("field1", "field2"));
  *     
  *     schema.validate({ field1: 1, field2: "A" });     // Result: no errors

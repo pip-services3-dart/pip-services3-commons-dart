@@ -2,9 +2,9 @@ import '../convert/TypeCode.dart';
 import './MapSchema.dart';
 
 /**
- * Schema to validate [[FilterParams]].
+ * Schema to validate [FilterParams].
  * 
- * See [[FilterParams]]
+ * See [FilterParams]
  */
 class FilterParamsSchema extends MapSchema {
   /**

@@ -196,7 +196,7 @@
 
     <section class="desc markdown">
       <p>Helper class that opens components.</p>
-<p>[<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]</p>
+<p><a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></p>
     </section>
     
 
@@ -289,18 +289,18 @@
 <li>Checks if all components are opened.
 <ul>
 <li></li>
-<li>To be checked components must implement [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface.</li>
+<li>To be checked components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.</li>
 <li>If they don't the call to this method returns true.</li>
 <li></li>
 <li>
 <ul>
-<li>components 	a list of components that are to be checked.</li>
+<li><code>components</code> 	a list of components that are to be checked.</li>
 </ul>
 </li>
 <li>Returns true if all components are opened and false if at least one component is closed.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/Opener/isOpenOne.html">isOpenOne</a>]</li>
-<li>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]</li>
+<li>See <a href="pip_services3_commons/Opener/isOpenOne.html">isOpenOne</a></li>
+<li>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></li>
 </ul>
 </li>
 
@@ -316,17 +316,17 @@
 <li>Checks if specified component is opened.
 <ul>
 <li></li>
-<li>To be checked components must implement [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface.</li>
+<li>To be checked components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.</li>
 <li>If they don't the call to this method returns true.</li>
 <li></li>
 <li>
 <ul>
-<li>component 	the component that is to be checked.</li>
+<li><code>component</code> 	the component that is to be checked.</li>
 </ul>
 </li>
 <li>Returns true if component is opened and false otherwise.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]</li>
+<li>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></li>
 </ul>
 </li>
 
@@ -342,27 +342,26 @@
 <li>Opens multiple components.
 <ul>
 <li></li>
-<li>To be opened components must implement [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface.</li>
+<li>To be opened components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.</li>
 <li>If they don't the call to this method has no effect.</li>
 <li></li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>components 		the list of components that are to be closed.</li>
+<li><code>components</code> 		the list of components that are to be closed.</li>
 </ul>
 </li>
-<li>
+<li>Return 			Future that returns error or null no errors occured.
 <ul>
-<li>callback 			callback function that returns error or null no errors occured.</li>
-</ul>
-</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/Opener/openOne.html">openOne</a>]</li>
-<li>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]</li>
+<li>See <a href="pip_services3_commons/Opener/openOne.html">openOne</a></li>
+<li>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -378,26 +377,25 @@
 <li>Opens specific component.
 <ul>
 <li></li>
-<li>To be opened components must implement [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface.</li>
+<li>To be opened components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.</li>
 <li>If they don't the call to this method has no effect.</li>
 <li></li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>component 		the component that is to be opened.</li>
+<li><code>component</code> 		the component that is to be opened.</li>
 </ul>
 </li>
-<li>
+<li>Return          Future that returns error or null no errors occured.
 <ul>
-<li>callback 			callback function that returns error or null no errors occured.</li>
-</ul>
-</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]</li>
+<li>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></li>
+</ul>
+</li>
 </ul>
 </li>
 

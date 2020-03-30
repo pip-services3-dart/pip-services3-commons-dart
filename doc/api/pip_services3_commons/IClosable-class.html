@@ -197,21 +197,21 @@
     <section class="desc markdown">
       <p>Interface for components that require explicit closure.</p>
 <p>For components that require opening as well as closing 
-use [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface instead.</p>
-<p>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]
-See [<a href="pip_services3_commons/Closer-class.html">Closer</a>]</p>
+use <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface instead.</p>
+<p>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
+See <a href="pip_services3_commons/Closer-class.html">Closer</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyConnector implements ICloseable {
-    private _client: any = null;
+    dynamic _client = null;
     
     ... // The _client can be lazy created
     
-    public close(correlationId: string, callback: (err: any) =&gt; void): void {
+    Future close(String correlationId){
         if (this._client != null) {
             this._client.close();
             this._client = null;
         }
-        callback(null);
+        return new Future.delayed(new Duration());
     }
 }
 </code></pre>
@@ -286,11 +286,7 @@ See [<a href="pip_services3_commons/Closer-class.html">Closer</a>]</p>
 <li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
-<li>
-<ul>
-<li>callback 			callback function that receives error or null no errors occured.</li>
-</ul>
-</li>
+<li>Return 			  Future that receives error or null no errors occured.</li>
 </ul>
 </li>
 

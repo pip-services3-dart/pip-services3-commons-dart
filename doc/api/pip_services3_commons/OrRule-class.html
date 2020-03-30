@@ -198,9 +198,9 @@
       <p>Validation rule to combine rules with OR logical operation.
 When one of rules returns no errors, than this rule also returns no errors.
 When all rules return errors, than the rule returns all errors.</p>
-<p>See [<a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>]</p>
+<p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let schema = new Schema()
+<pre class="language-dart"><code>var schema = new Schema()
     .withRule(new OrRule(
         new ValueComparisonRule("LT", 1),
         new ValueComparisonRule("GT", 10)

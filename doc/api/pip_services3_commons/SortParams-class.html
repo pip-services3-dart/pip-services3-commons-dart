@@ -196,13 +196,13 @@
 
     <section class="desc markdown">
       <p>Defines a field name and order used to sort query results.</p>
-<p>See [<a href="pip_services3_commons/SortField-class.html">SortField</a>]</p>
+<p>See <a href="pip_services3_commons/SortField-class.html">SortField</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let filter = FilterParams.fromTuples("type", "Type1");
-let paging = new PagingParams(0, 100);
-let sorting = new SortingParams(new SortField("create_time", true));
+<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
+var paging = new PagingParams(0, 100);
+var sorting = new SortingParams(new SortField("create_time", true));
 
-myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});
+myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
 </code></pre>
     </section>
     
@@ -236,7 +236,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});
           <span class="name"><a href="pip_services3_commons/SortParams/SortParams.fromJson.html">SortParams.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          
+          Creates a new instance from json. <a href="pip_services3_commons/SortParams/SortParams.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -339,7 +339,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});
           </span>
                   </dt>
         <dd>
-          
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -348,7 +348,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) =&gt; {...});
           </span>
                   </dt>
         <dd>
-          
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="add" class="callable inherited">

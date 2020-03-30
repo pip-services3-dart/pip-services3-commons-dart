@@ -196,9 +196,9 @@
 
     <section class="desc markdown">
       <p>Validation rule to check that value is included into the list of constants.</p>
-<p>See [<a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>]</p>
+<p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let schema = new Schema()
+<pre class="language-dart"><code>var schema = new Schema()
     .withRule(new IncludedRule(1, 2, 3));
 
 schema.validate(2);      // Result: no errors

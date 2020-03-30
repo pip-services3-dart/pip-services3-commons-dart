@@ -195,28 +195,28 @@
       <div><h1><span class="kind-class">References</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>The most basic implementation of [<a href="pip_services3_commons/IReferences-class.html">IReferences</a>] to store and locate component references.</p>
-<p>See [<a href="pip_services3_commons/IReferences-class.html">IReferences</a>]</p>
+      <p>The most basic implementation of <a href="pip_services3_commons/IReferences-class.html">IReferences</a> to store and locate component references.</p>
+<p>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyController implements IReferenceable {
-    public _persistence: IMyPersistence;
+    IMyPersistence persistence;
     ...    
-    public setReferences(references: IReferences): void {
-        this._persistence = references.getOneRequired&lt;IMyPersistence&gt;(
+    void setReferences(IReferences references) {
+        this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
             new Descriptor("mygroup", "persistence", "*", "*", "1.0")
         );
     }
     ...
 }
 
-let persistence = new MyMongoDbPersistence();
+var persistence = new MyMongoDbPersistence();
 
-let controller = new MyController();
+var controller = new MyController();
 
-let references = References.fromTuples(
+var references = References.fromTuples([
     new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
     new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
-);
+]);
 controller.setReferences(references);
 </code></pre>
     </section>
@@ -288,17 +288,17 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	the locator to find a reference by.</li>
+<li><code>locator</code> 	the locator to find a reference by.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>required 	forces to raise an exception if no reference is found.</li>
+<li><code>required</code> 	forces to raise an exception if no reference is found.</li>
 </ul>
 </li>
 <li>Returns a list with matching component references.</li>
 <li></li>
-<li>@throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>] when required is set to true but no references found.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when required is set to true but no references found.</li>
 </ul>
 </li>
 
@@ -348,7 +348,7 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	the locator to find references by.	 </li>
+<li><code>locator</code> 	the locator to find references by.	 </li>
 </ul>
 </li>
 <li>Returns a matching component reference or null if nothing was found.</li>
@@ -369,11 +369,11 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	the locator to find a reference by.	 </li>
+<li><code>locator</code> 	the locator to find a reference by.	 </li>
 </ul>
 </li>
 <li>Returns a matching component reference.</li>
-<li>@throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>] when no references found.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when no references found.</li>
 </ul>
 </li>
 
@@ -391,7 +391,7 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	the locator to find references by.	 </li>
+<li><code>locator</code> 	the locator to find references by.	 </li>
 </ul>
 </li>
 <li>Returns a list with matching component references or empty list if nothing was found.</li>
@@ -414,12 +414,12 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	the locator to find references by.	 </li>
+<li><code>locator</code> 	the locator to find references by.	 </li>
 </ul>
 </li>
 <li>Returns a list with matching component references.</li>
 <li></li>
-<li>@throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>] when no references found.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when no references found.</li>
 </ul>
 </li>
 
@@ -437,12 +437,12 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	a locator to find the reference by.</li>
+<li><code>locator</code> 	a locator to find the reference by.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>component a component reference to be added.</li>
+<li><code>component</code> a component reference to be added.</li>
 </ul>
 </li>
 </ul>
@@ -460,16 +460,16 @@ controller.setReferences(references);
 <li>Removes a previously added reference that matches specified locator.
 <ul>
 <li>If many references match the locator, it removes only the first one.</li>
-<li>When all references shall be removed, use [<a href="pip_services3_commons/References/removeAll.html">removeAll</a>] method instead.</li>
+<li>When all references shall be removed, use <a href="pip_services3_commons/References/removeAll.html">removeAll</a> method instead.</li>
 <li></li>
 <li>
 <ul>
-<li>locator 	a locator to remove reference</li>
+<li><code>locator</code> 	a locator to remove reference</li>
 </ul>
 </li>
 <li>Returns the removed component reference.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/References/removeAll.html">removeAll</a>]</li>
+<li>See <a href="pip_services3_commons/References/removeAll.html">removeAll</a></li>
 </ul>
 </li>
 
@@ -487,7 +487,7 @@ controller.setReferences(references);
 <li></li>
 <li>
 <ul>
-<li>locator 	the locator to remove references by.</li>
+<li><code>locator</code> 	the locator to remove references by.</li>
 </ul>
 </li>
 <li>Returns a list, containing all removed references.</li>

@@ -23,11 +23,11 @@ class ArraySchema extends Schema {
   /**
      * Creates a new instance of validation schema and sets its values.
      * 
-     * - valueType     a type of array elements. Null means that elements may have any type.
-     * - required      (optional) true to always require non-null values.
-     * - rules         (optional) a list with validation rules.
+     * - [valueType]     a type of array elements. Null means that elements may have any type.
+     * - [required]      (optional) true to always require non-null values.
+     * - [rules]         (optional) a list with validation rules.
      * 
-     * See [[TypeCode]]
+     * See [TypeCode]
      */
   ArraySchema([dynamic valueType, bool req, List<IValidationRule> rules])
       : super(req, rules) {
@@ -48,7 +48,7 @@ class ArraySchema extends Schema {
      * Sets the type of array elements.
      * Null means that elements may have any type.
      * 
-     * - value     a type of array elements.
+     * - [value]     a type of array elements.
      */
   void setValueType(dynamic value) {
     this._valueType = value;
@@ -57,9 +57,9 @@ class ArraySchema extends Schema {
   /**
      * Validates a given value against the schema and configured validation rules.
      * 
-     * - path      a dot notation path to the value.
-     * - value     a value to be validated.
-     * - results   a list with validation results to add new results.
+     * - [path]      a dot notation path to the value.
+     * - [value]     a value to be validated.
+     * - [results]   a list with validation results to add new results.
      */
   @override
   void performValidation(

@@ -31,38 +31,38 @@ import './Descriptor.dart';
  * 
  * ### Example ###
  * 
- *     class MyComponent: IConfigurable, IReferenceable {
- *         private _dependencyResolver: DependencyResolver = new DependencyResolver();
- *         private _persistence: IMyPersistence;
+ *     class MyComponent implements IConfigurable, IReferenceable {
+ *         DependencyResolver _dependencyResolver  = new DependencyResolver();
+ *         IMyPersistence _persistence ;
  *         ...
  *         
- *         public constructor() {
+ *          MyComponent() {
  *             this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
  *         }
  *         
- *         public configure(config: ConfigParams): void {
+ *         configure(ConfigParams config ) {
  *             this._dependencyResolver.configure(config);
  *         }  
  *         
- *         public setReferences(references: IReferences): void {
+ *         setReferences(IReferences references) {
  *             this._dependencyResolver.setReferences(references);
  *             this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>("persistence");
  *         }
  *     }
  *     
  *     // Create mycomponent and set specific dependency out of many
- *     let component = new MyComponent();
- *     component.configure(ConfigParams.fromTuples(
+ *     var component = new MyComponent();
+ *     component.configure(ConfigParams.fromTuples([
  *         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
  *     // Override default persistence dependency
- *     ));
- *     component.setReferences(References.fromTuples(
+ *     ]));
+ *     component.setReferences(References.fromTuples([
  *         new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
  *         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
  *     // This dependency shall be set
- *     ));
+ *     ]));
  * 
- * See [[IReferences]]
+ * See [IReferences]
  */
 class DependencyResolver implements IReferenceable, IReconfigurable {
   var _dependencies = new Map<String, dynamic>();
@@ -71,13 +71,13 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Creates a new instance of the dependency resolver.
 	 * 
-	 * - config		(optional) default configuration where key is dependency name and value is locator (descriptor)
-	 * - references	(optional) default component references
+	 * - [config]		(optional) default configuration where key is dependency name and value is locator (descriptor)
+	 * - [references]	(optional) default component references
 	 * 
-	 * See [[ConfigParams]]
-	 * See [[configure]]
-	 * See [[IReferences]]
-	 * See [[setReferences]]
+	 * See [ConfigParams]
+	 * See [configure]
+	 * See [IReferences]
+	 * See [setReferences]
 	 */
   DependencyResolver(
       [ConfigParams config = null, IReferences references = null]) {
@@ -88,9 +88,9 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Configures the component with specified parameters.
 	 * 
-	 * - config 	configuration parameters to set.
+	 * - [config] 	configuration parameters to set.
 	 * 
-	 * See [[ConfigParams]]
+	 * See [ConfigParams]
 	 */
   void configure(ConfigParams config) {
     var dependencies = config.getSection("dependencies");
@@ -115,7 +115,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Sets the component references. References must match configured dependencies.
 	 * 
-	 * - references 	references to set.
+	 * - [references] 	references to set.
 	 */
   void setReferences(IReferences references) {
     this._references = references;
@@ -124,8 +124,8 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Adds a new dependency into this resolver.
 	 * 
-	 * - name 		the dependency's name.
-	 * - locator 	the locator to find the dependency by.
+	 * - [name] 		the dependency's name.
+	 * - [locator] 	the locator to find the dependency by.
 	 */
   void put(String name, locator) {
     this._dependencies[name] = locator;
@@ -134,7 +134,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Gets a dependency locator by its name.
 	 * 
-	 * - name 	the name of the dependency to locate.
+	 * - [name] 	the name of the dependency to locate.
 	 * Returns the dependency locator or null if locator was not configured.
 	 */
   locate(String name) {
@@ -148,7 +148,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Gets all optional dependencies by their name.
 	 * 
-	 * - name 		the dependency name to locate.
+	 * - [name] 		the dependency name to locate.
 	 * Returns a list with found dependencies or empty list of no dependencies was found.
 	 */
   List<T> getOptional<T>(String name) {
@@ -159,12 +159,12 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Gets all required dependencies by their name.
 	 * At least one dependency must be present.
-	 * If no dependencies was found it throws a [[ReferenceException]]
+	 * If no dependencies was found it throws a [ReferenceException]
 	 * 
-	 * - name 		the dependency name to locate.
+	 * - [name] 		the dependency name to locate.
 	 * Returns a list with found dependencies.
 	 * 
-	 * @throws a [[ReferenceException]] if no dependencies were found.
+	 * Throws a [ReferenceException] if no dependencies were found.
 	 */
   List<T> getRequired<T>(String name) {
     var locator = this.locate(name);
@@ -176,7 +176,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Gets one optional dependency by its name.
 	 * 
-	 * - name 		the dependency name to locate.
+	 * - [name] 		the dependency name to locate.
 	 * Returns a dependency reference or null of the dependency was not found
 	 */
   T getOneOptional<T>(String name) {
@@ -187,12 +187,12 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Gets one required dependency by its name.
 	 * At least one dependency must present.
-	 * If the dependency was found it throws a [[ReferenceException]]
+	 * If the dependency was found it throws a [ReferenceException]
 	 * 
-	 * - name 		the dependency name to locate.
+	 * - [name] 		the dependency name to locate.
 	 * Returns a dependency reference
 	 * 
-	 * @throws a [[ReferenceException]] if dependency was not found.
+	 * Throws a [ReferenceException] if dependency was not found.
 	 */
   T getOneRequired<T>(String name) {
     var locator = this.locate(name);
@@ -204,11 +204,11 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /**
 	 * Finds all matching dependencies by their name.
 	 * 
-	 * - name 		the dependency name to locate.
-	 * - required 	true to raise an exception when no dependencies are found.
+	 * - [name] 		the dependency name to locate.
+	 * - [required] 	true to raise an exception when no dependencies are found.
 	 * Returns a list of found dependencies
 	 * 
-	 * @throws a [[ReferenceException]] of required is true and no dependencies found.
+	 * Throws a [ReferenceException] of required is true and no dependencies found.
 	 */
   List<T> find<T>(String name, bool required) {
     if (name == null) throw new Exception("Name cannot be null");
@@ -226,10 +226,10 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
      * Creates a new DependencyResolver from a list of key-value pairs called tuples
 	 * where key is dependency name and value the depedency locator (descriptor).
      * 
-     * - tuples    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)
+     * - [tuples]    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)
      * Returns         a newly created DependencyResolver.
      * 
-     * See [[fromTuplesArray]]
+     * See [fromTuplesArray]
      */
   static DependencyResolver fromTuples(List tuples) {
     var result = new DependencyResolver();

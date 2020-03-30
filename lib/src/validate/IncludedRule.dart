@@ -7,11 +7,11 @@ import './ObjectComparator.dart';
 /**
  * Validation rule to check that value is included into the list of constants.
  * 
- * See [[IValidationRule]]
+ * See [IValidationRule]
  * 
  * ### Example ###
  * 
- *     let schema = new Schema()
+ *     var schema = new Schema()
  *         .withRule(new IncludedRule(1, 2, 3));
  *     
  *     schema.validate(2);      // Result: no errors
@@ -23,17 +23,17 @@ class IncludedRule implements IValidationRule {
   /**
      * Creates a new validation rule and sets its values.
      * 
-     * - values    a list of constants that value must be included to
+     * - [values]    a list of constants that value must be included to
      */
   IncludedRule(List<dynamic> values) : this._values = values {}
 
   /**
      * Validates a given value against this rule.
      * 
-     * - path      a dot notation path to the value.
-     * - schema    a schema this rule is called from
-     * - value     a value to be validated.
-     * - results   a list with validation results to add new results.
+     * - [path]      a dot notation path to the value.
+     * - [schema]    a schema this rule is called from
+     * - [value]     a value to be validated.
+     * - [results]   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {

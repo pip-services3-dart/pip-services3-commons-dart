@@ -197,7 +197,7 @@
     <section class="desc markdown">
       <p>Schema to validate user defined objects.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let schema = new ObjectSchema(false)
+<pre class="language-dart"><code>var schema = new ObjectSchema(false)
     .withOptionalProperty("id", TypeCode.String)
     .withRequiredProperty("name", TypeCode.String);
 
@@ -394,7 +394,7 @@ For null values the schema will raise errors. <a href="pip_services3_commons/Sch
                   </dt>
         <dd class="inherited">
           Validates a given value to match specified type.
-The type can be defined as a Schema, type, a type name or [<a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>]
+The type can be defined as a Schema, type, a type name or <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
 When type is a Schema, it executes validation recursively against that Schema. <a href="pip_services3_commons/Schema/performTypeValidation.html">[...]</a>
                   <div class="features">inherited</div>
 </dd>
@@ -440,7 +440,7 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and returns a [<a href="pip_services3_commons/ValidationException-class.html">ValidationException</a>] if errors were found. <a href="pip_services3_commons/Schema/validateAndReturnException.html">[...]</a>
+          Validates the given value and returns a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found. <a href="pip_services3_commons/Schema/validateAndReturnException.html">[...]</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="validateAndThrowException" class="callable inherited">
@@ -449,7 +449,7 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and throws a [<a href="pip_services3_commons/ValidationException-class.html">ValidationException</a>] if errors were found. <a href="pip_services3_commons/Schema/validateAndThrowException.html">[...]</a>
+          Validates the given value and throws a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found. <a href="pip_services3_commons/Schema/validateAndThrowException.html">[...]</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="withRule" class="callable inherited">

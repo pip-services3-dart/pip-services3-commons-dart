@@ -196,7 +196,7 @@
 
     <section class="desc markdown">
       <p>Helper class to perform property introspection and dynamic writing.</p>
-<p>In contrast to [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>] which only introspects regular objects,
+<p>In contrast to <a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a> which only introspects regular objects,
 this ObjectWriter is also able to handle maps and arrays.
 For maps properties are key-pairs identified by string keys,
 For arrays properties are elements identified by integer index.</p>
@@ -204,7 +204,7 @@ For arrays properties are elements identified by integer index.</p>
 by Pip.Services toolkit and used to support dynamic data processing.</p>
 <p>Because all languages have different casing and case sensitivity rules,
 this ObjectWriter treats all property names as case insensitive.</p>
-<p>See [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>]</p>
+<p>See <a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var myObj = new MyObject();
 
@@ -310,23 +310,26 @@ ObjectWriter.setProperty(myArray, "0", 123);
 <li></li>
 <li>The object can be a user defined object, map or array.</li>
 <li>Property values correspondently are object properties,</li>
-<li>map key-pairs or array elements with their indexes.</li>
+<li>map key-pairs or array elements with their indexes.
+<ul>
 <li></li>
 <li>If some properties do not exist or introspection fails</li>
 <li>they are just silently skipped and no errors thrown.</li>
 <li></li>
 <li>
 <ul>
-<li>obj 		 an object to write properties to.</li>
+<li><code>obj</code> 		 an object to write properties to.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>values 	a map, containing property names and their values.</li>
+<li><code>values</code> 	a map, containing property names and their values.</li>
 </ul>
 </li>
 <li></li>
-<li>See [<a href="pip_services3_commons/ObjectWriter/setProperty.html">setProperty</a>]</li>
+<li>See <a href="pip_services3_commons/ObjectWriter/setProperty.html">setProperty</a></li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -344,24 +347,27 @@ ObjectWriter.setProperty(myArray, "0", 123);
 <li></li>
 <li>The object can be a user defined object, map or array.</li>
 <li>The property name correspondently must be object property,</li>
-<li>map key or array index.</li>
+<li>map key or array index.
+<ul>
 <li></li>
 <li>If the property does not exist or introspection fails</li>
 <li>this method doesn't do anything and doesn't any throw errors.</li>
 <li></li>
 <li>
 <ul>
-<li>obj 	an object to write property to.</li>
+<li><code>obj</code> 	an object to write property to.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>name 	a name of the property to set.</li>
+<li><code>name</code> 	a name of the property to set.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>value a new value for the property to set.</li>
+<li><code>value</code> a new value for the property to set.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

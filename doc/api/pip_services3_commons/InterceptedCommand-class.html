@@ -195,30 +195,30 @@
       <div><h1><span class="kind-class">InterceptedCommand</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Implements a [<code>ICommand command</code>] wrapped by an interceptor.
+      <p>Implements a <code>ICommand command</code> wrapped by an interceptor.
 It allows to build command call chains. The interceptor can alter execution
 and delegate calls to a next command, which can be intercepted or concrete.</p>
-<p>See [<a href="pip_services3_commons/ICommand-class.html">ICommand</a>]
-See [<a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a>]</p>
+<p>See <a href="pip_services3_commons/ICommand-class.html">ICommand</a>
+See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>export class CommandLogger implements ICommandInterceptor {
+<pre class="language-dart"><code>class CommandLogger implements ICommandInterceptor {
 
-    public getName(command: ICommand): string {
+    String getName(ICommand command) {
         return command.getName();
     }
 
-    public execute(correlationId: string, command: ICommand, args: Parameters, callback: (err: any, result: any) =&gt; void): void {
-        console.log("Executed command " + command.getName());
-        command.execute(correlationId, args, callback);
+    void execute(String correlationId, ICommand command , Parameters args,) async {
+        print("Executed command " + command.getName());
+        return await command.execute(correlationId, args);
     }
 
-    private validate(command: ICommand, args: Parameters): ValidationResult[] {
+    List&lt;ValidationResult&gt; validate(ICommand command, Parameters args) {
         return command.validate(args);
     }
 }
 
-let logger = new CommandLogger();
-let loggedCommand = new InterceptedCommand(logger, command);
+var logger = new CommandLogger();
+var loggedCommand = new InterceptedCommand(logger, command);
 
 // Each called command will output: Executed command &lt;command name&gt;
 </code></pre>
@@ -286,7 +286,7 @@ about the interceptor that is being used and the next command in the chain. <a h
           </span>
                   </dt>
         <dd>
-          Executes the next command in the execution chain using the given [<code>Parameters parameters</code>] (arguments). <a href="pip_services3_commons/InterceptedCommand/execute.html">[...]</a>
+          Executes the next command in the execution chain using the given <code>Parameters parameters</code> (arguments). <a href="pip_services3_commons/InterceptedCommand/execute.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="getName" class="callable">
@@ -304,7 +304,7 @@ about the interceptor that is being used and the next command in the chain. <a h
           </span>
                   </dt>
         <dd>
-          Validates the [<code>Parameters parameters</code>] (arguments) that are to be passed to the command that is next
+          Validates the <code>Parameters parameters</code> (arguments) that are to be passed to the command that is next
 in the execution chain. <a href="pip_services3_commons/InterceptedCommand/validate.html">[...]</a>
                   <div class="features">override</div>
 </dd>

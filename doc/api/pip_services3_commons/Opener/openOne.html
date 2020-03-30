@@ -96,26 +96,25 @@
 <li>Opens specific component.
 <ul>
 <li></li>
-<li>To be opened components must implement [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>] interface.</li>
+<li>To be opened components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.</li>
 <li>If they don't the call to this method has no effect.</li>
 <li></li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>component 		the component that is to be opened.</li>
+<li><code>component</code> 		the component that is to be opened.</li>
 </ul>
 </li>
-<li>
+<li>Return          Future that returns error or null no errors occured.
 <ul>
-<li>callback 			callback function that returns error or null no errors occured.</li>
-</ul>
-</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>]</li>
+<li>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -195,18 +195,18 @@
       <div><h1><span class="kind-class">Event</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Concrete implementation of [<code>IEvent IEvent</code>] interface.
+      <p>Concrete implementation of <code>IEvent IEvent</code> interface.
 It allows to send asynchronous notifications to multiple subscribed listeners.</p>
-<p>See [<a href="pip_services3_commons/IEvent-class.html">IEvent</a>]
-See [<a href="pip_services3_commons/IEventListener-class.html">IEventListener</a>]</p>
+<p>See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
+See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let event = new Event("my_event");
+<pre class="language-dart"><code>var event = new Event("my_event");
  
 event.addListener(myListener);
 
 event.notify("123", Parameters.fromTuples(
-  "param1", "ABC",
-  "param2", 123
+  ["param1", "ABC",
+  "param2", 123]
 ));
 </code></pre>
     </section>

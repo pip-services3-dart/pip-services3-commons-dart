@@ -11,9 +11,9 @@ import 'dart:mirrors';
  * 
  * ### Example ###
  * 
- *     let myObj = new MyObject();
+ *     var myObj = new MyObject();
  *     
- *     let methods = MethodReflector.getMethodNames();
+ *     var methods = MethodReflector.getMethodNames();
  *     MethodReflector.hasMethod(myObj, "myMethod");
  *     MethodReflector.invokeMethod(myObj, "myMethod", 123);
  */
@@ -52,8 +52,8 @@ class MethodReflector {
   /**
 	 * Checks if object has a method with specified name..
 	 * 
-	 * - obj 	an object to introspect.
-	 * - name 	a name of the method to check.
+	 * - [obj] 	an object to introspect.
+	 * - [name] 	a name of the method to check.
 	 * Returns true if the object has the method and false if it doesn't.
 	 */
   static bool hasMethod(obj, String name) {
@@ -67,9 +67,9 @@ class MethodReflector {
   /**
 	 * Invokes an object method by its name with specified parameters.
 	 * 
-	 * - obj 	an object to invoke.
-	 * - name 	a name of the method to invoke.
-	 * - args 	a list of method arguments.
+	 * - [obj] 	an object to invoke.
+	 * - [name] 	a name of the method to invoke.
+	 * - [args] 	a list of method arguments.
 	 * Returns the result of the method invocation or null if method returns void.
 	 */
   static invokeMethod(obj, String name, List args) {
@@ -92,7 +92,7 @@ class MethodReflector {
   /**
      * Gets names of all methods implemented in specified object.
      * 
-     * - obj   an objec to introspect.
+     * - [obj]   an objec to introspect.
      * Returns a list with method names.
      */
   static List<String> getMethodNames(obj) {

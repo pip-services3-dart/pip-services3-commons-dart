@@ -8,7 +8,7 @@ import '../reflect/ObjectReader.dart';
 /**
  * Validation rule that compares two object properties.
  * 
- * See [[IValidationRule]]
+ * See [IValidationRule]
  * 
  * ### Example ###
  * 
@@ -27,11 +27,11 @@ class PropertiesComparisonRule implements IValidationRule {
   /**
      * Creates a new validation rule and sets its arguments.
      * 
-     * - property1    a name of the first property to compare.
-     * - operation    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
-     * - property2    a name of the second property to compare.
+     * - [property1]    a name of the first property to compare.
+     * - [operation]    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+     * - [property2]    a name of the second property to compare.
      * 
-     * See [[ObjectComparator.compare]]
+     * See [ObjectComparator.compare]
      */
   PropertiesComparisonRule(String property1, String operation, String property2)
       : this._property1 = property1,
@@ -41,10 +41,10 @@ class PropertiesComparisonRule implements IValidationRule {
   /**
      * Validates a given value against this rule.
      * 
-     * - path      a dot notation path to the value.
-     * - schema    a schema this rule is called from
-     * - value     a value to be validated.
-     * - results   a list with validation results to add new results.
+     * - [path]      a dot notation path to the value.
+     * - [schema]    a schema this rule is called from
+     * - [value]     a value to be validated.
+     * - [results]   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {

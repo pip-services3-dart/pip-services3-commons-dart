@@ -196,18 +196,18 @@
 
     <section class="desc markdown">
       <p>An interface for listener objects that receive notifications on fired events.</p>
-<p>See [<a href="pip_services3_commons/IEvent-class.html">IEvent</a>]
-See [<a href="pip_services3_commons/Event-class.html">Event</a>]</p>
+<p>See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
+See <a href="pip_services3_commons/Event-class.html">Event</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>export class MyListener implements IEventListener {
-    private onEvent(correlationId: string, event: IEvent, args: Parameters): void {
-        console.log("Fired event " + event.getName());
+<pre class="language-dart"><code>class MyListener implements IEventListener {
+     void _onEvent(String correlationId, IEvent event, Parameters args ) {
+        print("Fired event " + event.getName());
     }
 }
 
-let event = new Event("myevent");
+var event = new Event("myevent");
 event.addListener(new MyListener());
-event.notify("123", Parameters.fromTuples("param1", "ABC"));
+event.notify("123", Parameters.fromTuples(["param1", "ABC"]));
 
 // Console output: Fired event myevent
 </code></pre>
@@ -265,17 +265,17 @@ event.notify("123", Parameters.fromTuples("param1", "ABC"));
 <li></li>
 <li>
 <ul>
-<li>event 			a fired evemt</li>
+<li><code>event</code> 			a fired evemt</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>args 			    event arguments.</li>
+<li><code>args</code> 			    event arguments.</li>
 </ul>
 </li>
 </ul>

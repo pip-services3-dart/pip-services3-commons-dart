@@ -15,8 +15,8 @@ class RandomDouble {
   /**
      * Generates a random double value in the range ['minYear', 'maxYear'].
      *
-     * - min   (optional) minimum range value
-     * - max   max range value
+     * - [min]   (optional) minimum range value
+     * - [max]   max range value
      * Returns     a random double value.
      */
   static double nextDouble(double min, [double max = null]) {
@@ -33,8 +33,8 @@ class RandomDouble {
   /**
      * Updates (drifts) a double value within specified range defined
      *
-     * - value     a double value to drift.
-     * - range     (optional) a range. Default: 10% of the value
+     * - [value]     a double value to drift.
+     * - [range]     (optional) a range. Default: 10% of the value
      */
   static double updateDouble(double value, [double range = null]) {
     if (range == null) range = 0;

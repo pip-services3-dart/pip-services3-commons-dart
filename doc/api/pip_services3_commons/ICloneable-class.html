@@ -200,8 +200,8 @@
 <pre class="language-dart"><code>class MyClass implements IMyClass, ICloneable {
   MyClass() { };
 
-  public clone() {
-      var cloneObj = new (&lt;any&gt;this.constructor());
+  clone() {
+      var cloneObj = new (this.&lt;any constructor&gt;());
              
       // Copy every attribute from this to cloneObj here.
       ...

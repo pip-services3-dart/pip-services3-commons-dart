@@ -198,22 +198,21 @@
       <p>Concrete implementation of [<code>ICommand ICommand</code>] interface. Command allows to call a method
 or function using Command pattern.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let command = new Command("add", null, (correlationId, args, callback) =&gt; {
-    let param1 = args.getAsFloat("param1");
-    let param2 = args.getAsFloat("param2");
-    let result = param1 + param2;
-    callback(null, result);
+<pre class="language-dart"><code>var command = new Command("add", null, (correlationId, args) {
+    var param1 = args.getAsFloat("param1");
+    var param2 = args.getAsFloat("param2");
+    var result = param1 + param2;
+    return result;
 });
 
-command.execute(
+result = await command.execute(
   "123",
   Parameters.fromTuples(
-    "param1", 2,
-    "param2", 2
-  ),
-  (err, result) =&gt; {
-    if (err) console.error(err);
-    else console.log("2 + 2 = " + result);
+    ["param1", 2,
+    "param2", 2]
+  )).catch(err) {
+    if (err!= null) print(err);
+    else print("2 + 2 = " + result);
   }
 );
 

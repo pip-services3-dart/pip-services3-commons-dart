@@ -4,20 +4,20 @@ import './INotifiable.dart';
 /**
  * Helper class that notifies components.
  * 
- * [[INotifiable]]
+ * [INotifiable]
  */
 class Notifier {
   /**
 	 * Notifies specific component.
 	 * 
-	 * To be notiied components must implement [[INotifiable]] interface.
+	 * To be notiied components must implement [INotifiable] interface.
 	 * If they don't the call to this method has no effect.
 	 * 
-	 * - correlationId 	(optional) transaction id to trace execution through call chain.
-	 * - component 		the component that is to be notified.
-     * - args              notifiation arguments.
+	 * - [correlationId] 	(optional) transaction id to trace execution through call chain.
+	 * - [component] 		the component that is to be notified.
+   * - [args]              notifiation arguments.
 	 * 
-	 * See [[INotifiable]]
+	 * See [INotifiable]
 	 */
   static void notifyOne(String correlationId, component, Parameters args) {
     if (component is INotifiable) component.notify(correlationId, args);
@@ -26,15 +26,15 @@ class Notifier {
   /**
 	 * Notifies multiple components.
 	 * 
-	 * To be notified components must implement [[INotifiable]] interface.
+	 * To be notified components must implement [INotifiable] interface.
 	 * If they don't the call to this method has no effect.
 	 * 
-	 * - correlationId 	(optional) transaction id to trace execution through call chain.
-	 * - components 		a list of components that are to be notified.
-     * - args              notification arguments.
+	 * - [correlationId] 	(optional) transaction id to trace execution through call chain.
+	 * - [components] 		a list of components that are to be notified.
+   * - [args]              notification arguments.
 	 * 
-	 * See [[notifyOne]]
-	 * See [[INotifiable]]
+	 * See [notifyOne]
+	 * See [INotifiable]
 	 */
   static void notify(String correlationId, List components, Parameters args) {
     if (components == null) return;

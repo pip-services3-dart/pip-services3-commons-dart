@@ -213,38 +213,38 @@ name and dependency resolvers can be reconfigured to retrieve dependencies by th
 <h3 id="references">References</h3>
 <p>References must match configured dependencies.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyComponent: IConfigurable, IReferenceable {
-    private _dependencyResolver: DependencyResolver = new DependencyResolver();
-    private _persistence: IMyPersistence;
+<pre class="language-dart"><code>class MyComponent implements IConfigurable, IReferenceable {
+    DependencyResolver _dependencyResolver  = new DependencyResolver();
+    IMyPersistence _persistence ;
     ...
     
-    public constructor() {
+     MyComponent() {
         this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
     }
     
-    public configure(config: ConfigParams): void {
+    configure(ConfigParams config ) {
         this._dependencyResolver.configure(config);
     }  
     
-    public setReferences(references: IReferences): void {
+    setReferences(IReferences references) {
         this._dependencyResolver.setReferences(references);
         this._persistence = this._dependencyResolver.getOneRequired&lt;IMyPersistence&gt;("persistence");
     }
 }
 
 // Create mycomponent and set specific dependency out of many
-let component = new MyComponent();
-component.configure(ConfigParams.fromTuples(
+var component = new MyComponent();
+component.configure(ConfigParams.fromTuples([
     "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
 // Override default persistence dependency
-));
-component.setReferences(References.fromTuples(
+]));
+component.setReferences(References.fromTuples([
     new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
     new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
 // This dependency shall be set
-));
+]));
 </code></pre>
-<p>See [<a href="pip_services3_commons/IReferences-class.html">IReferences</a>]</p>
+<p>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></p>
     </section>
     
     <section>
@@ -278,19 +278,19 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>config		(optional) default configuration where key is dependency name and value is locator (descriptor)</li>
+<li><code>config</code>		(optional) default configuration where key is dependency name and value is locator (descriptor)</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>references	(optional) default component references</li>
+<li><code>references</code>	(optional) default component references</li>
 </ul>
 </li>
 <li></li>
-<li>See [<a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>]</li>
-<li>See [<a href="pip_services3_commons/DependencyResolver/configure.html">configure</a>]</li>
-<li>See [<a href="pip_services3_commons/IReferences-class.html">IReferences</a>]</li>
-<li>See [<a href="pip_services3_commons/DependencyResolver/setReferences.html">setReferences</a>]</li>
+<li>See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></li>
+<li>See <a href="pip_services3_commons/DependencyResolver/configure.html">configure</a></li>
+<li>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></li>
+<li>See <a href="pip_services3_commons/DependencyResolver/setReferences.html">setReferences</a></li>
 </ul>
 </li>
 
@@ -336,11 +336,11 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>config 	configuration parameters to set.</li>
+<li><code>config</code> 	configuration parameters to set.</li>
 </ul>
 </li>
 <li></li>
-<li>See [<a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>]</li>
+<li>See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></li>
 </ul>
 </li>
 
@@ -358,17 +358,17 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>name 		the dependency name to locate.</li>
+<li><code>name</code> 		the dependency name to locate.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>required 	true to raise an exception when no dependencies are found.</li>
+<li><code>required</code> 	true to raise an exception when no dependencies are found.</li>
 </ul>
 </li>
 <li>Returns a list of found dependencies</li>
 <li></li>
-<li>@throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>] of required is true and no dependencies found.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> of required is true and no dependencies found.</li>
 </ul>
 </li>
 
@@ -386,7 +386,7 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>name 		the dependency name to locate.</li>
+<li><code>name</code> 		the dependency name to locate.</li>
 </ul>
 </li>
 <li>Returns a dependency reference or null of the dependency was not found</li>
@@ -405,16 +405,16 @@ component.setReferences(References.fromTuples(
 <li>Gets one required dependency by its name.
 <ul>
 <li>At least one dependency must present.</li>
-<li>If the dependency was found it throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>]</li>
+<li>If the dependency was found it throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a></li>
 <li></li>
 <li>
 <ul>
-<li>name 		the dependency name to locate.</li>
+<li><code>name</code> 		the dependency name to locate.</li>
 </ul>
 </li>
 <li>Returns a dependency reference</li>
 <li></li>
-<li>@throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>] if dependency was not found.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> if dependency was not found.</li>
 </ul>
 </li>
 
@@ -432,7 +432,7 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>name 		the dependency name to locate.</li>
+<li><code>name</code> 		the dependency name to locate.</li>
 </ul>
 </li>
 <li>Returns a list with found dependencies or empty list of no dependencies was found.</li>
@@ -451,16 +451,16 @@ component.setReferences(References.fromTuples(
 <li>Gets all required dependencies by their name.
 <ul>
 <li>At least one dependency must be present.</li>
-<li>If no dependencies was found it throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>]</li>
+<li>If no dependencies was found it throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a></li>
 <li></li>
 <li>
 <ul>
-<li>name 		the dependency name to locate.</li>
+<li><code>name</code> 		the dependency name to locate.</li>
 </ul>
 </li>
 <li>Returns a list with found dependencies.</li>
 <li></li>
-<li>@throws a [<a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>] if no dependencies were found.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> if no dependencies were found.</li>
 </ul>
 </li>
 
@@ -478,7 +478,7 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>name 	the name of the dependency to locate.</li>
+<li><code>name</code> 	the name of the dependency to locate.</li>
 </ul>
 </li>
 <li>Returns the dependency locator or null if locator was not configured.</li>
@@ -499,12 +499,12 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>name 		the dependency's name.</li>
+<li><code>name</code> 		the dependency's name.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>locator 	the locator to find the dependency by.</li>
+<li><code>locator</code> 	the locator to find the dependency by.</li>
 </ul>
 </li>
 </ul>
@@ -524,7 +524,7 @@ component.setReferences(References.fromTuples(
 <li></li>
 <li>
 <ul>
-<li>references 	references to set.</li>
+<li><code>references</code> 	references to set.</li>
 </ul>
 </li>
 </ul>
@@ -585,12 +585,12 @@ where key is dependency name and value the depedency locator (descriptor).
 <li></li>
 <li>
 <ul>
-<li>tuples    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)</li>
+<li><code>tuples</code>    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)</li>
 </ul>
 </li>
 <li>Returns         a newly created DependencyResolver.</li>
 <li></li>
-<li>See [<code>fromTuplesArray</code>]</li>
+<li>See <code>fromTuplesArray</code></li>
 </ul>
 </li>
 

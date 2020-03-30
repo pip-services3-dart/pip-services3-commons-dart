@@ -198,12 +198,12 @@
       <p>Interface for components that should clean their state.</p>
 <p>Cleaning state most often is used during testing. 
 But there may be situations when it can be done in production.</p>
-<p>See [<a href="pip_services3_commons/Cleaner-class.html">Cleaner</a>]</p>
+<p>See <a href="pip_services3_commons/Cleaner-class.html">Cleaner</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyObjectWithState implements ICleanable {
-    private _state: any = {};
+    dynamic _state = {};
     ...
-    Future clear(correlationId: string) {
+    Future clear(String correlationId) {
        this._state = {};
        return new Future();
     }
@@ -263,14 +263,10 @@ But there may be situations when it can be done in production.</p>
 <li></li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
-<li>
-<ul>
-<li>callback 			callback function that receives error or null no errors occured.</li>
-</ul>
-</li>
+<li>Return 			Future that receives error or null no errors occured.</li>
 </ul>
 </li>
 

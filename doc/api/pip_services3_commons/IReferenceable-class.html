@@ -197,16 +197,16 @@
     <section class="desc markdown">
       <p>Interface for components that depends on other components. </p>
 <p>If component requires explicit notification to unset references
-it shall additionally implement [<a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>] interface.</p>
-<p>See [<a href="pip_services3_commons/IReferences-class.html">IReferences</a>]
-See [<a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>]
-See [<a href="pip_services3_commons/Referencer-class.html">Referencer</a>]</p>
+it shall additionally implement <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a> interface.</p>
+<p>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
+See <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>
+See <a href="pip_services3_commons/Referencer-class.html">Referencer</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyController implements IReferenceable {
-    public _persistence: IMyPersistence;
+    IMyPersistence persistence ;
     ...    
-    public setReferences(references: IReferences): void {
-        this._persistence = references.getOneRequired&lt;IMyPersistence&gt;(
+    void setReferences(IReferences references ) {
+        this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
             new Descriptor("mygroup", "persistence", "*", "*", "1.0")
         );
     }
@@ -283,7 +283,7 @@ See [<a href="pip_services3_commons/Referencer-class.html">Referencer</a>]</p>
 <li>references 	references to locate the component dependencies. </li>
 </ul>
 </li>
-<li>See [<a href="pip_services3_commons/IReferences-class.html">IReferences</a>]</li>
+<li>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></li>
 </ul>
 </li>
 

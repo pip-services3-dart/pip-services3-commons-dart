@@ -195,31 +195,30 @@
       <div><h1><span class="kind-class">CommandSet</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Contains a set of commands and events supported by a [<code>ICommandable commandable</code>] object.
+      <p>Contains a set of commands and events supported by a <code>ICommandable commandable</code> object.
 The CommandSet supports command interceptors to extend and the command call chain.</p>
 <p>CommandSets can be used as alternative commandable interface to a business object.
 It can be used to auto generate multiple external services for the business object
 without writing much code.</p>
-<p>See [<a href="pip_services3_commons/Command-class.html">Command</a>]
-See [<a href="pip_services3_commons/Event-class.html">Event</a>]
-See [<a href="pip_services3_commons/ICommandable-class.html">ICommandable</a>]</p>
+<p>See <a href="pip_services3_commons/Command-class.html">Command</a>
+See <a href="pip_services3_commons/Event-class.html">Event</a>
+See <a href="pip_services3_commons/ICommandable-class.html">ICommandable</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>export class MyDataCommandSet extends CommandSet {
-    private _controller: IMyDataController;
+<pre class="language-dart"><code>class MyDataCommandSet extends CommandSet {
+     IMyDataController _controller ;
 
-    constructor(controller: IMyDataController) { // Any data controller interface
-        super();
+    MyDataCommandSet(IMyDataController controller): super() { // Any data controller interface
         this._controller = controller;
         this.addCommand(this.makeGetMyDataCommand());
     }
 
-    private makeGetMyDataCommand(): ICommand {
+    ICommand _makeGetMyDataCommand()  {
         return new Command(
           'get_mydata',
           null,
-          (correlationId: string, args: Parameters, callback: (err: any, result: any) =&gt; void) =&gt; {
-              let param = args.getAsString('param');
-              this._controller.getMyData(correlationId, param, callback);
+          (String correlationId, Parameters args) {
+              var param = args.getAsString('param');
+              return this._controller.getMyData(correlationId, param);
           }
         );
     }
@@ -273,7 +272,7 @@ See [<a href="pip_services3_commons/ICommandable-class.html">ICommandable</a>]</
           </span>
                   </dt>
         <dd>
-          Adds a [<code>ICommand command</code>] to this command set. <a href="pip_services3_commons/CommandSet/addCommand.html">[...]</a>
+          Adds a <code>ICommand command</code> to this command set. <a href="pip_services3_commons/CommandSet/addCommand.html">[...]</a>
                   
 </dd>
         <dt id="addCommands" class="callable">
@@ -282,7 +281,7 @@ See [<a href="pip_services3_commons/ICommandable-class.html">ICommandable</a>]</
           </span>
                   </dt>
         <dd>
-          Adds multiple [<code>ICommand commands</code>] to this command set. <a href="pip_services3_commons/CommandSet/addCommands.html">[...]</a>
+          Adds multiple <code>ICommand commands</code> to this command set. <a href="pip_services3_commons/CommandSet/addCommands.html">[...]</a>
                   
 </dd>
         <dt id="addCommandSet" class="callable">
@@ -291,7 +290,7 @@ See [<a href="pip_services3_commons/ICommandable-class.html">ICommandable</a>]</
           </span>
                   </dt>
         <dd>
-          Adds all of the commands and events from specified [<code>CommandSet command set</code>]
+          Adds all of the commands and events from specified <code>CommandSet command set</code>
 into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[...]</a>
                   
 </dd>
@@ -301,7 +300,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Adds an [<code>IEvent event</code>] to this command set. <a href="pip_services3_commons/CommandSet/addEvent.html">[...]</a>
+          Adds an <code>IEvent event</code> to this command set. <a href="pip_services3_commons/CommandSet/addEvent.html">[...]</a>
                   
 </dd>
         <dt id="addEvents" class="callable">
@@ -310,7 +309,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Adds multiple [<code>IEvent events</code>] to this command set. <a href="pip_services3_commons/CommandSet/addEvents.html">[...]</a>
+          Adds multiple <code>IEvent events</code> to this command set. <a href="pip_services3_commons/CommandSet/addEvents.html">[...]</a>
                   
 </dd>
         <dt id="addInterceptor" class="callable">
@@ -319,7 +318,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Adds a [<code>ICommandInterceptor command interceptor</code>] to this command set. <a href="pip_services3_commons/CommandSet/addInterceptor.html">[...]</a>
+          Adds a <code>ICommandInterceptor command interceptor</code> to this command set. <a href="pip_services3_commons/CommandSet/addInterceptor.html">[...]</a>
                   
 </dd>
         <dt id="addListener" class="callable">
@@ -328,7 +327,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Adds a [<code>IEventListener listener</code>] to receive notifications on fired events. <a href="pip_services3_commons/CommandSet/addListener.html">[...]</a>
+          Adds a <code>IEventListener listener</code> to receive notifications on fired events. <a href="pip_services3_commons/CommandSet/addListener.html">[...]</a>
                   
 </dd>
         <dt id="execute" class="callable">
@@ -337,7 +336,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Executes a [<code>ICommand command</code>] specificed by its name. <a href="pip_services3_commons/CommandSet/execute.html">[...]</a>
+          Executes a <code>ICommand command</code>specificed by its name. <a href="pip_services3_commons/CommandSet/execute.html">[...]</a>
                   
 </dd>
         <dt id="findCommand" class="callable">
@@ -383,7 +382,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
                   </dt>
         <dd>
           Fires event specified by its name and notifies all registered
-[<code>IEventListener listeners</code>] <a href="pip_services3_commons/CommandSet/notify.html">[...]</a>
+<code>IEventListener listeners</code> <a href="pip_services3_commons/CommandSet/notify.html">[...]</a>
                   
 </dd>
         <dt id="removeListener" class="callable">
@@ -392,7 +391,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Removes previosly added [<code>IEventListener listener</code>]. <a href="pip_services3_commons/CommandSet/removeListener.html">[...]</a>
+          Removes previosly added <code>IEventListener listener</code>. <a href="pip_services3_commons/CommandSet/removeListener.html">[...]</a>
                   
 </dd>
         <dt id="validate" class="callable">
@@ -401,7 +400,7 @@ into this one. <a href="pip_services3_commons/CommandSet/addCommandSet.html">[..
           </span>
                   </dt>
         <dd>
-          Validates [<code>Parameters args</code>] for command specified by its name using defined schema.
+          Validates <code>Parameters args</code> for command specified by its name using defined schema.
 If validation schema is not defined than the methods returns no errors.
 It returns validation error if the command is not found. <a href="pip_services3_commons/CommandSet/validate.html">[...]</a>
                   

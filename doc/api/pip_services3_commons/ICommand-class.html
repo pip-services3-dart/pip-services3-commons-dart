@@ -197,10 +197,10 @@
     <section class="desc markdown">
       <p>An interface for Commands, which are part of the Command design pattern.
 Each command wraps a method or function and allows to call them in uniform and safe manner.</p>
-<p>See [<a href="pip_services3_commons/Command-class.html">Command</a>]
-See [<a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>]
-See [<a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a>]
-See [<a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a>]</p>
+<p>See <a href="pip_services3_commons/Command-class.html">Command</a>
+See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
+See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a>
+See <a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a></p>
     </section>
     
     <section>
@@ -293,19 +293,15 @@ See [<a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCo
 <li></li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>args 				execution arguments.</li>
+<li><code>args</code> 				execution arguments.</li>
 </ul>
 </li>
-<li>
-<ul>
-<li>callback 			callback function that receives execution result or error.</li>
-</ul>
-</li>
+<li>Return 			  Future that receives execution result or error.</li>
 </ul>
 </li>
 

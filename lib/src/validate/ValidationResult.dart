@@ -14,14 +14,14 @@ class ValidationResult {
   /**
      * Creates a new instance of validation ressult and sets its values.
      * 
-     * - path      a dot notation path of the validated element.
-     * - type      a type of the validation result: Information, Warning, or Error.
-     * - code      an error code.
-     * - message   a human readable message.
-     * - expected  an value expected by schema validation.
-     * - actual    an actual value found by schema validation.
+     * - [path]      a dot notation path of the validated element.
+     * - [type]      a type of the validation result: Information, Warning, or Error.
+     * - [code]      an error code.
+     * - [message]   a human readable message.
+     * - [expected]  an value expected by schema validation.
+     * - [actual]    an actual value found by schema validation.
      * 
-     * See [[ValidationResultType]]
+     * See [ValidationResultType]
      */
   ValidationResult(
       [String path = null,
@@ -52,7 +52,7 @@ class ValidationResult {
      * 
      * Returns the type of the validation result.
      * 
-     * See [[ValidationResultType]]
+     * See [ValidationResultType]
      */
   ValidationResultType getType() {
     return this._type;

@@ -204,16 +204,16 @@ When retrieved the values can be automatically converted on read using GetAsXXX 
 can be extracted from a ConfigMap.</p>
 <p>The ConfigParams supports serialization from/to plain strings as:
 <code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code></p>
-<p>ConfigParams are used to pass configurations to [<a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>] objects.
-They also serve as a basis for more concrete configurations such as [<code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>]
-or [<code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code>] (in the Pip.Services components package).</p>
-<p>See [<a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>]
-See [<a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>]</p>
+<p>ConfigParams are used to pass configurations to <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a> objects.
+They also serve as a basis for more concrete configurations such as <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>
+or <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code> (in the Pip.Services components package).</p>
+<p>See <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>
+See <a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var config = ConfigParams.fromTuples([
-    "section1.key1", "AAA",
+    ["section1.key1", "AAA",
     "section1.key2", 123,
-    "section2.key1", true
+    "section2.key1", true]
 ]);
         
 config.getAsString("section1.key1"); // Result: AAA
@@ -256,11 +256,11 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li></li>
 <li>
 <ul>
-<li>values 	(optional) an object to be converted into key-value pairs to initialize this config map.</li>
+<li><code>values</code> 	(optional) an object to be converted into key-value pairs to initialize this config map.</li>
 </ul>
 </li>
 <li></li>
-<li>See [<code>StringValueMap.constructor</code>]</li>
+<li>See <code>StringValueMap.constructor</code></li>
 </ul>
 </li>
 
@@ -355,12 +355,12 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li></li>
 <li>
 <ul>
-<li>section 			name of the section where add new parameters</li>
+<li><code>section</code> 			name of the section where add new parameters</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>sectionParams 	new parameters to be added.</li>
+<li><code>sectionParams</code> 	new parameters to be added.</li>
 </ul>
 </li>
 </ul>
@@ -381,7 +381,7 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li></li>
 <li>
 <ul>
-<li>section	name of the section to retrieve configuration parameters from.</li>
+<li><code>section</code>	name of the section to retrieve configuration parameters from.</li>
 </ul>
 </li>
 <li>Returns 		all configuration parameters that belong to the section named 'section'.</li>
@@ -419,12 +419,12 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li></li>
 <li>
 <ul>
-<li>configParams		ConfigMap with parameters to override the current values.</li>
+<li><code>configParams</code>		ConfigMap with parameters to override the current values.</li>
 </ul>
 </li>
 <li>Returns					a new ConfigParams object.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/ConfigParams/setDefaults.html">setDefaults</a>]</li>
+<li>See <a href="pip_services3_commons/ConfigParams/setDefaults.html">setDefaults</a></li>
 </ul>
 </li>
 
@@ -442,12 +442,12 @@ section1.toString(); // Result: key1=AAA;key2=123
 <li></li>
 <li>
 <ul>
-<li>defaultConfigParams	ConfigMap with default parameter values.</li>
+<li><code>defaultConfigParams</code>	ConfigMap with default parameter values.</li>
 </ul>
 </li>
 <li>Returns						a new ConfigParams object.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/ConfigParams/override.html">override</a>]</li>
+<li>See <a href="pip_services3_commons/ConfigParams/override.html">override</a></li>
 </ul>
 </li>
 
@@ -541,7 +541,7 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          
+          Returned JSON Map object from values of this object
                   <div class="features">inherited</div>
 </dd>
         <dt id="get" class="callable inherited">
@@ -896,7 +896,7 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd class="inherited">
-          
+          Returned inner values in Map object
                   <div class="features">inherited</div>
 </dd>
         <dt id="map" class="callable inherited">
@@ -971,7 +971,7 @@ This method has double purpose because method overrides are not supported in Jav
           </span>
                   </dt>
         <dd class="inherited">
-          
+          Initialize this object from JSON Map object
                   <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -1055,7 +1055,7 @@ The result is a semicolon-separated list of key-value pairs as
 <li></li>
 <li>
 <ul>
-<li>line 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."</li>
+<li><code>line</code> 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."</li>
 </ul>
 </li>
 <li>
@@ -1064,7 +1064,7 @@ The result is a semicolon-separated list of key-value pairs as
 </li>
 <li>Returns			a new ConfigParams object.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a>]</li>
+<li>See <a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a></li>
 </ul>
 </li>
 
@@ -1083,12 +1083,12 @@ The result is a semicolon-separated list of key-value pairs as
 <li></li>
 <li>
 <ul>
-<li>tuples	the tuples to fill a new ConfigParams object.</li>
+<li><code>tuples</code>	the tuples to fill a new ConfigParams object.</li>
 </ul>
 </li>
 <li>Returns			a new ConfigParams object.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">StringValueMap.fromTuplesArray</a>]</li>
+<li>See <a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">StringValueMap.fromTuplesArray</a></li>
 </ul>
 </li>
 
@@ -1106,7 +1106,7 @@ The result is a semicolon-separated list of key-value pairs as
 <li></li>
 <li>
 <ul>
-<li>value		an object with key-value pairs used to initialize a new ConfigParams.</li>
+<li><code>value</code>		an object with key-value pairs used to initialize a new ConfigParams.</li>
 </ul>
 </li>
 <li>Returns			a new ConfigParams object.</li>
@@ -1128,12 +1128,12 @@ The result is a semicolon-separated list of key-value pairs as
 <li></li>
 <li>
 <ul>
-<li>configs 	a list of ConfigParams objects to be merged.</li>
+<li><code>configs</code> 	a list of ConfigParams objects to be merged.</li>
 </ul>
 </li>
 <li>Returns			a new ConfigParams object.</li>
 <li></li>
-<li>See [<a href="pip_services3_commons/StringValueMap/fromMaps.html">StringValueMap.fromMaps</a>]</li>
+<li>See <a href="pip_services3_commons/StringValueMap/fromMaps.html">StringValueMap.fromMaps</a></li>
 </ul>
 </li>
 

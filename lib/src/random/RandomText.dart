@@ -179,8 +179,8 @@ class RandomText {
      * Generates a random phrase which consists of few words separated by spaces.
      * The first word is capitalized, others are not.
      *
-     * - minLength     (optional) minimum string length.
-     * - maxLength     maximum string length.
+     * - [minLength]     (optional) minimum string length.
+     * - [maxLength]     maximum string length.
      * Returns a random phrase.
      */
   static String phrase(int minLength, [int maxLength = null]) {
@@ -231,8 +231,8 @@ class RandomText {
   /**
      * Generates a random text that consists of random number of random words separated by spaces.
      *
-     * - min   (optional) a minimum number of words.
-     * - max   a maximum number of words.
+     * - [min]   (optional) a minimum number of words.
+     * - [max]   a maximum number of words.
      * Returns     a random text.
      */
   static String words(int min, [int max = null]) {
@@ -278,8 +278,8 @@ class RandomText {
   /**
      * Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs, and punctuation marks.
      *
-     * - minLength   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
-     * - maxLength   (optional) maximum amount of words to generate.
+     * - [minLength]   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
+     * - [maxLength]   (optional) maximum amount of words to generate.
      * Returns         a random text.
      */
   static String text(int minLength, [int maxLength = null]) {

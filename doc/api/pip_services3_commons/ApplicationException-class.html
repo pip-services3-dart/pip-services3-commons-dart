@@ -204,28 +204,28 @@ and support proper error propagation in microservices calls.</p>
 calls microservice(s) implemented in a different language(s), errors are returned
 throught the entire call chain and restored in their original (or close) type.</p>
 <p>Since number of potential exception types is endless, PipServices toolkit
-supports only 12 standard categories of exceptions defined in [<a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>].
-This [<a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>] class acts as a basis for
+supports only 12 standard categories of exceptions defined in <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>.
+This <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class acts as a basis for
 all other 12 standard exception types.</p>
 <p>Most exceptions have just free-form message that describes occured error.
 That may not be sufficient to create meaninful error descriptions.
-The [<a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>] class proposes an extended error definition
+The <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class proposes an extended error definition
 that has more standard fields:</p>
 <ul>
-<li>message: is a human-readable error description</li>
-<li>category: one of 12 standard error categories of errors</li>
-<li>status: numeric HTTP status code for REST invocations</li>
-<li>code: a unique error code, usually defined as "MY_ERROR_CODE"</li>
-<li>correlation_id: a unique transaction id to trace execution through a call chain</li>
-<li>details: map with error parameters that can help to recreate meaningful error description in other languages</li>
-<li>stack_trace: a stack trace</li>
-<li>cause: original error that is wrapped by this exception</li>
+<li><a href="pip_services3_commons/ApplicationException/message.html">message</a>: is a human-readable error description</li>
+<li><a href="pip_services3_commons/ApplicationException/category.html">category</a>: one of 12 standard error categories of errors</li>
+<li><a href="pip_services3_commons/ApplicationException/status.html">status</a>: numeric HTTP status code for REST invocations</li>
+<li><a href="pip_services3_commons/ApplicationException/code.html">code</a>: a unique error code, usually defined as "MY_ERROR_CODE"</li>
+<li><a href="pip_services3_commons/ApplicationException/correlation_id.html">correlation_id</a>: a unique transaction id to trace execution through a call chain</li>
+<li><a href="pip_services3_commons/ApplicationException/details.html">details</a>: map with error parameters that can help to recreate meaningful error description in other languages</li>
+<li><a href="pip_services3_commons/ApplicationException/stack_trace.html">stack_trace</a>: a stack trace</li>
+<li><a href="pip_services3_commons/ApplicationException/cause.html">cause</a>: original error that is wrapped by this exception</li>
 </ul>
 <p>ApplicationException class is not serializable. To pass errors through the wire
-it is converted into [<a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a>] object and restored on receiving end into
+it is converted into <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> object and restored on receiving end into
 identical exception type.</p>
-<p>See [<a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>]
-See [<a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a>]</p>
+<p>See <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>
+See <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a></p>
     </section>
     
     <section>

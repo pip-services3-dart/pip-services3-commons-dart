@@ -196,24 +196,25 @@
 
     <section class="desc markdown">
       <p>Interface for components that can be called to execute work.</p>
-<p>See [<a href="pip_services3_commons/Executor-class.html">Executor</a>]
-See [<a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>]
-See [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]</p>
+<p>See <a href="pip_services3_commons/Executor-class.html">Executor</a>
+See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
+See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class EchoComponent implements IExecutable {
     ...
-    public execute(correlationId: string, args: Parameters, callback: (err: any, result: any) =&gt; void): void {
-        let result = args.getAsObject("message");
-        callback(null, result);
+    Future&lt;dynamic&gt; execute(String correlationId, Parameters args)  {
+       return Future.delayed(Duration(), (){
+           return args.getAsObject("message");
+       })         
     }
 }
 
-let echo = new EchoComponent();
-let message = "Test";
-echo.execute("123", Parameters.fromTuples("message", message),
-    (err, result) =&gt; {
+var echo = new EchoComponent();
+var message = "Test";
+echo.execute("123", Parameters.fromTuples(["message", message])
+   .then((result) {
         console.log("Request: " + message + " Response: " + result);
-    }
+    })
 );
 </code></pre>
     </section>
@@ -283,19 +284,15 @@ echo.execute("123", Parameters.fromTuples("message", message),
 <li></li>
 <li>
 <ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>args 				execution arguments.</li>
+<li><code>args</code> 				execution arguments.</li>
 </ul>
 </li>
-<li>
-<ul>
-<li>callback 			callback function that receives execution result or error.</li>
-</ul>
-</li>
+<li>Return 			  Future that receives execution result or error.</li>
 </ul>
 </li>
 

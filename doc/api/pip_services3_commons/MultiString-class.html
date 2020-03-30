@@ -200,10 +200,10 @@ Language keys use two-varter codes like: 'en', 'sp', 'de', 'ru', 'fr', 'pr'.
 When translation for specified language does not exists it defaults to English ('en').
 When English does not exists it falls back to the first defined language.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var values = MultiString.fromTuples(
+<pre class="language-dart"><code>var values = MultiString.fromTuples([
     "en", "Hello World!",
     "ru", "Привет мир!"
-);
+]);
 
 var value1 = values.get('ru'); // Result: "Привет мир!"
 var value2 = values.get('pt'); // Result: "Hello World!"
@@ -225,7 +225,7 @@ var value2 = values.get('pt'); // Result: "Hello World!"
           <span class="name"><a href="pip_services3_commons/MultiString/MultiString.fromJson.html">MultiString.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          
+          Creates a new MultiString object and initializes it from json values. <a href="pip_services3_commons/MultiString/MultiString.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -281,7 +281,7 @@ var value2 = values.get('pt'); // Result: "Hello World!"
           </span>
                   </dt>
         <dd>
-          
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="get" class="callable">
@@ -310,7 +310,7 @@ When English is not found it takes the first value. <a href="pip_services3_commo
           </span>
                   </dt>
         <dd>
-          
+          Returned inner values in Map object
                   
 </dd>
         <dt id="length" class="callable">
@@ -346,7 +346,7 @@ When English is not found it takes the first value. <a href="pip_services3_commo
           </span>
                   </dt>
         <dd>
-          
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

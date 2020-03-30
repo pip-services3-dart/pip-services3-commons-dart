@@ -4,7 +4,7 @@ import './ArraySchema.dart';
 /**
  * Schema to validate [[ProjectionParams]]
  * 
- * See [[ProjectionParams]]
+ * See [ProjectionParams]
  */
 class ProjectionParamsSchema extends ArraySchema {
   /**

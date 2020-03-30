@@ -6,34 +6,35 @@ import './IClosable.dart';
  * Interface for components that require explicit opening and closing.
  * 
  * For components that perform opening on demand consider using
- * [[ICloseable]] interface instead.
+ * [ICloseable] interface instead.
  * 
- * See [[IOpenable]]
- * See [[Opener]]
+ * See [IOpenable]
+ * See [Opener]
  * 
  * ### Example ###
  * 
  *     class MyPersistence implements IOpenable {
- *         private _client: any;
+ *         dynamic _client;
  *         ...
- *         public isOpen(): boolean {
+ *         bool isOpen() {
  *             return this._client != null;
  *         } 
  *         
- *         public open(correlationId: string, callback: (err: any) => void): void {
+ *         Future open(String correlationId) {
  *             if (this.isOpen()) {
- *                 callback(null);
- *                 return;
+ *                 return Future(Duration(), (){
+ * 
+ *                  })
  *             }
  *             ...
  *         }
  *         
- *         public close(correlationId: string, callback: (err: any) => void): void {
+ *         Future close(String correlationId) async {
  *             if (this._client != null) {
- *                 this._client.close();
+ *                 result = await this._client.close();
  *                 this._client = null;
- *             }
- *             callback(null);
+ *                Future(Duration(), (){ return result})
+ *             } 
  *         }
  *        
  *         ...
@@ -50,8 +51,8 @@ abstract class IOpenable implements IClosable {
   /**
 	 * Opens the component.
 	 * 
-	 * - correlationId 	(optional) transaction id to trace execution through call chain.
-   * - callback 			callback function that receives error or null no errors occured.
+	 * - [correlationId] 	(optional) transaction id to trace execution through call chain.
+   * Return 			    Future that receives error or null no errors occured.
 	 */
   Future open(String correlationId);
 }

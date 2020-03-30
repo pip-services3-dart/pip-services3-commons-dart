@@ -21,7 +21,7 @@ class RandomString {
   /**
      * Picks a random character from a string.
      *
-     * - values    a string to pick a char from
+     * - [values]    a string to pick a char from
      * Returns         a randomly picked char.
      */
   static String pickChar(String values) {
@@ -34,7 +34,7 @@ class RandomString {
   /**
      * Picks a random string from an array of string.
      *
-     * - values    strings to pick from.
+     * - [values]    strings to pick from.
      * Returns         a randomly picked string.
      */
   static String pick(List<String> values) {
@@ -47,7 +47,7 @@ class RandomString {
   /**
      * Distorts a string by randomly replacing characters in it.
      *
-     * - value    a string to distort.
+     * - [value]    a string to distort.
      * Returns        a distored string.
      */
   static String distort(String value) {
@@ -78,8 +78,8 @@ class RandomString {
      * Generates a random string, consisting of upper and lower case letters (of the English alphabet),
      * digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
      *
-     * - minLength     (optional) minimum string length.
-     * - maxLength     maximum string length.
+     * - [minLength]     (optional) minimum string length.
+     * - [maxLength]     maximum string length.
      * Returns             a random string.
      */
   static String nextString(int minLength, int maxLength) {

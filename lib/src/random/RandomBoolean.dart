@@ -15,8 +15,8 @@ class RandomBoolean {
      * Calculates "chance" out of "max chances".
      * Example: 1 chance out of 3 chances (or 33.3%)
      * 
-     * - chance       a chance proportional to maxChances.
-     * - maxChances   a maximum number of chances
+     * - [chance]       a chance proportional to maxChances.
+     * - [maxChances]   a maximum number of chances
      */
   static bool chance(double chance, double maxChances) {
     chance = chance >= 0 ? chance : 0;

@@ -14,8 +14,8 @@ class RandomDateTime {
      * Generates a random Date in the range ['min', 'max'].
      * This method generate dates without time (or time set to 00:00:00)
      *
-     * - min   (optional) minimum range value
-     * - max   max range value
+     * - [min]   (optional) minimum range value
+     * - [max]   max range value
      * Returns     a random Date value.
      */
   static DateTime nextDate(DateTime min, [DateTime max = null]) {
@@ -37,8 +37,8 @@ class RandomDateTime {
      * Generates a random Date and time in the range ['min', 'max'].
      * This method generate dates without time (or time set to 00:00:00)
      *
-     * - min   (optional) minimum range value
-     * - max   max range value
+     * - [min]   (optional) minimum range value
+     * - [max]   max range value
      * Returns     a random Date and time value.
      */
   static DateTime nextDateTime(DateTime min, [DateTime max = null]) {
@@ -57,8 +57,8 @@ class RandomDateTime {
   /**
      * Updates (drifts) a Date value within specified range defined
      *
-     * - value     a Date value to drift.
-     * - range     (optional) a range in milliseconds. Default: 10 days
+     * - [value]     a Date value to drift.
+     * - [range]     (optional) a range in milliseconds. Default: 10 days
      */
   static DateTime updateDateTime(DateTime value, [int range = null]) {
     range = range != 0 && range != null ? range : 10 * 24 * 3600000;

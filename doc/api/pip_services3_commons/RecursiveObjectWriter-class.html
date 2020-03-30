@@ -196,11 +196,11 @@
 
     <section class="desc markdown">
       <p>Helper class to perform property introspection and dynamic writing.</p>
-<p>It is similar to [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>] but writes properties recursively
+<p>It is similar to <a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a> but writes properties recursively
 through the entire object graph. Nested property names are defined
 using dot notation as "object.subobject.property"</p>
-<p>See [<a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>]
-See [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>]</p>
+<p>See <a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a>
+See <a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a></p>
     </section>
     
 
@@ -297,12 +297,12 @@ See [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>]</
 <li></li>
 <li>
 <ul>
-<li>dest 	a destination object to write properties to.</li>
+<li><code>dest</code> 	a destination object to write properties to.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>src 	a source object to read properties from</li>
+<li><code>src</code> 	a source object to read properties from</li>
 </ul>
 </li>
 </ul>
@@ -322,23 +322,26 @@ See [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>]</
 <li></li>
 <li>The object can be a user defined object, map or array.</li>
 <li>Property values correspondently are object properties,</li>
-<li>map key-pairs or array elements with their indexes.</li>
+<li>map key-pairs or array elements with their indexes.
+<ul>
 <li></li>
 <li>If some properties do not exist or introspection fails</li>
 <li>they are just silently skipped and no errors thrown.</li>
 <li></li>
 <li>
 <ul>
-<li>obj 		 an object to write properties to.</li>
+<li><code>obj</code> 		 an object to write properties to.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>values 	a map, containing property names and their values.</li>
+<li><code>values</code> 	a map, containing property names and their values.</li>
 </ul>
 </li>
 <li></li>
-<li>See [<a href="pip_services3_commons/RecursiveObjectWriter/setProperty.html">setProperty</a>]</li>
+<li>See <a href="pip_services3_commons/RecursiveObjectWriter/setProperty.html">setProperty</a></li>
+</ul>
+</li>
 </ul>
 </li>
 
@@ -356,24 +359,27 @@ See [<a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a>]</
 <li></li>
 <li>The object can be a user defined object, map or array.</li>
 <li>The property name correspondently must be object property,</li>
-<li>map key or array index.</li>
+<li>map key or array index.
+<ul>
 <li></li>
 <li>If the property does not exist or introspection fails</li>
 <li>this method doesn't do anything and doesn't any throw errors.</li>
 <li></li>
 <li>
 <ul>
-<li>obj 	an object to write property to.</li>
+<li><code>obj</code> 	an object to write property to.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>name 	a name of the property to set.</li>
+<li><code>name</code> 	a name of the property to set.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>value a new value for the property to set.</li>
+<li><code>value</code> a new value for the property to set.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

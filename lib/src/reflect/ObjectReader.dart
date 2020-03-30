@@ -5,7 +5,7 @@ import '../convert/IntegerConverter.dart';
 /**
  * Helper class to perform property introspection and dynamic reading.
  * 
- * In contrast to [[PropertyReflector]] which only introspects regular objects,
+ * In contrast to [PropertyReflector] which only introspects regular objects,
  * this ObjectReader is also able to handle maps and arrays.
  * For maps properties are key-pairs identified by string keys,
  * For arrays properties are elements identified by integer index.
@@ -16,7 +16,7 @@ import '../convert/IntegerConverter.dart';
  * Because all languages have different casing and case sensitivity rules,
  * this ObjectReader treats all property names as case insensitive.
  *
- * See [[PropertyReflector]]
+ * See [PropertyReflector]
  * 
  * ### Example ###
  * 
@@ -40,7 +40,7 @@ class ObjectReader {
      * If object is a wrapper, it unwraps the value behind it. 
      * Otherwise it returns the same object value.
      * 
-     * - obj   an object to unwrap..
+     * - [obj]   an object to unwrap..
      * Returns an actual (unwrapped) object value. 
      */
   static getValue(obj) {
@@ -55,8 +55,8 @@ class ObjectReader {
      * The property name correspondently must be object property,
      * map key or array index.
 	 * 
-	 * - obj 	an object to introspect.
-	 * - name 	a name of the property to check.
+	 * - [obj] 	an object to introspect.
+	 * - [name] 	a name of the property to check.
 	 * Returns true if the object has the property and false if it doesn't.
      */
   static bool hasProperty(obj, String name) {
@@ -84,12 +84,12 @@ class ObjectReader {
   /**
 	 * Gets value of object property specified by its name.
 	 * 
-     * The object can be a user defined object, map or array.
-     * The property name correspondently must be object property,
-     * map key or array index.
-     * 
-	 * - obj 	an object to read property from.
-	 * - name 	a name of the property to get.
+   * The object can be a user defined object, map or array.
+   * The property name correspondently must be object property,
+   * map key or array index.
+   * 
+	 * - [obj] 	an object to read property from.
+	 * - [name] 	a name of the property to get.
 	 * Returns the property value or null if property doesn't exist or introspection failed.
      */
   static getProperty(obj, String name) {
@@ -121,7 +121,7 @@ class ObjectReader {
      * Returned property name correspondently are object properties,
      * map keys or array indexes.
      * 
-     * - obj   an objec to introspect.
+     * - [obj]   an objec to introspect.
      * Returns a list with property names.
      */
   static List<String> getPropertyNames(obj) {
@@ -154,7 +154,7 @@ class ObjectReader {
      * Returned properties correspondently are object properties,
      * map key-pairs or array elements with their indexes.
      * 
-     * - obj   an object to get properties from.
+     * - [obj]   an object to get properties from.
      * Returns a map, containing the names of the object's properties and their values.
      */
   static Map<String, dynamic> getProperties(obj) {

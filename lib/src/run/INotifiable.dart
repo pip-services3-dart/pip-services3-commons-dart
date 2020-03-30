@@ -7,19 +7,19 @@ import './Parameters.dart';
  * The notification may include optional argument that describe
  * the occured event.
  * 
- * See [[Notifier]]
- * See [[IExecutable]]
+ * See [Notifier]
+ * See [IExecutable]
  * 
  * ### Example ###
  * 
  *     class MyComponent implements INotifable {
  *         ...
- *         public notify(correlationId: string, args: Parameters): void {
+ *         void notify(String correlationId, Parameters args) {
  *             console.log("Occured event " + args.getAsString("event"));
  *         }
  *     }
  *     
- *     let myComponent = new MyComponent();
+ *     var myComponent = new MyComponent();
  *     
  *     myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
  */

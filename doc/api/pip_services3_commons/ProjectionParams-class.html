@@ -202,11 +202,11 @@ dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code
 <p>As alternative the nested format offers a more compact representation:
 <code>"field1,field2(field21,field22(field221))"</code>.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var filter = FilterParams.fromTuples("type", "Type1");
+<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
 var paging = new PagingParams(0, 100);
 var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
 
-myDataClient.getDataByFilter(filter, paging, projection, (err, page) =&gt; {...});
+myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
 </code></pre>
     </section>
     
@@ -240,7 +240,7 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) =&gt; {...}
           <span class="name"><a href="pip_services3_commons/ProjectionParams/ProjectionParams.fromJson.html">ProjectionParams.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          
+          Creates a new instance from json. <a href="pip_services3_commons/ProjectionParams/ProjectionParams.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -343,7 +343,7 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) =&gt; {...}
           </span>
                   </dt>
         <dd>
-          
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -352,7 +352,7 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) =&gt; {...}
           </span>
                   </dt>
         <dd>
-          
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="toString" class="callable">

@@ -8,7 +8,7 @@ import './ValidationResultType.dart';
  * When embedded rule returns no errors, than this rule return an error.
  * When embedded rule return errors, than the rule returns no errors.
  * 
- * See [[IValidationRule]]
+ * See [IValidationRule]
  * 
  * ### Example ###
  * 
@@ -26,17 +26,17 @@ class NotRule implements IValidationRule {
   /**
      * Creates a new validation rule and sets its values
      * 
-     * - rule     a rule to be negated.
+     * - [rule]     a rule to be negated.
      */
   NotRule(IValidationRule rule) : this._rule = rule {}
 
   /**
      * Validates a given value against this rule.
      * 
-     * - path      a dot notation path to the value.
-     * - schema    a schema this rule is called from
-     * - value     a value to be validated.
-     * - results   a list with validation results to add new results.
+     * - [path]      a dot notation path to the value.
+     * - [schema]    a schema this rule is called from
+     * - [value]     a value to be validated.
+     * - [results]   a list with validation results to add new results.
      */
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {

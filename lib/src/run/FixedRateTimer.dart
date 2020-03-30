@@ -13,26 +13,26 @@ import '../reflect/ObjectReader.dart';
  * and is often used by Pip.Services toolkit to
  * perform periodic processing and cleanup in microservices.
  * 
- * See [[INotifiable]]
+ * See [INotifiable]
  * 
  * ### Example ###
  * 
  *     class MyComponent {
- *         timer: FixedRateTimer = new FixedRateTimer(() => { this.cleanup }, 60000);
+ *         FixedRateTimer timer  = new FixedRateTimer(() { this.cleanup }, 60000);
  *         ...
- *         open(correlationId: string, callback: (err: any) => void): void {
+ *         void open(String correlationId, callback (dynamic err)) {
  *             ...
  *             timer.start();
  *             ...
  *         }
  *         
- *         open(correlationId: string, callback: (err: any) => void): void {
+ *         void close(String correlationId, callback (dynamic err)) {
  *             ...
  *             timer.stop();
  *             ...
  *         }
  *         
- *         cleanup(): void {
+ *         void cleanup() {
  *             ...
  *         }
  *         ...
@@ -49,14 +49,14 @@ class FixedRateTimer implements IClosable {
   /**
      * Creates new instance of the timer and sets its values.
      * 
-     * - taskOrCallback    (optional) a Notifiable object or callback function to call when timer is triggered.
-     * - interval          (optional) an interval to trigger timer in milliseconds.
-     * - delay             (optional) a delay before the first triggering in milliseconds.
+     * - [taskOrCallback]    (optional) a Notifiable object or callback function to call when timer is triggered.
+     * - [interval]          (optional) an interval to trigger timer in milliseconds.
+     * - [delay]             (optional) a delay before the first triggering in milliseconds.
      * 
-     * See [[setTask]]
-     * See [[setCallback]]
-     * See [[setInterval]] 
-     * See [[setDelay]]
+     * See [setTask]
+     * See [setCallback]
+     * See [setInterval] 
+     * See [setDelay]
      */
   FixedRateTimer(
       [dynamic taskOrCallback = null, int interval = null, int delay = null]) {
@@ -81,7 +81,7 @@ class FixedRateTimer implements IClosable {
   /**
      * Sets a new INotifiable object to receive notifications from this timer.
      * 
-     * - value a INotifiable object to be triggered.
+     * - [value] a INotifiable object to be triggered.
      */
   void setTask(INotifiable value) {
     this._task = value;
@@ -102,7 +102,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Sets the callback function that is called when this timer is triggered.
      * 
-     * - value the callback function to be called.
+     * - [value] the callback function to be called.
      */
   setCallback(Function() value) {
     this._callback = value;
@@ -121,7 +121,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Sets initial delay before the timer is triggered for the first time.
      * 
-     * - value a delay in milliseconds. 
+     * - [value] a delay in milliseconds. 
      */
   void setDelay(int value) {
     this._delay = value;
@@ -139,7 +139,7 @@ class FixedRateTimer implements IClosable {
   /** 
      * Sets periodic timer triggering interval.
      * 
-     * - value an interval in milliseconds.
+     * - [value] an interval in milliseconds.
      */
   void setInterval(int value) {
     this._interval = value;
@@ -160,7 +160,7 @@ class FixedRateTimer implements IClosable {
      * Initially the timer is triggered after delay.
      * After that it is triggered after interval until it is stopped.
      * 
-     * See [[stop]]
+     * See [stop]
      */
   void start() {
     // Stop previously set timer
@@ -189,7 +189,7 @@ class FixedRateTimer implements IClosable {
   /**
      * Stops the timer.
      * 
-     * See [[start]]
+     * See [start]
      */
   stop() {
     if (this._timeout != null) {
@@ -206,13 +206,13 @@ class FixedRateTimer implements IClosable {
   /**
      * Closes the timer.
      * 
-     * This is required by [[ICloseable]] interface,
+     * This is required by [ICloseable] interface,
      * but besides that it is identical to stop().
      * 
-     * - correlationId     (optional) transaction id to trace execution through call chain.
-     * - callback 			callback function that receives error or null no errors occured.
+     * - [correlationId]     (optional) transaction id to trace execution through call chain.
+     * Retrun 			      Future that receives error or null no errors occured.
      * 
-     * See [[stop]]
+     * See [stop]
      */
   Future close(String correlationId) {
     this.stop();

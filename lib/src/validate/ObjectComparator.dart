@@ -14,9 +14,9 @@ class ObjectComparator {
      * Perform comparison operation over two arguments.
      * The operation can be performed over values of any type.
      * 
-     * - value1        the first argument to compare
-     * - operation     the comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
-     * - value2        the second argument to compare
+     * - [value1]        the first argument to compare
+     * - [operation]     the comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+     * - [value2]        the second argument to compare
      * Returns result of the comparison operation
      */
   static bool compare(dynamic value1, String operation, dynamic value2) {
@@ -45,8 +45,8 @@ class ObjectComparator {
      * Checks if two values are equal.
      * The operation can be performed over values of any type.
      * 
-     * - value1    the first value to compare
-     * - value2    the second value to compare
+     * - [value1]    the first value to compare
+     * - [value2]    the second value to compare
      * Returns true if values are equal and false otherwise
      */
   static bool areEqual(dynamic value1, dynamic value2) {
@@ -60,8 +60,8 @@ class ObjectComparator {
      * Checks if two values are NOT equal
      * The operation can be performed over values of any type.
      * 
-     * - value1    the first value to compare
-     * - value2    the second value to compare
+     * - [value1]    the first value to compare
+     * - [value2]    the second value to compare
      * Returns true if values are NOT equal and false otherwise
      */
   static bool areNotEqual(dynamic value1, dynamic value2) {
@@ -72,8 +72,8 @@ class ObjectComparator {
      * Checks if first value is less than the second one.
      * The operation can be performed over numbers or strings.
      * 
-     * - value1    the first value to compare
-     * - value2    the second value to compare
+     * - [value1]    the first value to compare
+     * - [value2]    the second value to compare
      * Returns true if the first value is less than second and false otherwise.
      */
   static bool isLess(dynamic value1, dynamic value2) {
@@ -89,8 +89,8 @@ class ObjectComparator {
      * Checks if first value is greater than the second one.
      * The operation can be performed over numbers or strings.
      * 
-     * - value1    the first value to compare
-     * - value2    the second value to compare
+     * - [value1]    the first value to compare
+     * - [value2]    the second value to compare
      * Returns true if the first value is greater than second and false otherwise.
      */
   static bool isGreater(dynamic value1, dynamic value2) {
@@ -105,8 +105,8 @@ class ObjectComparator {
   /**
      * Checks if string matches a regular expression
      * 
-     * - value     a string value to match
-     * - regexp    a regular expression string
+     * - [value]     a string value to match
+     * - [regexp]    a regular expression string
      * Returns true if the value matches regular expression and false otherwise.
      */
   static bool match(dynamic value, dynamic regexp) {

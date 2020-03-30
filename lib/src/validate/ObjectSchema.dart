@@ -11,7 +11,7 @@ import './PropertySchema.dart';
  * 
  * ### Example ###
  * 
- *     let schema = new ObjectSchema(false)
+ *     var schema = new ObjectSchema(false)
  *         .withOptionalProperty("id", TypeCode.String)
  *         .withRequiredProperty("name", TypeCode.String);
  *     
@@ -28,11 +28,11 @@ class ObjectSchema extends Schema {
   /**
      * Creates a new validation schema and sets its values. 
      * 
-     * - allowUndefined    true to allow properties undefines in the schema
-     * - required          (optional) true to always require non-null values.
-     * - rules             (optional) a list with validation rules.
+     * - [allowUndefined]    true to allow properties undefines in the schema
+     * - [required]          (optional) true to always require non-null values.
+     * - [rules]             (optional) a list with validation rules.
      * 
-     * See [[IValidationRule]]
+     * See [IValidationRule]
      */
   ObjectSchema([bool allowUndefined, bool req, List<IValidationRule> rules])
       : super(req, rules) {
@@ -44,7 +44,7 @@ class ObjectSchema extends Schema {
      * 
      * Returns the list of property validation schemas.
      * 
-     * See [[PropertySchema]]
+     * See [PropertySchema]
      */
   List<PropertySchema> getProperties() {
     return this._properties;
@@ -53,9 +53,9 @@ class ObjectSchema extends Schema {
   /**
      * Sets validation schemas for object properties.
      * 
-     * - value     a list of property validation schemas.
+     * - [value]     a list of property validation schemas.
      * 
-     * See [[PropertySchema]]
+     * See [PropertySchema]
      */
   void setProperties(List<PropertySchema> value) {
     this._properties = value;
@@ -73,7 +73,7 @@ class ObjectSchema extends Schema {
   /**
      * Sets flag to allow undefined properties
      * 
-     * - value     true to allow undefined properties and false to disallow.
+     * - [value]     true to allow undefined properties and false to disallow.
      */
   void set isUndefinedAllowed(bool value) {
     this._allowUndefined = value;
@@ -85,7 +85,7 @@ class ObjectSchema extends Schema {
      * This method returns reference to this exception to implement Builder pattern
      * to chain additional calls.
      * 
-     * - value     true to allow undefined properties and false to disallow.
+     * - [value]     true to allow undefined properties and false to disallow.
      * Returns this validation schema.
      */
   ObjectSchema allowUndefined(bool value) {
@@ -99,10 +99,10 @@ class ObjectSchema extends Schema {
      * This method returns reference to this exception to implement Builder pattern
      * to chain additional calls.
      * 
-     * - schema    a property validation schema to be added.
+     * - [schema]    a property validation schema to be added.
      * Returns this validation schema.
      * 
-     * See [[PropertySchema]]
+     * See [PropertySchema]
      */
   withProperty(PropertySchema schema) {
     this._properties =
@@ -114,9 +114,9 @@ class ObjectSchema extends Schema {
   /**
      * Adds a validation schema for a required object property.
      * 
-     * - name      a property name.
-     * - type      (optional) a property schema or type.
-     * - rules     (optional) a list of property validation rules.
+     * - [name]      a property name.
+     * - [type]      (optional) a property schema or type.
+     * - [rules]     (optional) a list of property validation rules.
      */
   ObjectSchema withRequiredProperty(String name,
       [dynamic type, List<IValidationRule> rules]) {
@@ -133,9 +133,9 @@ class ObjectSchema extends Schema {
   /**
      * Adds a validation schema for an optional object property.
      * 
-     * - name      a property name.
-     * - type      (optional) a property schema or type.
-     * - rules     (optional) a list of property validation rules.
+     * - [name]      a property name.
+     * - [type]      (optional) a property schema or type.
+     * - [rules]     (optional) a list of property validation rules.
      */
   ObjectSchema withOptionalProperty(String name,
       [dynamic type, List<IValidationRule> rules]) {
@@ -151,9 +151,9 @@ class ObjectSchema extends Schema {
   /**
      * Validates a given value against the schema and configured validation rules.
      * 
-     * - path      a dot notation path to the value.
-     * - value     a value to be validated.
-     * - results   a list with validation results to add new results.
+     * - [path]      a dot notation path to the value.
+     * - [value]     a value to be validated.
+     * - [results]   a list with validation results to add new results.
      */
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {

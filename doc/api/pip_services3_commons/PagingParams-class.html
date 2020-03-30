@@ -205,10 +205,10 @@
 <p>Remember: not all implementations support the <code>total</code> parameter
 because its generation may lead to severe performance implications.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>let filter = FilterParams.fromTuples("type", "Type1");
-let paging = new PagingParams(0, 100);
+<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
+var paging = new PagingParams(0, 100);
 
-myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
+myDataClient.getDataByFilter(filter, paging, (err, page) {...});
 </code></pre>
     </section>
     
@@ -227,17 +227,17 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li></li>
 <li>
 <ul>
-<li>skip 		the number of items to skip.</li>
+<li><code>skip</code> 		the number of items to skip.</li>
 </ul>
 </li>
 <li>
 <ul>
-<li>take 		the number of items to return. </li>
+<li><code>take</code> 		the number of items to return. </li>
 </ul>
 </li>
 <li>
 <ul>
-<li>total 	true to return the total number of items.</li>
+<li><code>total</code> 	true to return the total number of items.</li>
 </ul>
 </li>
 </ul>
@@ -248,7 +248,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
           <span class="name"><a href="pip_services3_commons/PagingParams/PagingParams.fromJson.html">PagingParams.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          
+          Creates a new instance from json. <a href="pip_services3_commons/PagingParams/PagingParams.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -310,7 +310,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
           </span>
                   </dt>
         <dd>
-          
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="getSkip" class="callable">
@@ -325,7 +325,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li></li>
 <li>
 <ul>
-<li>minSkip 	the minimum number of items to skip.</li>
+<li><code>minSkip</code> 	the minimum number of items to skip.</li>
 </ul>
 </li>
 <li>Returns 		the number of items to skip.</li>
@@ -346,7 +346,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li></li>
 <li>
 <ul>
-<li>maxTake 	the maximum number of items to return.</li>
+<li><code>maxTake</code> 	the maximum number of items to return.</li>
 </ul>
 </li>
 <li>Returns 		the number of items to return.</li>
@@ -361,7 +361,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
           </span>
                   </dt>
         <dd>
-          
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -416,7 +416,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li></li>
 <li>
 <ul>
-<li>map    	a AnyValueMap or StringValueMap to initialize this PagingParams</li>
+<li><code>map</code>    	a AnyValueMap or StringValueMap to initialize this PagingParams</li>
 </ul>
 </li>
 <li>Returns         a newly created PagingParams.</li>
@@ -437,7 +437,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li></li>
 <li>
 <ul>
-<li>tuples    a list of values where odd elements are keys and the following even elements are values</li>
+<li><code>tuples</code>    a list of values where odd elements are keys and the following even elements are values</li>
 </ul>
 </li>
 <li>Returns         a newly created PagingParams.</li>
@@ -458,7 +458,7 @@ myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 <li></li>
 <li>
 <ul>
-<li>value     value to be converted</li>
+<li><code>value</code>     value to be converted</li>
 </ul>
 </li>
 <li>Returns         a newly created PagingParams.</li>

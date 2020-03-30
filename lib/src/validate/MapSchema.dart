@@ -25,13 +25,13 @@ class MapSchema extends Schema {
   /**
      * Creates a new instance of validation schema and sets its values.
      * 
-     * - keyType       a type of map keys. Null means that keys may have any type.
-     * - valueType     a type of map values. Null means that values may have any type.
-     * - required      (optional) true to always require non-null values.
-     * - rules         (optional) a list with validation rules.
+     * - [keyType]       a type of map keys. Null means that keys may have any type.
+     * - [valueType]     a type of map values. Null means that values may have any type.
+     * - [required]      (optional) true to always require non-null values.
+     * - [rules]         (optional) a list with validation rules.
      * 
-     * See [[IValidationRule]]
-     * See [[TypeCode]]
+     * See [IValidationRule]
+     * See [TypeCode]
      */
   MapSchema(
       [dynamic keyType,
@@ -57,7 +57,7 @@ class MapSchema extends Schema {
      * Sets the type of map keys.
      * Null means that keys may have any type.
      * 
-     * - value     a type of map keys.
+     * - [value]     a type of map keys.
      */
   setKeyType(dynamic value) {
     this._keyType = value;
@@ -77,7 +77,7 @@ class MapSchema extends Schema {
      * Sets the type of map values.
      * Null means that values may have any type.
      * 
-     * - value     a type of map values.
+     * - [value]     a type of map values.
      */
   setValueType(dynamic value) {
     this._valueType = value;
@@ -86,9 +86,9 @@ class MapSchema extends Schema {
   /**
      * Validates a given value against the schema and configured validation rules.
      * 
-     * - path      a dot notation path to the value.
-     * - value     a value to be validated.
-     * - results   a list with validation results to add new results.
+     * - [path]      a dot notation path to the value.
+     * - [value]     a value to be validated.
+     * - [results]   a list with validation results to add new results.
      */
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {

@@ -35,11 +35,11 @@ class Descriptor {
   /**
 	 * Creates a new instance of the descriptor.
 	 * 
-	 * - group 	a logical component group
-	 * - type 		a logical component type or contract
-	 * - kind 		a component implementation type
-	 * - name		a unique component name
-	 * - version 	a component implementation version
+	 * - [group] 	a logical component group
+	 * - [type] 		a logical component type or contract
+	 * - [kind] 		a component implementation type
+	 * - [name]		a unique component name
+	 * - [version] 	a component implementation version
 	 */
   Descriptor(
       String group, String type, String kind, String name, String version) {
@@ -109,10 +109,10 @@ class Descriptor {
 	 * Partially matches this descriptor to another descriptor.
 	 * Fields that contain "*" or null are excluded from the match.
 	 * 
-	 * - descriptor 	the descriptor to match this one against.
+	 * - [descriptor] 	the descriptor to match this one against.
 	 * Returns true if descriptors match and false otherwise 
 	 * 
-	 * See [[exactMatch]]
+	 * See [exactMatch]
 	 */
   bool match(Descriptor descriptor) {
     return this._matchField(this._group, descriptor.getGroup()) &&
@@ -132,10 +132,10 @@ class Descriptor {
 	 * Matches this descriptor to another descriptor by all fields.
 	 * No exceptions are made.
 	 * 
-	 * - descriptor 	the descriptor to match this one against.
+	 * - [descriptor] 	the descriptor to match this one against.
 	 * Returns true if descriptors match and false otherwise. 
 	 * 
-	 * See [[match]]
+	 * See [match]
 	 */
   bool exactMatch(Descriptor descriptor) {
     return this._exactMatchField(this._group, descriptor.getGroup()) &&
@@ -164,10 +164,10 @@ class Descriptor {
 	 * If value is a Descriptor it tries to match them,
 	 * otherwise the method returns false.
 	 * 
-	 * - value 	the value to match against this descriptor.
+	 * - [value] 	the value to match against this descriptor.
 	 * Returns true if the value is matching descriptor and false otherwise.
 	 * 
-	 * See [[match]]
+	 * See [match]
 	 */
   bool equals(value) {
     if (value is Descriptor) return this.match(value);
@@ -201,9 +201,9 @@ class Descriptor {
   /**
      * Parses colon-separated list of descriptor fields and returns them as a Descriptor.
      * 
-     * - value      colon-separated descriptor fields to initialize Descriptor.
+     * - [value]      colon-separated descriptor fields to initialize Descriptor.
      * Returns         a newly created Descriptor.
-	 * @throws a [[ConfigException]] if the descriptor string is of a wrong format.
+	 * @throws a [ConfigException] if the descriptor string is of a wrong format.
 	 */
   static Descriptor fromString(String value) {
     if (value == null || value.length == 0) return null;

@@ -197,11 +197,11 @@
     <section class="desc markdown">
       <p>Interface for data objects that contain their latest change time.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>export class MyData implements IStringIdentifiable, IChangeable {
-    public id: string;
-    public field1: string;
-    public field2: number;
-    public change_time: Date;
+<pre class="language-dart"><code>class MyData implements IStringIdentifiable, IChangeable {
+     String id;
+     String field1;
+     int field2;
+     DateTime change_time;
     ...
 }
 </code></pre>

@@ -1,22 +1,22 @@
 /**
  * Interface for components that require explicit clearing of references to dependent components.
  * 
- * See [[IReferences]]
- * See [[IReferenceable]]
+ * See [IReferences]
+ * See [IReferenceable]
  * 
  * ### Example ###
  * 
  *     class MyController implements IReferenceable, IUnreferenceable {
- *        public _persistence: IMyPersistence;
+ *        IMyPersistence persistence;
  *        ...    
- *        public setReferences(references: IReferences): void {
- *            this._persistence = references.getOneRequired<IMyPersistence>(
+ *        void  setReferences(IReferences references) {
+ *            this.persistence = references.getOneRequired<IMyPersistence>(
  *                new Descriptor("mygroup", "persistence", "*", "*", "1.0")
  *            );
  *        }
  *     
- *        public unsetReferences(): void {
- *            this._persistence = null;
+ *        void unsetReferences() {
+ *            this.persistence = null;
  *        }
  *        ...
  *     }
