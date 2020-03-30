@@ -4,8 +4,7 @@ This framework is part of the [Pip.Services](https://github.com/pip-services/pip
 It provides portable abstractions and patterns that can be used to implement non-trivial business logic in applications and services.
 
 This framework's key difference is its portable implementation across a variety of different languages. 
-It currently supports Java, .NET, Python, Node.js, Dart, and Golang. The code provides a reasonably thin abstraction layer 
-over most fundamental functions and delivers symmetric implementation that can be quickly ported between different platforms.
+It currently supports Java, .NET, Python, Node.js, Dart, and Golang. The code provides a reasonably thin abstraction layer over most fundamental functions and delivers symmetric implementation that can be quickly ported between different platforms.
 
 The framework's functionality is decomposed into several packages:
 
@@ -22,10 +21,10 @@ The framework's functionality is decomposed into several packages:
 
 Quick Links:
 
-* [Downloads](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/doc/Downloads.md)
+* [Downloads](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/docs/Downloads.md)
 * [API Reference](https://pip-services3-dart.github.io/pip-services3-commons-dart/index.html)
-* [Building and Testing](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/doc/Development.md)
-* [Contributing](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/doc/Development.md#contrib)
+* [Building and Testing](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/docs/Development.md)
+* [Contributing](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/docs/Development.md#contrib)
 
 ## Acknowledgements
 
