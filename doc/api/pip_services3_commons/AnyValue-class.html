@@ -195,24 +195,26 @@
       <div><h1><span class="kind-class">AnyValue</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Cross-language implementation of dynamic object what can hold value of any type.
-The stored value can be converted to different types using variety of accessor methods.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = new AnyValue("123.456");
-
-value1.getAsInteger();   // Result: 123
-value1.getAsString();    // Result: "123.456"
-value1.getAsFloat();     // Result: 123.456
-</code></pre>
-<p>See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
+      <p>/// Cross-language implementation of dynamic object what can hold value of any type.
+/// The stored value can be converted to different types using variety of accessor methods.
+/// 
+/// ### Example ###
+/// 
+///     var value1 = new AnyValue("123.456");
+///<br>
+///     value1.getAsInteger();   // Result: 123
+///     value1.getAsString();    // Result: "123.456"
+///     value1.getAsFloat();     // Result: 123.456
+/// 
+/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
+/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
+/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
+/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
+/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
+/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
+/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
+/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
+/// See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
     </section>
     
     <section>
@@ -239,13 +241,17 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           <span class="name"><a href="pip_services3_commons/AnyValue/AnyValue.html">AnyValue</a></span><span class="signature">([<span class="parameter" id="-param-value"><span class="type-annotation">dynamic</span> <span class="parameter-name">value</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          Creates a new instance of the object and assigns its value. <a href="pip_services3_commons/AnyValue/AnyValue.html">[...]</a>
+          /// Creates a new instance of the object and assigns its value.
+/// 
+/// - <code>value</code>     (optional) value to initialize this object.
         </dd>
         <dt id="AnyValue.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/AnyValue/AnyValue.fromJson.html">AnyValue.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          Creates a new instance of the object from json. <a href="pip_services3_commons/AnyValue/AnyValue.fromJson.html">[...]</a>
+          /// Creates a new instance of the object from json.
+/// 
+/// - <code>json</code>     json to initialize this object.
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -283,7 +289,9 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           </span>
                   </dt>
         <dd>
-          Creates a binary clone of this object. <a href="pip_services3_commons/AnyValue/clone.html">[...]</a>
+          /// Creates a binary clone of this object.
+/// 
+/// Returns a clone of this object.
                   <div class="features">override</div>
 </dd>
         <dt id="equals" class="callable">
@@ -292,9 +300,12 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           </span>
                   </dt>
         <dd>
-          Compares this object value to specified specified value.
-When direct comparison gives negative results it tries
-to compare values as strings. <a href="pip_services3_commons/AnyValue/equals.html">[...]</a>
+          /// Compares this object value to specified specified value.
+/// When direct comparison gives negative results it tries
+/// to compare values as strings.
+/// 
+/// - <code>obj</code>   the value to be compared with.
+/// Returns     true when objects are equal and false otherwise.
                   
 </dd>
         <dt id="equalsAsType" class="callable">
@@ -303,9 +314,14 @@ to compare values as strings. <a href="pip_services3_commons/AnyValue/equals.htm
           </span>
                   </dt>
         <dd>
-          Compares this object value to specified specified value.
-When direct comparison gives negative results it converts 
-values to type specified by type code and compare them again. <a href="pip_services3_commons/AnyValue/equalsAsType.html">[...]</a>
+          /// Compares this object value to specified specified value.
+/// When direct comparison gives negative results it converts 
+/// values to type specified by type code and compare them again.
+/// 
+/// - <code>obj</code>   the value to be compared with.
+/// Returns     true when objects are equal and false otherwise.
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toType.html">TypeConverter.toType</a>
                   
 </dd>
         <dt id="fromJson" class="callable">
@@ -314,7 +330,7 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Initialize this object from JSON Map object
+          /// Initialize this object from JSON Map object
                   
 </dd>
         <dt id="getAsArray" class="callable">
@@ -323,7 +339,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsArray.html">[...]</a>
+          /// Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.
+/// 
+/// Returns AnyArray value or empty AnyArray if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/fromValue.html">AnyValueArray.fromValue</a>
                   
 </dd>
         <dt id="getAsBoolean" class="callable">
@@ -332,7 +352,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a boolean or returns false if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsBoolean.html">[...]</a>
+          /// Converts object value into a boolean or returns false if conversion is not possible.
+/// 
+/// Returns string value or false if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsBooleanWithDefault.html">getAsBooleanWithDefault</a>
                   
 </dd>
         <dt id="getAsBooleanWithDefault" class="callable">
@@ -341,7 +365,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a boolean or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsBooleanWithDefault.html">[...]</a>
+          /// Converts object value into a boolean or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns boolean value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/BooleanConverter/toBooleanWithDefault.html">BooleanConverter.toBooleanWithDefault</a>
                   
 </dd>
         <dt id="getAsDateTime" class="callable">
@@ -350,7 +379,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a DateTime or returns current date if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsDateTime.html">[...]</a>
+          /// Converts object value into a DateTime or returns current date if conversion is not possible.
+/// 
+/// Returns DateTime value or current date if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsDateTimeWithDefault.html">getAsDateTimeWithDefault</a>
                   
 </dd>
         <dt id="getAsDateTimeWithDefault" class="callable">
@@ -359,7 +392,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a DateTime or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsDateTimeWithDefault.html">[...]</a>
+          /// Converts object value into a DateTime or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns DateTime value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DateTimeConverter/toDateTimeWithDefault.html">DateTimeConverter.toDateTimeWithDefault</a>
                   
 </dd>
         <dt id="getAsDouble" class="callable">
@@ -368,7 +406,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a double or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsDouble.html">[...]</a>
+          /// Converts object value into a double or returns 0 if conversion is not possible.
+/// 
+/// Returns double value or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsDoubleWithDefault.html">getAsDoubleWithDefault</a>
                   
 </dd>
         <dt id="getAsDoubleWithDefault" class="callable">
@@ -377,7 +419,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a double or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsDoubleWithDefault.html">[...]</a>
+          /// Converts object value into a double or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns double value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DoubleConverter/toDoubleWithDefault.html">DoubleConverter.toDoubleWithDefault</a>
                   
 </dd>
         <dt id="getAsDuration" class="callable">
@@ -386,7 +433,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a Duration or returns current date if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsDuration.html">[...]</a>
+          /// Converts object value into a Duration or returns current date if conversion is not possible.
+/// 
+/// Returns Duration value or current date if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsDurationWithDefault.html">getAsDurationWithDefault</a>
                   
 </dd>
         <dt id="getAsDurationWithDefault" class="callable">
@@ -395,7 +446,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a Duration or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsDurationWithDefault.html">[...]</a>
+          /// Converts object value into a Duration or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns Duration value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DurationConverter/toDurationWithDefault.html">DurationConverter.toDurationWithDefault</a>
                   
 </dd>
         <dt id="getAsFloat" class="callable">
@@ -404,7 +460,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a float or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsFloat.html">[...]</a>
+          /// Converts object value into a float or returns 0 if conversion is not possible.
+/// 
+/// Returns float value or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsFloatWithDefault.html">getAsFloatWithDefault</a>
                   
 </dd>
         <dt id="getAsFloatWithDefault" class="callable">
@@ -413,7 +473,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a float or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsFloatWithDefault.html">[...]</a>
+          /// Converts object value into a float or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns float value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/FloatConverter/toFloatWithDefault.html">FloatConverter.toFloatWithDefault</a>
                   
 </dd>
         <dt id="getAsInteger" class="callable">
@@ -422,7 +487,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into an integer or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsInteger.html">[...]</a>
+          /// Converts object value into an integer or returns 0 if conversion is not possible.
+/// 
+/// Returns integer value or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsIntegerWithDefault.html">getAsIntegerWithDefault</a>
                   
 </dd>
         <dt id="getAsIntegerWithDefault" class="callable">
@@ -431,7 +500,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a integer or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsIntegerWithDefault.html">[...]</a>
+          /// Converts object value into a integer or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns integer value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/IntegerConverter/toIntegerWithDefault.html">IntegerConverter.toIntegerWithDefault</a>
                   
 </dd>
         <dt id="getAsLong" class="callable">
@@ -440,7 +514,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a long or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsLong.html">[...]</a>
+          /// Converts object value into a long or returns 0 if conversion is not possible.
+/// 
+/// Returns string value or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsLongWithDefault.html">getAsLongWithDefault</a>
                   
 </dd>
         <dt id="getAsLongWithDefault" class="callable">
@@ -449,7 +527,12 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a long or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsLongWithDefault.html">[...]</a>
+          /// Converts object value into a long or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns long value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/LongConverter/toLongWithDefault.html">LongConverter.toLongWithDefault</a>
                   
 </dd>
         <dt id="getAsMap" class="callable">
@@ -458,7 +541,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into AnyMap or returns empty AnyMap if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsMap.html">[...]</a>
+          /// Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.
+/// 
+/// Returns AnyMap value or empty AnyMap if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueMap/fromValue.html">AnyValueMap.fromValue</a>
                   
 </dd>
         <dt id="getAsNullableBoolean" class="callable">
@@ -467,7 +554,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a boolean or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableBoolean.html">[...]</a>
+          /// Converts object value into a boolean or returns null if conversion is not possible.
+/// 
+/// Returns boolean value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/BooleanConverter/toNullableBoolean.html">BooleanConverter.toNullableBoolean</a>
                   
 </dd>
         <dt id="getAsNullableDateTime" class="callable">
@@ -476,7 +567,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a DateTime or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableDateTime.html">[...]</a>
+          /// Converts object value into a DateTime or returns null if conversion is not possible.
+/// 
+/// Returns DateTime value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DateTimeConverter/toNullableDateTime.html">DateTimeConverter.toNullableDateTime</a>
                   
 </dd>
         <dt id="getAsNullableDouble" class="callable">
@@ -485,7 +580,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a double or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableDouble.html">[...]</a>
+          /// Converts object value into a double or returns null if conversion is not possible.
+/// 
+/// Returns double value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DoubleConverter/toNullableDouble.html">DoubleConverter.toNullableDouble</a>
                   
 </dd>
         <dt id="getAsNullableDuration" class="callable">
@@ -494,7 +593,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a Duration or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableDuration.html">[...]</a>
+          /// Converts object value into a Duration or returns null if conversion is not possible.
+/// 
+/// Returns Duration value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DurationConverter/toNullableDuration.html">DurationConverter.toNullableDuration</a>
                   
 </dd>
         <dt id="getAsNullableFloat" class="callable">
@@ -503,7 +606,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a float or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableFloat.html">[...]</a>
+          /// Converts object value into a float or returns null if conversion is not possible.
+/// 
+/// Returns float value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/FloatConverter/toNullableFloat.html">FloatConverter.toNullableFloat</a>
                   
 </dd>
         <dt id="getAsNullableInteger" class="callable">
@@ -512,7 +619,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into an integer or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableInteger.html">[...]</a>
+          /// Converts object value into an integer or returns null if conversion is not possible.
+/// 
+/// Returns integer value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/IntegerConverter/toNullableInteger.html">IntegerConverter.toNullableInteger</a>
                   
 </dd>
         <dt id="getAsNullableLong" class="callable">
@@ -521,7 +632,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a long or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableLong.html">[...]</a>
+          /// Converts object value into a long or returns null if conversion is not possible.
+/// 
+/// Returns long value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/LongConverter/toNullableLong.html">LongConverter.toNullableLong</a>
                   
 </dd>
         <dt id="getAsNullableString" class="callable">
@@ -530,7 +645,11 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a string or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsNullableString.html">[...]</a>
+          /// Converts object value into a string or returns null if conversion is not possible.
+/// 
+/// Returns string value or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringConverter/toNullableString.html">StringConverter.toNullableString</a>
                   
 </dd>
         <dt id="getAsNullableType" class="callable">
@@ -539,8 +658,13 @@ values to type specified by type code and compare them again. <a href="pip_servi
           </span>
                   </dt>
         <dd>
-          Converts object value into a value defined by specied typecode.
-If conversion is not possible it returns null. <a href="pip_services3_commons/AnyValue/getAsNullableType.html">[...]</a>
+          /// Converts object value into a value defined by specied typecode.
+/// If conversion is not possible it returns null.
+/// 
+/// - <code>type</code>      the TypeCode that defined the type of the result
+/// Returns value defined by the typecode or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">TypeConverter.toNullableType</a>
                   
 </dd>
         <dt id="getAsObject" class="callable">
@@ -549,7 +673,9 @@ If conversion is not possible it returns null. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Gets the value stored in this object without any conversions <a href="pip_services3_commons/AnyValue/getAsObject.html">[...]</a>
+          /// Gets the value stored in this object without any conversions
+/// 
+/// Returns the object value.
                   
 </dd>
         <dt id="getAsString" class="callable">
@@ -558,7 +684,11 @@ If conversion is not possible it returns null. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Converts object value into a string or returns "" if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsString.html">[...]</a>
+          /// Converts object value into a string or returns "" if conversion is not possible.
+/// 
+/// Returns string value or "" if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsStringWithDefault.html">getAsStringWithDefault</a>
                   
 </dd>
         <dt id="getAsStringWithDefault" class="callable">
@@ -567,7 +697,12 @@ If conversion is not possible it returns null. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Converts object value into a string or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValue/getAsStringWithDefault.html">[...]</a>
+          /// Converts object value into a string or returns default value if conversion is not possible.
+/// 
+/// - <code>defaultValue</code>      the default value.
+/// Returns string value or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringConverter/toStringWithDefault.html">StringConverter.toStringWithDefault</a>
                   
 </dd>
         <dt id="getAsType" class="callable">
@@ -576,8 +711,13 @@ If conversion is not possible it returns null. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Converts object value into a value defined by specied typecode.
-If conversion is not possible it returns default value for the specified type. <a href="pip_services3_commons/AnyValue/getAsType.html">[...]</a>
+          /// Converts object value into a value defined by specied typecode.
+/// If conversion is not possible it returns default value for the specified type.
+/// 
+/// - <code>typeCode</code>    the TypeCode that defined the type of the result
+/// Returns value defined by the typecode or type default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue/getAsTypeWithDefault.html">getAsTypeWithDefault</a>
                   
 </dd>
         <dt id="getAsTypeWithDefault" class="callable">
@@ -586,8 +726,14 @@ If conversion is not possible it returns default value for the specified type. <
           </span>
                   </dt>
         <dd>
-          Converts object value into a value defined by specied typecode.
-If conversion is not possible it returns default value. <a href="pip_services3_commons/AnyValue/getAsTypeWithDefault.html">[...]</a>
+          /// Converts object value into a value defined by specied typecode.
+/// If conversion is not possible it returns default value.
+/// 
+/// - <code>typeCode</code>      the TypeCode that defined the type of the result
+/// - defaultValue  the default value
+/// Returns value defined by the typecode or type default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toTypeWithDefault.html">TypeConverter.toTypeWithDefault</a>
                   
 </dd>
         <dt id="getTypeCode" class="callable">
@@ -596,7 +742,11 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Gets type code for the value stored in this object. <a href="pip_services3_commons/AnyValue/getTypeCode.html">[...]</a>
+          /// Gets type code for the value stored in this object.
+/// 
+/// Returns type code of the object value. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">TypeConverter.toTypeCode</a>
                   
 </dd>
         <dt id="innerValue" class="callable">
@@ -605,7 +755,7 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Returned inner values in Map object
+          /// Returned inner values in Map object
                   
 </dd>
         <dt id="setAsObject" class="callable">
@@ -614,7 +764,9 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Sets a new value for this object <a href="pip_services3_commons/AnyValue/setAsObject.html">[...]</a>
+          /// Sets a new value for this object
+/// 
+/// - <code>value</code>     the new object value.
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -623,7 +775,7 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Returned JSON Map object from values of this object
+          /// Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toString" class="callable">
@@ -632,7 +784,9 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Gets a string representation of the object. <a href="pip_services3_commons/AnyValue/toString.html">[...]</a>
+          /// Gets a string representation of the object.
+/// 
+/// Returns a string representation of the object. <a href="pip_services3_commons/AnyValue/toString.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

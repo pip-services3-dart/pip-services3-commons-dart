@@ -195,31 +195,43 @@
       <div><h1><span class="kind-class">Command</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Concrete implementation of [<code>ICommand ICommand</code>] interface. Command allows to call a method
-or function using Command pattern.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var command = new Command("add", null, (correlationId, args) {
-    var param1 = args.getAsFloat("param1");
-    var param2 = args.getAsFloat("param2");
-    var result = param1 + param2;
-    return result;
-});
-
-result = await command.execute(
-  "123",
-  Parameters.fromTuples(
-    ["param1", 2,
-    "param2", 2]
-  )).catch(err) {
-    if (err!= null) print(err);
-    else print("2 + 2 = " + result);
-  }
-);
-
-// Console output: 2 + 2 = 4
-</code></pre>
-<p>See [<a href="pip_services3_commons/ICommand-class.html">ICommand</a>]
-See [<a href="pip_services3_commons/CommandSet-class.html">CommandSet</a>]</p>
+      <p>/// Concrete implementation of [<code>ICommand ICommand</code>] interface. Command allows to call a method
+/// or function using Command pattern.</p>
+<ul>
+<li></li>
+</ul>
+<p>/// ### Example ###</p>
+<ul>
+<li></li>
+</ul>
+<p>///     var command = new Command("add", null, (correlationId, args) {
+///         var param1 = args.getAsFloat("param1");
+///         var param2 = args.getAsFloat("param2");
+///         var result = param1 + param2;
+///         return result;
+///     });</p>
+<ul>
+<li></li>
+</ul>
+<p>///     result = await command.execute(
+///       "123",
+///       Parameters.fromTuples(
+///         <code>"param1", 2,
+///         "param2", 2</code>
+///       )).catch(err) {
+///         if (err!= null) print(err);
+///         else print("2 + 2 = " + result);
+///       }
+///     );</p>
+<ul>
+<li></li>
+</ul>
+<p>///     // Console output: 2 + 2 = 4</p>
+<ul>
+<li></li>
+</ul>
+<p>/// See [<a href="pip_services3_commons/ICommand-class.html">ICommand</a>]
+/// See [<a href="pip_services3_commons/CommandSet-class.html">CommandSet</a>]</p>
     </section>
     
     <section>
@@ -246,7 +258,7 @@ See [<a href="pip_services3_commons/CommandSet-class.html">CommandSet</a>]</p>
           <span class="name"><a href="pip_services3_commons/Command/Command.html">Command</a></span><span class="signature">(<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span>, </span> <span class="parameter" id="-param-schema"><span class="type-annotation"><a href="pip_services3_commons/Schema-class.html">Schema</a></span> <span class="parameter-name">schema</span>, </span> <span class="parameter" id="-param-func"><span class="type-annotation">dynamic</span> <span class="parameter-name">func</span></span>)</span>
         </dt>
         <dd>
-          Creates a new command object and assigns it's parameters. <a href="pip_services3_commons/Command/Command.html">[...]</a>
+          /// Creates a new command object and assigns it's parameters. <a href="pip_services3_commons/Command/Command.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -283,9 +295,9 @@ See [<a href="pip_services3_commons/CommandSet-class.html">CommandSet</a>]</p>
           </span>
                   </dt>
         <dd>
-          Executes the command. Before execution it validates [<code>Parameters args</code>] using
-the defined schema. The command execution intercepts exceptions raised
-by the called function and returns them as an error in callback. <a href="pip_services3_commons/Command/execute.html">[...]</a>
+          /// Executes the command. Before execution it validates [<code>Parameters args</code>] using
+/// the defined schema. The command execution intercepts exceptions raised
+/// by the called function and returns them as an error in callback. <a href="pip_services3_commons/Command/execute.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="getName" class="callable">
@@ -294,8 +306,8 @@ by the called function and returns them as an error in callback. <a href="pip_se
           </span>
                   </dt>
         <dd>
-          Gets the command name.
-Returns the name of this command.
+          /// Gets the command name.
+/// Returns the name of this command.
                   <div class="features">override</div>
 </dd>
         <dt id="validate" class="callable">
@@ -304,7 +316,7 @@ Returns the name of this command.
           </span>
                   </dt>
         <dd>
-          Validates the command [<code>Parameters args</code>] before execution using the defined schema. <a href="pip_services3_commons/Command/validate.html">[...]</a>
+          /// Validates the command [<code>Parameters args</code>] before execution using the defined schema. <a href="pip_services3_commons/Command/validate.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

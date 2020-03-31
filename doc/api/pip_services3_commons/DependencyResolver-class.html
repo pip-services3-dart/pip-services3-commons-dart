@@ -195,56 +195,62 @@
       <div><h1><span class="kind-class">DependencyResolver</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Helper class for resolving component dependencies.</p>
-<p>The resolver is configured to resolve named dependencies by specific locator.
-During deployment the dependency locator can be changed.</p>
-<p>This mechanism can be used to clarify specific dependency among several alternatives.
-Typically components are configured to retrieve the first dependency that matches
-logical group, type and version. But if container contains more than one instance
-and resolution has to be specific about those instances, they can be given a unique
-name and dependency resolvers can be reconfigured to retrieve dependencies by their name.</p>
-<h3 id="configuration-parameters">Configuration parameters</h3>
-<p>dependencies:</p>
-<ul>
-<li><code>dependency name 1</code>: Dependency 1 locator (descriptor)</li>
-<li>...</li>
-<li><code>dependency name N</code>: Dependency N locator (descriptor)</li>
-</ul>
-<h3 id="references">References</h3>
-<p>References must match configured dependencies.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyComponent implements IConfigurable, IReferenceable {
-    DependencyResolver _dependencyResolver  = new DependencyResolver();
-    IMyPersistence _persistence ;
-    ...
-    
-     MyComponent() {
-        this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
-    }
-    
-    configure(ConfigParams config ) {
-        this._dependencyResolver.configure(config);
-    }  
-    
-    setReferences(IReferences references) {
-        this._dependencyResolver.setReferences(references);
-        this._persistence = this._dependencyResolver.getOneRequired&lt;IMyPersistence&gt;("persistence");
-    }
-}
-
-// Create mycomponent and set specific dependency out of many
-var component = new MyComponent();
-component.configure(ConfigParams.fromTuples([
-    "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
-// Override default persistence dependency
-]));
-component.setReferences(References.fromTuples([
-    new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
-    new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
-// This dependency shall be set
-]));
-</code></pre>
-<p>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></p>
+      <p>/// Helper class for resolving component dependencies.
+/// 
+/// The resolver is configured to resolve named dependencies by specific locator.
+/// During deployment the dependency locator can be changed.
+/// 
+/// This mechanism can be used to clarify specific dependency among several alternatives.
+/// Typically components are configured to retrieve the first dependency that matches
+/// logical group, type and version. But if container contains more than one instance
+/// and resolution has to be specific about those instances, they can be given a unique
+/// name and dependency resolvers can be reconfigured to retrieve dependencies by their name.
+/// 
+/// ### Configuration parameters ###
+/// 
+/// dependencies:
+/// - <code>dependency name 1</code>: Dependency 1 locator (descriptor)
+/// - ...
+/// - <code>dependency name N</code>: Dependency N locator (descriptor)
+/// 
+/// ### References ###
+/// 
+/// References must match configured dependencies.
+/// 
+/// ### Example ###
+/// 
+///     class MyComponent implements IConfigurable, IReferenceable {
+///         DependencyResolver _dependencyResolver  = new DependencyResolver();
+///         IMyPersistence _persistence ;
+///         ...
+///<br>
+///          MyComponent() {
+///             this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0"));
+///         }
+///<br>
+///         configure(ConfigParams config ) {
+///             this._dependencyResolver.configure(config);
+///         }<br>
+///<br>
+///         setReferences(IReferences references) {
+///             this._dependencyResolver.setReferences(references);
+///             this._persistence = this._dependencyResolver.getOneRequired<imypersistence>("persistence");
+///         }
+///     }
+///<br>
+///     // Create mycomponent and set specific dependency out of many
+///     var component = new MyComponent();
+///     component.configure(ConfigParams.fromTuples(<code>
+///         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
+///     // Override default persistence dependency
+///     </code>));
+///     component.setReferences(References.fromTuples(<code>
+///         new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
+///         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
+///     // This dependency shall be set
+///     </code>));
+/// 
+/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></imypersistence></p>
     </section>
     
     <section>
@@ -272,28 +278,15 @@ component.setReferences(References.fromTuples([
           <span class="name"><a href="pip_services3_commons/DependencyResolver/DependencyResolver.html">DependencyResolver</a></span><span class="signature">([<span class="parameter" id="-param-config"><span class="type-annotation"><a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></span> <span class="parameter-name">config</span> = <span class="default-value">null</span>, </span> <span class="parameter" id="-param-references"><span class="type-annotation"><a href="pip_services3_commons/IReferences-class.html">IReferences</a></span> <span class="parameter-name">references</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          
-<li>Creates a new instance of the dependency resolver.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>config</code>		(optional) default configuration where key is dependency name and value is locator (descriptor)</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>references</code>	(optional) default component references</li>
-</ul>
-</li>
-<li></li>
-<li>See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></li>
-<li>See <a href="pip_services3_commons/DependencyResolver/configure.html">configure</a></li>
-<li>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></li>
-<li>See <a href="pip_services3_commons/DependencyResolver/setReferences.html">setReferences</a></li>
-</ul>
-</li>
-
+          /// Creates a new instance of the dependency resolver.
+/// 
+/// - <code>config</code>		(optional) default configuration where key is dependency name and value is locator (descriptor)
+	/// - <code>references</code>	(optional) default component references
+	/// 
+	/// See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>
+	/// See <a href="pip_services3_commons/DependencyResolver/configure.html">configure</a>
+	/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
+	/// See <a href="pip_services3_commons/DependencyResolver/setReferences.html">setReferences</a>
         </dd>
       </dl>
     </section>
@@ -330,20 +323,11 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Configures the component with specified parameters.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>config</code> 	configuration parameters to set.</li>
-</ul>
-</li>
-<li></li>
-<li>See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></li>
-</ul>
-</li>
-
+          /// Configures the component with specified parameters.
+/// 
+/// - <code>config</code> 	configuration parameters to set.
+	/// 
+	/// See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>
                   <div class="features">override</div>
 </dd>
         <dt id="find" class="callable">
@@ -352,26 +336,13 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Finds all matching dependencies by their name.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		the dependency name to locate.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>required</code> 	true to raise an exception when no dependencies are found.</li>
-</ul>
-</li>
-<li>Returns a list of found dependencies</li>
-<li></li>
-<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> of required is true and no dependencies found.</li>
-</ul>
-</li>
-
+          /// Finds all matching dependencies by their name.
+/// 
+/// - <code>name</code> 		the dependency name to locate.
+	/// - <code>required</code> 	true to raise an exception when no dependencies are found.
+	/// Returns a list of found dependencies
+	/// 
+	/// Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> of required is true and no dependencies found.
                   
 </dd>
         <dt id="getOneOptional" class="callable">
@@ -380,19 +351,10 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Gets one optional dependency by its name.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		the dependency name to locate.</li>
-</ul>
-</li>
-<li>Returns a dependency reference or null of the dependency was not found</li>
-</ul>
-</li>
-
+          /// Gets one optional dependency by its name.
+/// 
+/// - <code>name</code> 		the dependency name to locate.
+	/// Returns a dependency reference or null of the dependency was not found
                   
 </dd>
         <dt id="getOneRequired" class="callable">
@@ -401,23 +363,14 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Gets one required dependency by its name.
-<ul>
-<li>At least one dependency must present.</li>
-<li>If the dependency was found it throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a></li>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		the dependency name to locate.</li>
-</ul>
-</li>
-<li>Returns a dependency reference</li>
-<li></li>
-<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> if dependency was not found.</li>
-</ul>
-</li>
-
+          /// Gets one required dependency by its name.
+/// At least one dependency must present.
+/// If the dependency was found it throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>
+	/// 
+	/// - <code>name</code> 		the dependency name to locate.
+	/// Returns a dependency reference
+	/// 
+	/// Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> if dependency was not found.
                   
 </dd>
         <dt id="getOptional" class="callable">
@@ -426,19 +379,10 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Gets all optional dependencies by their name.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		the dependency name to locate.</li>
-</ul>
-</li>
-<li>Returns a list with found dependencies or empty list of no dependencies was found.</li>
-</ul>
-</li>
-
+          /// Gets all optional dependencies by their name.
+/// 
+/// - <code>name</code> 		the dependency name to locate.
+	/// Returns a list with found dependencies or empty list of no dependencies was found.
                   
 </dd>
         <dt id="getRequired" class="callable">
@@ -447,23 +391,14 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Gets all required dependencies by their name.
-<ul>
-<li>At least one dependency must be present.</li>
-<li>If no dependencies was found it throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a></li>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		the dependency name to locate.</li>
-</ul>
-</li>
-<li>Returns a list with found dependencies.</li>
-<li></li>
-<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> if no dependencies were found.</li>
-</ul>
-</li>
-
+          /// Gets all required dependencies by their name.
+/// At least one dependency must be present.
+/// If no dependencies was found it throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a>
+	/// 
+	/// - <code>name</code> 		the dependency name to locate.
+	/// Returns a list with found dependencies.
+	/// 
+	/// Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> if no dependencies were found.
                   
 </dd>
         <dt id="locate" class="callable">
@@ -472,19 +407,10 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Gets a dependency locator by its name.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 	the name of the dependency to locate.</li>
-</ul>
-</li>
-<li>Returns the dependency locator or null if locator was not configured.</li>
-</ul>
-</li>
-
+          /// Gets a dependency locator by its name.
+/// 
+/// - <code>name</code> 	the name of the dependency to locate.
+	/// Returns the dependency locator or null if locator was not configured.
                   
 </dd>
         <dt id="put" class="callable">
@@ -493,23 +419,10 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Adds a new dependency into this resolver.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		the dependency's name.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>locator</code> 	the locator to find the dependency by.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Adds a new dependency into this resolver.
+/// 
+/// - <code>name</code> 		the dependency's name.
+	/// - <code>locator</code> 	the locator to find the dependency by.
                   
 </dd>
         <dt id="setReferences" class="callable">
@@ -518,18 +431,9 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Sets the component references. References must match configured dependencies.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>references</code> 	references to set.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Sets the component references. References must match configured dependencies.
+/// 
+/// - <code>references</code> 	references to set.
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -578,22 +482,13 @@ component.setReferences(References.fromTuples([
           </span>
                   </dt>
         <dd>
-          
-<li>Creates a new DependencyResolver from a list of key-value pairs called tuples
-where key is dependency name and value the depedency locator (descriptor).
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>tuples</code>    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)</li>
-</ul>
-</li>
-<li>Returns         a newly created DependencyResolver.</li>
-<li></li>
-<li>See <code>fromTuplesArray</code></li>
-</ul>
-</li>
-
+          /// Creates a new DependencyResolver from a list of key-value pairs called tuples
+/// where key is dependency name and value the depedency locator (descriptor).
+/// 
+/// - <code>tuples</code>    a list of values where odd elements are dependency name and the following even elements are dependency locator (descriptor)
+   /// Returns         a newly created DependencyResolver.
+   /// 
+   /// See <code>fromTuplesArray</code>
                   
 </dd>
       </dl>

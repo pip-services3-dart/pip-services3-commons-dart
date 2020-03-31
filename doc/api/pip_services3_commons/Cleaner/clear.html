@@ -90,33 +90,17 @@
       
     </section>
     <section class="desc markdown">
-      <ul>
-<li>Clears state of multiple components.
-<ul>
-<li></li>
-<li>To be cleaned state components must implement <a href="pip_services3_commons/ICleanable-class.html">ICleanable</a> interface.</li>
-<li>If they don't the call to this method has no effect.</li>
-<li></li>
-<li>
-<ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>components 		the list of components that are to be cleaned.</li>
-</ul>
-</li>
-<li>Retrun 			  Future that returns error or null no errors occured.
-<ul>
-<li></li>
-<li>See <a href="pip_services3_commons/Cleaner/clearOne.html">clearOne</a></li>
-<li>See <a href="pip_services3_commons/ICleanable-class.html">ICleanable</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+      <p>/// Clears state of multiple components.
+/// 
+/// To be cleaned state components must implement <a href="pip_services3_commons/ICleanable-class.html">ICleanable</a> interface.
+	/// If they don't the call to this method has no effect.
+	/// 
+	/// - correlationId 	(optional) transaction id to trace execution through call chain.
+	/// - components 		the list of components that are to be cleaned.
+  /// Retrun 			  Future that returns error or null no errors occured.
+	/// 
+	/// See <a href="pip_services3_commons/Cleaner/clearOne.html">clearOne</a>
+	/// See <a href="pip_services3_commons/ICleanable-class.html">ICleanable</a></p>
     </section>
     
     

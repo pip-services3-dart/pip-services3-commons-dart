@@ -8,27 +8,27 @@ import '../convert/TypeCode.dart';
 import '../convert/TypeConverter.dart';
 
 /**
- * Basic schema that validates values against a set of validation rules.
- * 
- * This schema is used as a basis for specific schemas to validate 
- * objects, project properties, arrays and maps.
- * 
- * See [ObjectSchema]
- * See [PropertySchema]
- * See [ArraySchema]
- * See [MapSchema]
+/// Basic schema that validates values against a set of validation rules.
+/// 
+/// This schema is used as a basis for specific schemas to validate 
+/// objects, project properties, arrays and maps.
+/// 
+/// See [ObjectSchema]
+/// See [PropertySchema]
+/// See [ArraySchema]
+/// See [MapSchema]
  */
 class Schema {
   bool _required;
   List<IValidationRule> _rules;
 
   /**
-     * Creates a new instance of validation schema and sets its values.
-     * 
-     * - [required]  (optional) true to always require non-null values.
-     * - [rules]     (optional) a list with validation rules.
-     * 
-     * See [IValidationRule]
+    /// Creates a new instance of validation schema and sets its values.
+    /// 
+    /// - [required]  (optional) true to always require non-null values.
+    /// - [rules]     (optional) a list with validation rules.
+    /// 
+    /// See [IValidationRule]
      */
   Schema([bool req, List<IValidationRule> rules]) {
     this._required = req;
@@ -37,52 +37,52 @@ class Schema {
   }
 
   /**
-     * Gets a flag that always requires non-null values.
-     * For null values it raises a validation error.
-     * 
-     * Returns true to always require non-null values and false to allow null values.
+    /// Gets a flag that always requires non-null values.
+    /// For null values it raises a validation error.
+    /// 
+    /// Returns true to always require non-null values and false to allow null values.
      */
   bool isRequired() {
     return this._required;
   }
 
   /**
-     * Sets a flag that always requires non-null values.
-     * 
-     * - [value] true to always require non-null values and false to allow null values.
+    /// Sets a flag that always requires non-null values.
+    /// 
+    /// - [value] true to always require non-null values and false to allow null values.
      */
   setRequired(bool value) {
     this._required = value;
   }
 
   /**
-     * Gets validation rules to check values against.
-     * 
-     * Returns a list with validation rules.
+    /// Gets validation rules to check values against.
+    /// 
+    /// Returns a list with validation rules.
      */
   List<IValidationRule> getRules() {
     return this._rules;
   }
 
   /**
-     * Sets validation rules to check values against.
-     * 
-     * - [value] a list with validation rules.
+    /// Sets validation rules to check values against.
+    /// 
+    /// - [value] a list with validation rules.
      */
   setRules(List<IValidationRule> value) {
     this._rules = value;
   }
 
   /**
-     * Makes validated values always required (non-null).
-     * For null values the schema will raise errors.
-     * 
-     * This method returns reference to this exception to implement Builder pattern
-     * to chain additional calls.
-     * 
-     * Returns this validation schema
-     * 
-     * See [makeOptional]
+    /// Makes validated values always required (non-null).
+    /// For null values the schema will raise errors.
+    /// 
+    /// This method returns reference to this exception to implement Builder pattern
+    /// to chain additional calls.
+    /// 
+    /// Returns this validation schema
+    /// 
+    /// See [makeOptional]
      */
   Schema makeRequired() {
     this._required = true;
@@ -90,15 +90,15 @@ class Schema {
   }
 
   /**
-     * Makes validated values optional.
-     * Validation for null values will be skipped.
-     * 
-     * This method returns reference to this exception to implement Builder pattern
-     * to chain additional calls.
-     * 
-     * Returns this validation schema
-     * 
-     * See [makeRequired]
+    /// Makes validated values optional.
+    /// Validation for null values will be skipped.
+    /// 
+    /// This method returns reference to this exception to implement Builder pattern
+    /// to chain additional calls.
+    /// 
+    /// Returns this validation schema
+    /// 
+    /// See [makeRequired]
      */
   Schema makeOptional() {
     this._required = false;
@@ -106,13 +106,13 @@ class Schema {
   }
 
   /**
-     * Adds validation rule to this schema.
-     * 
-     * This method returns reference to this exception to implement Builder pattern
-     * to chain additional calls.
-     * 
-     * - [rule]  a validation rule to be added.
-     * Returns this validation schema.
+    /// Adds validation rule to this schema.
+    /// 
+    /// This method returns reference to this exception to implement Builder pattern
+    /// to chain additional calls.
+    /// 
+    /// - [rule]  a validation rule to be added.
+    /// Returns this validation schema.
      */
   Schema withRule(IValidationRule rule) {
     if (this._rules == null) {
@@ -123,11 +123,11 @@ class Schema {
   }
 
   /**
-     * Validates a given value against the schema and configured validation rules.
-     * 
-     * - [path]      a dot notation path to the value.
-     * - [value]     a value to be validated.
-     * - [results]   a list with validation results to add new results.
+    /// Validates a given value against the schema and configured validation rules.
+    /// 
+    /// - [path]      a dot notation path to the value.
+    /// - [value]     a value to be validated.
+    /// - [results]   a list with validation results to add new results.
      */
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
@@ -158,16 +158,16 @@ class Schema {
   }
 
   /**
-     * Validates a given value to match specified type.
-     * The type can be defined as a Schema, type, a type name or [TypeCode]
-     * When type is a Schema, it executes validation recursively against that Schema.
-     * 
-     * - [path]      a dot notation path to the value.
-     * - [type]      a type to match the value type
-     * - [value]     a value to be validated.
-     * - [results]   a list with validation results to add new results.
-     * 
-     * See [performValidation]
+    /// Validates a given value to match specified type.
+    /// The type can be defined as a Schema, type, a type name or [TypeCode]
+    /// When type is a Schema, it executes validation recursively against that Schema.
+    /// 
+    /// - [path]      a dot notation path to the value.
+    /// - [type]      a type to match the value type
+    /// - [value]     a value to be validated.
+    /// - [results]   a list with validation results to add new results.
+    /// 
+    /// See [performValidation]
      */
   void performTypeValidation(String path, dynamic type, dynamic value,
       List<ValidationResult> results) {
@@ -205,12 +205,12 @@ class Schema {
   }
 
   /**
-     * Validates the given value and results validation results.
-     * 
-     * - [value]     a value to be validated.
-     * Returns a list with validation results.
-     * 
-     * See [ValidationResult]
+    /// Validates the given value and results validation results.
+    /// 
+    /// - [value]     a value to be validated.
+    /// Returns a list with validation results.
+    /// 
+    /// See [ValidationResult]
      */
   List<ValidationResult> validate(dynamic value) {
     var results = List<ValidationResult>();
@@ -219,11 +219,11 @@ class Schema {
   }
 
   /**
-     * Validates the given value and returns a [ValidationException] if errors were found.
-     * 
-     * - [correlationId]     (optional) transaction id to trace execution through call chain.
-     * - [value]             a value to be validated.
-     * - [strict]            true to treat warnings as errors.
+    /// Validates the given value and returns a [ValidationException] if errors were found.
+    /// 
+    /// - [correlationId]     (optional) transaction id to trace execution through call chain.
+    /// - [value]             a value to be validated.
+    /// - [strict]            true to treat warnings as errors.
      */
   ValidationException validateAndReturnException(
       String correlationId, dynamic value,
@@ -233,13 +233,13 @@ class Schema {
   }
 
   /**
-     * Validates the given value and throws a [ValidationException] if errors were found.
-     * 
-     * - [correlationId]     (optional) transaction id to trace execution through call chain.
-     * - [value]             a value to be validated.
-     * - [strict]            true to treat warnings as errors.
-     * 
-     * See [ValidationException.throwExceptionIfNeeded]
+    /// Validates the given value and throws a [ValidationException] if errors were found.
+    /// 
+    /// - [correlationId]     (optional) transaction id to trace execution through call chain.
+    /// - [value]             a value to be validated.
+    /// - [strict]            true to treat warnings as errors.
+    /// 
+    /// See [ValidationException.throwExceptionIfNeeded]
      */
   void validateAndThrowException(String correlationId, dynamic value,
       [bool strict = false]) {

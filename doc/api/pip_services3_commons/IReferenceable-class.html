@@ -195,24 +195,27 @@
       <div><h1><span class="kind-class">IReferenceable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Interface for components that depends on other components. </p>
-<p>If component requires explicit notification to unset references
-it shall additionally implement <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a> interface.</p>
-<p>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
-See <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>
-See <a href="pip_services3_commons/Referencer-class.html">Referencer</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyController implements IReferenceable {
-    IMyPersistence persistence ;
-    ...    
-    void setReferences(IReferences references ) {
-        this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
-            new Descriptor("mygroup", "persistence", "*", "*", "1.0")
-        );
-    }
-    ...
-}
-</code></pre>
+      <p>/// Interface for components that depends on other components. 
+/// 
+/// If component requires explicit notification to unset references
+/// it shall additionally implement <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a> interface.
+/// 
+/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
+/// See <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>
+/// See <a href="pip_services3_commons/Referencer-class.html">Referencer</a>
+/// 
+/// ### Example ###
+/// 
+///     class MyController implements IReferenceable {
+///         IMyPersistence persistence ;
+///         ...<br>
+///         void setReferences(IReferences references ) {
+///             this.persistence = references.getOneRequired<imypersistence>(
+///                 new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0")
+///             );
+///         }
+///         ...
+///     }</imypersistence></p>
     </section>
     
     <section>
@@ -274,19 +277,10 @@ See <a href="pip_services3_commons/Referencer-class.html">Referencer</a></p>
           </span>
                   </dt>
         <dd>
-          
-<li>Sets references to dependent components.
-<ul>
-<li></li>
-<li>
-<ul>
-<li>references 	references to locate the component dependencies. </li>
-</ul>
-</li>
-<li>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></li>
-</ul>
-</li>
-
+          /// Sets references to dependent components.
+/// 
+/// - references 	references to locate the component dependencies. 
+/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

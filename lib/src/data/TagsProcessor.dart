@@ -1,7 +1,7 @@
 /**
- * Helper class to extract and process search tags from objects.
- * The search tags can be kept individually or embedded as hash tags inside text
- * like "This text has #hash_tag that can be used for search."
+/// Helper class to extract and process search tags from objects.
+/// The search tags can be kept individually or embedded as hash tags inside text
+/// like "This text has #hash_tag that can be used for search."
  */
 class TagsProcessor {
   static final _NORMALIZE_REGEX = r"(_|#)+";
@@ -10,11 +10,11 @@ class TagsProcessor {
   static final _HASHTAG_REGEX = r"#\w+";
 
   /**
-     * Normalizes a tag by replacing special symbols like '_' and '#' with spaces.
-     * When tags are normalized then can be presented to user in similar shape and form.
+    /// Normalizes a tag by replacing special symbols like '_' and '#' with spaces.
+    /// When tags are normalized then can be presented to user in similar shape and form.
      *
-     * - [tag]   the tag to normalize.
-     * Returns      a normalized tag.
+    /// - [tag]   the tag to normalize.
+    /// Returns      a normalized tag.
      */
   static String normalizeTag(String tag) {
     return tag != null
@@ -23,12 +23,12 @@ class TagsProcessor {
   }
 
   /**
-     * Compress a tag by removing special symbols like spaces, '_' and '#'
-     * and converting the tag to lower case.
-     * When tags are compressed they can be matched in search queries.
+    /// Compress a tag by removing special symbols like spaces, '_' and '#'
+    /// and converting the tag to lower case.
+    /// When tags are compressed they can be matched in search queries.
      *
-     * - [tag]   the tag to compress.
-     * Returns      a compressed tag.
+    /// - [tag]   the tag to compress.
+    /// Returns      a compressed tag.
      */
   static String compressTag(String tag) {
     return tag != null
@@ -37,11 +37,11 @@ class TagsProcessor {
   }
 
   /**
-     * Compares two tags using their compressed form.
+    /// Compares two tags using their compressed form.
      *
-     * - [tag1]  the first tag.
-     * - [tag2]  the second tag.
-     * Returns      true if the tags are equal and false otherwise.
+    /// - [tag1]  the first tag.
+    /// - [tag2]  the second tag.
+    /// Returns      true if the tags are equal and false otherwise.
      */
   static bool equalTags(String tag1, String tag2) {
     if (tag1 == null && tag2 == null) return true;
@@ -50,20 +50,20 @@ class TagsProcessor {
   }
 
   /**
-     * Normalizes a list of tags.
+    /// Normalizes a list of tags.
      *
-     * - [tags]  the tags to normalize.
-     * Returns      a list with normalized tags.
+    /// - [tags]  the tags to normalize.
+    /// Returns      a list with normalized tags.
      */
   static List<String> normalizeTags(List<String> tags) {
     return tags.map((String tag) => normalizeTag(tag)).toList();
   }
 
   /**
-     * Normalizes a comma-separated list of tags.
+    /// Normalizes a comma-separated list of tags.
      *
-     * - tagList  a comma-separated list of tags to normalize.
-     * Returns      a list with normalized tags.
+    /// - tagList  a comma-separated list of tags to normalize.
+    /// Returns      a list with normalized tags.
      */
   static List<String> normalizeTagList(String tagList) {
     var tags = tagList.split(new RegExp(_SPLIT_REGEX));
@@ -71,20 +71,20 @@ class TagsProcessor {
   }
 
   /**
-     * Compresses a list of tags.
+    /// Compresses a list of tags.
      *
-     * - [tags]  the tags to compress.
-     * Returns      a list with normalized tags.
+    /// - [tags]  the tags to compress.
+    /// Returns      a list with normalized tags.
      */
   static List<String> compressTags(List<String> tags) {
     return tags.map((String tag) => compressTag(tag)).toList();
   }
 
   /**
-     * Compresses a comma-separated list of tags.
+    /// Compresses a comma-separated list of tags.
      *
-     * - [tagList]  a comma-separated list of tags to compress.
-     * Returns      a list with compressed tags.
+    /// - [tagList]  a comma-separated list of tags to compress.
+    /// Returns      a list with compressed tags.
      */
   static List<String> compressTagList(String tagList) {
     var tags = tagList.split(new RegExp(_SPLIT_REGEX));
@@ -92,10 +92,10 @@ class TagsProcessor {
   }
 
   /**
-     * Extracts hash tags from a text.
+    /// Extracts hash tags from a text.
      *
-     * - [text]    a text that contains hash tags
-     * Returns        a list with extracted and compressed tags.
+    /// - [text]    a text that contains hash tags
+    /// Returns        a list with extracted and compressed tags.
      */
   static List<String> extractHashTags(String text) {
     var tags = new List<String>();
@@ -126,11 +126,11 @@ class TagsProcessor {
   }
 
   /**
-     * Extracts hash tags from selected fields in an object.
+    /// Extracts hash tags from selected fields in an object.
      *
-     * - [obj]           an object which contains hash tags.
-     * - [searchFields]  a list of fields in the objects where to extract tags
-     * Returns              a list of extracted and compressed tags.
+    /// - [obj]           an object which contains hash tags.
+    /// - [searchFields]  a list of fields in the objects where to extract tags
+    /// Returns              a list of extracted and compressed tags.
      */
   static List<String> extractHashTagsFromValue(
       dynamic obj, List<String> searchFields) {

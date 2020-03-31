@@ -195,14 +195,15 @@
       <div><h1><span class="kind-class">ArraySchema</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Schema to validate arrays.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new ArraySchema(TypeCode.String);
-
-schema.validate(["A", "B", "C"]);    // Result: no errors
-schema.validate([1, 2, 3]);          // Result: element type mismatch
-schema.validate("A");                // Result: type mismatch
-</code></pre>
+      <p>/// Schema to validate arrays.
+/// 
+/// ### Example ###
+/// 
+///     var schema = new ArraySchema(TypeCode.String);
+///<br>
+///     schema.validate(<code>"A", "B", "C"</code>);    // Result: no errors
+///     schema.validate(<code>1, 2, 3</code>);          // Result: element type mismatch
+///     schema.validate("A");                // Result: type mismatch</p>
     </section>
     
     <section>
@@ -233,7 +234,13 @@ schema.validate("A");                // Result: type mismatch
           <span class="name"><a href="pip_services3_commons/ArraySchema/ArraySchema.html">ArraySchema</a></span><span class="signature">([<span class="parameter" id="-param-valueType"><span class="type-annotation">dynamic</span> <span class="parameter-name">valueType</span>, </span> <span class="parameter" id="-param-req"><span class="type-annotation">bool</span> <span class="parameter-name">req</span>, </span> <span class="parameter" id="-param-rules"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></span>&gt;</span></span> <span class="parameter-name">rules</span></span> ])</span>
         </dt>
         <dd>
-          Creates a new instance of validation schema and sets its values. <a href="pip_services3_commons/ArraySchema/ArraySchema.html">[...]</a>
+          /// Creates a new instance of validation schema and sets its values.
+/// 
+/// - <code>valueType</code>     a type of array elements. Null means that elements may have any type.
+/// - <code>required</code>      (optional) true to always require non-null values.
+/// - <code>rules</code>         (optional) a list with validation rules.
+/// 
+/// See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
         </dd>
       </dl>
     </section>
@@ -270,8 +277,10 @@ schema.validate("A");                // Result: type mismatch
           </span>
                   </dt>
         <dd>
-          Gets the type of array elements.
-Null means that elements may have any type. <a href="pip_services3_commons/ArraySchema/getValueType.html">[...]</a>
+          /// Gets the type of array elements.
+/// Null means that elements may have any type.
+/// 
+/// Returns the type of array elements.
                   
 </dd>
         <dt id="performValidation" class="callable">
@@ -280,7 +289,11 @@ Null means that elements may have any type. <a href="pip_services3_commons/Array
           </span>
                   </dt>
         <dd>
-          Validates a given value against the schema and configured validation rules. <a href="pip_services3_commons/ArraySchema/performValidation.html">[...]</a>
+          /// Validates a given value against the schema and configured validation rules.
+/// 
+/// - <code>path</code>      a dot notation path to the value.
+/// - <code>value</code>     a value to be validated.
+/// - <code>results</code>   a list with validation results to add new results.
                   <div class="features">override</div>
 </dd>
         <dt id="setValueType" class="callable">
@@ -289,8 +302,10 @@ Null means that elements may have any type. <a href="pip_services3_commons/Array
           </span>
                   </dt>
         <dd>
-          Sets the type of array elements.
-Null means that elements may have any type. <a href="pip_services3_commons/ArraySchema/setValueType.html">[...]</a>
+          /// Sets the type of array elements.
+/// Null means that elements may have any type.
+/// 
+/// - <code>value</code>     a type of array elements.
                   
 </dd>
         <dt id="getRules" class="callable inherited">
@@ -299,7 +314,9 @@ Null means that elements may have any type. <a href="pip_services3_commons/Array
           </span>
                   </dt>
         <dd class="inherited">
-          Gets validation rules to check values against. <a href="pip_services3_commons/Schema/getRules.html">[...]</a>
+          /// Gets validation rules to check values against.
+/// 
+/// Returns a list with validation rules.
                   <div class="features">inherited</div>
 </dd>
         <dt id="isRequired" class="callable inherited">
@@ -308,8 +325,10 @@ Null means that elements may have any type. <a href="pip_services3_commons/Array
           </span>
                   </dt>
         <dd class="inherited">
-          Gets a flag that always requires non-null values.
-For null values it raises a validation error. <a href="pip_services3_commons/Schema/isRequired.html">[...]</a>
+          /// Gets a flag that always requires non-null values.
+/// For null values it raises a validation error.
+/// 
+/// Returns true to always require non-null values and false to allow null values.
                   <div class="features">inherited</div>
 </dd>
         <dt id="makeOptional" class="callable inherited">
@@ -318,8 +337,15 @@ For null values it raises a validation error. <a href="pip_services3_commons/Sch
           </span>
                   </dt>
         <dd class="inherited">
-          Makes validated values optional.
-Validation for null values will be skipped. <a href="pip_services3_commons/Schema/makeOptional.html">[...]</a>
+          /// Makes validated values optional.
+/// Validation for null values will be skipped.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// Returns this validation schema
+/// 
+/// See <a href="pip_services3_commons/Schema/makeRequired.html">makeRequired</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="makeRequired" class="callable inherited">
@@ -328,8 +354,15 @@ Validation for null values will be skipped. <a href="pip_services3_commons/Schem
           </span>
                   </dt>
         <dd class="inherited">
-          Makes validated values always required (non-null).
-For null values the schema will raise errors. <a href="pip_services3_commons/Schema/makeRequired.html">[...]</a>
+          /// Makes validated values always required (non-null).
+/// For null values the schema will raise errors.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// Returns this validation schema
+/// 
+/// See <a href="pip_services3_commons/Schema/makeOptional.html">makeOptional</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -347,9 +380,16 @@ For null values the schema will raise errors. <a href="pip_services3_commons/Sch
           </span>
                   </dt>
         <dd class="inherited">
-          Validates a given value to match specified type.
-The type can be defined as a Schema, type, a type name or <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
-When type is a Schema, it executes validation recursively against that Schema. <a href="pip_services3_commons/Schema/performTypeValidation.html">[...]</a>
+          /// Validates a given value to match specified type.
+/// The type can be defined as a Schema, type, a type name or <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
+/// When type is a Schema, it executes validation recursively against that Schema.
+/// 
+/// - <code>path</code>      a dot notation path to the value.
+/// - <code>type</code>      a type to match the value type
+/// - <code>value</code>     a value to be validated.
+/// - <code>results</code>   a list with validation results to add new results.
+/// 
+/// See <a href="pip_services3_commons/ArraySchema/performValidation.html">performValidation</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="setRequired" class="callable inherited">
@@ -358,7 +398,9 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a flag that always requires non-null values. <a href="pip_services3_commons/Schema/setRequired.html">[...]</a>
+          /// Sets a flag that always requires non-null values.
+/// 
+/// - <code>value</code> true to always require non-null values and false to allow null values.
                   <div class="features">inherited</div>
 </dd>
         <dt id="setRules" class="callable inherited">
@@ -367,7 +409,9 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Sets validation rules to check values against. <a href="pip_services3_commons/Schema/setRules.html">[...]</a>
+          /// Sets validation rules to check values against.
+/// 
+/// - <code>value</code> a list with validation rules.
                   <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -385,7 +429,12 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and results validation results. <a href="pip_services3_commons/Schema/validate.html">[...]</a>
+          /// Validates the given value and results validation results.
+/// 
+/// - <code>value</code>     a value to be validated.
+/// Returns a list with validation results.
+/// 
+/// See <a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="validateAndReturnException" class="callable inherited">
@@ -394,7 +443,11 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and returns a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found. <a href="pip_services3_commons/Schema/validateAndReturnException.html">[...]</a>
+          /// Validates the given value and returns a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found.
+/// 
+/// - <code>correlationId</code>     (optional) transaction id to trace execution through call chain.
+/// - <code>value</code>             a value to be validated.
+/// - <code>strict</code>            true to treat warnings as errors.
                   <div class="features">inherited</div>
 </dd>
         <dt id="validateAndThrowException" class="callable inherited">
@@ -403,7 +456,13 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and throws a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found. <a href="pip_services3_commons/Schema/validateAndThrowException.html">[...]</a>
+          /// Validates the given value and throws a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found.
+/// 
+/// - <code>correlationId</code>     (optional) transaction id to trace execution through call chain.
+/// - <code>value</code>             a value to be validated.
+/// - <code>strict</code>            true to treat warnings as errors.
+/// 
+/// See <a href="pip_services3_commons/ValidationException/throwExceptionIfNeeded.html">ValidationException.throwExceptionIfNeeded</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="withRule" class="callable inherited">
@@ -412,7 +471,13 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Adds validation rule to this schema. <a href="pip_services3_commons/Schema/withRule.html">[...]</a>
+          /// Adds validation rule to this schema.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>rule</code>  a validation rule to be added.
+/// Returns this validation schema.
                   <div class="features">inherited</div>
 </dd>
       </dl>

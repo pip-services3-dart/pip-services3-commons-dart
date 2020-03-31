@@ -195,20 +195,19 @@
       <div><h1><span class="kind-class">StringConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into strings using extended conversion rules:</p>
-<ul>
-<li>Numbers: are converted with '.' as decimal point</li>
-<li>DateTime: using ISO format</li>
-<li>Boolean: "true" for true and "false" for false</li>
-<li>Arrays: as comma-separated list</li>
-<li>Other objects: using <code>toString()</code> method</li>
-</ul>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = StringConverter.ToString(123.456); // Result: "123.456"
-var value2 = StringConverter.ToString(true); // Result: "true"
-var value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: "2018-01-01T00:00:00.00"
-var value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
-</code></pre>
+      <p>/// Converts arbitrary values into strings using extended conversion rules:
+/// - Numbers: are converted with '.' as decimal point
+/// - DateTime: using ISO format
+/// - Boolean: "true" for true and "false" for false
+/// - Arrays: as comma-separated list
+/// - Other objects: using <code>toString()</code> method
+/// 
+/// ### Example ###
+/// 
+///     var value1 = StringConverter.ToString(123.456); // Result: "123.456"
+///     var value2 = StringConverter.ToString(true); // Result: "true"
+///     var value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: "2018-01-01T00:00:00.00"
+///     var value4 = StringConverter.ToString(<code>1,2,3</code>); // Result: "1,2,3"</p>
     </section>
     
 
@@ -297,7 +296,10 @@ var value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
           </span>
                   </dt>
         <dd>
-          Converts value into string or returns null when value is null. <a href="pip_services3_commons/StringConverter/toNullableString.html">[...]</a>
+          /// Converts value into string or returns null when value is null.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         string value or null when value is null.
                   
 </dd>
         <dt id="toString2" class="callable">
@@ -306,7 +308,12 @@ var value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
           </span>
                   </dt>
         <dd>
-          Converts value into string or returns "" when value is null. <a href="pip_services3_commons/StringConverter/toString2.html">[...]</a>
+          /// Converts value into string or returns "" when value is null.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         string value or "" when value is null.
+/// 
+/// See [<a href="pip_services3_commons/StringConverter/toStringWithDefault.html">toStringWithDefault</a>]
                   
 </dd>
         <dt id="toStringWithDefault" class="callable">
@@ -315,7 +322,13 @@ var value4 = StringConverter.ToString([1,2,3]); // Result: "1,2,3"
           </span>
                   </dt>
         <dd>
-          Converts value into string or returns default when value is null. <a href="pip_services3_commons/StringConverter/toStringWithDefault.html">[...]</a>
+          /// Converts value into string or returns default when value is null.
+/// 
+/// - <code>value</code>         the value to convert.
+/// - defaultValue  the default value.
+/// Returns             string value or default when value is null.
+/// 
+/// See [<a href="pip_services3_commons/StringConverter/toNullableString.html">toNullableString</a>]
                   
 </dd>
       </dl>

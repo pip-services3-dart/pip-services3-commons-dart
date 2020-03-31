@@ -195,18 +195,17 @@
       <div><h1><span class="kind-class">LongConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into longs using extended conversion rules:</p>
-<ul>
-<li>Strings are converted to floats, then to longs</li>
-<li>DateTime: total number of milliseconds since unix epoсh</li>
-<li>Boolean: 1 for true and 0 for false</li>
-</ul>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = LongConverter.toNullableLong("ABC"); // Result: null
-var value2 = LongConverter.toNullableLong("123.456"); // Result: 123
-var value3 = LongConverter.toNullableLong(true); // Result: 1
-var value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
-</code></pre>
+      <p>/// Converts arbitrary values into longs using extended conversion rules:
+/// - Strings are converted to floats, then to longs
+/// - DateTime: total number of milliseconds since unix epoсh
+/// - Boolean: 1 for true and 0 for false
+/// 
+/// ### Example ###
+/// 
+///     var value1 = LongConverter.toNullableLong("ABC"); // Result: null
+///     var value2 = LongConverter.toNullableLong("123.456"); // Result: 123
+///     var value3 = LongConverter.toNullableLong(true); // Result: 1
+///     var value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds</p>
     </section>
     
 
@@ -295,7 +294,12 @@ var value4 = LongConverter.toNullableLong(new Date()); // Result: current millis
           </span>
                   </dt>
         <dd>
-          Converts value into long or returns 0 when conversion is not possible. <a href="pip_services3_commons/LongConverter/toLong.html">[...]</a>
+          /// Converts value into long or returns 0 when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         long value or 0 when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/LongConverter/toLongWithDefault.html">toLongWithDefault</a>]
                   
 </dd>
         <dt id="toLongWithDefault" class="callable">
@@ -304,7 +308,13 @@ var value4 = LongConverter.toNullableLong(new Date()); // Result: current millis
           </span>
                   </dt>
         <dd>
-          Converts value into integer or returns default when conversion is not possible. <a href="pip_services3_commons/LongConverter/toLongWithDefault.html">[...]</a>
+          /// Converts value into integer or returns default when conversion is not possible.
+/// 
+/// - <code>value</code>         the value to convert.
+/// - defaultValue  the default value.
+/// Returns             long value or default when conversion is not supported
+/// 
+/// See [<a href="pip_services3_commons/LongConverter/toNullableLong.html">toNullableLong</a>]
                   
 </dd>
         <dt id="toNullableLong" class="callable">
@@ -313,7 +323,10 @@ var value4 = LongConverter.toNullableLong(new Date()); // Result: current millis
           </span>
                   </dt>
         <dd>
-          Converts value into long or returns null when conversion is not possible. <a href="pip_services3_commons/LongConverter/toNullableLong.html">[...]</a>
+          /// Converts value into long or returns null when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         long value or null when conversion is not supported.
                   
 </dd>
       </dl>

@@ -195,15 +195,17 @@
       <div><h1><span class="kind-class">TypeConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into objects specific by TypeCodes.
-For each TypeCode this class calls corresponding converter which applies
-extended conversion rules to convert the values.</p>
-<p>See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
-var value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: DateTime(123)
-var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
-</code></pre>
+      <p>/// Converts arbitrary values into objects specific by TypeCodes.
+/// For each TypeCode this class calls corresponding converter which applies
+/// extended conversion rules to convert the values.
+/// 
+/// See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
+/// 
+/// ### Example ###
+/// 
+///     var value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
+///     var value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: DateTime(123)
+///     var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false</p>
     </section>
     
 
@@ -292,19 +294,10 @@ var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
           </span>
                   </dt>
         <dd>
-          
-<li>Converts a TypeCode into its string name.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>type</code> 	the TypeCode to convert into a string.</li>
-</ul>
-</li>
-<li>Returns		the name of the TypeCode passed as a string value.</li>
-</ul>
-</li>
-
+          /// Converts a TypeCode into its string name.
+/// 
+/// - <code>type</code> 	the TypeCode to convert into a string.
+	/// Returns		the name of the TypeCode passed as a string value.
                   
 </dd>
         <dt id="toNullableType" class="callable">
@@ -313,26 +306,13 @@ var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
           </span>
                   </dt>
         <dd>
-          
-<li>Converts value into an object type specified by Type Code or returns null when conversion is not possible.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>type</code> 		the TypeCode for the data type into which 'value' is to be converted.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>value</code> 	the value to convert.</li>
-</ul>
-</li>
-<li>Returns			object value of type corresponding to TypeCode, or null when conversion is not supported.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">toTypeCode</a></li>
-</ul>
-</li>
-
+          /// Converts value into an object type specified by Type Code or returns null when conversion is not possible.
+/// 
+/// - <code>type</code> 		the TypeCode for the data type into which 'value' is to be converted.
+	/// - <code>value</code> 	the value to convert.
+	/// Returns			object value of type corresponding to TypeCode, or null when conversion is not supported.
+	/// 
+	/// See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">toTypeCode</a>
                   
 </dd>
         <dt id="toType" class="callable">
@@ -341,27 +321,14 @@ var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
           </span>
                   </dt>
         <dd>
-          
-<li>Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>type</code> 		the TypeCode for the data type into which 'value' is to be converted.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>value</code> 	the value to convert.</li>
-</ul>
-</li>
-<li>Returns			object value of type corresponding to TypeCode, or type default when conversion is not supported.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/TypeConverter/toNullableType.html">toNullableType</a></li>
-<li>See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">toTypeCode</a></li>
-</ul>
-</li>
-
+          /// Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
+/// 
+/// - <code>type</code> 		the TypeCode for the data type into which 'value' is to be converted.
+	/// - <code>value</code> 	the value to convert.
+	/// Returns			object value of type corresponding to TypeCode, or type default when conversion is not supported.
+	/// 
+	/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">toNullableType</a>
+	/// See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">toTypeCode</a>
                   
 </dd>
         <dt id="toTypeCode" class="callable">
@@ -370,19 +337,10 @@ var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
           </span>
                   </dt>
         <dd>
-          
-<li>Gets TypeCode for specific value.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>value</code> 	value whose TypeCode is to be resolved.</li>
-</ul>
-</li>
-<li>Returns			the TypeCode that corresponds to the passed object's type.</li>
-</ul>
-</li>
-
+          /// Gets TypeCode for specific value.
+/// 
+/// - <code>value</code> 	value whose TypeCode is to be resolved.
+	/// Returns			the TypeCode that corresponds to the passed object's type.
                   
 </dd>
         <dt id="toTypeWithDefault" class="callable">
@@ -391,32 +349,15 @@ var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
           </span>
                   </dt>
         <dd>
-          
-<li>Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>type</code> 			the TypeCode for the data type into which 'value' is to be converted.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>value</code> 		the value to convert.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>defaultValue</code>	the default value to return if conversion is not possible (returns null).</li>
-</ul>
-</li>
-<li>Returns			object value of type corresponding to TypeCode, or default value when conversion is not supported.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/TypeConverter/toNullableType.html">toNullableType</a></li>
-<li>See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">toTypeCode</a></li>
-</ul>
-</li>
-
+          /// Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
+/// 
+/// - <code>type</code> 			the TypeCode for the data type into which 'value' is to be converted.
+	/// - <code>value</code> 		the value to convert.
+	/// - <code>defaultValue</code>	the default value to return if conversion is not possible (returns null).
+	/// Returns			object value of type corresponding to TypeCode, or default value when conversion is not supported.
+	/// 
+	/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">toNullableType</a>
+	/// See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">toTypeCode</a>
                   
 </dd>
       </dl>

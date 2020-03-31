@@ -195,21 +195,25 @@
       <div><h1><span class="kind-class">IConfigurable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>An interface to set configuration parameters to an object.</p>
-<p>It can be added to any existing class by implementing a single <code>configure()</code> method.</p>
-<p>If you need to emphasis the fact that <code>configure()</code> method can be called multiple times
-to change object configuration in runtime, use <a href="pip_services3_commons/IReconfigurable-class.html">IReconfigurable</a> interface instead.</p>
-<p>See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyClass implements IConfigurable {
-    var _myParam = "default value";
-         
-    void configure(ConfigParams config) {
-        this._myParam = config.getAsStringWithDefault("options.param", myParam);
-        ...
-    }
-}
-</code></pre>
+      <p>/// An interface to set configuration parameters to an object.
+/// 
+/// It can be added to any existing class by implementing a single <code>configure()</code> method.
+/// 
+/// If you need to emphasis the fact that <code>configure()</code> method can be called multiple times
+/// to change object configuration in runtime, use <a href="pip_services3_commons/IReconfigurable-class.html">IReconfigurable</a> interface instead.
+/// 
+/// See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>
+/// 
+/// ### Example ###
+/// 
+///     class MyClass implements IConfigurable {
+///         var _myParam = "default value";
+///<br>
+///         void configure(ConfigParams config) {
+///             this._myParam = config.getAsStringWithDefault("options.param", myParam);
+///             ...
+///         }
+///     }</p>
     </section>
     
     <section>
@@ -271,7 +275,9 @@ to change object configuration in runtime, use <a href="pip_services3_commons/IR
           </span>
                   </dt>
         <dd>
-          Configures component by passing configuration parameters. <a href="pip_services3_commons/IConfigurable/configure.html">[...]</a>
+          /// Configures component by passing configuration parameters.
+/// 
+/// - <code>config</code>    configuration parameters to be set.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

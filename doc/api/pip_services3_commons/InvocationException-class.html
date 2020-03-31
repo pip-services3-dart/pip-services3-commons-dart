@@ -195,7 +195,7 @@
       <div><h1><span class="kind-class">InvocationException</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Errors returned by remote services or by the network during call attempts.</p>
+      <p>/// Errors returned by remote services or by the network during call attempts.</p>
     </section>
     
     <section>
@@ -222,30 +222,13 @@
           <span class="name"><a href="pip_services3_commons/InvocationException/InvocationException.html">InvocationException</a></span><span class="signature">([<span class="parameter" id="-param-correlation_id"><span class="type-annotation">String</span> <span class="parameter-name">correlation_id</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-code"><span class="type-annotation">String</span> <span class="parameter-name">code</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          
-<li>Creates an error instance and assigns its values.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>correlation_id</code>    (optional) a unique transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>code</code>              (optional) a unique error code. Default: "UNKNOWN"</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>message</code>           (optional) a human-readable description of the error.</li>
-</ul>
-</li>
-<li></li>
-<li>See <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a></li>
-</ul>
-</li>
-
+          /// Creates an error instance and assigns its values.
+/// 
+/// - <code>correlation_id</code>    (optional) a unique transaction id to trace execution through call chain.
+    /// - <code>code</code>              (optional) a unique error code. Default: "UNKNOWN"
+    /// - <code>message</code>           (optional) a human-readable description of the error.
+	/// 
+	/// See <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>
         </dd>
       </dl>
     </section>
@@ -346,7 +329,9 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Gets original error wrapped by this exception as a string message. <a href="pip_services3_commons/ApplicationException/getCauseString.html">[...]</a>
+          /// Gets original error wrapped by this exception as a string message.
+/// 
+/// Returns an original error message.
                   <div class="features">inherited</div>
 </dd>
         <dt id="getStackTraceString" class="callable inherited">
@@ -355,7 +340,9 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Gets a stack trace where this exception occured. <a href="pip_services3_commons/ApplicationException/getStackTraceString.html">[...]</a>
+          /// Gets a stack trace where this exception occured.
+/// 
+/// Returns a stack trace as a string.
                   <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -373,7 +360,9 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Sets original error wrapped by this exception as a string message. <a href="pip_services3_commons/ApplicationException/setCauseString.html">[...]</a>
+          /// Sets original error wrapped by this exception as a string message.
+/// 
+/// - <code>value</code> an original error message.
                   <div class="features">inherited</div>
 </dd>
         <dt id="setStackTraceString" class="callable inherited">
@@ -382,7 +371,9 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a stack trace where this exception occured. <a href="pip_services3_commons/ApplicationException/setStackTraceString.html">[...]</a>
+          /// Sets a stack trace where this exception occured.
+/// 
+/// - <code>value</code> a stack trace as a string
                   <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -400,7 +391,13 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a original error wrapped by this exception <a href="pip_services3_commons/ApplicationException/withCause.html">[...]</a>
+          /// Sets a original error wrapped by this exception
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>cause</code> original error object
+/// Returns this exception object
                   <div class="features">inherited</div>
 </dd>
         <dt id="withCode" class="callable inherited">
@@ -409,7 +406,13 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a unique error code.  <a href="pip_services3_commons/ApplicationException/withCode.html">[...]</a>
+          /// Sets a unique error code. 
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>code</code> a unique error code
+/// Returns this exception object
                   <div class="features">inherited</div>
 </dd>
         <dt id="withCorrelationId" class="callable inherited">
@@ -418,7 +421,13 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a correlation id which can be used to trace this error through a call chain. <a href="pip_services3_commons/ApplicationException/withCorrelationId.html">[...]</a>
+          /// Sets a correlation id which can be used to trace this error through a call chain.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>correlationId</code> a unique transaction id to trace error through call chain
+/// Returns this exception object
                   <div class="features">inherited</div>
 </dd>
         <dt id="withDetails" class="callable inherited">
@@ -427,8 +436,15 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a parameter for additional error details. 
-This details can be used to restore error description in other languages. <a href="pip_services3_commons/ApplicationException/withDetails.html">[...]</a>
+          /// Sets a parameter for additional error details. 
+/// This details can be used to restore error description in other languages.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>key</code> a details parameter name
+/// - <code>value</code> a details parameter name
+/// Returns this exception object
                   <div class="features">inherited</div>
 </dd>
         <dt id="withStackTrace" class="callable inherited">
@@ -437,7 +453,13 @@ This details can be used to restore error description in other languages. <a hre
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a stack trace for this error.  <a href="pip_services3_commons/ApplicationException/withStackTrace.html">[...]</a>
+          /// Sets a stack trace for this error. 
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>stackTrace</code> a stack trace where this error occured
+/// Returns this exception object
                   <div class="features">inherited</div>
 </dd>
         <dt id="withStatus" class="callable inherited">
@@ -446,7 +468,13 @@ This details can be used to restore error description in other languages. <a hre
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a HTTP status code which shall be returned by REST calls.  <a href="pip_services3_commons/ApplicationException/withStatus.html">[...]</a>
+          /// Sets a HTTP status code which shall be returned by REST calls. 
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>status</code> an HTTP error code.
+/// Returns this exception object
                   <div class="features">inherited</div>
 </dd>
         <dt id="wrap" class="callable inherited">
@@ -455,7 +483,13 @@ This details can be used to restore error description in other languages. <a hre
           </span>
                   </dt>
         <dd class="inherited">
-          Wraps another exception into an application exception object. <a href="pip_services3_commons/ApplicationException/wrap.html">[...]</a>
+          /// Wraps another exception into an application exception object.
+/// 
+/// If original exception is of ApplicationException type it is returned without changes.
+/// Otherwise a new ApplicationException is created and original error is set as its cause.
+/// 
+/// - <code>cause</code>     an original error object
+/// Returns an original or newly created ApplicationException
                   <div class="features">inherited</div>
 </dd>
       </dl>

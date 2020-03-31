@@ -195,20 +195,24 @@
       <div><h1><span class="kind-class">ICleanable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Interface for components that should clean their state.</p>
-<p>Cleaning state most often is used during testing. 
-But there may be situations when it can be done in production.</p>
-<p>See <a href="pip_services3_commons/Cleaner-class.html">Cleaner</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyObjectWithState implements ICleanable {
-    dynamic _state = {};
-    ...
-    Future clear(String correlationId) {
-       this._state = {};
-       return new Future();
-    }
-}
-</code></pre>
+      <p>/// Interface for components that should clean their state.
+/// 
+/// Cleaning state most often is used during testing. 
+/// But there may be situations when it can be done in production.
+/// 
+/// See <a href="pip_services3_commons/Cleaner-class.html">Cleaner</a>
+/// 
+/// ### Example ###
+/// 
+///     class MyObjectWithState implements ICleanable {
+///         dynamic _state = {};
+///         ...
+///         Future clear(String correlationId) {
+///            this._state = {};
+///            return new Future();
+///         }
+///     }
+///</p>
     </section>
     
 
@@ -257,19 +261,10 @@ But there may be situations when it can be done in production.</p>
           </span>
                   </dt>
         <dd>
-          
-<li>Clears component state.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>Return 			Future that receives error or null no errors occured.</li>
-</ul>
-</li>
-
+          /// Clears component state.
+/// 
+/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
+  /// Return 			Future that receives error or null no errors occured.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

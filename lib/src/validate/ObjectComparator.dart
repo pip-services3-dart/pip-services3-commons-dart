@@ -2,22 +2,22 @@ import '../convert/DoubleConverter.dart';
 import '../convert/StringConverter.dart';
 
 /**
- * Helper class to perform comparison operations over arbitrary values.
- * 
- * ### Example ###
- * 
- *     ObjectComparator.compare(2, "GT", 1);        // Result: true
- *     ObjectComparator.areEqual("A", "B");         // Result: false
+/// Helper class to perform comparison operations over arbitrary values.
+/// 
+/// ### Example ###
+/// 
+///     ObjectComparator.compare(2, "GT", 1);        // Result: true
+///     ObjectComparator.areEqual("A", "B");         // Result: false
  */
 class ObjectComparator {
   /**
-     * Perform comparison operation over two arguments.
-     * The operation can be performed over values of any type.
-     * 
-     * - [value1]        the first argument to compare
-     * - [operation]     the comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
-     * - [value2]        the second argument to compare
-     * Returns result of the comparison operation
+    /// Perform comparison operation over two arguments.
+    /// The operation can be performed over values of any type.
+    /// 
+    /// - [value1]        the first argument to compare
+    /// - [operation]     the comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+    /// - [value2]        the second argument to compare
+    /// Returns result of the comparison operation
      */
   static bool compare(dynamic value1, String operation, dynamic value2) {
     operation = operation.toUpperCase();
@@ -42,12 +42,12 @@ class ObjectComparator {
   }
 
   /**
-     * Checks if two values are equal.
-     * The operation can be performed over values of any type.
-     * 
-     * - [value1]    the first value to compare
-     * - [value2]    the second value to compare
-     * Returns true if values are equal and false otherwise
+    /// Checks if two values are equal.
+    /// The operation can be performed over values of any type.
+    /// 
+    /// - [value1]    the first value to compare
+    /// - [value2]    the second value to compare
+    /// Returns true if values are equal and false otherwise
      */
   static bool areEqual(dynamic value1, dynamic value2) {
     if (value1 == null && value2 == null) return true;
@@ -57,24 +57,24 @@ class ObjectComparator {
   }
 
   /**
-     * Checks if two values are NOT equal
-     * The operation can be performed over values of any type.
-     * 
-     * - [value1]    the first value to compare
-     * - [value2]    the second value to compare
-     * Returns true if values are NOT equal and false otherwise
+    /// Checks if two values are NOT equal
+    /// The operation can be performed over values of any type.
+    /// 
+    /// - [value1]    the first value to compare
+    /// - [value2]    the second value to compare
+    /// Returns true if values are NOT equal and false otherwise
      */
   static bool areNotEqual(dynamic value1, dynamic value2) {
     return !ObjectComparator.areEqual(value1, value2);
   }
 
   /**
-     * Checks if first value is less than the second one.
-     * The operation can be performed over numbers or strings.
-     * 
-     * - [value1]    the first value to compare
-     * - [value2]    the second value to compare
-     * Returns true if the first value is less than second and false otherwise.
+    /// Checks if first value is less than the second one.
+    /// The operation can be performed over numbers or strings.
+    /// 
+    /// - [value1]    the first value to compare
+    /// - [value2]    the second value to compare
+    /// Returns true if the first value is less than second and false otherwise.
      */
   static bool isLess(dynamic value1, dynamic value2) {
     var number1 = DoubleConverter.toNullableDouble(value1);
@@ -86,12 +86,12 @@ class ObjectComparator {
   }
 
   /**
-     * Checks if first value is greater than the second one.
-     * The operation can be performed over numbers or strings.
-     * 
-     * - [value1]    the first value to compare
-     * - [value2]    the second value to compare
-     * Returns true if the first value is greater than second and false otherwise.
+    /// Checks if first value is greater than the second one.
+    /// The operation can be performed over numbers or strings.
+    /// 
+    /// - [value1]    the first value to compare
+    /// - [value2]    the second value to compare
+    /// Returns true if the first value is greater than second and false otherwise.
      */
   static bool isGreater(dynamic value1, dynamic value2) {
     var number1 = DoubleConverter.toNullableDouble(value1);
@@ -103,11 +103,11 @@ class ObjectComparator {
   }
 
   /**
-     * Checks if string matches a regular expression
-     * 
-     * - [value]     a string value to match
-     * - [regexp]    a regular expression string
-     * Returns true if the value matches regular expression and false otherwise.
+    /// Checks if string matches a regular expression
+    /// 
+    /// - [value]     a string value to match
+    /// - [regexp]    a regular expression string
+    /// Returns true if the value matches regular expression and false otherwise.
      */
   static bool match(dynamic value, dynamic regexp) {
     if (value == null && regexp == null) return true;

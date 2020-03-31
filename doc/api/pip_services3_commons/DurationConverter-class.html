@@ -195,16 +195,15 @@
       <div><h1><span class="kind-class">DurationConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into Date values using extended conversion rules:</p>
-<ul>
-<li>Strings: converted using ISO time format</li>
-<li>Numbers: converted using milliseconds since unix epoch</li>
-</ul>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = DurationConverter.toNullableDuration("ABC"); // Result: null
-var value2 = DurationConverter.toNullableDuration("123"); // Result: Duration(milliseconds: 123)
-var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(milliseconds: 123)
-</code></pre>
+      <p>/// Converts arbitrary values into Date values using extended conversion rules:
+/// - Strings: converted using ISO time format
+/// - Numbers: converted using milliseconds since unix epoch
+/// 
+/// ### Example ###
+/// 
+///     var value1 = DurationConverter.toNullableDuration("ABC"); // Result: null
+///     var value2 = DurationConverter.toNullableDuration("123"); // Result: Duration(milliseconds: 123)
+///     var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(milliseconds: 123)</p>
     </section>
     
 
@@ -293,7 +292,12 @@ var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(mill
           </span>
                   </dt>
         <dd>
-          Converts value into Date or returns current date when conversion is not possible. <a href="pip_services3_commons/DurationConverter/toDuration.html">[...]</a>
+          /// Converts value into Date or returns current date when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         Date value or current date when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/DurationConverter/toDurationWithDefault.html">toDurationWithDefault</a>]
                   
 </dd>
         <dt id="toDurationWithDefault" class="callable">
@@ -302,7 +306,13 @@ var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(mill
           </span>
                   </dt>
         <dd>
-          Converts value into Date or returns default when conversion is not possible. <a href="pip_services3_commons/DurationConverter/toDurationWithDefault.html">[...]</a>
+          /// Converts value into Date or returns default when conversion is not possible.
+/// 
+/// - <code>value</code>         the value to convert.
+/// - defaultValue  the default value.
+/// Returns             Date value or default when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/DurationConverter/toNullableDuration.html">toNullableDuration</a>]
                   
 </dd>
         <dt id="toNullableDuration" class="callable">
@@ -311,7 +321,10 @@ var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(mill
           </span>
                   </dt>
         <dd>
-          Converts value into Date or returns null when conversion is not possible. <a href="pip_services3_commons/DurationConverter/toNullableDuration.html">[...]</a>
+          /// Converts value into Date or returns null when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         Date value or null when conversion is not supported.
                   
 </dd>
       </dl>

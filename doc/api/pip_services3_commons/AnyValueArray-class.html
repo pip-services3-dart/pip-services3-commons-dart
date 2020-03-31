@@ -195,25 +195,27 @@
       <div><h1><span class="kind-class">AnyValueArray</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Cross-language implementation of dynamic object array what can hold values of any type.
-The stored values can be converted to different types using variety of accessor methods.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = new AnyValueArray([1, "123.456", "2018-01-01"]);
-
-value1.getAsBoolean(0);   // Result: true
-value1.getAsInteger(1);   // Result: 123
-value1.getAsFloat(1);     // Result: 123.456
-value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
-</code></pre>
-<p>See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
+      <p>/// Cross-language implementation of dynamic object array what can hold values of any type.
+/// The stored values can be converted to different types using variety of accessor methods.
+/// 
+/// ### Example ###
+/// 
+///     var value1 = new AnyValueArray(<code>1, "123.456", "2018-01-01"</code>);
+///<br>
+///     value1.getAsBoolean(0);   // Result: true
+///     value1.getAsInteger(1);   // Result: 123
+///     value1.getAsFloat(1);     // Result: 123.456
+///     value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
+/// 
+/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
+/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
+/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
+/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
+/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
+/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
+/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
+/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
+/// See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
     </section>
     
     <section>
@@ -246,13 +248,17 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           <span class="name"><a href="pip_services3_commons/AnyValueArray/AnyValueArray.html">AnyValueArray</a></span><span class="signature">([<span class="parameter" id="-param-values"><span class="type-annotation">Iterable</span> <span class="parameter-name">values</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          Creates a new instance of the array and assigns its value. <a href="pip_services3_commons/AnyValueArray/AnyValueArray.html">[...]</a>
+          /// Creates a new instance of the array and assigns its value.
+/// 
+/// - value     (optional) values to initialize this array.
         </dd>
         <dt id="AnyValueArray.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/AnyValueArray/AnyValueArray.fromJson.html">AnyValueArray.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          Creates a new instance of the array from JSON. <a href="pip_services3_commons/AnyValueArray/AnyValueArray.fromJson.html">[...]</a>
+          /// Creates a new instance of the array from JSON.
+/// 
+/// - <code>json</code>     values to initialize this array.
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -355,7 +361,9 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           </span>
                   </dt>
         <dd>
-          Appends new elements to this array. <a href="pip_services3_commons/AnyValueArray/append.html">[...]</a>
+          /// Appends new elements to this array.
+/// 
+/// - <code>elements</code>  a list of elements to be added.
                   
 </dd>
         <dt id="clear" class="callable">
@@ -364,7 +372,7 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           </span>
                   </dt>
         <dd>
-          Clears this array by removing all its elements.
+          /// Clears this array by removing all its elements.
                   <div class="features">override</div>
 </dd>
         <dt id="clone" class="callable">
@@ -373,7 +381,9 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           </span>
                   </dt>
         <dd>
-          Creates a binary clone of this object. <a href="pip_services3_commons/AnyValueArray/clone.html">[...]</a>
+          /// Creates a binary clone of this object.
+/// 
+/// Returns a clone of this object.
                   <div class="features">override</div>
 </dd>
         <dt id="contains" class="callable">
@@ -382,8 +392,11 @@ See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></p>
           </span>
                   </dt>
         <dd>
-          Checks if this array contains a value.
-The check uses direct comparison between elements and the specified value. <a href="pip_services3_commons/AnyValueArray/contains.html">[...]</a>
+          /// Checks if this array contains a value.
+/// The check uses direct comparison between elements and the specified value.
+/// 
+/// - <code>value</code>     a value to be checked
+/// Returns         true if this array contains the value or false otherwise.
                   <div class="features">override</div>
 </dd>
         <dt id="containsAsType" class="callable">
@@ -392,8 +405,15 @@ The check uses direct comparison between elements and the specified value. <a hr
           </span>
                   </dt>
         <dd>
-          Checks if this array contains a value.
-The check before comparison converts elements and the value to type specified by type code. <a href="pip_services3_commons/AnyValueArray/containsAsType.html">[...]</a>
+          /// Checks if this array contains a value.
+/// The check before comparison converts elements and the value to type specified by type code.
+/// 
+/// - typeCode  a type code that defines a type to convert values before comparison
+/// - <code>value</code>     a value to be checked
+/// Returns         true if this array contains the value or false otherwise.
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toType.html">TypeConverter.toType</a>
+/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">TypeConverter.toNullableType</a>
                   
 </dd>
         <dt id="fromJson" class="callable">
@@ -402,7 +422,7 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Initialize this object from JSON Map object
+          /// Initialize this object from JSON Map object
                   
 </dd>
         <dt id="get" class="callable">
@@ -411,7 +431,10 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Gets an array element specified by its index. <a href="pip_services3_commons/AnyValueArray/get.html">[...]</a>
+          /// Gets an array element specified by its index.
+/// 
+/// - <code>index</code>     an index of the element to get.
+/// Returns         the value of the array element.
                   
 </dd>
         <dt id="getAsArray" class="callable">
@@ -420,7 +443,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsArray.html">[...]</a>
+          /// Converts array element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/fromValue.html">fromValue</a>
                   
 </dd>
         <dt id="getAsArrayWithDefault" class="callable">
@@ -429,7 +457,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValueArray or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsArrayWithDefault.html">[...]</a>
+          /// Converts array element into an AnyValueArray or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns AnyValueArray value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsNullableArray.html">getAsNullableArray</a>
                   
 </dd>
         <dt id="getAsBoolean" class="callable">
@@ -438,7 +472,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a boolean or returns false if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsBoolean.html">[...]</a>
+          /// Converts array element into a boolean or returns false if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns boolean value ot the element or false if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsBooleanWithDefault.html">getAsBooleanWithDefault</a>
                   
 </dd>
         <dt id="getAsBooleanWithDefault" class="callable">
@@ -447,7 +486,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a boolean or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsBooleanWithDefault.html">[...]</a>
+          /// Converts array element into a boolean or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns boolean value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/BooleanConverter/toBooleanWithDefault.html">BooleanConverter.toBooleanWithDefault</a>
                   
 </dd>
         <dt id="getAsDateTime" class="callable">
@@ -456,7 +501,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a DateTime or returns the current date if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsDateTime.html">[...]</a>
+          /// Converts array element into a DateTime or returns the current date if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns DateTime value ot the element or the current date if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsDateTimeWithDefault.html">getAsDateTimeWithDefault</a>
                   
 </dd>
         <dt id="getAsDateTimeWithDefault" class="callable">
@@ -465,7 +515,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a DateTime or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsDateTimeWithDefault.html">[...]</a>
+          /// Converts array element into a DateTime or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns DateTime value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DateTimeConverter/toDateTimeWithDefault.html">DateTimeConverter.toDateTimeWithDefault</a>
                   
 </dd>
         <dt id="getAsDouble" class="callable">
@@ -474,7 +530,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a double or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsDouble.html">[...]</a>
+          /// Converts array element into a double or returns 0 if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns double value ot the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsDoubleWithDefault.html">getAsDoubleWithDefault</a>
                   
 </dd>
         <dt id="getAsDoubleWithDefault" class="callable">
@@ -483,7 +544,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a double or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsDoubleWithDefault.html">[...]</a>
+          /// Converts array element into a double or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns double value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DoubleConverter/toDoubleWithDefault.html">DoubleConverter.toDoubleWithDefault</a>
                   
 </dd>
         <dt id="getAsDuration" class="callable">
@@ -492,7 +559,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a Duration or returns the current date if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsDuration.html">[...]</a>
+          /// Converts array element into a Duration or returns the current date if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns Duration value ot the element or the current date if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsDurationWithDefault.html">getAsDurationWithDefault</a>
                   
 </dd>
         <dt id="getAsDurationWithDefault" class="callable">
@@ -501,7 +573,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a Duration or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsDurationWithDefault.html">[...]</a>
+          /// Converts array element into a Duration or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns Duration value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DurationConverter/toDurationWithDefault.html">DurationConverter.toDurationWithDefault</a>
                   
 </dd>
         <dt id="getAsFloat" class="callable">
@@ -510,7 +588,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a float or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsFloat.html">[...]</a>
+          /// Converts array element into a float or returns 0 if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns float value ot the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsFloatWithDefault.html">getAsFloatWithDefault</a>
                   
 </dd>
         <dt id="getAsFloatWithDefault" class="callable">
@@ -519,7 +602,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a float or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsFloatWithDefault.html">[...]</a>
+          /// Converts array element into a float or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns float value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/FloatConverter/toFloatWithDefault.html">FloatConverter.toFloatWithDefault</a>
                   
 </dd>
         <dt id="getAsInteger" class="callable">
@@ -528,7 +617,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an integer or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsInteger.html">[...]</a>
+          /// Converts array element into an integer or returns 0 if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns integer value ot the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsIntegerWithDefault.html">getAsIntegerWithDefault</a>
                   
 </dd>
         <dt id="getAsIntegerWithDefault" class="callable">
@@ -537,7 +631,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an integer or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsIntegerWithDefault.html">[...]</a>
+          /// Converts array element into an integer or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns integer value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/IntegerConverter/toIntegerWithDefault.html">IntegerConverter.toIntegerWithDefault</a>
                   
 </dd>
         <dt id="getAsLong" class="callable">
@@ -546,7 +646,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a long or returns 0 if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsLong.html">[...]</a>
+          /// Converts array element into a long or returns 0 if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns long value ot the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsLongWithDefault.html">getAsLongWithDefault</a>
                   
 </dd>
         <dt id="getAsLongWithDefault" class="callable">
@@ -555,7 +660,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a long or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsLongWithDefault.html">[...]</a>
+          /// Converts array element into a long or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns long value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/LongConverter/toLongWithDefault.html">LongConverter.toLongWithDefault</a>
                   
 </dd>
         <dt id="getAsMap" class="callable">
@@ -564,7 +675,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsMap.html">[...]</a>
+          /// Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueMap-class.html">AnyValueMap</a>
+/// See <a href="pip_services3_commons/AnyValueMap/fromValue.html">AnyValueMap.fromValue</a>
                   
 </dd>
         <dt id="getAsMapWithDefault" class="callable">
@@ -573,7 +690,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValueMap or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsMapWithDefault.html">[...]</a>
+          /// Converts array element into an AnyValueMap or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns AnyValueMap value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsNullableMap.html">getAsNullableMap</a>
                   
 </dd>
         <dt id="getAsNullableArray" class="callable">
@@ -582,7 +705,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValueArray or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableArray.html">[...]</a>
+          /// Converts array element into an AnyValueArray or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns AnyValueArray value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/fromValue.html">fromValue</a>
                   
 </dd>
         <dt id="getAsNullableBoolean" class="callable">
@@ -591,7 +719,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a boolean or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableBoolean.html">[...]</a>
+          /// Converts array element into a boolean or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns boolean value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/BooleanConverter/toNullableBoolean.html">BooleanConverter.toNullableBoolean</a>
                   
 </dd>
         <dt id="getAsNullableDateTime" class="callable">
@@ -600,7 +733,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a DateTime or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableDateTime.html">[...]</a>
+          /// Converts array element into a DateTime or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns DateTime value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DateTimeConverter/toNullableDateTime.html">DateTimeConverter.toNullableDateTime</a>
                   
 </dd>
         <dt id="getAsNullableDouble" class="callable">
@@ -609,7 +747,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a double or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableDouble.html">[...]</a>
+          /// Converts array element into a double or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns double value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DoubleConverter/toNullableDouble.html">DoubleConverter.toNullableDouble</a>
                   
 </dd>
         <dt id="getAsNullableDuration" class="callable">
@@ -618,7 +761,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a Duration or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableDuration.html">[...]</a>
+          /// Converts array element into a Duration or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns Duration value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DurationConverter/toNullableDuration.html">DurationConverter.toNullableDuration</a>
                   
 </dd>
         <dt id="getAsNullableFloat" class="callable">
@@ -627,7 +775,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a float or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableFloat.html">[...]</a>
+          /// Converts array element into a float or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns float value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/FloatConverter/toNullableFloat.html">FloatConverter.toNullableFloat</a>
                   
 </dd>
         <dt id="getAsNullableInteger" class="callable">
@@ -636,7 +789,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an integer or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableInteger.html">[...]</a>
+          /// Converts array element into an integer or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns integer value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/IntegerConverter/toNullableInteger.html">IntegerConverter.toNullableInteger</a>
                   
 </dd>
         <dt id="getAsNullableLong" class="callable">
@@ -645,7 +803,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a long or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableLong.html">[...]</a>
+          /// Converts array element into a long or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns long value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/LongConverter/toNullableLong.html">LongConverter.toNullableLong</a>
                   
 </dd>
         <dt id="getAsNullableMap" class="callable">
@@ -654,7 +817,13 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValueMap or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableMap.html">[...]</a>
+          /// Converts array element into an AnyValueMap or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns AnyValueMap value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueMap-class.html">AnyValueMap</a>
+/// See <a href="pip_services3_commons/AnyValueMap/fromValue.html">AnyValueMap.fromValue</a>
                   
 </dd>
         <dt id="getAsNullableString" class="callable">
@@ -663,7 +832,12 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a string or returns null if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsNullableString.html">[...]</a>
+          /// Converts array element into a string or returns null if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns string value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringConverter/toNullableString.html">StringConverter.toNullableString</a>
                   
 </dd>
         <dt id="getAsNullableType" class="callable">
@@ -672,8 +846,14 @@ The check before comparison converts elements and the value to type specified by
           </span>
                   </dt>
         <dd>
-          Converts array element into a value defined by specied typecode.
-If conversion is not possible it returns null. <a href="pip_services3_commons/AnyValueArray/getAsNullableType.html">[...]</a>
+          /// Converts array element into a value defined by specied typecode.
+/// If conversion is not possible it returns null.
+/// 
+/// - <code>type</code>      the TypeCode that defined the type of the result
+/// - <code>index</code>     an index of element to get.
+/// Returns element value defined by the typecode or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">TypeConverter.toNullableType</a>
                   
 </dd>
         <dt id="getAsObject" class="callable">
@@ -682,8 +862,11 @@ If conversion is not possible it returns null. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Gets the value stored in array element without any conversions.
-When element index is not defined it returns the entire array value. <a href="pip_services3_commons/AnyValueArray/getAsObject.html">[...]</a>
+          /// Gets the value stored in array element without any conversions.
+/// When element index is not defined it returns the entire array value.
+/// 
+/// - index     (optional) an index of the element to get
+/// Returns the element value or value of the array when index is not defined.
                   
 </dd>
         <dt id="getAsString" class="callable">
@@ -692,7 +875,12 @@ When element index is not defined it returns the entire array value. <a href="pi
           </span>
                   </dt>
         <dd>
-          Converts array element into a string or returns "" if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsString.html">[...]</a>
+          /// Converts array element into a string or returns "" if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns string value ot the element or "" if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsStringWithDefault.html">getAsStringWithDefault</a>
                   
 </dd>
         <dt id="getAsStringWithDefault" class="callable">
@@ -701,7 +889,13 @@ When element index is not defined it returns the entire array value. <a href="pi
           </span>
                   </dt>
         <dd>
-          Converts array element into a string or returns default value if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsStringWithDefault.html">[...]</a>
+          /// Converts array element into a string or returns default value if conversion is not possible.
+/// 
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns string value ot the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringConverter/toStringWithDefault.html">StringConverter.toStringWithDefault</a>
                   
 </dd>
         <dt id="getAsType" class="callable">
@@ -710,8 +904,14 @@ When element index is not defined it returns the entire array value. <a href="pi
           </span>
                   </dt>
         <dd>
-          Converts array element into a value defined by specied typecode.
-If conversion is not possible it returns default value for the specified type. <a href="pip_services3_commons/AnyValueArray/getAsType.html">[...]</a>
+          /// Converts array element into a value defined by specied typecode.
+/// If conversion is not possible it returns default value for the specified type.
+/// 
+/// - <code>type</code>      the TypeCode that defined the type of the result
+/// - <code>index</code>     an index of element to get.
+/// Returns element value defined by the typecode or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray/getAsTypeWithDefault.html">getAsTypeWithDefault</a>
                   
 </dd>
         <dt id="getAsTypeWithDefault" class="callable">
@@ -720,8 +920,15 @@ If conversion is not possible it returns default value for the specified type. <
           </span>
                   </dt>
         <dd>
-          Converts array element into a value defined by specied typecode.
-If conversion is not possible it returns default value. <a href="pip_services3_commons/AnyValueArray/getAsTypeWithDefault.html">[...]</a>
+          /// Converts array element into a value defined by specied typecode.
+/// If conversion is not possible it returns default value.
+/// 
+/// - <code>type</code>          the TypeCode that defined the type of the result
+/// - <code>index</code>         an index of element to get.
+/// - defaultValue  the default value
+/// Returns element value defined by the typecode or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toTypeWithDefault.html">TypeConverter.toTypeWithDefault</a>
                   
 </dd>
         <dt id="getAsValue" class="callable">
@@ -730,7 +937,13 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible. <a href="pip_services3_commons/AnyValueArray/getAsValue.html">[...]</a>
+          /// Converts array element into an AnyValue or returns an empty AnyValue if conversion is not possible.
+/// 
+/// - <code>index</code>     an index of element to get.
+/// Returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue-class.html">AnyValue</a>
+/// See <code>AnyValue.constructor</code>
                   
 </dd>
         <dt id="getValue" class="callable">
@@ -739,7 +952,9 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Gets an array with values. <a href="pip_services3_commons/AnyValueArray/getValue.html">[...]</a>
+          /// Gets an array with values.
+/// 
+/// Returns         the value of the array elements.
                   
 </dd>
         <dt id="innerValue" class="callable">
@@ -748,7 +963,7 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Returned inner values in Map object
+          /// Returned inner values in Map object
                   
 </dd>
         <dt id="put" class="callable">
@@ -757,7 +972,10 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Puts a new value into array element specified by its index. <a href="pip_services3_commons/AnyValueArray/put.html">[...]</a>
+          /// Puts a new value into array element specified by its index.
+/// 
+/// - <code>index</code>     an index of the element to put.
+/// - <code>value</code>     a new value for array element.
                   
 </dd>
         <dt id="setAsObject" class="callable">
@@ -766,9 +984,14 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Sets a new value to array element specified by its index.
-When the index is not defined, it resets the entire array value.
-This method has double purpose because method overrides are not supported in JavaScript. <a href="pip_services3_commons/AnyValueArray/setAsObject.html">[...]</a>
+          /// Sets a new value to array element specified by its index.
+/// When the index is not defined, it resets the entire array value.
+/// This method has double purpose because method overrides are not supported in JavaScript.
+/// 
+/// - <code>index</code>     (optional) an index of the element to set
+/// - <code>value</code>     a new element or array value.
+/// 
+/// See <a href="pip_services3_commons/ArrayConverter/toArray.html">ArrayConverter.toArray</a>
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -777,7 +1000,7 @@ This method has double purpose because method overrides are not supported in Jav
           </span>
                   </dt>
         <dd>
-          Returned JSON Map object from values of this object
+          /// Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toString" class="callable">
@@ -786,9 +1009,11 @@ This method has double purpose because method overrides are not supported in Jav
           </span>
                   </dt>
         <dd>
-          Gets a string representation of the object.
-The result is a comma-separated list of string representations of individual elements as
-"value1,value2,value3" <a href="pip_services3_commons/AnyValueArray/toString.html">[...]</a>
+          /// Gets a string representation of the object.
+/// The result is a comma-separated list of string representations of individual elements as
+/// "value1,value2,value3"
+/// 
+/// Returns a string representation of the object. <a href="pip_services3_commons/AnyValueArray/toString.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="add" class="callable inherited">
@@ -1273,8 +1498,13 @@ or throws a <code>RangeError</code> if <code>index</code> is out of bounds.
           </span>
                   </dt>
         <dd>
-          Splits specified string into elements using a separator and assigns 
-the elements to a newly created AnyValueArray. <a href="pip_services3_commons/AnyValueArray/fromString.html">[...]</a>
+          /// Splits specified string into elements using a separator and assigns 
+/// the elements to a newly created AnyValueArray.
+/// 
+/// - <code>values</code>            a string value to be split and assigned to AnyValueArray
+/// - <code>separator</code>         a separator to split the string
+/// - <code>removeDuplicates</code>  (optional) true to remove duplicated elements
+/// Returns                 a newly created AnyValueArray.
                   
 </dd>
         <dt id="fromValue" class="callable">
@@ -1283,7 +1513,12 @@ the elements to a newly created AnyValueArray. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Converts specified value into AnyValueArray. <a href="pip_services3_commons/AnyValueArray/fromValue.html">[...]</a>
+          /// Converts specified value into AnyValueArray.
+/// 
+/// - <code>value</code>     value to be converted
+/// Returns         a newly created AnyValueArray.
+/// 
+/// See <a href="pip_services3_commons/ArrayConverter/toNullableArray.html">ArrayConverter.toNullableArray</a>
                   
 </dd>
         <dt id="fromValues" class="callable">
@@ -1292,7 +1527,10 @@ the elements to a newly created AnyValueArray. <a href="pip_services3_commons/An
           </span>
                   </dt>
         <dd>
-          Creates a new AnyValueArray from a list of values <a href="pip_services3_commons/AnyValueArray/fromValues.html">[...]</a>
+          /// Creates a new AnyValueArray from a list of values
+/// 
+/// - <code>values</code>    a list of values to initialize the created AnyValueArray
+/// Returns         a newly created AnyValueArray.
                   
 </dd>
       </dl>

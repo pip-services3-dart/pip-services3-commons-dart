@@ -195,15 +195,17 @@
       <div><h1><span class="kind-class">ExcludedRule</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Validation rule to check that value is excluded from the list of constants.</p>
-<p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new Schema()
-    .withRule(new ExcludedRule(1, 2, 3));
-
-schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
-schema.validate(10);     // Result: no errors
-</code></pre>
+      <p>/// Validation rule to check that value is excluded from the list of constants.
+/// 
+/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
+/// 
+/// ### Example ###
+/// 
+///     var schema = new Schema()
+///         .withRule(new ExcludedRule(1, 2, 3));
+///<br>
+///     schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
+///     schema.validate(10);     // Result: no errors</p>
     </section>
     
     <section>
@@ -230,7 +232,9 @@ schema.validate(10);     // Result: no errors
           <span class="name"><a href="pip_services3_commons/ExcludedRule/ExcludedRule.html">ExcludedRule</a></span><span class="signature">(<span class="parameter" id="-param-values"><span class="type-annotation">List</span> <span class="parameter-name">values</span></span>)</span>
         </dt>
         <dd>
-          Creates a new validation rule and sets its values. <a href="pip_services3_commons/ExcludedRule/ExcludedRule.html">[...]</a>
+          /// Creates a new validation rule and sets its values.
+/// 
+/// - <code>values</code>    a list of constants that value must be excluded from
         </dd>
       </dl>
     </section>
@@ -267,8 +271,13 @@ schema.validate(10);     // Result: no errors
           </span>
                   </dt>
         <dd>
-          Validates the given value. None of the values set in this ExcludedRule object must exist 
-in the value that is given for validation to pass. <a href="pip_services3_commons/ExcludedRule/validate.html">[...]</a>
+          /// Validates the given value. None of the values set in this ExcludedRule object must exist 
+/// in the value that is given for validation to pass.
+/// 
+/// - <code>path</code>      the dot notation path to the value that is to be validated.
+/// - <code>schema</code>    (not used in this implementation).
+/// - <code>value</code>     the value that is to be validated.
+/// - <code>results</code>   the results of the validation.
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

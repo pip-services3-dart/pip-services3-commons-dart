@@ -195,14 +195,15 @@
       <div><h1><span class="kind-class">RecursiveMapConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into map objects using extended conversion rules.
-This class is similar to [<a href="pip_services3_commons/MapConverter-class.html">MapConverter</a>], but is recursively converts all values
-stored in objects and arrays.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
-var value2 = RecursiveMapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1, { "0": 2, "1": 3 } }
-</code></pre>
+      <p>/// Converts arbitrary values into map objects using extended conversion rules.
+/// This class is similar to [<a href="pip_services3_commons/MapConverter-class.html">MapConverter</a>], but is recursively converts all values
+/// stored in objects and arrays.
+/// 
+/// ### Example ###
+/// 
+///     var value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
+///     var value2 = RecursiveMapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
+///     var value3 = RecursiveMapConverted.toNullableMap([1,<code>2,3</code>); // Result: { "0": 1, { "0": 2, "1": 3 } }</p>
     </section>
     
 
@@ -291,7 +292,12 @@ var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1,
           </span>
                   </dt>
         <dd>
-          Converts value into map object or returns empty map when conversion is not possible <a href="pip_services3_commons/RecursiveMapConverter/toMap.html">[...]</a>
+          /// Converts value into map object or returns empty map when conversion is not possible
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         map object or empty map when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/RecursiveMapConverter/toNullableMap.html">toNullableMap</a>]
                   
 </dd>
         <dt id="toMapWithDefault" class="callable">
@@ -300,7 +306,13 @@ var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1,
           </span>
                   </dt>
         <dd>
-          Converts value into map object or returns default when conversion is not possible <a href="pip_services3_commons/RecursiveMapConverter/toMapWithDefault.html">[...]</a>
+          /// Converts value into map object or returns default when conversion is not possible
+/// 
+/// - <code>value</code>         the value to convert.
+/// - defaultValue  the default value.
+/// Returns             map object or emptu map when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/RecursiveMapConverter/toNullableMap.html">toNullableMap</a>]
                   
 </dd>
         <dt id="toNullableMap" class="callable">
@@ -309,7 +321,10 @@ var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1,
           </span>
                   </dt>
         <dd>
-          Converts value into map object or returns null when conversion is not possible. <a href="pip_services3_commons/RecursiveMapConverter/toNullableMap.html">[...]</a>
+          /// Converts value into map object or returns null when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         map object or null when conversion is not supported.
                   
 </dd>
       </dl>

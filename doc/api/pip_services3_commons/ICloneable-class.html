@@ -195,21 +195,22 @@
       <div><h1><span class="kind-class">ICloneable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Interface for data objects that are able to create their full binary copy.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyClass implements IMyClass, ICloneable {
-  MyClass() { };
-
-  clone() {
-      var cloneObj = new (this.&lt;any constructor&gt;());
-             
-      // Copy every attribute from this to cloneObj here.
-      ...
-             
-      return cloneObj;
-  }
-}
-</code></pre>
+      <p>/// Interface for data objects that are able to create their full binary copy.
+/// 
+/// ### Example ###
+/// 
+///     class MyClass implements IMyClass, ICloneable {
+///       MyClass() { };
+///<br>
+///       clone() {
+///           var cloneObj = new (this.<any constructor="">());
+///<br>
+///           // Copy every attribute from this to cloneObj here.
+///           ...
+///<br>
+///           return cloneObj;
+///       }
+///     }</any></p>
     </section>
     
     <section>
@@ -273,7 +274,9 @@
           </span>
                   </dt>
         <dd>
-          Creates a binary clone of this object. <a href="pip_services3_commons/ICloneable/clone.html">[...]</a>
+          /// Creates a binary clone of this object.
+/// 
+/// Returns a clone of this object.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

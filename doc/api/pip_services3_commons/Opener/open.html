@@ -92,33 +92,17 @@
       
     </section>
     <section class="desc markdown">
-      <ul>
-<li>Opens multiple components.
-<ul>
-<li></li>
-<li>To be opened components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.</li>
-<li>If they don't the call to this method has no effect.</li>
-<li></li>
-<li>
-<ul>
-<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>components</code> 		the list of components that are to be closed.</li>
-</ul>
-</li>
-<li>Return 			Future that returns error or null no errors occured.
-<ul>
-<li></li>
-<li>See <a href="pip_services3_commons/Opener/openOne.html">openOne</a></li>
-<li>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+      <p>/// Opens multiple components.
+/// 
+/// To be opened components must implement <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface.
+	/// If they don't the call to this method has no effect.
+	/// 
+	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
+	/// - <code>components</code> 		the list of components that are to be closed.
+  /// Return 			Future that returns error or null no errors occured.
+	/// 
+	/// See <a href="pip_services3_commons/Opener/openOne.html">openOne</a>
+	/// See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></p>
     </section>
     
     

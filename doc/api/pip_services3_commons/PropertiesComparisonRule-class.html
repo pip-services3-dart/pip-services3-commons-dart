@@ -195,16 +195,18 @@
       <div><h1><span class="kind-class">PropertiesComparisonRule</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Validation rule that compares two object properties.</p>
-<p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new ObjectSchema()
-    .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
-
-schema.validate({ field1: 1, field2: 2 });       // Result: no errors
-schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
-schema.validate({});                             // Result: no errors
-</code></pre>
+      <p>/// Validation rule that compares two object properties.
+/// 
+/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
+/// 
+/// ### Example ###
+/// 
+///     var schema = new ObjectSchema()
+///         .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
+///<br>
+///     schema.validate({ field1: 1, field2: 2 });       // Result: no errors
+///     schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
+///     schema.validate({});                             // Result: no errors</p>
     </section>
     
     <section>
@@ -231,7 +233,13 @@ schema.validate({});                             // Result: no errors
           <span class="name"><a href="pip_services3_commons/PropertiesComparisonRule/PropertiesComparisonRule.html">PropertiesComparisonRule</a></span><span class="signature">(<span class="parameter" id="-param-property1"><span class="type-annotation">String</span> <span class="parameter-name">property1</span></span> <span class="parameter" id="-param-operation"><span class="type-annotation">String</span> <span class="parameter-name">operation</span></span> <span class="parameter" id="-param-property2"><span class="type-annotation">String</span> <span class="parameter-name">property2</span></span>)</span>
         </dt>
         <dd>
-          Creates a new validation rule and sets its arguments. <a href="pip_services3_commons/PropertiesComparisonRule/PropertiesComparisonRule.html">[...]</a>
+          /// Creates a new validation rule and sets its arguments.
+/// 
+/// - <code>property1</code>    a name of the first property to compare.
+/// - <code>operation</code>    a comparison operation: "==" ("=", "EQ"), "!= " ("&lt;&gt;", "NE"); "&lt;"/"&gt;" ("LT"/"GT"), "&lt;="/"&gt;=" ("LE"/"GE"); "LIKE".
+/// - <code>property2</code>    a name of the second property to compare.
+/// 
+/// See <a href="pip_services3_commons/ObjectComparator/compare.html">ObjectComparator.compare</a>
         </dd>
       </dl>
     </section>
@@ -268,7 +276,12 @@ schema.validate({});                             // Result: no errors
           </span>
                   </dt>
         <dd>
-          Validates a given value against this rule. <a href="pip_services3_commons/PropertiesComparisonRule/validate.html">[...]</a>
+          /// Validates a given value against this rule.
+/// 
+/// - <code>path</code>      a dot notation path to the value.
+/// - <code>schema</code>    a schema this rule is called from
+/// - <code>value</code>     a value to be validated.
+/// - <code>results</code>   a list with validation results to add new results.
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

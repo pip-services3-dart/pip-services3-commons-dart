@@ -195,19 +195,24 @@
       <div><h1><span class="kind-class">ProjectionParams</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Defines projection parameters with list if fields to include into query results.</p>
-<p>The parameters support two formats: dot format and nested format.</p>
-<p>The dot format is the standard way to define included fields and subfields using
-dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.</p>
-<p>As alternative the nested format offers a more compact representation:
-<code>"field1,field2(field21,field22(field221))"</code>.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
-var paging = new PagingParams(0, 100);
-var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
-
-myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
-</code></pre>
+      <p>/// Defines projection parameters with list if fields to include into query results.
+/// 
+/// The parameters support two formats: dot format and nested format.
+/// 
+/// The dot format is the standard way to define included fields and subfields using
+/// dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
+/// 
+/// As alternative the nested format offers a more compact representation:
+/// <code>"field1,field2(field21,field22(field221))"</code>.
+/// 
+/// ### Example ###
+/// 
+///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
+///     var paging = new PagingParams(0, 100);
+///     var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
+///<br>
+///     myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
+///</p>
     </section>
     
     <section>
@@ -234,13 +239,17 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
           <span class="name"><a href="pip_services3_commons/ProjectionParams/ProjectionParams.html">ProjectionParams</a></span><span class="signature">([<span class="parameter" id="-param-values"><span class="type-annotation">List</span> <span class="parameter-name">values</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          Creates a new instance of the projection parameters and assigns its value. <a href="pip_services3_commons/ProjectionParams/ProjectionParams.html">[...]</a>
+          /// Creates a new instance of the projection parameters and assigns its value.
+/// 
+/// - <code>value</code>     (optional) values to initialize this object.
         </dd>
         <dt id="ProjectionParams.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/ProjectionParams/ProjectionParams.fromJson.html">ProjectionParams.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          Creates a new instance from json. <a href="pip_services3_commons/ProjectionParams/ProjectionParams.fromJson.html">[...]</a>
+          /// Creates a new instance from json.
+/// 
+/// - <code>json</code> 		json for initialize.
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -343,7 +352,7 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Returned JSON Map object from values of this object
+          /// Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -352,7 +361,7 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Initialize this object from JSON Map object
+          /// Initialize this object from JSON Map object
                   
 </dd>
         <dt id="toString" class="callable">
@@ -361,9 +370,11 @@ myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Gets a string representation of the object.
-The result is a comma-separated list of projection fields
-"field1,field2.field21,field2.field22.field221" <a href="pip_services3_commons/ProjectionParams/toString.html">[...]</a>
+          /// Gets a string representation of the object.
+/// The result is a comma-separated list of projection fields
+/// "field1,field2.field21,field2.field22.field221"
+/// 
+/// Returns a string representation of the object.
                   <div class="features">override</div>
 </dd>
         <dt id="add" class="callable inherited">
@@ -867,7 +878,10 @@ or throws a <code>RangeError</code> if <code>index</code> is out of bounds.
           </span>
                   </dt>
         <dd>
-          Parses comma-separated list of projection fields. <a href="pip_services3_commons/ProjectionParams/fromString.html">[...]</a>
+          /// Parses comma-separated list of projection fields.
+/// 
+/// - values    one or more comma-separated lists of projection fields
+/// Returns         a newly created ProjectionParams.
                   
 </dd>
         <dt id="fromValue" class="callable">
@@ -876,7 +890,12 @@ or throws a <code>RangeError</code> if <code>index</code> is out of bounds.
           </span>
                   </dt>
         <dd>
-          Converts specified value into ProjectionParams. <a href="pip_services3_commons/ProjectionParams/fromValue.html">[...]</a>
+          /// Converts specified value into ProjectionParams.
+/// 
+/// - value     value to be converted
+/// Returns         a newly created ProjectionParams.
+/// 
+/// See [<a href="pip_services3_commons/AnyValueArray/fromValue.html">AnyValueArray.fromValue</a>]
                   
 </dd>
       </dl>

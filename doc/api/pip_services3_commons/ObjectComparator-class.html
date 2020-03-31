@@ -195,11 +195,12 @@
       <div><h1><span class="kind-class">ObjectComparator</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Helper class to perform comparison operations over arbitrary values.</p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>ObjectComparator.compare(2, "GT", 1);        // Result: true
-ObjectComparator.areEqual("A", "B");         // Result: false
-</code></pre>
+      <p>/// Helper class to perform comparison operations over arbitrary values.
+/// 
+/// ### Example ###
+/// 
+///     ObjectComparator.compare(2, "GT", 1);        // Result: true
+///     ObjectComparator.areEqual("A", "B");         // Result: false</p>
     </section>
     
 
@@ -288,8 +289,12 @@ ObjectComparator.areEqual("A", "B");         // Result: false
           </span>
                   </dt>
         <dd>
-          Checks if two values are equal.
-The operation can be performed over values of any type. <a href="pip_services3_commons/ObjectComparator/areEqual.html">[...]</a>
+          /// Checks if two values are equal.
+/// The operation can be performed over values of any type.
+/// 
+/// - <code>value1</code>    the first value to compare
+/// - <code>value2</code>    the second value to compare
+/// Returns true if values are equal and false otherwise
                   
 </dd>
         <dt id="areNotEqual" class="callable">
@@ -298,8 +303,12 @@ The operation can be performed over values of any type. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Checks if two values are NOT equal
-The operation can be performed over values of any type. <a href="pip_services3_commons/ObjectComparator/areNotEqual.html">[...]</a>
+          /// Checks if two values are NOT equal
+/// The operation can be performed over values of any type.
+/// 
+/// - <code>value1</code>    the first value to compare
+/// - <code>value2</code>    the second value to compare
+/// Returns true if values are NOT equal and false otherwise
                   
 </dd>
         <dt id="compare" class="callable">
@@ -308,8 +317,13 @@ The operation can be performed over values of any type. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Perform comparison operation over two arguments.
-The operation can be performed over values of any type. <a href="pip_services3_commons/ObjectComparator/compare.html">[...]</a>
+          /// Perform comparison operation over two arguments.
+/// The operation can be performed over values of any type.
+/// 
+/// - <code>value1</code>        the first argument to compare
+/// - <code>operation</code>     the comparison operation: "==" ("=", "EQ"), "!= " ("&lt;&gt;", "NE"); "&lt;"/"&gt;" ("LT"/"GT"), "&lt;="/"&gt;=" ("LE"/"GE"); "LIKE".
+/// - <code>value2</code>        the second argument to compare
+/// Returns result of the comparison operation
                   
 </dd>
         <dt id="isGreater" class="callable">
@@ -318,8 +332,12 @@ The operation can be performed over values of any type. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Checks if first value is greater than the second one.
-The operation can be performed over numbers or strings. <a href="pip_services3_commons/ObjectComparator/isGreater.html">[...]</a>
+          /// Checks if first value is greater than the second one.
+/// The operation can be performed over numbers or strings.
+/// 
+/// - <code>value1</code>    the first value to compare
+/// - <code>value2</code>    the second value to compare
+/// Returns true if the first value is greater than second and false otherwise.
                   
 </dd>
         <dt id="isLess" class="callable">
@@ -328,8 +346,12 @@ The operation can be performed over numbers or strings. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Checks if first value is less than the second one.
-The operation can be performed over numbers or strings. <a href="pip_services3_commons/ObjectComparator/isLess.html">[...]</a>
+          /// Checks if first value is less than the second one.
+/// The operation can be performed over numbers or strings.
+/// 
+/// - <code>value1</code>    the first value to compare
+/// - <code>value2</code>    the second value to compare
+/// Returns true if the first value is less than second and false otherwise.
                   
 </dd>
         <dt id="match" class="callable">
@@ -338,7 +360,11 @@ The operation can be performed over numbers or strings. <a href="pip_services3_c
           </span>
                   </dt>
         <dd>
-          Checks if string matches a regular expression <a href="pip_services3_commons/ObjectComparator/match.html">[...]</a>
+          /// Checks if string matches a regular expression
+/// 
+/// - <code>value</code>     a string value to match
+/// - <code>regexp</code>    a regular expression string
+/// Returns true if the value matches regular expression and false otherwise.
                   
 </dd>
       </dl>

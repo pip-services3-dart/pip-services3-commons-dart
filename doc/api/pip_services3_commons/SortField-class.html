@@ -195,15 +195,17 @@
       <div><h1><span class="kind-class">SortField</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Defines a field name and order used to sort query results.</p>
-<p>See <a href="pip_services3_commons/SortParams-class.html">SortParams</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
-var paging = new PagingParams(0, 100);
-var sorting = new SortingParams(new SortField("create_time", true));
-
-myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
-</code></pre>
+      <p>/// Defines a field name and order used to sort query results.
+/// 
+/// See <a href="pip_services3_commons/SortParams-class.html">SortParams</a>
+/// 
+/// ### Example ###
+/// 
+///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
+///     var paging = new PagingParams(0, 100);
+///     var sorting = new SortingParams(new SortField("create_time", true));
+///<br>
+///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});</p>
     </section>
     
 
@@ -215,29 +217,18 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
           <span class="name"><a href="pip_services3_commons/SortField/SortField.html">SortField</a></span><span class="signature">([<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span> = <span class="default-value">null</span>, </span> <span class="parameter" id="-param-ascending"><span class="type-annotation">bool</span> <span class="parameter-name">ascending</span> = <span class="default-value">true</span></span> ])</span>
         </dt>
         <dd>
-          
-<li>Creates a new instance and assigns its values.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 			the name of the field to sort by.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>ascending</code> 	true to sort in ascending order, and false to sort in descending order.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Creates a new instance and assigns its values.
+/// 
+/// - <code>name</code> 			the name of the field to sort by.
+	/// - <code>ascending</code> 	true to sort in ascending order, and false to sort in descending order.
         </dd>
         <dt id="SortField.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/SortField/SortField.fromJson.html">SortField.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          Creates a new instance from json. <a href="pip_services3_commons/SortField/SortField.fromJson.html">[...]</a>
+          /// Creates a new instance from json.
+/// 
+/// - <code>json</code> 		json for initialize.
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -291,7 +282,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Returned JSON Map object from values of this object
+          /// Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -300,7 +291,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Initialize this object from JSON Map object
+          /// Initialize this object from JSON Map object
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

@@ -195,16 +195,15 @@
       <div><h1><span class="kind-class">MapConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into map objects using extended conversion rules:</p>
-<ul>
-<li>Objects: property names as keys, property values as values</li>
-<li>Arrays: element indexes as keys, elements as values</li>
-</ul>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = MapConverted.toNullableMap("ABC"); // Result: null
-var value2 = MapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "2": 3 }
-</code></pre>
+      <p>/// Converts arbitrary values into map objects using extended conversion rules:
+/// - Objects: property names as keys, property values as values
+/// - Arrays: element indexes as keys, elements as values
+/// 
+/// ### Example ###
+/// 
+///     var value1 = MapConverted.toNullableMap("ABC"); // Result: null
+///     var value2 = MapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
+///     var value3 = MapConverted.toNullableMap(<code>1,2,3</code>); // Result: { "0": 1, "1": 2, "2": 3 }</p>
     </section>
     
 
@@ -293,7 +292,12 @@ var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "
           </span>
                   </dt>
         <dd>
-          Converts value into map object or returns empty map when conversion is not possible <a href="pip_services3_commons/MapConverter/toMap.html">[...]</a>
+          /// Converts value into map object or returns empty map when conversion is not possible
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         map object or empty map when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/MapConverter/toNullableMap.html">toNullableMap</a>]
                   
 </dd>
         <dt id="toMapWithDefault" class="callable">
@@ -302,7 +306,13 @@ var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "
           </span>
                   </dt>
         <dd>
-          Converts value into map object or returns default when conversion is not possible <a href="pip_services3_commons/MapConverter/toMapWithDefault.html">[...]</a>
+          /// Converts value into map object or returns default when conversion is not possible
+/// 
+/// - <code>value</code>         the value to convert.
+/// - defaultValue  the default value.
+/// Returns             map object or emptu map when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/MapConverter/toNullableMap.html">toNullableMap</a>]
                   
 </dd>
         <dt id="toNullableMap" class="callable">
@@ -311,7 +321,10 @@ var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "
           </span>
                   </dt>
         <dd>
-          Converts value into map object or returns null when conversion is not possible. <a href="pip_services3_commons/MapConverter/toNullableMap.html">[...]</a>
+          /// Converts value into map object or returns null when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         map object or null when conversion is not supported.
                   
 </dd>
       </dl>

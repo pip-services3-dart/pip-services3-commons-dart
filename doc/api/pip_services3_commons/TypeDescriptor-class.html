@@ -195,10 +195,11 @@
       <div><h1><span class="kind-class">TypeDescriptor</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Descriptor that points to specific object type by it's name
-and optional library (or module) where this type is defined.</p>
-<p>This class has symmetric implementation across all languages supported
-by Pip.Services toolkit and used to support dynamic data processing.</p>
+      <p>/// Descriptor that points to specific object type by it's name
+/// and optional library (or module) where this type is defined.
+/// 
+/// This class has symmetric implementation across all languages supported
+/// by Pip.Services toolkit and used to support dynamic data processing.</p>
     </section>
     
 
@@ -210,23 +211,10 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
           <span class="name"><a href="pip_services3_commons/TypeDescriptor/TypeDescriptor.html">TypeDescriptor</a></span><span class="signature">(<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span> <span class="parameter" id="-param-library"><span class="type-annotation">String</span> <span class="parameter-name">library</span></span>)</span>
         </dt>
         <dd>
-          
-<li>Creates a new instance of the type descriptor and sets its values.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>name</code> 		a name of the object type.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>library</code> 	a library or module where this object type is implemented.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Creates a new instance of the type descriptor and sets its values.
+/// 
+/// - <code>name</code> 		a name of the object type.
+	/// - <code>library</code> 	a library or module where this object type is implemented.
         </dd>
       </dl>
     </section>
@@ -263,21 +251,12 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
           </span>
                   </dt>
         <dd>
-          
-<li>Compares this descriptor to a value.
-<ul>
-<li>If the value is also a TypeDescriptor it compares their name and library fields.</li>
-<li>Otherwise this method returns false.</li>
-<li></li>
-<li>
-<ul>
-<li><code>value</code>		a value to compare.</li>
-</ul>
-</li>
-<li>Returns true if value is identical TypeDescriptor and false otherwise.</li>
-</ul>
-</li>
-
+          /// Compares this descriptor to a value.
+/// If the value is also a TypeDescriptor it compares their name and library fields.
+/// Otherwise this method returns false.
+/// 
+/// - <code>value</code>		a value to compare.
+	/// Returns true if value is identical TypeDescriptor and false otherwise.
                   
 </dd>
         <dt id="getLibrary" class="callable">
@@ -286,14 +265,9 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
           </span>
                   </dt>
         <dd>
-          
-<li>Gets the name of the library or module where the object type is defined.
-<ul>
-<li></li>
-<li>Returns the name of the library or module.</li>
-</ul>
-</li>
-
+          /// Gets the name of the library or module where the object type is defined.
+/// 
+/// Returns the name of the library or module.
                   
 </dd>
         <dt id="getName" class="callable">
@@ -302,14 +276,9 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
           </span>
                   </dt>
         <dd>
-          
-<li>Get the name of the object type.
-<ul>
-<li></li>
-<li>Returns the name of the object type.</li>
-</ul>
-</li>
-
+          /// Get the name of the object type.
+/// 
+/// Returns the name of the object type.
                   
 </dd>
         <dt id="toString" class="callable">
@@ -318,20 +287,12 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
           </span>
                   </dt>
         <dd>
-          
-<li>Gets a string representation of the object.
-<ul>
-<li>The result has format name<code>,library</code></li>
-<li></li>
-<li>Returns a string representation of the object.
-<ul>
-<li></li>
-<li>See <a href="pip_services3_commons/TypeDescriptor/fromString.html">fromString</a></li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Gets a string representation of the object.
+/// The result has format name<code>,library</code>
+  /// 
+  /// Returns a string representation of the object.
+	/// 
+	/// See <a href="pip_services3_commons/TypeDescriptor/fromString.html">fromString</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -371,26 +332,14 @@ by Pip.Services toolkit and used to support dynamic data processing.</p>
           </span>
                   </dt>
         <dd>
-          
-<li>Parses a string to get descriptor fields and returns them as a Descriptor.
-<ul>
-<li>The string must have format name<code>,library</code></li>
-<li></li>
-<li>
-<ul>
-<li><code>value</code>     a string to parse.</li>
-</ul>
-</li>
-<li>Returns         a newly created Descriptor.
-<ul>
-<li>Throws a <a href="pip_services3_commons/ConfigException-class.html">ConfigException</a> if the descriptor string is of a wrong format.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/TypeDescriptor/toString.html">toString</a></li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Parses a string to get descriptor fields and returns them as a Descriptor.
+/// The string must have format name<code>,library</code>
+  /// 
+  /// - <code>value</code>     a string to parse.
+  /// Returns         a newly created Descriptor.
+	/// Throws a <a href="pip_services3_commons/ConfigException-class.html">ConfigException</a> if the descriptor string is of a wrong format.
+	/// 
+	/// See <a href="pip_services3_commons/TypeDescriptor/toString.html">toString</a>
                   
 </dd>
       </dl>

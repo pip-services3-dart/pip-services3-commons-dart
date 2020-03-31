@@ -195,28 +195,30 @@
       <div><h1><span class="kind-class">IExecutable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Interface for components that can be called to execute work.</p>
-<p>See <a href="pip_services3_commons/Executor-class.html">Executor</a>
-See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
-See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class EchoComponent implements IExecutable {
-    ...
-    Future&lt;dynamic&gt; execute(String correlationId, Parameters args)  {
-       return Future.delayed(Duration(), (){
-           return args.getAsObject("message");
-       })         
-    }
-}
-
-var echo = new EchoComponent();
-var message = "Test";
-echo.execute("123", Parameters.fromTuples(["message", message])
-   .then((result) {
-        console.log("Request: " + message + " Response: " + result);
-    })
-);
-</code></pre>
+      <p>/// Interface for components that can be called to execute work.
+/// 
+/// See <a href="pip_services3_commons/Executor-class.html">Executor</a>
+/// See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
+/// See <a href="pip_services3_commons/Parameters-class.html">Parameters</a>
+/// 
+/// ### Example ###
+/// 
+///     class EchoComponent implements IExecutable {
+///         ...
+///         Future<dynamic> execute(String correlationId, Parameters args)  {
+///            return Future.delayed(Duration(), (){
+///                return args.getAsObject("message");
+///            })<br>
+///         }
+///     }
+///<br>
+///     var echo = new EchoComponent();
+///     var message = "Test";
+///     echo.execute("123", Parameters.fromTuples(<code>"message", message</code>)
+///        .then((result) {
+///             console.log("Request: " + message + " Response: " + result);
+///         })
+///     );</dynamic></p>
     </section>
     
     <section>
@@ -278,24 +280,11 @@ echo.execute("123", Parameters.fromTuples(["message", message])
           </span>
                   </dt>
         <dd>
-          
-<li>Executes component with arguments and receives execution result.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>args</code> 				execution arguments.</li>
-</ul>
-</li>
-<li>Return 			  Future that receives execution result or error.</li>
-</ul>
-</li>
-
+          /// Executes component with arguments and receives execution result.
+/// 
+/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
+	/// - <code>args</code> 				execution arguments.
+  /// Return 			  Future that receives execution result or error.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

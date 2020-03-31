@@ -195,33 +195,42 @@
       <div><h1><span class="kind-class">ConfigParams</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Contains a key-value map with configuration parameters. 
-All values stored as strings and can be serialized as JSON or string forms.
-When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
-<p>The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>"my_param"</code></p>
-<p>Configuration parameters can be broken into sections and subsections using dot notation as:
-<code>"section1.subsection1.param1"</code>. Using GetSection method all parameters from specified section
-can be extracted from a ConfigMap.</p>
-<p>The ConfigParams supports serialization from/to plain strings as:
-<code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code></p>
-<p>ConfigParams are used to pass configurations to <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a> objects.
-They also serve as a basis for more concrete configurations such as <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>
-or <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code> (in the Pip.Services components package).</p>
-<p>See <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>
-See <a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var config = ConfigParams.fromTuples([
-    ["section1.key1", "AAA",
-    "section1.key2", 123,
-    "section2.key1", true]
-]);
-        
-config.getAsString("section1.key1"); // Result: AAA
-config.getAsInteger("section1.key1"); // Result: 0
-
-section1 = config.getSection("section1");
-section1.toString(); // Result: key1=AAA;key2=123
-</code></pre>
+      <p>/// Contains a key-value map with configuration parameters. 
+/// All values stored as strings and can be serialized as JSON or string forms.
+/// When retrieved the values can be automatically converted on read using GetAsXXX methods.</p>
+<ul>
+<li></li>
+</ul>
+<p>/// The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>"my_param"</code>
+///<br>
+/// Configuration parameters can be broken into sections and subsections using dot notation as:
+/// <code>"section1.subsection1.param1"</code>. Using GetSection method all parameters from specified section
+/// can be extracted from a ConfigMap.
+/// 
+/// The ConfigParams supports serialization from/to plain strings as:
+/// <code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code>
+/// 
+/// ConfigParams are used to pass configurations to <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a> objects.
+/// They also serve as a basis for more concrete configurations such as <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>
+/// or <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code> (in the Pip.Services components package).
+/// 
+/// See <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>
+/// See <a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>
+/// 
+/// ### Example ###
+/// 
+///     var config = ConfigParams.fromTuples([
+///         <code>"section1.key1", "AAA",
+///         "section1.key2", 123,
+///         "section2.key1", true</code>
+///     ]);
+///<br>
+///     config.getAsString("section1.key1"); // Result: AAA
+///     config.getAsInteger("section1.key1"); // Result: 0
+///<br>
+///     section1 = config.getSection("section1");
+///     section1.toString(); // Result: key1=AAA;key2=123
+///</p>
     </section>
     
     <section>
@@ -250,20 +259,11 @@ section1.toString(); // Result: key1=AAA;key2=123
           <span class="name"><a href="pip_services3_commons/ConfigParams/ConfigParams.html">ConfigParams</a></span><span class="signature">([<span class="parameter" id="-param-values"><span class="type-annotation">dynamic</span> <span class="parameter-name">values</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          
-<li>Creates a new ConfigParams and fills it with values.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>values</code> 	(optional) an object to be converted into key-value pairs to initialize this config map.</li>
-</ul>
-</li>
-<li></li>
-<li>See <code>StringValueMap.constructor</code></li>
-</ul>
-</li>
-
+          /// Creates a new ConfigParams and fills it with values.
+/// 
+/// - <code>values</code> 	(optional) an object to be converted into key-value pairs to initialize this config map.
+	/// 
+	/// See <code>StringValueMap.constructor</code>
         </dd>
       </dl>
     </section>
@@ -348,24 +348,11 @@ section1.toString(); // Result: key1=AAA;key2=123
           </span>
                   </dt>
         <dd>
-          
-<li>Adds parameters into this ConfigParams under specified section.
-<ul>
-<li>Keys for the new parameters are appended with section dot prefix.</li>
-<li></li>
-<li>
-<ul>
-<li><code>section</code> 			name of the section where add new parameters</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>sectionParams</code> 	new parameters to be added.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Adds parameters into this ConfigParams under specified section.
+/// Keys for the new parameters are appended with section dot prefix.
+/// 
+/// - <code>section</code> 			name of the section where add new parameters
+	/// - <code>sectionParams</code> 	new parameters to be added.
                   
 </dd>
         <dt id="getSection" class="callable">
@@ -374,20 +361,11 @@ section1.toString(); // Result: key1=AAA;key2=123
           </span>
                   </dt>
         <dd>
-          
-<li>Gets parameters from specific section stored in this ConfigMap.
-<ul>
-<li>The section name is removed from parameter keys.</li>
-<li></li>
-<li>
-<ul>
-<li><code>section</code>	name of the section to retrieve configuration parameters from.</li>
-</ul>
-</li>
-<li>Returns 		all configuration parameters that belong to the section named 'section'.</li>
-</ul>
-</li>
-
+          /// Gets parameters from specific section stored in this ConfigMap.
+/// The section name is removed from parameter keys.
+/// 
+/// - <code>section</code>	name of the section to retrieve configuration parameters from.
+	/// Returns 		all configuration parameters that belong to the section named 'section'.
                   
 </dd>
         <dt id="getSectionNames" class="callable">
@@ -396,14 +374,9 @@ section1.toString(); // Result: key1=AAA;key2=123
           </span>
                   </dt>
         <dd>
-          
-<li>Gets a list with all 1st level section names.
-<ul>
-<li></li>
-<li>Returns a list of section names stored in this ConfigMap.</li>
-</ul>
-</li>
-
+          /// Gets a list with all 1st level section names.
+/// 
+/// Returns a list of section names stored in this ConfigMap.
                   
 </dd>
         <dt id="override" class="callable">
@@ -412,22 +385,13 @@ section1.toString(); // Result: key1=AAA;key2=123
           </span>
                   </dt>
         <dd>
-          
-<li>Overrides parameters with new values from specified ConfigParams
-<ul>
-<li>and returns a new ConfigParams object.</li>
-<li></li>
-<li>
-<ul>
-<li><code>configParams</code>		ConfigMap with parameters to override the current values.</li>
-</ul>
-</li>
-<li>Returns					a new ConfigParams object.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/ConfigParams/setDefaults.html">setDefaults</a></li>
-</ul>
-</li>
-
+          /// Overrides parameters with new values from specified ConfigParams
+/// and returns a new ConfigParams object.
+/// 
+/// - <code>configParams</code>		ConfigMap with parameters to override the current values.
+	/// Returns					a new ConfigParams object.
+	/// 
+	/// See <a href="pip_services3_commons/ConfigParams/setDefaults.html">setDefaults</a>
                   
 </dd>
         <dt id="setDefaults" class="callable">
@@ -436,21 +400,12 @@ section1.toString(); // Result: key1=AAA;key2=123
           </span>
                   </dt>
         <dd>
-          
-<li>Set default values from specified ConfigParams and returns a new ConfigParams object.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>defaultConfigParams</code>	ConfigMap with default parameter values.</li>
-</ul>
-</li>
-<li>Returns						a new ConfigParams object.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/ConfigParams/override.html">override</a></li>
-</ul>
-</li>
-
+          /// Set default values from specified ConfigParams and returns a new ConfigParams object.
+/// 
+/// - <code>defaultConfigParams</code>	ConfigMap with default parameter values.
+	/// Returns						a new ConfigParams object.
+	/// 
+	/// See <a href="pip_services3_commons/ConfigParams/override.html">override</a>
                   
 </dd>
         <dt id="addAll" class="callable inherited">
@@ -477,7 +432,9 @@ section1.toString(); // Result: key1=AAA;key2=123
           </span>
                   </dt>
         <dd class="inherited">
-          Appends new elements to this map. <a href="pip_services3_commons/StringValueMap/append.html">[...]</a>
+          /// Appends new elements to this map.
+/// 
+/// - <code>map</code>  a map with elements to be added.
                   <div class="features">inherited</div>
 </dd>
         <dt id="cast" class="callable inherited">
@@ -496,7 +453,7 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Clears this map by removing all its elements.
+          /// Clears this map by removing all its elements.
                   <div class="features">inherited</div>
 </dd>
         <dt id="clone" class="callable inherited">
@@ -505,7 +462,9 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Creates a binary clone of this object. <a href="pip_services3_commons/StringValueMap/clone.html">[...]</a>
+          /// Creates a binary clone of this object.
+/// 
+/// Returns a clone of this object.
                   <div class="features">inherited</div>
 </dd>
         <dt id="containsKey" class="callable inherited">
@@ -541,7 +500,7 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Returned JSON Map object from values of this object
+          /// Returned JSON Map object from values of this object
                   <div class="features">inherited</div>
 </dd>
         <dt id="get" class="callable inherited">
@@ -550,7 +509,10 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Gets a map element specified by its key. <a href="pip_services3_commons/StringValueMap/get.html">[...]</a>
+          /// Gets a map element specified by its key.
+/// 
+/// - <code>key</code>     a key of the element to get.
+/// Returns       the value of the map element.
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsArray" class="callable inherited">
@@ -559,7 +521,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsArray.html">[...]</a>
+          /// Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a>
+/// See <a href="pip_services3_commons/StringValueMap/fromValue.html">AnyValueArray.fromValue</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsArrayWithDefault" class="callable inherited">
@@ -568,7 +536,14 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValueArray or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsArrayWithDefault.html">[...]</a>
+          /// Converts map element into an AnyValueArray or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// - defaultValue  the default value
+/// Returns AnyValueArray value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a>
+/// See <a href="pip_services3_commons/StringValueMap/getAsNullableArray.html">getAsNullableArray</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsBoolean" class="callable inherited">
@@ -577,7 +552,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a boolean or returns false if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsBoolean.html">[...]</a>
+          /// Converts map element into a boolean or returns false if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns boolean value of the element or false if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsBooleanWithDefault.html">getAsBooleanWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsBooleanWithDefault" class="callable inherited">
@@ -586,7 +566,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a boolean or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsBooleanWithDefault.html">[...]</a>
+          /// Converts map element into a boolean or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - <code>defaultValue</code>  the default value
+/// Returns boolean value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/BooleanConverter/toBooleanWithDefault.html">BooleanConverter.toBooleanWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsDateTime" class="callable inherited">
@@ -595,7 +581,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a DateTime or returns the current date if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDateTime.html">[...]</a>
+          /// Converts map element into a DateTime or returns the current date if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns DateTime value of the element or the current date if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsDateTimeWithDefault.html">getAsDateTimeWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsDateTimeWithDefault" class="callable inherited">
@@ -604,7 +595,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a DateTime or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDateTimeWithDefault.html">[...]</a>
+          /// Converts map element into a DateTime or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - defaultValue  the default value
+/// Returns DateTime value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DateTimeConverter/toDateTimeWithDefault.html">DateTimeConverter.toDateTimeWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsDouble" class="callable inherited">
@@ -613,7 +610,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a double or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDouble.html">[...]</a>
+          /// Converts map element into a double or returns 0 if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns double value of the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsDoubleWithDefault.html">getAsDoubleWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsDoubleWithDefault" class="callable inherited">
@@ -622,7 +624,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a double or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDoubleWithDefault.html">[...]</a>
+          /// Converts map element into a double or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - defaultValue  the default value
+/// Returns double value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DoubleConverter/toDoubleWithDefault.html">DoubleConverter.toDoubleWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsDuration" class="callable inherited">
@@ -631,7 +639,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a Duration or returns the current date if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDuration.html">[...]</a>
+          /// Converts map element into a Duration or returns the current date if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns Duration value of the element or the current date if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsDurationWithDefault.html">getAsDurationWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsDurationWithDefault" class="callable inherited">
@@ -640,7 +653,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a Duration or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDurationWithDefault.html">[...]</a>
+          /// Converts map element into a Duration or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - defaultValue  the default value
+/// Returns Duration value of the element or default value if conversion is not supported. 
+/// 
+/// See <code>DurationConverter.toDDurationWithDefault</code>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsFloat" class="callable inherited">
@@ -649,7 +668,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a float or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsFloat.html">[...]</a>
+          /// Converts map element into a float or returns 0 if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns float value of the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsFloatWithDefault.html">getAsFloatWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsFloatWithDefault" class="callable inherited">
@@ -658,7 +682,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a flot or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsFloatWithDefault.html">[...]</a>
+          /// Converts map element into a flot or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - defaultValue  the default value
+/// Returns flot value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/FloatConverter/toFloatWithDefault.html">FloatConverter.toFloatWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsInteger" class="callable inherited">
@@ -667,7 +697,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an integer or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsInteger.html">[...]</a>
+          /// Converts map element into an integer or returns 0 if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns integer value of the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsIntegerWithDefault.html">getAsIntegerWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsIntegerWithDefault" class="callable inherited">
@@ -676,7 +711,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an integer or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsIntegerWithDefault.html">[...]</a>
+          /// Converts map element into an integer or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - <code>defaultValue</code>  the default value
+/// Returns integer value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/IntegerConverter/toIntegerWithDefault.html">IntegerConverter.toIntegerWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsLong" class="callable inherited">
@@ -685,7 +726,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a long or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsLong.html">[...]</a>
+          /// Converts map element into a long or returns 0 if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns long value of the element or 0 if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsLongWithDefault.html">getAsLongWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsLongWithDefault" class="callable inherited">
@@ -694,7 +740,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a long or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsLongWithDefault.html">[...]</a>
+          /// Converts map element into a long or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - <code>defaultValue</code>  the default value
+/// Returns long value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/LongConverter/toLongWithDefault.html">LongConverter.toLongWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsMap" class="callable inherited">
@@ -703,7 +755,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsMap.html">[...]</a>
+          /// Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/ConfigParams/fromValue.html">fromValue</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsMapWithDefault" class="callable inherited">
@@ -712,7 +769,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValueMap or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsMapWithDefault.html">[...]</a>
+          /// Converts map element into an AnyValueMap or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// - defaultValue  the default value
+/// Returns AnyValueMap value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsNullableMap.html">getAsNullableMap</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableArray" class="callable inherited">
@@ -721,7 +784,13 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValueArray or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableArray.html">[...]</a>
+          /// Converts map element into an AnyValueArray or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns AnyValueArray value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a>
+/// See <a href="pip_services3_commons/StringValueMap/fromValue.html">AnyValueArray.fromValue</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableBoolean" class="callable inherited">
@@ -730,7 +799,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a boolean or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableBoolean.html">[...]</a>
+          /// Converts map element into a boolean or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns boolean value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/BooleanConverter/toNullableBoolean.html">BooleanConverter.toNullableBoolean</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableDateTime" class="callable inherited">
@@ -739,7 +813,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a DateTime or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableDateTime.html">[...]</a>
+          /// Converts map element into a DateTime or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns DateTime value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DateTimeConverter/toNullableDateTime.html">DateTimeConverter.toNullableDateTime</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableDouble" class="callable inherited">
@@ -748,7 +827,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a double or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableDouble.html">[...]</a>
+          /// Converts map element into a double or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns double value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DoubleConverter/toNullableDouble.html">DoubleConverter.toNullableDouble</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableDuration" class="callable inherited">
@@ -757,7 +841,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a Duration or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableDuration.html">[...]</a>
+          /// Converts map element into a Duration or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns Duration value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/DurationConverter/toNullableDuration.html">DurationConverter.toNullableDuration</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableFloat" class="callable inherited">
@@ -766,7 +855,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a float or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableFloat.html">[...]</a>
+          /// Converts map element into a float or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns float value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/FloatConverter/toNullableFloat.html">FloatConverter.toNullableFloat</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableInteger" class="callable inherited">
@@ -775,7 +869,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an integer or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableInteger.html">[...]</a>
+          /// Converts map element into an integer or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns integer value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/IntegerConverter/toNullableInteger.html">IntegerConverter.toNullableInteger</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableLong" class="callable inherited">
@@ -784,7 +883,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a long or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableLong.html">[...]</a>
+          /// Converts map element into a long or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns long value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/LongConverter/toNullableLong.html">LongConverter.toNullableLong</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableMap" class="callable inherited">
@@ -793,7 +897,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValueMap or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableMap.html">[...]</a>
+          /// Converts map element into an AnyValueMap or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns AnyValueMap value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/ConfigParams/fromValue.html">fromValue</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableString" class="callable inherited">
@@ -802,7 +911,12 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a string or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableString.html">[...]</a>
+          /// Converts map element into a string or returns null if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns string value of the element or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringConverter/toNullableString.html">StringConverter.toNullableString</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsNullableType" class="callable inherited">
@@ -811,8 +925,14 @@ if necessary. <a href="pip_services3_commons/StringValueMap/cast.html">[...]</a>
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a value defined by specied typecode.
-If conversion is not possible it returns null. <a href="pip_services3_commons/StringValueMap/getAsNullableType.html">[...]</a>
+          /// Converts map element into a value defined by specied typecode.
+/// If conversion is not possible it returns null.
+/// 
+/// - <code>type</code>      the TypeCode that defined the type of the result
+/// - <code>key</code>       a key of element to get.
+/// Returns element value defined by the typecode or null if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">TypeConverter.toNullableType</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsObject" class="callable inherited">
@@ -821,8 +941,11 @@ If conversion is not possible it returns null. <a href="pip_services3_commons/St
           </span>
                   </dt>
         <dd class="inherited">
-          Gets the value stored in map element without any conversions.
-When element key is not defined it returns the entire map value. <a href="pip_services3_commons/StringValueMap/getAsObject.html">[...]</a>
+          /// Gets the value stored in map element without any conversions.
+/// When element key is not defined it returns the entire map value.
+/// 
+/// - <code>key</code>       (optional) a key of the element to get
+/// Returns the element value or value of the map when index is not defined.
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsString" class="callable inherited">
@@ -831,7 +954,12 @@ When element key is not defined it returns the entire map value. <a href="pip_se
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a string or returns "" if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsString.html">[...]</a>
+          /// Converts map element into a string or returns "" if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns string value of the element or "" if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsStringWithDefault.html">getAsStringWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsStringWithDefault" class="callable inherited">
@@ -840,7 +968,13 @@ When element key is not defined it returns the entire map value. <a href="pip_se
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a string or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsStringWithDefault.html">[...]</a>
+          /// Converts map element into a string or returns default value if conversion is not possible.
+/// 
+/// - <code>key</code>           a key of element to get.
+/// - <code>defaultValue</code>  the default value
+/// Returns string value of the element or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringConverter/toStringWithDefault.html">StringConverter.toStringWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsType" class="callable inherited">
@@ -849,8 +983,14 @@ When element key is not defined it returns the entire map value. <a href="pip_se
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a value defined by specied typecode.
-If conversion is not possible it returns default value for the specified type. <a href="pip_services3_commons/StringValueMap/getAsType.html">[...]</a>
+          /// Converts map element into a value defined by specied typecode.
+/// If conversion is not possible it returns default value for the specified type.
+/// 
+/// - <code>type</code>      the TypeCode that defined the type of the result
+/// - <code>key</code>       a key of element to get.
+/// Returns element value defined by the typecode or default if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/StringValueMap/getAsTypeWithDefault.html">getAsTypeWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsTypeWithDefault" class="callable inherited">
@@ -859,8 +999,15 @@ If conversion is not possible it returns default value for the specified type. <
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into a value defined by specied typecode.
-If conversion is not possible it returns default value. <a href="pip_services3_commons/StringValueMap/getAsTypeWithDefault.html">[...]</a>
+          /// Converts map element into a value defined by specied typecode.
+/// If conversion is not possible it returns default value.
+/// 
+/// - <code>type</code>          the TypeCode that defined the type of the result
+/// - <code>key</code>       a key of element to get.
+/// - <code>defaultValue</code>  the default value
+/// Returns element value defined by the typecode or default value if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/TypeConverter/toTypeWithDefault.html">TypeConverter.toTypeWithDefault</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getAsValue" class="callable inherited">
@@ -869,7 +1016,13 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd class="inherited">
-          Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsValue.html">[...]</a>
+          /// Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.
+/// 
+/// - <code>key</code>       a key of element to get.
+/// Returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
+/// 
+/// See <a href="pip_services3_commons/AnyValue-class.html">AnyValue</a>
+/// See <code>AnyValue.constructor</code>
                   <div class="features">inherited</div>
 </dd>
         <dt id="getKeys" class="callable inherited">
@@ -878,7 +1031,9 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd class="inherited">
-          Gets keys of all elements stored in this map. <a href="pip_services3_commons/StringValueMap/getKeys.html">[...]</a>
+          /// Gets keys of all elements stored in this map.
+/// 
+/// Returns a list with all map keys.
                   <div class="features">inherited</div>
 </dd>
         <dt id="getValue" class="callable inherited">
@@ -887,7 +1042,9 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd class="inherited">
-          Gets an map with values. <a href="pip_services3_commons/StringValueMap/getValue.html">[...]</a>
+          /// Gets an map with values.
+/// 
+/// Returns         the value of the map elements.
                   <div class="features">inherited</div>
 </dd>
         <dt id="innerValue" class="callable inherited">
@@ -896,7 +1053,7 @@ If conversion is not possible it returns default value. <a href="pip_services3_c
           </span>
                   </dt>
         <dd class="inherited">
-          Returned inner values in Map object
+          /// Returned inner values in Map object
                   <div class="features">inherited</div>
 </dd>
         <dt id="map" class="callable inherited">
@@ -924,7 +1081,10 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd class="inherited">
-          Puts a new value into map element specified by its key. <a href="pip_services3_commons/StringValueMap/put.html">[...]</a>
+          /// Puts a new value into map element specified by its key.
+/// 
+/// - <code>key</code>       a key of the element to put.
+/// - <code>value</code>     a new value for map element.
                   <div class="features">inherited</div>
 </dd>
         <dt id="putIfAbsent" class="callable inherited">
@@ -960,9 +1120,14 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a new value to map element specified by its index.
-When the index is not defined, it resets the entire map value.
-This method has double purpose because method overrides are not supported in JavaScript. <a href="pip_services3_commons/StringValueMap/setAsObject.html">[...]</a>
+          /// Sets a new value to map element specified by its index.
+/// When the index is not defined, it resets the entire map value.
+/// This method has double purpose because method overrides are not supported in JavaScript.
+/// 
+/// - <code>key</code>       (optional) a key of the element to set
+/// - <code>value</code>     a new element or map value.
+/// 
+/// See <a href="pip_services3_commons/MapConverter/toMap.html">MapConverter.toMap</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="toJson" class="callable inherited">
@@ -971,7 +1136,7 @@ This method has double purpose because method overrides are not supported in Jav
           </span>
                   </dt>
         <dd class="inherited">
-          Initialize this object from JSON Map object
+          /// Initialize this object from JSON Map object
                   <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -980,9 +1145,11 @@ This method has double purpose because method overrides are not supported in Jav
           </span>
                   </dt>
         <dd class="inherited">
-          Gets a string representation of the object.
-The result is a semicolon-separated list of key-value pairs as
-"key1=value1;key2=value2;key=value3" <a href="pip_services3_commons/StringValueMap/toString.html">[...]</a>
+          /// Gets a string representation of the object.
+/// The result is a semicolon-separated list of key-value pairs as
+/// "key1=value1;key2=value2;key=value3"
+/// 
+/// Returns a string representation of the object.
                   <div class="features">inherited</div>
 </dd>
         <dt id="update" class="callable inherited">
@@ -1049,25 +1216,13 @@ The result is a semicolon-separated list of key-value pairs as
           </span>
                   </dt>
         <dd>
-          
-<li>Creates a new ConfigParams object filled with key-value pairs serialized as a string.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>line</code> 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."</li>
-</ul>
-</li>
-<li>
-<pre class="language-dart"><code>				Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
-</code></pre>
-</li>
-<li>Returns			a new ConfigParams object.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a></li>
-</ul>
-</li>
-
+          /// Creates a new ConfigParams object filled with key-value pairs serialized as a string.
+/// 
+/// - <code>line</code> 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."
+	/// 					Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
+	/// Returns			a new ConfigParams object.
+	/// 
+	/// See <a href="pip_services3_commons/StringValueMap/fromString.html">StringValueMap.fromString</a>
                   <div class="features">override</div>
 </dd>
         <dt id="fromTuples" class="callable">
@@ -1076,22 +1231,13 @@ The result is a semicolon-separated list of key-value pairs as
           </span>
                   </dt>
         <dd>
-          
-<li>Creates a new ConfigParams object filled with provided key-value pairs called tuples.
-<ul>
-<li>Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.</li>
-<li></li>
-<li>
-<ul>
-<li><code>tuples</code>	the tuples to fill a new ConfigParams object.</li>
-</ul>
-</li>
-<li>Returns			a new ConfigParams object.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">StringValueMap.fromTuplesArray</a></li>
-</ul>
-</li>
-
+          /// Creates a new ConfigParams object filled with provided key-value pairs called tuples.
+/// Tuples parameters contain a sequence of key1, value1, key2, value2, ... pairs.
+/// 
+/// - <code>tuples</code>	the tuples to fill a new ConfigParams object.
+	/// Returns			a new ConfigParams object.
+	/// 
+	/// See <a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">StringValueMap.fromTuplesArray</a>
                   <div class="features">override</div>
 </dd>
         <dt id="fromValue" class="callable">
@@ -1100,19 +1246,10 @@ The result is a semicolon-separated list of key-value pairs as
           </span>
                   </dt>
         <dd>
-          
-<li>Creates a new ConfigParams object filled with key-value pairs from specified object.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>value</code>		an object with key-value pairs used to initialize a new ConfigParams.</li>
-</ul>
-</li>
-<li>Returns			a new ConfigParams object.</li>
-</ul>
-</li>
-
+          /// Creates a new ConfigParams object filled with key-value pairs from specified object.
+/// 
+/// - <code>value</code>		an object with key-value pairs used to initialize a new ConfigParams.
+	/// Returns			a new ConfigParams object.
                   <div class="features">override</div>
 </dd>
         <dt id="mergeConfigs" class="callable">
@@ -1121,22 +1258,13 @@ The result is a semicolon-separated list of key-value pairs as
           </span>
                   </dt>
         <dd>
-          
-<li>Merges two or more ConfigParams into one. The following ConfigParams override
-<ul>
-<li>previously defined parameters.</li>
-<li></li>
-<li>
-<ul>
-<li><code>configs</code> 	a list of ConfigParams objects to be merged.</li>
-</ul>
-</li>
-<li>Returns			a new ConfigParams object.</li>
-<li></li>
-<li>See <a href="pip_services3_commons/StringValueMap/fromMaps.html">StringValueMap.fromMaps</a></li>
-</ul>
-</li>
-
+          /// Merges two or more ConfigParams into one. The following ConfigParams override
+/// previously defined parameters.
+/// 
+/// - <code>configs</code> 	a list of ConfigParams objects to be merged.
+	/// Returns			a new ConfigParams object.
+	/// 
+	/// See <a href="pip_services3_commons/StringValueMap/fromMaps.html">StringValueMap.fromMaps</a>
                   
 </dd>
       </dl>

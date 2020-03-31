@@ -195,16 +195,15 @@
       <div><h1><span class="kind-class">DateTimeConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Converts arbitrary values into Date values using extended conversion rules:</p>
-<ul>
-<li>Strings: converted using ISO time format</li>
-<li>Numbers: converted using milliseconds since unix epoch</li>
-</ul>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var value1 = DateTimeConverter.toNullableDateTime("ABC"); // Result: null
-var value2 = DateTimeConverter.toNullableDateTime("2018-01-01T11:30:00.0"); // Result: Date(2018,0,1,11,30)
-var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
-</code></pre>
+      <p>/// Converts arbitrary values into Date values using extended conversion rules:
+/// - Strings: converted using ISO time format
+/// - Numbers: converted using milliseconds since unix epoch
+/// 
+/// ### Example ###
+/// 
+///     var value1 = DateTimeConverter.toNullableDateTime("ABC"); // Result: null
+///     var value2 = DateTimeConverter.toNullableDateTime("2018-01-01T11:30:00.0"); // Result: Date(2018,0,1,11,30)
+///     var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)</p>
     </section>
     
 
@@ -293,7 +292,12 @@ var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
           </span>
                   </dt>
         <dd>
-          Converts value into Date or returns current date when conversion is not possible. <a href="pip_services3_commons/DateTimeConverter/toDateTime.html">[...]</a>
+          /// Converts value into Date or returns current date when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         Date value or current date when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/DateTimeConverter/toDateTimeWithDefault.html">toDateTimeWithDefault</a>]
                   
 </dd>
         <dt id="toDateTimeWithDefault" class="callable">
@@ -302,7 +306,13 @@ var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
           </span>
                   </dt>
         <dd>
-          Converts value into Date or returns default when conversion is not possible. <a href="pip_services3_commons/DateTimeConverter/toDateTimeWithDefault.html">[...]</a>
+          /// Converts value into Date or returns default when conversion is not possible.
+/// 
+/// - <code>value</code>         the value to convert.
+/// - <code>defaultValue</code>  the default value.
+/// Returns             Date value or default when conversion is not supported.
+/// 
+/// See [<a href="pip_services3_commons/DateTimeConverter/toNullableDateTime.html">toNullableDateTime</a>]
                   
 </dd>
         <dt id="toNullableDateTime" class="callable">
@@ -311,7 +321,10 @@ var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
           </span>
                   </dt>
         <dd>
-          Converts value into Date or returns null when conversion is not possible. <a href="pip_services3_commons/DateTimeConverter/toNullableDateTime.html">[...]</a>
+          /// Converts value into Date or returns null when conversion is not possible.
+/// 
+/// - <code>value</code>     the value to convert.
+/// Returns         Date value or null when conversion is not supported.
                   
 </dd>
       </dl>

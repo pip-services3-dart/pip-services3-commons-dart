@@ -195,9 +195,10 @@
       <div><h1><span class="kind-class">IEvent</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>An interface for Events, which are part of the Command design pattern.
-Events allows to send asynchronious notifications to multiple subscribed listeners.</p>
-<p>See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a></p>
+      <p>/// An interface for Events, which are part of the Command design pattern.
+/// Events allows to send asynchronious notifications to multiple subscribed listeners.
+/// 
+/// See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a></p>
     </section>
     
     <section>
@@ -265,7 +266,9 @@ Events allows to send asynchronious notifications to multiple subscribed listene
           </span>
                   </dt>
         <dd>
-          Adds a listener to receive notifications for this event. <a href="pip_services3_commons/IEvent/addListener.html">[...]</a>
+          /// Adds a listener to receive notifications for this event.
+/// 
+/// - <code>listener</code>      the listener reference to add.
                   
 </dd>
         <dt id="getListeners" class="callable">
@@ -274,7 +277,9 @@ Events allows to send asynchronious notifications to multiple subscribed listene
           </span>
                   </dt>
         <dd>
-          Gets all subscribed listeners. <a href="pip_services3_commons/IEvent/getListeners.html">[...]</a>
+          /// Gets all subscribed listeners.
+/// 
+/// Returns a list of listeners.
                   
 </dd>
         <dt id="getName" class="callable">
@@ -283,14 +288,9 @@ Events allows to send asynchronious notifications to multiple subscribed listene
           </span>
                   </dt>
         <dd>
-          
-<li>Gets the event name.
-<ul>
-<li></li>
-<li>Returns the name of the event.</li>
-</ul>
-</li>
-
+          /// Gets the event name.
+/// 
+/// Returns the name of the event.
                   
 </dd>
         <dt id="removeListener" class="callable">
@@ -299,7 +299,9 @@ Events allows to send asynchronious notifications to multiple subscribed listene
           </span>
                   </dt>
         <dd>
-          Removes a listener, so that it no longer receives notifications for this event. <a href="pip_services3_commons/IEvent/removeListener.html">[...]</a>
+          /// Removes a listener, so that it no longer receives notifications for this event.
+/// 
+/// - <code>listener</code>      the listener reference to remove.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -317,23 +319,10 @@ Events allows to send asynchronious notifications to multiple subscribed listene
           </span>
                   </dt>
         <dd class="inherited">
-          
-<li>Notifies the component about occured event.
-<ul>
-<li></li>
-<li>
-<ul>
-<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>args 				notification arguments.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// Notifies the component about occured event.
+/// 
+/// - correlationId 	(optional) transaction id to trace execution through call chain.
+/// - args 				notification arguments.
                   <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">

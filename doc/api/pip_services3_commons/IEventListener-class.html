@@ -195,22 +195,24 @@
       <div><h1><span class="kind-class">IEventListener</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>An interface for listener objects that receive notifications on fired events.</p>
-<p>See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
-See <a href="pip_services3_commons/Event-class.html">Event</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>class MyListener implements IEventListener {
-     void _onEvent(String correlationId, IEvent event, Parameters args ) {
-        print("Fired event " + event.getName());
-    }
-}
-
-var event = new Event("myevent");
-event.addListener(new MyListener());
-event.notify("123", Parameters.fromTuples(["param1", "ABC"]));
-
-// Console output: Fired event myevent
-</code></pre>
+      <p>/// An interface for listener objects that receive notifications on fired events.
+/// 
+/// See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
+/// See <a href="pip_services3_commons/Event-class.html">Event</a>
+/// 
+/// ### Example ###
+/// 
+///     class MyListener implements IEventListener {
+///          void _onEvent(String correlationId, IEvent event, Parameters args ) {
+///             print("Fired event " + event.getName());
+///         }
+///     }
+///<br>
+///     var event = new Event("myevent");
+///     event.addListener(new MyListener());
+///     event.notify("123", Parameters.fromTuples(<code>"param1", "ABC"</code>));
+///<br>
+///     // Console output: Fired event myevent</p>
     </section>
     
 
@@ -259,28 +261,11 @@ event.notify("123", Parameters.fromTuples(["param1", "ABC"]));
           </span>
                   </dt>
         <dd>
-          
-<li>A method called when events this listener is subscrubed to are fired.
-<ul>
-<li></li>
-<li>
-<ul>
-<li><code>event</code> 			a fired evemt</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
-</ul>
-</li>
-<li>
-<ul>
-<li><code>args</code> 			    event arguments.</li>
-</ul>
-</li>
-</ul>
-</li>
-
+          /// A method called when events this listener is subscrubed to are fired.
+/// 
+/// - <code>event</code> 			a fired evemt
+	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
+	/// - <code>args</code> 			    event arguments.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

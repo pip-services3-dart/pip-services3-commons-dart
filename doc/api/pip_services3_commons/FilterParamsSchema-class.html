@@ -195,8 +195,9 @@
       <div><h1><span class="kind-class">FilterParamsSchema</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Schema to validate <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a>.</p>
-<p>See <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a></p>
+      <p>/// Schema to validate <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a>.
+/// 
+/// See <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a></p>
     </section>
     
     <section>
@@ -224,7 +225,7 @@
           <span class="name"><a href="pip_services3_commons/FilterParamsSchema/FilterParamsSchema.html">FilterParamsSchema</a></span><span class="signature">()</span>
         </dt>
         <dd>
-          Creates a new instance of validation schema.
+          /// Creates a new instance of validation schema.
         </dd>
       </dl>
     </section>
@@ -261,8 +262,10 @@
           </span>
                   </dt>
         <dd class="inherited">
-          Gets the type of map keys.
-Null means that keys may have any type. <a href="pip_services3_commons/MapSchema/getKeyType.html">[...]</a>
+          /// Gets the type of map keys.
+/// Null means that keys may have any type.
+/// 
+/// Returns the type of map keys.
                   <div class="features">inherited</div>
 </dd>
         <dt id="getRules" class="callable inherited">
@@ -271,7 +274,9 @@ Null means that keys may have any type. <a href="pip_services3_commons/MapSchema
           </span>
                   </dt>
         <dd class="inherited">
-          Gets validation rules to check values against. <a href="pip_services3_commons/Schema/getRules.html">[...]</a>
+          /// Gets validation rules to check values against.
+/// 
+/// Returns a list with validation rules.
                   <div class="features">inherited</div>
 </dd>
         <dt id="getValueType" class="callable inherited">
@@ -280,8 +285,10 @@ Null means that keys may have any type. <a href="pip_services3_commons/MapSchema
           </span>
                   </dt>
         <dd class="inherited">
-          Gets the type of map values.
-Null means that values may have any type. <a href="pip_services3_commons/MapSchema/getValueType.html">[...]</a>
+          /// Gets the type of map values.
+/// Null means that values may have any type.
+/// 
+/// Returns the type of map values.
                   <div class="features">inherited</div>
 </dd>
         <dt id="isRequired" class="callable inherited">
@@ -290,8 +297,10 @@ Null means that values may have any type. <a href="pip_services3_commons/MapSche
           </span>
                   </dt>
         <dd class="inherited">
-          Gets a flag that always requires non-null values.
-For null values it raises a validation error. <a href="pip_services3_commons/Schema/isRequired.html">[...]</a>
+          /// Gets a flag that always requires non-null values.
+/// For null values it raises a validation error.
+/// 
+/// Returns true to always require non-null values and false to allow null values.
                   <div class="features">inherited</div>
 </dd>
         <dt id="makeOptional" class="callable inherited">
@@ -300,8 +309,15 @@ For null values it raises a validation error. <a href="pip_services3_commons/Sch
           </span>
                   </dt>
         <dd class="inherited">
-          Makes validated values optional.
-Validation for null values will be skipped. <a href="pip_services3_commons/Schema/makeOptional.html">[...]</a>
+          /// Makes validated values optional.
+/// Validation for null values will be skipped.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// Returns this validation schema
+/// 
+/// See <a href="pip_services3_commons/Schema/makeRequired.html">makeRequired</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="makeRequired" class="callable inherited">
@@ -310,8 +326,15 @@ Validation for null values will be skipped. <a href="pip_services3_commons/Schem
           </span>
                   </dt>
         <dd class="inherited">
-          Makes validated values always required (non-null).
-For null values the schema will raise errors. <a href="pip_services3_commons/Schema/makeRequired.html">[...]</a>
+          /// Makes validated values always required (non-null).
+/// For null values the schema will raise errors.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// Returns this validation schema
+/// 
+/// See <a href="pip_services3_commons/Schema/makeOptional.html">makeOptional</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -329,9 +352,16 @@ For null values the schema will raise errors. <a href="pip_services3_commons/Sch
           </span>
                   </dt>
         <dd class="inherited">
-          Validates a given value to match specified type.
-The type can be defined as a Schema, type, a type name or <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
-When type is a Schema, it executes validation recursively against that Schema. <a href="pip_services3_commons/Schema/performTypeValidation.html">[...]</a>
+          /// Validates a given value to match specified type.
+/// The type can be defined as a Schema, type, a type name or <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
+/// When type is a Schema, it executes validation recursively against that Schema.
+/// 
+/// - <code>path</code>      a dot notation path to the value.
+/// - <code>type</code>      a type to match the value type
+/// - <code>value</code>     a value to be validated.
+/// - <code>results</code>   a list with validation results to add new results.
+/// 
+/// See <a href="pip_services3_commons/MapSchema/performValidation.html">performValidation</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="performValidation" class="callable inherited">
@@ -340,7 +370,11 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Validates a given value against the schema and configured validation rules. <a href="pip_services3_commons/MapSchema/performValidation.html">[...]</a>
+          /// Validates a given value against the schema and configured validation rules.
+/// 
+/// - <code>path</code>      a dot notation path to the value.
+/// - <code>value</code>     a value to be validated.
+/// - <code>results</code>   a list with validation results to add new results.
                   <div class="features">inherited</div>
 </dd>
         <dt id="setKeyType" class="callable inherited">
@@ -349,8 +383,10 @@ When type is a Schema, it executes validation recursively against that Schema. <
           </span>
                   </dt>
         <dd class="inherited">
-          Sets the type of map keys.
-Null means that keys may have any type. <a href="pip_services3_commons/MapSchema/setKeyType.html">[...]</a>
+          /// Sets the type of map keys.
+/// Null means that keys may have any type.
+/// 
+/// - <code>value</code>     a type of map keys.
                   <div class="features">inherited</div>
 </dd>
         <dt id="setRequired" class="callable inherited">
@@ -359,7 +395,9 @@ Null means that keys may have any type. <a href="pip_services3_commons/MapSchema
           </span>
                   </dt>
         <dd class="inherited">
-          Sets a flag that always requires non-null values. <a href="pip_services3_commons/Schema/setRequired.html">[...]</a>
+          /// Sets a flag that always requires non-null values.
+/// 
+/// - <code>value</code> true to always require non-null values and false to allow null values.
                   <div class="features">inherited</div>
 </dd>
         <dt id="setRules" class="callable inherited">
@@ -368,7 +406,9 @@ Null means that keys may have any type. <a href="pip_services3_commons/MapSchema
           </span>
                   </dt>
         <dd class="inherited">
-          Sets validation rules to check values against. <a href="pip_services3_commons/Schema/setRules.html">[...]</a>
+          /// Sets validation rules to check values against.
+/// 
+/// - <code>value</code> a list with validation rules.
                   <div class="features">inherited</div>
 </dd>
         <dt id="setValueType" class="callable inherited">
@@ -377,8 +417,10 @@ Null means that keys may have any type. <a href="pip_services3_commons/MapSchema
           </span>
                   </dt>
         <dd class="inherited">
-          Sets the type of map values.
-Null means that values may have any type. <a href="pip_services3_commons/MapSchema/setValueType.html">[...]</a>
+          /// Sets the type of map values.
+/// Null means that values may have any type.
+/// 
+/// - <code>value</code>     a type of map values.
                   <div class="features">inherited</div>
 </dd>
         <dt id="toString" class="callable inherited">
@@ -396,7 +438,12 @@ Null means that values may have any type. <a href="pip_services3_commons/MapSche
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and results validation results. <a href="pip_services3_commons/Schema/validate.html">[...]</a>
+          /// Validates the given value and results validation results.
+/// 
+/// - <code>value</code>     a value to be validated.
+/// Returns a list with validation results.
+/// 
+/// See <a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="validateAndReturnException" class="callable inherited">
@@ -405,7 +452,11 @@ Null means that values may have any type. <a href="pip_services3_commons/MapSche
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and returns a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found. <a href="pip_services3_commons/Schema/validateAndReturnException.html">[...]</a>
+          /// Validates the given value and returns a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found.
+/// 
+/// - <code>correlationId</code>     (optional) transaction id to trace execution through call chain.
+/// - <code>value</code>             a value to be validated.
+/// - <code>strict</code>            true to treat warnings as errors.
                   <div class="features">inherited</div>
 </dd>
         <dt id="validateAndThrowException" class="callable inherited">
@@ -414,7 +465,13 @@ Null means that values may have any type. <a href="pip_services3_commons/MapSche
           </span>
                   </dt>
         <dd class="inherited">
-          Validates the given value and throws a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found. <a href="pip_services3_commons/Schema/validateAndThrowException.html">[...]</a>
+          /// Validates the given value and throws a <a href="pip_services3_commons/ValidationException-class.html">ValidationException</a> if errors were found.
+/// 
+/// - <code>correlationId</code>     (optional) transaction id to trace execution through call chain.
+/// - <code>value</code>             a value to be validated.
+/// - <code>strict</code>            true to treat warnings as errors.
+/// 
+/// See <a href="pip_services3_commons/ValidationException/throwExceptionIfNeeded.html">ValidationException.throwExceptionIfNeeded</a>
                   <div class="features">inherited</div>
 </dd>
         <dt id="withRule" class="callable inherited">
@@ -423,7 +480,13 @@ Null means that values may have any type. <a href="pip_services3_commons/MapSche
           </span>
                   </dt>
         <dd class="inherited">
-          Adds validation rule to this schema. <a href="pip_services3_commons/Schema/withRule.html">[...]</a>
+          /// Adds validation rule to this schema.
+/// 
+/// This method returns reference to this exception to implement Builder pattern
+/// to chain additional calls.
+/// 
+/// - <code>rule</code>  a validation rule to be added.
+/// Returns this validation schema.
                   <div class="features">inherited</div>
 </dd>
       </dl>

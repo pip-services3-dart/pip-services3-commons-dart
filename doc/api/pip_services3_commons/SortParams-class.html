@@ -195,15 +195,17 @@
       <div><h1><span class="kind-class">SortParams</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Defines a field name and order used to sort query results.</p>
-<p>See <a href="pip_services3_commons/SortField-class.html">SortField</a></p>
-<h3 id="example">Example</h3>
-<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
-var paging = new PagingParams(0, 100);
-var sorting = new SortingParams(new SortField("create_time", true));
-
-myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
-</code></pre>
+      <p>/// Defines a field name and order used to sort query results.
+/// 
+/// See <a href="pip_services3_commons/SortField-class.html">SortField</a>
+/// 
+/// ### Example ###
+/// 
+///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
+///     var paging = new PagingParams(0, 100);
+///     var sorting = new SortingParams(new SortField("create_time", true));
+///<br>
+///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});</p>
     </section>
     
     <section>
@@ -230,13 +232,17 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
           <span class="name"><a href="pip_services3_commons/SortParams/SortParams.html">SortParams</a></span><span class="signature">(<span class="parameter" id="-param-fields"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="pip_services3_commons/SortField-class.html">SortField</a></span>&gt;</span></span> <span class="parameter-name">fields</span></span>)</span>
         </dt>
         <dd>
-          Creates a new instance and initializes it with specified sort fields. <a href="pip_services3_commons/SortParams/SortParams.html">[...]</a>
+          /// Creates a new instance and initializes it with specified sort fields.
+/// 
+/// - <code>fields</code>    a list of fields to sort by.
         </dd>
         <dt id="SortParams.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/SortParams/SortParams.fromJson.html">SortParams.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          Creates a new instance from json. <a href="pip_services3_commons/SortParams/SortParams.fromJson.html">[...]</a>
+          /// Creates a new instance from json.
+/// 
+/// - <code>json</code> 		json for initialize.
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -339,7 +345,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Returned JSON Map object from values of this object
+          /// Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -348,7 +354,7 @@ myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
           </span>
                   </dt>
         <dd>
-          Initialize this object from JSON Map object
+          /// Initialize this object from JSON Map object
                   
 </dd>
         <dt id="add" class="callable inherited">

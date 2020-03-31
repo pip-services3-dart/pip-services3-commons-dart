@@ -16,18 +16,18 @@ import './InvalidStateException.dart';
 import '../data/StringValueMap.dart';
 
 /**
- * Factory to recreate exceptions from [ErrorDescription] values passed through the wire.
- * 
- * See [ErrorDescription]
- * See [ApplicationException]
+/// Factory to recreate exceptions from [ErrorDescription] values passed through the wire.
+/// 
+/// See [ErrorDescription]
+/// See [ApplicationException]
  */
 class ApplicationExceptionFactory {
   /**
-	 * Recreates ApplicationException object from serialized ErrorDescription.
-	 * 
-	 * It tries to restore original exception type using type or error category fields.
-	 * 
-	 * - [description]	a serialized error description received as a result of remote call
+	/// Recreates ApplicationException object from serialized ErrorDescription.
+	/// 
+	/// It tries to restore original exception type using type or error category fields.
+	/// 
+	/// - [description]	a serialized error description received as a result of remote call
 	 */
   static ApplicationException create(ErrorDescription description) {
     if (description == null) throw new Exception("Description cannot be null");
