@@ -1,5 +1,4 @@
-# <img src="https://github.com/pip-services/pip-services/raw/master/design/Logo.png" alt="Pip.Services Logo" style="max-width:30%"> 
-# Portable Abstractions and Patterns for Dart
+# <img src="https://github.com/pip-services/pip-services/raw/master/design/Logo.png" alt="Pip.Services Logo" style="max-width:30%"> <br/> Portable Abstractions and Patterns for Dart
 
 This framework is part of the [Pip.Services](https://github.com/pip-services/pip-services) project.
 It provides portable abstractions and patterns that can be used to implement non-trivial business logic in applications and services.
@@ -23,7 +22,7 @@ The framework's functionality is decomposed into several packages:
 Quick Links:
 
 * [Downloads](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/docs/Downloads.md)
-* [API Reference](https://pub.dev/documentation/pip_services3_commons/latest/)
+* [API Reference](https://pip-services3-dart.github.io/pip-services3-commons-dart/index.html)
 * [Building and Testing](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/docs/Development.md)
 * [Contributing](https://github.com/pip-services3-dart/pip-services3-commons-dart/blob/master/docs/Development.md#contrib)
 

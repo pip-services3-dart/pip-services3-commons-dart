@@ -195,21 +195,19 @@
       <div><h1><span class="kind-class">ITrackable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Interface for data objects that can track their changes, including logical deletion.
-/// 
-/// See <a href="pip_services3_commons/IChangeable-class.html">IChangeable</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IStringIdentifiable, ITrackable {
-///         String id;
-///         String  field1;
-///         int field2;
-///         ...
-///         DateTime change_time;
-///         DateTime create_time;
-///         bool deleted;
-///     }</p>
+      <p>Interface for data objects that can track their changes, including logical deletion.</p>
+<p>See <a href="pip_services3_commons/IChangeable-class.html">IChangeable</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>class MyData implements IStringIdentifiable, ITrackable {
+    String id;
+    String  field1;
+    int field2;
+    ...
+    DateTime change_time;
+    DateTime create_time;
+    bool deleted;
+}
+</code></pre>
     </section>
     
     <section>

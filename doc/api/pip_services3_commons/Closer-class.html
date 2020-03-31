@@ -195,9 +195,8 @@
       <div><h1><span class="kind-class">Closer</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Helper class that closes previously opened components.
-/// 
-/// <code>ICloseable</code></p>
+      <p>Helper class that closes previously opened components.</p>
+<p><code>ICloseable</code></p>
     </section>
     
 
@@ -286,17 +285,33 @@
           </span>
                   </dt>
         <dd>
-          /// Closes multiple components.
-/// 
-/// To be closed components must implement <code>ICloseable</code> interface.
-	/// If they don't the call to this method has no effect.
-	/// 
-	/// - correlationId 	(optional) transaction id to trace execution through call chain.
-	/// - components 		the list of components that are to be closed.
-  /// Returns 			  Future that receives error or null no errors occured.
-	/// 
-	/// See <a href="pip_services3_commons/Closer/closeOne.html">closeOne</a>
-	/// See <a href="pip_services3_commons/IClosable-class.html">IClosable</a>
+          
+<li>Closes multiple components.
+<ul>
+<li></li>
+<li>To be closed components must implement <code>ICloseable</code> interface.</li>
+<li>If they don't the call to this method has no effect.</li>
+<li></li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>components 		the list of components that are to be closed.</li>
+</ul>
+</li>
+<li>Returns 			  Future that receives error or null no errors occured.
+<ul>
+<li></li>
+<li>See <a href="pip_services3_commons/Closer/closeOne.html">closeOne</a></li>
+<li>See <a href="pip_services3_commons/IClosable-class.html">IClosable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="closeOne" class="callable">
@@ -305,16 +320,32 @@
           </span>
                   </dt>
         <dd>
-          /// Closes specific component.
-/// 
-/// To be closed components must implement <code>ICloseable</code> interface.
-	/// If they don't the call to this method has no effect.
-	/// 
-	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-	/// - <code>component</code> 		the component that is to be closed.
-  /// Retrun 			Future that receives error or null no errors occured.
-	/// 
-	/// See <a href="pip_services3_commons/IClosable-class.html">IClosable</a>
+          
+<li>Closes specific component.
+<ul>
+<li></li>
+<li>To be closed components must implement <code>ICloseable</code> interface.</li>
+<li>If they don't the call to this method has no effect.</li>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>component</code> 		the component that is to be closed.</li>
+</ul>
+</li>
+<li>Retrun 			Future that receives error or null no errors occured.
+<ul>
+<li></li>
+<li>See <a href="pip_services3_commons/IClosable-class.html">IClosable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
                   
 </dd>
       </dl>

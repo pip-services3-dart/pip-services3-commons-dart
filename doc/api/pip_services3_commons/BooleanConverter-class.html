@@ -195,17 +195,18 @@
       <div><h1><span class="kind-class">BooleanConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Converts arbitrary values to boolean values using extended conversion rules:
-/// - Numbers: &lt;&gt;0 are true, =0 are false
-/// - Strings: "true", "yes", "T", "Y", "1" are true; "false", "no", "F", "N" are false
-/// - DateTime: &lt;&gt;0 total milliseconds are true, =0 are false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = BooleanConverter.toNullableBoolean(true); // true
-///     var value2 = BooleanConverter.toNullableBoolean("yes"); // true
-///     var value3 = BooleanConverter.toNullableBoolean(123); // true
-///     var value4 = BooleanConverter.toNullableBoolean({}); // null</p>
+      <p>Converts arbitrary values to boolean values using extended conversion rules:</p>
+<ul>
+<li>Numbers: &lt;&gt;0 are true, =0 are false</li>
+<li>Strings: "true", "yes", "T", "Y", "1" are true; "false", "no", "F", "N" are false</li>
+<li>DateTime: &lt;&gt;0 total milliseconds are true, =0 are false</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var value1 = BooleanConverter.toNullableBoolean(true); // true
+var value2 = BooleanConverter.toNullableBoolean("yes"); // true
+var value3 = BooleanConverter.toNullableBoolean(123); // true
+var value4 = BooleanConverter.toNullableBoolean({}); // null
+</code></pre>
     </section>
     
 
@@ -294,12 +295,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into boolean or returns false when conversion is not possible.
-/// 
-/// - <code>value</code>     the value to convert.
-/// Returns         boolean value or false when conversion is not supported.
-/// 
-/// See [<a href="pip_services3_commons/BooleanConverter/toBooleanWithDefault.html">toBooleanWithDefault</a>]
+          Converts value into boolean or returns false when conversion is not possible. <a href="pip_services3_commons/BooleanConverter/toBoolean.html">[...]</a>
                   
 </dd>
         <dt id="toBooleanWithDefault" class="callable">
@@ -308,13 +304,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into boolean or returns default value when conversion is not possible
-/// 
-/// - <code>value</code>         the value to convert.
-/// - <code>defaultValue</code>  the default value
-/// Returns             boolean value or default when conversion is not supported.
-/// 
-/// See [<a href="pip_services3_commons/BooleanConverter/toNullableBoolean.html">toNullableBoolean</a>]
+          Converts value into boolean or returns default value when conversion is not possible <a href="pip_services3_commons/BooleanConverter/toBooleanWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="toNullableBoolean" class="callable">
@@ -323,10 +313,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into boolean or returns null when conversion is not possible.
-/// 
-/// - <code>value</code>     the value to convert.
-/// Returns         boolean value or null when convertion is not supported.
+          Converts value into boolean or returns null when conversion is not possible. <a href="pip_services3_commons/BooleanConverter/toNullableBoolean.html">[...]</a>
                   
 </dd>
       </dl>

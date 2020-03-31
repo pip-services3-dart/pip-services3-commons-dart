@@ -195,13 +195,12 @@
       <div><h1><span class="kind-class">ICommand</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// An interface for Commands, which are part of the Command design pattern.
-/// Each command wraps a method or function and allows to call them in uniform and safe manner.
-/// 
-/// See <a href="pip_services3_commons/Command-class.html">Command</a>
-/// See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
-/// See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a>
-/// See <a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a></p>
+      <p>An interface for Commands, which are part of the Command design pattern.
+Each command wraps a method or function and allows to call them in uniform and safe manner.</p>
+<p>See <a href="pip_services3_commons/Command-class.html">Command</a>
+See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
+See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a>
+See <a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a></p>
     </section>
     
     <section>
@@ -270,9 +269,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets the command name.
-/// 
-/// Returns the command name.
+          Gets the command name. <a href="pip_services3_commons/ICommand/getName.html">[...]</a>
                   
 </dd>
         <dt id="validate" class="callable">
@@ -281,13 +278,7 @@
           </span>
                   </dt>
         <dd>
-          /// Validates command arguments before execution using defined schema.
-/// 
-/// - args  the parameters (arguments) to validate.
-/// Returns     an array of ValidationResults.
-/// 
-/// See <a href="pip_services3_commons/Parameters-class.html">Parameters</a>
-/// See <a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>
+          Validates command arguments before execution using defined schema. <a href="pip_services3_commons/ICommand/validate.html">[...]</a>
                   
 </dd>
         <dt id="execute" class="callable inherited">
@@ -296,11 +287,24 @@
           </span>
                   </dt>
         <dd class="inherited">
-          /// Executes component with arguments and receives execution result.
-/// 
-/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-	/// - <code>args</code> 				execution arguments.
-  /// Return 			  Future that receives execution result or error.
+          
+<li>Executes component with arguments and receives execution result.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code> 				execution arguments.</li>
+</ul>
+</li>
+<li>Return 			  Future that receives execution result or error.</li>
+</ul>
+</li>
+
                   <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

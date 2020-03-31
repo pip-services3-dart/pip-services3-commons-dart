@@ -195,34 +195,29 @@
       <div><h1><span class="kind-class">StringValueMap</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Cross-language implementation of a map (dictionary) where all keys and values are strings.
-/// The stored values can be converted to different types using variety of accessor methods.
-/// 
-/// The string map is highly versatile. It can be converted into many formats, stored and 
-/// sent over the wire.
-/// 
-/// This class is widely used in Pip.Services as a basis for variety of classes, such as
-/// <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>, <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>, 
-/// <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code> and others.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = StringValueMap.fromString(<code>"key1=1;key2=123.456;key3=2018-01-01"</code>);
-///<br>
-///     value1.getAsBoolean("key1");   // Result: true
-///     value1.getAsInteger("key2");   // Result: 123
-///     value1.getAsFloat("key2");     // Result: 123.456
-///     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
-/// 
-/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-///</p>
+      <p>Cross-language implementation of a map (dictionary) where all keys and values are strings.
+The stored values can be converted to different types using variety of accessor methods.</p>
+<p>The string map is highly versatile. It can be converted into many formats, stored and 
+sent over the wire.</p>
+<p>This class is widely used in Pip.Services as a basis for variety of classes, such as
+<a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>, <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>, 
+<code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code> and others.</p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var value1 = StringValueMap.fromString(["key1=1;key2=123.456;key3=2018-01-01"]);
+
+value1.getAsBoolean("key1");   // Result: true
+value1.getAsInteger("key2");   // Result: 123
+value1.getAsFloat("key2");     // Result: 123.456
+value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
+</code></pre>
+<p>See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
+See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
+See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
+See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
+See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
+See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
+See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
+See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a></p>
     </section>
     
     <section>
@@ -255,17 +250,13 @@
           <span class="name"><a href="pip_services3_commons/StringValueMap/StringValueMap.html">StringValueMap</a></span><span class="signature">([<span class="parameter" id="-param-map"><span class="type-annotation">dynamic</span> <span class="parameter-name">map</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          /// Creates a new instance of the map and assigns its value.
-/// 
-/// - <code>value</code>     (optional) values to initialize this map.
+          Creates a new instance of the map and assigns its value. <a href="pip_services3_commons/StringValueMap/StringValueMap.html">[...]</a>
         </dd>
         <dt id="StringValueMap.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/StringValueMap/StringValueMap.fromJson.html">StringValueMap.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new instance of the map from json.
-/// 
-/// - <code>json</code>     values to initialize this map.
+          Creates a new instance of the map from json. <a href="pip_services3_commons/StringValueMap/StringValueMap.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -351,9 +342,7 @@
           </span>
                   </dt>
         <dd>
-          /// Appends new elements to this map.
-/// 
-/// - <code>map</code>  a map with elements to be added.
+          Appends new elements to this map. <a href="pip_services3_commons/StringValueMap/append.html">[...]</a>
                   
 </dd>
         <dt id="clear" class="callable">
@@ -362,7 +351,7 @@
           </span>
                   </dt>
         <dd>
-          /// Clears this map by removing all its elements.
+          Clears this map by removing all its elements.
                   <div class="features">override</div>
 </dd>
         <dt id="clone" class="callable">
@@ -371,9 +360,7 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a binary clone of this object.
-/// 
-/// Returns a clone of this object.
+          Creates a binary clone of this object. <a href="pip_services3_commons/StringValueMap/clone.html">[...]</a>
                   
 </dd>
         <dt id="fromJson" class="callable">
@@ -382,7 +369,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returned JSON Map object from values of this object
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="get" class="callable">
@@ -391,10 +378,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets a map element specified by its key.
-/// 
-/// - <code>key</code>     a key of the element to get.
-/// Returns       the value of the map element.
+          Gets a map element specified by its key. <a href="pip_services3_commons/StringValueMap/get.html">[...]</a>
                   
 </dd>
         <dt id="getAsArray" class="callable">
@@ -403,13 +387,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns AnyValueArray value of the element or empty AnyValueArray if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a>
-/// See <a href="pip_services3_commons/AnyValueArray/fromValue.html">AnyValueArray.fromValue</a>
+          Converts map element into an AnyValueArray or returns empty AnyValueArray if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsArray.html">[...]</a>
                   
 </dd>
         <dt id="getAsArrayWithDefault" class="callable">
@@ -418,14 +396,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValueArray or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// - defaultValue  the default value
-/// Returns AnyValueArray value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a>
-/// See <a href="pip_services3_commons/StringValueMap/getAsNullableArray.html">getAsNullableArray</a>
+          Converts map element into an AnyValueArray or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsArrayWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsBoolean" class="callable">
@@ -434,12 +405,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a boolean or returns false if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns boolean value of the element or false if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsBooleanWithDefault.html">getAsBooleanWithDefault</a>
+          Converts map element into a boolean or returns false if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsBoolean.html">[...]</a>
                   
 </dd>
         <dt id="getAsBooleanWithDefault" class="callable">
@@ -448,13 +414,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a boolean or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - <code>defaultValue</code>  the default value
-/// Returns boolean value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/BooleanConverter/toBooleanWithDefault.html">BooleanConverter.toBooleanWithDefault</a>
+          Converts map element into a boolean or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsBooleanWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsDateTime" class="callable">
@@ -463,12 +423,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a DateTime or returns the current date if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns DateTime value of the element or the current date if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsDateTimeWithDefault.html">getAsDateTimeWithDefault</a>
+          Converts map element into a DateTime or returns the current date if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDateTime.html">[...]</a>
                   
 </dd>
         <dt id="getAsDateTimeWithDefault" class="callable">
@@ -477,13 +432,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a DateTime or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - defaultValue  the default value
-/// Returns DateTime value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/DateTimeConverter/toDateTimeWithDefault.html">DateTimeConverter.toDateTimeWithDefault</a>
+          Converts map element into a DateTime or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDateTimeWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsDouble" class="callable">
@@ -492,12 +441,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a double or returns 0 if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns double value of the element or 0 if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsDoubleWithDefault.html">getAsDoubleWithDefault</a>
+          Converts map element into a double or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDouble.html">[...]</a>
                   
 </dd>
         <dt id="getAsDoubleWithDefault" class="callable">
@@ -506,13 +450,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a double or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - defaultValue  the default value
-/// Returns double value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/DoubleConverter/toDoubleWithDefault.html">DoubleConverter.toDoubleWithDefault</a>
+          Converts map element into a double or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDoubleWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsDuration" class="callable">
@@ -521,12 +459,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a Duration or returns the current date if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns Duration value of the element or the current date if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsDurationWithDefault.html">getAsDurationWithDefault</a>
+          Converts map element into a Duration or returns the current date if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDuration.html">[...]</a>
                   
 </dd>
         <dt id="getAsDurationWithDefault" class="callable">
@@ -535,13 +468,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a Duration or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - defaultValue  the default value
-/// Returns Duration value of the element or default value if conversion is not supported. 
-/// 
-/// See <code>DurationConverter.toDDurationWithDefault</code>
+          Converts map element into a Duration or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsDurationWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsFloat" class="callable">
@@ -550,12 +477,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a float or returns 0 if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns float value of the element or 0 if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsFloatWithDefault.html">getAsFloatWithDefault</a>
+          Converts map element into a float or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsFloat.html">[...]</a>
                   
 </dd>
         <dt id="getAsFloatWithDefault" class="callable">
@@ -564,13 +486,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a flot or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - defaultValue  the default value
-/// Returns flot value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/FloatConverter/toFloatWithDefault.html">FloatConverter.toFloatWithDefault</a>
+          Converts map element into a flot or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsFloatWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsInteger" class="callable">
@@ -579,12 +495,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an integer or returns 0 if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns integer value of the element or 0 if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsIntegerWithDefault.html">getAsIntegerWithDefault</a>
+          Converts map element into an integer or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsInteger.html">[...]</a>
                   
 </dd>
         <dt id="getAsIntegerWithDefault" class="callable">
@@ -593,13 +504,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an integer or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - <code>defaultValue</code>  the default value
-/// Returns integer value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/IntegerConverter/toIntegerWithDefault.html">IntegerConverter.toIntegerWithDefault</a>
+          Converts map element into an integer or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsIntegerWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsLong" class="callable">
@@ -608,12 +513,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a long or returns 0 if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns long value of the element or 0 if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsLongWithDefault.html">getAsLongWithDefault</a>
+          Converts map element into a long or returns 0 if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsLong.html">[...]</a>
                   
 </dd>
         <dt id="getAsLongWithDefault" class="callable">
@@ -622,13 +522,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a long or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - <code>defaultValue</code>  the default value
-/// Returns long value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/LongConverter/toLongWithDefault.html">LongConverter.toLongWithDefault</a>
+          Converts map element into a long or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsLongWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsMap" class="callable">
@@ -637,12 +531,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns AnyValueMap value of the element or empty AnyValueMap if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/fromValue.html">fromValue</a>
+          Converts map element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsMap.html">[...]</a>
                   
 </dd>
         <dt id="getAsMapWithDefault" class="callable">
@@ -651,13 +540,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValueMap or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// - defaultValue  the default value
-/// Returns AnyValueMap value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsNullableMap.html">getAsNullableMap</a>
+          Converts map element into an AnyValueMap or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsMapWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableArray" class="callable">
@@ -666,13 +549,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValueArray or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns AnyValueArray value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a>
-/// See <a href="pip_services3_commons/AnyValueArray/fromValue.html">AnyValueArray.fromValue</a>
+          Converts map element into an AnyValueArray or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableArray.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableBoolean" class="callable">
@@ -681,12 +558,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a boolean or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns boolean value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/BooleanConverter/toNullableBoolean.html">BooleanConverter.toNullableBoolean</a>
+          Converts map element into a boolean or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableBoolean.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableDateTime" class="callable">
@@ -695,12 +567,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a DateTime or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns DateTime value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/DateTimeConverter/toNullableDateTime.html">DateTimeConverter.toNullableDateTime</a>
+          Converts map element into a DateTime or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableDateTime.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableDouble" class="callable">
@@ -709,12 +576,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a double or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns double value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/DoubleConverter/toNullableDouble.html">DoubleConverter.toNullableDouble</a>
+          Converts map element into a double or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableDouble.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableDuration" class="callable">
@@ -723,12 +585,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a Duration or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns Duration value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/DurationConverter/toNullableDuration.html">DurationConverter.toNullableDuration</a>
+          Converts map element into a Duration or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableDuration.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableFloat" class="callable">
@@ -737,12 +594,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a float or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns float value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/FloatConverter/toNullableFloat.html">FloatConverter.toNullableFloat</a>
+          Converts map element into a float or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableFloat.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableInteger" class="callable">
@@ -751,12 +603,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an integer or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns integer value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/IntegerConverter/toNullableInteger.html">IntegerConverter.toNullableInteger</a>
+          Converts map element into an integer or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableInteger.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableLong" class="callable">
@@ -765,12 +612,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a long or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns long value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/LongConverter/toNullableLong.html">LongConverter.toNullableLong</a>
+          Converts map element into a long or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableLong.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableMap" class="callable">
@@ -779,12 +621,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValueMap or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns AnyValueMap value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/fromValue.html">fromValue</a>
+          Converts map element into an AnyValueMap or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableMap.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableString" class="callable">
@@ -793,12 +630,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a string or returns null if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns string value of the element or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringConverter/toNullableString.html">StringConverter.toNullableString</a>
+          Converts map element into a string or returns null if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsNullableString.html">[...]</a>
                   
 </dd>
         <dt id="getAsNullableType" class="callable">
@@ -807,14 +639,8 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a value defined by specied typecode.
-/// If conversion is not possible it returns null.
-/// 
-/// - <code>type</code>      the TypeCode that defined the type of the result
-/// - <code>key</code>       a key of element to get.
-/// Returns element value defined by the typecode or null if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/TypeConverter/toNullableType.html">TypeConverter.toNullableType</a>
+          Converts map element into a value defined by specied typecode.
+If conversion is not possible it returns null. <a href="pip_services3_commons/StringValueMap/getAsNullableType.html">[...]</a>
                   
 </dd>
         <dt id="getAsObject" class="callable">
@@ -823,11 +649,8 @@
           </span>
                   </dt>
         <dd>
-          /// Gets the value stored in map element without any conversions.
-/// When element key is not defined it returns the entire map value.
-/// 
-/// - <code>key</code>       (optional) a key of the element to get
-/// Returns the element value or value of the map when index is not defined.
+          Gets the value stored in map element without any conversions.
+When element key is not defined it returns the entire map value. <a href="pip_services3_commons/StringValueMap/getAsObject.html">[...]</a>
                   
 </dd>
         <dt id="getAsString" class="callable">
@@ -836,12 +659,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a string or returns "" if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns string value of the element or "" if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsStringWithDefault.html">getAsStringWithDefault</a>
+          Converts map element into a string or returns "" if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsString.html">[...]</a>
                   
 </dd>
         <dt id="getAsStringWithDefault" class="callable">
@@ -850,13 +668,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a string or returns default value if conversion is not possible.
-/// 
-/// - <code>key</code>           a key of element to get.
-/// - <code>defaultValue</code>  the default value
-/// Returns string value of the element or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringConverter/toStringWithDefault.html">StringConverter.toStringWithDefault</a>
+          Converts map element into a string or returns default value if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsStringWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsType" class="callable">
@@ -865,14 +677,8 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a value defined by specied typecode.
-/// If conversion is not possible it returns default value for the specified type.
-/// 
-/// - <code>type</code>      the TypeCode that defined the type of the result
-/// - <code>key</code>       a key of element to get.
-/// Returns element value defined by the typecode or default if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/getAsTypeWithDefault.html">getAsTypeWithDefault</a>
+          Converts map element into a value defined by specied typecode.
+If conversion is not possible it returns default value for the specified type. <a href="pip_services3_commons/StringValueMap/getAsType.html">[...]</a>
                   
 </dd>
         <dt id="getAsTypeWithDefault" class="callable">
@@ -881,15 +687,8 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into a value defined by specied typecode.
-/// If conversion is not possible it returns default value.
-/// 
-/// - <code>type</code>          the TypeCode that defined the type of the result
-/// - <code>key</code>       a key of element to get.
-/// - <code>defaultValue</code>  the default value
-/// Returns element value defined by the typecode or default value if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/TypeConverter/toTypeWithDefault.html">TypeConverter.toTypeWithDefault</a>
+          Converts map element into a value defined by specied typecode.
+If conversion is not possible it returns default value. <a href="pip_services3_commons/StringValueMap/getAsTypeWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="getAsValue" class="callable">
@@ -898,13 +697,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible.
-/// 
-/// - <code>key</code>       a key of element to get.
-/// Returns AnyValue value of the element or empty AnyValue if conversion is not supported. 
-/// 
-/// See <a href="pip_services3_commons/AnyValue-class.html">AnyValue</a>
-/// See <code>AnyValue.constructor</code>
+          Converts map element into an AnyValue or returns an empty AnyValue if conversion is not possible. <a href="pip_services3_commons/StringValueMap/getAsValue.html">[...]</a>
                   
 </dd>
         <dt id="getKeys" class="callable">
@@ -913,9 +706,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets keys of all elements stored in this map.
-/// 
-/// Returns a list with all map keys.
+          Gets keys of all elements stored in this map. <a href="pip_services3_commons/StringValueMap/getKeys.html">[...]</a>
                   
 </dd>
         <dt id="getValue" class="callable">
@@ -924,9 +715,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets an map with values.
-/// 
-/// Returns         the value of the map elements.
+          Gets an map with values. <a href="pip_services3_commons/StringValueMap/getValue.html">[...]</a>
                   
 </dd>
         <dt id="innerValue" class="callable">
@@ -935,7 +724,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returned inner values in Map object
+          Returned inner values in Map object
                   
 </dd>
         <dt id="put" class="callable">
@@ -944,10 +733,7 @@
           </span>
                   </dt>
         <dd>
-          /// Puts a new value into map element specified by its key.
-/// 
-/// - <code>key</code>       a key of the element to put.
-/// - <code>value</code>     a new value for map element.
+          Puts a new value into map element specified by its key. <a href="pip_services3_commons/StringValueMap/put.html">[...]</a>
                   
 </dd>
         <dt id="remove" class="callable">
@@ -965,14 +751,9 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a new value to map element specified by its index.
-/// When the index is not defined, it resets the entire map value.
-/// This method has double purpose because method overrides are not supported in JavaScript.
-/// 
-/// - <code>key</code>       (optional) a key of the element to set
-/// - <code>value</code>     a new element or map value.
-/// 
-/// See <a href="pip_services3_commons/MapConverter/toMap.html">MapConverter.toMap</a>
+          Sets a new value to map element specified by its index.
+When the index is not defined, it resets the entire map value.
+This method has double purpose because method overrides are not supported in JavaScript. <a href="pip_services3_commons/StringValueMap/setAsObject.html">[...]</a>
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -981,7 +762,7 @@
           </span>
                   </dt>
         <dd>
-          /// Initialize this object from JSON Map object
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="toString" class="callable">
@@ -990,11 +771,9 @@
           </span>
                   </dt>
         <dd>
-          /// Gets a string representation of the object.
-/// The result is a semicolon-separated list of key-value pairs as
-/// "key1=value1;key2=value2;key=value3"
-/// 
-/// Returns a string representation of the object.
+          Gets a string representation of the object.
+The result is a semicolon-separated list of key-value pairs as
+"key1=value1;key2=value2;key=value3" <a href="pip_services3_commons/StringValueMap/toString.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="addAll" class="callable inherited">
@@ -1153,11 +932,8 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd>
-          /// Creates a new AnyValueMap by merging two or more maps.
-/// Maps defined later in the list override values from previously defined maps.
-/// 
-/// - <code>maps</code>  an array of maps to be merged
-/// Returns     a newly created AnyValueMap.
+          Creates a new AnyValueMap by merging two or more maps.
+Maps defined later in the list override values from previously defined maps. <a href="pip_services3_commons/StringValueMap/fromMaps.html">[...]</a>
                   
 </dd>
         <dt id="fromString" class="callable">
@@ -1166,10 +942,7 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd>
-          /// Parses semicolon-separated key-value pairs and returns them as a StringValueMap.
-/// 
-/// - <code>line</code>      semicolon-separated key-value list to initialize StringValueMap.
-/// Returns         a newly created StringValueMap.
+          Parses semicolon-separated key-value pairs and returns them as a StringValueMap. <a href="pip_services3_commons/StringValueMap/fromString.html">[...]</a>
                   
 </dd>
         <dt id="fromTuples" class="callable">
@@ -1178,12 +951,7 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd>
-          /// Creates a new StringValueMap from a list of key-value pairs called tuples.
-/// 
-/// - <code>tuples</code>    a list of values where odd elements are keys and the following even elements are values
-/// Returns         a newly created StringValueMap.
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">fromTuplesArray</a>
+          Creates a new StringValueMap from a list of key-value pairs called tuples. <a href="pip_services3_commons/StringValueMap/fromTuples.html">[...]</a>
                   
 </dd>
         <dt id="fromTuplesArray" class="callable">
@@ -1192,11 +960,8 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd>
-          /// Creates a new StringValueMap from a list of key-value pairs called tuples.
-/// The method is similar to <a href="pip_services3_commons/StringValueMap/fromTuples.html">fromTuples</a> but tuples are passed as array instead of parameters.
-/// 
-/// - <code>tuples</code>    a list of values where odd elements are keys and the following even elements are values
-/// Returns         a newly created StringValueMap.
+          Creates a new StringValueMap from a list of key-value pairs called tuples.
+The method is similar to <a href="pip_services3_commons/StringValueMap/fromTuples.html">fromTuples</a> but tuples are passed as array instead of parameters. <a href="pip_services3_commons/StringValueMap/fromTuplesArray.html">[...]</a>
                   
 </dd>
         <dt id="fromValue" class="callable">
@@ -1205,12 +970,7 @@ the given <code>f</code> function.
           </span>
                   </dt>
         <dd>
-          /// Converts specified value into StringValueMap.
-/// 
-/// - <code>value</code>     value to be converted
-/// Returns         a newly created StringValueMap.
-/// 
-/// See <a href="pip_services3_commons/StringValueMap/setAsObject.html">setAsObject</a>
+          Converts specified value into StringValueMap. <a href="pip_services3_commons/StringValueMap/fromValue.html">[...]</a>
                   
 </dd>
       </dl>

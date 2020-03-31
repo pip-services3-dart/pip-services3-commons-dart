@@ -195,17 +195,18 @@
       <div><h1><span class="kind-class">DoubleConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Converts arbitrary values into double using extended conversion rules:
-/// - Strings are converted to double values
-/// - DateTime: total number of milliseconds since unix epoсh
-/// - Boolean: 1 for true and 0 for false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
-///     var value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
-///     var value3 = DoubleConverter.toNullableDouble(true); // Result: 1
-///     var value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds</p>
+      <p>Converts arbitrary values into double using extended conversion rules:</p>
+<ul>
+<li>Strings are converted to double values</li>
+<li>DateTime: total number of milliseconds since unix epoсh</li>
+<li>Boolean: 1 for true and 0 for false</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
+var value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
+var value3 = DoubleConverter.toNullableDouble(true); // Result: 1
+var value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
+</code></pre>
     </section>
     
 
@@ -294,12 +295,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into doubles or returns 0 when conversion is not possible.
-/// 
-/// - <code>value</code>     the value to convert.
-/// Returns         double value or 0 when conversion is not supported.
-/// 
-/// See [<a href="pip_services3_commons/DoubleConverter/toDoubleWithDefault.html">toDoubleWithDefault</a>]
+          Converts value into doubles or returns 0 when conversion is not possible. <a href="pip_services3_commons/DoubleConverter/toDouble.html">[...]</a>
                   
 </dd>
         <dt id="toDoubleWithDefault" class="callable">
@@ -308,13 +304,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into integer or returns default value when conversion is not possible.
-/// 
-/// - <code>value</code>         the value to convert.
-/// - defaultValue  the default value.
-/// Returns             double value or default when conversion is not supported.
-/// 
-/// See [<a href="pip_services3_commons/DoubleConverter/toNullableDouble.html">toNullableDouble</a>]
+          Converts value into integer or returns default value when conversion is not possible. <a href="pip_services3_commons/DoubleConverter/toDoubleWithDefault.html">[...]</a>
                   
 </dd>
         <dt id="toNullableDouble" class="callable">
@@ -323,10 +313,7 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into doubles or returns null when conversion is not possible.
-/// 
-/// - <code>value</code>     the value to convert.
-/// Returns         double value or null when conversion is not supported.
+          Converts value into doubles or returns null when conversion is not possible. <a href="pip_services3_commons/DoubleConverter/toNullableDouble.html">[...]</a>
                   
 </dd>
       </dl>

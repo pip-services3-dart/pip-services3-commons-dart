@@ -66,1815 +66,700 @@
           <span class="name "><a href="pip_services3_commons/AndRule-class.html">AndRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule to combine rules with AND logical operation.
-/// When all rules returns no errors, than this rule also returns no errors.
-/// When one of the rules return errors, than the rules returns all errors.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new AndRule(
-///             new ValueComparisonRule("GTE", 1),
-///             new ValueComparisonRule("LTE", 10)
-///         ));
-///<br>
-///     schema.validate(0);          // Result: 0 must be greater or equal to 1
-///     schema.validate(5);          // Result: no error
-///     schema.validate(20);         // Result: 20 must be letter or equal 10
+          Validation rule to combine rules with AND logical operation.
+When all rules returns no errors, than this rule also returns no errors.
+When one of the rules return errors, than the rules returns all errors. <a href="pip_services3_commons/AndRule-class.html">[...]</a>
         </dd>
         <dt id="AnyValue">
           <span class="name "><a href="pip_services3_commons/AnyValue-class.html">AnyValue</a></span>         
         </dt>
         <dd>
-          /// Cross-language implementation of dynamic object what can hold value of any type.
-/// The stored value can be converted to different types using variety of accessor methods.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = new AnyValue("123.456");
-///<br>
-///     value1.getAsInteger();   // Result: 123
-///     value1.getAsString();    // Result: "123.456"
-///     value1.getAsFloat();     // Result: 123.456
-/// 
-/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-/// See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a>
+          Cross-language implementation of dynamic object what can hold value of any type.
+The stored value can be converted to different types using variety of accessor methods. <a href="pip_services3_commons/AnyValue-class.html">[...]</a>
         </dd>
         <dt id="AnyValueArray">
           <span class="name "><a href="pip_services3_commons/AnyValueArray-class.html">AnyValueArray</a></span>         
         </dt>
         <dd>
-          /// Cross-language implementation of dynamic object array what can hold values of any type.
-/// The stored values can be converted to different types using variety of accessor methods.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = new AnyValueArray(<code>1, "123.456", "2018-01-01"</code>);
-///<br>
-///     value1.getAsBoolean(0);   // Result: true
-///     value1.getAsInteger(1);   // Result: 123
-///     value1.getAsFloat(1);     // Result: 123.456
-///     value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
-/// 
-/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-/// See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a>
+          Cross-language implementation of dynamic object array what can hold values of any type.
+The stored values can be converted to different types using variety of accessor methods. <a href="pip_services3_commons/AnyValueArray-class.html">[...]</a>
         </dd>
         <dt id="AnyValueMap">
           <span class="name "><a href="pip_services3_commons/AnyValueMap-class.html">AnyValueMap</a></span>         
         </dt>
         <dd>
-          /// Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
-/// The stored values can be converted to different types using variety of accessor methods.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = new AnyValueMap({ key1: 1, key2: "123.456", key3: "2018-01-01" });
-///<br>
-///     value1.getAsBoolean("key1");   // Result: true
-///     value1.getAsInteger("key2");   // Result: 123
-///     value1.getAsFloat("key2");     // Result: 123.456
-///     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
-/// 
-/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-/// See <a href="pip_services3_commons/ICloneable-class.html">ICloneable</a>
+          Cross-language implementation of dynamic object map (dictionary) what can hold values of any type.
+The stored values can be converted to different types using variety of accessor methods. <a href="pip_services3_commons/AnyValueMap-class.html">[...]</a>
         </dd>
         <dt id="ApplicationExceptionFactory">
           <span class="name "><a href="pip_services3_commons/ApplicationExceptionFactory-class.html">ApplicationExceptionFactory</a></span>         
         </dt>
         <dd>
-          /// Factory to recreate exceptions from <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> values passed through the wire.
-/// 
-/// See <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a>
-/// See <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>
+          Factory to recreate exceptions from <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> values passed through the wire. <a href="pip_services3_commons/ApplicationExceptionFactory-class.html">[...]</a>
         </dd>
         <dt id="ArrayConverter">
           <span class="name "><a href="pip_services3_commons/ArrayConverter-class.html">ArrayConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into array objects.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = ArrayConverter.toArray(<code>1, 2</code>);		 // Result: <code>1, 2</code>
-///     var value2 = ArrayConverter.toArray(1);			  // Result: <code>1</code>
-///     var value2 = ArrayConverter.listToArray("1,2,3");	// Result: <code>"1", "2", "3"</code>
+          Converts arbitrary values into array objects. <a href="pip_services3_commons/ArrayConverter-class.html">[...]</a>
         </dd>
         <dt id="ArraySchema">
           <span class="name "><a href="pip_services3_commons/ArraySchema-class.html">ArraySchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate arrays.
-/// 
-/// ### Example ###
-/// 
-///     var schema = new ArraySchema(TypeCode.String);
-///<br>
-///     schema.validate(<code>"A", "B", "C"</code>);    // Result: no errors
-///     schema.validate(<code>1, 2, 3</code>);          // Result: element type mismatch
-///     schema.validate("A");                // Result: type mismatch
+          Schema to validate arrays. <a href="pip_services3_commons/ArraySchema-class.html">[...]</a>
         </dd>
         <dt id="AtLeastOneExistsRule">
           <span class="name "><a href="pip_services3_commons/AtLeastOneExistsRule-class.html">AtLeastOneExistsRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule that check that at least one of the object properties is not null.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new AtLeastOneExistsRule("field1", "field2"));
-///<br>
-///     schema.validate({ field1: 1, field2: "A" });     // Result: no errors
-///     schema.validate({ field1: 1 });                  // Result: no errors
-///     schema.validate({ });                            // Result: at least one of properties field1, field2 must exist
+          Validation rule that check that at least one of the object properties is not null. <a href="pip_services3_commons/AtLeastOneExistsRule-class.html">[...]</a>
         </dd>
         <dt id="BooleanConverter">
           <span class="name "><a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values to boolean values using extended conversion rules:
-/// - Numbers: &lt;&gt;0 are true, =0 are false
-/// - Strings: "true", "yes", "T", "Y", "1" are true; "false", "no", "F", "N" are false
-/// - DateTime: &lt;&gt;0 total milliseconds are true, =0 are false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = BooleanConverter.toNullableBoolean(true); // true
-///     var value2 = BooleanConverter.toNullableBoolean("yes"); // true
-///     var value3 = BooleanConverter.toNullableBoolean(123); // true
-///     var value4 = BooleanConverter.toNullableBoolean({}); // null
+          Converts arbitrary values to boolean values using extended conversion rules: <a href="pip_services3_commons/BooleanConverter-class.html">[...]</a>
         </dd>
         <dt id="Cleaner">
           <span class="name "><a href="pip_services3_commons/Cleaner-class.html">Cleaner</a></span>         
         </dt>
         <dd>
-          /// Helper class that cleans stored object state.
-/// 
-/// See <a href="pip_services3_commons/ICleanable-class.html">ICleanable</a>
+          Helper class that cleans stored object state. <a href="pip_services3_commons/Cleaner-class.html">[...]</a>
         </dd>
         <dt id="Closer">
           <span class="name "><a href="pip_services3_commons/Closer-class.html">Closer</a></span>         
         </dt>
         <dd>
-          /// Helper class that closes previously opened components.
-/// 
-/// <code>ICloseable</code>
+          Helper class that closes previously opened components. <a href="pip_services3_commons/Closer-class.html">[...]</a>
         </dd>
         <dt id="Command">
           <span class="name "><a href="pip_services3_commons/Command-class.html">Command</a></span>         
         </dt>
         <dd>
-          /// Concrete implementation of [<code>ICommand ICommand</code>] interface. Command allows to call a method
-/// or function using Command pattern. <a href="pip_services3_commons/Command-class.html">[...]</a>
+          Concrete implementation of [<code>ICommand ICommand</code>] interface. Command allows to call a method
+or function using Command pattern. <a href="pip_services3_commons/Command-class.html">[...]</a>
         </dd>
         <dt id="CommandSet">
           <span class="name "><a href="pip_services3_commons/CommandSet-class.html">CommandSet</a></span>         
         </dt>
         <dd>
-          /// Contains a set of commands and events supported by a <code>ICommandable commandable</code> object.
-/// The CommandSet supports command interceptors to extend and the command call chain. <a href="pip_services3_commons/CommandSet-class.html">[...]</a>
+          Contains a set of commands and events supported by a <code>ICommandable commandable</code> object.
+The CommandSet supports command interceptors to extend and the command call chain. <a href="pip_services3_commons/CommandSet-class.html">[...]</a>
         </dd>
         <dt id="ConfigParams">
           <span class="name "><a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a></span>         
         </dt>
         <dd>
-          /// Contains a key-value map with configuration parameters. 
-/// All values stored as strings and can be serialized as JSON or string forms.
-/// When retrieved the values can be automatically converted on read using GetAsXXX methods. <a href="pip_services3_commons/ConfigParams-class.html">[...]</a>
+          Contains a key-value map with configuration parameters. 
+All values stored as strings and can be serialized as JSON or string forms.
+When retrieved the values can be automatically converted on read using GetAsXXX methods. <a href="pip_services3_commons/ConfigParams-class.html">[...]</a>
         </dd>
         <dt id="DataPage">
           <span class="name "><a href="pip_services3_commons/DataPage-class.html">DataPage</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>         
         </dt>
         <dd>
-          /// Data transfer object that is used to pass results of paginated queries.
-/// It contains items of retrieved page and optional total number of items.
-/// 
-/// Most often this object type is used to send responses to paginated queries.
-/// Pagination parameters are defined by <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a> object.
-/// The <code>skip</code> parameter in the PagingParams there means how many items to skip.
-/// The <code>takes</code> parameter sets number of items to return in the page.
-/// And the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
-/// Remember: not all implementations support the <code>total</code> parameter
-/// because its generation may lead to severe performance implications.
-/// 
-/// See <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a>
-/// 
-/// ### Example ###
-/// 
-/// page = myDataClient.getDataByFilter(
-///   "123",
-///   FilterParams.fromTuples("completed": true),
-///   NewPagingParams(0, 100, true)
-/// ); <a href="pip_services3_commons/DataPage-class.html">[...]</a>
+          Data transfer object that is used to pass results of paginated queries.
+It contains items of retrieved page and optional total number of items. <a href="pip_services3_commons/DataPage-class.html">[...]</a>
         </dd>
         <dt id="DateTimeConverter">
           <span class="name "><a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into Date values using extended conversion rules:
-/// - Strings: converted using ISO time format
-/// - Numbers: converted using milliseconds since unix epoch
-/// 
-/// ### Example ###
-/// 
-///     var value1 = DateTimeConverter.toNullableDateTime("ABC"); // Result: null
-///     var value2 = DateTimeConverter.toNullableDateTime("2018-01-01T11:30:00.0"); // Result: Date(2018,0,1,11,30)
-///     var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
+          Converts arbitrary values into Date values using extended conversion rules: <a href="pip_services3_commons/DateTimeConverter-class.html">[...]</a>
         </dd>
         <dt id="DependencyResolver">
           <span class="name "><a href="pip_services3_commons/DependencyResolver-class.html">DependencyResolver</a></span>         
         </dt>
         <dd>
-          /// Helper class for resolving component dependencies.
-/// 
-/// The resolver is configured to resolve named dependencies by specific locator.
-/// During deployment the dependency locator can be changed.
-/// 
-/// This mechanism can be used to clarify specific dependency among several alternatives.
-/// Typically components are configured to retrieve the first dependency that matches
-/// logical group, type and version. But if container contains more than one instance
-/// and resolution has to be specific about those instances, they can be given a unique
-/// name and dependency resolvers can be reconfigured to retrieve dependencies by their name.
-/// 
-/// ### Configuration parameters ###
-/// 
-/// dependencies:
-/// - <code>dependency name 1</code>: Dependency 1 locator (descriptor)
-/// - ...
-/// - <code>dependency name N</code>: Dependency N locator (descriptor)
-/// 
-/// ### References ###
-/// 
-/// References must match configured dependencies.
-/// 
-/// ### Example ###
-/// 
-///     class MyComponent implements IConfigurable, IReferenceable {
-///         DependencyResolver _dependencyResolver  = new DependencyResolver();
-///         IMyPersistence _persistence ;
-///         ...
-///<br>
-///          MyComponent() {
-///             this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0"));
-///         }
-///<br>
-///         configure(ConfigParams config ) {
-///             this._dependencyResolver.configure(config);
-///         }<br>
-///<br>
-///         setReferences(IReferences references) {
-///             this._dependencyResolver.setReferences(references);
-///             this._persistence = this._dependencyResolver.getOneRequired<imypersistence>("persistence");
-///         }
-///     }
-///<br>
-///     // Create mycomponent and set specific dependency out of many
-///     var component = new MyComponent();
-///     component.configure(ConfigParams.fromTuples(<code>
-///         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
-///     // Override default persistence dependency
-///     </code>));
-///     component.setReferences(References.fromTuples(<code>
-///         new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
-///         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
-///     // This dependency shall be set
-///     </code>));
-/// 
-/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></imypersistence>
+          Helper class for resolving component dependencies. <a href="pip_services3_commons/DependencyResolver-class.html">[...]</a>
         </dd>
         <dt id="Descriptor">
           <span class="name "><a href="pip_services3_commons/Descriptor-class.html">Descriptor</a></span>         
         </dt>
         <dd>
-          /// Locator type that most often used in PipServices toolkit.
-/// It locates components using several fields:
-/// - Group: a package or just named group of components like "pip-services"
-/// - Type: logical component type that defines it's contract like "persistence"
-/// - Kind: physical implementation type like "mongodb"
-/// - Name: unique component name like "default"
-/// - Version: version of the component contract like "1.0"
-/// 
-/// The locator matching can be done by all or only few selected fields. 
-/// The fields that shall be excluded from the matching must be set to <code>"<em>"</em></code><em> or <code>null</code>.
-/// That approach allows to implement many interesting scenarios. For instance:
-/// - Locate all loggers (match by type and version)
-/// - Locate persistence components for a microservice (match by group and type)
-/// - Locate specific component by its name (match by name)
-/// 
-/// ### Example ###
-/// 
-///     var locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
-///     var locator2 = Descriptor.fromString("mygroup:connector:</em>:*:1.0");
-///<br>
-///     locator1.match(locator2);		// Result: true
-///     locator1.equal(locator2);		// Result: true
-///     locator1.exactMatch(locator2);	// Result: false
+          Locator type that most often used in PipServices toolkit.
+It locates components using several fields: <a href="pip_services3_commons/Descriptor-class.html">[...]</a>
         </dd>
         <dt id="DoubleConverter">
           <span class="name "><a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into double using extended conversion rules:
-/// - Strings are converted to double values
-/// - DateTime: total number of milliseconds since unix epoсh
-/// - Boolean: 1 for true and 0 for false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
-///     var value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
-///     var value3 = DoubleConverter.toNullableDouble(true); // Result: 1
-///     var value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
+          Converts arbitrary values into double using extended conversion rules: <a href="pip_services3_commons/DoubleConverter-class.html">[...]</a>
         </dd>
         <dt id="DurationConverter">
           <span class="name "><a href="pip_services3_commons/DurationConverter-class.html">DurationConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into Date values using extended conversion rules:
-/// - Strings: converted using ISO time format
-/// - Numbers: converted using milliseconds since unix epoch
-/// 
-/// ### Example ###
-/// 
-///     var value1 = DurationConverter.toNullableDuration("ABC"); // Result: null
-///     var value2 = DurationConverter.toNullableDuration("123"); // Result: Duration(milliseconds: 123)
-///     var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(milliseconds: 123)
+          Converts arbitrary values into Date values using extended conversion rules: <a href="pip_services3_commons/DurationConverter-class.html">[...]</a>
         </dd>
         <dt id="ErrorCategory">
           <span class="name "><a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a></span>         
         </dt>
         <dd>
-          /// Defines standard error categories to application exceptions
-/// supported by PipServices toolkit.
+          Defines standard error categories to application exceptions
+supported by PipServices toolkit.
         </dd>
         <dt id="ErrorDescription">
           <span class="name "><a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a></span>         
         </dt>
         <dd>
-          /// Serializeable error description. It is use to pass information about errors
-/// between microservices implemented in different languages. On the receiving side
-/// <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> is used to recreate exception object close to its original type
-/// without missing additional details.
-/// 
-/// See <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>
-/// See <a href="pip_services3_commons/ApplicationExceptionFactory-class.html">ApplicationExceptionFactory</a>
+          Serializeable error description. It is use to pass information about errors
+between microservices implemented in different languages. On the receiving side
+<a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> is used to recreate exception object close to its original type
+without missing additional details. <a href="pip_services3_commons/ErrorDescription-class.html">[...]</a>
         </dd>
         <dt id="ErrorDescriptionFactory">
           <span class="name "><a href="pip_services3_commons/ErrorDescriptionFactory-class.html">ErrorDescriptionFactory</a></span>         
         </dt>
         <dd>
-          /// Factory to create serializeable <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> from <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>
-/// or from arbitrary errors.
-/// 
-/// The ErrorDescriptions are used to pass errors through the wire between microservices
-/// implemented in different languages. They allow to restore exceptions on the receiving side
-/// close to the original type and preserve additional information.
-/// 
-/// See <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a>
-/// See <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>
+          Factory to create serializeable <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> from <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a>
+or from arbitrary errors. <a href="pip_services3_commons/ErrorDescriptionFactory-class.html">[...]</a>
         </dd>
         <dt id="Event">
           <span class="name "><a href="pip_services3_commons/Event-class.html">Event</a></span>         
         </dt>
         <dd>
-          /// Concrete implementation of <code>IEvent IEvent</code> interface.
-/// It allows to send asynchronous notifications to multiple subscribed listeners.
-/// 
-/// See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
-/// See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a>
-/// 
-/// ### Example ###
-/// 
-///     var event = new Event("my_event");
-///<br>
-///     event.addListener(myListener);
-///<br>
-///     event.notify("123", Parameters.fromTuples(
-///       <code>"param1", "ABC",
-///       "param2", 123</code>
-///     ));
+          Concrete implementation of <code>IEvent IEvent</code> interface.
+It allows to send asynchronous notifications to multiple subscribed listeners. <a href="pip_services3_commons/Event-class.html">[...]</a>
         </dd>
         <dt id="ExcludedRule">
           <span class="name "><a href="pip_services3_commons/ExcludedRule-class.html">ExcludedRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule to check that value is excluded from the list of constants.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new ExcludedRule(1, 2, 3));
-///<br>
-///     schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
-///     schema.validate(10);     // Result: no errors
+          Validation rule to check that value is excluded from the list of constants. <a href="pip_services3_commons/ExcludedRule-class.html">[...]</a>
         </dd>
         <dt id="Executor">
           <span class="name "><a href="pip_services3_commons/Executor-class.html">Executor</a></span>         
         </dt>
         <dd>
-          /// Helper class that executes components.
-/// 
-/// <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
+          Helper class that executes components. <a href="pip_services3_commons/Executor-class.html">[...]</a>
         </dd>
         <dt id="FilterParams">
           <span class="name "><a href="pip_services3_commons/FilterParams-class.html">FilterParams</a></span>         
         </dt>
         <dd>
-          /// Data transfer object used to pass filter parameters as simple key-value pairs.
-/// 
-/// See <a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(
-///         <code>"type", "Type1",
-///         "from_create_time", new Date(2000, 0, 1),
-///         "to_create_time", new Date(),
-///         "compvared", true</code>
-///     );
-///     var paging = new PagingParams(0, 100);
-///<br>
-///     myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
+          Data transfer object used to pass filter parameters as simple key-value pairs. <a href="pip_services3_commons/FilterParams-class.html">[...]</a>
         </dd>
         <dt id="FilterParamsSchema">
           <span class="name "><a href="pip_services3_commons/FilterParamsSchema-class.html">FilterParamsSchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a>.
-/// 
-/// See <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a>
+          Schema to validate <a href="pip_services3_commons/FilterParams-class.html">FilterParams</a>. <a href="pip_services3_commons/FilterParamsSchema-class.html">[...]</a>
         </dd>
         <dt id="FixedRateTimer">
           <span class="name "><a href="pip_services3_commons/FixedRateTimer-class.html">FixedRateTimer</a></span>         
         </dt>
         <dd>
-          /// Timer that is triggered in equal time intervals.
-/// 
-/// It has summetric cross-language implementation 
-/// and is often used by Pip.Services toolkit to
-/// perform periodic processing and cleanup in microservices.
-/// 
-/// See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyComponent {
-///         FixedRateTimer timer  = new FixedRateTimer(() { this.cleanup }, 60000);
-///         ...
-///         void open(String correlationId, callback (dynamic err)) {
-///             ...
-///             timer.start();
-///             ...
-///         }
-///<br>
-///         void close(String correlationId, callback (dynamic err)) {
-///             ...
-///             timer.stop();
-///             ...
-///         }
-///<br>
-///         void cleanup() {
-///             ...
-///         }
-///         ...
-///     }
+          Timer that is triggered in equal time intervals. <a href="pip_services3_commons/FixedRateTimer-class.html">[...]</a>
         </dd>
         <dt id="FloatConverter">
           <span class="name "><a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into float using extended conversion rules:
-/// - Strings are converted to float values
-/// - DateTime: total number of milliseconds since unix epoсh
-/// - Boolean: 1 for true and 0 for false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = FloatConverter.toNullableFloat("ABC"); // Result: null
-///     var value2 = FloatConverter.toNullableFloat("123.456"); // Result: 123.456
-///     var value3 = FloatConverter.toNullableFloat(true); // Result: 1
-///     var value4 = FloatConverter.toNullableFloat(new Date()); // Result: current milliseconds
+          Converts arbitrary values into float using extended conversion rules: <a href="pip_services3_commons/FloatConverter-class.html">[...]</a>
         </dd>
         <dt id="IChangeable">
           <span class="name "><a href="pip_services3_commons/IChangeable-class.html">IChangeable</a></span>         
         </dt>
         <dd>
-          /// Interface for data objects that contain their latest change time.
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IStringIdentifiable, IChangeable {
-///          String id;
-///          String field1;
-///          int field2;
-///          DateTime change_time;
-///         ...
-///     }
+          Interface for data objects that contain their latest change time. <a href="pip_services3_commons/IChangeable-class.html">[...]</a>
         </dd>
         <dt id="ICleanable">
           <span class="name "><a href="pip_services3_commons/ICleanable-class.html">ICleanable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that should clean their state.
-/// 
-/// Cleaning state most often is used during testing. 
-/// But there may be situations when it can be done in production.
-/// 
-/// See <a href="pip_services3_commons/Cleaner-class.html">Cleaner</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyObjectWithState implements ICleanable {
-///         dynamic _state = {};
-///         ...
-///         Future clear(String correlationId) {
-///            this._state = {};
-///            return new Future();
-///         }
-///     }
-///
+          Interface for components that should clean their state. <a href="pip_services3_commons/ICleanable-class.html">[...]</a>
         </dd>
         <dt id="ICloneable">
           <span class="name "><a href="pip_services3_commons/ICloneable-class.html">ICloneable</a></span>         
         </dt>
         <dd>
-          /// Interface for data objects that are able to create their full binary copy.
-/// 
-/// ### Example ###
-/// 
-///     class MyClass implements IMyClass, ICloneable {
-///       MyClass() { };
-///<br>
-///       clone() {
-///           var cloneObj = new (this.<any constructor="">());
-///<br>
-///           // Copy every attribute from this to cloneObj here.
-///           ...
-///<br>
-///           return cloneObj;
-///       }
-///     }</any>
+          Interface for data objects that are able to create their full binary copy. <a href="pip_services3_commons/ICloneable-class.html">[...]</a>
         </dd>
         <dt id="IClosable">
           <span class="name "><a href="pip_services3_commons/IClosable-class.html">IClosable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that require explicit closure.
-/// 
-/// For components that require opening as well as closing 
-/// use <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface instead.
-/// 
-/// See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
-/// See <a href="pip_services3_commons/Closer-class.html">Closer</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyConnector implements ICloseable {
-///         dynamic _client = null;
-///<br>
-///         ... // The _client can be lazy created
-///<br>
-///         Future close(String correlationId){
-///             if (this._client != null) {
-///                 this._client.close();
-///                 this._client = null;
-///             }
-///             return new Future.delayed(new Duration());
-///         }
-///     }
-///
+          Interface for components that require explicit closure. <a href="pip_services3_commons/IClosable-class.html">[...]</a>
         </dd>
         <dt id="ICommand">
           <span class="name "><a href="pip_services3_commons/ICommand-class.html">ICommand</a></span>         
         </dt>
         <dd>
-          /// An interface for Commands, which are part of the Command design pattern.
-/// Each command wraps a method or function and allows to call them in uniform and safe manner.
-/// 
-/// See <a href="pip_services3_commons/Command-class.html">Command</a>
-/// See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
-/// See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a>
-/// See <a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a>
+          An interface for Commands, which are part of the Command design pattern.
+Each command wraps a method or function and allows to call them in uniform and safe manner. <a href="pip_services3_commons/ICommand-class.html">[...]</a>
         </dd>
         <dt id="ICommandable">
           <span class="name "><a href="pip_services3_commons/ICommandable-class.html">ICommandable</a></span>         
         </dt>
         <dd>
-          /// An interface for commandable objects, which are part of the command design pattern.
-/// The commandable object exposes its functonality as commands and events groupped
-/// into a <code>CommandSet CommandSet</code>. <a href="pip_services3_commons/ICommandable-class.html">[...]</a>
+          An interface for commandable objects, which are part of the command design pattern.
+The commandable object exposes its functonality as commands and events groupped
+into a <code>CommandSet CommandSet</code>. <a href="pip_services3_commons/ICommandable-class.html">[...]</a>
         </dd>
         <dt id="ICommandInterceptor">
           <span class="name "><a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a></span>         
         </dt>
         <dd>
-          /// An interface for stackable command intercepters, which can extend
-/// and modify the command call chain.
-/// 
-/// This mechanism can be used for authentication, logging, and other functions.
-/// 
-/// See <a href="pip_services3_commons/ICommand-class.html">ICommand</a>
-/// See <a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a>
+          An interface for stackable command intercepters, which can extend
+and modify the command call chain. <a href="pip_services3_commons/ICommandInterceptor-class.html">[...]</a>
         </dd>
         <dt id="IConfigurable">
           <span class="name "><a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a></span>         
         </dt>
         <dd>
-          /// An interface to set configuration parameters to an object.
-/// 
-/// It can be added to any existing class by implementing a single <code>configure()</code> method.
-/// 
-/// If you need to emphasis the fact that <code>configure()</code> method can be called multiple times
-/// to change object configuration in runtime, use <a href="pip_services3_commons/IReconfigurable-class.html">IReconfigurable</a> interface instead.
-/// 
-/// See <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyClass implements IConfigurable {
-///         var _myParam = "default value";
-///<br>
-///         void configure(ConfigParams config) {
-///             this._myParam = config.getAsStringWithDefault("options.param", myParam);
-///             ...
-///         }
-///     }
+          An interface to set configuration parameters to an object. <a href="pip_services3_commons/IConfigurable-class.html">[...]</a>
         </dd>
         <dt id="IdGenerator">
           <span class="name "><a href="pip_services3_commons/IdGenerator-class.html">IdGenerator</a></span>         
         </dt>
         <dd>
-          /// Helper class to generate unique object IDs.
-/// It supports two types of IDs: long and short.
-/// 
-/// Long IDs are string GUIDs. They are globally unique and 32-character long.
-/// 
-/// ShortIDs are just 9-digit random numbers. They are not guaranteed be unique.
-/// 
-/// ### Example ###
-/// 
-///     IdGenerator.nextLong();      // Possible result: "234ab342c56a2b49c2ab42bf23ff991ac"
-///     IdGenerator.nextShort();     // Possible result: "23495247"
-///
+          Helper class to generate unique object IDs.
+It supports two types of IDs: long and short. <a href="pip_services3_commons/IdGenerator-class.html">[...]</a>
         </dd>
         <dt id="IEvent">
           <span class="name "><a href="pip_services3_commons/IEvent-class.html">IEvent</a></span>         
         </dt>
         <dd>
-          /// An interface for Events, which are part of the Command design pattern.
-/// Events allows to send asynchronious notifications to multiple subscribed listeners.
-/// 
-/// See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a>
+          An interface for Events, which are part of the Command design pattern.
+Events allows to send asynchronious notifications to multiple subscribed listeners. <a href="pip_services3_commons/IEvent-class.html">[...]</a>
         </dd>
         <dt id="IEventListener">
           <span class="name "><a href="pip_services3_commons/IEventListener-class.html">IEventListener</a></span>         
         </dt>
         <dd>
-          /// An interface for listener objects that receive notifications on fired events.
-/// 
-/// See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
-/// See <a href="pip_services3_commons/Event-class.html">Event</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyListener implements IEventListener {
-///          void _onEvent(String correlationId, IEvent event, Parameters args ) {
-///             print("Fired event " + event.getName());
-///         }
-///     }
-///<br>
-///     var event = new Event("myevent");
-///     event.addListener(new MyListener());
-///     event.notify("123", Parameters.fromTuples(<code>"param1", "ABC"</code>));
-///<br>
-///     // Console output: Fired event myevent
+          An interface for listener objects that receive notifications on fired events. <a href="pip_services3_commons/IEventListener-class.html">[...]</a>
         </dd>
         <dt id="IExecutable">
           <span class="name "><a href="pip_services3_commons/IExecutable-class.html">IExecutable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that can be called to execute work.
-/// 
-/// See <a href="pip_services3_commons/Executor-class.html">Executor</a>
-/// See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
-/// See <a href="pip_services3_commons/Parameters-class.html">Parameters</a>
-/// 
-/// ### Example ###
-/// 
-///     class EchoComponent implements IExecutable {
-///         ...
-///         Future<dynamic> execute(String correlationId, Parameters args)  {
-///            return Future.delayed(Duration(), (){
-///                return args.getAsObject("message");
-///            })<br>
-///         }
-///     }
-///<br>
-///     var echo = new EchoComponent();
-///     var message = "Test";
-///     echo.execute("123", Parameters.fromTuples(<code>"message", message</code>)
-///        .then((result) {
-///             console.log("Request: " + message + " Response: " + result);
-///         })
-///     );</dynamic>
+          Interface for components that can be called to execute work. <a href="pip_services3_commons/IExecutable-class.html">[...]</a>
         </dd>
         <dt id="IIdentifiable">
           <span class="name "><a href="pip_services3_commons/IIdentifiable-class.html">IIdentifiable</a><span class="signature">&lt;<wbr><span class="type-parameter">K</span>&gt;</span></span>         
         </dt>
         <dd>
-          /// Generic interface for data objects that can be uniquely identified by an id.
-/// 
-/// The type specified in the interface defines the type of id field.
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IIdentifiable<string> {
-///          String id;
-///          String field1;
-///          int field2; 
-///         ...
-///     }</string>
+          Generic interface for data objects that can be uniquely identified by an id. <a href="pip_services3_commons/IIdentifiable-class.html">[...]</a>
         </dd>
         <dt id="INamed">
           <span class="name "><a href="pip_services3_commons/INamed-class.html">INamed</a></span>         
         </dt>
         <dd>
-          /// Interface for data objects that have human-readable names.
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IStringIdentifiable, INamed {
-///         String id;
-///         String name;
-///         String field1;
-///         String field2;
-///         ...
-///     }
+          Interface for data objects that have human-readable names. <a href="pip_services3_commons/INamed-class.html">[...]</a>
         </dd>
         <dt id="IncludedRule">
           <span class="name "><a href="pip_services3_commons/IncludedRule-class.html">IncludedRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule to check that value is included into the list of constants.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new IncludedRule(1, 2, 3));
-///<br>
-///     schema.validate(2);      // Result: no errors
-///     schema.validate(10);     // Result: 10 must be one of 1, 2, 3
+          Validation rule to check that value is included into the list of constants. <a href="pip_services3_commons/IncludedRule-class.html">[...]</a>
         </dd>
         <dt id="INotifiable">
           <span class="name "><a href="pip_services3_commons/INotifiable-class.html">INotifiable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that can be asynchronously notified.
-/// The notification may include optional argument that describe
-/// the occured event.
-/// 
-/// See <a href="pip_services3_commons/Notifier-class.html">Notifier</a>
-/// See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyComponent implements INotifable {
-///         ...
-///         void notify(String correlationId, Parameters args) {
-///             console.log("Occured event " + args.getAsString("event"));
-///         }
-///     }
-///<br>
-///     var myComponent = new MyComponent();
-///<br>
-///     myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
+          Interface for components that can be asynchronously notified.
+The notification may include optional argument that describe
+the occured event. <a href="pip_services3_commons/INotifiable-class.html">[...]</a>
         </dd>
         <dt id="IntegerConverter">
           <span class="name "><a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into integers using extended conversion rules:
-/// - Strings are converted to floats, then to integers
-/// - DateTime: total number of milliseconds since unix epoсh
-/// - Boolean: 1 for true and 0 for false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = IntegerConverter.toNullableInteger("ABC"); // Result: null
-///     var value2 = IntegerConverter.toNullableInteger("123.456"); // Result: 123
-///     var value3 = IntegerConverter.toNullableInteger(true); // Result: 1
-///     var value4 = IntegerConverter.toNullableInteger(new Date()); // Result: current milliseconds
+          Converts arbitrary values into integers using extended conversion rules: <a href="pip_services3_commons/IntegerConverter-class.html">[...]</a>
         </dd>
         <dt id="InterceptedCommand">
           <span class="name "><a href="pip_services3_commons/InterceptedCommand-class.html">InterceptedCommand</a></span>         
         </dt>
         <dd>
-          /// Implements a <code>ICommand command</code> wrapped by an interceptor.
-/// It allows to build command call chains. The interceptor can alter execution
-/// and delegate calls to a next command, which can be intercepted or concrete. <a href="pip_services3_commons/InterceptedCommand-class.html">[...]</a>
+          Implements a <code>ICommand command</code> wrapped by an interceptor.
+It allows to build command call chains. The interceptor can alter execution
+and delegate calls to a next command, which can be intercepted or concrete. <a href="pip_services3_commons/InterceptedCommand-class.html">[...]</a>
         </dd>
         <dt id="IOpenable">
           <span class="name "><a href="pip_services3_commons/IOpenable-class.html">IOpenable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that require explicit opening and closing.
-/// 
-/// For components that perform opening on demand consider using
-/// <code>ICloseable</code> interface instead.
-/// 
-/// See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
-/// See <a href="pip_services3_commons/Opener-class.html">Opener</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyPersistence implements IOpenable {
-///         dynamic _client;
-///         ...
-///         bool isOpen() {
-///             return this._client != null;
-///         } 
-///<br>
-///         Future open(String correlationId) {
-///             if (this.isOpen()) {
-///                 return Future(Duration(), (){
-/// 
-///                  })
-///             }
-///             ...
-///         }
-///<br>
-///         Future close(String correlationId) async {
-///             if (this._client != null) {
-///                 result = await this._client.close();
-///                 this._client = null;
-///                Future(Duration(), (){ return result})
-///             } 
-///         }
-///<br>
-///         ...
-///     }
+          Interface for components that require explicit opening and closing. <a href="pip_services3_commons/IOpenable-class.html">[...]</a>
         </dd>
         <dt id="IParameterized">
           <span class="name "><a href="pip_services3_commons/IParameterized-class.html">IParameterized</a></span>         
         </dt>
         <dd>
-          /// Interface for components that require execution parameters.
-/// 
-/// See <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>
+          Interface for components that require execution parameters. <a href="pip_services3_commons/IParameterized-class.html">[...]</a>
         </dd>
         <dt id="IReconfigurable">
           <span class="name "><a href="pip_services3_commons/IReconfigurable-class.html">IReconfigurable</a></span>         
         </dt>
         <dd>
-          /// An interface to set configuration parameters to an object.
-/// 
-/// It is similar to <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a> interface, but emphasises the fact
-/// that <code>configure()</code> method can be called more than once to change object configuration
-/// in runtime.
-/// 
-/// See <a href="pip_services3_commons/IConfigurable-class.html">IConfigurable</a>
+          An interface to set configuration parameters to an object. <a href="pip_services3_commons/IReconfigurable-class.html">[...]</a>
         </dd>
         <dt id="IReferenceable">
           <span class="name "><a href="pip_services3_commons/IReferenceable-class.html">IReferenceable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that depends on other components. 
-/// 
-/// If component requires explicit notification to unset references
-/// it shall additionally implement <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a> interface.
-/// 
-/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
-/// See <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>
-/// See <a href="pip_services3_commons/Referencer-class.html">Referencer</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyController implements IReferenceable {
-///         IMyPersistence persistence ;
-///         ...<br>
-///         void setReferences(IReferences references ) {
-///             this.persistence = references.getOneRequired<imypersistence>(
-///                 new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0")
-///             );
-///         }
-///         ...
-///     }</imypersistence>
+          Interface for components that depends on other components.  <a href="pip_services3_commons/IReferenceable-class.html">[...]</a>
         </dd>
         <dt id="IReferences">
           <span class="name "><a href="pip_services3_commons/IReferences-class.html">IReferences</a></span>         
         </dt>
         <dd>
-          /// Interface for a map that holds component references and passes them to components
-/// to establish dependencies with each other.
-/// 
-/// Together with <a href="pip_services3_commons/IReferenceable-class.html">IReferenceable</a> and <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a> interfaces it implements
-/// a Locator pattern that is used by PipServices toolkit for Inversion of Control
-/// to assign external dependencies to components. 
-/// 
-/// The IReferences object is a simple map, where keys are locators
-/// and values are component references. It allows to add, remove and find components
-/// by their locators. Locators can be any values like integers, strings or component types.
-/// But most often PipServices toolkit uses <a href="pip_services3_commons/Descriptor-class.html">Descriptor</a> as locators that match
-/// by 5 fields: group, type, kind, name and version.
-/// 
-/// See <a href="pip_services3_commons/Descriptor-class.html">Descriptor</a>
-/// See <a href="pip_services3_commons/References-class.html">References</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyController implements IReferenceable {
-///         IMyPersistence persistence;
-///         ...<br>
-///         void setReferences(IReferences references) {
-///             this.persistence = references.getOneRequired<imypersistence>(
-///                 new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0")
-///             );
-///         }
-///         ...
-///     }
-///<br>
-///     var persistence = new MyMongoDbPersistence();
-///<br>
-///     var controller = new MyController();
-///<br>
-///     var references = References.fromTuples(<code>
-///         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
-///         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
-///     </code>);
-///     controller.setReferences(references);
-///</imypersistence>
+          Interface for a map that holds component references and passes them to components
+to establish dependencies with each other. <a href="pip_services3_commons/IReferences-class.html">[...]</a>
         </dd>
         <dt id="IStringIdentifiable">
           <span class="name "><a href="pip_services3_commons/IStringIdentifiable-class.html">IStringIdentifiable</a></span>         
         </dt>
         <dd>
-          /// Interface for data objects that can be uniquely identifed by a string id. 
-/// 
-/// The interface extends [<a href="pip_services3_commons/IIdentifiable-class.html">IIdentifiable</a>] to hardcode id type to string.
-/// 
-/// It is a common pattern to use a string GUID as the id, generated by [<a href="pip_services3_commons/IdGenerator-class.html">IdGenerator</a>].
-/// 
-/// See [<a href="pip_services3_commons/IIdentifiable-class.html">IIdentifiable</a>]
-/// See [<a href="pip_services3_commons/IdGenerator-class.html">IdGenerator</a>]
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IStringIdentifiable {
-///         String id;
-///         String field1;
-///         String field2; 
-///         ...
-///     }
+          Interface for data objects that can be uniquely identifed by a string id.  <a href="pip_services3_commons/IStringIdentifiable-class.html">[...]</a>
         </dd>
         <dt id="ITrackable">
           <span class="name "><a href="pip_services3_commons/ITrackable-class.html">ITrackable</a></span>         
         </dt>
         <dd>
-          /// Interface for data objects that can track their changes, including logical deletion.
-/// 
-/// See <a href="pip_services3_commons/IChangeable-class.html">IChangeable</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IStringIdentifiable, ITrackable {
-///         String id;
-///         String  field1;
-///         int field2;
-///         ...
-///         DateTime change_time;
-///         DateTime create_time;
-///         bool deleted;
-///     }
+          Interface for data objects that can track their changes, including logical deletion. <a href="pip_services3_commons/ITrackable-class.html">[...]</a>
         </dd>
         <dt id="IUnreferenceable">
           <span class="name "><a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a></span>         
         </dt>
         <dd>
-          /// Interface for components that require explicit clearing of references to dependent components.
-/// 
-/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
-/// See <a href="pip_services3_commons/IReferenceable-class.html">IReferenceable</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyController implements IReferenceable, IUnreferenceable {
-///        IMyPersistence persistence;
-///        ...<br>
-///        void  setReferences(IReferences references) {
-///            this.persistence = references.getOneRequired<imypersistence>(
-///                new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0")
-///            );
-///        }
-///<br>
-///        void unsetReferences() {
-///            this.persistence = null;
-///        }
-///        ...
-///     }</imypersistence>
+          Interface for components that require explicit clearing of references to dependent components. <a href="pip_services3_commons/IUnreferenceable-class.html">[...]</a>
         </dd>
         <dt id="IValidationRule">
           <span class="name "><a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></span>         
         </dt>
         <dd>
-          /// Interface for validation rules.
-/// 
-/// Validation rule can validate one or multiple values
-/// against complex rules like: value is in range,
-/// one property is less than another property,
-/// enforce enumerated values and more.
-/// 
-/// This interface allows to implement custom rules.
+          Interface for validation rules. <a href="pip_services3_commons/IValidationRule-class.html">[...]</a>
         </dd>
         <dt id="IVersioned">
           <span class="name "><a href="pip_services3_commons/IVersioned-class.html">IVersioned</a></span>         
         </dt>
         <dd>
-          /// Interface for data objects that can be versioned.
-/// 
-/// Versioning is often used as optimistic concurrency mechanism. 
-/// 
-/// The version doesn't have to be a number, but it is recommended to use sequential
-/// values to determine if one object has newer or older version than another one.
-/// 
-/// It is a common pattern to use the time of change as the object version.
-/// 
-/// ### Example ###
-/// 
-///     class MyData implements IStringIdentifiable, IVersioned {
-///          String id;
-///         String  field1;
-///         int field2;
-///         String version;
-///         ...
-///     }
-///<br>
-///      void updateData(String correlationId, MyData item ) {
-///         ...
-///         if (item.version &lt; oldItem.version) {
-///             throw new ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value");
-///         }
-///         ...
-///     }
+          Interface for data objects that can be versioned. <a href="pip_services3_commons/IVersioned-class.html">[...]</a>
         </dd>
         <dt id="JsonConverter">
           <span class="name "><a href="pip_services3_commons/JsonConverter-class.html">JsonConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values from and to JSON (JavaScript Object Notation) strings.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = JsonConverter.fromJson("{"key":123}"); // Result: { "key": 123 }
-///     var value2 = JsonConverter.toMap({ "key": 123 }); // Result: "{ "key": 123 }"
-/// 
-/// See [<a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>]
+          Converts arbitrary values from and to JSON (JavaScript Object Notation) strings. <a href="pip_services3_commons/JsonConverter-class.html">[...]</a>
         </dd>
         <dt id="LongConverter">
           <span class="name "><a href="pip_services3_commons/LongConverter-class.html">LongConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into longs using extended conversion rules:
-/// - Strings are converted to floats, then to longs
-/// - DateTime: total number of milliseconds since unix epoсh
-/// - Boolean: 1 for true and 0 for false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = LongConverter.toNullableLong("ABC"); // Result: null
-///     var value2 = LongConverter.toNullableLong("123.456"); // Result: 123
-///     var value3 = LongConverter.toNullableLong(true); // Result: 1
-///     var value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
+          Converts arbitrary values into longs using extended conversion rules: <a href="pip_services3_commons/LongConverter-class.html">[...]</a>
         </dd>
         <dt id="MapConverter">
           <span class="name "><a href="pip_services3_commons/MapConverter-class.html">MapConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into map objects using extended conversion rules:
-/// - Objects: property names as keys, property values as values
-/// - Arrays: element indexes as keys, elements as values
-/// 
-/// ### Example ###
-/// 
-///     var value1 = MapConverted.toNullableMap("ABC"); // Result: null
-///     var value2 = MapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-///     var value3 = MapConverted.toNullableMap(<code>1,2,3</code>); // Result: { "0": 1, "1": 2, "2": 3 }
+          Converts arbitrary values into map objects using extended conversion rules: <a href="pip_services3_commons/MapConverter-class.html">[...]</a>
         </dd>
         <dt id="MapSchema">
           <span class="name "><a href="pip_services3_commons/MapSchema-class.html">MapSchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate maps.
-/// 
-/// ### Example ###
-/// 
-///     var schema = new MapSchema(TypeCode.String, TypeCode.Integer);
-///<br>
-///     schema.validate({ "key1": "A", "key2": "B" });       // Result: no errors
-///     schema.validate({ "key1": 1, "key2": 2 });           // Result: element type mismatch
-///     schema.validate(<code> 1, 2, 3 </code>);                        // Result: type mismatch
+          Schema to validate maps. <a href="pip_services3_commons/MapSchema-class.html">[...]</a>
         </dd>
         <dt id="MethodReflector">
           <span class="name "><a href="pip_services3_commons/MethodReflector-class.html">MethodReflector</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform method introspection and dynamic invocation.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// Because all languages have different casing and case sensitivity rules,
-/// this MethodReflector treats all method names as case insensitive.
-/// 
-/// ### Example ###
-/// 
-///     var myObj = new MyObject();
-///<br>
-///     var methods = MethodReflector.getMethodNames();
-///     MethodReflector.hasMethod(myObj, "myMethod");
-///     MethodReflector.invokeMethod(myObj, "myMethod", 123);
+          Helper class to perform method introspection and dynamic invocation. <a href="pip_services3_commons/MethodReflector-class.html">[...]</a>
         </dd>
         <dt id="MultiString">
           <span class="name "><a href="pip_services3_commons/MultiString-class.html">MultiString</a></span>         
         </dt>
         <dd>
-          /// An object that contains string translations for multiple languages.
-/// Language keys use two-varter codes like: 'en', 'sp', 'de', 'ru', 'fr', 'pr'.
-/// When translation for specified language does not exists it defaults to English ('en').
-/// When English does not exists it falls back to the first defined language.
-/// 
-/// ### Example ###
-/// 
-///     var values = MultiString.fromTuples(<code>
-///         "en", "Hello World!",
-///         "ru", "Привет мир!"
-///     </code>);
-///<br>
-///     var value1 = values.get('ru'); // Result: "Привет мир!"
-///     var value2 = values.get('pt'); // Result: "Hello World!"
+          An object that contains string translations for multiple languages.
+Language keys use two-varter codes like: 'en', 'sp', 'de', 'ru', 'fr', 'pr'.
+When translation for specified language does not exists it defaults to English ('en').
+When English does not exists it falls back to the first defined language. <a href="pip_services3_commons/MultiString-class.html">[...]</a>
         </dd>
         <dt id="NameResolver">
           <span class="name "><a href="pip_services3_commons/NameResolver-class.html">NameResolver</a></span>         
         </dt>
         <dd>
-          /// A helper class that allows to extract component name from configuration parameters.
-/// The name can be defined in "id", "name" parameters or inside a component descriptor.
-/// 
-/// ### Example ###
-/// 
-///     var config = ConfigParams.fromTuples(<code>
-///         "descriptor", "myservice:connector:aws:connector1:1.0",
-///         "param1", "ABC",
-///         "param2", 123
-///     </code>);
-///<br>
-///     var name = NameResolver.resolve(config); // Result: connector1
+          A helper class that allows to extract component name from configuration parameters.
+The name can be defined in "id", "name" parameters or inside a component descriptor. <a href="pip_services3_commons/NameResolver-class.html">[...]</a>
         </dd>
         <dt id="Notifier">
           <span class="name "><a href="pip_services3_commons/Notifier-class.html">Notifier</a></span>         
         </dt>
         <dd>
-          /// Helper class that notifies components.
-/// 
-/// <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
+          Helper class that notifies components. <a href="pip_services3_commons/Notifier-class.html">[...]</a>
         </dd>
         <dt id="NotRule">
           <span class="name "><a href="pip_services3_commons/NotRule-class.html">NotRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule negate another rule.
-/// When embedded rule returns no errors, than this rule return an error.
-/// When embedded rule return errors, than the rule returns no errors.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new NotRule(
-///             new ValueComparisonRule("EQ", 1)
-///         ));
-///<br>
-///     schema.validate(1);          // Result: error
-///     schema.validate(5);          // Result: no error
+          Validation rule negate another rule.
+When embedded rule returns no errors, than this rule return an error.
+When embedded rule return errors, than the rule returns no errors. <a href="pip_services3_commons/NotRule-class.html">[...]</a>
         </dd>
         <dt id="ObjectComparator">
           <span class="name "><a href="pip_services3_commons/ObjectComparator-class.html">ObjectComparator</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform comparison operations over arbitrary values.
-/// 
-/// ### Example ###
-/// 
-///     ObjectComparator.compare(2, "GT", 1);        // Result: true
-///     ObjectComparator.areEqual("A", "B");         // Result: false
+          Helper class to perform comparison operations over arbitrary values. <a href="pip_services3_commons/ObjectComparator-class.html">[...]</a>
         </dd>
         <dt id="ObjectReader">
           <span class="name "><a href="pip_services3_commons/ObjectReader-class.html">ObjectReader</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform property introspection and dynamic reading.
-/// 
-/// In contrast to <a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a> which only introspects regular objects,
-/// this ObjectReader is also able to handle maps and arrays.
-/// For maps properties are key-pairs identified by string keys,
-/// For arrays properties are elements identified by integer index.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// Because all languages have different casing and case sensitivity rules,
-/// this ObjectReader treats all property names as case insensitive. <a href="pip_services3_commons/ObjectReader-class.html">[...]</a>
+          Helper class to perform property introspection and dynamic reading. <a href="pip_services3_commons/ObjectReader-class.html">[...]</a>
         </dd>
         <dt id="ObjectSchema">
           <span class="name "><a href="pip_services3_commons/ObjectSchema-class.html">ObjectSchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate user defined objects.
-/// 
-/// ### Example ###
-/// 
-///     var schema = new ObjectSchema(false)
-///         .withOptionalProperty("id", TypeCode.String)
-///         .withRequiredProperty("name", TypeCode.String);
-///<br>
-///     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
-///     schema.validate({ name: "ABC" });                // Result: no errors
-///     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
-///     schema.validate({ id: 1, _name: "ABC" });        // Result: name is missing, unexpected _name
-///     schema.validate("ABC");                          // Result: type mismatch
+          Schema to validate user defined objects. <a href="pip_services3_commons/ObjectSchema-class.html">[...]</a>
         </dd>
         <dt id="ObjectWriter">
           <span class="name "><a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform property introspection and dynamic writing.
-/// 
-/// In contrast to <a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a> which only introspects regular objects,
-/// this ObjectWriter is also able to handle maps and arrays.
-/// For maps properties are key-pairs identified by string keys,
-/// For arrays properties are elements identified by integer index.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// Because all languages have different casing and case sensitivity rules,
-/// this ObjectWriter treats all property names as case insensitive. <a href="pip_services3_commons/ObjectWriter-class.html">[...]</a>
+          Helper class to perform property introspection and dynamic writing. <a href="pip_services3_commons/ObjectWriter-class.html">[...]</a>
         </dd>
         <dt id="OnlyOneExistsRule">
           <span class="name "><a href="pip_services3_commons/OnlyOneExistsRule-class.html">OnlyOneExistsRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule that check that at exactly one of the object properties is not null.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new OnlyOneExistsRule("field1", "field2"));
-///<br>
-///     schema.validate({ field1: 1, field2: "A" });     // Result: only one of properties field1, field2 must exist
-///     schema.validate({ field1: 1 });                  // Result: no errors
-///     schema.validate({ });                            // Result: only one of properties field1, field2 must exist
+          Validation rule that check that at exactly one of the object properties is not null. <a href="pip_services3_commons/OnlyOneExistsRule-class.html">[...]</a>
         </dd>
         <dt id="Opener">
           <span class="name "><a href="pip_services3_commons/Opener-class.html">Opener</a></span>         
         </dt>
         <dd>
-          /// Helper class that opens components.
-/// 
-/// <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
+          Helper class that opens components. <a href="pip_services3_commons/Opener-class.html">[...]</a>
         </dd>
         <dt id="OptionResolver">
           <span class="name "><a href="pip_services3_commons/OptionResolver-class.html">OptionResolver</a></span>         
         </dt>
         <dd>
-          /// A helper class to parameters from "options" configuration section.
-/// 
-/// ### Example ###
-/// 
-///     var config = ConfigParams.fromTuples(<code>
-///         ...
-///         "options.param1", "ABC",
-///         "options.param2", 123
-///     </code>);
-///<br>
-///     var options = OptionsResolver.resolve(config); // Result: param1=ABC;param2=123
+          A helper class to parameters from "options" configuration section. <a href="pip_services3_commons/OptionResolver-class.html">[...]</a>
         </dd>
         <dt id="OrRule">
           <span class="name "><a href="pip_services3_commons/OrRule-class.html">OrRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule to combine rules with OR logical operation.
-/// When one of rules returns no errors, than this rule also returns no errors.
-/// When all rules return errors, than the rule returns all errors.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new OrRule(
-///             new ValueComparisonRule("LT", 1),
-///             new ValueComparisonRule("GT", 10)
-///         ));
-///<br>
-///     schema.validate(0);          // Result: no error
-///     schema.validate(5);          // Result: 5 must be less than 1 or 5 must be more than 10
-///     schema.validate(20);         // Result: no error
+          Validation rule to combine rules with OR logical operation.
+When one of rules returns no errors, than this rule also returns no errors.
+When all rules return errors, than the rule returns all errors. <a href="pip_services3_commons/OrRule-class.html">[...]</a>
         </dd>
         <dt id="PagingParams">
           <span class="name "><a href="pip_services3_commons/PagingParams-class.html">PagingParams</a></span>         
         </dt>
         <dd>
-          /// Data transfer object to pass paging parameters for queries.
-/// 
-/// The page is defined by two parameters:
-/// - the <code>skip</code> parameter defines number of items to skip.
-/// - the <code>take</code> parameter sets how many items to return in a page.
-/// - additionally, the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
-/// Remember: not all implementations support the <code>total</code> parameter
-/// because its generation may lead to severe performance implications.
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
-///     var paging = new PagingParams(0, 100);
-///<br>
-///     myDataClient.getDataByFilter(filter, paging, (err, page) {...});
+          Data transfer object to pass paging parameters for queries. <a href="pip_services3_commons/PagingParams-class.html">[...]</a>
         </dd>
         <dt id="PagingParamsSchema">
           <span class="name "><a href="pip_services3_commons/PagingParamsSchema-class.html">PagingParamsSchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate [<a href="pip_services3_commons/PagingParams-class.html">PagingParams</a>].
-/// 
-/// See <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a>
+          Schema to validate [<a href="pip_services3_commons/PagingParams-class.html">PagingParams</a>]. <a href="pip_services3_commons/PagingParamsSchema-class.html">[...]</a>
         </dd>
         <dt id="Parameters">
           <span class="name "><a href="pip_services3_commons/Parameters-class.html">Parameters</a></span>         
         </dt>
         <dd>
-          /// Contains map with execution parameters.
-/// 
-/// In general, this map may contain non-serializable values.
-/// And in contrast with other maps, its getters and setters
-/// support dot notation and able to access properties
-/// in the entire object graph.
-/// 
-/// This class is often use to pass execution and notification
-/// arguments, and parameterize classes before execution.
-/// 
-/// See <a href="pip_services3_commons/IParameterized-class.html">IParameterized</a>
-/// See <a href="pip_services3_commons/AnyValueMap-class.html">AnyValueMap</a>
+          Contains map with execution parameters. <a href="pip_services3_commons/Parameters-class.html">[...]</a>
         </dd>
         <dt id="ProjectionParams">
           <span class="name "><a href="pip_services3_commons/ProjectionParams-class.html">ProjectionParams</a></span>         
         </dt>
         <dd>
-          /// Defines projection parameters with list if fields to include into query results.
-/// 
-/// The parameters support two formats: dot format and nested format.
-/// 
-/// The dot format is the standard way to define included fields and subfields using
-/// dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
-/// 
-/// As alternative the nested format offers a more compact representation:
-/// <code>"field1,field2(field21,field22(field221))"</code>.
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
-///     var paging = new PagingParams(0, 100);
-///     var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
-///<br>
-///     myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
-///
+          Defines projection parameters with list if fields to include into query results. <a href="pip_services3_commons/ProjectionParams-class.html">[...]</a>
         </dd>
         <dt id="ProjectionParamsSchema">
           <span class="name "><a href="pip_services3_commons/ProjectionParamsSchema-class.html">ProjectionParamsSchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate [<a href="pip_services3_commons/ProjectionParams-class.html">ProjectionParams</a>]
-/// 
-/// See <a href="pip_services3_commons/ProjectionParams-class.html">ProjectionParams</a>
+          Schema to validate [<a href="pip_services3_commons/ProjectionParams-class.html">ProjectionParams</a>] <a href="pip_services3_commons/ProjectionParamsSchema-class.html">[...]</a>
         </dd>
         <dt id="PropertiesComparisonRule">
           <span class="name "><a href="pip_services3_commons/PropertiesComparisonRule-class.html">PropertiesComparisonRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule that compares two object properties.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new ObjectSchema()
-///         .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
-///<br>
-///     schema.validate({ field1: 1, field2: 2 });       // Result: no errors
-///     schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
-///     schema.validate({});                             // Result: no errors
+          Validation rule that compares two object properties. <a href="pip_services3_commons/PropertiesComparisonRule-class.html">[...]</a>
         </dd>
         <dt id="PropertyReflector">
           <span class="name "><a href="pip_services3_commons/PropertyReflector-class.html">PropertyReflector</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform property introspection and dynamic reading and writing.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// Because all languages have different casing and case sensitivity rules,
-/// this PropertyReflector treats all property names as case insensitive.
-/// 
-/// ### Example ###
-/// 
-///     var myObj = new MyObject();
-///<br>
-///     var properties = PropertyReflector.getPropertyNames();
-///     PropertyReflector.hasProperty(myObj, "myProperty");
-///     var value = PropertyReflector.getProperty(myObj, "myProperty");
-///     PropertyReflector.setProperty(myObj, "myProperty", 123);
+          Helper class to perform property introspection and dynamic reading and writing. <a href="pip_services3_commons/PropertyReflector-class.html">[...]</a>
         </dd>
         <dt id="PropertySchema">
           <span class="name "><a href="pip_services3_commons/PropertySchema-class.html">PropertySchema</a></span>         
         </dt>
         <dd>
-          /// Schema to validate object properties
-/// 
-/// See <a href="pip_services3_commons/ObjectSchema-class.html">ObjectSchema</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new ObjectSchema()
-///         .withProperty(new PropertySchema("id", TypeCode.String));
-///<br>
-///     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
-///     schema.validate({ name: "ABC" });                // Result: no errors
-///     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
+          Schema to validate object properties <a href="pip_services3_commons/PropertySchema-class.html">[...]</a>
         </dd>
         <dt id="RandomArray">
           <span class="name "><a href="pip_services3_commons/RandomArray-class.html">RandomArray</a></span>         
         </dt>
         <dd>
-          /// Random generator for array objects.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = RandomArray.pick(<code>1, 2, 3, 4</code>); // Possible result: 3
+          Random generator for array objects. <a href="pip_services3_commons/RandomArray-class.html">[...]</a>
         </dd>
         <dt id="RandomBoolean">
           <span class="name "><a href="pip_services3_commons/RandomBoolean-class.html">RandomBoolean</a></span>         
         </dt>
         <dd>
-          /// Random generator for boolean values.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = RandomBoolean.nextBoolean();    // Possible result: true
-///     var value2 = RandomBoolean.chance(1,3);      // Possible result: false
+          Random generator for boolean values. <a href="pip_services3_commons/RandomBoolean-class.html">[...]</a>
         </dd>
         <dt id="RandomDateTime">
           <span class="name "><a href="pip_services3_commons/RandomDateTime-class.html">RandomDateTime</a></span>         
         </dt>
         <dd>
-          /// Random generator for Date time values. <a href="pip_services3_commons/RandomDateTime-class.html">[...]</a>
+          Random generator for Date time values. <a href="pip_services3_commons/RandomDateTime-class.html">[...]</a>
         </dd>
         <dt id="RandomDouble">
           <span class="name "><a href="pip_services3_commons/RandomDouble-class.html">RandomDouble</a></span>         
         </dt>
         <dd>
-          /// Random generator for double values. <a href="pip_services3_commons/RandomDouble-class.html">[...]</a>
+          Random generator for double values. <a href="pip_services3_commons/RandomDouble-class.html">[...]</a>
         </dd>
         <dt id="RandomFloat">
           <span class="name "><a href="pip_services3_commons/RandomFloat-class.html">RandomFloat</a></span>         
         </dt>
         <dd>
-          /// Random generator for float values. <a href="pip_services3_commons/RandomFloat-class.html">[...]</a>
+          Random generator for float values. <a href="pip_services3_commons/RandomFloat-class.html">[...]</a>
         </dd>
         <dt id="RandomInteger">
           <span class="name "><a href="pip_services3_commons/RandomInteger-class.html">RandomInteger</a></span>         
         </dt>
         <dd>
-          /// Random generator for integer values.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = RandomInteger.nextInteger(5, 10);     // Possible result: 7
-///     var value2 = RandomInteger.nextInteger(10);        // Possible result: 3
-///     var value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
+          Random generator for integer values. <a href="pip_services3_commons/RandomInteger-class.html">[...]</a>
         </dd>
         <dt id="RandomString">
           <span class="name "><a href="pip_services3_commons/RandomString-class.html">RandomString</a></span>         
         </dt>
         <dd>
-          /// Random generator for string values. <a href="pip_services3_commons/RandomString-class.html">[...]</a>
+          Random generator for string values. <a href="pip_services3_commons/RandomString-class.html">[...]</a>
         </dd>
         <dt id="RandomText">
           <span class="name "><a href="pip_services3_commons/RandomText-class.html">RandomText</a></span>         
         </dt>
         <dd>
-          /// Random generator for various text values like names, addresses or phone numbers. <a href="pip_services3_commons/RandomText-class.html">[...]</a>
+          Random generator for various text values like names, addresses or phone numbers. <a href="pip_services3_commons/RandomText-class.html">[...]</a>
         </dd>
         <dt id="RecursiveMapConverter">
           <span class="name "><a href="pip_services3_commons/RecursiveMapConverter-class.html">RecursiveMapConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into map objects using extended conversion rules.
-/// This class is similar to [<a href="pip_services3_commons/MapConverter-class.html">MapConverter</a>], but is recursively converts all values
-/// stored in objects and arrays.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
-///     var value2 = RecursiveMapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-///     var value3 = RecursiveMapConverted.toNullableMap([1,<code>2,3</code>); // Result: { "0": 1, { "0": 2, "1": 3 } }
+          Converts arbitrary values into map objects using extended conversion rules.
+This class is similar to [<a href="pip_services3_commons/MapConverter-class.html">MapConverter</a>], but is recursively converts all values
+stored in objects and arrays. <a href="pip_services3_commons/RecursiveMapConverter-class.html">[...]</a>
         </dd>
         <dt id="RecursiveObjectReader">
           <span class="name "><a href="pip_services3_commons/RecursiveObjectReader-class.html">RecursiveObjectReader</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform property introspection and dynamic reading.
-/// 
-/// It is similar to <a href="pip_services3_commons/ObjectReader-class.html">ObjectReader</a> but reads properties recursively
-/// through the entire object graph. Nested property names are defined
-/// using dot notation as "object.subobject.property" <a href="pip_services3_commons/RecursiveObjectReader-class.html">[...]</a>
+          Helper class to perform property introspection and dynamic reading. <a href="pip_services3_commons/RecursiveObjectReader-class.html">[...]</a>
         </dd>
         <dt id="RecursiveObjectWriter">
           <span class="name "><a href="pip_services3_commons/RecursiveObjectWriter-class.html">RecursiveObjectWriter</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform property introspection and dynamic writing.
-/// 
-/// It is similar to <a href="pip_services3_commons/ObjectWriter-class.html">ObjectWriter</a> but writes properties recursively
-/// through the entire object graph. Nested property names are defined
-/// using dot notation as "object.subobject.property" <a href="pip_services3_commons/RecursiveObjectWriter-class.html">[...]</a>
+          Helper class to perform property introspection and dynamic writing. <a href="pip_services3_commons/RecursiveObjectWriter-class.html">[...]</a>
         </dd>
         <dt id="Reference">
           <span class="name "><a href="pip_services3_commons/Reference-class.html">Reference</a></span>         
         </dt>
         <dd>
-          /// Contains a reference to a component and locator to find it.
-/// It is used by <a href="pip_services3_commons/References-class.html">References</a> to store registered component references.
+          Contains a reference to a component and locator to find it.
+It is used by <a href="pip_services3_commons/References-class.html">References</a> to store registered component references.
         </dd>
         <dt id="Referencer">
           <span class="name "><a href="pip_services3_commons/Referencer-class.html">Referencer</a></span>         
         </dt>
         <dd>
-          /// Helper class that sets and unsets references to components.
-/// 
-/// See <a href="pip_services3_commons/IReferenceable-class.html">IReferenceable</a>
-/// See <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a>
+          Helper class that sets and unsets references to components. <a href="pip_services3_commons/Referencer-class.html">[...]</a>
         </dd>
         <dt id="References">
           <span class="name "><a href="pip_services3_commons/References-class.html">References</a></span>         
         </dt>
         <dd>
-          /// The most basic implementation of <a href="pip_services3_commons/IReferences-class.html">IReferences</a> to store and locate component references.
-/// 
-/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyController implements IReferenceable {
-///         IMyPersistence persistence;
-///         ...<br>
-///         void setReferences(IReferences references) {
-///             this.persistence = references.getOneRequired<imypersistence>(
-///                 new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0")
-///             );
-///         }
-///         ...
-///     }
-///<br>
-///     var persistence = new MyMongoDbPersistence();
-///<br>
-///     var controller = new MyController();
-///<br>
-///     var references = References.fromTuples(<code>
-///         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
-///         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
-///     </code>);
-///     controller.setReferences(references);</imypersistence>
+          The most basic implementation of <a href="pip_services3_commons/IReferences-class.html">IReferences</a> to store and locate component references. <a href="pip_services3_commons/References-class.html">[...]</a>
         </dd>
         <dt id="Schema">
           <span class="name "><a href="pip_services3_commons/Schema-class.html">Schema</a></span>         
         </dt>
         <dd>
-          /// Basic schema that validates values against a set of validation rules.
-/// 
-/// This schema is used as a basis for specific schemas to validate 
-/// objects, project properties, arrays and maps.
-/// 
-/// See <a href="pip_services3_commons/ObjectSchema-class.html">ObjectSchema</a>
-/// See <a href="pip_services3_commons/PropertySchema-class.html">PropertySchema</a>
-/// See <a href="pip_services3_commons/ArraySchema-class.html">ArraySchema</a>
-/// See <a href="pip_services3_commons/MapSchema-class.html">MapSchema</a>
+          Basic schema that validates values against a set of validation rules. <a href="pip_services3_commons/Schema-class.html">[...]</a>
         </dd>
         <dt id="SortField">
           <span class="name "><a href="pip_services3_commons/SortField-class.html">SortField</a></span>         
         </dt>
         <dd>
-          /// Defines a field name and order used to sort query results.
-/// 
-/// See <a href="pip_services3_commons/SortParams-class.html">SortParams</a>
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
-///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField("create_time", true));
-///<br>
-///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
+          Defines a field name and order used to sort query results. <a href="pip_services3_commons/SortField-class.html">[...]</a>
         </dd>
         <dt id="SortParams">
           <span class="name "><a href="pip_services3_commons/SortParams-class.html">SortParams</a></span>         
         </dt>
         <dd>
-          /// Defines a field name and order used to sort query results.
-/// 
-/// See <a href="pip_services3_commons/SortField-class.html">SortField</a>
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
-///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField("create_time", true));
-///<br>
-///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
+          Defines a field name and order used to sort query results. <a href="pip_services3_commons/SortParams-class.html">[...]</a>
         </dd>
         <dt id="StringConverter">
           <span class="name "><a href="pip_services3_commons/StringConverter-class.html">StringConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into strings using extended conversion rules:
-/// - Numbers: are converted with '.' as decimal point
-/// - DateTime: using ISO format
-/// - Boolean: "true" for true and "false" for false
-/// - Arrays: as comma-separated list
-/// - Other objects: using <code>toString()</code> method
-/// 
-/// ### Example ###
-/// 
-///     var value1 = StringConverter.ToString(123.456); // Result: "123.456"
-///     var value2 = StringConverter.ToString(true); // Result: "true"
-///     var value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: "2018-01-01T00:00:00.00"
-///     var value4 = StringConverter.ToString(<code>1,2,3</code>); // Result: "1,2,3"
+          Converts arbitrary values into strings using extended conversion rules: <a href="pip_services3_commons/StringConverter-class.html">[...]</a>
         </dd>
         <dt id="StringValueMap">
           <span class="name "><a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a></span>         
         </dt>
         <dd>
-          /// Cross-language implementation of a map (dictionary) where all keys and values are strings.
-/// The stored values can be converted to different types using variety of accessor methods.
-/// 
-/// The string map is highly versatile. It can be converted into many formats, stored and 
-/// sent over the wire.
-/// 
-/// This class is widely used in Pip.Services as a basis for variety of classes, such as
-/// <a href="pip_services3_commons/ConfigParams-class.html">ConfigParams</a>, <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams</code>, 
-/// <code>https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams</code> and others.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = StringValueMap.fromString(<code>"key1=1;key2=123.456;key3=2018-01-01"</code>);
-///<br>
-///     value1.getAsBoolean("key1");   // Result: true
-///     value1.getAsInteger("key2");   // Result: 123
-///     value1.getAsFloat("key2");     // Result: 123.456
-///     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
-/// 
-/// See <a href="pip_services3_commons/StringConverter-class.html">StringConverter</a>
-/// See <a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>
-/// See <a href="pip_services3_commons/BooleanConverter-class.html">BooleanConverter</a>
-/// See <a href="pip_services3_commons/IntegerConverter-class.html">IntegerConverter</a>
-/// See <a href="pip_services3_commons/LongConverter-class.html">LongConverter</a>
-/// See <a href="pip_services3_commons/DoubleConverter-class.html">DoubleConverter</a>
-/// See <a href="pip_services3_commons/FloatConverter-class.html">FloatConverter</a>
-/// See <a href="pip_services3_commons/DateTimeConverter-class.html">DateTimeConverter</a>
-///
+          Cross-language implementation of a map (dictionary) where all keys and values are strings.
+The stored values can be converted to different types using variety of accessor methods. <a href="pip_services3_commons/StringValueMap-class.html">[...]</a>
         </dd>
         <dt id="TagsProcessor">
           <span class="name "><a href="pip_services3_commons/TagsProcessor-class.html">TagsProcessor</a></span>         
         </dt>
         <dd>
-          /// Helper class to extract and process search tags from objects.
-/// The search tags can be kept individually or embedded as hash tags inside text
-/// like "This text has #hash_tag that can be used for search."
+          Helper class to extract and process search tags from objects.
+The search tags can be kept individually or embedded as hash tags inside text
+like "This text has #hash_tag that can be used for search."
         </dd>
         <dt id="TypeConverter">
           <span class="name "><a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a></span>         
         </dt>
         <dd>
-          /// Converts arbitrary values into objects specific by TypeCodes.
-/// For each TypeCode this class calls corresponding converter which applies
-/// extended conversion rules to convert the values.
-/// 
-/// See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
-/// 
-/// ### Example ###
-/// 
-///     var value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
-///     var value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: DateTime(123)
-///     var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
+          Converts arbitrary values into objects specific by TypeCodes.
+For each TypeCode this class calls corresponding converter which applies
+extended conversion rules to convert the values. <a href="pip_services3_commons/TypeConverter-class.html">[...]</a>
         </dd>
         <dt id="TypeDescriptor">
           <span class="name "><a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a></span>         
         </dt>
         <dd>
-          /// Descriptor that points to specific object type by it's name
-/// and optional library (or module) where this type is defined.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
+          Descriptor that points to specific object type by it's name
+and optional library (or module) where this type is defined. <a href="pip_services3_commons/TypeDescriptor-class.html">[...]</a>
         </dd>
         <dt id="TypeMatcher">
           <span class="name "><a href="pip_services3_commons/TypeMatcher-class.html">TypeMatcher</a></span>         
         </dt>
         <dd>
-          /// Helper class matches value types for equality.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
+          Helper class matches value types for equality. <a href="pip_services3_commons/TypeMatcher-class.html">[...]</a>
         </dd>
         <dt id="TypeReflector">
           <span class="name "><a href="pip_services3_commons/TypeReflector-class.html">TypeReflector</a></span>         
         </dt>
         <dd>
-          /// Helper class to perform object type introspection and object instantiation.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// Because all languages have different casing and case sensitivity rules,
-/// this TypeReflector treats all type names as case insensitive.
-/// 
-/// See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>
-/// 
-/// ### Example ###
-/// 
-///     var descriptor = new TypeDescriptor("MyObject", "mylibrary");
-///     Typeeflector.getTypeByDescriptor(descriptor);
-///     var myObj = TypeReflector.createInstanceByDescriptor(descriptor);
-///<br>
-///     TypeDescriptor.isPrimitive(myObject); 		// Result: false
-///     TypeDescriptor.isPrimitive(123);				// Result: true
+          Helper class to perform object type introspection and object instantiation. <a href="pip_services3_commons/TypeReflector-class.html">[...]</a>
         </dd>
         <dt id="ValidationResult">
           <span class="name "><a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a></span>         
         </dt>
         <dd>
-          /// Result generated by schema validation
+          Result generated by schema validation
         </dd>
         <dt id="ValueComparisonRule">
           <span class="name "><a href="pip_services3_commons/ValueComparisonRule-class.html">ValueComparisonRule</a></span>         
         </dt>
         <dd>
-          /// Validation rule that compares value to a constant.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new ValueComparisonRule("EQ", 1));
-///<br>
-///     schema.validate(1);          // Result: no errors
-///     schema.validate(2);          // Result: 2 is not equal to 1
+          Validation rule that compares value to a constant. <a href="pip_services3_commons/ValueComparisonRule-class.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -1892,18 +777,14 @@
           <span class="name "><a href="pip_services3_commons/TypeCode-class.html">TypeCode</a></span>         
         </dt>
         <dd>
-          /// Codes for the data types that can be
-/// converted using [<a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>].
-/// 
-/// See [<a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>]
+          Codes for the data types that can be
+converted using [<a href="pip_services3_commons/TypeConverter-class.html">TypeConverter</a>]. <a href="pip_services3_commons/TypeCode-class.html">[...]</a>
         </dd>
         <dt id="ValidationResultType">
           <span class="name "><a href="pip_services3_commons/ValidationResultType-class.html">ValidationResultType</a></span>         
         </dt>
         <dd>
-          /// Types of validation results generated by validation schemas. 
-/// 
-/// See <a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>
+          Types of validation results generated by validation schemas.  <a href="pip_services3_commons/ValidationResultType-class.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -1917,138 +798,93 @@
           <span class="name "><a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a></span>         
         </dt>
         <dd>
-          /// Defines a base class to defive various application exceptions.
-/// 
-/// Most languages have own definition of base exception (error) types.
-/// However, this class is implemented symmetrically in all languages
-/// supported by PipServices toolkit. It allows to create portable implementations
-/// and support proper error propagation in microservices calls.
-/// 
-/// Error propagation means that when microservice implemented in one language
-/// calls microservice(s) implemented in a different language(s), errors are returned
-/// throught the entire call chain and restored in their original (or close) type.
-/// 
-/// Since number of potential exception types is endless, PipServices toolkit
-/// supports only 12 standard categories of exceptions defined in <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>.
-/// This <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class acts as a basis for
-/// all other 12 standard exception types.
-/// 
-/// Most exceptions have just free-form message that describes occured error.
-/// That may not be sufficient to create meaninful error descriptions.
-/// The <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class proposes an extended error definition
-/// that has more standard fields:
-/// 
-/// - <a href="pip_services3_commons/ApplicationException/message.html">message</a>: is a human-readable error description
-/// - <a href="pip_services3_commons/ApplicationException/category.html">category</a>: one of 12 standard error categories of errors
-/// - <a href="pip_services3_commons/ApplicationException/status.html">status</a>: numeric HTTP status code for REST invocations
-/// - <a href="pip_services3_commons/ApplicationException/code.html">code</a>: a unique error code, usually defined as "MY_ERROR_CODE"
-/// - <a href="pip_services3_commons/ApplicationException/correlation_id.html">correlation_id</a>: a unique transaction id to trace execution through a call chain
-/// - <a href="pip_services3_commons/ApplicationException/details.html">details</a>: map with error parameters that can help to recreate meaningful error description in other languages
-/// - <a href="pip_services3_commons/ApplicationException/stack_trace.html">stack_trace</a>: a stack trace
-/// - <a href="pip_services3_commons/ApplicationException/cause.html">cause</a>: original error that is wrapped by this exception
-/// 
-/// ApplicationException class is not serializable. To pass errors through the wire
-/// it is converted into <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> object and restored on receiving end into
-/// identical exception type.
-/// 
-/// See <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>
-/// See <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a>
+          Defines a base class to defive various application exceptions. <a href="pip_services3_commons/ApplicationException-class.html">[...]</a>
         </dd>
         <dt id="BadRequestException">
           <span class="name "><a href="pip_services3_commons/BadRequestException-class.html">BadRequestException</a></span>         
         </dt>
         <dd>
-          /// Errors due to improper user requests. 
-/// 
-/// For example: missing or incorrect parameters.
+          Errors due to improper user requests.  <a href="pip_services3_commons/BadRequestException-class.html">[...]</a>
         </dd>
         <dt id="ConfigException">
           <span class="name "><a href="pip_services3_commons/ConfigException-class.html">ConfigException</a></span>         
         </dt>
         <dd>
-          /// Errors related to mistakes in the microservice's user-defined configurations.
+          Errors related to mistakes in the microservice's user-defined configurations.
         </dd>
         <dt id="ConflictException">
           <span class="name "><a href="pip_services3_commons/ConflictException-class.html">ConflictException</a></span>         
         </dt>
         <dd>
-          /// Errors raised by conflicts between object versions that were
-/// posted by the user and those that are stored on the server.
+          Errors raised by conflicts between object versions that were
+posted by the user and those that are stored on the server.
         </dd>
         <dt id="ConnectionException">
           <span class="name "><a href="pip_services3_commons/ConnectionException-class.html">ConnectionException</a></span>         
         </dt>
         <dd>
-          /// Errors that occur during connections to remote services.
-/// They can be related to misconfiguration, network issues, or the remote service itself.
+          Errors that occur during connections to remote services.
+They can be related to misconfiguration, network issues, or the remote service itself.
         </dd>
         <dt id="FileException">
           <span class="name "><a href="pip_services3_commons/FileException-class.html">FileException</a></span>         
         </dt>
         <dd>
-          /// Errors in read/write local disk operations.
+          Errors in read/write local disk operations.
         </dd>
         <dt id="InternalException">
           <span class="name "><a href="pip_services3_commons/InternalException-class.html">InternalException</a></span>         
         </dt>
         <dd>
-          /// Errors caused by programming mistakes.
+          Errors caused by programming mistakes.
         </dd>
         <dt id="InvalidStateException">
           <span class="name "><a href="pip_services3_commons/InvalidStateException-class.html">InvalidStateException</a></span>         
         </dt>
         <dd>
-          /// Errors related to calling operations, which require the component to be in a specific state.
-/// 
-/// For instance: business calls when the component is not ready.
+          Errors related to calling operations, which require the component to be in a specific state. <a href="pip_services3_commons/InvalidStateException-class.html">[...]</a>
         </dd>
         <dt id="InvocationException">
           <span class="name "><a href="pip_services3_commons/InvocationException-class.html">InvocationException</a></span>         
         </dt>
         <dd>
-          /// Errors returned by remote services or by the network during call attempts.
+          Errors returned by remote services or by the network during call attempts.
         </dd>
         <dt id="NotFoundException">
           <span class="name "><a href="pip_services3_commons/NotFoundException-class.html">NotFoundException</a></span>         
         </dt>
         <dd>
-          /// Errors caused by attempts to access missing objects.
+          Errors caused by attempts to access missing objects.
         </dd>
         <dt id="ReferenceException">
           <span class="name "><a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a></span>         
         </dt>
         <dd>
-          /// Error when required component dependency cannot be found.
+          Error when required component dependency cannot be found.
         </dd>
         <dt id="UnauthorizedException">
           <span class="name "><a href="pip_services3_commons/UnauthorizedException-class.html">UnauthorizedException</a></span>         
         </dt>
         <dd>
-          /// Access errors caused by missing user identity (authentication error) or incorrect security permissions (authorization error).
+          Access errors caused by missing user identity (authentication error) or incorrect security permissions (authorization error).
         </dd>
         <dt id="UnknownException">
           <span class="name "><a href="pip_services3_commons/UnknownException-class.html">UnknownException</a></span>         
         </dt>
         <dd>
-          /// Unknown or unexpected errors.
+          Unknown or unexpected errors.
         </dd>
         <dt id="UnsupportedException">
           <span class="name "><a href="pip_services3_commons/UnsupportedException-class.html">UnsupportedException</a></span>         
         </dt>
         <dd>
-          /// Errors caused by calls to unsupported or not yet implemented functionality.
+          Errors caused by calls to unsupported or not yet implemented functionality.
         </dd>
         <dt id="ValidationException">
           <span class="name "><a href="pip_services3_commons/ValidationException-class.html">ValidationException</a></span>         
         </dt>
         <dd>
-          /// Errors in schema validation.
-/// 
-/// Validation errors are usually generated based in <a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>.
-/// If using strict mode, warnings will also raise validation exceptions.
-/// 
-/// See <a href="pip_services3_commons/BadRequestException-class.html">BadRequestException</a>
-/// See <a href="pip_services3_commons/ValidationResult-class.html">ValidationResult</a>
+          Errors in schema validation. <a href="pip_services3_commons/ValidationException-class.html">[...]</a>
         </dd>
       </dl>
     </section>

@@ -4,24 +4,24 @@ import '../convert/TypeConverter.dart';
 import '../convert/DateTimeConverter.dart';
 
 /**
-/// Helper class matches value types for equality.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// See [TypeCode]
+ * Helper class matches value types for equality.
+ * 
+ * This class has symmetric implementation across all languages supported
+ * by Pip.Services toolkit and used to support dynamic data processing.
+ * 
+ * See [TypeCode]
  */
 class TypeMatcher {
   /**
-    /// Matches expected type to a type of a value.
-    /// The expected type can be specified by a type, type name or [TypeCode].
-    /// 
-    /// - [expectedType]      an expected type to match.
-    /// - [actualValue]       a value to match its type to the expected one.
-    /// Returns true if types are matching and false if they don't.
-    /// 
-    /// See [matchType]
-    /// See [matchValueTypeByName] (for matching by types' string names)
+     * Matches expected type to a type of a value.
+     * The expected type can be specified by a type, type name or [TypeCode].
+     * 
+     * - [expectedType]      an expected type to match.
+     * - [actualValue]       a value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
+     * 
+     * See [matchType]
+     * See [matchValueTypeByName] (for matching by types' string names)
      */
   static bool matchValueType(expectedType, actualValue) {
     if (expectedType == null) return true;
@@ -31,16 +31,16 @@ class TypeMatcher {
   }
 
   /**
-    /// Matches expected type to an actual type.
-    /// The types can be specified as types, type names or [TypeCode].
-    /// 
-    /// - [expectedType]  an expected type to match.
-    /// - [actualType]    an actual type to match.
-    /// - [actualValue]   an optional value to match its type to the expected one.
-    /// Returns true if types are matching and false if they don't.
-    /// 
-    /// See [matchTypeByName]
-    /// See [matchTypeByName] (for matching by types' string names)
+     * Matches expected type to an actual type.
+     * The types can be specified as types, type names or [TypeCode].
+     * 
+     * - [expectedType]  an expected type to match.
+     * - [actualType]    an actual type to match.
+     * - [actualValue]   an optional value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
+     * 
+     * See [matchTypeByName]
+     * See [matchTypeByName] (for matching by types' string names)
      */
   static bool matchType(expectedType, TypeCode actualType,
       [actualValue = null]) {
@@ -80,11 +80,11 @@ class TypeMatcher {
   }
 
   /**
-    /// Matches expected type to a type of a value.
-    /// 
-    /// - [expectedType]  an expected type name to match.
-    /// - [actualValue]       a value to match its type to the expected one.
-    /// Returns true if types are matching and false if they don't.
+     * Matches expected type to a type of a value.
+     * 
+     * - [expectedType]  an expected type name to match.
+     * - [actualValue]       a value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
      */
   static bool matchValueTypeByName(String expectedType, actualValue) {
     if (expectedType == null) return true;
@@ -94,12 +94,12 @@ class TypeMatcher {
   }
 
   /**
-    /// Matches expected type to an actual type.
-    /// 
-    /// - [expectedType]  an expected type name to match.
-    /// - [actualType]    an actual type to match defined by type code.
-    /// - [actualValue]   an optional value to match its type to the expected one.
-    /// Returns true if types are matching and false if they don't.
+     * Matches expected type to an actual type.
+     * 
+     * - [expectedType]  an expected type name to match.
+     * - [actualType]    an actual type to match defined by type code.
+     * - [actualValue]   an optional value to match its type to the expected one.
+     * Returns true if types are matching and false if they don't.
      */
   static bool matchTypeByName(String expectedType, TypeCode actualType,
       [actualValue = null]) {

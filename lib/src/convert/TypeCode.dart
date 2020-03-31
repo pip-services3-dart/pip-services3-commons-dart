@@ -1,8 +1,8 @@
 /**
-/// Codes for the data types that can be
-/// converted using [[TypeConverter]].
-/// 
-/// See [[TypeConverter]]
+ * Codes for the data types that can be
+ * converted using [[TypeConverter]].
+ * 
+ * See [[TypeConverter]]
  */
 enum TypeCode {
   Unknown,

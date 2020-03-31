@@ -195,17 +195,16 @@
       <div><h1><span class="kind-class">OptionResolver</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// A helper class to parameters from "options" configuration section.
-/// 
-/// ### Example ###
-/// 
-///     var config = ConfigParams.fromTuples(<code>
-///         ...
-///         "options.param1", "ABC",
-///         "options.param2", 123
-///     </code>);
-///<br>
-///     var options = OptionsResolver.resolve(config); // Result: param1=ABC;param2=123</p>
+      <p>A helper class to parameters from "options" configuration section.</p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var config = ConfigParams.fromTuples([
+    ...
+    "options.param1", "ABC",
+    "options.param2", 123
+]);
+
+var options = OptionsResolver.resolve(config); // Result: param1=ABC;param2=123
+</code></pre>
     </section>
     
 
@@ -294,11 +293,7 @@
           </span>
                   </dt>
         <dd>
-          /// Resolves an "options" configuration section from component configuration parameters.
-/// 
-/// - <code>config</code>            configuration parameters
-/// - <code>configAsDefault</code>   (optional) When set true the method returns the entire parameter set when "options" section is not found. Default: false
-/// Returns                 configuration parameters from "options" section
+          Resolves an "options" configuration section from component configuration parameters. <a href="pip_services3_commons/OptionResolver/resolve.html">[...]</a>
                   
 </dd>
       </dl>

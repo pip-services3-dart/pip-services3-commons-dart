@@ -195,24 +195,20 @@
       <div><h1><span class="kind-class">TypeReflector</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Helper class to perform object type introspection and object instantiation.
-/// 
-/// This class has symmetric implementation across all languages supported
-/// by Pip.Services toolkit and used to support dynamic data processing.
-/// 
-/// Because all languages have different casing and case sensitivity rules,
-/// this TypeReflector treats all type names as case insensitive.
-/// 
-/// See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>
-/// 
-/// ### Example ###
-/// 
-///     var descriptor = new TypeDescriptor("MyObject", "mylibrary");
-///     Typeeflector.getTypeByDescriptor(descriptor);
-///     var myObj = TypeReflector.createInstanceByDescriptor(descriptor);
-///<br>
-///     TypeDescriptor.isPrimitive(myObject); 		// Result: false
-///     TypeDescriptor.isPrimitive(123);				// Result: true</p>
+      <p>Helper class to perform object type introspection and object instantiation.</p>
+<p>This class has symmetric implementation across all languages supported
+by Pip.Services toolkit and used to support dynamic data processing.</p>
+<p>Because all languages have different casing and case sensitivity rules,
+this TypeReflector treats all type names as case insensitive.</p>
+<p>See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var descriptor = new TypeDescriptor("MyObject", "mylibrary");
+Typeeflector.getTypeByDescriptor(descriptor);
+var myObj = TypeReflector.createInstanceByDescriptor(descriptor);
+
+TypeDescriptor.isPrimitive(myObject); 		// Result: false
+TypeDescriptor.isPrimitive(123);				// Result: true
+</code></pre>
     </section>
     
 
@@ -301,16 +297,33 @@
           </span>
                   </dt>
         <dd>
-          /// Creates an instance of an object type specified by its name
-/// and library where it is defined.
-/// 
-/// - <code>name</code> 		an object type name.
-	/// - <code>library</code> 	a library (module) where object type is defined.
-	/// - <code>args</code>		arguments for the object constructor.
-	/// Returns the created object instance.
-	/// 
-	/// See <a href="pip_services3_commons/TypeReflector/getType.html">getType</a>
-	/// See <a href="pip_services3_commons/TypeReflector/createInstanceByType.html">createInstanceByType</a>
+          
+<li>Creates an instance of an object type specified by its name
+<ul>
+<li>and library where it is defined.</li>
+<li></li>
+<li>
+<ul>
+<li><code>name</code> 		an object type name.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>library</code> 	a library (module) where object type is defined.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>		arguments for the object constructor.</li>
+</ul>
+</li>
+<li>Returns the created object instance.</li>
+<li></li>
+<li>See <a href="pip_services3_commons/TypeReflector/getType.html">getType</a></li>
+<li>See <a href="pip_services3_commons/TypeReflector/createInstanceByType.html">createInstanceByType</a></li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="createInstanceByDescriptor" class="callable">
@@ -319,14 +332,27 @@
           </span>
                   </dt>
         <dd>
-          /// Creates an instance of an object type specified by type descriptor.
-/// 
-/// - <code>descriptor</code> 	a type descriptor that points to an object type
-	/// - <code>args</code>		arguments for the object constructor.
-	/// Returns the created object instance.
-	/// 
-	/// See <a href="pip_services3_commons/TypeReflector/createInstance.html">createInstance</a>
-	/// See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>
+          
+<li>Creates an instance of an object type specified by type descriptor.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>descriptor</code> 	a type descriptor that points to an object type</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>		arguments for the object constructor.</li>
+</ul>
+</li>
+<li>Returns the created object instance.</li>
+<li></li>
+<li>See <a href="pip_services3_commons/TypeReflector/createInstance.html">createInstance</a></li>
+<li>See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a></li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="createInstanceByType" class="callable">
@@ -335,11 +361,24 @@
           </span>
                   </dt>
         <dd>
-          /// Creates an instance of an object type.
-/// 
-/// - <code>type</code> 		an object type (factory function) to create.
-	/// - <code>args</code>		arguments for the object constructor.
-	/// Returns the created object instance.
+          
+<li>Creates an instance of an object type.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>type</code> 		an object type (factory function) to create.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>		arguments for the object constructor.</li>
+</ul>
+</li>
+<li>Returns the created object instance.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="getType" class="callable">
@@ -348,11 +387,24 @@
           </span>
                   </dt>
         <dd>
-          /// Gets object type by its name and library where it is defined.
-/// 
-/// - <code>name</code> 		an object type name.
-	/// - <code>library</code> 	a library where the type is defined
-	/// Returns the object type or null is the type wasn't found.
+          
+<li>Gets object type by its name and library where it is defined.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>name</code> 		an object type name.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>library</code> 	a library where the type is defined</li>
+</ul>
+</li>
+<li>Returns the object type or null is the type wasn't found.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="getTypeByDescriptor" class="callable">
@@ -361,13 +413,22 @@
           </span>
                   </dt>
         <dd>
-          /// Gets object type by type descriptor.
-/// 
-/// - <code>descriptor</code> 	a type descriptor that points to an object type
-	/// Returns the object type or null is the type wasn't found.
-	/// 
-	/// See <a href="pip_services3_commons/TypeReflector/getType.html">getType</a>
-	/// See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a>
+          
+<li>Gets object type by type descriptor.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>descriptor</code> 	a type descriptor that points to an object type</li>
+</ul>
+</li>
+<li>Returns the object type or null is the type wasn't found.</li>
+<li></li>
+<li>See <a href="pip_services3_commons/TypeReflector/getType.html">getType</a></li>
+<li>See <a href="pip_services3_commons/TypeDescriptor-class.html">TypeDescriptor</a></li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="isPrimitive" class="callable">
@@ -376,16 +437,25 @@
           </span>
                   </dt>
         <dd>
-          /// Checks if value has primitive type.
-/// 
-/// Primitive types are: numbers, strings, booleans, date and time.
-/// Complex (non-primitive types are): objects, maps and arrays
-/// 
-/// - <code>value</code> 	a value to check
-	/// Returns true if the value has primitive type and false if value type is complex.
-	/// 
-	/// See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">TypeConverter.toTypeCode</a>
-	/// See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a>
+          
+<li>Checks if value has primitive type.
+<ul>
+<li></li>
+<li>Primitive types are: numbers, strings, booleans, date and time.</li>
+<li>Complex (non-primitive types are): objects, maps and arrays</li>
+<li></li>
+<li>
+<ul>
+<li><code>value</code> 	a value to check</li>
+</ul>
+</li>
+<li>Returns true if the value has primitive type and false if value type is complex.</li>
+<li></li>
+<li>See <a href="pip_services3_commons/TypeConverter/toTypeCode.html">TypeConverter.toTypeCode</a></li>
+<li>See <a href="pip_services3_commons/TypeCode-class.html">TypeCode</a></li>
+</ul>
+</li>
+
                   
 </dd>
       </dl>

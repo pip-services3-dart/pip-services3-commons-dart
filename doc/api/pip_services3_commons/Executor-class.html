@@ -195,9 +195,8 @@
       <div><h1><span class="kind-class">Executor</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Helper class that executes components.
-/// 
-/// <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a></p>
+      <p>Helper class that executes components.</p>
+<p><a href="pip_services3_commons/IExecutable-class.html">IExecutable</a></p>
     </section>
     
 
@@ -286,19 +285,39 @@
           </span>
                   </dt>
         <dd>
-          /// Executes multiple components.
-/// 
-/// To be executed components must implement <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a> interface.
-	/// If they don't the call to this method has no effect.
-	/// 
-	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-	/// - <code>components</code> 		a list of components that are to be executed.
-  /// - <code>args</code>              execution arguments.
-  /// Return 			  Future that receives execution result or error.
-	/// 
-	/// See <a href="pip_services3_commons/Executor/executeOne.html">executeOne</a>
-	/// See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
-  /// See <a href="pip_services3_commons/Parameters-class.html">Parameters</a>
+          
+<li>Executes multiple components.
+<ul>
+<li></li>
+<li>To be executed components must implement <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a> interface.</li>
+<li>If they don't the call to this method has no effect.</li>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>components</code> 		a list of components that are to be executed.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>              execution arguments.</li>
+</ul>
+</li>
+<li>Return 			  Future that receives execution result or error.
+<ul>
+<li></li>
+<li>See <a href="pip_services3_commons/Executor/executeOne.html">executeOne</a></li>
+<li>See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a></li>
+</ul>
+</li>
+<li>See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="executeOne" class="callable">
@@ -307,18 +326,38 @@
           </span>
                   </dt>
         <dd>
-          /// Executes specific component.
-/// 
-/// To be executed components must implement <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a> interface.
-	/// If they don't the call to this method has no effect.
-	/// 
-	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-	/// - <code>component</code> 		the component that is to be executed.
-  /// - <code>args</code>              execution arguments.
-  /// Return			    Future that receives execution result or error.
-	/// 
-	/// See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a>
-  /// See <a href="pip_services3_commons/Parameters-class.html">Parameters</a>
+          
+<li>Executes specific component.
+<ul>
+<li></li>
+<li>To be executed components must implement <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a> interface.</li>
+<li>If they don't the call to this method has no effect.</li>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>component</code> 		the component that is to be executed.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>              execution arguments.</li>
+</ul>
+</li>
+<li>Return			    Future that receives execution result or error.
+<ul>
+<li></li>
+<li>See <a href="pip_services3_commons/IExecutable-class.html">IExecutable</a></li>
+</ul>
+</li>
+<li>See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></li>
+</ul>
+</li>
+
                   
 </dd>
       </dl>

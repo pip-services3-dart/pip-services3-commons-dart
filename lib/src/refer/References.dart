@@ -3,41 +3,41 @@ import './IReferences.dart';
 import './ReferenceException.dart';
 
 /**
-/// The most basic implementation of [IReferences] to store and locate component references.
-/// 
-/// See [IReferences]
-/// 
-/// ### Example ###
-/// 
-///     class MyController implements IReferenceable {
-///         IMyPersistence persistence;
-///         ...    
-///         void setReferences(IReferences references) {
-///             this.persistence = references.getOneRequired<IMyPersistence>(
-///                 new Descriptor("mygroup", "persistence", "*", "*", "1.0")
-///             );
-///         }
-///         ...
-///     }
-///     
-///     var persistence = new MyMongoDbPersistence();
-///     
-///     var controller = new MyController();
-///     
-///     var references = References.fromTuples([
-///         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
-///         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
-///     ]);
-///     controller.setReferences(references);
+ * The most basic implementation of [IReferences] to store and locate component references.
+ * 
+ * See [IReferences]
+ * 
+ * ### Example ###
+ * 
+ *     class MyController implements IReferenceable {
+ *         IMyPersistence persistence;
+ *         ...    
+ *         void setReferences(IReferences references) {
+ *             this.persistence = references.getOneRequired<IMyPersistence>(
+ *                 new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+ *             );
+ *         }
+ *         ...
+ *     }
+ *     
+ *     var persistence = new MyMongoDbPersistence();
+ *     
+ *     var controller = new MyController();
+ *     
+ *     var references = References.fromTuples([
+ *         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
+ *         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
+ *     ]);
+ *     controller.setReferences(references);
  */
 
 class References implements IReferences {
   var _references = new List<Reference>();
 
   /**
-    /// Creates a new instance of references and initializes it with references.
-    /// 
-    /// - [tuples]    (optional) a list of values where odd elements are locators and the following even elements are component references
+     * Creates a new instance of references and initializes it with references.
+     * 
+     * - [tuples]    (optional) a list of values where odd elements are locators and the following even elements are component references
      */
   References([List tuples = null]) {
     if (tuples != null) {
@@ -50,10 +50,10 @@ class References implements IReferences {
   }
 
   /**
-	/// Puts a new reference into this reference map.
-	/// 
-	/// - [locator] 	a locator to find the reference by.
-	/// - [component] a component reference to be added.
+	 * Puts a new reference into this reference map.
+	 * 
+	 * - [locator] 	a locator to find the reference by.
+	 * - [component] a component reference to be added.
 	 */
   void put(locator, component) {
     if (component == null) throw new Exception("Component cannot be null");
@@ -62,14 +62,14 @@ class References implements IReferences {
   }
 
   /**
-	/// Removes a previously added reference that matches specified locator.
-	/// If many references match the locator, it removes only the first one.
-	/// When all references shall be removed, use [removeAll] method instead.
-	/// 
-	/// - [locator] 	a locator to remove reference
-	/// Returns the removed component reference.
-	/// 
-	/// See [removeAll]
+	 * Removes a previously added reference that matches specified locator.
+	 * If many references match the locator, it removes only the first one.
+	 * When all references shall be removed, use [removeAll] method instead.
+	 * 
+	 * - [locator] 	a locator to remove reference
+	 * Returns the removed component reference.
+	 * 
+	 * See [removeAll]
 	 */
   remove(locator) {
     if (locator == null) return null;
@@ -86,10 +86,10 @@ class References implements IReferences {
   }
 
   /**
-	/// Removes all component references that match the specified locator. 
-	/// 
-	/// - [locator] 	the locator to remove references by.
-	/// Returns a list, containing all removed references.
+	 * Removes all component references that match the specified locator. 
+	 * 
+	 * - [locator] 	the locator to remove references by.
+	 * Returns a list, containing all removed references.
 	 */
   List removeAll(locator) {
     var components = new List();
@@ -108,9 +108,9 @@ class References implements IReferences {
   }
 
   /**
-	/// Gets locators for all registered component references in this reference map.
-	/// 
-	/// Returns a list with component locators.
+	 * Gets locators for all registered component references in this reference map.
+	 * 
+	 * Returns a list with component locators.
 	 */
   List getAllLocators() {
     var locators = new List();
@@ -124,9 +124,9 @@ class References implements IReferences {
   }
 
   /**
-	/// Gets all component references registered in this reference map.
-	/// 	
-	/// Returns a list with component references.
+	 * Gets all component references registered in this reference map.
+	 * 	
+	 * Returns a list with component references.
 	 */
   List getAll() {
     var components = new List();
@@ -140,10 +140,10 @@ class References implements IReferences {
   }
 
   /**
-	/// Gets an optional component reference that matches specified locator.
-	/// 
-	/// - [locator] 	the locator to find references by.	 
-	/// Returns a matching component reference or null if nothing was found.
+	 * Gets an optional component reference that matches specified locator.
+	 * 
+	 * - [locator] 	the locator to find references by.	 
+	 * Returns a matching component reference or null if nothing was found.
 	 */
   T getOneOptional<T>(locator) {
     try {
@@ -155,11 +155,11 @@ class References implements IReferences {
   }
 
   /**
-	/// Gets a required component reference that matches specified locator.
-	/// 
-	/// - [locator] 	the locator to find a reference by.	 
-	/// Returns a matching component reference.
-	/// Throws a [ReferenceException] when no references found.
+	 * Gets a required component reference that matches specified locator.
+	 * 
+	 * - [locator] 	the locator to find a reference by.	 
+	 * Returns a matching component reference.
+	 * Throws a [ReferenceException] when no references found.
 	 */
   T getOneRequired<T>(locator) {
     var components = this.find<T>(locator, true);
@@ -167,10 +167,10 @@ class References implements IReferences {
   }
 
   /**
-	/// Gets all component references that match specified locator.
-	/// 
-	/// - [locator] 	the locator to find references by.	 
-	/// Returns a list with matching component references or empty list if nothing was found.
+	 * Gets all component references that match specified locator.
+	 * 
+	 * - [locator] 	the locator to find references by.	 
+	 * Returns a list with matching component references or empty list if nothing was found.
 	 */
   List<T> getOptional<T>(locator) {
     try {
@@ -181,27 +181,27 @@ class References implements IReferences {
   }
 
   /**
-	/// Gets all component references that match specified locator.
-	/// At least one component reference must be present.
-	/// If it doesn't the method throws an error.
-	/// 
-	/// - [locator] 	the locator to find references by.	 
-	/// Returns a list with matching component references.
-	/// 
-	/// Throws a [ReferenceException] when no references found.
+	 * Gets all component references that match specified locator.
+	 * At least one component reference must be present.
+	 * If it doesn't the method throws an error.
+	 * 
+	 * - [locator] 	the locator to find references by.	 
+	 * Returns a list with matching component references.
+	 * 
+	 * Throws a [ReferenceException] when no references found.
 	 */
   List<T> getRequired<T>(locator) {
     return this.find<T>(locator, true);
   }
 
   /**
-	/// Gets all component references that match specified locator.
-	/// 
-	/// - [locator] 	the locator to find a reference by.
-	/// - [required] 	forces to raise an exception if no reference is found.
-	/// Returns a list with matching component references.
-	/// 
-	/// Throws a [ReferenceException] when required is set to true but no references found.
+	 * Gets all component references that match specified locator.
+	 * 
+	 * - [locator] 	the locator to find a reference by.
+	 * - [required] 	forces to raise an exception if no reference is found.
+	 * Returns a list with matching component references.
+	 * 
+	 * Throws a [ReferenceException] when required is set to true but no references found.
 	 */
   List<T> find<T>(locator, bool required) {
     if (locator == null) throw new Exception("Locator cannot be null");
@@ -224,12 +224,12 @@ class References implements IReferences {
   }
 
   /**
-  /// Creates a new References from a list of key-value pairs called tuples.
-  /// 
-  /// - [tuples]    a list of values where odd elements are locators and the following even elements are component references
-  /// Returns         a newly created References.
-  /// 
-  /// See [fromTuplesArray]
+   * Creates a new References from a list of key-value pairs called tuples.
+   * 
+   * - [tuples]    a list of values where odd elements are locators and the following even elements are component references
+   * Returns         a newly created References.
+   * 
+   * See [fromTuplesArray]
    */
   static References fromTuples(List tuples) {
     return new References(tuples);

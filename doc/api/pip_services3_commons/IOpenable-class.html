@@ -195,42 +195,39 @@
       <div><h1><span class="kind-class">IOpenable</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Interface for components that require explicit opening and closing.
-/// 
-/// For components that perform opening on demand consider using
-/// <code>ICloseable</code> interface instead.
-/// 
-/// See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
-/// See <a href="pip_services3_commons/Opener-class.html">Opener</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyPersistence implements IOpenable {
-///         dynamic _client;
-///         ...
-///         bool isOpen() {
-///             return this._client != null;
-///         } 
-///<br>
-///         Future open(String correlationId) {
-///             if (this.isOpen()) {
-///                 return Future(Duration(), (){
-/// 
-///                  })
-///             }
-///             ...
-///         }
-///<br>
-///         Future close(String correlationId) async {
-///             if (this._client != null) {
-///                 result = await this._client.close();
-///                 this._client = null;
-///                Future(Duration(), (){ return result})
-///             } 
-///         }
-///<br>
-///         ...
-///     }</p>
+      <p>Interface for components that require explicit opening and closing.</p>
+<p>For components that perform opening on demand consider using
+<code>ICloseable</code> interface instead.</p>
+<p>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
+See <a href="pip_services3_commons/Opener-class.html">Opener</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>class MyPersistence implements IOpenable {
+    dynamic _client;
+    ...
+    bool isOpen() {
+        return this._client != null;
+    } 
+    
+    Future open(String correlationId) {
+        if (this.isOpen()) {
+            return Future(Duration(), (){
+
+             })
+        }
+        ...
+    }
+    
+    Future close(String correlationId) async {
+        if (this._client != null) {
+            result = await this._client.close();
+            this._client = null;
+           Future(Duration(), (){ return result})
+        } 
+    }
+   
+    ...
+}
+</code></pre>
     </section>
     
     <section>
@@ -294,9 +291,14 @@
           </span>
                   </dt>
         <dd>
-          /// Checks if the component is opened.
-/// 
-/// Returns true if the component has been opened and false otherwise.
+          
+<li>Checks if the component is opened.
+<ul>
+<li></li>
+<li>Returns true if the component has been opened and false otherwise.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="open" class="callable">
@@ -305,10 +307,19 @@
           </span>
                   </dt>
         <dd>
-          /// Opens the component.
-/// 
-/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-  /// Return 			    Future that receives error or null no errors occured.
+          
+<li>Opens the component.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>Return 			    Future that receives error or null no errors occured.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="close" class="callable inherited">
@@ -317,10 +328,19 @@
           </span>
                   </dt>
         <dd class="inherited">
-          /// Closes component and frees used resources.
-/// 
-/// - correlationId 	(optional) transaction id to trace execution through call chain.
-/// Return 			  Future that receives error or null no errors occured.
+          
+<li>Closes component and frees used resources.
+<ul>
+<li></li>
+<li>
+<ul>
+<li>correlationId 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>Return 			  Future that receives error or null no errors occured.</li>
+</ul>
+</li>
+
                   <div class="features">inherited</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

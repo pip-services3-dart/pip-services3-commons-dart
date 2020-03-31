@@ -1,29 +1,29 @@
 /**
-/// Data transfer object that is used to pass results of paginated queries.
-/// It contains items of retrieved page and optional total number of items.
-/// 
-/// Most often this object type is used to send responses to paginated queries.
-/// Pagination parameters are defined by [PagingParams] object.
-/// The <code>skip</code> parameter in the PagingParams there means how many items to skip.
-/// The <code>takes</code> parameter sets number of items to return in the page.
-/// And the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
-/// Remember: not all implementations support the <code>total</code> parameter
-/// because its generation may lead to severe performance implications.
-/// 
-/// See [PagingParams]
-/// 
-/// ### Example ###
-/// 
-/// page = myDataClient.getDataByFilter(
-///   "123",
-///   FilterParams.fromTuples("completed": true),
-///   NewPagingParams(0, 100, true)
-/// );
+ * Data transfer object that is used to pass results of paginated queries.
+ * It contains items of retrieved page and optional total number of items.
+ * 
+ * Most often this object type is used to send responses to paginated queries.
+ * Pagination parameters are defined by [PagingParams] object.
+ * The <code>skip</code> parameter in the PagingParams there means how many items to skip.
+ * The <code>takes</code> parameter sets number of items to return in the page.
+ * And the optional <code>total</code> parameter tells to return total number of items in the query.
+ * 
+ * Remember: not all implementations support the <code>total</code> parameter
+ * because its generation may lead to severe performance implications.
+ * 
+ * See [PagingParams]
+ * 
+ * ### Example ###
+ * 
+ * page = myDataClient.getDataByFilter(
+ *   "123",
+ *   FilterParams.fromTuples("completed": true),
+ *   NewPagingParams(0, 100, true)
+ * );
  *
-/// for (item in page.Data) {
-///       print(item);
-///  }
+ * for (item in page.Data) {
+ *       print(item);
+ *  }
  */
 class DataPage<T> {
   /** The items of the retrieved page. */
@@ -33,10 +33,10 @@ class DataPage<T> {
   int total;
 
   /**
-  /// Creates a new instance of data page and assigns its values.
-  /// 
-  /// - [data]      a list of items from the retrieved page.
-  /// - [total]     (optional) .
+   * Creates a new instance of data page and assigns its values.
+   * 
+   * - [data]      a list of items from the retrieved page.
+   * - [total]     (optional) .
    */
   DataPage(List<T> data, int total) {
     this.total = total;
@@ -44,10 +44,10 @@ class DataPage<T> {
   }
 
 /**
-  /// Creates a new instance of data page and assigns its values.
-  /// 
-  /// - [json]    json values to initialize this object.
-  /// - [fromJson]  convert function for convert from json into <T>
+   * Creates a new instance of data page and assigns its values.
+   * 
+   * - [json]    json values to initialize this object.
+   * - [fromJson]  convert function for convert from json into <T>
    */
   factory DataPage.fromJson(Map<String, dynamic> json, Function fromJson) {
     //final items = json['data'].cast<Map<String, dynamic>>();
@@ -58,7 +58,7 @@ class DataPage<T> {
         json['total']);
   }
 /**
-  /// Returned JSON Map object from values of this object
+   * Returned JSON Map object from values of this object
    */
   Map<String, dynamic> toJson() =>
       <String, dynamic>{'total': this.total, 'data': this.data};

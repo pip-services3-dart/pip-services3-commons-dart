@@ -195,17 +195,15 @@
       <div><h1><span class="kind-class">ValueComparisonRule</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Validation rule that compares value to a constant.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new ValueComparisonRule("EQ", 1));
-///<br>
-///     schema.validate(1);          // Result: no errors
-///     schema.validate(2);          // Result: 2 is not equal to 1</p>
+      <p>Validation rule that compares value to a constant.</p>
+<p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var schema = new Schema()
+    .withRule(new ValueComparisonRule("EQ", 1));
+
+schema.validate(1);          // Result: no errors
+schema.validate(2);          // Result: 2 is not equal to 1
+</code></pre>
     </section>
     
     <section>
@@ -232,10 +230,7 @@
           <span class="name"><a href="pip_services3_commons/ValueComparisonRule/ValueComparisonRule.html">ValueComparisonRule</a></span><span class="signature">(<span class="parameter" id="-param-operation"><span class="type-annotation">String</span> <span class="parameter-name">operation</span>, </span> <span class="parameter" id="-param-value"><span class="type-annotation">dynamic</span> <span class="parameter-name">value</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new validation rule and sets its values.
-/// 
-/// - <code>operation</code>    a comparison operation: "==" ("=", "EQ"), "!= " ("&lt;&gt;", "NE"); "&lt;"/"&gt;" ("LT"/"GT"), "&lt;="/"&gt;=" ("LE"/"GE"); "LIKE".
-/// - <code>value</code>        a constant value to compare to
+          Creates a new validation rule and sets its values. <a href="pip_services3_commons/ValueComparisonRule/ValueComparisonRule.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -272,12 +267,7 @@
           </span>
                   </dt>
         <dd>
-          /// Validates a given value against this rule.
-/// 
-/// - <code>path</code>      a dot notation path to the value.
-/// - <code>schema</code>    a schema this rule is called from
-/// - <code>value</code>     a value to be validated.
-/// - <code>results</code>   a list with validation results to add new results.
+          Validates a given value against this rule. <a href="pip_services3_commons/ValueComparisonRule/validate.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

@@ -102,20 +102,16 @@
       
     </section>
     <section class="desc markdown">
-      <p>/// Executes a <code>ICommand command</code>specificed by its name.</p>
+      <p>Executes a <code>ICommand command</code>specificed by its name.</p>
 <ul>
-<li></li>
+<li><code>correlationId</code> (optional) transaction id to trace execution through call chain.</li>
+<li><code>commandName</code>   the name of that command that is to be executed.</li>
+<li><code>args</code>          the parameters (arguments) to pass to the command for execution.</li>
+<li>Returns       execution result. If an exception is raised, then
+it will be throw the exeption (for example: a ValidationException can be thrown).</li>
 </ul>
-<p>/// - <code>correlationId</code> (optional) transaction id to trace execution through call chain.
-/// - <code>commandName</code>   the name of that command that is to be executed.
-/// - <code>args</code>          the parameters (arguments) to pass to the command for execution.
-/// - Returns       execution result. If an exception is raised, then
-///                      it will be throw the exeption (for example: a ValidationException can be thrown).</p>
-<ul>
-<li></li>
-</ul>
-<p>/// See <a href="pip_services3_commons/ICommand-class.html">ICommand</a>
-/// See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></p>
+<p>See <a href="pip_services3_commons/ICommand-class.html">ICommand</a>
+See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></p>
     </section>
     
     

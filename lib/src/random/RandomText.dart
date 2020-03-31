@@ -5,13 +5,13 @@ import './RandomString.dart';
 import './RandomBoolean.dart';
 
 /**
-/// Random generator for various text values like names, addresses or phone numbers.
+ * Random generator for various text values like names, addresses or phone numbers.
  *
-/// ### Example ###
+ * ### Example ###
  *
-///     var value1 = RandomText.name();     // Possible result: "Segio"
-///     var value2 = RandomText.verb();      // Possible result: "Run"
-///     var value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
+ *     var value1 = RandomText.name();     // Possible result: "Segio"
+ *     var value2 = RandomText.verb();      // Possible result: "Run"
+ *     var value3 = RandomText.Text(50);    // Possible result: "Run jorge. Red high scream?"
  */
 class RandomText {
   static var _namePrefixes = ["Dr.", "Mr.", "Mrs"];
@@ -136,52 +136,52 @@ class RandomText {
       _firstNames + _lastNames + _colors + _stuffs + _adjectives + _verbs;
 
   /**
-    /// Generates a random color name.
-    /// The result value is capitalized.
+     * Generates a random color name.
+     * The result value is capitalized.
      *
-    /// Returns a random color name.
+     * Returns a random color name.
      */
   static String color() {
     return RandomString.pick(_colors);
   }
 
   /**
-    /// Generates a random noun.
-    /// The result value is capitalized.
+     * Generates a random noun.
+     * The result value is capitalized.
      *
-    /// Returns a random noun.
+     * Returns a random noun.
      */
   static String noun() {
     return RandomString.pick(_stuffs);
   }
 
   /**
-    /// Generates a random adjective.
-    /// The result value is capitalized.
+     * Generates a random adjective.
+     * The result value is capitalized.
      *
-    /// Returns a random adjective.
+     * Returns a random adjective.
      */
   static String adjective() {
     return RandomString.pick(_adjectives);
   }
 
   /**
-    /// Generates a random verb.
-    /// The result value is capitalized.
+     * Generates a random verb.
+     * The result value is capitalized.
      *
-    /// Returns a random verb.
+     * Returns a random verb.
      */
   static String verb() {
     return RandomString.pick(_verbs);
   }
 
   /**
-    /// Generates a random phrase which consists of few words separated by spaces.
-    /// The first word is capitalized, others are not.
+     * Generates a random phrase which consists of few words separated by spaces.
+     * The first word is capitalized, others are not.
      *
-    /// - [minLength]     (optional) minimum string length.
-    /// - [maxLength]     maximum string length.
-    /// Returns a random phrase.
+     * - [minLength]     (optional) minimum string length.
+     * - [maxLength]     maximum string length.
+     * Returns a random phrase.
      */
   static String phrase(int minLength, [int maxLength = null]) {
     maxLength = max(minLength, maxLength ?? minLength);
@@ -198,10 +198,10 @@ class RandomText {
   }
 
   /**
-    /// Generates a random person's name which has the following structure
-    /// <optional prefix> <first name> <second name> <optional suffix>
+     * Generates a random person's name which has the following structure
+     * <optional prefix> <first name> <second name> <optional suffix>
      *
-    /// Returns a random name.
+     * Returns a random name.
      */
   static String fullName() {
     var result = '';
@@ -220,20 +220,20 @@ class RandomText {
   }
 
   /**
-    /// Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.
+     * Generates a random word from available first names, last names, colors, stuffs, adjectives, or verbs.
      *
-    /// Returns a random word.
+     * Returns a random word.
      */
   static String word() {
     return RandomString.pick(RandomText._allWords);
   }
 
   /**
-    /// Generates a random text that consists of random number of random words separated by spaces.
+     * Generates a random text that consists of random number of random words separated by spaces.
      *
-    /// - [min]   (optional) a minimum number of words.
-    /// - [max]   a maximum number of words.
-    /// Returns     a random text.
+     * - [min]   (optional) a minimum number of words.
+     * - [max]   a maximum number of words.
+     * Returns     a random text.
      */
   static String words(int min, [int max = null]) {
     var result = '';
@@ -248,10 +248,10 @@ class RandomText {
   }
 
   /**
-    /// Generates a random phone number.
-    /// The phone number has the format: (XXX) XXX-YYYY
+     * Generates a random phone number.
+     * The phone number has the format: (XXX) XXX-YYYY
      *
-    /// Returns a random phone number.
+     * Returns a random phone number.
      */
   static String phone() {
     var result = '';
@@ -267,20 +267,20 @@ class RandomText {
   }
 
   /**
-    /// Generates a random email address.
+     * Generates a random email address.
      *
-    /// Returns a random email address.
+     * Returns a random email address.
      */
   static String email() {
     return words(2, 6) + "@" + words(1, 3) + ".com";
   }
 
   /**
-    /// Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs, and punctuation marks.
+     * Generates a random text, consisting of first names, last names, colors, stuffs, adjectives, verbs, and punctuation marks.
      *
-    /// - [minLength]   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
-    /// - [maxLength]   (optional) maximum amount of words to generate.
-    /// Returns         a random text.
+     * - [minLength]   minimum amount of words to generate. Text will contain 'minSize' words if 'maxSize' is omitted.
+     * - [maxLength]   (optional) maximum amount of words to generate.
+     * Returns         a random text.
      */
   static String text(int minLength, [int maxLength = null]) {
     maxLength = max(minLength, maxLength ?? minLength);

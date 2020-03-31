@@ -195,33 +195,25 @@
       <div><h1><span class="kind-class">DataPage&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Data transfer object that is used to pass results of paginated queries.
-/// It contains items of retrieved page and optional total number of items.
-/// 
-/// Most often this object type is used to send responses to paginated queries.
-/// Pagination parameters are defined by <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a> object.
-/// The <code>skip</code> parameter in the PagingParams there means how many items to skip.
-/// The <code>takes</code> parameter sets number of items to return in the page.
-/// And the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
-/// Remember: not all implementations support the <code>total</code> parameter
-/// because its generation may lead to severe performance implications.
-/// 
-/// See <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a>
-/// 
-/// ### Example ###
-/// 
-/// page = myDataClient.getDataByFilter(
-///   "123",
-///   FilterParams.fromTuples("completed": true),
-///   NewPagingParams(0, 100, true)
-/// );</p>
-<ul>
-<li></li>
-</ul>
-<p>/// for (item in page.Data) {
-///       print(item);
-///  }</p>
+      <p>Data transfer object that is used to pass results of paginated queries.
+It contains items of retrieved page and optional total number of items.</p>
+<p>Most often this object type is used to send responses to paginated queries.
+Pagination parameters are defined by <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a> object.
+The <code>skip</code> parameter in the PagingParams there means how many items to skip.
+The <code>takes</code> parameter sets number of items to return in the page.
+And the optional <code>total</code> parameter tells to return total number of items in the query.</p>
+<p>Remember: not all implementations support the <code>total</code> parameter
+because its generation may lead to severe performance implications.</p>
+<p>See <a href="pip_services3_commons/PagingParams-class.html">PagingParams</a></p>
+<h3 id="example">Example</h3>
+<p>page = myDataClient.getDataByFilter(
+"123",
+FilterParams.fromTuples("completed": true),
+NewPagingParams(0, 100, true)
+);</p>
+<p>for (item in page.Data) {
+print(item);
+}</p>
     </section>
     
 
@@ -233,19 +225,13 @@
           <span class="name"><a href="pip_services3_commons/DataPage/DataPage.html">DataPage</a></span><span class="signature">(<span class="parameter" id="-param-data"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">data</span>, </span> <span class="parameter" id="-param-total"><span class="type-annotation">int</span> <span class="parameter-name">total</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new instance of data page and assigns its values.
-/// 
-/// - <code>data</code>      a list of items from the retrieved page.
-/// - <code>total</code>     (optional) .
+          Creates a new instance of data page and assigns its values. <a href="pip_services3_commons/DataPage/DataPage.html">[...]</a>
         </dd>
         <dt id="DataPage.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/DataPage/DataPage.fromJson.html">DataPage.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span>, </span> <span class="parameter" id="fromJson-param-fromJson"><span class="type-annotation">Function</span> <span class="parameter-name">fromJson</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new instance of data page and assigns its values.
-/// 
-/// - <code>json</code>    json values to initialize this object.
-/// - <code>fromJson</code>  convert function for convert from json into <t></t>
+          Creates a new instance of data page and assigns its values. <a href="pip_services3_commons/DataPage/DataPage.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -299,7 +285,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returned JSON Map object from values of this object
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

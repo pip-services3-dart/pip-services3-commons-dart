@@ -195,13 +195,12 @@
       <div><h1><span class="kind-class">ArrayConverter</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Converts arbitrary values into array objects.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = ArrayConverter.toArray(<code>1, 2</code>);		 // Result: <code>1, 2</code>
-///     var value2 = ArrayConverter.toArray(1);			  // Result: <code>1</code>
-///     var value2 = ArrayConverter.listToArray("1,2,3");	// Result: <code>"1", "2", "3"</code></p>
+      <p>Converts arbitrary values into array objects.</p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var value1 = ArrayConverter.toArray([1, 2]);		 // Result: [1, 2]
+var value2 = ArrayConverter.toArray(1);			  // Result: [1]
+var value2 = ArrayConverter.listToArray("1,2,3");	// Result: ["1", "2", "3"]
+</code></pre>
     </section>
     
 
@@ -290,13 +289,22 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into array object with empty array as default.
-/// Strings with comma-delimited values are split into array of strings.
-/// 
-/// - <code>value</code> 	the list to convert.
-	/// Returns			array object or empty array when value is null
-	/// 
-	/// See [<a href="pip_services3_commons/ArrayConverter/toArray.html">toArray</a>]
+          
+<li>Converts value into array object with empty array as default.
+<ul>
+<li>Strings with comma-delimited values are split into array of strings.</li>
+<li></li>
+<li>
+<ul>
+<li><code>value</code> 	the list to convert.</li>
+</ul>
+</li>
+<li>Returns			array object or empty array when value is null</li>
+<li></li>
+<li>See [<a href="pip_services3_commons/ArrayConverter/toArray.html">toArray</a>]</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="toArray" class="callable">
@@ -305,13 +313,19 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into array object with empty array as default.
-/// Single values are converted into arrays with single element.
-/// 
-/// - <code>value</code>     the value to convert.
-/// Returns			array object or empty array when value is null.
- /// 
- /// See [<a href="pip_services3_commons/ArrayConverter/toNullableArray.html">toNullableArray</a>]
+          
+<li>Converts value into array object with empty array as default.
+Single values are converted into arrays with single element.</li>
+<li></li>
+<li>
+<ul>
+<li><code>value</code>     the value to convert.
+Returns			array object or empty array when value is null.</li>
+</ul>
+</li>
+<li></li>
+<li>See [<a href="pip_services3_commons/ArrayConverter/toNullableArray.html">toNullableArray</a>]</li>
+
                   
 </dd>
         <dt id="toArrayWithDefault" class="callable">
@@ -320,14 +334,24 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into array object with specified default.
-/// Single values are converted into arrays with single element.
-/// 
-/// - <code>value</code>         the value to convert.
- /// - <code>defaultValue</code>  default array object.
-/// Returns				array object or default array when value is null.
- /// 
- /// See [<a href="pip_services3_commons/ArrayConverter/toNullableArray.html">toNullableArray</a>]
+          
+<li>Converts value into array object with specified default.
+Single values are converted into arrays with single element.</li>
+<li></li>
+<li>
+<ul>
+<li><code>value</code>         the value to convert.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>defaultValue</code>  default array object.
+Returns				array object or default array when value is null.</li>
+</ul>
+</li>
+<li></li>
+<li>See [<a href="pip_services3_commons/ArrayConverter/toNullableArray.html">toNullableArray</a>]</li>
+
                   
 </dd>
         <dt id="toNullableArray" class="callable">
@@ -336,11 +360,10 @@
           </span>
                   </dt>
         <dd>
-          /// Converts value into array object.
-/// Single values are converted into arrays with a single element.
-/// 
-/// - <code>value</code>     the value to convert.
-   /// Returns         array object or null when value is null.
+          
+<li>Converts value into array object.
+Single values are converted into arrays with a single element.</li>
+ <a href="pip_services3_commons/ArrayConverter/toNullableArray.html">[...]</a>
                   
 </dd>
       </dl>

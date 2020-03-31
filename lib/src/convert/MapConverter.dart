@@ -1,20 +1,20 @@
 /**
-/// Converts arbitrary values into map objects using extended conversion rules:
-/// - Objects: property names as keys, property values as values
-/// - Arrays: element indexes as keys, elements as values
-/// 
-/// ### Example ###
-/// 
-///     var value1 = MapConverted.toNullableMap("ABC"); // Result: null
-///     var value2 = MapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-///     var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "2": 3 }
+ * Converts arbitrary values into map objects using extended conversion rules:
+ * - Objects: property names as keys, property values as values
+ * - Arrays: element indexes as keys, elements as values
+ * 
+ * ### Example ###
+ * 
+ *     var value1 = MapConverted.toNullableMap("ABC"); // Result: null
+ *     var value2 = MapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
+ *     var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "2": 3 }
  */
 class MapConverter {
   /**
-    /// Converts value into map object or returns null when conversion is not possible.
-    /// 
-    /// - [value]     the value to convert.
-    /// Returns         map object or null when conversion is not supported.
+     * Converts value into map object or returns null when conversion is not possible.
+     * 
+     * - [value]     the value to convert.
+     * Returns         map object or null when conversion is not supported.
      */
   static Map<String, dynamic> toNullableMap(value) {
     if (value == null)
@@ -45,12 +45,12 @@ class MapConverter {
   }
 
   /**
-    /// Converts value into map object or returns empty map when conversion is not possible
-    /// 
-    /// - [value]     the value to convert.
-    /// Returns         map object or empty map when conversion is not supported.
-    /// 
-    /// See [[toNullableMap]]
+     * Converts value into map object or returns empty map when conversion is not possible
+     * 
+     * - [value]     the value to convert.
+     * Returns         map object or empty map when conversion is not supported.
+     * 
+     * See [[toNullableMap]]
      */
   static Map<String, dynamic> toMap(value) {
     var result = MapConverter.toNullableMap(value);
@@ -58,13 +58,13 @@ class MapConverter {
   }
 
   /**
-    /// Converts value into map object or returns default when conversion is not possible
-    /// 
-    /// - [value]         the value to convert.
-    /// - defaultValue  the default value.
-    /// Returns             map object or emptu map when conversion is not supported.
-    /// 
-    /// See [[toNullableMap]]
+     * Converts value into map object or returns default when conversion is not possible
+     * 
+     * - [value]         the value to convert.
+     * - defaultValue  the default value.
+     * Returns             map object or emptu map when conversion is not supported.
+     * 
+     * See [[toNullableMap]]
      */
   static Map<String, dynamic> toMapWithDefault(
       value, Map<String, dynamic> defaultValue) {

@@ -195,9 +195,8 @@
       <div><h1><span class="kind-class">Notifier</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Helper class that notifies components.
-/// 
-/// <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a></p>
+      <p>Helper class that notifies components.</p>
+<p><a href="pip_services3_commons/INotifiable-class.html">INotifiable</a></p>
     </section>
     
 
@@ -286,17 +285,36 @@
           </span>
                   </dt>
         <dd>
-          /// Notifies multiple components.
-/// 
-/// To be notified components must implement <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a> interface.
-	/// If they don't the call to this method has no effect.
-	/// 
-	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-	/// - <code>components</code> 		a list of components that are to be notified.
-  /// - <code>args</code>              notification arguments.
-	/// 
-	/// See <a href="pip_services3_commons/Notifier/notifyOne.html">notifyOne</a>
-	/// See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
+          
+<li>Notifies multiple components.
+<ul>
+<li></li>
+<li>To be notified components must implement <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a> interface.</li>
+<li>If they don't the call to this method has no effect.</li>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>components</code> 		a list of components that are to be notified.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>              notification arguments.</li>
+</ul>
+<ul>
+<li></li>
+<li>See <a href="pip_services3_commons/Notifier/notifyOne.html">notifyOne</a></li>
+<li>See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="notifyOne" class="callable">
@@ -305,16 +323,35 @@
           </span>
                   </dt>
         <dd>
-          /// Notifies specific component.
-/// 
-/// To be notiied components must implement <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a> interface.
-	/// If they don't the call to this method has no effect.
-	/// 
-	/// - <code>correlationId</code> 	(optional) transaction id to trace execution through call chain.
-	/// - <code>component</code> 		the component that is to be notified.
-  /// - <code>args</code>              notifiation arguments.
-	/// 
-	/// See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a>
+          
+<li>Notifies specific component.
+<ul>
+<li></li>
+<li>To be notiied components must implement <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a> interface.</li>
+<li>If they don't the call to this method has no effect.</li>
+<li></li>
+<li>
+<ul>
+<li><code>correlationId</code> 	(optional) transaction id to trace execution through call chain.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>component</code> 		the component that is to be notified.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>args</code>              notifiation arguments.</li>
+</ul>
+<ul>
+<li></li>
+<li>See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
                   
 </dd>
       </dl>

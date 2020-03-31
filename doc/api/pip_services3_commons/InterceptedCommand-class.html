@@ -195,54 +195,33 @@
       <div><h1><span class="kind-class">InterceptedCommand</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Implements a <code>ICommand command</code> wrapped by an interceptor.
-/// It allows to build command call chains. The interceptor can alter execution
-/// and delegate calls to a next command, which can be intercepted or concrete.</p>
-<ul>
-<li></li>
-</ul>
-<p>/// See <a href="pip_services3_commons/ICommand-class.html">ICommand</a>
-/// See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a></p>
-<ul>
-<li></li>
-</ul>
-<p>/// ### Example ###</p>
-<ul>
-<li></li>
-</ul>
-<p>///     class CommandLogger implements ICommandInterceptor {</p>
-<ul>
-<li></li>
-</ul>
-<p>///         String getName(ICommand command) {
-///             return command.getName();
-///         }</p>
-<ul>
-<li></li>
-</ul>
-<p>///         void execute(String correlationId, ICommand command , Parameters args,) async {
-///             print("Executed command " + command.getName());
-///             return await command.execute(correlationId, args);
-///         }</p>
-<ul>
-<li></li>
-</ul>
-<p>///         List<validationresult> validate(ICommand command, Parameters args) {
-///             return command.validate(args);
-///         }
-///     }</validationresult></p>
-<ul>
-<li></li>
-</ul>
-<p>///     var logger = new CommandLogger();
-///     var loggedCommand = new InterceptedCommand(logger, command);</p>
-<ul>
-<li></li>
-</ul>
-<p>///     // Each called command will output: Executed command <command name=""></p>
-<ul>
-<li></li>
-</ul>
+      <p>Implements a <code>ICommand command</code> wrapped by an interceptor.
+It allows to build command call chains. The interceptor can alter execution
+and delegate calls to a next command, which can be intercepted or concrete.</p>
+<p>See <a href="pip_services3_commons/ICommand-class.html">ICommand</a>
+See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>class CommandLogger implements ICommandInterceptor {
+
+    String getName(ICommand command) {
+        return command.getName();
+    }
+
+    void execute(String correlationId, ICommand command , Parameters args,) async {
+        print("Executed command " + command.getName());
+        return await command.execute(correlationId, args);
+    }
+
+    List&lt;ValidationResult&gt; validate(ICommand command, Parameters args) {
+        return command.validate(args);
+    }
+}
+
+var logger = new CommandLogger();
+var loggedCommand = new InterceptedCommand(logger, command);
+
+// Each called command will output: Executed command &lt;command name&gt;
+</code></pre>
     </section>
     
     <section>
@@ -269,8 +248,8 @@
           <span class="name"><a href="pip_services3_commons/InterceptedCommand/InterceptedCommand.html">InterceptedCommand</a></span><span class="signature">(<span class="parameter" id="-param-interceptor"><span class="type-annotation"><a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInterceptor</a></span> <span class="parameter-name">interceptor</span>, </span> <span class="parameter" id="-param-next"><span class="type-annotation"><a href="pip_services3_commons/ICommand-class.html">ICommand</a></span> <span class="parameter-name">next</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
-/// about the interceptor that is being used and the next command in the chain. <a href="pip_services3_commons/InterceptedCommand/InterceptedCommand.html">[...]</a>
+          Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
+about the interceptor that is being used and the next command in the chain. <a href="pip_services3_commons/InterceptedCommand/InterceptedCommand.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -307,7 +286,7 @@
           </span>
                   </dt>
         <dd>
-          /// Executes the next command in the execution chain using the given <code>Parameters parameters</code> (arguments). <a href="pip_services3_commons/InterceptedCommand/execute.html">[...]</a>
+          Executes the next command in the execution chain using the given <code>Parameters parameters</code> (arguments). <a href="pip_services3_commons/InterceptedCommand/execute.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="getName" class="callable">
@@ -316,7 +295,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returns the name of the command that is being intercepted.
+          Returns the name of the command that is being intercepted.
                   <div class="features">override</div>
 </dd>
         <dt id="validate" class="callable">
@@ -325,8 +304,8 @@
           </span>
                   </dt>
         <dd>
-          /// Validates the <code>Parameters parameters</code> (arguments) that are to be passed to the command that is next
-/// in the execution chain. <a href="pip_services3_commons/InterceptedCommand/validate.html">[...]</a>
+          Validates the <code>Parameters parameters</code> (arguments) that are to be passed to the command that is next
+in the execution chain. <a href="pip_services3_commons/InterceptedCommand/validate.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

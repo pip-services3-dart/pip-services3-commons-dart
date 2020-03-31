@@ -195,20 +195,19 @@
       <div><h1><span class="kind-class">MultiString</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// An object that contains string translations for multiple languages.
-/// Language keys use two-varter codes like: 'en', 'sp', 'de', 'ru', 'fr', 'pr'.
-/// When translation for specified language does not exists it defaults to English ('en').
-/// When English does not exists it falls back to the first defined language.
-/// 
-/// ### Example ###
-/// 
-///     var values = MultiString.fromTuples(<code>
-///         "en", "Hello World!",
-///         "ru", "Привет мир!"
-///     </code>);
-///<br>
-///     var value1 = values.get('ru'); // Result: "Привет мир!"
-///     var value2 = values.get('pt'); // Result: "Hello World!"</p>
+      <p>An object that contains string translations for multiple languages.
+Language keys use two-varter codes like: 'en', 'sp', 'de', 'ru', 'fr', 'pr'.
+When translation for specified language does not exists it defaults to English ('en').
+When English does not exists it falls back to the first defined language.</p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var values = MultiString.fromTuples([
+    "en", "Hello World!",
+    "ru", "Привет мир!"
+]);
+
+var value1 = values.get('ru'); // Result: "Привет мир!"
+var value2 = values.get('pt'); // Result: "Hello World!"
+</code></pre>
     </section>
     
 
@@ -220,17 +219,13 @@
           <span class="name"><a href="pip_services3_commons/MultiString/MultiString.html">MultiString</a></span><span class="signature">([<span class="parameter" id="-param-map"><span class="type-annotation">dynamic</span> <span class="parameter-name">map</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          /// Creates a new MultiString object and initializes it with values.
-/// 
-/// - <code>map</code>    a map with language-text pairs.
+          Creates a new MultiString object and initializes it with values. <a href="pip_services3_commons/MultiString/MultiString.html">[...]</a>
         </dd>
         <dt id="MultiString.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/MultiString/MultiString.fromJson.html">MultiString.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new MultiString object and initializes it from json values.
-/// 
-/// - <code>json</code>    a map with language-text pairs.
+          Creates a new MultiString object and initializes it from json values. <a href="pip_services3_commons/MultiString/MultiString.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -268,9 +263,7 @@
           </span>
                   </dt>
         <dd>
-          /// Appends a map with language-translation pairs.
-/// 
-/// - <code>map</code>   the map with language-translation pairs.
+          Appends a map with language-translation pairs. <a href="pip_services3_commons/MultiString/append.html">[...]</a>
                   
 </dd>
         <dt id="clear" class="callable">
@@ -279,7 +272,7 @@
           </span>
                   </dt>
         <dd>
-          /// Clears all translations from this MultiString object.
+          Clears all translations from this MultiString object.
                   
 </dd>
         <dt id="fromJson" class="callable">
@@ -288,7 +281,7 @@
           </span>
                   </dt>
         <dd>
-          /// Initialize this object from JSON Map object
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="get" class="callable">
@@ -297,12 +290,9 @@
           </span>
                   </dt>
         <dd>
-          /// Gets a string translation by specified language.
-/// When language is not found it defaults to English ('en').
-/// When English is not found it takes the first value.
-/// 
-/// - <code>language</code>  a language two-symbol code.
-/// Returns         a translation for the specified language or default translation.
+          Gets a string translation by specified language.
+When language is not found it defaults to English ('en').
+When English is not found it takes the first value. <a href="pip_services3_commons/MultiString/get.html">[...]</a>
                   
 </dd>
         <dt id="getLanguages" class="callable">
@@ -311,9 +301,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets all languages stored in this MultiString object,
-/// 
-/// Returns a list with language codes.
+          Gets all languages stored in this MultiString object, <a href="pip_services3_commons/MultiString/getLanguages.html">[...]</a>
                   
 </dd>
         <dt id="innerValue" class="callable">
@@ -322,7 +310,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returned inner values in Map object
+          Returned inner values in Map object
                   
 </dd>
         <dt id="length" class="callable">
@@ -331,9 +319,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returns the number of translations stored in this MultiString object.
-///<br>
-/// Returns the number of translations.
+          Returns the number of translations stored in this MultiString object. <a href="pip_services3_commons/MultiString/length.html">[...]</a>
                   
 </dd>
         <dt id="put" class="callable">
@@ -342,10 +328,7 @@
           </span>
                   </dt>
         <dd>
-          /// Puts a new translation for the specified language.
-/// 
-/// - <code>language</code>  a language two-symbol code.
-/// - <code>value</code>     a new translation for the specified language.
+          Puts a new translation for the specified language. <a href="pip_services3_commons/MultiString/put.html">[...]</a>
                   
 </dd>
         <dt id="remove" class="callable">
@@ -354,9 +337,7 @@
           </span>
                   </dt>
         <dd>
-          /// Removes translation for the specified language.
-/// 
-/// - <code>language</code>  a language two-symbol code.
+          Removes translation for the specified language. <a href="pip_services3_commons/MultiString/remove.html">[...]</a>
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -365,7 +346,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returned JSON Map object from values of this object
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -414,12 +395,7 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a new MultiString object from language-translation pairs (tuples).
-/// 
-/// - <code>tuples</code>    an array that contains language-translation tuples.
-/// Returns         a MultiString Object.
-/// 
-/// @see [<a href="pip_services3_commons/MultiString/fromTuplesArray.html">fromTuplesArray</a>]
+          Creates a new MultiString object from language-translation pairs (tuples). <a href="pip_services3_commons/MultiString/fromTuples.html">[...]</a>
                   
 </dd>
         <dt id="fromTuplesArray" class="callable">
@@ -428,10 +404,7 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a new MultiString object from language-translation pairs (tuples) specified as array.
-/// 
-/// - <code>tuples</code>    an array that contains language-translation tuples.
-/// Returns         a MultiString Object.
+          Creates a new MultiString object from language-translation pairs (tuples) specified as array. <a href="pip_services3_commons/MultiString/fromTuplesArray.html">[...]</a>
                   
 </dd>
         <dt id="fromValue" class="callable">
@@ -440,12 +413,7 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a new MultiString object from a value that contains language-translation pairs.
-/// 
-/// - <code>value</code>     the value to initialize MultiString.
-/// Returns         a MultiString object.
-/// 
-/// @see [<a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>]
+          Creates a new MultiString object from a value that contains language-translation pairs. <a href="pip_services3_commons/MultiString/fromValue.html">[...]</a>
                   
 </dd>
       </dl>

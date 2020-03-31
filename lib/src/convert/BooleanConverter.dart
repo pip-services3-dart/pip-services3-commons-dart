@@ -1,22 +1,22 @@
 /**
-/// Converts arbitrary values to boolean values using extended conversion rules:
-/// - Numbers: <>0 are true, =0 are false
-/// - Strings: "true", "yes", "T", "Y", "1" are true; "false", "no", "F", "N" are false
-/// - DateTime: <>0 total milliseconds are true, =0 are false
-/// 
-/// ### Example ###
-/// 
-///     var value1 = BooleanConverter.toNullableBoolean(true); // true
-///     var value2 = BooleanConverter.toNullableBoolean("yes"); // true
-///     var value3 = BooleanConverter.toNullableBoolean(123); // true
-///     var value4 = BooleanConverter.toNullableBoolean({}); // null
+ * Converts arbitrary values to boolean values using extended conversion rules:
+ * - Numbers: <>0 are true, =0 are false
+ * - Strings: "true", "yes", "T", "Y", "1" are true; "false", "no", "F", "N" are false
+ * - DateTime: <>0 total milliseconds are true, =0 are false
+ * 
+ * ### Example ###
+ * 
+ *     var value1 = BooleanConverter.toNullableBoolean(true); // true
+ *     var value2 = BooleanConverter.toNullableBoolean("yes"); // true
+ *     var value3 = BooleanConverter.toNullableBoolean(123); // true
+ *     var value4 = BooleanConverter.toNullableBoolean({}); // null
  */
 class BooleanConverter {
   /**
-    /// Converts value into boolean or returns null when conversion is not possible.
-    /// 
-    /// - [value]     the value to convert.
-    /// Returns         boolean value or null when convertion is not supported.
+     * Converts value into boolean or returns null when conversion is not possible.
+     * 
+     * - [value]     the value to convert.
+     * Returns         boolean value or null when convertion is not supported.
      */
   static bool toNullableBoolean(value) {
     if (value == null) return null;
@@ -41,25 +41,25 @@ class BooleanConverter {
   }
 
   /**
-    /// Converts value into boolean or returns false when conversion is not possible.
-    /// 
-    /// - [value]     the value to convert.
-    /// Returns         boolean value or false when conversion is not supported.
-    /// 
-    /// See [[toBooleanWithDefault]]
+     * Converts value into boolean or returns false when conversion is not possible.
+     * 
+     * - [value]     the value to convert.
+     * Returns         boolean value or false when conversion is not supported.
+     * 
+     * See [[toBooleanWithDefault]]
      */
   static bool toBoolean(value) {
     return BooleanConverter.toBooleanWithDefault(value, false);
   }
 
   /**
-    /// Converts value into boolean or returns default value when conversion is not possible
-    /// 
-    /// - [value]         the value to convert.
-    /// - [defaultValue]  the default value
-    /// Returns             boolean value or default when conversion is not supported.
-    /// 
-    /// See [[toNullableBoolean]]
+     * Converts value into boolean or returns default value when conversion is not possible
+     * 
+     * - [value]         the value to convert.
+     * - [defaultValue]  the default value
+     * Returns             boolean value or default when conversion is not supported.
+     * 
+     * See [[toNullableBoolean]]
      */
   static bool toBooleanWithDefault(value, bool defaultValue) {
     var result = BooleanConverter.toNullableBoolean(value);

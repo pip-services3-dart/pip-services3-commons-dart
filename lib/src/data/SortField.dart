@@ -1,15 +1,15 @@
 /**
-/// Defines a field name and order used to sort query results.
-/// 
-/// See [SortParams]
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(["type", "Type1"]);
-///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField("create_time", true));
-///     
-///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
+ * Defines a field name and order used to sort query results.
+ * 
+ * See [SortParams]
+ * 
+ * ### Example ###
+ * 
+ *     var filter = FilterParams.fromTuples(["type", "Type1"]);
+ *     var paging = new PagingParams(0, 100);
+ *     var sorting = new SortingParams(new SortField("create_time", true));
+ *     
+ *     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
  */
 class SortField {
   /**The field name to sort by */
@@ -18,10 +18,10 @@ class SortField {
   bool ascending;
 
   /**
-	/// Creates a new instance and assigns its values.
-	/// 
-	/// - [name] 			the name of the field to sort by.
-	/// - [ascending] 	true to sort in ascending order, and false to sort in descending order. 
+	 * Creates a new instance and assigns its values.
+	 * 
+	 * - [name] 			the name of the field to sort by.
+	 * - [ascending] 	true to sort in ascending order, and false to sort in descending order. 
 	 */
   SortField([String name = null, bool ascending = true]) {
     this.name = name;
@@ -29,23 +29,23 @@ class SortField {
   }
 
   /**
-	/// Creates a new instance from json.
-	/// 
-	/// - [json] 		json for initialize.
+	 * Creates a new instance from json.
+	 * 
+	 * - [json] 		json for initialize.
    */
   factory SortField.fromJson(Map<String, dynamic> json) {
     return new SortField(json["name"], json["ascending"]);
   }
 
   /**
-  /// Initialize this object from JSON Map object
+   * Initialize this object from JSON Map object
    */
   Map<String, dynamic> toJson() {
     return <String, dynamic>{"name": this.name, "ascending": this.ascending};
   }
 
   /**
-  /// Returned JSON Map object from values of this object
+   * Returned JSON Map object from values of this object
    */
   void fromJson(Map<String, dynamic> json) {
     this.name = json["name"];

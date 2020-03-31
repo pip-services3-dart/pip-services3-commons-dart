@@ -195,32 +195,30 @@
       <div><h1><span class="kind-class">References</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// The most basic implementation of <a href="pip_services3_commons/IReferences-class.html">IReferences</a> to store and locate component references.
-/// 
-/// See <a href="pip_services3_commons/IReferences-class.html">IReferences</a>
-/// 
-/// ### Example ###
-/// 
-///     class MyController implements IReferenceable {
-///         IMyPersistence persistence;
-///         ...<br>
-///         void setReferences(IReferences references) {
-///             this.persistence = references.getOneRequired<imypersistence>(
-///                 new Descriptor("mygroup", "persistence", "<em>", "</em>", "1.0")
-///             );
-///         }
-///         ...
-///     }
-///<br>
-///     var persistence = new MyMongoDbPersistence();
-///<br>
-///     var controller = new MyController();
-///<br>
-///     var references = References.fromTuples(<code>
-///         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
-///         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
-///     </code>);
-///     controller.setReferences(references);</imypersistence></p>
+      <p>The most basic implementation of <a href="pip_services3_commons/IReferences-class.html">IReferences</a> to store and locate component references.</p>
+<p>See <a href="pip_services3_commons/IReferences-class.html">IReferences</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>class MyController implements IReferenceable {
+    IMyPersistence persistence;
+    ...    
+    void setReferences(IReferences references) {
+        this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
+            new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+        );
+    }
+    ...
+}
+
+var persistence = new MyMongoDbPersistence();
+
+var controller = new MyController();
+
+var references = References.fromTuples([
+    new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
+    new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
+]);
+controller.setReferences(references);
+</code></pre>
     </section>
     
     <section>
@@ -247,9 +245,7 @@
           <span class="name"><a href="pip_services3_commons/References/References.html">References</a></span><span class="signature">([<span class="parameter" id="-param-tuples"><span class="type-annotation">List</span> <span class="parameter-name">tuples</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          /// Creates a new instance of references and initializes it with references.
-/// 
-/// - <code>tuples</code>    (optional) a list of values where odd elements are locators and the following even elements are component references
+          Creates a new instance of references and initializes it with references. <a href="pip_services3_commons/References/References.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -286,13 +282,26 @@
           </span>
                   </dt>
         <dd>
-          /// Gets all component references that match specified locator.
-/// 
-/// - <code>locator</code> 	the locator to find a reference by.
-	/// - <code>required</code> 	forces to raise an exception if no reference is found.
-	/// Returns a list with matching component references.
-	/// 
-	/// Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when required is set to true but no references found.
+          
+<li>Gets all component references that match specified locator.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	the locator to find a reference by.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>required</code> 	forces to raise an exception if no reference is found.</li>
+</ul>
+</li>
+<li>Returns a list with matching component references.</li>
+<li></li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when required is set to true but no references found.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="getAll" class="callable">
@@ -301,9 +310,14 @@
           </span>
                   </dt>
         <dd>
-          /// Gets all component references registered in this reference map.
-/// 	
-/// Returns a list with component references.
+          
+<li>Gets all component references registered in this reference map.
+<ul>
+<li></li>
+<li>Returns a list with component references.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="getAllLocators" class="callable">
@@ -312,9 +326,14 @@
           </span>
                   </dt>
         <dd>
-          /// Gets locators for all registered component references in this reference map.
-/// 
-/// Returns a list with component locators.
+          
+<li>Gets locators for all registered component references in this reference map.
+<ul>
+<li></li>
+<li>Returns a list with component locators.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="getOneOptional" class="callable">
@@ -323,10 +342,19 @@
           </span>
                   </dt>
         <dd>
-          /// Gets an optional component reference that matches specified locator.
-/// 
-/// - <code>locator</code> 	the locator to find references by.	 
-	/// Returns a matching component reference or null if nothing was found.
+          
+<li>Gets an optional component reference that matches specified locator.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	the locator to find references by.	 </li>
+</ul>
+</li>
+<li>Returns a matching component reference or null if nothing was found.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="getOneRequired" class="callable">
@@ -335,11 +363,20 @@
           </span>
                   </dt>
         <dd>
-          /// Gets a required component reference that matches specified locator.
-/// 
-/// - <code>locator</code> 	the locator to find a reference by.	 
-	/// Returns a matching component reference.
-	/// Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when no references found.
+          
+<li>Gets a required component reference that matches specified locator.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	the locator to find a reference by.	 </li>
+</ul>
+</li>
+<li>Returns a matching component reference.</li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when no references found.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="getOptional" class="callable">
@@ -348,10 +385,19 @@
           </span>
                   </dt>
         <dd>
-          /// Gets all component references that match specified locator.
-/// 
-/// - <code>locator</code> 	the locator to find references by.	 
-	/// Returns a list with matching component references or empty list if nothing was found.
+          
+<li>Gets all component references that match specified locator.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	the locator to find references by.	 </li>
+</ul>
+</li>
+<li>Returns a list with matching component references or empty list if nothing was found.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="getRequired" class="callable">
@@ -360,14 +406,23 @@
           </span>
                   </dt>
         <dd>
-          /// Gets all component references that match specified locator.
-/// At least one component reference must be present.
-/// If it doesn't the method throws an error.
-/// 
-/// - <code>locator</code> 	the locator to find references by.	 
-	/// Returns a list with matching component references.
-	/// 
-	/// Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when no references found.
+          
+<li>Gets all component references that match specified locator.
+<ul>
+<li>At least one component reference must be present.</li>
+<li>If it doesn't the method throws an error.</li>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	the locator to find references by.	 </li>
+</ul>
+</li>
+<li>Returns a list with matching component references.</li>
+<li></li>
+<li>Throws a <a href="pip_services3_commons/ReferenceException-class.html">ReferenceException</a> when no references found.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="put" class="callable">
@@ -376,10 +431,23 @@
           </span>
                   </dt>
         <dd>
-          /// Puts a new reference into this reference map.
-/// 
-/// - <code>locator</code> 	a locator to find the reference by.
-	/// - <code>component</code> a component reference to be added.
+          
+<li>Puts a new reference into this reference map.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	a locator to find the reference by.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>component</code> a component reference to be added.</li>
+</ul>
+</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="remove" class="callable">
@@ -388,14 +456,23 @@
           </span>
                   </dt>
         <dd>
-          /// Removes a previously added reference that matches specified locator.
-/// If many references match the locator, it removes only the first one.
-/// When all references shall be removed, use <a href="pip_services3_commons/References/removeAll.html">removeAll</a> method instead.
-	/// 
-	/// - <code>locator</code> 	a locator to remove reference
-	/// Returns the removed component reference.
-	/// 
-	/// See <a href="pip_services3_commons/References/removeAll.html">removeAll</a>
+          
+<li>Removes a previously added reference that matches specified locator.
+<ul>
+<li>If many references match the locator, it removes only the first one.</li>
+<li>When all references shall be removed, use <a href="pip_services3_commons/References/removeAll.html">removeAll</a> method instead.</li>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	a locator to remove reference</li>
+</ul>
+</li>
+<li>Returns the removed component reference.</li>
+<li></li>
+<li>See <a href="pip_services3_commons/References/removeAll.html">removeAll</a></li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="removeAll" class="callable">
@@ -404,10 +481,19 @@
           </span>
                   </dt>
         <dd>
-          /// Removes all component references that match the specified locator. 
-/// 
-/// - <code>locator</code> 	the locator to remove references by.
-	/// Returns a list, containing all removed references.
+          
+<li>Removes all component references that match the specified locator. 
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>locator</code> 	the locator to remove references by.</li>
+</ul>
+</li>
+<li>Returns a list, containing all removed references.</li>
+</ul>
+</li>
+
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -456,12 +542,7 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a new References from a list of key-value pairs called tuples.
-/// 
-/// - <code>tuples</code>    a list of values where odd elements are locators and the following even elements are component references
-/// Returns         a newly created References.
-/// 
-/// See <code>fromTuplesArray</code>
+          Creates a new References from a list of key-value pairs called tuples. <a href="pip_services3_commons/References/fromTuples.html">[...]</a>
                   
 </dd>
       </dl>

@@ -195,23 +195,21 @@
       <div><h1><span class="kind-class">AndRule</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Validation rule to combine rules with AND logical operation.
-/// When all rules returns no errors, than this rule also returns no errors.
-/// When one of the rules return errors, than the rules returns all errors.
-/// 
-/// See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a>
-/// 
-/// ### Example ###
-/// 
-///     var schema = new Schema()
-///         .withRule(new AndRule(
-///             new ValueComparisonRule("GTE", 1),
-///             new ValueComparisonRule("LTE", 10)
-///         ));
-///<br>
-///     schema.validate(0);          // Result: 0 must be greater or equal to 1
-///     schema.validate(5);          // Result: no error
-///     schema.validate(20);         // Result: 20 must be letter or equal 10</p>
+      <p>Validation rule to combine rules with AND logical operation.
+When all rules returns no errors, than this rule also returns no errors.
+When one of the rules return errors, than the rules returns all errors.</p>
+<p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var schema = new Schema()
+    .withRule(new AndRule(
+        new ValueComparisonRule("GTE", 1),
+        new ValueComparisonRule("LTE", 10)
+    ));
+
+schema.validate(0);          // Result: 0 must be greater or equal to 1
+schema.validate(5);          // Result: no error
+schema.validate(20);         // Result: 20 must be letter or equal 10
+</code></pre>
     </section>
     
     <section>
@@ -238,9 +236,7 @@
           <span class="name"><a href="pip_services3_commons/AndRule/AndRule.html">AndRule</a></span><span class="signature">(<span class="parameter" id="-param-rules"><span class="type-annotation">List<span class="signature">&lt;<wbr><span class="type-parameter"><a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></span>&gt;</span></span> <span class="parameter-name">rules</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new validation rule and sets its values.
-/// 
-/// - <code>rules</code>     a list of rules to join with AND operator
+          Creates a new validation rule and sets its values. <a href="pip_services3_commons/AndRule/AndRule.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -277,12 +273,7 @@
           </span>
                   </dt>
         <dd>
-          /// Validates a given value against this rule.
-/// 
-/// - <code>path</code>      a dot notation path to the value.
-/// - <code>schema</code>    a schema this rule is called from
-/// - <code>value</code>     a value to be validated.
-/// - <code>results</code>   a list with validation results to add new results.
+          Validates a given value against this rule. <a href="pip_services3_commons/AndRule/validate.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

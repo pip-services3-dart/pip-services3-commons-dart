@@ -11,24 +11,24 @@ import './ArrayConverter.dart';
 import './MapConverter.dart';
 
 /**
-/// Converts arbitrary values into objects specific by TypeCodes.
-/// For each TypeCode this class calls corresponding converter which applies
-/// extended conversion rules to convert the values.
-/// 
-/// See [TypeCode]
-/// 
-/// ### Example ###
-/// 
-///     var value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
-///     var value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: DateTime(123)
-///     var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
+ * Converts arbitrary values into objects specific by TypeCodes.
+ * For each TypeCode this class calls corresponding converter which applies
+ * extended conversion rules to convert the values.
+ * 
+ * See [TypeCode]
+ * 
+ * ### Example ###
+ * 
+ *     var value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
+ *     var value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: DateTime(123)
+ *     var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
  */
 class TypeConverter {
   /**
-	/// Gets TypeCode for specific value.
-	/// 
-	/// - [value] 	value whose TypeCode is to be resolved.
-	/// Returns			the TypeCode that corresponds to the passed object's type.
+	 * Gets TypeCode for specific value.
+	 * 
+	 * - [value] 	value whose TypeCode is to be resolved.
+	 * Returns			the TypeCode that corresponds to the passed object's type.
 	 */
   static TypeCode toTypeCode(value) {
     if (value == null) return TypeCode.Unknown;
@@ -62,13 +62,13 @@ class TypeConverter {
   }
 
   /**
-	/// Converts value into an object type specified by Type Code or returns null when conversion is not possible.
-	/// 
-	/// - [type] 		the TypeCode for the data type into which 'value' is to be converted.
-	/// - [value] 	the value to convert.
-	/// Returns			object value of type corresponding to TypeCode, or null when conversion is not supported.
-	/// 
-	/// See [toTypeCode]
+	 * Converts value into an object type specified by Type Code or returns null when conversion is not possible.
+	 * 
+	 * - [type] 		the TypeCode for the data type into which 'value' is to be converted.
+	 * - [value] 	the value to convert.
+	 * Returns			object value of type corresponding to TypeCode, or null when conversion is not supported.
+	 * 
+	 * See [toTypeCode]
 	 */
   static T toNullableType<T>(TypeCode type, value) {
     if (value == null) return null;
@@ -98,14 +98,14 @@ class TypeConverter {
   }
 
   /**
-	/// Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
-	/// 
-	/// - [type] 		the TypeCode for the data type into which 'value' is to be converted.
-	/// - [value] 	the value to convert.
-	/// Returns			object value of type corresponding to TypeCode, or type default when conversion is not supported.
-	/// 
-	/// See [toNullableType]
-	/// See [toTypeCode]
+	 * Converts value into an object type specified by Type Code or returns type default when conversion is not possible.
+	 * 
+	 * - [type] 		the TypeCode for the data type into which 'value' is to be converted.
+	 * - [value] 	the value to convert.
+	 * Returns			object value of type corresponding to TypeCode, or type default when conversion is not supported.
+	 * 
+	 * See [toNullableType]
+	 * See [toTypeCode]
 	 */
   static T toType<T>(TypeCode type, value) {
     // Convert to the specified type
@@ -138,15 +138,15 @@ class TypeConverter {
   }
 
   /**
-	/// Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
-	/// 
-	/// - [type] 			the TypeCode for the data type into which 'value' is to be converted.
-	/// - [value] 		the value to convert.
-	/// - [defaultValue]	the default value to return if conversion is not possible (returns null).
-	/// Returns			object value of type corresponding to TypeCode, or default value when conversion is not supported.
-	/// 
-	/// See [toNullableType]
-	/// See [toTypeCode]
+	 * Converts value into an object type specified by Type Code or returns default value when conversion is not possible.
+	 * 
+	 * - [type] 			the TypeCode for the data type into which 'value' is to be converted.
+	 * - [value] 		the value to convert.
+	 * - [defaultValue]	the default value to return if conversion is not possible (returns null).
+	 * Returns			object value of type corresponding to TypeCode, or default value when conversion is not supported.
+	 * 
+	 * See [toNullableType]
+	 * See [toTypeCode]
 	 */
   static T toTypeWithDefault<T>(TypeCode type, value, T defaultValue) {
     var result = TypeConverter.toNullableType<T>(type, value);
@@ -154,10 +154,10 @@ class TypeConverter {
   }
 
   /**
-	/// Converts a TypeCode into its string name.
-	/// 
-	/// - [type] 	the TypeCode to convert into a string.
-	/// Returns		the name of the TypeCode passed as a string value.
+	 * Converts a TypeCode into its string name.
+	 * 
+	 * - [type] 	the TypeCode to convert into a string.
+	 * Returns		the name of the TypeCode passed as a string value.
 	 */
   static String asString(TypeCode type) {
     switch (type) {

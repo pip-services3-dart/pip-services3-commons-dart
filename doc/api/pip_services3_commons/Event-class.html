@@ -195,22 +195,20 @@
       <div><h1><span class="kind-class">Event</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Concrete implementation of <code>IEvent IEvent</code> interface.
-/// It allows to send asynchronous notifications to multiple subscribed listeners.
-/// 
-/// See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
-/// See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a>
-/// 
-/// ### Example ###
-/// 
-///     var event = new Event("my_event");
-///<br>
-///     event.addListener(myListener);
-///<br>
-///     event.notify("123", Parameters.fromTuples(
-///       <code>"param1", "ABC",
-///       "param2", 123</code>
-///     ));</p>
+      <p>Concrete implementation of <code>IEvent IEvent</code> interface.
+It allows to send asynchronous notifications to multiple subscribed listeners.</p>
+<p>See <a href="pip_services3_commons/IEvent-class.html">IEvent</a>
+See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a></p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var event = new Event("my_event");
+ 
+event.addListener(myListener);
+
+event.notify("123", Parameters.fromTuples(
+  ["param1", "ABC",
+  "param2", 123]
+));
+</code></pre>
     </section>
     
     <section>
@@ -237,10 +235,7 @@
           <span class="name"><a href="pip_services3_commons/Event/Event.html">Event</a></span><span class="signature">(<span class="parameter" id="-param-name"><span class="type-annotation">String</span> <span class="parameter-name">name</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new event and assigns its name.
-/// 
-/// - name  the name of the event that is to be created.
-/// @throws an Error if the name is null.
+          Creates a new event and assigns its name. <a href="pip_services3_commons/Event/Event.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -277,9 +272,7 @@
           </span>
                   </dt>
         <dd>
-          /// Adds a listener to receive notifications when this event is fired.
-/// 
-/// - <code>listener</code> the listener reference to add.
+          Adds a listener to receive notifications when this event is fired. <a href="pip_services3_commons/Event/addListener.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="getListeners" class="callable">
@@ -288,9 +281,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets all listeners registred in this event.
-/// 
-/// Returns a list of listeners.
+          Gets all listeners registred in this event. <a href="pip_services3_commons/Event/getListeners.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="getName" class="callable">
@@ -299,9 +290,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets the name of the event.
-/// 
-/// Returns the name of this event.
+          Gets the name of the event. <a href="pip_services3_commons/Event/getName.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="notify" class="callable">
@@ -310,11 +299,7 @@
           </span>
                   </dt>
         <dd>
-          /// Fires this event and notifies all registred listeners.
-/// 
-/// - <code>correlationId</code>     (optional) transaction id to trace execution through call chain.
-/// - <code>args</code>              the parameters to raise this event with.
-/// throws an <a href="pip_services3_commons/InvocationException-class.html">InvocationException</a> if the event fails to be raised.
+          Fires this event and notifies all registred listeners. <a href="pip_services3_commons/Event/notify.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="removeListener" class="callable">
@@ -323,9 +308,7 @@
           </span>
                   </dt>
         <dd>
-          /// Removes a listener, so that it no longer receives notifications for this event.
-/// 
-/// - <code>listener</code>      the listener reference to remove.
+          Removes a listener, so that it no longer receives notifications for this event. <a href="pip_services3_commons/Event/removeListener.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

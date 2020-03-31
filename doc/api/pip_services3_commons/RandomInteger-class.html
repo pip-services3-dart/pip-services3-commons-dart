@@ -195,13 +195,12 @@
       <div><h1><span class="kind-class">RandomInteger</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Random generator for integer values.
-/// 
-/// ### Example ###
-/// 
-///     var value1 = RandomInteger.nextInteger(5, 10);     // Possible result: 7
-///     var value2 = RandomInteger.nextInteger(10);        // Possible result: 3
-///     var value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9</p>
+      <p>Random generator for integer values.</p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var value1 = RandomInteger.nextInteger(5, 10);     // Possible result: 7
+var value2 = RandomInteger.nextInteger(10);        // Possible result: 3
+var value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
+</code></pre>
     </section>
     
 
@@ -290,12 +289,7 @@
           </span>
                   </dt>
         <dd>
-          /// Generates a integer in the range <code>'min', 'max'</code>. If 'max' is omitted, then the range will be set to <code>0, 'min'</code>.
-/// 
-/// - <code>min</code>   minimum value of the integer that will be generated. 
-///              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-/// - <code>max</code>   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
-/// Returns     generated random integer value.
+          Generates a integer in the range <code>'min', 'max'</code>. If 'max' is omitted, then the range will be set to <code>0, 'min'</code>. <a href="pip_services3_commons/RandomInteger/nextInteger.html">[...]</a>
                   
 </dd>
         <dt id="sequence" class="callable">
@@ -304,12 +298,7 @@
           </span>
                   </dt>
         <dd>
-          /// Generates a random sequence of integers starting from 0 like: <code>0,1,2,3...??</code>
-/// 
-/// - <code>min</code>   minimum value of the integer that will be generated. 
-///              If 'max' is omitted, then 'max' is set to 'min' and 'min' is set to 0.
-/// - <code>max</code>   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
-/// Returns     generated array of integers.
+          Generates a random sequence of integers starting from 0 like: <code>0,1,2,3...??</code> <a href="pip_services3_commons/RandomInteger/sequence.html">[...]</a>
                   
 </dd>
         <dt id="updateInteger" class="callable">
@@ -318,10 +307,7 @@
           </span>
                   </dt>
         <dd>
-          /// Updates (drifts) a integer value within specified range defined
-/// 
-/// - <code>value</code>     a integer value to drift.
-/// - <code>range</code>     (optional) a range. Default: 10% of the value
+          Updates (drifts) a integer value within specified range defined <a href="pip_services3_commons/RandomInteger/updateInteger.html">[...]</a>
                   
 </dd>
       </dl>

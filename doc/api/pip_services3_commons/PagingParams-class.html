@@ -195,22 +195,21 @@
       <div><h1><span class="kind-class">PagingParams</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Data transfer object to pass paging parameters for queries.
-/// 
-/// The page is defined by two parameters:
-/// - the <code>skip</code> parameter defines number of items to skip.
-/// - the <code>take</code> parameter sets how many items to return in a page.
-/// - additionally, the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
-/// Remember: not all implementations support the <code>total</code> parameter
-/// because its generation may lead to severe performance implications.
-/// 
-/// ### Example ###
-/// 
-///     var filter = FilterParams.fromTuples(<code>"type", "Type1"</code>);
-///     var paging = new PagingParams(0, 100);
-///<br>
-///     myDataClient.getDataByFilter(filter, paging, (err, page) {...});</p>
+      <p>Data transfer object to pass paging parameters for queries.</p>
+<p>The page is defined by two parameters:</p>
+<ul>
+<li>the <code>skip</code> parameter defines number of items to skip.</li>
+<li>the <code>take</code> parameter sets how many items to return in a page.</li>
+<li>additionally, the optional <code>total</code> parameter tells to return total number of items in the query.</li>
+</ul>
+<p>Remember: not all implementations support the <code>total</code> parameter
+because its generation may lead to severe performance implications.</p>
+<h3 id="example">Example</h3>
+<pre class="language-dart"><code>var filter = FilterParams.fromTuples(["type", "Type1"]);
+var paging = new PagingParams(0, 100);
+
+myDataClient.getDataByFilter(filter, paging, (err, page) {...});
+</code></pre>
     </section>
     
 
@@ -222,19 +221,34 @@
           <span class="name"><a href="pip_services3_commons/PagingParams/PagingParams.html">PagingParams</a></span><span class="signature">([<span class="parameter" id="-param-skip"><span class="type-annotation">dynamic</span> <span class="parameter-name">skip</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-take"><span class="type-annotation">dynamic</span> <span class="parameter-name">take</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-total"><span class="type-annotation">dynamic</span> <span class="parameter-name">total</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          /// Creates a new instance and sets its values.
-/// 
-/// - <code>skip</code> 		the number of items to skip.
-	/// - <code>take</code> 		the number of items to return. 
-	/// - <code>total</code> 	true to return the total number of items.
+          
+<li>Creates a new instance and sets its values.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>skip</code> 		the number of items to skip.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>take</code> 		the number of items to return. </li>
+</ul>
+</li>
+<li>
+<ul>
+<li><code>total</code> 	true to return the total number of items.</li>
+</ul>
+</li>
+</ul>
+</li>
+
         </dd>
         <dt id="PagingParams.fromJson" class="callable">
           <span class="name"><a href="pip_services3_commons/PagingParams/PagingParams.fromJson.html">PagingParams.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-json"><span class="type-annotation">Map<span class="signature">&lt;<wbr><span class="type-parameter">String</span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">json</span></span>)</span>
         </dt>
         <dd>
-          /// Creates a new instance from json.
-/// 
-/// - <code>json</code> 		json for initialize.
+          Creates a new instance from json. <a href="pip_services3_commons/PagingParams/PagingParams.fromJson.html">[...]</a>
           <div class="constructor-modifier features">factory</div>
         </dd>
       </dl>
@@ -296,7 +310,7 @@
           </span>
                   </dt>
         <dd>
-          /// Initialize this object from JSON Map object
+          Initialize this object from JSON Map object
                   
 </dd>
         <dt id="getSkip" class="callable">
@@ -305,10 +319,19 @@
           </span>
                   </dt>
         <dd>
-          /// Gets the number of items to skip.
-/// 
-/// - <code>minSkip</code> 	the minimum number of items to skip.
-	/// Returns 		the number of items to skip.
+          
+<li>Gets the number of items to skip.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>minSkip</code> 	the minimum number of items to skip.</li>
+</ul>
+</li>
+<li>Returns 		the number of items to skip.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="getTake" class="callable">
@@ -317,10 +340,19 @@
           </span>
                   </dt>
         <dd>
-          /// Gets the number of items to return in a page.
-/// 
-/// - <code>maxTake</code> 	the maximum number of items to return.
-	/// Returns 		the number of items to return.
+          
+<li>Gets the number of items to return in a page.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>maxTake</code> 	the maximum number of items to return.</li>
+</ul>
+</li>
+<li>Returns 		the number of items to return.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="toJson" class="callable">
@@ -329,7 +361,7 @@
           </span>
                   </dt>
         <dd>
-          /// Returned JSON Map object from values of this object
+          Returned JSON Map object from values of this object
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -378,10 +410,19 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a new PagingParams and sets it parameters from the specified map
-/// 
-/// - <code>map</code>    	a AnyValueMap or StringValueMap to initialize this PagingParams
-    /// Returns         a newly created PagingParams.
+          
+<li>Creates a new PagingParams and sets it parameters from the specified map
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>map</code>    	a AnyValueMap or StringValueMap to initialize this PagingParams</li>
+</ul>
+</li>
+<li>Returns         a newly created PagingParams.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="fromTuples" class="callable">
@@ -390,10 +431,19 @@
           </span>
                   </dt>
         <dd>
-          /// Creates a new PagingParams from a list of key-value pairs called tuples.
-/// 
-/// - <code>tuples</code>    a list of values where odd elements are keys and the following even elements are values
-    /// Returns         a newly created PagingParams.
+          
+<li>Creates a new PagingParams from a list of key-value pairs called tuples.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>tuples</code>    a list of values where odd elements are keys and the following even elements are values</li>
+</ul>
+</li>
+<li>Returns         a newly created PagingParams.</li>
+</ul>
+</li>
+
                   
 </dd>
         <dt id="fromValue" class="callable">
@@ -402,10 +452,19 @@
           </span>
                   </dt>
         <dd>
-          /// Converts specified value into PagingParams.
-/// 
-/// - <code>value</code>     value to be converted
-    /// Returns         a newly created PagingParams.
+          
+<li>Converts specified value into PagingParams.
+<ul>
+<li></li>
+<li>
+<ul>
+<li><code>value</code>     value to be converted</li>
+</ul>
+</li>
+<li>Returns         a newly created PagingParams.</li>
+</ul>
+</li>
+
                   
 </dd>
       </dl>

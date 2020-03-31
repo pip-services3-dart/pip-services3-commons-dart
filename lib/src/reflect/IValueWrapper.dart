@@ -1,6 +1,6 @@
 /**
-/// Helper class to wrap value.
-/// 
+ * Helper class to wrap value.
+ * 
  */
 abstract class IValueWrapper {
   innerValue();

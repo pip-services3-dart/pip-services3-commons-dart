@@ -195,42 +195,37 @@
       <div><h1><span class="kind-class">ApplicationException</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>/// Defines a base class to defive various application exceptions.
-/// 
-/// Most languages have own definition of base exception (error) types.
-/// However, this class is implemented symmetrically in all languages
-/// supported by PipServices toolkit. It allows to create portable implementations
-/// and support proper error propagation in microservices calls.
-/// 
-/// Error propagation means that when microservice implemented in one language
-/// calls microservice(s) implemented in a different language(s), errors are returned
-/// throught the entire call chain and restored in their original (or close) type.
-/// 
-/// Since number of potential exception types is endless, PipServices toolkit
-/// supports only 12 standard categories of exceptions defined in <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>.
-/// This <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class acts as a basis for
-/// all other 12 standard exception types.
-/// 
-/// Most exceptions have just free-form message that describes occured error.
-/// That may not be sufficient to create meaninful error descriptions.
-/// The <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class proposes an extended error definition
-/// that has more standard fields:
-/// 
-/// - <a href="pip_services3_commons/ApplicationException/message.html">message</a>: is a human-readable error description
-/// - <a href="pip_services3_commons/ApplicationException/category.html">category</a>: one of 12 standard error categories of errors
-/// - <a href="pip_services3_commons/ApplicationException/status.html">status</a>: numeric HTTP status code for REST invocations
-/// - <a href="pip_services3_commons/ApplicationException/code.html">code</a>: a unique error code, usually defined as "MY_ERROR_CODE"
-/// - <a href="pip_services3_commons/ApplicationException/correlation_id.html">correlation_id</a>: a unique transaction id to trace execution through a call chain
-/// - <a href="pip_services3_commons/ApplicationException/details.html">details</a>: map with error parameters that can help to recreate meaningful error description in other languages
-/// - <a href="pip_services3_commons/ApplicationException/stack_trace.html">stack_trace</a>: a stack trace
-/// - <a href="pip_services3_commons/ApplicationException/cause.html">cause</a>: original error that is wrapped by this exception
-/// 
-/// ApplicationException class is not serializable. To pass errors through the wire
-/// it is converted into <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> object and restored on receiving end into
-/// identical exception type.
-/// 
-/// See <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>
-/// See <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a></p>
+      <p>Defines a base class to defive various application exceptions.</p>
+<p>Most languages have own definition of base exception (error) types.
+However, this class is implemented symmetrically in all languages
+supported by PipServices toolkit. It allows to create portable implementations
+and support proper error propagation in microservices calls.</p>
+<p>Error propagation means that when microservice implemented in one language
+calls microservice(s) implemented in a different language(s), errors are returned
+throught the entire call chain and restored in their original (or close) type.</p>
+<p>Since number of potential exception types is endless, PipServices toolkit
+supports only 12 standard categories of exceptions defined in <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>.
+This <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class acts as a basis for
+all other 12 standard exception types.</p>
+<p>Most exceptions have just free-form message that describes occured error.
+That may not be sufficient to create meaninful error descriptions.
+The <a href="pip_services3_commons/ApplicationException-class.html">ApplicationException</a> class proposes an extended error definition
+that has more standard fields:</p>
+<ul>
+<li><a href="pip_services3_commons/ApplicationException/message.html">message</a>: is a human-readable error description</li>
+<li><a href="pip_services3_commons/ApplicationException/category.html">category</a>: one of 12 standard error categories of errors</li>
+<li><a href="pip_services3_commons/ApplicationException/status.html">status</a>: numeric HTTP status code for REST invocations</li>
+<li><a href="pip_services3_commons/ApplicationException/code.html">code</a>: a unique error code, usually defined as "MY_ERROR_CODE"</li>
+<li><a href="pip_services3_commons/ApplicationException/correlation_id.html">correlation_id</a>: a unique transaction id to trace execution through a call chain</li>
+<li><a href="pip_services3_commons/ApplicationException/details.html">details</a>: map with error parameters that can help to recreate meaningful error description in other languages</li>
+<li><a href="pip_services3_commons/ApplicationException/stack_trace.html">stack_trace</a>: a stack trace</li>
+<li><a href="pip_services3_commons/ApplicationException/cause.html">cause</a>: original error that is wrapped by this exception</li>
+</ul>
+<p>ApplicationException class is not serializable. To pass errors through the wire
+it is converted into <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a> object and restored on receiving end into
+identical exception type.</p>
+<p>See <a href="pip_services3_commons/ErrorCategory-class.html">ErrorCategory</a>
+See <a href="pip_services3_commons/ErrorDescription-class.html">ErrorDescription</a></p>
     </section>
     
     <section>
@@ -272,12 +267,7 @@
           <span class="name"><a href="pip_services3_commons/ApplicationException/ApplicationException.html">ApplicationException</a></span><span class="signature">([<span class="parameter" id="-param-category"><span class="type-annotation">String</span> <span class="parameter-name">category</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-correlation_id"><span class="type-annotation">String</span> <span class="parameter-name">correlation_id</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-code"><span class="type-annotation">String</span> <span class="parameter-name">code</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-message"><span class="type-annotation">String</span> <span class="parameter-name">message</span> = <span class="default-value">null</span></span> ])</span>
         </dt>
         <dd>
-          /// Creates a new instance of application exception and assigns its values.
-/// 
-/// - <code>category</code>          (optional) a standard error category. Default: Unknown
-/// - <code>correlation_id</code>    (optional) a unique transaction id to trace execution through call chain.
-/// - <code>code</code>              (optional) a unique error code. Default: "UNKNOWN"
-/// - <code>message</code>           (optional) a human-readable description of the error.
+          Creates a new instance of application exception and assigns its values. <a href="pip_services3_commons/ApplicationException/ApplicationException.html">[...]</a>
         </dd>
       </dl>
     </section>
@@ -378,9 +368,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets original error wrapped by this exception as a string message.
-/// 
-/// Returns an original error message.
+          Gets original error wrapped by this exception as a string message. <a href="pip_services3_commons/ApplicationException/getCauseString.html">[...]</a>
                   
 </dd>
         <dt id="getStackTraceString" class="callable">
@@ -389,9 +377,7 @@
           </span>
                   </dt>
         <dd>
-          /// Gets a stack trace where this exception occured.
-/// 
-/// Returns a stack trace as a string.
+          Gets a stack trace where this exception occured. <a href="pip_services3_commons/ApplicationException/getStackTraceString.html">[...]</a>
                   
 </dd>
         <dt id="setCauseString" class="callable">
@@ -400,9 +386,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets original error wrapped by this exception as a string message.
-/// 
-/// - <code>value</code> an original error message.
+          Sets original error wrapped by this exception as a string message. <a href="pip_services3_commons/ApplicationException/setCauseString.html">[...]</a>
                   
 </dd>
         <dt id="setStackTraceString" class="callable">
@@ -411,9 +395,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a stack trace where this exception occured.
-/// 
-/// - <code>value</code> a stack trace as a string
+          Sets a stack trace where this exception occured. <a href="pip_services3_commons/ApplicationException/setStackTraceString.html">[...]</a>
                   
 </dd>
         <dt id="toString" class="callable">
@@ -431,13 +413,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a original error wrapped by this exception
-/// 
-/// This method returns reference to this exception to implement Builder pattern
-/// to chain additional calls.
-/// 
-/// - <code>cause</code> original error object
-/// Returns this exception object
+          Sets a original error wrapped by this exception <a href="pip_services3_commons/ApplicationException/withCause.html">[...]</a>
                   
 </dd>
         <dt id="withCode" class="callable">
@@ -446,13 +422,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a unique error code. 
-/// 
-/// This method returns reference to this exception to implement Builder pattern
-/// to chain additional calls.
-/// 
-/// - <code>code</code> a unique error code
-/// Returns this exception object
+          Sets a unique error code.  <a href="pip_services3_commons/ApplicationException/withCode.html">[...]</a>
                   
 </dd>
         <dt id="withCorrelationId" class="callable">
@@ -461,13 +431,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a correlation id which can be used to trace this error through a call chain.
-/// 
-/// This method returns reference to this exception to implement Builder pattern
-/// to chain additional calls.
-/// 
-/// - <code>correlationId</code> a unique transaction id to trace error through call chain
-/// Returns this exception object
+          Sets a correlation id which can be used to trace this error through a call chain. <a href="pip_services3_commons/ApplicationException/withCorrelationId.html">[...]</a>
                   
 </dd>
         <dt id="withDetails" class="callable">
@@ -476,15 +440,8 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a parameter for additional error details. 
-/// This details can be used to restore error description in other languages.
-/// 
-/// This method returns reference to this exception to implement Builder pattern
-/// to chain additional calls.
-/// 
-/// - <code>key</code> a details parameter name
-/// - <code>value</code> a details parameter name
-/// Returns this exception object
+          Sets a parameter for additional error details. 
+This details can be used to restore error description in other languages. <a href="pip_services3_commons/ApplicationException/withDetails.html">[...]</a>
                   
 </dd>
         <dt id="withStackTrace" class="callable">
@@ -493,13 +450,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a stack trace for this error. 
-/// 
-/// This method returns reference to this exception to implement Builder pattern
-/// to chain additional calls.
-/// 
-/// - <code>stackTrace</code> a stack trace where this error occured
-/// Returns this exception object
+          Sets a stack trace for this error.  <a href="pip_services3_commons/ApplicationException/withStackTrace.html">[...]</a>
                   
 </dd>
         <dt id="withStatus" class="callable">
@@ -508,13 +459,7 @@
           </span>
                   </dt>
         <dd>
-          /// Sets a HTTP status code which shall be returned by REST calls. 
-/// 
-/// This method returns reference to this exception to implement Builder pattern
-/// to chain additional calls.
-/// 
-/// - <code>status</code> an HTTP error code.
-/// Returns this exception object
+          Sets a HTTP status code which shall be returned by REST calls.  <a href="pip_services3_commons/ApplicationException/withStatus.html">[...]</a>
                   
 </dd>
         <dt id="wrap" class="callable">
@@ -523,13 +468,7 @@
           </span>
                   </dt>
         <dd>
-          /// Wraps another exception into an application exception object.
-/// 
-/// If original exception is of ApplicationException type it is returned without changes.
-/// Otherwise a new ApplicationException is created and original error is set as its cause.
-/// 
-/// - <code>cause</code>     an original error object
-/// Returns an original or newly created ApplicationException
+          Wraps another exception into an application exception object. <a href="pip_services3_commons/ApplicationException/wrap.html">[...]</a>
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -569,11 +508,7 @@
           </span>
                   </dt>
         <dd>
-          /// Unwraps original exception through wrapped exception objects.
-/// 
-/// Many frameworks like Seneca or restify wrap original exception.
-/// That may result in propagating less specific errors and can hide
-/// causes of the errors. <a href="pip_services3_commons/ApplicationException/unwrapError.html">[...]</a>
+          Unwraps original exception through wrapped exception objects. <a href="pip_services3_commons/ApplicationException/unwrapError.html">[...]</a>
                   
 </dd>
         <dt id="wrapError" class="callable">
@@ -582,16 +517,7 @@
           </span>
                   </dt>
         <dd>
-          /// Wraps another exception into specified application exception object.
-/// 
-/// If original exception is of ApplicationException type it is returned without changes.
-/// Otherwise the original error is set as a cause to specified ApplicationException object.
-/// 
-/// - <code>error</code>         an ApplicationException object to wrap the cause
-/// - <code>cause</code>         an original error object
-/// Returns an original or newly created ApplicationException
-/// 
-/// See <a href="pip_services3_commons/ApplicationException/wrap.html">wrap</a>
+          Wraps another exception into specified application exception object. <a href="pip_services3_commons/ApplicationException/wrapError.html">[...]</a>
                   
 </dd>
       </dl>
