@@ -197,7 +197,7 @@
     <section class="desc markdown">
       <p>Schema to validate maps.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new MapSchema(TypeCode.String, TypeCode.Integer);
+<pre class="language-dart"><code>var schema =  MapSchema(TypeCode.String, TypeCode.Integer);
 
 schema.validate({ 'key1': 'A', 'key2': 'B' });       // Result: no errors
 schema.validate({ 'key1': 1, 'key2': 2 });           // Result: element type mismatch

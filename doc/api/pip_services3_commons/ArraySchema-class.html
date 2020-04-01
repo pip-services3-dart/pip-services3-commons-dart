@@ -197,7 +197,7 @@
     <section class="desc markdown">
       <p>Schema to validate arrays.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new ArraySchema(TypeCode.String);
+<pre class="language-dart"><code>var schema =  ArraySchema(TypeCode.String);
 
 schema.validate(['A', 'B', 'C']);    // Result: no errors
 schema.validate([1, 2, 3]);          // Result: element type mismatch

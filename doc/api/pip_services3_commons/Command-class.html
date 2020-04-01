@@ -198,7 +198,7 @@
       <p>Concrete implementation of [<code>ICommand ICommand</code>] interface. Command allows to call a method
 or function using Command pattern.</p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var command = new Command('add', null, (correlationId, args) {
+<pre class="language-dart"><code>var command =  Command('add', null, (correlationId, args) {
     var param1 = args.getAsFloat('param1');
     var param2 = args.getAsFloat('param2');
     var result = param1 + param2;

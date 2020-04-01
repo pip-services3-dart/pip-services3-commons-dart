@@ -199,8 +199,8 @@
 <p>See <a href="pip_services3_commons/SortField-class.html">SortField</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var filter = FilterParams.fromTuples(['type', 'Type1']);
-var paging = new PagingParams(0, 100);
-var sorting = new SortingParams(new SortField('create_time', true));
+var paging =  PagingParams(0, 100);
+var sorting =  SortingParams( SortField('create_time', true));
 
 myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
 </code></pre>

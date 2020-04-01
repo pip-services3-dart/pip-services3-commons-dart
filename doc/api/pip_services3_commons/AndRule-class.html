@@ -200,10 +200,10 @@ When all rules returns no errors, than this rule also returns no errors.
 When one of the rules return errors, than the rules returns all errors.</p>
 <p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new Schema()
-    .withRule(new AndRule(
-        new ValueComparisonRule('GTE', 1),
-        new ValueComparisonRule('LTE', 10)
+<pre class="language-dart"><code>var schema =  Schema()
+    .withRule( AndRule(
+         ValueComparisonRule('GTE', 1),
+         ValueComparisonRule('LTE', 10)
     ));
 
 schema.validate(0);          // Result: 0 must be greater or equal to 1

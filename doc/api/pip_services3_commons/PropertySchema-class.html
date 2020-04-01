@@ -198,8 +198,8 @@
       <p>Schema to validate object properties</p>
 <p>See <a href="pip_services3_commons/ObjectSchema-class.html">ObjectSchema</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new ObjectSchema()
-    .withProperty(new PropertySchema('id', TypeCode.String));
+<pre class="language-dart"><code>var schema =  ObjectSchema()
+    .withProperty( PropertySchema('id', TypeCode.String));
 
 schema.validate({ id: '1', name: 'ABC' });       // Result: no errors
 schema.validate({ name: 'ABC' });                // Result: no errors

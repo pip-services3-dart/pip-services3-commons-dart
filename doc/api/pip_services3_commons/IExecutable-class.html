@@ -209,7 +209,7 @@ See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></p>
     }
 }
 
-var echo = new EchoComponent();
+var echo =  EchoComponent();
 var message = 'Test';
 echo.execute('123', Parameters.fromTuples(['message', message])
    .then((result) {

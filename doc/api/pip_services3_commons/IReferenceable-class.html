@@ -207,7 +207,7 @@ See <a href="pip_services3_commons/Referencer-class.html">Referencer</a></p>
     ...    
     void setReferences(IReferences references ) {
         this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
-            new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
+             Descriptor('mygroup', 'persistence', '*', '*', '1.0')
         );
     }
     ...

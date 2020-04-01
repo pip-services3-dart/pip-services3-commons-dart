@@ -213,19 +213,19 @@ See <a href="pip_services3_commons/References-class.html">References</a></p>
     ...    
     void setReferences(IReferences references) {
         this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
-            new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
+             Descriptor('mygroup', 'persistence', '*', '*', '1.0')
         );
     }
     ...
 }
 
-var persistence = new MyMongoDbPersistence();
+var persistence =  MyMongoDbPersistence();
 
-var controller = new MyController();
+var controller =  MyController();
 
 var references = References.fromTuples([
-    new Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
-    new Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
+     Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
+     Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
 ]);
 controller.setReferences(references);
 </code></pre>
@@ -355,7 +355,7 @@ If it doesn't the method throws an error. <a href="pip_services3_commons/IRefere
           </span>
                   </dt>
         <dd>
-          Puts a new reference into this reference map. <a href="pip_services3_commons/IReferences/put.html">[...]</a>
+          Puts a  reference into this reference map. <a href="pip_services3_commons/IReferences/put.html">[...]</a>
                   
 </dd>
         <dt id="remove" class="callable">

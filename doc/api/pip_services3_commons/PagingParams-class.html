@@ -206,7 +206,7 @@
 because its generation may lead to severe performance implications.</p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var filter = FilterParams.fromTuples(['type', 'Type1']);
-var paging = new PagingParams(0, 100);
+var paging =  PagingParams(0, 100);
 
 myDataClient.getDataByFilter(filter, paging, (err, page) {...});
 </code></pre>

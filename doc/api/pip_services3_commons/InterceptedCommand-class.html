@@ -213,8 +213,8 @@ See <a href="pip_services3_commons/ICommandInterceptor-class.html">ICommandInter
         return command.validate(args);
     }
 }
-var logger = new CommandLogger();
-var loggedCommand = new InterceptedCommand(logger, command);
+var logger =  CommandLogger();
+var loggedCommand =  InterceptedCommand(logger, command);
 // Each called command will output: Executed command &lt;command name&gt;
 </code></pre>
     </section>

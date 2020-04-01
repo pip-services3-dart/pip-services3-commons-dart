@@ -211,7 +211,7 @@ See <a href="pip_services3_commons/ICommandable-class.html">ICommandable</a></p>
         this.addCommand(this.makeGetMyDataCommand());
     }
     ICommand _makeGetMyDataCommand()  {
-        return new Command(
+        return  Command(
           'get_mydata',
           null,
           (String correlationId, Parameters args) {

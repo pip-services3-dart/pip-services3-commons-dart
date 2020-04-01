@@ -198,8 +198,8 @@
       <p>Validation rule that check that at least one of the object properties is not null.</p>
 <p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new Schema()
-    .withRule(new AtLeastOneExistsRule('field1', 'field2'));
+<pre class="language-dart"><code>var schema =  Schema()
+    .withRule( AtLeastOneExistsRule('field1', 'field2'));
 
 schema.validate({ field1: 1, field2: 'A' });     // Result: no errors
 schema.validate({ field1: 1 });                  // Result: no errors

@@ -212,7 +212,7 @@ values to determine if one object has newer or older version than another one.</
  void updateData(String correlationId, MyData item ) {
     ...
     if (item.version &lt; oldItem.version) {
-        throw new ConcurrencyException(null, 'VERSION_CONFLICT', 'The change has older version stored value');
+        throw  ConcurrencyException(null, 'VERSION_CONFLICT', 'The change has older version stored value');
     }
     ...
 }

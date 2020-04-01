@@ -200,9 +200,9 @@ When embedded rule returns no errors, than this rule return an error.
 When embedded rule return errors, than the rule returns no errors.</p>
 <p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new Schema()
-    .withRule(new NotRule(
-        new ValueComparisonRule('EQ', 1)
+<pre class="language-dart"><code>var schema =  Schema()
+    .withRule( NotRule(
+         ValueComparisonRule('EQ', 1)
     ));
 
 schema.validate(1);          // Result: error

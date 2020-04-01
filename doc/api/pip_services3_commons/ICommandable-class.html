@@ -206,7 +206,7 @@ See <a href="pip_services3_commons/CommandSet-class.html">CommandSet</a></p>
   MyDataCommandSet _commandSet;
   CommandSet getCommandSet() {
     if (this._commandSet == null)
-      this._commandSet = new MyDataCommandSet(this);
+      this._commandSet =  MyDataCommandSet(this);
     return this._commandSet;
   }
   ...

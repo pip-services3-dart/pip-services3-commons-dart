@@ -233,14 +233,14 @@ name and dependency resolvers can be reconfigured to retrieve dependencies by th
 }
 
 // Create mycomponent and set specific dependency out of many
-var component = new MyComponent();
+var component =  MyComponent();
 component.configure(ConfigParams.fromTuples([
     'dependencies.persistence', 'mygroup:persistence:*:persistence2:1.0' 
 // Override default persistence dependency
 ]));
 component.setReferences(References.fromTuples([
-    new Descriptor('mygroup','persistence','*','persistence1','1.0'), new MyPersistence(),
-    new Descriptor('mygroup','persistence','*','persistence2','1.0'), new MyPersistence()  
+     Descriptor('mygroup','persistence','*','persistence1','1.0'),  MyPersistence(),
+     Descriptor('mygroup','persistence','*','persistence2','1.0'),  MyPersistence()  
 // This dependency shall be set
 ]));
 </code></pre>

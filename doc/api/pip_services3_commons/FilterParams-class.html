@@ -200,11 +200,11 @@
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var filter = FilterParams.fromTuples(
     ['type', 'Type1',
-    'from_create_time', new Date(2000, 0, 1),
-    'to_create_time', new Date(),
+    'from_create_time',  Date(2000, 0, 1),
+    'to_create_time',  Date(),
     'compvared', true]
 );
-var paging = new PagingParams(0, 100);
+var paging =  PagingParams(0, 100);
 
 myDataClient.getDataByFilter(filter, paging, (err, page) =&gt; {...});
 </code></pre>

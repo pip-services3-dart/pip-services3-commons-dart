@@ -198,8 +198,8 @@
       <p>Validation rule that compares value to a constant.</p>
 <p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new Schema()
-    .withRule(new ValueComparisonRule('EQ', 1));
+<pre class="language-dart"><code>var schema =  Schema()
+    .withRule( ValueComparisonRule('EQ', 1));
 
 schema.validate(1);          // Result: no errors
 schema.validate(2);          // Result: 2 is not equal to 1

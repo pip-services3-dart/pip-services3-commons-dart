@@ -198,8 +198,8 @@
       <p>Validation rule to check that value is excluded from the list of constants.</p>
 <p>See <a href="pip_services3_commons/IValidationRule-class.html">IValidationRule</a></p>
 <h3 id="example">Example</h3>
-<pre class="language-dart"><code>var schema = new Schema()
-    .withRule(new ExcludedRule(1, 2, 3));
+<pre class="language-dart"><code>var schema =  Schema()
+    .withRule( ExcludedRule(1, 2, 3));
 
 schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
 schema.validate(10);     // Result: no errors
