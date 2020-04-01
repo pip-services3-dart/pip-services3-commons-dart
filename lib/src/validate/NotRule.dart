@@ -12,9 +12,9 @@ import './ValidationResultType.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new NotRule(
-///             new ValueComparisonRule('EQ', 1)
+///     var schema =  Schema()
+///         .withRule( NotRule(
+///              ValueComparisonRule('EQ', 1)
 ///         ));
 ///     
 ///     schema.validate(1);          // Result: error
@@ -49,7 +49,7 @@ class NotRule implements IValidationRule {
 
     if (localResults.length > 0) return;
 
-    results.add(new ValidationResult(path, ValidationResultType.Error,
+    results.add( ValidationResult(path, ValidationResultType.Error,
         'NOT_FAILED', 'Negative check for ' + name + ' failed', null, null));
   }
 }

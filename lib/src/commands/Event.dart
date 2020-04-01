@@ -13,7 +13,7 @@ import './IEventListener.dart';
 /// 
 /// ### Example ###
 /// 
-///     var event = new Event('my_event');
+///     var event =  Event('my_event');
 ///      
 ///     event.addListener(myListener);
 ///     
@@ -89,7 +89,7 @@ class Event implements IEvent {
         var listener = this._listeners[i];
         listener.onEvent(correlationId, this, args);
       } catch (ex) {
-        throw new InvocationException(correlationId, 'EXEC_FAILED',
+        throw  InvocationException(correlationId, 'EXEC_FAILED',
                 'Raising event ' + this.getName() + ' failed: ' + ex)
             .withDetails('event', this.getName())
             .wrap(ex);

@@ -22,26 +22,26 @@
 ///         ...    
 ///         void setReferences(IReferences references) {
 ///             this.persistence = references.getOneRequired<IMyPersistence>(
-///                 new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
+///                  Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
 ///         ...
 ///     }
 ///     
-///     var persistence = new MyMongoDbPersistence();
+///     var persistence =  MyMongoDbPersistence();
 ///     
-///     var controller = new MyController();
+///     var controller =  MyController();
 ///     
 ///     var references = References.fromTuples([
-///         new Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
-///         new Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
+///          Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
+///          Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
 ///     ]);
 ///     controller.setReferences(references);
 /// 	
  
 abstract class IReferences {
   
-	/// Puts a new reference into this reference map.
+	/// Puts a  reference into this reference map.
 	/// 
 	/// - [locator] 	a locator to find the reference by.
 	/// - component a component reference to be added.

@@ -7,7 +7,7 @@
 ///       MyClass() { };
 ///     
 ///       clone() {
-///           var cloneObj = new (this.<any constructor>());
+///           var cloneObj =  (this.<any constructor>());
 ///                  
 ///           // Copy every attribute from this to cloneObj here.
 ///           ...

@@ -11,8 +11,8 @@ import './ObjectComparator.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new ExcludedRule(1, 2, 3));
+///     var schema =  Schema()
+///         .withRule( ExcludedRule(1, 2, 3));
 ///     
 ///     schema.validate(2);      // Result: 2 must not be one of 1, 2, 3
 ///     schema.validate(10);     // Result: no errors
@@ -53,7 +53,7 @@ class ExcludedRule implements IValidationRule {
     }
 
     if (found) {
-      results.add(new ValidationResult(
+      results.add( ValidationResult(
           path,
           ValidationResultType.Error,
           'VALUE_INCLUDED',

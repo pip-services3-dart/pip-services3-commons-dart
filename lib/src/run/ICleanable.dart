@@ -15,7 +15,7 @@ import 'dart:async';
 ///         ...
 ///         Future clear(String correlationId) {
 ///            this._state = {};
-///            return new Future();
+///            return  Future();
 ///         }
 ///     }
 /// 

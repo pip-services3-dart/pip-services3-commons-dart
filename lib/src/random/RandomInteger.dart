@@ -10,7 +10,7 @@ import 'dart:math';
 ///     var value3 = RandomInteger.updateInteger(10, 3);   // Possible result: 9
  
 class RandomInteger {
-  static final _random = new Random();
+  static final _random =  Random();
 
   
     /// Generates a integer in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].
@@ -57,7 +57,7 @@ class RandomInteger {
     max = max != null ? max : min;
     var count = RandomInteger.nextInteger(min, max);
 
-    var result = new List<int>();
+    var result =  List<int>();
     for (var i = 0; i < count; i++) result.add(i);
 
     return result;

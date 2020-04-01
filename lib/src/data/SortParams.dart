@@ -9,8 +9,8 @@ import 'dart:collection';
 /// ### Example ###
 /// 
 ///     var filter = FilterParams.fromTuples(['type', 'Type1']);
-///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField('create_time', true));
+///     var paging =  PagingParams(0, 100);
+///     var sorting =  SortingParams( SortField('create_time', true));
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
  
@@ -22,7 +22,7 @@ class SortParams extends ListBase<SortField> {
 	/// 
   /// - [fields]    a list of fields to sort by.
    
-  SortParams(List<SortField> fields) : this._values = new List<SortField>() {
+  SortParams(List<SortField> fields) : this._values =  List<SortField>() {
     if (fields != null) {
       for (var index = 0; index < fields.length; index++)
         this.add(fields[index]);
@@ -35,7 +35,7 @@ class SortParams extends ListBase<SortField> {
 	/// - [json] 		json for initialize.
    
   factory SortParams.fromJson(Map<String, dynamic> json) {
-    return new SortParams(json['values']);
+    return  SortParams(json['values']);
   }
 
   

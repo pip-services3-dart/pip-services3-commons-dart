@@ -23,12 +23,12 @@ import './AnyValueArray.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = new AnyValueMap({ key1: 1, key2: '123.456', key3: '2018-01-01' });
+///     var value1 =  AnyValueMap({ key1: 1, key2: '123.456', key3: '2018-01-01' });
 ///     
 ///     value1.getAsBoolean('key1');   // Result: true
 ///     value1.getAsInteger('key2');   // Result: 123
 ///     value1.getAsFloat('key2');     // Result: 123.456
-///     value1.getAsDateTime('key3');  // Result: new Date(2018,0,1)
+///     value1.getAsDateTime('key3');  // Result:  Date(2018,0,1)
 /// 
 /// See [StringConverter]
 /// See [TypeConverter]
@@ -49,7 +49,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     /// - value     (optional) values to initialize this map.
      
   AnyValueMap([values = null]) {
-    this._values = new Map<String, dynamic>();
+    this._values =  Map<String, dynamic>();
     this.append(values);
   }
 
@@ -59,7 +59,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     /// - [json]     values to initialize this map.
      
   factory AnyValueMap.fromJson(Map<String, dynamic> json) {
-    return new AnyValueMap(json);
+    return  AnyValueMap(json);
   }
 
 
@@ -172,7 +172,7 @@ class AnyValueMap extends MapBase<String, dynamic>
      
   getAsObject([String key = null]) {
     if (key == null) {
-      var result = new Map<String, dynamic>();
+      var result =  Map<String, dynamic>();
       for (var key in this._values.keys) {
         var value = this[key];
         result[key] = value;
@@ -571,7 +571,7 @@ class AnyValueMap extends MapBase<String, dynamic>
      
   AnyValue getAsValue(String key) {
     var value = this.get(key);
-    return new AnyValue(value);
+    return  AnyValue(value);
   }
 
   
@@ -701,7 +701,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     /// See [setAsObject]
      
   static AnyValueMap fromValue(dynamic value) {
-    var result = new AnyValueMap();
+    var result =  AnyValueMap();
     result.setAsObject(value);
     return result;
   }
@@ -726,7 +726,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     /// Returns         a newly created AnyValueArray.
      
   static AnyValueMap fromTuplesArray(List tuples) {
-    var result = new AnyValueMap();
+    var result =  AnyValueMap();
     if (tuples == null || tuples.length == 0) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
@@ -749,7 +749,7 @@ class AnyValueMap extends MapBase<String, dynamic>
     /// Returns     a newly created AnyValueMap.
      
   static AnyValueMap fromMaps(List maps) {
-    var result = new AnyValueMap();
+    var result =  AnyValueMap();
     if (maps != null && maps.length > 0) {
       for (var index = 0; index < maps.length; index++)
         result.append(maps[index]);

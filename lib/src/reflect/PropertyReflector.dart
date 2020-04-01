@@ -11,7 +11,7 @@ import 'dart:mirrors';
 /// 
 /// ### Example ###
 /// 
-///     var myObj = new MyObject();
+///     var myObj =  MyObject();
 ///     
 ///     var properties = PropertyReflector.getPropertyNames();
 ///     PropertyReflector.hasProperty(myObj, 'myProperty');
@@ -75,8 +75,8 @@ class PropertyReflector {
 	/// Returns true if the object has the property and false if it doesn't.
 	 
   static bool hasProperty(obj, String name) {
-    if (obj == null) throw new Exception('Object cannot be null');
-    if (name == null) throw new Exception('Property name cannot be null');
+    if (obj == null) throw  Exception('Object cannot be null');
+    if (name == null) throw  Exception('Property name cannot be null');
 
     var foundName = _findReadField(obj, name);
 
@@ -91,8 +91,8 @@ class PropertyReflector {
 	/// Returns the property value or null if property doesn't exist or introspection failed.
 	 
   static getProperty(obj, String name) {
-    if (obj == null) throw new Exception('Object cannot be null');
-    if (name == null) throw new Exception('Property name cannot be null');
+    if (obj == null) throw  Exception('Object cannot be null');
+    if (name == null) throw  Exception('Property name cannot be null');
 
     var foundName = _findReadField(obj, name);
     if (foundName != null) {
@@ -114,7 +114,7 @@ class PropertyReflector {
     /// Returns a list with property names.
      
   static List<String> getPropertyNames(obj) {
-    var properties = new List<String>();
+    var properties =  List<String>();
 
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
@@ -141,7 +141,7 @@ class PropertyReflector {
     /// Returns a map, containing the names of the object's properties and their values.
      
   static Map<String, dynamic> getProperties(obj) {
-    var map = new Map<String, dynamic>();
+    var map =  Map<String, dynamic>();
 
     var cm = reflectClass(obj.runtimeType);
     var im = reflect(obj);
@@ -180,15 +180,15 @@ class PropertyReflector {
 	/// - [value] a new value for the property to set.
      
   static void setProperty(obj, String name, value) {
-    if (obj == null) throw new Exception('Object cannot be null');
-    if (name == null) throw new Exception('Property name cannot be null');
+    if (obj == null) throw  Exception('Object cannot be null');
+    if (name == null) throw  Exception('Property name cannot be null');
 
     var foundName = _findWriteField(obj, name);
     if (foundName != null) {
       try {
         var im = reflect(obj);
         // Fix name for setters which have '=' at the end
-        foundName = new Symbol(_extractName(foundName));
+        foundName =  Symbol(_extractName(foundName));
         im.setField(foundName, value);
       } catch (ex) {
         // Ignore exceptions...

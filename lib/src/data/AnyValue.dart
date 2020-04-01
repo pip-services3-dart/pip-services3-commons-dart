@@ -11,7 +11,7 @@ import './AnyValueMap.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = new AnyValue('123.456');
+///     var value1 =  AnyValue('123.456');
 ///     
 ///     value1.getAsInteger();   // Result: 123
 ///     value1.getAsString();    // Result: '123.456'
@@ -48,7 +48,7 @@ class AnyValue implements ICloneable, IValueWrapper {
     /// - [json]     json to initialize this object.
      
   factory AnyValue.fromJson(Map<String, dynamic> json) {
-    return new AnyValue(json['value']);
+    return  AnyValue(json['value']);
   }
 
   
@@ -491,7 +491,7 @@ class AnyValue implements ICloneable, IValueWrapper {
     /// Returns a clone of this object.
      
   clone() {
-    return new AnyValue(this._value);
+    return  AnyValue(this._value);
   }
 
    

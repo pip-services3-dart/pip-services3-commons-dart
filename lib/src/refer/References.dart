@@ -14,25 +14,25 @@ import './ReferenceException.dart';
 ///         ...    
 ///         void setReferences(IReferences references) {
 ///             this.persistence = references.getOneRequired<IMyPersistence>(
-///                 new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
+///                  Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
 ///         ...
 ///     }
 ///     
-///     var persistence = new MyMongoDbPersistence();
+///     var persistence =  MyMongoDbPersistence();
 ///     
-///     var controller = new MyController();
+///     var controller =  MyController();
 ///     
 ///     var references = References.fromTuples([
-///         new Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
-///         new Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
+///          Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
+///          Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
 ///     ]);
 ///     controller.setReferences(references);
  
 
 class References implements IReferences {
-  var _references = new List<Reference>();
+  var _references =  List<Reference>();
 
   
     /// Creates a new instance of references and initializes it with references.
@@ -56,9 +56,9 @@ class References implements IReferences {
 	/// - [component] a component reference to be added.
 	 
   void put(locator, component) {
-    if (component == null) throw new Exception('Component cannot be null');
+    if (component == null) throw  Exception('Component cannot be null');
 
-    this._references.add(new Reference(locator, component));
+    this._references.add( Reference(locator, component));
   }
 
   
@@ -92,7 +92,7 @@ class References implements IReferences {
 	/// Returns a list, containing all removed references.
 	 
   List removeAll(locator) {
-    var components = new List();
+    var components =  List();
 
     if (locator == null) return components;
 
@@ -111,9 +111,8 @@ class References implements IReferences {
 	/// Gets locators for all registered component references in this reference map.
 	/// 
 	/// Returns a list with component locators.
-	 
   List getAllLocators() {
-    var locators = new List();
+    var locators = List();
 
     for (var index = 0; index < this._references.length; index++) {
       var reference = this._references[index];
@@ -129,7 +128,7 @@ class References implements IReferences {
 	/// Returns a list with component references.
 	 
   List getAll() {
-    var components = new List();
+    var components = List();
 
     for (var index = 0; index < this._references.length; index++) {
       var reference = this._references[index];
@@ -176,7 +175,7 @@ class References implements IReferences {
     try {
       return this.find<T>(locator, false);
     } catch (ex) {
-      return new List<T>();
+      return  List<T>();
     }
   }
 
@@ -204,9 +203,9 @@ class References implements IReferences {
 	/// Throws a [ReferenceException] when required is set to true but no references found.
 	 
   List<T> find<T>(locator, bool required) {
-    if (locator == null) throw new Exception('Locator cannot be null');
+    if (locator == null) throw  Exception('Locator cannot be null');
 
-    var components = new List<T>();
+    var components =  List<T>();
 
     // Search all references
     for (var index = this._references.length - 1; index >= 0; index--) {
@@ -218,7 +217,7 @@ class References implements IReferences {
     }
 
     if (components.length == 0 && required)
-      throw new ReferenceException(null, locator);
+      throw  ReferenceException(null, locator);
 
     return components;
   }
@@ -232,6 +231,6 @@ class References implements IReferences {
   /// See [fromTuplesArray]
    
   static References fromTuples(List tuples) {
-    return new References(tuples);
+    return  References(tuples);
   }
 }

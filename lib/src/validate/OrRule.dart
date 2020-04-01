@@ -11,10 +11,10 @@ import './ValidationResult.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new OrRule(
-///             new ValueComparisonRule('LT', 1),
-///             new ValueComparisonRule('GT', 10)
+///     var schema =  Schema()
+///         .withRule( OrRule(
+///              ValueComparisonRule('LT', 1),
+///              ValueComparisonRule('GT', 10)
 ///         ));
 ///     
 ///     schema.validate(0);          // Result: no error

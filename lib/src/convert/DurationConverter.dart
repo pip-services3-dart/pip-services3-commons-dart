@@ -20,10 +20,10 @@ class DurationConverter {
     if (value == null) return null;
     if (value is Duration) return value;
     if (value is Duration) value = value.millisecondsSinceEpoch;
-    if (value is num) return new Duration(milliseconds: value);
+    if (value is num) return  Duration(milliseconds: value);
 
     var result = double.tryParse(value.toString()).truncate();
-    return result != null ? new Duration(milliseconds: result) : null;
+    return result != null ?  Duration(milliseconds: result) : null;
   }
 
   
@@ -35,7 +35,7 @@ class DurationConverter {
     /// See [[toDurationWithDefault]]
      
   static Duration toDuration(value) {
-    return DurationConverter.toDurationWithDefault(value, new Duration());
+    return DurationConverter.toDurationWithDefault(value,  Duration());
   }
 
   

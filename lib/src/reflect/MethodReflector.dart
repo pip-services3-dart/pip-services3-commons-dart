@@ -11,7 +11,7 @@ import 'dart:mirrors';
 /// 
 /// ### Example ###
 /// 
-///     var myObj = new MyObject();
+///     var myObj =  MyObject();
 ///     
 ///     var methods = MethodReflector.getMethodNames();
 ///     MethodReflector.hasMethod(myObj, 'myMethod');
@@ -96,7 +96,7 @@ class MethodReflector {
     /// Returns a list with method names.
      
   static List<String> getMethodNames(obj) {
-    var methods = new List<String>();
+    var methods =  List<String>();
 
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.instanceMembers.values) {

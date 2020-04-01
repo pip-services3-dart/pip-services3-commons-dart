@@ -11,7 +11,7 @@ import '../convert/TypeConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new ArraySchema(TypeCode.String);
+///     var schema =  ArraySchema(TypeCode.String);
 ///     
 ///     schema.validate(['A', 'B', 'C']);    // Result: no errors
 ///     schema.validate([1, 2, 3]);          // Result: element type mismatch
@@ -79,7 +79,7 @@ class ArraySchema extends Schema {
             elementPath, this.getValueType(), value[index], results);
       }
     } else {
-      results.add(new ValidationResult(
+      results.add( ValidationResult(
           path,
           ValidationResultType.Error,
           'VALUE_ISNOT_ARRAY',

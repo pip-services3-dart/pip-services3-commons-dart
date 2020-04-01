@@ -6,7 +6,7 @@ import '../../lib/src/reflect/ObjectWriter.dart';
 void main() {
   group('ObjectWriter', () {
     test('Set Object Property', () {
-      var obj = new TestClass();
+      var obj =  TestClass();
 
       ObjectWriter.setProperty(obj, 'privateField', 'XYZ');
 

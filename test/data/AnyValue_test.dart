@@ -5,7 +5,7 @@ import '../../lib/src/convert/TypeCode.dart';
 void main() {
   group('AnyValue', () {
     test('Get and Set', () {
-      var value = new AnyValue();
+      var value = AnyValue();
       expect(value.getAsObject(), isNull);
 
       value.setAsObject(1);
@@ -15,7 +15,7 @@ void main() {
     });
 
     test('Equal', () {
-      var value = new AnyValue(1);
+      var value =  AnyValue(1);
 
       expect(value.equals(1), isTrue);
       // expect(value.equals(1.0), isTrue);

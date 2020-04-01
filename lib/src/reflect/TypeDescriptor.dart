@@ -91,11 +91,11 @@ class TypeDescriptor {
 
     var tokens = value.split(',');
     if (tokens.length == 1) {
-      return new TypeDescriptor(tokens[0].trim(), null);
+      return  TypeDescriptor(tokens[0].trim(), null);
     } else if (tokens.length == 2) {
-      return new TypeDescriptor(tokens[0].trim(), tokens[1].trim());
+      return  TypeDescriptor(tokens[0].trim(), tokens[1].trim());
     } else {
-      throw new ConfigException(null, 'BAD_DESCRIPTOR',
+      throw  ConfigException(null, 'BAD_DESCRIPTOR',
               'Type descriptor ' + value + ' is in wrong format')
           .withDetails('descriptor', value);
     }

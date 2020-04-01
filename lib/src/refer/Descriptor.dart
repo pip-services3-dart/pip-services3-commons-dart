@@ -18,7 +18,7 @@ import '../errors/ConfigException.dart';
 /// 
 /// ### Example ###
 /// 
-///     var locator1 = new Descriptor('mygroup', 'connector', 'aws', 'default', '1.0');
+///     var locator1 =  Descriptor('mygroup', 'connector', 'aws', 'default', '1.0');
 ///     var locator2 = Descriptor.fromString('mygroup:connector:*:*:1.0');
 ///     
 ///     locator1.match(locator2);		// Result: true
@@ -210,12 +210,12 @@ class Descriptor {
 
     var tokens = value.split(':');
     if (tokens.length != 5) {
-      throw new ConfigException(null, 'BAD_DESCRIPTOR',
+      throw  ConfigException(null, 'BAD_DESCRIPTOR',
               'Descriptor ' + value + ' is in wrong format')
           .withDetails('descriptor', value);
     }
 
-    return new Descriptor(tokens[0].trim(), tokens[1].trim(), tokens[2].trim(),
+    return  Descriptor(tokens[0].trim(), tokens[1].trim(), tokens[2].trim(),
         tokens[3].trim(), tokens[4].trim());
   }
 }

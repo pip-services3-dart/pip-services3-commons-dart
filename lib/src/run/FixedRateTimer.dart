@@ -86,7 +86,7 @@ class FixedRateTimer implements IClosable {
   void setTask(INotifiable value) {
     this._task = value;
     this._callback = () {
-      this._task.notify('pip-commons-timer', new Parameters());
+      this._task.notify('pip-commons-timer',  Parameters());
     };
   }
 
@@ -172,11 +172,11 @@ class FixedRateTimer implements IClosable {
     // Introducing delay
     var delay = max(0, this._delay - this._interval);
 
-    this._timeout = Timer(new Duration(milliseconds: delay), () {
+    this._timeout = Timer( Duration(milliseconds: delay), () {
       this._timeout = null;
 
       // Set a new timer
-      this._timer = Timer.periodic(new Duration(milliseconds: this._interval), (Timer tm) {
+      this._timer = Timer.periodic( Duration(milliseconds: this._interval), (Timer tm) {
         try {
           if (this._callback != null) this._callback();
         } catch (ex) {
@@ -217,6 +217,6 @@ class FixedRateTimer implements IClosable {
   Future close(String correlationId) {
     this.stop();
 
-    return new Future.delayed(new Duration());
+    return  Future.delayed( Duration());
   }
 }

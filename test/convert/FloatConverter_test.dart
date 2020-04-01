@@ -9,10 +9,10 @@ void main() {
       expect(FloatConverter.toFloat(123.456), equals(123.456));
       expect(FloatConverter.toFloat('123.456'), equals(123.456));
       expect(
-          FloatConverter.toFloat(new DateTime.fromMillisecondsSinceEpoch(123)),
+          FloatConverter.toFloat( DateTime.fromMillisecondsSinceEpoch(123)),
           equals(123));
       expect(
-          FloatConverter.toFloat(new Duration(milliseconds: 123)), equals(123));
+          FloatConverter.toFloat( Duration(milliseconds: 123)), equals(123));
 
       expect(FloatConverter.toFloatWithDefault(null, 123), equals(123));
       expect(FloatConverter.toFloatWithDefault(false, 123), isZero);

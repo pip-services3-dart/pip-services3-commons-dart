@@ -32,7 +32,7 @@ class ErrorDescription {
   String stack_trace;
 
   Map<String, dynamic> toJson() {
-    var json = new Map<String, dynamic>();
+    var json =  Map<String, dynamic>();
     json['type'] = this.type;
     json['category'] = this.category;
     json['status'] = this.status;

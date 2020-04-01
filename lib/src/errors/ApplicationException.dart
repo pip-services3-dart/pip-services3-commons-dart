@@ -168,7 +168,7 @@ class ApplicationException implements Exception {
     /// Returns this exception object
      
   ApplicationException withDetails(String key, value) {
-    this.details = this.details ?? new StringValueMap();
+    this.details = this.details ??  StringValueMap();
     this.details.setAsObject(key, value);
     return this;
   }

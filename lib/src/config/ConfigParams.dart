@@ -53,7 +53,7 @@ class ConfigParams extends StringValueMap {
 	/// Returns a list of section names stored in this ConfigMap.
 	 
   List<String> getSectionNames() {
-    var sections = new List<String>();
+    var sections =  List<String>();
 
     for (var key in this.getKeys()) {
       var pos = key.indexOf('.');
@@ -83,7 +83,7 @@ class ConfigParams extends StringValueMap {
 	/// Returns 		all configuration parameters that belong to the section named 'section'. 
 	 
   ConfigParams getSection(String section) {
-    var result = new ConfigParams();
+    var result =  ConfigParams();
     var prefix = section + '.';
 
     for (var key in this.getKeys()) {
@@ -109,7 +109,7 @@ class ConfigParams extends StringValueMap {
 	/// - [sectionParams] 	new parameters to be added.
 	 
   void addSection(String section, ConfigParams sectionParams) {
-    if (section == null) throw new Exception('Section name cannot be null');
+    if (section == null) throw  Exception('Section name cannot be null');
 
     if (sectionParams != null) {
       for (var key in sectionParams.getKeys()) {
@@ -137,7 +137,7 @@ class ConfigParams extends StringValueMap {
 	 
   ConfigParams override(ConfigParams configParams) {
     var map = StringValueMap.fromMaps([this, configParams]);
-    return new ConfigParams(map);
+    return  ConfigParams(map);
   }
 
   
@@ -150,7 +150,7 @@ class ConfigParams extends StringValueMap {
 	 
   ConfigParams setDefaults(ConfigParams defaultConfigParams) {
     var map = StringValueMap.fromMaps([defaultConfigParams, this]);
-    return new ConfigParams(map);
+    return  ConfigParams(map);
   }
 
   
@@ -161,7 +161,7 @@ class ConfigParams extends StringValueMap {
 	 
   static ConfigParams fromValue(value) {
     var map = RecursiveObjectReader.getProperties(value);
-    return new ConfigParams(map);
+    return  ConfigParams(map);
   }
 
   
@@ -175,7 +175,7 @@ class ConfigParams extends StringValueMap {
 	 
   static ConfigParams fromTuples(List tuples) {
     var map = StringValueMap.fromTuplesArray(tuples);
-    return new ConfigParams(map);
+    return  ConfigParams(map);
   }
 
   
@@ -189,7 +189,7 @@ class ConfigParams extends StringValueMap {
 	 
   static ConfigParams fromString(String line) {
     var map = StringValueMap.fromString(line);
-    return new ConfigParams(map);
+    return  ConfigParams(map);
   }
 
   
@@ -203,6 +203,6 @@ class ConfigParams extends StringValueMap {
 	 
   static ConfigParams mergeConfigs(List<ConfigParams> configs) {
     var map = StringValueMap.fromMaps(configs);
-    return new ConfigParams(map);
+    return  ConfigParams(map);
   }
 }

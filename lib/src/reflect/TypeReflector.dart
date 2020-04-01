@@ -20,7 +20,7 @@ import '../convert/TypeConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     var descriptor = new TypeDescriptor('MyObject', 'mylibrary');
+///     var descriptor =  TypeDescriptor('MyObject', 'mylibrary');
 ///     Typeeflector.getTypeByDescriptor(descriptor);
 ///     var myObj = TypeReflector.createInstanceByDescriptor(descriptor);
 ///     
@@ -29,7 +29,7 @@ import '../convert/TypeConverter.dart';
  
 class TypeReflector {
   static Type _findType(LibraryMirror lib, String name) {
-    var typeName = new Symbol(name);
+    var typeName =  Symbol(name);
     for (var declaration in lib.declarations.values) {
       if (declaration is ClassMirror && declaration.simpleName == typeName) {
         return declaration.reflectedType;
@@ -94,7 +94,7 @@ class TypeReflector {
 	 
   static Type getTypeByDescriptor(TypeDescriptor descriptor) {
     if (descriptor == null)
-      throw new Exception('Type descriptor cannot be null');
+      throw  Exception('Type descriptor cannot be null');
 
     return TypeReflector.getType(descriptor.getName(), descriptor.getLibrary());
   }
@@ -107,7 +107,7 @@ class TypeReflector {
 	/// Returns the created object instance.
 	 
   static createInstanceByType(Type type, List args) {
-    if (type == null) throw new Exception('Type constructor cannot be null');
+    if (type == null) throw  Exception('Type constructor cannot be null');
 
     var cm = reflectClass(type);
     var im = cm.newInstance(Symbol(''), args ?? []);
@@ -129,7 +129,7 @@ class TypeReflector {
   static createInstance(String name, String library, List args) {
     var type = TypeReflector.getType(name, library);
     if (type == null) {
-      throw new NotFoundException(null, 'TYPE_NOT_FOUND',
+      throw  NotFoundException(null, 'TYPE_NOT_FOUND',
               'Type ' + name + ',' + library + ' was not found')
           .withDetails('type', name)
           .withDetails('library', library);
@@ -150,7 +150,7 @@ class TypeReflector {
 	 
   static createInstanceByDescriptor(TypeDescriptor descriptor, List args) {
     if (descriptor == null)
-      throw new Exception('Type descriptor cannot be null');
+      throw  Exception('Type descriptor cannot be null');
 
     return TypeReflector.createInstance(
         descriptor.getName(), descriptor.getLibrary(), args);

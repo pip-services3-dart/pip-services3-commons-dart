@@ -11,7 +11,7 @@ void main() {
       var key = 'key';
       var details = 'details';
 
-      var ex = new ApplicationException(
+      var ex =  ApplicationException(
           'category', 'correlationId', 'code', 'message');
       ex.status = 777;
       ex.cause = 'cause';
@@ -32,7 +32,7 @@ void main() {
     });
 
     test('Create From Error', () {
-      var ex = new Exception('message');
+      var ex =  Exception('message');
 
       var descr = ErrorDescriptionFactory.create(ex);
 
@@ -48,7 +48,7 @@ void main() {
       var key = 'key';
       var details = 'details';
 
-      var ex = new ApplicationException(
+      var ex =  ApplicationException(
           'category', 'correlationId', 'code', 'message');
       ex.status = 777;
       ex.cause = 'cause';

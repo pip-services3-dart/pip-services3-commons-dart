@@ -12,8 +12,8 @@ import '../reflect/ObjectReader.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new ObjectSchema()
-///         .withRule(new PropertyComparisonRule('field1', 'NE', 'field2'));
+///     var schema =  ObjectSchema()
+///         .withRule(PropertyComparisonRule('field1', 'NE', 'field2'));
 ///     
 ///     schema.validate({ field1: 1, field2: 2 });       // Result: no errors
 ///     schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
@@ -53,7 +53,7 @@ class PropertiesComparisonRule implements IValidationRule {
     var value2 = ObjectReader.getProperty(value, this._property2);
 
     if (!ObjectComparator.compare(value1, this._operation, value2)) {
-      results.add(new ValidationResult(
+      results.add( ValidationResult(
           path,
           ValidationResultType.Error,
           'PROPERTIES_NOT_MATCH',

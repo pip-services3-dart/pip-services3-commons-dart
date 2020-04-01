@@ -6,7 +6,7 @@ void main() {
   group('RandomDateTime', () {
     test('Next Date', () {
       var date = RandomDateTime.nextDate(
-          new DateTime(2015, 1, 1), new DateTime(2016, 1, 1));
+           DateTime(2015, 1, 1),  DateTime(2016, 1, 1));
       expect(date.year == 2015 || date.year == 2016, isTrue);
 
       date = RandomDateTime.nextDate(DateTime.now());
@@ -15,7 +15,7 @@ void main() {
     });
 
     test('Update Date Time', () {
-      var oldDate = new DateTime(2016, 10, 10, 0, 0, 0, 0);
+      var oldDate =  DateTime(2016, 10, 10, 0, 0, 0, 0);
 
       var date = RandomDateTime.updateDateTime(oldDate);
       expect(

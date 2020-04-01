@@ -46,7 +46,7 @@ class Executor {
 	 
   static Future<List> execute(
       String correlationId, List components, Parameters args) async {
-    var results = new List();
+    var results =  List();
 
     if (components == null) return results;
 

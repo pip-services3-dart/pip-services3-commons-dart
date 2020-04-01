@@ -13,7 +13,7 @@ void main() {
       var charVariable = RandomString.pickChar(chars);
       expect(chars.indexOf(charVariable) != -1, isTrue);
 
-      var valuesEmpty = new List<String>();
+      var valuesEmpty =  List<String>();
       expect(RandomString.pick(valuesEmpty) == '', isTrue);
 
       var values = ['ab', 'cd'];

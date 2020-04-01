@@ -19,7 +19,7 @@ import './Parameters.dart';
 ///         }
 ///     }
 ///     
-///     var myComponent = new MyComponent();
+///     var myComponent =  MyComponent();
 ///     
 ///     myComponent.notify('123', Parameters.fromTuples('event', 'Test Event'));
  

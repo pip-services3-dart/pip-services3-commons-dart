@@ -87,7 +87,7 @@ class ValidationException extends BadRequestException {
     }
 
     return hasErrors
-        ? new ValidationException(correlationId, null, results)
+        ?  ValidationException(correlationId, null, results)
         : null;
   }
 

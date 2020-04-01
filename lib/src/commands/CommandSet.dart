@@ -35,7 +35,7 @@ import '../data/IdGenerator.dart';
 ///         }
 
 ///         ICommand _makeGetMyDataCommand()  {
-///             return new Command(
+///             return  Command(
 ///               'get_mydata',
 ///               null,
 ///               (String correlationId, Parameters args) {
@@ -47,11 +47,11 @@ import '../data/IdGenerator.dart';
 ///     }
  
 class CommandSet {
-  var _commands = new List<ICommand>();
-  var _events = new List<IEvent>();
-  var _interceptors = new List<ICommandInterceptor>();
-  var _commandsByName = new Map<String, ICommand>();
-  var _eventsByName = new Map<String, IEvent>();
+  var _commands =  List<ICommand>();
+  var _events =  List<IEvent>();
+  var _interceptors =  List<ICommandInterceptor>();
+  var _commandsByName =  Map<String, ICommand>();
+  var _eventsByName =  Map<String, IEvent>();
 
   
     /// Creates an empty CommandSet object.
@@ -108,7 +108,7 @@ class CommandSet {
     var next = command;
 
     for (var i = this._interceptors.length - 1; i >= 0; i--)
-      next = new InterceptedCommand(this._interceptors[i], next);
+      next =  InterceptedCommand(this._interceptors[i], next);
 
     this._commandsByName[next.getName()] = next;
   }
@@ -231,7 +231,7 @@ class CommandSet {
     var cref = this.findCommand(commandName);
 
     if (cref == null) {
-      throw new BadRequestException(
+      throw  BadRequestException(
               correlationId, 'CMD_NOT_FOUND', 'Request command does not exist')
           .withDetails('command', commandName);
     }
@@ -262,8 +262,8 @@ class CommandSet {
     var cref = this.findCommand(commandName);
 
     if (cref != null) {
-      var result = new List<ValidationResult>();
-      result.add(new ValidationResult(null, ValidationResultType.Error,
+      var result =  List<ValidationResult>();
+      result.add( ValidationResult(null, ValidationResultType.Error,
           'CMD_NOT_FOUND', 'Requested command does not exist', null, null));
       return result;
     }

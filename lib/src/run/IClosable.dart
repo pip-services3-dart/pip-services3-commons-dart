@@ -21,7 +21,7 @@ import 'dart:async';
 ///                 this._client.close();
 ///                 this._client = null;
 ///             }
-///             return new Future.delayed(new Duration());
+///             return  Future.delayed( Duration());
 ///         }
 ///     }
 /// 

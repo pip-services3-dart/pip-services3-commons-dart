@@ -20,7 +20,7 @@ class DateTimeConverter {
     if (value == null) return null;
     if (value is DateTime) return value;
     if (value is Duration) value = value.millisecondsSinceEpoch;
-    if (value is num) return new DateTime.fromMillisecondsSinceEpoch(value);
+    if (value is num) return  DateTime.fromMillisecondsSinceEpoch(value);
 
     var result = DateTime.tryParse(value.toString());
     return result;

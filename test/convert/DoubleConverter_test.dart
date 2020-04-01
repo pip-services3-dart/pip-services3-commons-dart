@@ -10,9 +10,9 @@ void main() {
       expect(DoubleConverter.toDouble('123.456'), equals(123.456));
       expect(
           DoubleConverter.toDouble(
-              new DateTime.fromMillisecondsSinceEpoch(123)),
+               DateTime.fromMillisecondsSinceEpoch(123)),
           equals(123));
-      expect(DoubleConverter.toDouble(new Duration(milliseconds: 123)),
+      expect(DoubleConverter.toDouble( Duration(milliseconds: 123)),
           equals(123));
 
       expect(DoubleConverter.toDoubleWithDefault(null, 123), equals(123));

@@ -7,7 +7,7 @@ import '../../lib/src/run/Parameters.dart';
 void main() {
   group('Command', () {
     test('Get Name', () {
-      var command = new Command('name', null, new CommandExec());
+      var command =  Command('name', null,  CommandExec());
 
       // Check match by individual fields
       expect(command, isNotNull);
@@ -15,12 +15,12 @@ void main() {
     });
 
     test('Execute', () async {
-      var command = new Command('name', null, new CommandExec());
+      var command =  Command('name', null,  CommandExec());
 
-      var map = new Map();
+      var map =  Map();
       map[8] = 'title 8';
       map[11] = 'title 11';
-      var param = new Parameters(map);
+      var param =  Parameters(map);
 
       var result = await command.execute('a', param);
       expect(result, equals(123));

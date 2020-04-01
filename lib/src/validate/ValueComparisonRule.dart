@@ -11,8 +11,8 @@ import './ValidationResultType.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new ValueComparisonRule('EQ', 1));
+///     var schema =  Schema()
+///         .withRule( ValueComparisonRule('EQ', 1));
 ///     
 ///     schema.validate(1);          // Result: no errors
 ///     schema.validate(2);          // Result: 2 is not equal to 1
@@ -44,7 +44,7 @@ class ValueComparisonRule implements IValidationRule {
     var name = path != null ? path : 'value';
 
     if (!ObjectComparator.compare(value, this._operation, this._value)) {
-      results.add(new ValidationResult(
+      results.add( ValidationResult(
           path,
           ValidationResultType.Error,
           'BAD_VALUE',

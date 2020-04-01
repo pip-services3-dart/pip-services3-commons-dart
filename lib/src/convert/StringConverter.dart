@@ -10,7 +10,7 @@
 /// 
 ///     var value1 = StringConverter.ToString(123.456); // Result: '123.456'
 ///     var value2 = StringConverter.ToString(true); // Result: 'true'
-///     var value3 = StringConverter.ToString(new Date(2018,0,1)); // Result: '2018-01-01T00:00:00.00'
+///     var value3 = StringConverter.ToString( Date(2018,0,1)); // Result: '2018-01-01T00:00:00.00'
 ///     var value4 = StringConverter.ToString([1,2,3]); // Result: '1,2,3'
  
 class StringConverter {

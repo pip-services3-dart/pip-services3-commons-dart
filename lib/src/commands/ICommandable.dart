@@ -17,7 +17,7 @@ import './CommandSet.dart';
 
 ///       CommandSet getCommandSet() {
 ///         if (this._commandSet == null)
-///           this._commandSet = new MyDataCommandSet(this);
+///           this._commandSet =  MyDataCommandSet(this);
 ///         return this._commandSet;
 ///       }
 

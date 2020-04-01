@@ -9,8 +9,8 @@ import './Schema.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new ObjectSchema()
-///         .withProperty(new PropertySchema('id', TypeCode.String));
+///     var schema =  ObjectSchema()
+///         .withProperty( PropertySchema('id', TypeCode.String));
 ///     
 ///     schema.validate({ id: '1', name: 'ABC' });       // Result: no errors
 ///     schema.validate({ name: 'ABC' });                // Result: no errors

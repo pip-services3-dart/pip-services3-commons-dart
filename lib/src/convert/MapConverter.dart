@@ -22,7 +22,7 @@ class MapConverter {
     else if (value is Map<String, dynamic>) return value;
 
     if (value is Map) {
-      var result = new Map<String, dynamic>();
+      var result =  Map<String, dynamic>();
       for (var key in value.keys) {
         result[key.toString()] = value[key];
       }
@@ -30,7 +30,7 @@ class MapConverter {
     }
 
     if (value is List) {
-      var result = new Map<String, dynamic>();
+      var result =  Map<String, dynamic>();
       for (var i = 0; i < value.length; i++) result[i.toString()] = value[i];
       return result;
     }
@@ -54,7 +54,7 @@ class MapConverter {
      
   static Map<String, dynamic> toMap(value) {
     var result = MapConverter.toNullableMap(value);
-    return result != null ? result : new Map<String, dynamic>();
+    return result != null ? result :  Map<String, dynamic>();
   }
 
   

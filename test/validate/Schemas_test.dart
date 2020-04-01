@@ -11,26 +11,26 @@ import '../../lib/src/convert/TypeCode.dart';
 void main() {
   group('SchemasTest', () {
     test('Test empty schema', () {
-      var schema = new ObjectSchema();
+      var schema =  ObjectSchema();
       var results = schema.validate(null);
       expect(results.length, 0);
     });
 
     test('Test required', () {
-      var schema = new Schema().makeRequired();
+      var schema =  Schema().makeRequired();
       var results = schema.validate(null);
       expect(results.length, 1);
     });
 
     test('Test unexpected', () {
-      var schema = new ObjectSchema();
-      var obj = new TestObject();
+      var schema =  ObjectSchema();
+      var obj =  TestObject();
       var results = schema.validate(obj);
       expect(results.length, 8); //10  (2 private fields are not access)
     });
 
     test('Test optional properties', () {
-      var schema = new ObjectSchema()
+      var schema =  ObjectSchema()
           .withOptionalProperty('intField')
           .withOptionalProperty('stringProperty')
           .withOptionalProperty('nullProperty')
@@ -40,13 +40,13 @@ void main() {
           .withOptionalProperty('subObjectProperty')
           .withOptionalProperty('subArrayProperty');
 
-      var obj = new TestObject();
+      var obj =  TestObject();
       var results = schema.validate(obj);
       expect(results.length, 0); // 2
     });
 
     test('Test required properties', () {
-      var schema = new ObjectSchema()
+      var schema =  ObjectSchema()
           // .withRequiredProperty('privateField')
           // .withRequiredProperty('privateProperty')
           .withRequiredProperty('intField')
@@ -58,7 +58,7 @@ void main() {
           .withRequiredProperty('subObjectProperty')
           .withRequiredProperty('subArrayProperty');
 
-      var obj = new TestObject();
+      var obj =  TestObject();
       obj.subArrayProperty = null;
 
       var results = schema.validate(obj);
@@ -66,7 +66,7 @@ void main() {
     });
 
     test('Test types', () {
-      var schema = new ObjectSchema()
+      var schema =  ObjectSchema()
           // .withRequiredProperty('privateField')
           // .withRequiredProperty('privateProperty')
           .withRequiredProperty('intField', TypeCode.Long)
@@ -78,18 +78,18 @@ void main() {
           .withRequiredProperty('subObjectProperty', TypeCode.Object) // Map
           .withRequiredProperty('subArrayProperty', TypeCode.Array);
 
-      var obj = new TestObject();
+      var obj =  TestObject();
       var results = schema.validate(obj);
       expect(results.length, 0);
     });
 
     test('Test sub schema', () {
-      var sunSchema = new ObjectSchema()
+      var sunSchema =  ObjectSchema()
           .withRequiredProperty('id', TypeCode.String)
           .withRequiredProperty('floatField', TypeCode.Double)
           .withOptionalProperty('nullProperty', TypeCode.Map);
 
-      var schema = new ObjectSchema()
+      var schema =  ObjectSchema()
           // .withRequiredProperty('privateField')
           // .withRequiredProperty('privateProperty')
           .withRequiredProperty('intField', TypeCode.Long)
@@ -101,33 +101,33 @@ void main() {
           .withRequiredProperty('subObjectProperty', sunSchema)
           .withRequiredProperty('subArrayProperty', TypeCode.Array);
 
-      var obj = new TestObject();
+      var obj =  TestObject();
       var results = schema.validate(obj);
       expect(results.length, 0);
     });
 
     test('Test array and map schemas', () {
-      var sunSchema = new ObjectSchema()
+      var sunSchema =  ObjectSchema()
           .withRequiredProperty('id', TypeCode.String)
           .withRequiredProperty('floatField', TypeCode.Double)
           .withOptionalProperty('nullProperty', TypeCode.Map);
 
-      var schema = new ObjectSchema()
+      var schema =  ObjectSchema()
           // .withRequiredProperty('privateField')
           // .withRequiredProperty('privateProperty')
           .withRequiredProperty('intField', TypeCode.Long)
           .withRequiredProperty('stringProperty', TypeCode.String)
           .withOptionalProperty('nullProperty', TypeCode.Object)
           .withRequiredProperty(
-              'intArrayProperty', new ArraySchema(TypeCode.Long))
+              'intArrayProperty',  ArraySchema(TypeCode.Long))
           .withRequiredProperty(
-              'stringListProperty', new ArraySchema(TypeCode.String))
+              'stringListProperty',  ArraySchema(TypeCode.String))
           .withRequiredProperty(
-              'mapProperty', new MapSchema(TypeCode.String, TypeCode.Long))
+              'mapProperty',  MapSchema(TypeCode.String, TypeCode.Long))
           .withRequiredProperty('subObjectProperty', sunSchema)
           .withRequiredProperty('subArrayProperty', TypeCode.Array);
 
-      var obj = new TestObject();
+      var obj =  TestObject();
       var results = schema.validate(obj);
       expect(results.length, 0);
     });

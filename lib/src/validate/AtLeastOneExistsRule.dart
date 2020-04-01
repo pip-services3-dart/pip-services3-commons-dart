@@ -11,8 +11,8 @@ import '../reflect/ObjectReader.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new AtLeastOneExistsRule('field1', 'field2'));
+///     var schema =  Schema()
+///         .withRule( AtLeastOneExistsRule('field1', 'field2'));
 ///     
 ///     schema.validate({ field1: 1, field2: 'A' });     // Result: no errors
 ///     schema.validate({ field1: 1 });                  // Result: no errors
@@ -48,7 +48,7 @@ class AtLeastOneExistsRule implements IValidationRule {
     }
 
     if (found.length == 0) {
-      results.add(new ValidationResult(
+      results.add( ValidationResult(
           path,
           ValidationResultType.Error,
           'VALUE_NULL',

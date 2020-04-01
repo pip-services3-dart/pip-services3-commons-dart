@@ -6,8 +6,8 @@
 /// ### Example ###
 /// 
 ///     var filter = FilterParams.fromTuples(['type', 'Type1']);
-///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField('create_time', true));
+///     var paging =  PagingParams(0, 100);
+///     var sorting =  SortingParams( SortField('create_time', true));
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
  
@@ -34,7 +34,7 @@ class SortField {
 	/// - [json] 		json for initialize.
    
   factory SortField.fromJson(Map<String, dynamic> json) {
-    return new SortField(json['name'], json['ascending']);
+    return  SortField(json['name'], json['ascending']);
   }
 
   

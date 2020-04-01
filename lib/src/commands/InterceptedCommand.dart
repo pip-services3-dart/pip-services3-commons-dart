@@ -31,8 +31,8 @@ import './ICommandInterceptor.dart';
 ///         }
 ///     }
 
-///     var logger = new CommandLogger();
-///     var loggedCommand = new InterceptedCommand(logger, command);
+///     var logger =  CommandLogger();
+///     var loggedCommand =  InterceptedCommand(logger, command);
 
 ///     // Each called command will output: Executed command <command name>
 

@@ -135,7 +135,7 @@ class Schema {
 
     if (value == null) {
       if (this.isRequired()) {
-        results.add(new ValidationResult(path, ValidationResultType.Error,
+        results.add( ValidationResult(path, ValidationResultType.Error,
             'VALUE_IS_NULL', name + ' must not be null', 'NOT NULL', null));
       }
     } else {
@@ -191,7 +191,7 @@ class Schema {
     // Match types
     if (TypeMatcher.matchType(type, valueType, value)) return;
 
-    results.add(new ValidationResult(
+    results.add( ValidationResult(
         path,
         ValidationResultType.Error,
         'TYPE_MISMATCH',

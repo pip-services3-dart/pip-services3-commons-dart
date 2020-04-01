@@ -6,20 +6,20 @@ import '../../lib/src/validate/AtLeastOneExistsRule.dart';
 void main() {
   group('AtLeastOneExistsRule', () {
     test('Only One Exists Rule', () {
-      var obj = new TestObject();
+      var obj =  TestObject();
 
-      var schema = new Schema().withRule(new AtLeastOneExistsRule(
+      var schema =  Schema().withRule( AtLeastOneExistsRule(
           ['missingProperty', 'stringProperty', 'nullProperty']));
       var results = schema.validate(obj);
       expect(results.length, 0);
 
-      schema = new Schema().withRule(new AtLeastOneExistsRule(
+      schema =  Schema().withRule( AtLeastOneExistsRule(
           ['stringProperty', 'nullProperty', 'intField']));
       results = schema.validate(obj);
       expect(results.length, 0);
 
-      schema = new Schema().withRule(
-          new AtLeastOneExistsRule(['missingProperty', 'nullProperty']));
+      schema =  Schema().withRule(
+           AtLeastOneExistsRule(['missingProperty', 'nullProperty']));
       results = schema.validate(obj);
       expect(results.length, 1);
     });

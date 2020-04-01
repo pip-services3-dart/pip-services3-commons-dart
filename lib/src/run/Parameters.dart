@@ -74,7 +74,7 @@ class Parameters extends AnyValueMap {
      
   Parameters getAsNullableParameters(String key) {
     var value = this.getAsNullableMap(key);
-    return value != null ? new Parameters(value) : null;
+    return value != null ?  Parameters(value) : null;
   }
 
    
@@ -85,7 +85,7 @@ class Parameters extends AnyValueMap {
      
   Parameters getAsParameters(String key) {
     var value = this.getAsMap(key);
-    return new Parameters(value);
+    return  Parameters(value);
   }
 
   
@@ -124,7 +124,7 @@ class Parameters extends AnyValueMap {
 	/// See [setDefaults]
 	 
   Parameters override(Parameters parameters, [bool recursive = false]) {
-    var result = new Parameters();
+    var result =  Parameters();
     if (recursive) {
       RecursiveObjectWriter.copyProperties(result, this.innerValue());
       RecursiveObjectWriter.copyProperties(result, parameters);
@@ -146,7 +146,7 @@ class Parameters extends AnyValueMap {
 	 
   Parameters setDefaults(Parameters defaultParameters,
       [bool recursive = false]) {
-    var result = new Parameters();
+    var result =  Parameters();
     if (recursive) {
       RecursiveObjectWriter.copyProperties(
           result, defaultParameters.innerValue());
@@ -175,7 +175,7 @@ class Parameters extends AnyValueMap {
 	/// Returns a new Parameters object.
 	 
   Parameters pick(List<String> paths) {
-    var result = new Parameters();
+    var result =  Parameters();
     for (var index = 0; index < paths.length; index++) {
       var path = paths[index];
       if (this.containsKey(path)) result.put(path, this.get(path));
@@ -190,7 +190,7 @@ class Parameters extends AnyValueMap {
 	/// Returns a new Parameters object.
 	 
   Parameters omit(List<String> paths) {
-    var result = new Parameters(this);
+    var result =  Parameters(this);
     for (var index = 0; index < paths.length; index++) {
       var path = paths[index];
       result.remove(path);
@@ -214,7 +214,7 @@ class Parameters extends AnyValueMap {
 	/// Returns			a new Parameters object.
 	 
   static Parameters fromValue(value) {
-    return new Parameters(value);
+    return  Parameters(value);
   }
 
   
@@ -228,7 +228,7 @@ class Parameters extends AnyValueMap {
 	 
   static Parameters fromTuples(List tuples) {
     var map = AnyValueMap.fromTuples(tuples);
-    return new Parameters(map);
+    return  Parameters(map);
   }
 
   
@@ -242,7 +242,7 @@ class Parameters extends AnyValueMap {
 	 
   static Parameters mergeParams(List<Parameters> parameters) {
     var map = AnyValueMap.fromMaps(parameters);
-    return new Parameters(map);
+    return  Parameters(map);
   }
 
   
@@ -255,7 +255,7 @@ class Parameters extends AnyValueMap {
 	 
   static Parameters fromJsonString(String json) {
     var map = JsonConverter.toNullableMap(json);
-    return new Parameters(map);
+    return  Parameters(map);
   }
 
   
@@ -267,7 +267,7 @@ class Parameters extends AnyValueMap {
 	/// See [ConfigParams]
 	 
   static Parameters fromConfig(ConfigParams config) {
-    var result = new Parameters();
+    var result =  Parameters();
 
     if (config == null) return result;
 

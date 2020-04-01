@@ -18,7 +18,7 @@ import '../convert/StringConverter.dart';
 ///     var value2 = values.get('pt'); // Result: 'Hello World!'
  
 class MultiString implements IValueWrapper {
-  var _values = new Map<String, String>();
+  var _values =  Map<String, String>();
 
   
     /// Creates a new MultiString object and initializes it with values.
@@ -35,7 +35,7 @@ class MultiString implements IValueWrapper {
     /// - [json]    a map with language-text pairs.
      
   factory MultiString.fromJson(Map<String, dynamic> json) {
-    return new MultiString(json);
+    return  MultiString(json);
   }
 
 
@@ -93,7 +93,7 @@ class MultiString implements IValueWrapper {
     /// Returns a list with language codes. 
      
   List<String> getLanguages() {
-    var languages = new List<String>();
+    var languages =  List<String>();
 
     for (var key in this._values.keys) {
       languages.add(key);
@@ -164,7 +164,7 @@ class MultiString implements IValueWrapper {
     /// @see [[StringValueMap]]
      
   static MultiString fromValue(dynamic value) {
-    return new MultiString(value);
+    return  MultiString(value);
   }
 
   
@@ -186,7 +186,7 @@ class MultiString implements IValueWrapper {
     /// Returns         a MultiString Object.
      
   static MultiString fromTuplesArray(List<dynamic> tuples) {
-    var result = new MultiString();
+    var result =  MultiString();
     if (tuples == null || tuples.length == 0) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {

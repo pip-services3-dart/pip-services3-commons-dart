@@ -9,13 +9,13 @@ void main() {
 group('AndRule', () {
 
     test('AndRule', () {
-        var obj = new TestObject();
+        var obj =  TestObject();
 
-        var schema = new Schema().withRule(new AndRule([new AtLeastOneExistsRule(['missingProperty', 'stringProperty', 'nullProperty']), new AtLeastOneExistsRule(['stringProperty', 'nullProperty', 'intField'])]));
+        var schema =  Schema().withRule( AndRule([ AtLeastOneExistsRule(['missingProperty', 'stringProperty', 'nullProperty']),  AtLeastOneExistsRule(['stringProperty', 'nullProperty', 'intField'])]));
         var results = schema.validate(obj);
         expect(results.length, 0);
 
-        schema = new Schema().withRule(new AndRule([new AtLeastOneExistsRule(['missingProperty', 'stringProperty', 'nullProperty']), new AtLeastOneExistsRule(['missingProperty', 'nullProperty'])]));
+        schema =  Schema().withRule( AndRule([ AtLeastOneExistsRule(['missingProperty', 'stringProperty', 'nullProperty']),  AtLeastOneExistsRule(['missingProperty', 'nullProperty'])]));
         results = schema.validate(obj);
         expect(results.length, 1);
 

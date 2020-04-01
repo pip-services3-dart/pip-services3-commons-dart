@@ -57,7 +57,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// - [value]     (optional) values to initialize this map.
    
   StringValueMap([map = null]) {
-    this._values = new Map<String, String>();
+    this._values =  Map<String, String>();
 
     if (map is IValueWrapper) {
       map = map.innerValue();
@@ -165,7 +165,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      
   getAsObject([String key = null]) {
     if (key == null) {
-      var result = new Map<String, String>();
+      var result =  Map<String, String>();
       for (var key in this._values.keys) {
         var value = this._values[key];
         result[key] = value;
@@ -453,7 +453,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// See [getAsDateTimeWithDefault]
      
   DateTime getAsDateTime(String key) {
-    return this.getAsDateTimeWithDefault(key, new DateTime.now());
+    return this.getAsDateTimeWithDefault(key,  DateTime.now());
   }
 
   
@@ -492,7 +492,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// See [getAsDurationWithDefault]
      
   Duration getAsDuration(String key) {
-    return this.getAsDurationWithDefault(key, new Duration());
+    return this.getAsDurationWithDefault(key,  Duration());
   }
 
   
@@ -565,7 +565,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
      
   AnyValue getAsValue(String key) {
     var value = this.get(key);
-    return new AnyValue(value);
+    return  AnyValue(value);
   }
 
   
@@ -682,7 +682,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// Returns a clone of this object.
      
   clone() {
-    return new StringValueMap(this);
+    return  StringValueMap(this);
   }
 
   
@@ -694,7 +694,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// See [setAsObject]
      
   static StringValueMap fromValue(value) {
-    return new StringValueMap(value);
+    return  StringValueMap(value);
   }
 
   
@@ -717,7 +717,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// Returns         a newly created StringValueMap.
      
   static StringValueMap fromTuplesArray(List tuples) {
-    var result = new StringValueMap();
+    var result =  StringValueMap();
     if (tuples == null || tuples.length == 0) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
@@ -739,7 +739,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// Returns         a newly created StringValueMap.
      
   static StringValueMap fromString(String line) {
-    var result = new StringValueMap();
+    var result =  StringValueMap();
     if (line == null || line.length == 0) return result;
 
     var tokens = line.split(';');
@@ -764,7 +764,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     /// Returns     a newly created AnyValueMap.
      
   static StringValueMap fromMaps(List maps) {
-    var result = new StringValueMap();
+    var result =  StringValueMap();
     if (maps != null && maps.length > 0) {
       for (var index = 0; index < maps.length; index++)
         result.append(maps[index]);

@@ -10,7 +10,7 @@ import 'dart:math';
 ///     var value3 = RandomFloat.updateFloat(10, 3);   // Possible result: 9.2
  
 class RandomFloat {
-  static var _random = new Random();
+  static var _random =  Random();
 
   
     /// Generates a float in the range ['min', 'max']. If 'max' is omitted, then the range will be set to [0, 'min'].

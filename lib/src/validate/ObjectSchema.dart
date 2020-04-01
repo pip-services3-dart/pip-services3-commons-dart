@@ -11,7 +11,7 @@ import './PropertySchema.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new ObjectSchema(false)
+///     var schema =  ObjectSchema(false)
 ///         .withOptionalProperty('id', TypeCode.String)
 ///         .withRequiredProperty('name', TypeCode.String);
 ///     
@@ -120,7 +120,7 @@ class ObjectSchema extends Schema {
      
   ObjectSchema withRequiredProperty(String name,
       [dynamic type, List<IValidationRule> rules]) {
-    var schema = new PropertySchema(name, type);
+    var schema = PropertySchema(name, type);
     if (rules!= null) {
       schema.setRules(List.from(rules));
     }
@@ -139,7 +139,7 @@ class ObjectSchema extends Schema {
      
   ObjectSchema withOptionalProperty(String name,
       [dynamic type, List<IValidationRule> rules]) {
-    var schema = new PropertySchema(name, type);
+    var schema =  PropertySchema(name, type);
     if (rules!= null) {
       schema.setRules(List.from(rules));
     }
@@ -192,7 +192,7 @@ class ObjectSchema extends Schema {
       for (var key in properties.keys) {
         var propertyPath = key != null && path != '' ? path + '.' + key : key;
 
-        results.add(new ValidationResult(
+        results.add(ValidationResult(
             propertyPath,
             ValidationResultType.Warning,
             'UNEXPECTED_PROPERTY',

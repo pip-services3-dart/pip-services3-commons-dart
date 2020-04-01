@@ -4,7 +4,7 @@ import '../../lib/src/data/MultiString.dart';
 void main() {
   group('MultiString', () {
     test('Get and Set', () {
-      var value = new MultiString();
+      var value =  MultiString();
       expect(value.get('en'), isNull);
 
       value.put('ru', 'Russian');

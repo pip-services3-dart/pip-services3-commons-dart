@@ -18,7 +18,7 @@ class TagsProcessor {
      
   static String normalizeTag(String tag) {
     return tag != null
-        ? tag.replaceAll(new RegExp(_NORMALIZE_REGEX), ' ').trim()
+        ? tag.replaceAll( RegExp(_NORMALIZE_REGEX), ' ').trim()
         : null;
   }
 
@@ -32,7 +32,7 @@ class TagsProcessor {
      
   static String compressTag(String tag) {
     return tag != null
-        ? tag.replaceAll(new RegExp(_COMPRESS_REGEX), '').toLowerCase()
+        ? tag.replaceAll( RegExp(_COMPRESS_REGEX), '').toLowerCase()
         : null;
   }
 
@@ -66,7 +66,7 @@ class TagsProcessor {
     /// Returns      a list with normalized tags.
      
   static List<String> normalizeTagList(String tagList) {
-    var tags = tagList.split(new RegExp(_SPLIT_REGEX));
+    var tags = tagList.split( RegExp(_SPLIT_REGEX));
     return normalizeTags(tags);
   }
 
@@ -87,7 +87,7 @@ class TagsProcessor {
     /// Returns      a list with compressed tags.
      
   static List<String> compressTagList(String tagList) {
-    var tags = tagList.split(new RegExp(_SPLIT_REGEX));
+    var tags = tagList.split( RegExp(_SPLIT_REGEX));
     return compressTags(tags);
   }
 
@@ -98,11 +98,11 @@ class TagsProcessor {
     /// Returns        a list with extracted and compressed tags.
      
   static List<String> extractHashTags(String text) {
-    var tags = new List<String>();
+    var tags =  List<String>();
 
     if (text != '') {
       //var hashTags = text.match(HASHTAG_REGEX);
-      var regexp = new RegExp(_HASHTAG_REGEX);
+      var regexp =  RegExp(_HASHTAG_REGEX);
       var hashTags = regexp.allMatches(text);
       hashTags.forEach((RegExpMatch match) {
         tags.add(text.substring(match.start, match.end));
@@ -141,9 +141,9 @@ class TagsProcessor {
       var text = _extractString(obj[field]);
 
       if (text != '') {
-        var regexp = new RegExp(_HASHTAG_REGEX);
+        var regexp =  RegExp(_HASHTAG_REGEX);
         var matches = regexp.allMatches(text);
-        var hashTags = new List<String>();
+        var hashTags =  List<String>();
         matches.forEach((RegExpMatch match) {
           hashTags.add(text.substring(match.start, match.end));
         });

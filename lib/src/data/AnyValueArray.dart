@@ -23,12 +23,12 @@ import './AnyValueMap.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = new AnyValueArray([1, '123.456', '2018-01-01']);
+///     var value1 =  AnyValueArray([1, '123.456', '2018-01-01']);
 ///     
 ///     value1.getAsBoolean(0);   // Result: true
 ///     value1.getAsInteger(1);   // Result: 123
 ///     value1.getAsFloat(1);     // Result: 123.456
-///     value1.getAsDateTime(2);  // Result: new Date(2018,0,1)
+///     value1.getAsDateTime(2);  // Result:  Date(2018,0,1)
 /// 
 /// See [StringConverter]
 /// See [TypeConverter]
@@ -49,7 +49,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// 
   /// - value     (optional) values to initialize this array.
   AnyValueArray([Iterable values = null]) {
-    this._values = new List();
+    this._values =  List();
 
     if (values != null) {
       this._values.addAll(values);
@@ -61,7 +61,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// 
   /// - [json]     values to initialize this array.
   factory AnyValueArray.fromJson(Map<String, dynamic> json) {
-    return new AnyValueArray(json['values']);
+    return  AnyValueArray(json['values']);
   }
 
   
@@ -405,7 +405,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// 
     /// See [getAsDateTimeWithDefault]
   DateTime getAsDateTime(int index) {
-    return this.getAsDateTimeWithDefault(index, new DateTime.now());
+    return this.getAsDateTimeWithDefault(index,  DateTime.now());
   }
 
   
@@ -441,7 +441,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// 
     /// See [getAsDurationWithDefault] 
   Duration getAsDuration(int index) {
-    return this.getAsDurationWithDefault(index, new Duration());
+    return this.getAsDurationWithDefault(index,  Duration());
   }
 
   
@@ -509,7 +509,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// See [AnyValue.constructor] 
   AnyValue getAsValue(int index) {
     var value = this._values[index];
-    return new AnyValue(value);
+    return  AnyValue(value);
   }
 
   
@@ -636,7 +636,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// 
     /// Returns a clone of this object.  
   clone() {
-    return new AnyValueArray(this._values);
+    return  AnyValueArray(this._values);
   }
 
   
@@ -662,7 +662,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// - [values]    a list of values to initialize the created AnyValueArray
     /// Returns         a newly created AnyValueArray.  
   static AnyValueArray fromValues(List values) {
-    return new AnyValueArray(values);
+    return  AnyValueArray(values);
   }
 
   
@@ -674,7 +674,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// See [ArrayConverter.toNullableArray] 
   static AnyValueArray fromValue(value) {
     var values = ArrayConverter.toNullableArray(value);
-    return new AnyValueArray(values);
+    return  AnyValueArray(values);
   }
 
   
@@ -687,7 +687,7 @@ class AnyValueArray extends ListBase<dynamic>
     /// Returns                 a newly created AnyValueArray. 
   static AnyValueArray fromString(String values, String separator,
       [bool removeDuplicates = false]) {
-    var result = new AnyValueArray();
+    var result =  AnyValueArray();
 
     if (values == null || values.length == 0) return result;
 
@@ -695,7 +695,7 @@ class AnyValueArray extends ListBase<dynamic>
     for (var index = 0; index < items.length; index++) {
       var item = items[index];
       if ((item != null && item.length > 0) || removeDuplicates == false)
-        result._values.add(item != null ? new AnyValue(item) : null);
+        result._values.add(item != null ?  AnyValue(item) : null);
     }
     return result;
   }

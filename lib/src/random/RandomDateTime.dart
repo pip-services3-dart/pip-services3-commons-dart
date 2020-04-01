@@ -5,9 +5,9 @@ import './RandomInteger.dart';
 
 /// ### Example ###
 
-///     var value1 = RandomDateTime.nextDate(new Date(2010,0,1));    // Possible result: 2008-01-03
-///     var value2 = RandomDateTime.nextDateTime(new Date(2017,0.1));// Possible result: 2007-03-11 11:20:32
-///     var value3 = RandomDateTime.updateDateTime(new Date(2010,1,2));// Possible result: 2010-02-05 11:33:23
+///     var value1 = RandomDateTime.nextDate( Date(2010,0,1));    // Possible result: 2008-01-03
+///     var value2 = RandomDateTime.nextDateTime( Date(2017,0.1));// Possible result: 2007-03-11 11:20:32
+///     var value3 = RandomDateTime.updateDateTime( Date(2010,1,2));// Possible result: 2010-02-05 11:33:23
  
 class RandomDateTime {
   
@@ -21,7 +21,7 @@ class RandomDateTime {
   static DateTime nextDate(DateTime min, [DateTime max = null]) {
     if (max == null) {
       max = min;
-      min = new DateTime(max.year - 10, 1, 1);
+      min =  DateTime(max.year - 10, 1, 1);
     }
 
     var diff = max.millisecondsSinceEpoch - min.millisecondsSinceEpoch;
@@ -44,7 +44,7 @@ class RandomDateTime {
   static DateTime nextDateTime(DateTime min, [DateTime max = null]) {
     if (max == null) {
       max = min;
-      min = new DateTime(2000, 0, 1);
+      min =  DateTime(2000, 0, 1);
     }
 
     var diff = max.millisecondsSinceEpoch - min.millisecondsSinceEpoch;

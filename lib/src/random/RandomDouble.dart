@@ -10,7 +10,7 @@ import 'dart:math';
 ///     var value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
  
 class RandomDouble {
-  static var _random = new Random();
+  static var _random =  Random();
 
   
     /// Generates a random double value in the range ['minYear', 'maxYear'].

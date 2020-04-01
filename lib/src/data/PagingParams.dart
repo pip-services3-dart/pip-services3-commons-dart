@@ -17,7 +17,7 @@ import './AnyValueMap.dart';
 /// ### Example ###
 /// 
 ///     var filter = FilterParams.fromTuples(['type', 'Type1']);
-///     var paging = new PagingParams(0, 100);
+///     var paging =  PagingParams(0, 100);
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, (err, page) {...});
  

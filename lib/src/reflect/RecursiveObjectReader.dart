@@ -126,7 +126,7 @@ class RecursiveObjectReader {
     /// Returns a list with property names.
      
   static List<String> getPropertyNames(obj) {
-    var propertyNames = new List<String>();
+    var propertyNames =  List<String>();
 
     if (obj == null) {
       return propertyNames;
@@ -180,7 +180,7 @@ class RecursiveObjectReader {
     /// Returns a map, containing the names of the object's properties and their values.
      
   static Map<String, dynamic> getProperties(obj) {
-    var properties = new Map<String, dynamic>();
+    var properties =  Map<String, dynamic>();
 
     if (obj != null) {
       var cycleDetect = [];

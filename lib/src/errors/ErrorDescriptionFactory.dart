@@ -21,7 +21,7 @@ class ErrorDescriptionFactory {
 	/// Returns a serializeable ErrorDescription object that describes the error.
 	 
   static ErrorDescription create(error) {
-    var description = new ErrorDescription();
+    var description =  ErrorDescription();
 
     if (error is ApplicationException) {
       var ex = error;

@@ -12,7 +12,7 @@ import '../convert/StringConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new MapSchema(TypeCode.String, TypeCode.Integer);
+///     var schema =  MapSchema(TypeCode.String, TypeCode.Integer);
 ///     
 ///     schema.validate({ 'key1': 'A', 'key2': 'B' });       // Result: no errors
 ///     schema.validate({ 'key1': 1, 'key2': 2 });           // Result: element type mismatch
@@ -114,7 +114,7 @@ class MapSchema extends Schema {
       }
     } else {
       if (this.isRequired()) {
-        results.add(new ValidationResult(
+        results.add( ValidationResult(
             path,
             ValidationResultType.Error,
             'VALUE_ISNOT_MAP',

@@ -5,8 +5,8 @@ import './RandomInteger.dart';
 
 /// ### Example ###
 
-///     var value2 = RandomDuration.nextDuration(new Duration(1000));// Possible result: 532
-///     var value3 = RandomDuration.updateDuration(new Duration(100000));// Possible result: 53223
+///     var value2 = RandomDuration.nextDuration( Duration(1000));// Possible result: 532
+///     var value3 = RandomDuration.updateDuration( Duration(100000));// Possible result: 53223
  
 class RandomDuration {
   
@@ -19,14 +19,14 @@ class RandomDuration {
   static Duration nextDuration(Duration min, [Duration max = null]) {
     if (max == null) {
       max = min;
-      min = new Duration(milliseconds: max.inMilliseconds - 10000);
+      min =  Duration(milliseconds: max.inMilliseconds - 10000);
     }
 
     var diff = max.inMilliseconds - min.inMilliseconds;
     if (diff <= 0) return min;
 
     var time = min.inMilliseconds + RandomInteger.nextInteger(0, diff);
-    return new Duration(milliseconds: time);
+    return  Duration(milliseconds: time);
   }
 
   
@@ -41,6 +41,6 @@ class RandomDuration {
 
     var time = value.inMilliseconds + RandomInteger.nextInteger(-range, range);
     time = time > 0 ? time : 0;
-    return new Duration(milliseconds: time);
+    return  Duration(milliseconds: time);
   }
 }

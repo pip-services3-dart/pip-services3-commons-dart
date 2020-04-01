@@ -13,7 +13,7 @@ import './ICommand.dart';
 
 /// ### Example ###
 
-///     var command = new Command('add', null, (correlationId, args) {
+///     var command =  Command('add', null, (correlationId, args) {
 ///         var param1 = args.getAsFloat('param1');
 ///         var param2 = args.getAsFloat('param2');
 ///         var result = param1 + param2;
@@ -49,8 +49,8 @@ class Command implements ICommand {
     /// - func      the function to be executed by this command.
      
   Command(String name, Schema schema, func) {
-    if (name == null) throw new Exception('Name cannot be null');
-    if (func == null) throw new Exception('Function cannot be null');
+    if (name == null) throw  Exception('Name cannot be null');
+    if (func == null) throw  Exception('Function cannot be null');
 
     this._name = name;
     this._schema = schema;
@@ -61,7 +61,7 @@ class Command implements ICommand {
       this._function = func;
 
     if (!(this._function is Function))
-      throw new Exception('Function doesn\'t have function type');
+      throw  Exception('Function doesn\'t have function type');
   }
 
   
@@ -92,7 +92,7 @@ class Command implements ICommand {
       var result = await this._function(correlationId, args);
       return result;
     } catch (ex) {
-      throw new InvocationException(correlationId, 'EXEC_FAILED',
+      throw  InvocationException(correlationId, 'EXEC_FAILED',
               'Execution ' + this.getName() + ' failed: ' + ex)
           .withDetails('command', this.getName())
           .wrap(ex);

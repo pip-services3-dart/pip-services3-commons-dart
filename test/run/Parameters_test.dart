@@ -54,7 +54,7 @@ group('Parameters', () {
     });
 
     test('Assign To', ()  {
-        var value = new TestClass(null, null);
+        var value =  TestClass(null, null);
         var newValues = Parameters.fromJsonString(
             "{ \"value1\": 123, \"value2\": \"ABC\", \"value3\": 456 }"
         );
@@ -129,7 +129,7 @@ group('Parameters', () {
     });
 
     test('Set', ()  {
-        var config = new Parameters();
+        var config =  Parameters();
 
         config.put(null, 123);
         expect(0, config.length);

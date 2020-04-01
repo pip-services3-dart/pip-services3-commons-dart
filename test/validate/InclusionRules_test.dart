@@ -7,7 +7,7 @@ void main() {
   group('Inclusion Rules', () {
     test('IncludedRule', () {
       var schema =
-          new Schema().withRule(new IncludedRule(['AAA', 'BBB', 'CCC', null]));
+           Schema().withRule( IncludedRule(['AAA', 'BBB', 'CCC', null]));
 
       var results = schema.validate('AAA');
       expect(results.length, 0);
@@ -18,7 +18,7 @@ void main() {
 
     test('ExcludedRule', () {
       var schema =
-          new Schema().withRule(new ExcludedRule(['AAA', 'BBB', 'CCC', null]));
+           Schema().withRule( ExcludedRule(['AAA', 'BBB', 'CCC', null]));
 
       var results = schema.validate('AAA');
       expect(results.length, 1);

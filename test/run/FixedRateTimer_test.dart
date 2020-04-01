@@ -15,7 +15,7 @@ void main() {
   group('FixedRateTimer', () {
     test('Run with task', () async {
       var notifier = TestTimer();
-      var timer = new FixedRateTimer(notifier, 100, 0);
+      var timer =  FixedRateTimer(notifier, 100, 0);
 
       timer.start();
       
@@ -29,7 +29,7 @@ void main() {
     test('Run with callback', () async {
       var counter = 0;
 
-      var timer = new FixedRateTimer(() {
+      var timer =  FixedRateTimer(() {
         counter++;
       }, 100, 0);
 

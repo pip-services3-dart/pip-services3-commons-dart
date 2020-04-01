@@ -11,10 +11,10 @@ import './ValidationResult.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new AndRule(
-///             new ValueComparisonRule('GTE', 1),
-///             new ValueComparisonRule('LTE', 10)
+///     var schema =  Schema()
+///         .withRule( AndRule(
+///              ValueComparisonRule('GTE', 1),
+///              ValueComparisonRule('LTE', 10)
 ///         ));
 ///     
 ///     schema.validate(0);          // Result: 0 must be greater or equal to 1

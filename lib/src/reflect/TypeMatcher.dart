@@ -25,7 +25,7 @@ class TypeMatcher {
      
   static bool matchValueType(expectedType, actualValue) {
     if (expectedType == null) return true;
-    if (actualValue == null) throw new Exception('Actual value cannot be null');
+    if (actualValue == null) throw  Exception('Actual value cannot be null');
 
     return matchType(expectedType, TypeConverter.toTypeCode(actualValue));
   }
@@ -45,7 +45,7 @@ class TypeMatcher {
   static bool matchType(expectedType, TypeCode actualType,
       [actualValue = null]) {
     if (expectedType == null) return true;
-    if (actualType == null) throw new Exception('Actual type cannot be null');
+    if (actualType == null) throw Exception('Actual type cannot be null');
 
     if (expectedType is TypeCode) {
       if (expectedType == actualType) return true;
@@ -88,7 +88,7 @@ class TypeMatcher {
      
   static bool matchValueTypeByName(String expectedType, actualValue) {
     if (expectedType == null) return true;
-    if (actualValue == null) throw new Exception('Actual value cannot be null');
+    if (actualValue == null) throw  Exception('Actual value cannot be null');
 
     return matchTypeByName(expectedType, TypeConverter.toTypeCode(actualValue));
   }
@@ -104,7 +104,7 @@ class TypeMatcher {
   static bool matchTypeByName(String expectedType, TypeCode actualType,
       [actualValue = null]) {
     if (expectedType == null) return true;
-    if (actualType == null) throw new Exception('Actual type cannot be null');
+    if (actualType == null) throw  Exception('Actual type cannot be null');
 
     expectedType = expectedType.toLowerCase();
 

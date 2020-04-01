@@ -20,7 +20,7 @@ import './Parameters.dart';
 ///         }
 ///     }
 ///     
-///     var echo = new EchoComponent();
+///     var echo =  EchoComponent();
 ///     var message = 'Test';
 ///     echo.execute('123', Parameters.fromTuples(['message', message])
 ///        .then((result) {

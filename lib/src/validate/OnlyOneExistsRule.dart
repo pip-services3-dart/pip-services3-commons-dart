@@ -11,8 +11,8 @@ import '../reflect/ObjectReader.dart';
 /// 
 /// ### Example ###
 /// 
-///     var schema = new Schema()
-///         .withRule(new OnlyOneExistsRule('field1', 'field2'));
+///     var schema =  Schema()
+///         .withRule( OnlyOneExistsRule('field1', 'field2'));
 ///     
 ///     schema.validate({ field1: 1, field2: 'A' });     // Result: only one of properties field1, field2 must exist
 ///     schema.validate({ field1: 1 });                  // Result: no errors
@@ -50,7 +50,7 @@ class OnlyOneExistsRule implements IValidationRule {
     }
 
     if (found.length == 0) {
-      results.add(new ValidationResult(
+      results.add(ValidationResult(
           path,
           ValidationResultType.Error,
           'VALUE_NULL',
@@ -60,7 +60,7 @@ class OnlyOneExistsRule implements IValidationRule {
           this._properties,
           null));
     } else if (found.length > 1) {
-      results.add(new ValidationResult(
+      results.add( ValidationResult(
           path,
           ValidationResultType.Error,
           'VALUE_ONLY_ONE',

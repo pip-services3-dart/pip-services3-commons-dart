@@ -9,11 +9,11 @@ import './StringValueMap.dart';
 /// 
 ///     var filter = FilterParams.fromTuples(
 ///         ['type', 'Type1',
-///         'from_create_time', new Date(2000, 0, 1),
-///         'to_create_time', new Date(),
+///         'from_create_time',  Date(2000, 0, 1),
+///         'to_create_time',  Date(),
 ///         'compvared', true]
 ///     );
-///     var paging = new PagingParams(0, 100);
+///     var paging =  PagingParams(0, 100);
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, (err, page) => {...});
  
@@ -31,7 +31,7 @@ class FilterParams extends StringValueMap {
   /// - [json]    json values to initialize this object.
    
   factory FilterParams.fromJson(Map<String, dynamic> json) {
-    return new FilterParams(json);
+    return  FilterParams(json);
   }
 
   
@@ -41,7 +41,7 @@ class FilterParams extends StringValueMap {
   /// Returns         a newly created FilterParams.
 	 
   static FilterParams fromValue(value) {
-    return new FilterParams(value);
+    return  FilterParams(value);
   }
 
   
@@ -52,7 +52,7 @@ class FilterParams extends StringValueMap {
 	 
   static FilterParams fromTuples(List tuples) {
     var map = StringValueMap.fromTuplesArray(tuples);
-    return new FilterParams(map);
+    return  FilterParams(map);
   }
 
   
@@ -65,6 +65,6 @@ class FilterParams extends StringValueMap {
 	 
   static FilterParams fromString(String line) {
     var map = StringValueMap.fromString(line);
-    return new FilterParams(map);
+    return  FilterParams(map);
   }
 }

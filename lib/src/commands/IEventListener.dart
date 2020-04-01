@@ -15,8 +15,8 @@ import './IEvent.dart';
 ///         }
 ///     }
 ///     
-///     var event = new Event('myevent');
-///     event.addListener(new MyListener());
+///     var event =  Event('myevent');
+///     event.addListener( MyListener());
 ///     event.notify('123', Parameters.fromTuples(['param1', 'ABC']));
 ///     
 ///     // Console output: Fired event myevent

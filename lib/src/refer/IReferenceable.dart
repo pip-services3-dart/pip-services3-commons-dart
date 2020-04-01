@@ -17,7 +17,7 @@ import './IReferences.dart';
 ///         ...    
 ///         void setReferences(IReferences references ) {
 ///             this.persistence = references.getOneRequired<IMyPersistence>(
-///                 new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
+///                  Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
 ///         ...

@@ -11,7 +11,7 @@ import 'DoubleConverter.dart';
 ///     var value1 = FloatConverter.toNullableFloat('ABC'); // Result: null
 ///     var value2 = FloatConverter.toNullableFloat('123.456'); // Result: 123.456
 ///     var value3 = FloatConverter.toNullableFloat(true); // Result: 1
-///     var value4 = FloatConverter.toNullableFloat(new Date()); // Result: current milliseconds
+///     var value4 = FloatConverter.toNullableFloat( Date()); // Result: current milliseconds
  
 class FloatConverter {
   

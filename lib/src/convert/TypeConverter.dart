@@ -127,11 +127,11 @@ class TypeConverter {
     else if (type == TypeCode.String)
       value = '';
     else if (type == TypeCode.DateTime)
-      value = new DateTime.now();
+      value =  DateTime.now();
     else if (type == TypeCode.Duration)
-      value = new Duration();
+      value =  Duration();
     else if (type == TypeCode.Map)
-      value = new Map<String, dynamic>();
+      value =  Map<String, dynamic>();
     else if (type == TypeCode.Array) value = [];
 
     return value as T;

@@ -79,7 +79,7 @@ class JsonConverter {
 	 
   static Map<String, dynamic> toMap(String value) {
     var result = JsonConverter.toNullableMap(value);
-    return result != null ? result : new Map<String, dynamic>();
+    return result != null ? result :  Map<String, dynamic>();
   }
 
   

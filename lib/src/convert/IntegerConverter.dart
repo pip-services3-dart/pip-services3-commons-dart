@@ -11,7 +11,7 @@ import 'LongConverter.dart';
 ///     var value1 = IntegerConverter.toNullableInteger('ABC'); // Result: null
 ///     var value2 = IntegerConverter.toNullableInteger('123.456'); // Result: 123
 ///     var value3 = IntegerConverter.toNullableInteger(true); // Result: 1
-///     var value4 = IntegerConverter.toNullableInteger(new Date()); // Result: current milliseconds
+///     var value4 = IntegerConverter.toNullableInteger( Date()); // Result: current milliseconds
  
 class IntegerConverter {
   

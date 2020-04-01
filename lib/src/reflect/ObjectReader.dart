@@ -20,7 +20,7 @@ import '../convert/IntegerConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     var myObj = new MyObject();
+///     var myObj =  MyObject();
 ///     
 ///     var properties = ObjectReader.getPropertyNames();
 ///     ObjectReader.hasProperty(myObj, 'myProperty');
@@ -125,7 +125,7 @@ class ObjectReader {
     /// Returns a list with property names.
      
   static List<String> getPropertyNames(obj) {
-    var properties = new List<String>();
+    var properties =  List<String>();
 
     if (obj is IValueWrapper) obj = obj.innerValue();
 
@@ -158,7 +158,7 @@ class ObjectReader {
     /// Returns a map, containing the names of the object's properties and their values.
      
   static Map<String, dynamic> getProperties(obj) {
-    var map = new Map<String, dynamic>();
+    var map =  Map<String, dynamic>();
 
     if (obj is IValueWrapper) obj = obj.innerValue();
 

@@ -15,7 +15,7 @@ class RecursiveMapConverter {
     if (value == null) return null;
 
     // Todo: Complete implementation...
-    var result = new Map<String, dynamic>();
+    var result =  Map<String, dynamic>();
     var props = ObjectReader.getPropertyNames(value);
 
     for (var i = 0; i < props.length; i++) {
@@ -62,7 +62,7 @@ class RecursiveMapConverter {
   }
 
   static _mapToMap(Map value) {
-    var result = new Map<String, dynamic>();
+    var result =  Map<String, dynamic>();
     for (var key in value.keys) {
       result[key.toString()] = _valueToMap(value[key]);
     }
@@ -70,7 +70,7 @@ class RecursiveMapConverter {
   }
 
   static _arrayToMap(List value) {
-    var result = new Map<String, dynamic>();
+    var result =  Map<String, dynamic>();
 
     for (var i = 0; i < value.length; i++) {
       result[i.toString()] = _valueToMap(value[i]);
@@ -99,7 +99,7 @@ class RecursiveMapConverter {
      
   static toMap(value) {
     var result = RecursiveMapConverter.toNullableMap(value);
-    return result != null ? result : new Map<String, dynamic>();
+    return result != null ? result :  Map<String, dynamic>();
   }
 
   

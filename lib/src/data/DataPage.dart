@@ -53,8 +53,8 @@ class DataPage<T> {
     //final items = json['data'].cast<Map<String, dynamic>>();
     final items = json['data'];
 
-    return new DataPage<T>(
-        new List<T>.from(items.map((itemsJson) => fromJson(itemsJson))),
+    return  DataPage<T>(
+         List<T>.from(items.map((itemsJson) => fromJson(itemsJson))),
         json['total']);
   }
 

@@ -10,7 +10,7 @@ void main() {
       var dynamicString = '{ "string_field": "ABC", "date_field": "2019-01-01T11:30:00.00", "int_field": 123, "float_field": 123.456 }';
       var dynamicObject = json.decode(dynamicString);
 
-      var schema = new ObjectSchema()
+      var schema =  ObjectSchema()
           .withRequiredProperty('string_field', TypeCode.String)
           .withRequiredProperty('date_field', TypeCode.DateTime)
           .withRequiredProperty('int_field', TypeCode.Integer)

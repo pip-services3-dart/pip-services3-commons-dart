@@ -29,7 +29,7 @@ class ProjectionParams extends ListBase<String> {
     /// - [value]     (optional) values to initialize this object.
      
   ProjectionParams([List<dynamic> values = null])
-      : this._values = new List<String>() {
+      : this._values =  List<String>() {
     if (values != null) {
       for (var value in values) this._values.add('' + value);
     }
@@ -41,7 +41,7 @@ class ProjectionParams extends ListBase<String> {
 	/// - [json] 		json for initialize.
    
   factory ProjectionParams.fromJson(Map<String, dynamic> json) {
-    return new ProjectionParams(json['values']);
+    return  ProjectionParams(json['values']);
   }
 
   
