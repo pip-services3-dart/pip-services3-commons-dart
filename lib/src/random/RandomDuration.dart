@@ -1,21 +1,21 @@
 import './RandomInteger.dart';
 
-/**
- * Random generator for Duration values.
- *
- * ### Example ###
- *
- *     var value2 = RandomDuration.nextDuration(new Duration(1000));// Possible result: 532
- *     var value3 = RandomDuration.updateDuration(new Duration(100000));// Possible result: 53223
- */
+
+/// Random generator for Duration values.
+
+/// ### Example ###
+
+///     var value2 = RandomDuration.nextDuration(new Duration(1000));// Possible result: 532
+///     var value3 = RandomDuration.updateDuration(new Duration(100000));// Possible result: 53223
+ 
 class RandomDuration {
-  /**
-     * Generates a random Duration in the range ['min', 'max'].
-     *
-     * - [min]   (optional) minimum range value
-     * - [max]   max range value
-     * Returns     a random Date value.
-     */
+  
+    /// Generates a random Duration in the range ['min', 'max'].
+    
+    /// - [min]   (optional) minimum range value
+    /// - [max]   max range value
+    /// Returns     a random Date value.
+     
   static Duration nextDuration(Duration min, [Duration max = null]) {
     if (max == null) {
       max = min;
@@ -29,12 +29,12 @@ class RandomDuration {
     return new Duration(milliseconds: time);
   }
 
-  /**
-     * Updates (drifts) a Date value within specified range defined
-     *
-     * - [value]     a Date value to drift.
-     * - [range]     (optional) a range in milliseconds. Default: 10 days
-     */
+  
+    /// Updates (drifts) a Date value within specified range defined
+    
+    /// - [value]     a Date value to drift.
+    /// - [range]     (optional) a range in milliseconds. Default: 10 days
+     
   static Duration updateDuration(Duration value, [int range = null]) {
     range = range ?? (value.inMilliseconds / 10).truncate();
     if (range < 0) return value;

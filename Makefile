@@ -1,4 +1,4 @@
-.PHONY: test generate gendoc docview
+.PHONY: test generate gendoc docview analyze
 
 test:
 	@pub run test ./test
@@ -11,3 +11,6 @@ gendoc:
 
 docview:
 	@dhttpd --path doc/api
+
+analyze:
+	@dartanalyzer .

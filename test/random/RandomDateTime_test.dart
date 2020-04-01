@@ -20,17 +20,17 @@ void main() {
       var date = RandomDateTime.updateDateTime(oldDate);
       expect(
           date.millisecondsSinceEpoch >=
-                  oldDate.millisecondsSinceEpoch - 10 * 24 * 3600000 ||
+                  oldDate.millisecondsSinceEpoch - 10* 24* 3600000 ||
               date.millisecondsSinceEpoch >=
-                  oldDate.millisecondsSinceEpoch + 10 * 24 * 3600000,
+                  oldDate.millisecondsSinceEpoch + 10* 24* 3600000,
           isTrue);
 
-      date = RandomDateTime.updateDateTime(oldDate, 3 * 24 * 3600000);
+      date = RandomDateTime.updateDateTime(oldDate, 3* 24* 3600000);
       expect(
           date.millisecondsSinceEpoch >=
-                  oldDate.millisecondsSinceEpoch - 3 * 24 * 3600000 ||
+                  oldDate.millisecondsSinceEpoch - 3* 24* 3600000 ||
               date.millisecondsSinceEpoch >=
-                  oldDate.millisecondsSinceEpoch + 3 * 24 * 3600000,
+                  oldDate.millisecondsSinceEpoch + 3* 24* 3600000,
           isTrue);
 
       date = RandomDateTime.updateDateTime(oldDate, -3);
