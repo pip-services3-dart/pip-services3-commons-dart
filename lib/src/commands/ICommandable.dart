@@ -1,6 +1,5 @@
 import './CommandSet.dart';
 
-
 /// An interface for commandable objects, which are part of the command design pattern.
 /// The commandable object exposes its functonality as commands and events groupped
 /// into a [CommandSet CommandSet].
@@ -25,14 +24,13 @@ import './CommandSet.dart';
 ///     }
 
 /// See [CommandSet] examples
- 
+
 abstract class ICommandable {
-  
-    /// Gets a command set with all supported commands and events.
-    
-    /// Returns a command set with commands and events.
-    
-    /// See [CommandSet]
-     
+  /// Gets a command set with all supported commands and events.
+
+  /// Returns a command set with commands and events.
+
+  /// See [CommandSet]
+
   CommandSet getCommandSet();
 }

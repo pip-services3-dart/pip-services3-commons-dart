@@ -45,14 +45,11 @@ void main() {
     });
 
     test('Match Duration', () {
-      expect(
-          reflect.TypeMatcher.matchValueTypeByName('timespan',  Duration()),
+      expect(reflect.TypeMatcher.matchValueTypeByName('timespan', Duration()),
           isTrue);
-      expect(
-          reflect.TypeMatcher.matchValueTypeByName('Duration',  Duration()),
+      expect(reflect.TypeMatcher.matchValueTypeByName('Duration', Duration()),
           isTrue);
-      expect(
-          reflect.TypeMatcher.matchValueType(TypeCode.Duration,  Duration()),
+      expect(reflect.TypeMatcher.matchValueType(TypeCode.Duration, Duration()),
           isTrue);
     });
 

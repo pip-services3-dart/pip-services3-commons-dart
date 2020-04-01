@@ -7,7 +7,6 @@ import '../run/Parameters.dart';
 import '../validate/ValidationResult.dart';
 import './ICommand.dart';
 
-
 /// Concrete implementation of [[ICommand ICommand]] interface. Command allows to call a method
 /// or function using Command pattern.
 
@@ -35,22 +34,21 @@ import './ICommand.dart';
 
 /// See [[ICommand]]
 /// See [[CommandSet]]
- 
+
 class Command implements ICommand {
   String _name;
   Schema _schema;
   Future<dynamic> Function(String correlationId, Parameters args) _function;
 
-  
-    /// Creates a new command object and assigns it's parameters.
-    
-    /// - name      the command name.
-    /// - schema    the schema to validate command arguments.
-    /// - func      the function to be executed by this command.
-     
+  /// Creates a new command object and assigns it's parameters.
+
+  /// - name      the command name.
+  /// - schema    the schema to validate command arguments.
+  /// - func      the function to be executed by this command.
+
   Command(String name, Schema schema, func) {
-    if (name == null) throw  Exception('Name cannot be null');
-    if (func == null) throw  Exception('Function cannot be null');
+    if (name == null) throw Exception('Name cannot be null');
+    if (func == null) throw Exception('Function cannot be null');
 
     this._name = name;
     this._schema = schema;
@@ -61,28 +59,26 @@ class Command implements ICommand {
       this._function = func;
 
     if (!(this._function is Function))
-      throw  Exception('Function doesn\'t have function type');
+      throw Exception('Function doesn\'t have function type');
   }
 
-  
-    /// Gets the command name.
-    /// Returns the name of this command.
-     
+  /// Gets the command name.
+  /// Returns the name of this command.
+
   String getName() {
     return this._name;
   }
 
-  
-    /// Executes the command. Before execution it validates [[Parameters args]] using
-    /// the defined schema. The command execution intercepts exceptions raised
-    /// by the called function and returns them as an error in callback.
-    
-    /// - correlationId (optional) transaction id to trace execution through call chain.
-    /// - args          the parameters (arguments) to pass to this command for execution.
-    /// - callback      function to be called when command is complete
-    
-    /// See [[Parameters]]
-     
+  /// Executes the command. Before execution it validates [[Parameters args]] using
+  /// the defined schema. The command execution intercepts exceptions raised
+  /// by the called function and returns them as an error in callback.
+
+  /// - correlationId (optional) transaction id to trace execution through call chain.
+  /// - args          the parameters (arguments) to pass to this command for execution.
+  /// - callback      function to be called when command is complete
+
+  /// See [[Parameters]]
+
   Future<dynamic> execute(String correlationId, Parameters args) async {
     if (this._schema != null) {
       this._schema.validateAndThrowException(correlationId, args);
@@ -92,22 +88,21 @@ class Command implements ICommand {
       var result = await this._function(correlationId, args);
       return result;
     } catch (ex) {
-      throw  InvocationException(correlationId, 'EXEC_FAILED',
+      throw InvocationException(correlationId, 'EXEC_FAILED',
               'Execution ' + this.getName() + ' failed: ' + ex)
           .withDetails('command', this.getName())
           .wrap(ex);
     }
   }
 
-  
-    /// Validates the command [[Parameters args]] before execution using the defined schema.
-    
-    /// - args  the parameters (arguments) to validate using this command's schema.
-    /// Returns     an array of ValidationResults or an empty array (if no schema is set).
-    
-    /// See [[Parameters]]
-    /// See [[ValidationResult]]
-     
+  /// Validates the command [[Parameters args]] before execution using the defined schema.
+
+  /// - args  the parameters (arguments) to validate using this command's schema.
+  /// Returns     an array of ValidationResults or an empty array (if no schema is set).
+
+  /// See [[Parameters]]
+  /// See [[ValidationResult]]
+
   List<ValidationResult> validate(Parameters args) {
     if (this._schema != null) return this._schema.validate(args);
 

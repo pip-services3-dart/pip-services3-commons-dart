@@ -10,6 +10,9 @@ if ($component.version -ne $version) {
     throw "Versions in component.json and pubspec.yaml do not match"
 }
 
+Write-Output "Formating code before publish"
+dartfmt -w lib test
+
 # Publish to global repository
-Write-Output "Pushing package to pub.dev registry"
+Write-Output "Pushing package to [pub.dev] registry"
 pub publish

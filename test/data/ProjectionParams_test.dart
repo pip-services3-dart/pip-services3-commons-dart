@@ -4,7 +4,7 @@ import '../../lib/src/data/ProjectionParams.dart';
 void main() {
   group('ProjectionParams', () {
     test('From Null', () {
-      var parameters =  ProjectionParams(null);
+      var parameters = ProjectionParams(null);
 
       expect(parameters.length, 0);
     });

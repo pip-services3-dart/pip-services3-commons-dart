@@ -19,10 +19,9 @@ void main() {
       expect(TypeConverter.toTypeCode("123"), equals(TypeCode.String));
       expect(TypeConverter.toTypeCode(123), equals(TypeCode.Long));
       expect(TypeConverter.toTypeCode(123.456), equals(TypeCode.Double));
-      expect(TypeConverter.toTypeCode( DateTime(1975, 4, 8)),
+      expect(TypeConverter.toTypeCode(DateTime(1975, 4, 8)),
           equals(TypeCode.DateTime));
-      expect(
-          TypeConverter.toTypeCode( Duration()), equals(TypeCode.Duration));
+      expect(TypeConverter.toTypeCode(Duration()), equals(TypeCode.Duration));
       //assert.equal(ConverterTypeCode.Enum, TypeConverter.toTypeCode(Enum.class));
       expect(TypeConverter.toTypeCode([]), equals(TypeCode.Array));
       expect(TypeConverter.toTypeCode({}), equals(TypeCode.Map));
@@ -45,7 +44,7 @@ void main() {
               TypeCode.DateTime, "1975-04-08T17:30:00.00Z"),
           equals(DateTimeConverter.toDateTime("1975-04-08T17:30:00.00Z")));
       expect(TypeConverter.toNullableType<Duration>(TypeCode.Duration, "123"),
-          equals( Duration(milliseconds: 123)));
+          equals(Duration(milliseconds: 123)));
       expect(TypeConverter.toNullableType<List>(TypeCode.Array, 123).length,
           equals(1));
       //assert.equal(1, TypeConverter.toNullableType<any>(TypeCode.Map, StringValueMap.fromString("abc=123")).length);
@@ -62,7 +61,7 @@ void main() {
               TypeCode.DateTime, "1975-04-08T17:30:00.00Z"),
           equals(DateTimeConverter.toDateTime("1975-04-08T17:30:00.00Z")));
       expect(TypeConverter.toType<Duration>(TypeCode.Duration, "123"),
-          equals( Duration(milliseconds: 123)));
+          equals(Duration(milliseconds: 123)));
       expect(TypeConverter.toType<List>(TypeCode.Array, 123).length, equals(1));
       //assert.equal(1, TypeConverter.toType<any>(TypeCode.Map, StringValueMap.fromString("abc=123")).length);
     });
@@ -86,8 +85,8 @@ void main() {
           equals(DateTimeConverter.toDateTime("1975-04-08T17:30:00.00Z")));
       expect(
           TypeConverter.toTypeWithDefault<Duration>(
-              TypeCode.Duration, null,  Duration(milliseconds: 123)),
-          equals( Duration(milliseconds: 123)));
+              TypeCode.Duration, null, Duration(milliseconds: 123)),
+          equals(Duration(milliseconds: 123)));
       expect(
           TypeConverter.toTypeWithDefault<List>(TypeCode.Array, null, [123])
               .length,

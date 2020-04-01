@@ -14,9 +14,9 @@ void main() {
     var Message = 'message';
 
     setUp(() {
-      _ex =  Exception('Cause exception');
+      _ex = Exception('Cause exception');
 
-      _appEx =  ApplicationException(Category, CorrelationId, Code, Message);
+      _appEx = ApplicationException(Category, CorrelationId, Code, Message);
     });
 
     test('With Cause', () {

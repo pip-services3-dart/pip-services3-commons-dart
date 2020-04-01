@@ -1,4 +1,4 @@
-.PHONY: test generate gendoc docview analyze
+.PHONY: test generate gendoc docview analyze format
 
 test:
 	@pub run test ./test
@@ -14,3 +14,6 @@ docview:
 
 analyze:
 	@dartanalyzer .
+
+format:
+	@dartfmt -w lib test

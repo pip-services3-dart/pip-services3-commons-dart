@@ -1,71 +1,66 @@
 import 'dart:collection';
 import './AnyValueArray.dart';
 
-
 /// Defines projection parameters with list if fields to include into query results.
-/// 
+///
 /// The parameters support two formats: dot format and nested format.
-/// 
+///
 /// The dot format is the standard way to define included fields and subfields using
 /// dot object notation: <code>'field1,field2.field21,field2.field22.field221'</code>.
-/// 
+///
 /// As alternative the nested format offers a more compact representation:
 /// <code>'field1,field2(field21,field22(field221))'</code>.
-/// 
+///
 /// ### Example ###
-/// 
+///
 ///     var filter = FilterParams.fromTuples(['type', 'Type1']);
 ///     var paging = new PagingParams(0, 100);
 ///     var projection = ProjectionParams.fromString('field1,field2(field21,field22)')
-///     
+///
 ///     myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
-/// 
- 
+///
+
 class ProjectionParams extends ListBase<String> {
   List<String> _values;
-  
-    /// Creates a new instance of the projection parameters and assigns its value.
-    /// 
-    /// - [value]     (optional) values to initialize this object.
-     
+
+  /// Creates a new instance of the projection parameters and assigns its value.
+  ///
+  /// - [value]     (optional) values to initialize this object.
+
   ProjectionParams([List<dynamic> values = null])
-      : this._values =  List<String>() {
+      : this._values = List<String>() {
     if (values != null) {
       for (var value in values) this._values.add('' + value);
     }
   }
 
-  
-	/// Creates a new instance from json.
-	/// 
-	/// - [json] 		json for initialize.
-   
+  /// Creates a new instance from json.
+  ///
+  /// - [json] 		json for initialize.
+
   factory ProjectionParams.fromJson(Map<String, dynamic> json) {
-    return  ProjectionParams(json['values']);
+    return ProjectionParams(json['values']);
   }
 
-  
   /// Initialize this object from JSON Map object
-   
+
   Map<String, dynamic> toJson() {
     return <String, dynamic>{'values': this._values};
   }
 
-  
   /// Returned JSON Map object from values of this object
-   
+
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
     addAll(json['values']);
   }
 
-  
-    /// Gets a string representation of the object.
-    /// The result is a comma-separated list of projection fields
-    /// 'field1,field2.field21,field2.field22.field221'
-    /// 
-    /// Returns a string representation of the object.
-     
+  /// Gets a string representation of the object.
+  /// The result is a comma-separated list of projection fields
+  /// 'field1,field2.field21,field2.field22.field221'
+  ///
+  /// Returns a string representation of the object.
+
   String toString() {
     var builder = '';
 
@@ -165,26 +160,24 @@ class ProjectionParams extends ListBase<String> {
     }
   }
 
-  
-    /// Converts specified value into ProjectionParams.
-    /// 
-    /// - value     value to be converted
-    /// Returns         a newly created ProjectionParams.
-    /// 
-    /// See [[AnyValueArray.fromValue]]
-     
+  /// Converts specified value into ProjectionParams.
+  ///
+  /// - value     value to be converted
+  /// Returns         a newly created ProjectionParams.
+  ///
+  /// See [[AnyValueArray.fromValue]]
+
   static ProjectionParams fromValue(dynamic value) {
     if (!(value is List)) value = AnyValueArray.fromValue(value);
 
     return new ProjectionParams(value);
   }
 
-  
-    /// Parses comma-separated list of projection fields.
-    /// 
-    /// - values    one or more comma-separated lists of projection fields
-    /// Returns         a newly created ProjectionParams.
-     
+  /// Parses comma-separated list of projection fields.
+  ///
+  /// - values    one or more comma-separated lists of projection fields
+  /// Returns         a newly created ProjectionParams.
+
   static fromString(List<dynamic> values) {
     var result = new ProjectionParams();
 

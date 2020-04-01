@@ -9,11 +9,10 @@ void main() {
       expect(IntegerConverter.toInteger(123.456), equals(124));
       expect(IntegerConverter.toInteger('123'), equals(123));
       expect(
-          IntegerConverter.toInteger(
-               DateTime.fromMillisecondsSinceEpoch(123)),
+          IntegerConverter.toInteger(DateTime.fromMillisecondsSinceEpoch(123)),
           equals(123));
-      expect(IntegerConverter.toInteger( Duration(milliseconds: 123)),
-          equals(123));
+      expect(
+          IntegerConverter.toInteger(Duration(milliseconds: 123)), equals(123));
 
       expect(IntegerConverter.toIntegerWithDefault(null, 123), equals(123));
       expect(IntegerConverter.toIntegerWithDefault(false, 123), isZero);

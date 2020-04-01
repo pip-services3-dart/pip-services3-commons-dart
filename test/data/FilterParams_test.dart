@@ -4,7 +4,7 @@ import '../../lib/src/data/FilterParams.dart';
 void main() {
   group('FilterParams', () {
     test('Create empty FilterParams (regular)', () {
-      var filter =  FilterParams();
+      var filter = FilterParams();
 
       filter['key'] = 'key1';
       filter['id'] = '1234';
@@ -16,7 +16,7 @@ void main() {
       var keys = Map<String, dynamic>();
       keys['key'] = 'key1';
       keys['id'] = '1234';
-      var filter =  FilterParams(keys);
+      var filter = FilterParams(keys);
       expect('key1', filter['key']);
       expect('1234', filter['id']);
     });
@@ -25,7 +25,7 @@ void main() {
       var keys = Map<String, dynamic>();
       keys['key'] = 'key1';
       keys['id'] = '1234';
-      var filter =  FilterParams(keys);
+      var filter = FilterParams(keys);
       expect('key1', filter['key']);
       expect('1234', filter['id']);
 

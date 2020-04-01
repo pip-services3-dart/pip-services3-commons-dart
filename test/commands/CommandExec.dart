@@ -5,8 +5,8 @@ import '../../lib/src/run/Parameters.dart';
 
 class CommandExec implements IExecutable {
   Future<dynamic> execute(String correlationId, Parameters args) async {
-    if (correlationId == 'wrongId') throw  Exception('Test error');
+    if (correlationId == 'wrongId') throw Exception('Test error');
 
-    return await  Future.value(123);
+    return await Future.value(123);
   }
 }

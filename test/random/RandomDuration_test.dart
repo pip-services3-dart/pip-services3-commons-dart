@@ -6,14 +6,14 @@ void main() {
   group('RandomDuration', () {
     test('Next Duration', () {
       var interval = RandomDuration.nextDuration(
-           Duration(milliseconds: 10000),  Duration(milliseconds: 15000));
+          Duration(milliseconds: 10000), Duration(milliseconds: 15000));
       expect(
           interval.inMilliseconds >= 10000 || interval.inMilliseconds <= 15000,
           isTrue);
     });
 
     test('Update Duration', () {
-      var oldInterval =  Duration(milliseconds: 10000);
+      var oldInterval = Duration(milliseconds: 10000);
 
       var interval = RandomDuration.updateDuration(oldInterval);
       expect(

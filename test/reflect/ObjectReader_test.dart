@@ -6,7 +6,7 @@ import '../../lib/src/reflect/ObjectReader.dart';
 void main() {
   group('ObjectReader', () {
     test('Get Object Property', () {
-      var obj =  TestClass();
+      var obj = TestClass();
 
       var value = ObjectReader.getProperty(obj, 'privateField');
       //assert.isNull(value);
@@ -45,7 +45,7 @@ void main() {
     });
 
     test('Get Object Properties', () {
-      var obj =  TestClass();
+      var obj = TestClass();
       var names = ObjectReader.getPropertyNames(obj);
       //assert.equal(2, names.length);
       expect(names.indexOf('publicField') >= 0, isTrue);

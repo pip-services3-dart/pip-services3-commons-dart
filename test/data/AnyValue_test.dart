@@ -15,7 +15,7 @@ void main() {
     });
 
     test('Equal', () {
-      var value =  AnyValue(1);
+      var value = AnyValue(1);
 
       expect(value.equals(1), isTrue);
       // expect(value.equals(1.0), isTrue);

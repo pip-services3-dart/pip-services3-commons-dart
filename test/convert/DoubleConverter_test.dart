@@ -8,12 +8,10 @@ void main() {
       expect(DoubleConverter.toDouble(123), equals(123));
       expect(DoubleConverter.toDouble(123.456), equals(123.456));
       expect(DoubleConverter.toDouble('123.456'), equals(123.456));
+      expect(DoubleConverter.toDouble(DateTime.fromMillisecondsSinceEpoch(123)),
+          equals(123));
       expect(
-          DoubleConverter.toDouble(
-               DateTime.fromMillisecondsSinceEpoch(123)),
-          equals(123));
-      expect(DoubleConverter.toDouble( Duration(milliseconds: 123)),
-          equals(123));
+          DoubleConverter.toDouble(Duration(milliseconds: 123)), equals(123));
 
       expect(DoubleConverter.toDoubleWithDefault(null, 123), equals(123));
       expect(DoubleConverter.toDoubleWithDefault(false, 123), isZero);

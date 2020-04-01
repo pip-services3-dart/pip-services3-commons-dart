@@ -1,21 +1,20 @@
 import 'dart:async';
 
-
 /// Interface for components that require explicit closure.
-/// 
-/// For components that require opening as well as closing 
+///
+/// For components that require opening as well as closing
 /// use [IOpenable] interface instead.
-/// 
+///
 /// See [IOpenable]
 /// See [Closer]
-/// 
+///
 /// ### Example ###
-/// 
+///
 ///     class MyConnector implements ICloseable {
 ///         dynamic _client = null;
-///         
+///
 ///         ... // The _client can be lazy created
-///         
+///
 ///         Future close(String correlationId){
 ///             if (this._client != null) {
 ///                 this._client.close();
@@ -24,14 +23,13 @@ import 'dart:async';
 ///             return  Future.delayed( Duration());
 ///         }
 ///     }
-/// 
- 
+///
+
 abstract class IClosable {
-  
-	/// Closes component and frees used resources.
-	/// 
-	/// - correlationId 	(optional) transaction id to trace execution through call chain.
+  /// Closes component and frees used resources.
+  ///
+  /// - correlationId 	(optional) transaction id to trace execution through call chain.
   /// Return 			  Future that receives error or null no errors occured.
-	 
+
   Future close(String correlationId);
 }

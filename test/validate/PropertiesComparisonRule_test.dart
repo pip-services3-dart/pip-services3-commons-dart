@@ -6,9 +6,9 @@ import '../../lib/src/validate/PropertiesComparisonRule.dart';
 void main() {
   group('PropertiesComparisonRule', () {
     test('PropertiesComparisonRule', () {
-      var obj =  TestObject();
-      var schema =  Schema().withRule(
-           PropertiesComparisonRule('stringProperty', 'EQ', 'nullProperty'));
+      var obj = TestObject();
+      var schema = Schema().withRule(
+          PropertiesComparisonRule('stringProperty', 'EQ', 'nullProperty'));
 
       obj.stringProperty = 'ABC';
       obj.nullProperty = 'ABC';

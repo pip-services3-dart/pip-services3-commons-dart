@@ -6,8 +6,7 @@ import '../../lib/src/validate/ExcludedRule.dart';
 void main() {
   group('Inclusion Rules', () {
     test('IncludedRule', () {
-      var schema =
-           Schema().withRule( IncludedRule(['AAA', 'BBB', 'CCC', null]));
+      var schema = Schema().withRule(IncludedRule(['AAA', 'BBB', 'CCC', null]));
 
       var results = schema.validate('AAA');
       expect(results.length, 0);
@@ -17,8 +16,7 @@ void main() {
     });
 
     test('ExcludedRule', () {
-      var schema =
-           Schema().withRule( ExcludedRule(['AAA', 'BBB', 'CCC', null]));
+      var schema = Schema().withRule(ExcludedRule(['AAA', 'BBB', 'CCC', null]));
 
       var results = schema.validate('AAA');
       expect(results.length, 1);

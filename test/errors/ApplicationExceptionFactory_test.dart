@@ -32,7 +32,7 @@ void main() {
     };
 
     setUp(() {
-      _descr =  ErrorDescription();
+      _descr = ErrorDescription();
       _descr.correlation_id = 'correlationId';
       _descr.code = 'code';
       _descr.message = 'message';
@@ -40,7 +40,7 @@ void main() {
       _descr.cause = 'cause';
       _descr.stack_trace = 'stackTrace';
 
-      var map =  StringValueMap();
+      var map = StringValueMap();
       map.put('key', 'value');
       _descr.details = map;
     });

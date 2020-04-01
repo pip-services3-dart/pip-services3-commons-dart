@@ -13,7 +13,7 @@ void main() {
       var refs = References.fromTuples([
         'Reference1',
         ref1,
-         Descriptor(
+        Descriptor(
             'pip-services-commons', 'reference', 'object', 'ref2', '1.0'),
         ref2
       ]);
@@ -22,7 +22,7 @@ void main() {
         'ref1',
         'Reference1',
         'ref2',
-         Descriptor('pip-services-commons', 'reference', '*', '*', '*')
+        Descriptor('pip-services-commons', 'reference', '*', '*', '*')
       ]);
       resolver.setReferences(refs);
 
@@ -37,7 +37,7 @@ void main() {
       var refs = References.fromTuples([
         'Reference1',
         ref1,
-         Descriptor(
+        Descriptor(
             'pip-services-commons', 'reference', 'object', 'ref2', '1.0'),
         ref2
       ]);
@@ -51,7 +51,7 @@ void main() {
         null
       ]);
 
-      var resolver =  DependencyResolver(config);
+      var resolver = DependencyResolver(config);
       resolver.setReferences(refs);
 
       expect(resolver.getOneRequired('ref1'), equals(ref1));
