@@ -199,7 +199,7 @@
 to establish dependencies with each other.</p>
 <p>Together with <a href="pip_services3_commons/IReferenceable-class.html">IReferenceable</a> and <a href="pip_services3_commons/IUnreferenceable-class.html">IUnreferenceable</a> interfaces it implements
 a Locator pattern that is used by PipServices toolkit for Inversion of Control
-to assign external dependencies to components. </p>
+to assign external dependencies to components.</p>
 <p>The IReferences object is a simple map, where keys are locators
 and values are component references. It allows to add, remove and find components
 by their locators. Locators can be any values like integers, strings or component types.
@@ -210,7 +210,7 @@ See <a href="pip_services3_commons/References-class.html">References</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyController implements IReferenceable {
     IMyPersistence persistence;
-    ...    
+    ...
     void setReferences(IReferences references) {
         this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
              Descriptor('mygroup', 'persistence', '*', '*', '1.0')
@@ -375,7 +375,7 @@ When all references shall be removed, use <a href="pip_services3_commons/IRefere
           </span>
                   </dt>
         <dd>
-          Removes all component references that match the specified locator.  <a href="pip_services3_commons/IReferences/removeAll.html">[...]</a>
+          Removes all component references that match the specified locator. <a href="pip_services3_commons/IReferences/removeAll.html">[...]</a>
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

@@ -71,25 +71,25 @@ class TypeConverter {
     if (value == null) return null;
 
     // Convert to known types
-    if (type == TypeCode.String)
+    if (type == TypeCode.String) {
       value = StringConverter.toNullableString(value);
-    else if (type == TypeCode.Boolean)
+    } else if (type == TypeCode.Boolean) {
       value = BooleanConverter.toNullableBoolean(value);
-    else if (type == TypeCode.Integer)
+    } else if (type == TypeCode.Integer) {
       value = IntegerConverter.toNullableInteger(value);
-    else if (type == TypeCode.Long)
+    } else if (type == TypeCode.Long) {
       value = LongConverter.toNullableLong(value);
-    else if (type == TypeCode.Float)
+    } else if (type == TypeCode.Float) {
       value = FloatConverter.toNullableFloat(value);
-    else if (type == TypeCode.Double)
+    } else if (type == TypeCode.Double) {
       value = DoubleConverter.toNullableDouble(value);
-    else if (type == TypeCode.DateTime)
+    } else if (type == TypeCode.DateTime) {
       value = DateTimeConverter.toNullableDateTime(value);
-    else if (type == TypeCode.Duration)
+    } else if (type == TypeCode.Duration) {
       value = DurationConverter.toNullableDuration(value);
-    else if (type == TypeCode.Array)
+    } else if (type == TypeCode.Array) {
       value = ArrayConverter.toNullableArray(value);
-    else if (type == TypeCode.Map) value = MapConverter.toNullableMap(value);
+    } else if (type == TypeCode.Map) value = MapConverter.toNullableMap(value);
 
     return value as T;
   }

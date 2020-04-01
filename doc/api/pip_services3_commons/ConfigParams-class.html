@@ -195,7 +195,7 @@
       <div><h1><span class="kind-class">ConfigParams</span> class </h1></div>
 
     <section class="desc markdown">
-      <p>Contains a key-value map with configuration parameters. 
+      <p>Contains a key-value map with configuration parameters.
 All values stored as strings and can be serialized as JSON or string forms.
 When retrieved the values can be automatically converted on read using GetAsXXX methods.
 The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>'my_param'</code></p>
@@ -215,7 +215,7 @@ See <a href="pip_services3_commons/StringValueMap-class.html">StringValueMap</a>
     'section1.key2', 123,
     'section2.key1', true]
 ]);
-        
+
 config.getAsString('section1.key1'); // Result: AAA
 config.getAsInteger('section1.key1'); // Result: 0
 

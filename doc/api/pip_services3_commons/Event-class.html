@@ -201,7 +201,7 @@ It allows to send asynchronous notifications to multiple subscribed listeners.</
 See <a href="pip_services3_commons/IEventListener-class.html">IEventListener</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>var event =  Event('my_event');
- 
+
 event.addListener(myListener);
 
 event.notify('123', Parameters.fromTuples(

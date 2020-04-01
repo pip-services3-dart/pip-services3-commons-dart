@@ -206,8 +206,8 @@ See <a href="pip_services3_commons/Opener-class.html">Opener</a></p>
     ...
     bool isOpen() {
         return this._client != null;
-    } 
-    
+    }
+
     Future open(String correlationId) {
         if (this.isOpen()) {
             return Future(Duration(), (){
@@ -216,15 +216,15 @@ See <a href="pip_services3_commons/Opener-class.html">Opener</a></p>
         }
         ...
     }
-    
+
     Future close(String correlationId) async {
         if (this._client != null) {
             result = await this._client.close();
             this._client = null;
            Future(Duration(), (){ return result})
-        } 
+        }
     }
-   
+
     ...
 }
 </code></pre>

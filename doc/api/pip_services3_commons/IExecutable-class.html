@@ -205,7 +205,7 @@ See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></p>
     Future&lt;dynamic&gt; execute(String correlationId, Parameters args)  {
        return Future.delayed(Duration(), (){
            return args.getAsObject('message');
-       })         
+       })
     }
 }
 

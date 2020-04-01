@@ -217,15 +217,15 @@ name and dependency resolvers can be reconfigured to retrieve dependencies by th
     DependencyResolver _dependencyResolver  = new DependencyResolver();
     IMyPersistence _persistence ;
     ...
-    
+
      MyComponent() {
         this._dependencyResolver.put('persistence', new Descriptor('mygroup', 'persistence', '*', '*', '1.0'));
     }
-    
+
     configure(ConfigParams config ) {
         this._dependencyResolver.configure(config);
-    }  
-    
+    }
+
     setReferences(IReferences references) {
         this._dependencyResolver.setReferences(references);
         this._persistence = this._dependencyResolver.getOneRequired&lt;IMyPersistence&gt;('persistence');
@@ -235,12 +235,12 @@ name and dependency resolvers can be reconfigured to retrieve dependencies by th
 // Create mycomponent and set specific dependency out of many
 var component =  MyComponent();
 component.configure(ConfigParams.fromTuples([
-    'dependencies.persistence', 'mygroup:persistence:*:persistence2:1.0' 
+    'dependencies.persistence', 'mygroup:persistence:*:persistence2:1.0'
 // Override default persistence dependency
 ]));
 component.setReferences(References.fromTuples([
      Descriptor('mygroup','persistence','*','persistence1','1.0'),  MyPersistence(),
-     Descriptor('mygroup','persistence','*','persistence2','1.0'),  MyPersistence()  
+     Descriptor('mygroup','persistence','*','persistence2','1.0'),  MyPersistence()
 // This dependency shall be set
 ]));
 </code></pre>

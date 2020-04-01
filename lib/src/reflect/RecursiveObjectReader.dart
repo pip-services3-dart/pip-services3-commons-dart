@@ -15,13 +15,15 @@ class RecursiveObjectReader {
   static bool _performHasProperty(obj, List<String> names, int nameIndex) {
     if (nameIndex < names.length - 1) {
       var value = ObjectReader.getProperty(obj, names[nameIndex]);
-      if (value != null)
+      if (value != null) {
         return RecursiveObjectReader._performHasProperty(
             value, names, nameIndex + 1);
-      else
+      } else {
         return false;
-    } else
+      }
+    } else {
       return ObjectReader.hasProperty(obj, names[nameIndex]);
+    }
   }
 
   /// Checks recursively if object or its subobjects has a property with specified name.
@@ -38,21 +40,23 @@ class RecursiveObjectReader {
     if (obj == null || name == null) return false;
 
     var names = name.split('.');
-    if (names == null || names.length == 0) return false;
+    if (names == null || names.isEmpty) return false;
 
     return RecursiveObjectReader._performHasProperty(obj, names, 0);
   }
 
-  static _performGetProperty(obj, List<String> names, int nameIndex) {
+  static void _performGetProperty(obj, List<String> names, int nameIndex) {
     if (nameIndex < names.length - 1) {
       var value = ObjectReader.getProperty(obj, names[nameIndex]);
-      if (value != null)
+      if (value != null) {
         return RecursiveObjectReader._performGetProperty(
             value, names, nameIndex + 1);
-      else
+      } else {
         return null;
-    } else
+      }
+    } else {
       return ObjectReader.getProperty(obj, names[nameIndex]);
+    }
   }
 
   /// Recursively gets value of object or its subobjects property specified by its name.
@@ -65,11 +69,11 @@ class RecursiveObjectReader {
   /// - [name] 	a name of the property to get.
   /// Returns the property value or null if property doesn't exist or introspection failed.
 
-  static getProperty(obj, String name) {
+  static dynamic getProperty(obj, String name) {
     if (obj == null || name == null) return null;
 
     var names = name.split('.');
-    if (names == null || names.length == 0) return null;
+    if (names == null || names.isEmpty) return null;
 
     return RecursiveObjectReader._performGetProperty(obj, names, 0);
   }
@@ -85,7 +89,7 @@ class RecursiveObjectReader {
       obj, String path, List<String> result, List cycleDetect) {
     var map = ObjectReader.getProperties(obj);
 
-    if (map.length > 0 && cycleDetect.length < 100) {
+    if (map.isNotEmpty && cycleDetect.length < 100) {
       cycleDetect.add(obj);
       try {
         for (var key in map.keys) {
@@ -97,11 +101,13 @@ class RecursiveObjectReader {
           var newPath = path != null ? path + '.' + key : key;
 
           // Add simple values directly
-          if (_isSimpleValue(value))
+          if (_isSimpleValue(value)) {
             result.add(newPath);
+          }
           // Recursively go to elements
-          else
+          else {
             _performGetPropertyNames(value, newPath, result, cycleDetect);
+          }
         }
       } finally {
         var index = cycleDetect.indexOf(obj);

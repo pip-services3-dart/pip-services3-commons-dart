@@ -203,7 +203,7 @@ to change object configuration in runtime, use <a href="pip_services3_commons/IR
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyClass implements IConfigurable {
     var _myParam = 'default value';
-         
+
     void configure(ConfigParams config) {
         this._myParam = config.getAsStringWithDefault('options.param', myParam);
         ...

@@ -200,7 +200,7 @@
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyController implements IReferenceable {
     IMyPersistence persistence;
-    ...    
+    ...
     void setReferences(IReferences references) {
         this.persistence = references.getOneRequired&lt;IMyPersistence&gt;(
              Descriptor('mygroup', 'persistence', '*', '*', '1.0')
@@ -367,7 +367,7 @@ When all references shall be removed, use <a href="pip_services3_commons/Referen
           </span>
                   </dt>
         <dd>
-          Removes all component references that match the specified locator.  <a href="pip_services3_commons/References/removeAll.html">[...]</a>
+          Removes all component references that match the specified locator. <a href="pip_services3_commons/References/removeAll.html">[...]</a>
                   <div class="features">override</div>
 </dd>
         <dt id="noSuchMethod" class="callable inherited">

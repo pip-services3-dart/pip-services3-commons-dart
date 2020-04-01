@@ -196,16 +196,16 @@
 
     <section class="desc markdown">
       <p>Interface for components that require explicit closure.</p>
-<p>For components that require opening as well as closing 
+<p>For components that require opening as well as closing
 use <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a> interface instead.</p>
 <p>See <a href="pip_services3_commons/IOpenable-class.html">IOpenable</a>
 See <a href="pip_services3_commons/Closer-class.html">Closer</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyConnector implements ICloseable {
     dynamic _client = null;
-    
+
     ... // The _client can be lazy created
-    
+
     Future close(String correlationId){
         if (this._client != null) {
             this._client.close();
