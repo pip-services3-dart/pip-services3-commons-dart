@@ -37,7 +37,7 @@ import './Descriptor.dart';
 ///         ...
 ///         
 ///          MyComponent() {
-///             this._dependencyResolver.put("persistence", new Descriptor("mygroup", "persistence", "*", "*", "1.0"));
+///             this._dependencyResolver.put('persistence', new Descriptor('mygroup', 'persistence', '*', '*', '1.0'));
 ///         }
 ///         
 ///         configure(ConfigParams config ) {
@@ -46,19 +46,19 @@ import './Descriptor.dart';
 ///         
 ///         setReferences(IReferences references) {
 ///             this._dependencyResolver.setReferences(references);
-///             this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>("persistence");
+///             this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>('persistence');
 ///         }
 ///     }
 ///     
 ///     // Create mycomponent and set specific dependency out of many
 ///     var component = new MyComponent();
 ///     component.configure(ConfigParams.fromTuples([
-///         "dependencies.persistence", "mygroup:persistence:*:persistence2:1.0" 
+///         'dependencies.persistence', 'mygroup:persistence:*:persistence2:1.0' 
 ///     // Override default persistence dependency
 ///     ]));
 ///     component.setReferences(References.fromTuples([
-///         new Descriptor("mygroup","persistence","*","persistence1","1.0"), new MyPersistence(),
-///         new Descriptor("mygroup","persistence","*","persistence2","1.0"), new MyPersistence()  
+///         new Descriptor('mygroup','persistence','*','persistence1','1.0'), new MyPersistence(),
+///         new Descriptor('mygroup','persistence','*','persistence2','1.0'), new MyPersistence()  
 ///     // This dependency shall be set
 ///     ]));
 /// 
@@ -93,7 +93,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 	/// See [ConfigParams]
 	 
   void configure(ConfigParams config) {
-    var dependencies = config.getSection("dependencies");
+    var dependencies = config.getSection('dependencies');
     var names = dependencies.getKeys();
     for (var index = 0; index < names.length; index++) {
       var name = names[index];
@@ -138,9 +138,9 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 	/// Returns the dependency locator or null if locator was not configured.
 	 
   locate(String name) {
-    if (name == null) throw new Exception("Dependency name cannot be null");
+    if (name == null) throw new Exception('Dependency name cannot be null');
     if (this._references == null)
-      throw new Exception("References shall be set");
+      throw new Exception('References shall be set');
 
     return this._dependencies[name];
   }
@@ -211,7 +211,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 	/// Throws a [ReferenceException] of required is true and no dependencies found.
 	 
   List<T> find<T>(String name, bool required) {
-    if (name == null) throw new Exception("Name cannot be null");
+    if (name == null) throw new Exception('Name cannot be null');
 
     var locator = this.locate(name);
     if (locator == null) {

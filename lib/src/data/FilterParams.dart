@@ -8,10 +8,10 @@ import './StringValueMap.dart';
 /// ### Example ###
 /// 
 ///     var filter = FilterParams.fromTuples(
-///         ["type", "Type1",
-///         "from_create_time", new Date(2000, 0, 1),
-///         "to_create_time", new Date(),
-///         "compvared", true]
+///         ['type', 'Type1',
+///         'from_create_time', new Date(2000, 0, 1),
+///         'to_create_time', new Date(),
+///         'compvared', true]
 ///     );
 ///     var paging = new PagingParams(0, 100);
 ///     

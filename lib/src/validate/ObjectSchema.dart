@@ -12,14 +12,14 @@ import './PropertySchema.dart';
 /// ### Example ###
 /// 
 ///     var schema = new ObjectSchema(false)
-///         .withOptionalProperty("id", TypeCode.String)
-///         .withRequiredProperty("name", TypeCode.String);
+///         .withOptionalProperty('id', TypeCode.String)
+///         .withRequiredProperty('name', TypeCode.String);
 ///     
-///     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
-///     schema.validate({ name: "ABC" });                // Result: no errors
-///     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
-///     schema.validate({ id: 1, _name: "ABC" });        // Result: name is missing, unexpected _name
-///     schema.validate("ABC");                          // Result: type mismatch
+///     schema.validate({ id: '1', name: 'ABC' });       // Result: no errors
+///     schema.validate({ name: 'ABC' });                // Result: no errors
+///     schema.validate({ id: 1, name: 'ABC' });         // Result: id type mismatch
+///     schema.validate({ id: 1, _name: 'ABC' });        // Result: name is missing, unexpected _name
+///     schema.validate('ABC');                          // Result: type mismatch
  
 class ObjectSchema extends Schema {
   List<PropertySchema> _properties;
@@ -161,7 +161,7 @@ class ObjectSchema extends Schema {
 
     if (value == null) return;
 
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var properties = ObjectReader.getProperties(value);
 
     if (this._properties != null) {
@@ -190,13 +190,13 @@ class ObjectSchema extends Schema {
 
     if (this._allowUndefined == null || this._allowUndefined == false)
       for (var key in properties.keys) {
-        var propertyPath = key != null && path != "" ? path + "." + key : key;
+        var propertyPath = key != null && path != '' ? path + '.' + key : key;
 
         results.add(new ValidationResult(
             propertyPath,
             ValidationResultType.Warning,
-            "UNEXPECTED_PROPERTY",
-            name + " contains unexpected property " + key,
+            'UNEXPECTED_PROPERTY',
+            name + ' contains unexpected property ' + key,
             null,
             key));
       }

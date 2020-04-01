@@ -13,7 +13,7 @@ import '../reflect/ObjectReader.dart';
 /// ### Example ###
 /// 
 ///     var schema = new ObjectSchema()
-///         .withRule(new PropertyComparisonRule("field1", "NE", "field2"));
+///         .withRule(new PropertyComparisonRule('field1', 'NE', 'field2'));
 ///     
 ///     schema.validate({ field1: 1, field2: 2 });       // Result: no errors
 ///     schema.validate({ field1: 1, field2: 1 });       // Result: field1 shall not be equal to field2
@@ -28,7 +28,7 @@ class PropertiesComparisonRule implements IValidationRule {
     /// Creates a new validation rule and sets its arguments.
     /// 
     /// - [property1]    a name of the first property to compare.
-    /// - [operation]    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+    /// - [operation]    a comparison operation: '==' ('=', 'EQ'), '!= ' ('<>', 'NE'); '<'/'>' ('LT'/'GT'), '<='/'>=' ('LE'/'GE'); 'LIKE'.
     /// - [property2]    a name of the second property to compare.
     /// 
     /// See [ObjectComparator.compare]
@@ -48,7 +48,7 @@ class PropertiesComparisonRule implements IValidationRule {
      
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var value1 = ObjectReader.getProperty(value, this._property1);
     var value2 = ObjectReader.getProperty(value, this._property2);
 
@@ -56,13 +56,13 @@ class PropertiesComparisonRule implements IValidationRule {
       results.add(new ValidationResult(
           path,
           ValidationResultType.Error,
-          "PROPERTIES_NOT_MATCH",
+          'PROPERTIES_NOT_MATCH',
           name +
-              " must have " +
+              ' must have ' +
               this._property1.toString() +
-              " " +
+              ' ' +
               this._operation.toString() +
-              " " +
+              ' ' +
               this._property2.toString(),
           value2,
           value1));

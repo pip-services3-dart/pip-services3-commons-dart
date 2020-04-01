@@ -13,10 +13,10 @@ import './ConfigParams.dart';
 /// ### Example ###
 /// 
 ///     class MyClass implements IConfigurable {
-///         var _myParam = "default value";
+///         var _myParam = 'default value';
 ///              
 ///         void configure(ConfigParams config) {
-///             this._myParam = config.getAsStringWithDefault("options.param", myParam);
+///             this._myParam = config.getAsStringWithDefault('options.param', myParam);
 ///             ...
 ///         }
 ///     }

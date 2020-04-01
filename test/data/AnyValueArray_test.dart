@@ -9,9 +9,9 @@ void main() {
 
       array = new AnyValueArray([1, 2, 3]);
       expect(3, array.length);
-      expect("1,2,3", array.toString());
+      expect('1,2,3', array.toString());
 
-      array = AnyValueArray.fromString("Fatal,Error,Info,", ",");
+      array = AnyValueArray.fromString('Fatal,Error,Info,', ',');
       expect(4, array.length);
 
       array = new AnyValueArray([1, 2, 3]);

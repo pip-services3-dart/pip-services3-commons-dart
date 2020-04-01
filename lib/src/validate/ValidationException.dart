@@ -28,11 +28,11 @@ class ValidationException extends BadRequestException {
       [String message, List<ValidationResult> results])
       : super(
             correlationId,
-            "INVALID_DATA",
+            'INVALID_DATA',
             message != null
                 ? message
                 : ValidationException.composeMessage(results)) {
-    if (results != null) this.withDetails("results", results);
+    if (results != null) this.withDetails('results', results);
   }
 
   
@@ -44,7 +44,7 @@ class ValidationException extends BadRequestException {
     /// See [ValidationResult]
      
   static String composeMessage(List<ValidationResult> results) {
-    var builder = "Validation failed";
+    var builder = 'Validation failed';
 
     if (results != null && results.length > 0) {
       var first = true;
@@ -53,7 +53,7 @@ class ValidationException extends BadRequestException {
 
         if (result.getType() == ValidationResultType.Information) continue;
 
-        builder += first ? ": " : ", ";
+        builder += first ? ': ' : ', ';
         builder += result.getMessage();
         first = false;
       }

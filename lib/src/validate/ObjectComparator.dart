@@ -6,8 +6,8 @@ import '../convert/StringConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     ObjectComparator.compare(2, "GT", 1);        // Result: true
-///     ObjectComparator.areEqual("A", "B");         // Result: false
+///     ObjectComparator.compare(2, 'GT', 1);        // Result: true
+///     ObjectComparator.areEqual('A', 'B');         // Result: false
  
 class ObjectComparator {
   
@@ -15,28 +15,28 @@ class ObjectComparator {
     /// The operation can be performed over values of any type.
     /// 
     /// - [value1]        the first argument to compare
-    /// - [operation]     the comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+    /// - [operation]     the comparison operation: '==' ('=', 'EQ'), '!= ' ('<>', 'NE'); '<'/'>' ('LT'/'GT'), '<='/'>=' ('LE'/'GE'); 'LIKE'.
     /// - [value2]        the second argument to compare
     /// Returns result of the comparison operation
      
   static bool compare(dynamic value1, String operation, dynamic value2) {
     operation = operation.toUpperCase();
 
-    if (operation == "=" || operation == "==" || operation == "EQ")
+    if (operation == '=' || operation == '==' || operation == 'EQ')
       return ObjectComparator.areEqual(value1, value2);
-    if (operation == "!=" || operation == "<>" || operation == "NE")
+    if (operation == '!=' || operation == '<>' || operation == 'NE')
       return ObjectComparator.areNotEqual(value1, value2);
-    if (operation == "<" || operation == "LT")
+    if (operation == '<' || operation == 'LT')
       return ObjectComparator.isLess(value1, value2);
-    if (operation == "<=" || operation == "LE" || operation == "LTE")
+    if (operation == '<=' || operation == 'LE' || operation == 'LTE')
       return ObjectComparator.areEqual(value1, value2) ||
           ObjectComparator.isLess(value1, value2);
-    if (operation == ">" || operation == "GT")
+    if (operation == '>' || operation == 'GT')
       return ObjectComparator.isGreater(value1, value2);
-    if (operation == ">=" || operation == "GE" || operation == "GTE")
+    if (operation == '>=' || operation == 'GE' || operation == 'GTE')
       return ObjectComparator.areEqual(value1, value2) ||
           ObjectComparator.isGreater(value1, value2);
-    if (operation == "LIKE") return ObjectComparator.match(value1, value2);
+    if (operation == 'LIKE') return ObjectComparator.match(value1, value2);
 
     return false;
   }

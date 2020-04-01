@@ -10,12 +10,12 @@ void main() {
       var obj = new TestObject();
 
       var schema = new Schema().withRule(new OnlyOneExistsRule(
-          ["missingProperty", "stringProperty", "nullProperty"]));
+          ['missingProperty', 'stringProperty', 'nullProperty']));
       var results = schema.validate(obj);
       expect(results.length, 0);
 
       schema = new Schema().withRule(new OnlyOneExistsRule(
-          ["stringProperty", "nullProperty", "intField"]));
+          ['stringProperty', 'nullProperty', 'intField']));
       results = schema.validate(obj);
       expect(results.length, 1);
     });

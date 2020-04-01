@@ -19,9 +19,9 @@ import './MapConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = TypeConverter.toType(TypeCode.Integer, "123.456"); // Result: 123
+///     var value1 = TypeConverter.toType(TypeCode.Integer, '123.456'); // Result: 123
 ///     var value2 = TypeConverter.toType(TypeCode.DateTime, 123); // Result: DateTime(123)
-///     var value3 = TypeConverter.toType(TypeCode.Boolean, "F"); // Result: false
+///     var value3 = TypeConverter.toType(TypeCode.Boolean, 'F'); // Result: false
  
 class TypeConverter {
   
@@ -42,17 +42,17 @@ class TypeConverter {
     if (value is Map) return TypeCode.Map;
 
     if (value is String) {
-      // if (value == "undefined")
+      // if (value == 'undefined')
       //     return TypeCode.Unknown;
-      // if (value == "object")
+      // if (value == 'object')
       //     return TypeCode.Map;
-      // if (value == "boolean")
+      // if (value == 'boolean')
       //     return TypeCode.Boolean;
-      // if (value == "number")
+      // if (value == 'number')
       //     return TypeCode.Double;
-      // if (value == "string")
+      // if (value == 'string')
       //     return TypeCode.String;
-      // if (value == "function")
+      // if (value == 'function')
       //     return TypeCode.Object;
 
       return TypeCode.String;
@@ -125,7 +125,7 @@ class TypeConverter {
         TypeCode.Boolean) // cases from here down were added by Mark Makarychev.
       value = false;
     else if (type == TypeCode.String)
-      value = "";
+      value = '';
     else if (type == TypeCode.DateTime)
       value = new DateTime.now();
     else if (type == TypeCode.Duration)
@@ -162,33 +162,33 @@ class TypeConverter {
   static String asString(TypeCode type) {
     switch (type) {
       case TypeCode.Unknown:
-        return "unknown";
+        return 'unknown';
       case TypeCode.String:
-        return "String";
+        return 'String';
       case TypeCode.Boolean:
-        return "bool";
+        return 'bool';
       case TypeCode.Integer:
-        return "int";
+        return 'int';
       case TypeCode.Long:
-        return "int";
+        return 'int';
       case TypeCode.Float:
-        return "double";
+        return 'double';
       case TypeCode.Double:
-        return "double";
+        return 'double';
       case TypeCode.DateTime:
-        return "DateTime";
+        return 'DateTime';
       case TypeCode.Duration:
-        return "Duration";
+        return 'Duration';
       case TypeCode.Object:
-        return "object";
+        return 'object';
       case TypeCode.Enum:
-        return "enum";
+        return 'enum';
       case TypeCode.Array:
-        return "List";
+        return 'List';
       case TypeCode.Map:
-        return "Map";
+        return 'Map';
       default:
-        return "unknown";
+        return 'unknown';
     }
   }
 }

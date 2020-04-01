@@ -23,12 +23,12 @@ import './AnyValueArray.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = new AnyValueMap({ key1: 1, key2: "123.456", key3: "2018-01-01" });
+///     var value1 = new AnyValueMap({ key1: 1, key2: '123.456', key3: '2018-01-01' });
 ///     
-///     value1.getAsBoolean("key1");   // Result: true
-///     value1.getAsInteger("key2");   // Result: 123
-///     value1.getAsFloat("key2");     // Result: 123.456
-///     value1.getAsDateTime("key3");  // Result: new Date(2018,0,1)
+///     value1.getAsBoolean('key1');   // Result: true
+///     value1.getAsInteger('key2');   // Result: 123
+///     value1.getAsFloat('key2');     // Result: 123.456
+///     value1.getAsDateTime('key3');  // Result: new Date(2018,0,1)
 /// 
 /// See [StringConverter]
 /// See [TypeConverter]
@@ -217,10 +217,10 @@ class AnyValueMap extends MapBase<String, dynamic>
   }
 
   
-    /// Converts map element into a String or returns "" if conversion is not possible.
+    /// Converts map element into a String or returns '' if conversion is not possible.
     /// 
     /// - [key]       a key of element to get.
-    /// Returns String value of the element or "" if conversion is not supported. 
+    /// Returns String value of the element or '' if conversion is not supported. 
     /// 
     /// See [getAsStringWithDefault]
      
@@ -660,7 +660,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   
     /// Gets a String representation of the object.
     /// The result is a semicolon-separated list of key-value pairs as
-    /// "key1=value1;key2=value2;key=value3"
+    /// 'key1=value1;key2=value2;key=value3'
     /// 
     /// Returns a String representation of the object.
      

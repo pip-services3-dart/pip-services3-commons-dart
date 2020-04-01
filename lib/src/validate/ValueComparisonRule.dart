@@ -12,7 +12,7 @@ import './ValidationResultType.dart';
 /// ### Example ###
 /// 
 ///     var schema = new Schema()
-///         .withRule(new ValueComparisonRule("EQ", 1));
+///         .withRule(new ValueComparisonRule('EQ', 1));
 ///     
 ///     schema.validate(1);          // Result: no errors
 ///     schema.validate(2);          // Result: 2 is not equal to 1
@@ -24,7 +24,7 @@ class ValueComparisonRule implements IValidationRule {
   
     /// Creates a new validation rule and sets its values.
     /// 
-    /// - [operation]    a comparison operation: "==" ("=", "EQ"), "!= " ("<>", "NE"); "<"/">" ("LT"/"GT"), "<="/">=" ("LE"/"GE"); "LIKE".
+    /// - [operation]    a comparison operation: '==' ('=', 'EQ'), '!= ' ('<>', 'NE'); '<'/'>' ('LT'/'GT'), '<='/'>=' ('LE'/'GE'); 'LIKE'.
     /// - [value]        a constant value to compare to
      
   ValueComparisonRule(String operation, dynamic value)
@@ -41,21 +41,21 @@ class ValueComparisonRule implements IValidationRule {
      
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
 
     if (!ObjectComparator.compare(value, this._operation, this._value)) {
       results.add(new ValidationResult(
           path,
           ValidationResultType.Error,
-          "BAD_VALUE",
+          'BAD_VALUE',
           name +
-              " must " +
+              ' must ' +
               this._operation.toString() +
-              " " +
+              ' ' +
               this._value.toString() +
-              " but found " +
+              ' but found ' +
               value.toString(),
-          this._operation.toString() + " " + this._value.toString(),
+          this._operation.toString() + ' ' + this._value.toString(),
           value));
     }
   }

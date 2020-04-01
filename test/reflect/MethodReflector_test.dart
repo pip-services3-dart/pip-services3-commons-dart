@@ -13,7 +13,7 @@ void main() {
 
     test('Invoke Method', () {
       var obj = TestClass();
-      var result = MethodReflector.invokeMethod(obj, "PUBLICMETHOD", [1, 2]);
+      var result = MethodReflector.invokeMethod(obj, 'PUBLICMETHOD', [1, 2]);
       expect(result, equals(3));
     });
   });

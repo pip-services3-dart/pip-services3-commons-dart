@@ -3,14 +3,14 @@ import '../errors/ConfigException.dart';
 
 /// Locator type that most often used in PipServices toolkit.
 /// It locates components using several fields:
-/// - Group: a package or just named group of components like "pip-services"
-/// - Type: logical component type that defines it's contract like "persistence"
-/// - Kind: physical implementation type like "mongodb"
-/// - Name: unique component name like "default"
-/// - Version: version of the component contract like "1.0"
+/// - Group: a package or just named group of components like 'pip-services'
+/// - Type: logical component type that defines it's contract like 'persistence'
+/// - Kind: physical implementation type like 'mongodb'
+/// - Name: unique component name like 'default'
+/// - Version: version of the component contract like '1.0'
 /// 
 /// The locator matching can be done by all or only few selected fields. 
-/// The fields that shall be excluded from the matching must be set to <code>"*"</code> or <code>null</code>.
+/// The fields that shall be excluded from the matching must be set to <code>'*'</code> or <code>null</code>.
 /// That approach allows to implement many interesting scenarios. For instance:
 /// - Locate all loggers (match by type and version)
 /// - Locate persistence components for a microservice (match by group and type)
@@ -18,8 +18,8 @@ import '../errors/ConfigException.dart';
 /// 
 /// ### Example ###
 /// 
-///     var locator1 = new Descriptor("mygroup", "connector", "aws", "default", "1.0");
-///     var locator2 = Descriptor.fromString("mygroup:connector:*:*:1.0");
+///     var locator1 = new Descriptor('mygroup', 'connector', 'aws', 'default', '1.0');
+///     var locator2 = Descriptor.fromString('mygroup:connector:*:*:1.0');
 ///     
 ///     locator1.match(locator2);		// Result: true
 ///     locator1.equal(locator2);		// Result: true
@@ -43,11 +43,11 @@ class Descriptor {
 	 
   Descriptor(
       String group, String type, String kind, String name, String version) {
-    if ("*" == group) group = null;
-    if ("*" == type) type = null;
-    if ("*" == kind) kind = null;
-    if ("*" == name) name = null;
-    if ("*" == version) version = null;
+    if ('*' == group) group = null;
+    if ('*' == type) type = null;
+    if ('*' == kind) kind = null;
+    if ('*' == name) name = null;
+    if ('*' == version) version = null;
 
     this._group = group;
     this._type = type;
@@ -107,7 +107,7 @@ class Descriptor {
 
   
 	/// Partially matches this descriptor to another descriptor.
-	/// Fields that contain "*" or null are excluded from the match.
+	/// Fields that contain '*' or null are excluded from the match.
 	/// 
 	/// - [descriptor] 	the descriptor to match this one against.
 	/// Returns true if descriptors match and false otherwise 
@@ -147,7 +147,7 @@ class Descriptor {
 
   
 	/// Checks whether all descriptor fields are set.
-	/// If descriptor has at least one "*" or null field it is considered "incomplete",
+	/// If descriptor has at least one '*' or null field it is considered 'incomplete',
 	/// 
 	/// Returns true if all descriptor fields are defined and false otherwise.
 	 
@@ -181,21 +181,21 @@ class Descriptor {
   
     /// Gets a string representation of the object.
     /// The result is a colon-separated list of descriptor fields as
-    /// "mygroup:connector:aws:default:1.0"
+    /// 'mygroup:connector:aws:default:1.0'
     /// 
     /// Returns a string representation of the object.
 	 
   @override
   String toString() {
-    return (this._group ?? "*") +
-        ":" +
-        (this._type ?? "*") +
-        ":" +
-        (this._kind ?? "*") +
-        ":" +
-        (this._name ?? "*") +
-        ":" +
-        (this._version ?? "*");
+    return (this._group ?? '*') +
+        ':' +
+        (this._type ?? '*') +
+        ':' +
+        (this._kind ?? '*') +
+        ':' +
+        (this._name ?? '*') +
+        ':' +
+        (this._version ?? '*');
   }
 
   
@@ -208,11 +208,11 @@ class Descriptor {
   static Descriptor fromString(String value) {
     if (value == null || value.length == 0) return null;
 
-    var tokens = value.split(":");
+    var tokens = value.split(':');
     if (tokens.length != 5) {
-      throw new ConfigException(null, "BAD_DESCRIPTOR",
-              "Descriptor " + value + " is in wrong format")
-          .withDetails("descriptor", value);
+      throw new ConfigException(null, 'BAD_DESCRIPTOR',
+              'Descriptor ' + value + ' is in wrong format')
+          .withDetails('descriptor', value);
     }
 
     return new Descriptor(tokens[0].trim(), tokens[1].trim(), tokens[2].trim(),

@@ -23,16 +23,16 @@ import '../convert/IntegerConverter.dart';
 ///     var myObj = new MyObject();
 ///     
 ///     var properties = ObjectReader.getPropertyNames();
-///     ObjectReader.hasProperty(myObj, "myProperty");
-///     var value = PropertyReflector.getProperty(myObj, "myProperty");
+///     ObjectReader.hasProperty(myObj, 'myProperty');
+///     var value = PropertyReflector.getProperty(myObj, 'myProperty');
 ///     
-///     var myMap = { "key1": 123, "key2": "ABC" };
-///     ObjectReader.hasProperty(myMap, "key1");
-///     var value = ObjectReader.getProperty(myMap, "key1");
+///     var myMap = { 'key1': 123, 'key2': 'ABC' };
+///     ObjectReader.hasProperty(myMap, 'key1');
+///     var value = ObjectReader.getProperty(myMap, 'key1');
 ///     
 ///     var myArray = [1, 2, 3]
-///     ObjectReader.hasProperty(myArrat, "0");
-///     var value = ObjectReader.getProperty(myArray, "0");
+///     ObjectReader.hasProperty(myArrat, '0');
+///     var value = ObjectReader.getProperty(myArray, '0');
  
 class ObjectReader {
   

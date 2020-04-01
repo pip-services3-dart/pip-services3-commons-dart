@@ -33,15 +33,15 @@ void main() {
 
     setUp(() {
       _descr = new ErrorDescription();
-      _descr.correlation_id = "correlationId";
-      _descr.code = "code";
-      _descr.message = "message";
+      _descr.correlation_id = 'correlationId';
+      _descr.code = 'code';
+      _descr.message = 'message';
       _descr.status = 777;
-      _descr.cause = "cause";
-      _descr.stack_trace = "stackTrace";
+      _descr.cause = 'cause';
+      _descr.stack_trace = 'stackTrace';
 
       var map = new StringValueMap();
-      map.put("key", "value");
+      map.put('key', 'value');
       _descr.details = map;
     });
 
@@ -156,7 +156,7 @@ void main() {
     });
 
     test('Create From Default', () {
-      _descr.category = "any_other";
+      _descr.category = 'any_other';
 
       var ex = ApplicationExceptionFactory.create(_descr);
 

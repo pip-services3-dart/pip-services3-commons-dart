@@ -1,4 +1,4 @@
-import "./IIdentifiable.dart";
+import './IIdentifiable.dart';
 
 
 /// Interface for data objects that can be uniquely identifed by a string id. 

@@ -15,16 +15,16 @@ import './Parameters.dart';
 ///         ...
 ///         Future<dynamic> execute(String correlationId, Parameters args)  {
 ///            return Future.delayed(Duration(), (){
-///                return args.getAsObject("message");
+///                return args.getAsObject('message');
 ///            })         
 ///         }
 ///     }
 ///     
 ///     var echo = new EchoComponent();
-///     var message = "Test";
-///     echo.execute("123", Parameters.fromTuples(["message", message])
+///     var message = 'Test';
+///     echo.execute('123', Parameters.fromTuples(['message', message])
 ///        .then((result) {
-///             console.log("Request: " + message + " Response: " + result);
+///             console.log('Request: ' + message + ' Response: ' + result);
 ///         })
 ///     );
  

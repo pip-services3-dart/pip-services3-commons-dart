@@ -26,7 +26,7 @@ import './ErrorCategory.dart';
 /// - [message]: is a human-readable error description
 /// - [category]: one of 12 standard error categories of errors
 /// - [status]: numeric HTTP status code for REST invocations
-/// - [code]: a unique error code, usually defined as "MY_ERROR_CODE"
+/// - [code]: a unique error code, usually defined as 'MY_ERROR_CODE'
 /// - [correlation_id]: a unique transaction id to trace execution through a call chain
 /// - [details]: map with error parameters that can help to recreate meaningful error description in other languages
 /// - [stack_trace]: a stack trace
@@ -63,7 +63,7 @@ class ApplicationException implements Exception {
     /// 
     /// - [category]          (optional) a standard error category. Default: Unknown
     /// - [correlation_id]    (optional) a unique transaction id to trace execution through call chain.
-    /// - [code]              (optional) a unique error code. Default: "UNKNOWN"
+    /// - [code]              (optional) a unique error code. Default: 'UNKNOWN'
     /// - [message]           (optional) a human-readable description of the error.
      
   ApplicationException(

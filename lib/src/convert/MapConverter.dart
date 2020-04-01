@@ -5,9 +5,9 @@
 /// 
 /// ### Example ###
 /// 
-///     var value1 = MapConverted.toNullableMap("ABC"); // Result: null
-///     var value2 = MapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-///     var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { "0": 1, "1": 2, "2": 3 }
+///     var value1 = MapConverted.toNullableMap('ABC'); // Result: null
+///     var value2 = MapConverted.toNullableMap({ 'key': 123 }); // Result: { 'key': 123 }
+///     var value3 = MapConverted.toNullableMap([1,2,3]); // Result: { '0': 1, '1': 2, '2': 3 }
  
 class MapConverter {
   

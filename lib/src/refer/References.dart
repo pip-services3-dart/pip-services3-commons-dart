@@ -14,7 +14,7 @@ import './ReferenceException.dart';
 ///         ...    
 ///         void setReferences(IReferences references) {
 ///             this.persistence = references.getOneRequired<IMyPersistence>(
-///                 new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+///                 new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
 ///         ...
@@ -25,8 +25,8 @@ import './ReferenceException.dart';
 ///     var controller = new MyController();
 ///     
 ///     var references = References.fromTuples([
-///         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
-///         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
+///         new Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
+///         new Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
 ///     ]);
 ///     controller.setReferences(references);
  
@@ -56,7 +56,7 @@ class References implements IReferences {
 	/// - [component] a component reference to be added.
 	 
   void put(locator, component) {
-    if (component == null) throw new Exception("Component cannot be null");
+    if (component == null) throw new Exception('Component cannot be null');
 
     this._references.add(new Reference(locator, component));
   }
@@ -204,7 +204,7 @@ class References implements IReferences {
 	/// Throws a [ReferenceException] when required is set to true but no references found.
 	 
   List<T> find<T>(locator, bool required) {
-    if (locator == null) throw new Exception("Locator cannot be null");
+    if (locator == null) throw new Exception('Locator cannot be null');
 
     var components = new List<T>();
 

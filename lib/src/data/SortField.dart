@@ -5,9 +5,9 @@
 /// 
 /// ### Example ###
 /// 
-///     var filter = FilterParams.fromTuples(["type", "Type1"]);
+///     var filter = FilterParams.fromTuples(['type', 'Type1']);
 ///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField("create_time", true));
+///     var sorting = new SortingParams(new SortField('create_time', true));
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
  
@@ -34,21 +34,21 @@ class SortField {
 	/// - [json] 		json for initialize.
    
   factory SortField.fromJson(Map<String, dynamic> json) {
-    return new SortField(json["name"], json["ascending"]);
+    return new SortField(json['name'], json['ascending']);
   }
 
   
   /// Initialize this object from JSON Map object
    
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{"name": this.name, "ascending": this.ascending};
+    return <String, dynamic>{'name': this.name, 'ascending': this.ascending};
   }
 
   
   /// Returned JSON Map object from values of this object
    
   void fromJson(Map<String, dynamic> json) {
-    this.name = json["name"];
-    this.ascending = json["ascending"];
+    this.name = json['name'];
+    this.ascending = json['ascending'];
   }
 }

@@ -11,13 +11,13 @@ import './IEvent.dart';
 /// 
 ///     class MyListener implements IEventListener {
 ///          void _onEvent(String correlationId, IEvent event, Parameters args ) {
-///             print("Fired event " + event.getName());
+///             print('Fired event ' + event.getName());
 ///         }
 ///     }
 ///     
-///     var event = new Event("myevent");
+///     var event = new Event('myevent');
 ///     event.addListener(new MyListener());
-///     event.notify("123", Parameters.fromTuples(["param1", "ABC"]));
+///     event.notify('123', Parameters.fromTuples(['param1', 'ABC']));
 ///     
 ///     // Console output: Fired event myevent
  

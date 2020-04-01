@@ -8,13 +8,13 @@ void main() {
     ApplicationException _appEx;
     Exception _ex;
 
-    var Category = "category";
-    var CorrelationId = "correlationId";
-    var Code = "code";
-    var Message = "message";
+    var Category = 'category';
+    var CorrelationId = 'correlationId';
+    var Code = 'code';
+    var Message = 'message';
 
     setUp(() {
-      _ex = new Exception("Cause exception");
+      _ex = new Exception('Cause exception');
 
       _appEx = new ApplicationException(Category, CorrelationId, Code, Message);
     });
@@ -33,7 +33,7 @@ void main() {
     });
 
     test('With Code', () {
-      var newCode = "newCode";
+      var newCode = 'newCode';
       var appEx = _appEx.withCode(newCode);
 
       expect(appEx, equals(_appEx));
@@ -41,7 +41,7 @@ void main() {
     });
 
     test('With CorrelationId', () {
-      var newCorrelationId = "newCorrelationId";
+      var newCorrelationId = 'newCorrelationId';
       var appEx = _appEx.withCorrelationId(newCorrelationId);
 
       expect(appEx, equals(_appEx));
@@ -57,7 +57,7 @@ void main() {
     });
 
     test('With Details', () {
-      var key = "key";
+      var key = 'key';
       var obj = {};
 
       var appEx = _appEx.withDetails(key, obj);
@@ -68,7 +68,7 @@ void main() {
     });
 
     test('With Stack Trace', () {
-      var newTrace = "newTrace";
+      var newTrace = 'newTrace';
       var appEx = _appEx.withStackTrace(newTrace);
 
       expect(appEx, equals(_appEx));

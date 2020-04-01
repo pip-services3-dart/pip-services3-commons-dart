@@ -1,5 +1,5 @@
 import 'dart:collection';
-import "./AnyValueArray.dart";
+import './AnyValueArray.dart';
 
 
 /// Defines projection parameters with list if fields to include into query results.
@@ -7,16 +7,16 @@ import "./AnyValueArray.dart";
 /// The parameters support two formats: dot format and nested format.
 /// 
 /// The dot format is the standard way to define included fields and subfields using
-/// dot object notation: <code>"field1,field2.field21,field2.field22.field221"</code>.
+/// dot object notation: <code>'field1,field2.field21,field2.field22.field221'</code>.
 /// 
 /// As alternative the nested format offers a more compact representation:
-/// <code>"field1,field2(field21,field22(field221))"</code>.
+/// <code>'field1,field2(field21,field22(field221))'</code>.
 /// 
 /// ### Example ###
 /// 
-///     var filter = FilterParams.fromTuples(["type", "Type1"]);
+///     var filter = FilterParams.fromTuples(['type', 'Type1']);
 ///     var paging = new PagingParams(0, 100);
-///     var projection = ProjectionParams.fromString("field1,field2(field21,field22)")
+///     var projection = ProjectionParams.fromString('field1,field2(field21,field22)')
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, projection, (err, page) {...});
 /// 
@@ -31,7 +31,7 @@ class ProjectionParams extends ListBase<String> {
   ProjectionParams([List<dynamic> values = null])
       : this._values = new List<String>() {
     if (values != null) {
-      for (var value in values) this._values.add("" + value);
+      for (var value in values) this._values.add('' + value);
     }
   }
 
@@ -41,14 +41,14 @@ class ProjectionParams extends ListBase<String> {
 	/// - [json] 		json for initialize.
    
   factory ProjectionParams.fromJson(Map<String, dynamic> json) {
-    return new ProjectionParams(json["values"]);
+    return new ProjectionParams(json['values']);
   }
 
   
   /// Initialize this object from JSON Map object
    
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{"values": this._values};
+    return <String, dynamic>{'values': this._values};
   }
 
   
@@ -56,18 +56,18 @@ class ProjectionParams extends ListBase<String> {
    
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
-    addAll(json["values"]);
+    addAll(json['values']);
   }
 
   
     /// Gets a string representation of the object.
     /// The result is a comma-separated list of projection fields
-    /// "field1,field2.field21,field2.field22.field221"
+    /// 'field1,field2.field21,field2.field22.field221'
     /// 
     /// Returns a string representation of the object.
      
   String toString() {
-    var builder = "";
+    var builder = '';
 
     for (var index = 0; index < this._values.length; index++) {
       if (index > 0) {
@@ -109,7 +109,7 @@ class ProjectionParams extends ListBase<String> {
               var previousPrefix = prefix;
 
               if (prefix != null && prefix.length > 0) {
-                prefix = prefix + "." + value.substring(0, openBracketIndex);
+                prefix = prefix + '.' + value.substring(0, openBracketIndex);
               } else {
                 prefix = value.substring(0, openBracketIndex);
               }
@@ -132,7 +132,7 @@ class ProjectionParams extends ListBase<String> {
 
             if (subValue != null && subValue.length > 0) {
               if (prefix != null && prefix.length > 0) {
-                result._values.add(prefix + "." + subValue);
+                result._values.add(prefix + '.' + subValue);
               } else {
                 result._values.add(subValue);
               }
@@ -158,7 +158,7 @@ class ProjectionParams extends ListBase<String> {
         openBracketIndex == -1 &&
         commaIndex == -1) {
       if (prefix != null && prefix.length > 0) {
-        result._values.add(prefix + "." + value);
+        result._values.add(prefix + '.' + value);
       } else {
         result._values.add(value);
       }
@@ -189,7 +189,7 @@ class ProjectionParams extends ListBase<String> {
     var result = new ProjectionParams();
 
     for (var value in values) {
-      ProjectionParams._parseValue("", result, value);
+      ProjectionParams._parseValue('', result, value);
     }
 
     return result;

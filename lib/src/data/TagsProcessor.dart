@@ -1,13 +1,13 @@
 
 /// Helper class to extract and process search tags from objects.
 /// The search tags can be kept individually or embedded as hash tags inside text
-/// like "This text has #hash_tag that can be used for search."
+/// like 'This text has #hash_tag that can be used for search.'
  
 class TagsProcessor {
-  static final _NORMALIZE_REGEX = r"(_|#)+";
-  static final _COMPRESS_REGEX = r"( |_|#)+";
-  static final _SPLIT_REGEX = r"(,|;)+";
-  static final _HASHTAG_REGEX = r"#\w+";
+  static final _NORMALIZE_REGEX = r'(_|#)+';
+  static final _COMPRESS_REGEX = r'( |_|#)+';
+  static final _SPLIT_REGEX = r'(,|;)+';
+  static final _HASHTAG_REGEX = r'#\w+';
 
   
     /// Normalizes a tag by replacing special symbols like '_' and '#' with spaces.

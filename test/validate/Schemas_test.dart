@@ -31,14 +31,14 @@ void main() {
 
     test('Test optional properties', () {
       var schema = new ObjectSchema()
-          .withOptionalProperty("intField")
-          .withOptionalProperty("stringProperty")
-          .withOptionalProperty("nullProperty")
-          .withOptionalProperty("intArrayProperty")
-          .withOptionalProperty("stringListProperty")
-          .withOptionalProperty("mapProperty")
-          .withOptionalProperty("subObjectProperty")
-          .withOptionalProperty("subArrayProperty");
+          .withOptionalProperty('intField')
+          .withOptionalProperty('stringProperty')
+          .withOptionalProperty('nullProperty')
+          .withOptionalProperty('intArrayProperty')
+          .withOptionalProperty('stringListProperty')
+          .withOptionalProperty('mapProperty')
+          .withOptionalProperty('subObjectProperty')
+          .withOptionalProperty('subArrayProperty');
 
       var obj = new TestObject();
       var results = schema.validate(obj);
@@ -47,16 +47,16 @@ void main() {
 
     test('Test required properties', () {
       var schema = new ObjectSchema()
-          // .withRequiredProperty("privateField")
-          // .withRequiredProperty("privateProperty")
-          .withRequiredProperty("intField")
-          .withRequiredProperty("stringProperty")
-          .withRequiredProperty("nullProperty")
-          .withRequiredProperty("intArrayProperty")
-          .withRequiredProperty("stringListProperty")
-          .withRequiredProperty("mapProperty")
-          .withRequiredProperty("subObjectProperty")
-          .withRequiredProperty("subArrayProperty");
+          // .withRequiredProperty('privateField')
+          // .withRequiredProperty('privateProperty')
+          .withRequiredProperty('intField')
+          .withRequiredProperty('stringProperty')
+          .withRequiredProperty('nullProperty')
+          .withRequiredProperty('intArrayProperty')
+          .withRequiredProperty('stringListProperty')
+          .withRequiredProperty('mapProperty')
+          .withRequiredProperty('subObjectProperty')
+          .withRequiredProperty('subArrayProperty');
 
       var obj = new TestObject();
       obj.subArrayProperty = null;
@@ -67,16 +67,16 @@ void main() {
 
     test('Test types', () {
       var schema = new ObjectSchema()
-          // .withRequiredProperty("privateField")
-          // .withRequiredProperty("privateProperty")
-          .withRequiredProperty("intField", TypeCode.Long)
-          .withRequiredProperty("stringProperty", TypeCode.String)
-          .withOptionalProperty("nullProperty", TypeCode.Object)
-          .withRequiredProperty("intArrayProperty", TypeCode.Array)
-          .withRequiredProperty("stringListProperty", TypeCode.Array)
-          .withRequiredProperty("mapProperty", TypeCode.Map)
-          .withRequiredProperty("subObjectProperty", TypeCode.Object) // Map
-          .withRequiredProperty("subArrayProperty", TypeCode.Array);
+          // .withRequiredProperty('privateField')
+          // .withRequiredProperty('privateProperty')
+          .withRequiredProperty('intField', TypeCode.Long)
+          .withRequiredProperty('stringProperty', TypeCode.String)
+          .withOptionalProperty('nullProperty', TypeCode.Object)
+          .withRequiredProperty('intArrayProperty', TypeCode.Array)
+          .withRequiredProperty('stringListProperty', TypeCode.Array)
+          .withRequiredProperty('mapProperty', TypeCode.Map)
+          .withRequiredProperty('subObjectProperty', TypeCode.Object) // Map
+          .withRequiredProperty('subArrayProperty', TypeCode.Array);
 
       var obj = new TestObject();
       var results = schema.validate(obj);
@@ -85,21 +85,21 @@ void main() {
 
     test('Test sub schema', () {
       var sunSchema = new ObjectSchema()
-          .withRequiredProperty("id", TypeCode.String)
-          .withRequiredProperty("floatField", TypeCode.Double)
-          .withOptionalProperty("nullProperty", TypeCode.Map);
+          .withRequiredProperty('id', TypeCode.String)
+          .withRequiredProperty('floatField', TypeCode.Double)
+          .withOptionalProperty('nullProperty', TypeCode.Map);
 
       var schema = new ObjectSchema()
-          // .withRequiredProperty("privateField")
-          // .withRequiredProperty("privateProperty")
-          .withRequiredProperty("intField", TypeCode.Long)
-          .withRequiredProperty("stringProperty", TypeCode.String)
-          .withOptionalProperty("nullProperty", TypeCode.Object)
-          .withRequiredProperty("intArrayProperty", TypeCode.Array)
-          .withRequiredProperty("stringListProperty", TypeCode.Array)
-          .withRequiredProperty("mapProperty", TypeCode.Map)
-          .withRequiredProperty("subObjectProperty", sunSchema)
-          .withRequiredProperty("subArrayProperty", TypeCode.Array);
+          // .withRequiredProperty('privateField')
+          // .withRequiredProperty('privateProperty')
+          .withRequiredProperty('intField', TypeCode.Long)
+          .withRequiredProperty('stringProperty', TypeCode.String)
+          .withOptionalProperty('nullProperty', TypeCode.Object)
+          .withRequiredProperty('intArrayProperty', TypeCode.Array)
+          .withRequiredProperty('stringListProperty', TypeCode.Array)
+          .withRequiredProperty('mapProperty', TypeCode.Map)
+          .withRequiredProperty('subObjectProperty', sunSchema)
+          .withRequiredProperty('subArrayProperty', TypeCode.Array);
 
       var obj = new TestObject();
       var results = schema.validate(obj);
@@ -108,24 +108,24 @@ void main() {
 
     test('Test array and map schemas', () {
       var sunSchema = new ObjectSchema()
-          .withRequiredProperty("id", TypeCode.String)
-          .withRequiredProperty("floatField", TypeCode.Double)
-          .withOptionalProperty("nullProperty", TypeCode.Map);
+          .withRequiredProperty('id', TypeCode.String)
+          .withRequiredProperty('floatField', TypeCode.Double)
+          .withOptionalProperty('nullProperty', TypeCode.Map);
 
       var schema = new ObjectSchema()
-          // .withRequiredProperty("privateField")
-          // .withRequiredProperty("privateProperty")
-          .withRequiredProperty("intField", TypeCode.Long)
-          .withRequiredProperty("stringProperty", TypeCode.String)
-          .withOptionalProperty("nullProperty", TypeCode.Object)
+          // .withRequiredProperty('privateField')
+          // .withRequiredProperty('privateProperty')
+          .withRequiredProperty('intField', TypeCode.Long)
+          .withRequiredProperty('stringProperty', TypeCode.String)
+          .withOptionalProperty('nullProperty', TypeCode.Object)
           .withRequiredProperty(
-              "intArrayProperty", new ArraySchema(TypeCode.Long))
+              'intArrayProperty', new ArraySchema(TypeCode.Long))
           .withRequiredProperty(
-              "stringListProperty", new ArraySchema(TypeCode.String))
+              'stringListProperty', new ArraySchema(TypeCode.String))
           .withRequiredProperty(
-              "mapProperty", new MapSchema(TypeCode.String, TypeCode.Long))
-          .withRequiredProperty("subObjectProperty", sunSchema)
-          .withRequiredProperty("subArrayProperty", TypeCode.Array);
+              'mapProperty', new MapSchema(TypeCode.String, TypeCode.Long))
+          .withRequiredProperty('subObjectProperty', sunSchema)
+          .withRequiredProperty('subArrayProperty', TypeCode.Array);
 
       var obj = new TestObject();
       var results = schema.validate(obj);

@@ -8,7 +8,7 @@ import './RecursiveObjectReader.dart';
 /// 
 /// It is similar to [ObjectWriter] but writes properties recursively
 /// through the entire object graph. Nested property names are defined
-/// using dot notation as "object.subobject.property"
+/// using dot notation as 'object.subobject.property'
 
 /// See [PropertyReflector]
 /// See [ObjectWriter]
@@ -59,7 +59,7 @@ class RecursiveObjectWriter {
   static void setProperty(obj, String name, value) {
     if (obj == null || name == null) return;
 
-    var names = name.split(".");
+    var names = name.split('.');
     if (names == null || names.length == 0) return;
 
     RecursiveObjectWriter._performSetProperty(obj, names, 0, value);

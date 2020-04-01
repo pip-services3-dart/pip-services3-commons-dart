@@ -16,8 +16,8 @@
 /// ### Example ###
 /// 
 /// page = myDataClient.getDataByFilter(
-///   "123",
-///   FilterParams.fromTuples("completed": true),
+///   '123',
+///   FilterParams.fromTuples('completed': true),
 ///   NewPagingParams(0, 100, true)
 /// );
 

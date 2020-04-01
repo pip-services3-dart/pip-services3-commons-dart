@@ -15,13 +15,13 @@ import './Parameters.dart';
 ///     class MyComponent implements INotifable {
 ///         ...
 ///         void notify(String correlationId, Parameters args) {
-///             console.log("Occured event " + args.getAsString("event"));
+///             console.log('Occured event ' + args.getAsString('event'));
 ///         }
 ///     }
 ///     
 ///     var myComponent = new MyComponent();
 ///     
-///     myComponent.notify("123", Parameters.fromTuples("event", "Test Event"));
+///     myComponent.notify('123', Parameters.fromTuples('event', 'Test Event'));
  
 abstract class INotifiable {
   

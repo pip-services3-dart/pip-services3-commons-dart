@@ -22,13 +22,13 @@ import '../convert/IntegerConverter.dart';
 /// 
 ///     var myObj = new MyObject();
 ///     
-///     ObjectWriter.setProperty(myObj, "myProperty", 123);
+///     ObjectWriter.setProperty(myObj, 'myProperty', 123);
 ///     
-///     var myMap = { key1: 123, key2: "ABC" };
-///     ObjectWriter.setProperty(myMap, "key1", "XYZ");
+///     var myMap = { key1: 123, key2: 'ABC' };
+///     ObjectWriter.setProperty(myMap, 'key1', 'XYZ');
 ///     
 ///     var myArray = [1, 2, 3]
-///     ObjectWriter.setProperty(myArray, "0", 123);
+///     ObjectWriter.setProperty(myArray, '0', 123);
  
 class ObjectWriter {
   
@@ -46,8 +46,8 @@ class ObjectWriter {
 	/// - [value] a new value for the property to set.
 	 
   static void setProperty(obj, String name, value) {
-    if (obj == null) throw new Exception("Object cannot be null");
-    if (name == null) throw new Exception("Property name cannot be null");
+    if (obj == null) throw new Exception('Object cannot be null');
+    if (name == null) throw new Exception('Property name cannot be null');
 
     if (obj is IValueWrapper) obj = obj.innerValue();
 

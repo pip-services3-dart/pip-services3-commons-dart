@@ -5,7 +5,7 @@
 /// 
 ///     var value1 = ArrayConverter.toArray([1, 2]);		 // Result: [1, 2]
 ///     var value2 = ArrayConverter.toArray(1);			  // Result: [1]
-///     var value2 = ArrayConverter.listToArray("1,2,3");	// Result: ["1", "2", "3"]
+///     var value2 = ArrayConverter.listToArray('1,2,3');	// Result: ['1', '2', '3']
  
 class ArrayConverter {
   

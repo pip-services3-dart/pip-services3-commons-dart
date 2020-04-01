@@ -12,7 +12,7 @@ class RandomBoolean {
   static Random _random = new Random();
 
   
-    /// Calculates "chance" out of "max chances".
+    /// Calculates 'chance' out of 'max chances'.
     /// Example: 1 chance out of 3 chances (or 33.3%)
     /// 
     /// - [chance]       a chance proportional to maxChances.

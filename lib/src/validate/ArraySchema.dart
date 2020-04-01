@@ -13,9 +13,9 @@ import '../convert/TypeConverter.dart';
 /// 
 ///     var schema = new ArraySchema(TypeCode.String);
 ///     
-///     schema.validate(["A", "B", "C"]);    // Result: no errors
+///     schema.validate(['A', 'B', 'C']);    // Result: no errors
 ///     schema.validate([1, 2, 3]);          // Result: element type mismatch
-///     schema.validate("A");                // Result: type mismatch            
+///     schema.validate('A');                // Result: type mismatch            
  
 class ArraySchema extends Schema {
   dynamic _valueType;
@@ -64,7 +64,7 @@ class ArraySchema extends Schema {
   @override
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     value = ObjectReader.getValue(value);
 
     super.performValidation(path, value, results);
@@ -74,7 +74,7 @@ class ArraySchema extends Schema {
     if (value is List) {
       for (var index = 0; index < value.length; index++) {
         var elementPath =
-            path != "" ? path + "." + index.toString() : index.toString();
+            path != '' ? path + '.' + index.toString() : index.toString();
         this.performTypeValidation(
             elementPath, this.getValueType(), value[index], results);
       }
@@ -82,8 +82,8 @@ class ArraySchema extends Schema {
       results.add(new ValidationResult(
           path,
           ValidationResultType.Error,
-          "VALUE_ISNOT_ARRAY",
-          name + " type must to be List or Array",
+          'VALUE_ISNOT_ARRAY',
+          name + ' type must to be List or Array',
           TypeCode.Array,
           TypeConverter.toTypeCode(value)));
     }

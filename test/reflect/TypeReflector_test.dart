@@ -6,13 +6,13 @@ void main() {
   group('TypeReflector', () {
     test('Get Type', () {
       var type =
-          TypeReflector.getType("TestClass", "./test/reflect/TestClass.dart");
+          TypeReflector.getType('TestClass', './test/reflect/TestClass.dart');
       expect(type, isNotNull);
     });
 
     test('Create Instance', () {
       var value = TypeReflector.createInstance(
-          "TestClass", "./test/reflect/TestClass.dart", [123]);
+          'TestClass', './test/reflect/TestClass.dart', [123]);
       expect(value, isNotNull);
     });
   });

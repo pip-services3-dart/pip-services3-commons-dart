@@ -12,9 +12,9 @@ import '../reflect/ObjectReader.dart';
 /// ### Example ###
 /// 
 ///     var schema = new Schema()
-///         .withRule(new AtLeastOneExistsRule("field1", "field2"));
+///         .withRule(new AtLeastOneExistsRule('field1', 'field2'));
 ///     
-///     schema.validate({ field1: 1, field2: "A" });     // Result: no errors
+///     schema.validate({ field1: 1, field2: 'A' });     // Result: no errors
 ///     schema.validate({ field1: 1 });                  // Result: no errors
 ///     schema.validate({ });                            // Result: at least one of properties field1, field2 must exist
  
@@ -39,7 +39,7 @@ class AtLeastOneExistsRule implements IValidationRule {
      
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var found = List<String>();
 
     for (var i = 0; i < this._properties.length; i++) {
@@ -51,10 +51,10 @@ class AtLeastOneExistsRule implements IValidationRule {
       results.add(new ValidationResult(
           path,
           ValidationResultType.Error,
-          "VALUE_NULL",
+          'VALUE_NULL',
           name +
-              " must have at least one property from " +
-              this._properties.join(","),
+              ' must have at least one property from ' +
+              this._properties.join(','),
           this._properties,
           null));
     }

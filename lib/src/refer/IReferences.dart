@@ -22,7 +22,7 @@
 ///         ...    
 ///         void setReferences(IReferences references) {
 ///             this.persistence = references.getOneRequired<IMyPersistence>(
-///                 new Descriptor("mygroup", "persistence", "*", "*", "1.0")
+///                 new Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
 ///         ...
@@ -33,8 +33,8 @@
 ///     var controller = new MyController();
 ///     
 ///     var references = References.fromTuples([
-///         new Descriptor("mygroup", "persistence", "mongodb", "default", "1.0"), persistence,
-///         new Descriptor("mygroup", "controller", "default", "default", "1.0"), controller
+///         new Descriptor('mygroup', 'persistence', 'mongodb', 'default', '1.0'), persistence,
+///         new Descriptor('mygroup', 'controller', 'default', 'default', '1.0'), controller
 ///     ]);
 ///     controller.setReferences(references);
 /// 	

@@ -11,10 +11,10 @@ import './AnyValueMap.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = new AnyValue("123.456");
+///     var value1 = new AnyValue('123.456');
 ///     
 ///     value1.getAsInteger();   // Result: 123
-///     value1.getAsString();    // Result: "123.456"
+///     value1.getAsString();    // Result: '123.456'
 ///     value1.getAsFloat();     // Result: 123.456
 /// 
 /// See [StringConverter]
@@ -48,7 +48,7 @@ class AnyValue implements ICloneable, IValueWrapper {
     /// - [json]     json to initialize this object.
      
   factory AnyValue.fromJson(Map<String, dynamic> json) {
-    return new AnyValue(json["value"]);
+    return new AnyValue(json['value']);
   }
 
   
@@ -62,14 +62,14 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returned JSON Map object from values of this object
    
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{"value": this._value};
+    return <String, dynamic>{'value': this._value};
   }
 
   
   /// Initialize this object from JSON Map object
    
   void fromJson(Map<String, dynamic> json) {
-    this._value = json["value"];
+    this._value = json['value'];
   }
 
    
@@ -116,9 +116,9 @@ class AnyValue implements ICloneable, IValueWrapper {
   }
 
    
-    /// Converts object value into a string or returns "" if conversion is not possible.
+    /// Converts object value into a string or returns '' if conversion is not possible.
     /// 
-    /// Returns string value or "" if conversion is not supported. 
+    /// Returns string value or '' if conversion is not supported. 
     /// 
     /// See [getAsStringWithDefault]
      

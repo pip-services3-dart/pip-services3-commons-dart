@@ -11,8 +11,8 @@ class ReferenceException extends InternalException {
 	/// - [locator] 			the locator to find reference to dependent component.
 	 
   ReferenceException(String correlationId, locator)
-      : super(correlationId, "REF_ERROR",
-            "Failed to obtain reference to " + locator) {
-    this.withDetails("locator", locator);
+      : super(correlationId, 'REF_ERROR',
+            'Failed to obtain reference to ' + locator) {
+    this.withDetails('locator', locator);
   }
 }

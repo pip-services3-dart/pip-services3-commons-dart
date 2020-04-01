@@ -16,7 +16,7 @@ import './AnyValueMap.dart';
 /// 
 /// ### Example ###
 /// 
-///     var filter = FilterParams.fromTuples(["type", "Type1"]);
+///     var filter = FilterParams.fromTuples(['type', 'Type1']);
 ///     var paging = new PagingParams(0, 100);
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, (err, page) {...});
@@ -131,9 +131,9 @@ class PagingParams {
     /// Returns         a newly created PagingParams.
 	 
   static PagingParams fromMap(dynamic map) {
-    var skip = map.getAsNullableInteger("skip");
-    var take = map.getAsNullableInteger("take");
-    var total = map.getAsBooleanWithDefault("total", false);
+    var skip = map.getAsNullableInteger('skip');
+    var take = map.getAsNullableInteger('take');
+    var total = map.getAsBooleanWithDefault('total', false);
     return new PagingParams(skip, take, total);
   }
 }

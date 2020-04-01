@@ -10,11 +10,11 @@ import './Schema.dart';
 /// ### Example ###
 /// 
 ///     var schema = new ObjectSchema()
-///         .withProperty(new PropertySchema("id", TypeCode.String));
+///         .withProperty(new PropertySchema('id', TypeCode.String));
 ///     
-///     schema.validate({ id: "1", name: "ABC" });       // Result: no errors
-///     schema.validate({ name: "ABC" });                // Result: no errors
-///     schema.validate({ id: 1, name: "ABC" });         // Result: id type mismatch
+///     schema.validate({ id: '1', name: 'ABC' });       // Result: no errors
+///     schema.validate({ name: 'ABC' });                // Result: no errors
+///     schema.validate({ id: 1, name: 'ABC' });         // Result: id type mismatch
  
 class PropertySchema extends Schema {
   String _name;
@@ -84,7 +84,7 @@ class PropertySchema extends Schema {
      
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
-    path = path != "" ? path + "." + this.getName() : this.getName();
+    path = path != '' ? path + '.' + this.getName() : this.getName();
 
     super.performValidation(path, value, results);
 

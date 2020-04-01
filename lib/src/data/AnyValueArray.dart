@@ -23,7 +23,7 @@ import './AnyValueMap.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = new AnyValueArray([1, "123.456", "2018-01-01"]);
+///     var value1 = new AnyValueArray([1, '123.456', '2018-01-01']);
 ///     
 ///     value1.getAsBoolean(0);   // Result: true
 ///     value1.getAsInteger(1);   // Result: 123
@@ -61,7 +61,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// 
   /// - [json]     values to initialize this array.
   factory AnyValueArray.fromJson(Map<String, dynamic> json) {
-    return new AnyValueArray(json["values"]);
+    return new AnyValueArray(json['values']);
   }
 
   
@@ -73,14 +73,14 @@ class AnyValueArray extends ListBase<dynamic>
   
   /// Returned JSON Map object from values of this object
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{"values": this._values};
+    return <String, dynamic>{'values': this._values};
   }
 
 
   /// Initialize this object from JSON Map object
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
-    append(json["values"]);
+    append(json['values']);
   }
 
   
@@ -183,10 +183,10 @@ class AnyValueArray extends ListBase<dynamic>
   }
 
   
-    /// Converts array element into a string or returns "" if conversion is not possible.
+    /// Converts array element into a string or returns '' if conversion is not possible.
     /// 
     /// - [index]     an index of element to get.
-    /// Returns string value ot the element or "" if conversion is not supported. 
+    /// Returns string value ot the element or '' if conversion is not supported. 
     /// 
     /// See [getAsStringWithDefault] 
   String getAsString(int index) {
@@ -642,7 +642,7 @@ class AnyValueArray extends ListBase<dynamic>
   
     /// Gets a string representation of the object.
     /// The result is a comma-separated list of string representations of individual elements as
-    /// "value1,value2,value3"
+    /// 'value1,value2,value3'
     /// 
     /// Returns a string representation of the object.
     /// See [StringConverter.toString]  
@@ -651,7 +651,7 @@ class AnyValueArray extends ListBase<dynamic>
     var builder = '';
     for (var index = 0; index < this._values.length; index++) {
       if (index > 0) builder += ',';
-      builder += this.getAsStringWithDefault(index, "");
+      builder += this.getAsStringWithDefault(index, '');
     }
     return builder;
   }

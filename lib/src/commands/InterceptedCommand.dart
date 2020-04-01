@@ -22,7 +22,7 @@ import './ICommandInterceptor.dart';
 ///         }
 
 ///         void execute(String correlationId, ICommand command , Parameters args,) async {
-///             print("Executed command " + command.getName());
+///             print('Executed command ' + command.getName());
 ///             return await command.execute(correlationId, args);
 ///         }
 

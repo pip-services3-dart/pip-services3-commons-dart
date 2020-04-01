@@ -6,14 +6,14 @@ import '../reflect/RecursiveObjectReader.dart';
 /// All values stored as strings and can be serialized as JSON or string forms.
 /// When retrieved the values can be automatically converted on read using GetAsXXX methods.
 
-/// The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>"my_param"</code>
+/// The keys are case-sensitive, so it is recommended to use consistent C-style as: <code>'my_param'</code>
 ///  
 /// Configuration parameters can be broken into sections and subsections using dot notation as:
-/// <code>"section1.subsection1.param1"</code>. Using GetSection method all parameters from specified section
+/// <code>'section1.subsection1.param1'</code>. Using GetSection method all parameters from specified section
 /// can be extracted from a ConfigMap.
 /// 
 /// The ConfigParams supports serialization from/to plain strings as:
-/// <code>"key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z"</code>
+/// <code>'key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z'</code>
 /// 
 /// ConfigParams are used to pass configurations to [IConfigurable] objects.
 /// They also serve as a basis for more concrete configurations such as [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]
@@ -25,15 +25,15 @@ import '../reflect/RecursiveObjectReader.dart';
 /// ### Example ###
 /// 
 ///     var config = ConfigParams.fromTuples([
-///         ["section1.key1", "AAA",
-///         "section1.key2", 123,
-///         "section2.key1", true]
+///         ['section1.key1', 'AAA',
+///         'section1.key2', 123,
+///         'section2.key1', true]
 ///     ]);
 ///             
-///     config.getAsString("section1.key1"); // Result: AAA
-///     config.getAsInteger("section1.key1"); // Result: 0
+///     config.getAsString('section1.key1'); // Result: AAA
+///     config.getAsInteger('section1.key1'); // Result: 0
 ///     
-///     section1 = config.getSection("section1");
+///     section1 = config.getSection('section1');
 ///     section1.toString(); // Result: key1=AAA;key2=123
 ///  
  
@@ -84,7 +84,7 @@ class ConfigParams extends StringValueMap {
 	 
   ConfigParams getSection(String section) {
     var result = new ConfigParams();
-    var prefix = section + ".";
+    var prefix = section + '.';
 
     for (var key in this.getKeys()) {
       // Prevents exception on the next line
@@ -109,14 +109,14 @@ class ConfigParams extends StringValueMap {
 	/// - [sectionParams] 	new parameters to be added.
 	 
   void addSection(String section, ConfigParams sectionParams) {
-    if (section == null) throw new Exception("Section name cannot be null");
+    if (section == null) throw new Exception('Section name cannot be null');
 
     if (sectionParams != null) {
       for (var key in sectionParams.getKeys()) {
         var name = key;
 
         if (name.length > 0 && section.length > 0)
-          name = section + "." + name;
+          name = section + '.' + name;
         else if (name.length == 0) name = section;
 
         var value = sectionParams[key];
@@ -181,8 +181,8 @@ class ConfigParams extends StringValueMap {
   
 	/// Creates a new ConfigParams object filled with key-value pairs serialized as a string.
 	/// 
-	/// - [line] 		a string with serialized key-value pairs as "key1=value1;key2=value2;..."
-	/// 					Example: "Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z"
+	/// - [line] 		a string with serialized key-value pairs as 'key1=value1;key2=value2;...'
+	/// 					Example: 'Key1=123;Key2=ABC;Key3=2016-09-16T00:00:00.00Z'
 	/// Returns			a new ConfigParams object.
 	/// 
 	/// See [StringValueMap.fromString]

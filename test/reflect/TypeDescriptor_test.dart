@@ -8,17 +8,17 @@ void main() {
       var descriptor = TypeDescriptor.fromString(null);
       expect(descriptor, isNull);
 
-      descriptor = TypeDescriptor.fromString("xxx,yyy");
-      expect(descriptor.getName(), equals("xxx"));
-      expect(descriptor.getLibrary(), equals("yyy"));
+      descriptor = TypeDescriptor.fromString('xxx,yyy');
+      expect(descriptor.getName(), equals('xxx'));
+      expect(descriptor.getLibrary(), equals('yyy'));
 
-      descriptor = TypeDescriptor.fromString("xxx");
-      expect(descriptor.getName(), equals("xxx"));
+      descriptor = TypeDescriptor.fromString('xxx');
+      expect(descriptor.getName(), equals('xxx'));
       expect(descriptor.getLibrary(), isNull);
 
       try {
-        descriptor = TypeDescriptor.fromString("xxx,yyy,zzz");
-        fail("Wrong descriptor shall raise an exception");
+        descriptor = TypeDescriptor.fromString('xxx,yyy,zzz');
+        fail('Wrong descriptor shall raise an exception');
       } catch (ex) {
         // Ok...
       }

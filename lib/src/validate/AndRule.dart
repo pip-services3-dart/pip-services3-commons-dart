@@ -13,8 +13,8 @@ import './ValidationResult.dart';
 /// 
 ///     var schema = new Schema()
 ///         .withRule(new AndRule(
-///             new ValueComparisonRule("GTE", 1),
-///             new ValueComparisonRule("LTE", 10)
+///             new ValueComparisonRule('GTE', 1),
+///             new ValueComparisonRule('LTE', 10)
 ///         ));
 ///     
 ///     schema.validate(0);          // Result: 0 must be greater or equal to 1

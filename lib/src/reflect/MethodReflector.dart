@@ -14,8 +14,8 @@ import 'dart:mirrors';
 ///     var myObj = new MyObject();
 ///     
 ///     var methods = MethodReflector.getMethodNames();
-///     MethodReflector.hasMethod(myObj, "myMethod");
-///     MethodReflector.invokeMethod(myObj, "myMethod", 123);
+///     MethodReflector.hasMethod(myObj, 'myMethod');
+///     MethodReflector.invokeMethod(myObj, 'myMethod', 123);
  
 class MethodReflector {
   static String _extractName(Symbol field) {
@@ -57,8 +57,8 @@ class MethodReflector {
 	/// Returns true if the object has the method and false if it doesn't.
 	 
   static bool hasMethod(obj, String name) {
-    if (obj == null) throw new Exception("Object cannot be null");
-    if (name == null) throw new Exception("Method name cannot be null");
+    if (obj == null) throw  Exception('Object cannot be null');
+    if (name == null) throw  Exception('Method name cannot be null');
 
     var foundName = _findMethod(obj, name);
     return foundName != null;
@@ -73,8 +73,8 @@ class MethodReflector {
 	/// Returns the result of the method invocation or null if method returns void.
 	 
   static invokeMethod(obj, String name, List args) {
-    if (obj == null) throw new Exception("Object cannot be null");
-    if (name == null) throw new Exception("Method name cannot be null");
+    if (obj == null) throw Exception('Object cannot be null');
+    if (name == null) throw Exception('Method name cannot be null');
 
     var foundName = _findMethod(obj, name);
     if (foundName != null) {

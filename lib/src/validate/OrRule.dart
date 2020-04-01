@@ -13,8 +13,8 @@ import './ValidationResult.dart';
 /// 
 ///     var schema = new Schema()
 ///         .withRule(new OrRule(
-///             new ValueComparisonRule("LT", 1),
-///             new ValueComparisonRule("GT", 10)
+///             new ValueComparisonRule('LT', 1),
+///             new ValueComparisonRule('GT', 10)
 ///         ));
 ///     
 ///     schema.validate(0);          // Result: no error

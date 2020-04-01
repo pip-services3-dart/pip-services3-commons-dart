@@ -9,8 +9,8 @@ import './MapConverter.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = JsonConverter.fromJson("{\"key\":123}"); // Result: { "key": 123 }
-///     var value2 = JsonConverter.toMap({ "key": 123 }); // Result: "{ "key": 123 }"
+///     var value1 = JsonConverter.fromJson('{\'key\':123}'); // Result: { 'key': 123 }
+///     var value2 = JsonConverter.toMap({ 'key': 123 }); // Result: '{ 'key': 123 }'
 /// 
 /// See [[TypeCode]]
  

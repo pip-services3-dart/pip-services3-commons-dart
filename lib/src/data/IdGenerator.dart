@@ -11,8 +11,8 @@ import 'package:uuid/uuid.dart';
 ///
 /// ### Example ###
 ///
-///     IdGenerator.nextLong();      // Possible result: "234ab342c56a2b49c2ab42bf23ff991ac"
-///     IdGenerator.nextShort();     // Possible result: "23495247"
+///     IdGenerator.nextLong();      // Possible result: '234ab342c56a2b49c2ab42bf23ff991ac'
+///     IdGenerator.nextShort();     // Possible result: '23495247'
 ///
 
 class IdGenerator {
@@ -34,6 +34,6 @@ class IdGenerator {
   static String nextLong() {
     var uuid = Uuid();
     var id = uuid.v4();
-    return id.replaceAll("-", "");
+    return id.replaceAll('-', '');
   }
 }

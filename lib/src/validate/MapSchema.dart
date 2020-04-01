@@ -14,8 +14,8 @@ import '../convert/StringConverter.dart';
 /// 
 ///     var schema = new MapSchema(TypeCode.String, TypeCode.Integer);
 ///     
-///     schema.validate({ "key1": "A", "key2": "B" });       // Result: no errors
-///     schema.validate({ "key1": 1, "key2": 2 });           // Result: element type mismatch
+///     schema.validate({ 'key1': 'A', 'key2': 'B' });       // Result: no errors
+///     schema.validate({ 'key1': 1, 'key2': 2 });           // Result: element type mismatch
 ///     schema.validate([ 1, 2, 3 ]);                        // Result: type mismatch
  
 class MapSchema extends Schema {
@@ -98,14 +98,14 @@ class MapSchema extends Schema {
 
     if (value== null) return;
 
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var valueType = TypeConverter.toTypeCode(value);
     var map = valueType == TypeCode.Map ? Map.from(value) : null;
 
     if (map != null) {
       for (var key in map.keys) {
         var elementPath =
-            path != "" ? path + "." + key : StringConverter.toString2(key);
+            path != '' ? path + '.' + key : StringConverter.toString2(key);
 
         this.performTypeValidation(
             elementPath, this.getKeyType(), key, results);
@@ -117,8 +117,8 @@ class MapSchema extends Schema {
         results.add(new ValidationResult(
             path,
             ValidationResultType.Error,
-            "VALUE_ISNOT_MAP",
-            name + " type must be Map",
+            'VALUE_ISNOT_MAP',
+            name + ' type must be Map',
             TypeCode.Map,
             valueType));
       }

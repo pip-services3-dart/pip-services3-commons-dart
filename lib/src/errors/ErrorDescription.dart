@@ -33,28 +33,28 @@ class ErrorDescription {
 
   Map<String, dynamic> toJson() {
     var json = new Map<String, dynamic>();
-    json["type"] = this.type;
-    json["category"] = this.category;
-    json["status"] = this.status;
-    json["code"] = this.code;
-    json["message"] = this.message;
-    json["details"] = this.details != null ? this.details.toJson() : null;
-    json["correlation_id"] = this.correlation_id;
-    json["cause"] = this.cause;
-    json["stack_trace"] = this.stack_trace;
+    json['type'] = this.type;
+    json['category'] = this.category;
+    json['status'] = this.status;
+    json['code'] = this.code;
+    json['message'] = this.message;
+    json['details'] = this.details != null ? this.details.toJson() : null;
+    json['correlation_id'] = this.correlation_id;
+    json['cause'] = this.cause;
+    json['stack_trace'] = this.stack_trace;
     return json;
   }
 
   void fromJson(Map<String, dynamic> json) {
-    this.type = StringConverter.toNullableString(json["type"]);
-    this.category = StringConverter.toNullableString(json["category"]);
-    this.status = IntegerConverter.toNullableInteger(json["status"]);
-    this.code = StringConverter.toNullableString(json["code"]);
-    this.message = StringConverter.toNullableString(json["message"]);
-    this.details = StringValueMap.fromValue(json["details"]);
+    this.type = StringConverter.toNullableString(json['type']);
+    this.category = StringConverter.toNullableString(json['category']);
+    this.status = IntegerConverter.toNullableInteger(json['status']);
+    this.code = StringConverter.toNullableString(json['code']);
+    this.message = StringConverter.toNullableString(json['message']);
+    this.details = StringValueMap.fromValue(json['details']);
     this.correlation_id =
-        StringConverter.toNullableString(json["correlation_id"]);
-    this.cause = StringConverter.toNullableString(json["cause"]);
-    this.stack_trace = StringConverter.toNullableString(json["stack_trace"]);
+        StringConverter.toNullableString(json['correlation_id']);
+    this.cause = StringConverter.toNullableString(json['cause']);
+    this.stack_trace = StringConverter.toNullableString(json['stack_trace']);
   }
 }

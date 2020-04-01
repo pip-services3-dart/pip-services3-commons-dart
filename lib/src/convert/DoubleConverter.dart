@@ -6,8 +6,8 @@
 /// 
 /// ### Example ###
 /// 
-///     var value1 = DoubleConverter.toNullableDouble("ABC"); // Result: null
-///     var value2 = DoubleConverter.toNullableDouble("123.456"); // Result: 123.456
+///     var value1 = DoubleConverter.toNullableDouble('ABC'); // Result: null
+///     var value2 = DoubleConverter.toNullableDouble('123.456'); // Result: 123.456
 ///     var value3 = DoubleConverter.toNullableDouble(true); // Result: 1
 ///     var value4 = DoubleConverter.toNullableDouble(new Date()); // Result: current milliseconds
  

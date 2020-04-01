@@ -6,9 +6,9 @@ import '../reflect/ObjectReader.dart';
 /// 
 /// ### Example ###
 /// 
-///     var value1 = RecursiveMapConverted.toNullableMap("ABC"); // Result: null
-///     var value2 = RecursiveMapConverted.toNullableMap({ "key": 123 }); // Result: { "key": 123 }
-///     var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { "0": 1, { "0": 2, "1": 3 } }
+///     var value1 = RecursiveMapConverted.toNullableMap('ABC'); // Result: null
+///     var value2 = RecursiveMapConverted.toNullableMap({ 'key': 123 }); // Result: { 'key': 123 }
+///     var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { '0': 1, { '0': 2, '1': 3 } }
  
 class RecursiveMapConverter {
   static _objectToMap(value) {

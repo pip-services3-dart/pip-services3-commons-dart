@@ -1,6 +1,6 @@
 class TestClass {
   int _privateField = 123;
-  String publicField = "ABC";
+  String publicField = 'ABC';
   DateTime _publicProp = DateTime.now();
 
   TestClass([int arg1 = null]) {}

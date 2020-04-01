@@ -10,12 +10,12 @@ import '../convert/StringConverter.dart';
 /// ### Example ###
 /// 
 ///     var values = MultiString.fromTuples([
-///         "en", "Hello World!",
-///         "ru", "Привет мир!"
+///         'en', 'Hello World!',
+///         'ru', 'Привет мир!'
 ///     ]);
 ///     
-///     var value1 = values.get('ru'); // Result: "Привет мир!"
-///     var value2 = values.get('pt'); // Result: "Hello World!"
+///     var value1 = values.get('ru'); // Result: 'Привет мир!'
+///     var value2 = values.get('pt'); // Result: 'Hello World!'
  
 class MultiString implements IValueWrapper {
   var _values = new Map<String, String>();

@@ -86,7 +86,7 @@ class FixedRateTimer implements IClosable {
   void setTask(INotifiable value) {
     this._task = value;
     this._callback = () {
-      this._task.notify("pip-commons-timer", new Parameters());
+      this._task.notify('pip-commons-timer', new Parameters());
     };
   }
 

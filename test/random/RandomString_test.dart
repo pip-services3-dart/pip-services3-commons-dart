@@ -4,27 +4,27 @@ import '../../lib/src/random/RandomString.dart';
 
 void main() {
   group('RandomString', () {
-    var symbols = "_,.:-/.[].{},#-!,\$=%.+^.&*-() ";
-    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var digits = "01234956789";
+    var symbols = '_,.:-/.[].{},#-!,\$=%.+^.&*-() ';
+    var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var digits = '01234956789';
 
     test('Pick', () {
-      expect(RandomString.pickChar("") == '', isTrue);
+      expect(RandomString.pickChar('') == '', isTrue);
       var charVariable = RandomString.pickChar(chars);
       expect(chars.indexOf(charVariable) != -1, isTrue);
 
       var valuesEmpty = new List<String>();
-      expect(RandomString.pick(valuesEmpty) == "", isTrue);
+      expect(RandomString.pick(valuesEmpty) == '', isTrue);
 
-      var values = ["ab", "cd"];
+      var values = ['ab', 'cd'];
       var result = RandomString.pick(values);
-      expect(result == "ab" || result == "cd", isTrue);
+      expect(result == 'ab' || result == 'cd', isTrue);
     });
 
     test('Distort', () {
-      var value = RandomString.distort("abc");
+      var value = RandomString.distort('abc');
       expect(value.length == 3 || value.length == 4, isTrue);
-      expect(value.substring(0, 3) == "Abc" || value.substring(0, 3) == "abc",
+      expect(value.substring(0, 3) == 'Abc' || value.substring(0, 3) == 'abc',
           isTrue);
 
       if (value.length == 4)

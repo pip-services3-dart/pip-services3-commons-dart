@@ -5,8 +5,8 @@
 /// 
 /// ### Example ###
 /// 
-///     var value1 = DateTimeConverter.toNullableDateTime("ABC"); // Result: null
-///     var value2 = DateTimeConverter.toNullableDateTime("2018-01-01T11:30:00.0"); // Result: Date(2018,0,1,11,30)
+///     var value1 = DateTimeConverter.toNullableDateTime('ABC'); // Result: null
+///     var value2 = DateTimeConverter.toNullableDateTime('2018-01-01T11:30:00.0'); // Result: Date(2018,0,1,11,30)
 ///     var value3 = DateTimeConverter.toNullableDateTime(123); // Result: Date(123)
  
 class DateTimeConverter {

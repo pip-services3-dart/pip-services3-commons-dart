@@ -11,7 +11,7 @@ void main() {
       value.setAsObject(1);
       expect(value.getAsInteger(), 1);
       expect(1.0 - value.getAsFloat() < 0.001, isTrue);
-      expect(value.getAsString(), "1");
+      expect(value.getAsString(), '1');
     });
 
     test('Equal', () {
@@ -19,8 +19,8 @@ void main() {
 
       expect(value.equals(1), isTrue);
       // expect(value.equals(1.0), isTrue);
-      expect(value.equals("1"), isTrue);
-      expect(value.equalsAsType<double>(TypeCode.Float, "1"), isTrue);
+      expect(value.equals('1'), isTrue);
+      expect(value.equalsAsType<double>(TypeCode.Float, '1'), isTrue);
     });
   });
 }

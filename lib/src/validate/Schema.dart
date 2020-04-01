@@ -131,12 +131,12 @@ class Schema {
      
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
 
     if (value == null) {
       if (this.isRequired()) {
         results.add(new ValidationResult(path, ValidationResultType.Error,
-            "VALUE_IS_NULL", name + " must not be null", "NOT NULL", null));
+            'VALUE_IS_NULL', name + ' must not be null', 'NOT NULL', null));
       }
     } else {
       value = ObjectReader.getValue(value);
@@ -152,7 +152,7 @@ class Schema {
   }
 
   String _typeToString(dynamic type) {
-    if (type == null) return "unknown";
+    if (type == null) return 'unknown';
     if (type is num) return TypeConverter.asString(type as TypeCode);
     return type.toString();
   }
@@ -185,7 +185,7 @@ class Schema {
     value = ObjectReader.getValue(value);
     if (value == null) return;
 
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var valueType = TypeConverter.toTypeCode(value);
 
     // Match types
@@ -194,11 +194,11 @@ class Schema {
     results.add(new ValidationResult(
         path,
         ValidationResultType.Error,
-        "TYPE_MISMATCH",
+        'TYPE_MISMATCH',
         name +
-            " type must be " +
+            ' type must be ' +
             this._typeToString(type) +
-            " but found " +
+            ' but found ' +
             this._typeToString(valueType),
         type,
         valueType));
@@ -214,7 +214,7 @@ class Schema {
      
   List<ValidationResult> validate(dynamic value) {
     var results = List<ValidationResult>();
-    this.performValidation("", value, results);
+    this.performValidation('', value, results);
     return results;
   }
 

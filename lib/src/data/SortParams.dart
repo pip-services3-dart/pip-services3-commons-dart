@@ -8,9 +8,9 @@ import 'dart:collection';
 /// 
 /// ### Example ###
 /// 
-///     var filter = FilterParams.fromTuples(["type", "Type1"]);
+///     var filter = FilterParams.fromTuples(['type', 'Type1']);
 ///     var paging = new PagingParams(0, 100);
-///     var sorting = new SortingParams(new SortField("create_time", true));
+///     var sorting = new SortingParams(new SortField('create_time', true));
 ///     
 ///     myDataClient.getDataByFilter(filter, paging, sorting, (err, page) {...});
  
@@ -35,14 +35,14 @@ class SortParams extends ListBase<SortField> {
 	/// - [json] 		json for initialize.
    
   factory SortParams.fromJson(Map<String, dynamic> json) {
-    return new SortParams(json["values"]);
+    return new SortParams(json['values']);
   }
 
   
   /// Initialize this object from JSON Map object
    
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{"values": this._values};
+    return <String, dynamic>{'values': this._values};
   }
 
   
@@ -50,7 +50,7 @@ class SortParams extends ListBase<SortField> {
    
   void fromJson(Map<String, dynamic> json) {
     this._values = null;
-    addAll(json["values"]);
+    addAll(json['values']);
   }
 
   // Todo: add fromTuples factory method.

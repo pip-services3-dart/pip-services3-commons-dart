@@ -14,7 +14,7 @@ import './ValidationResultType.dart';
 /// 
 ///     var schema = new Schema()
 ///         .withRule(new NotRule(
-///             new ValueComparisonRule("EQ", 1)
+///             new ValueComparisonRule('EQ', 1)
 ///         ));
 ///     
 ///     schema.validate(1);          // Result: error
@@ -42,7 +42,7 @@ class NotRule implements IValidationRule {
       List<ValidationResult> results) {
     if (this._rule == null) return;
 
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var localResults = List<ValidationResult>();
 
     this._rule.validate(path, schema, value, localResults);
@@ -50,6 +50,6 @@ class NotRule implements IValidationRule {
     if (localResults.length > 0) return;
 
     results.add(new ValidationResult(path, ValidationResultType.Error,
-        "NOT_FAILED", "Negative check for " + name + " failed", null, null));
+        'NOT_FAILED', 'Negative check for ' + name + ' failed', null, null));
   }
 }

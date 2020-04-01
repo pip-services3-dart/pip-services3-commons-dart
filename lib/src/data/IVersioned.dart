@@ -21,7 +21,7 @@
 ///      void updateData(String correlationId, MyData item ) {
 ///         ...
 ///         if (item.version < oldItem.version) {
-///             throw new ConcurrencyException(null, "VERSION_CONFLICT", "The change has older version stored value");
+///             throw new ConcurrencyException(null, 'VERSION_CONFLICT', 'The change has older version stored value');
 ///         }
 ///         ...
 ///     }

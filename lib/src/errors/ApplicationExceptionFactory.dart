@@ -30,7 +30,7 @@ class ApplicationExceptionFactory {
 	/// - [description]	a serialized error description received as a result of remote call
 	 
   static ApplicationException create(ErrorDescription description) {
-    if (description == null) throw new Exception("Description cannot be null");
+    if (description == null) throw new Exception('Description cannot be null');
 
     ApplicationException error = null;
     var category = description.category;

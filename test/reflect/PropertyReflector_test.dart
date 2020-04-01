@@ -8,13 +8,13 @@ void main() {
     test('Get Property', () {
       var obj = new TestClass();
 
-      var value = PropertyReflector.getProperty(obj, "privateField");
+      var value = PropertyReflector.getProperty(obj, 'privateField');
       expect(value, isNull);
 
-      value = PropertyReflector.getProperty(obj, "publicField");
-      expect(value, equals("ABC"));
+      value = PropertyReflector.getProperty(obj, 'publicField');
+      expect(value, equals('ABC'));
 
-      value = PropertyReflector.getProperty(obj, "PublicProp");
+      value = PropertyReflector.getProperty(obj, 'PublicProp');
       expect(value, isNotNull);
     });
 
@@ -22,25 +22,25 @@ void main() {
       var obj = new TestClass();
       var names = PropertyReflector.getPropertyNames(obj);
       expect(names.length, equals(2));
-      expect(names.indexOf("publicField") >= 0, isTrue);
-      expect(names.indexOf("publicProp") >= 0, isTrue);
+      expect(names.indexOf('publicField') >= 0, isTrue);
+      expect(names.indexOf('publicProp') >= 0, isTrue);
 
       var map = PropertyReflector.getProperties(obj);
       expect(map.length, equals(2));
-      expect(map["publicField"], equals("ABC"));
-      expect(map["publicProp"], isNotNull);
+      expect(map['publicField'], equals('ABC'));
+      expect(map['publicProp'], isNotNull);
     });
 
     test('Set Property', () {
       var obj = new TestClass();
 
-      PropertyReflector.setProperty(obj, "publicField", "XYZ");
-      var value1 = PropertyReflector.getProperty(obj, "publicField");
-      expect(value1, equals("XYZ"));
+      PropertyReflector.setProperty(obj, 'publicField', 'XYZ');
+      var value1 = PropertyReflector.getProperty(obj, 'publicField');
+      expect(value1, equals('XYZ'));
 
       var value = new DateTime(1975, 4, 8);
-      PropertyReflector.setProperty(obj, "PublicProp", value);
-      var value2 = PropertyReflector.getProperty(obj, "PublicProp");
+      PropertyReflector.setProperty(obj, 'PublicProp', value);
+      var value2 = PropertyReflector.getProperty(obj, 'PublicProp');
       expect(value2, equals(value));
     });
 
@@ -49,14 +49,14 @@ void main() {
 
       var value = new DateTime(1975, 4, 8);
       var map = new Map<String, dynamic>();
-      map["publicField"] = "XYZ";
-      map["PublicProp"] = value;
+      map['publicField'] = 'XYZ';
+      map['PublicProp'] = value;
       PropertyReflector.setProperties(obj, map);
 
-      var value1 = PropertyReflector.getProperty(obj, "publicField");
-      expect(value1, equals("XYZ"));
+      var value1 = PropertyReflector.getProperty(obj, 'publicField');
+      expect(value1, equals('XYZ'));
 
-      var value2 = PropertyReflector.getProperty(obj, "PublicProp");
+      var value2 = PropertyReflector.getProperty(obj, 'PublicProp');
       expect(value2, equals(value));
     });
   });

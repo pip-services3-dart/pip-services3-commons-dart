@@ -7,7 +7,7 @@ import './ObjectReader.dart';
 /// 
 /// It is similar to [ObjectReader] but reads properties recursively
 /// through the entire object graph. Nested property names are defined
-/// using dot notation as "object.subobject.property"
+/// using dot notation as 'object.subobject.property'
 
 /// See [PropertyReflector]
 /// See [ObjectReader]
@@ -39,7 +39,7 @@ class RecursiveObjectReader {
   static bool hasProperty(obj, String name) {
     if (obj == null || name == null) return false;
 
-    var names = name.split(".");
+    var names = name.split('.');
     if (names == null || names.length == 0) return false;
 
     return RecursiveObjectReader._performHasProperty(obj, names, 0);
@@ -71,7 +71,7 @@ class RecursiveObjectReader {
   static getProperty(obj, String name) {
     if (obj == null || name == null) return null;
 
-    var names = name.split(".");
+    var names = name.split('.');
     if (names == null || names.length == 0) return null;
 
     return RecursiveObjectReader._performGetProperty(obj, names, 0);
@@ -97,7 +97,7 @@ class RecursiveObjectReader {
           // Prevent cycles
           if (cycleDetect.indexOf(value) >= 0) continue;
 
-          var newPath = path != null ? path + "." + key : key;
+          var newPath = path != null ? path + '.' + key : key;
 
           // Add simple values directly
           if (_isSimpleValue(value))
@@ -150,7 +150,7 @@ class RecursiveObjectReader {
           // Prevent cycles
           if (cycleDetect.indexOf(value) >= 0) continue;
 
-          var newPath = path != null ? path + "." + key : key;
+          var newPath = path != null ? path + '.' + key : key;
 
           // Add simple values directly
           if (_isSimpleValue(value))

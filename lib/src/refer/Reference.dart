@@ -15,7 +15,7 @@ class Reference {
 	/// - [reference] 	a reference to component.
 	 
   Reference(locator, component) {
-    if (component == null) throw new Exception("Component cannot be null");
+    if (component == null) throw new Exception('Component cannot be null');
 
     this._locator = locator;
     this._component = component;

@@ -232,8 +232,8 @@ class CommandSet {
 
     if (cref == null) {
       throw new BadRequestException(
-              correlationId, "CMD_NOT_FOUND", "Request command does not exist")
-          .withDetails("command", commandName);
+              correlationId, 'CMD_NOT_FOUND', 'Request command does not exist')
+          .withDetails('command', commandName);
     }
 
     if (correlationId == null) correlationId = IdGenerator.nextShort();
@@ -264,7 +264,7 @@ class CommandSet {
     if (cref != null) {
       var result = new List<ValidationResult>();
       result.add(new ValidationResult(null, ValidationResultType.Error,
-          "CMD_NOT_FOUND", "Requested command does not exist", null, null));
+          'CMD_NOT_FOUND', 'Requested command does not exist', null, null));
       return result;
     }
 

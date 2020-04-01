@@ -40,7 +40,7 @@ class ExcludedRule implements IValidationRule {
       List<ValidationResult> results) {
     if (this._values == null) return;
 
-    var name = path != null ? path : "value";
+    var name = path != null ? path : 'value';
     var found = false;
 
     for (var i = 0; i < this._values.length && !found; i++) {
@@ -56,8 +56,8 @@ class ExcludedRule implements IValidationRule {
       results.add(new ValidationResult(
           path,
           ValidationResultType.Error,
-          "VALUE_INCLUDED",
-          name + " must not be one of " + this._values.join(","),
+          'VALUE_INCLUDED',
+          name + ' must not be one of ' + this._values.join(','),
           this._values,
           null));
     }

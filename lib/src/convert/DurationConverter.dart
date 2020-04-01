@@ -5,8 +5,8 @@
 /// 
 /// ### Example ###
 /// 
-///     var value1 = DurationConverter.toNullableDuration("ABC"); // Result: null
-///     var value2 = DurationConverter.toNullableDuration("123"); // Result: Duration(milliseconds: 123)
+///     var value1 = DurationConverter.toNullableDuration('ABC'); // Result: null
+///     var value2 = DurationConverter.toNullableDuration('123'); // Result: Duration(milliseconds: 123)
 ///     var value3 = DurationConverter.toNullableDuration(123); // Result: Duration(milliseconds: 123)
  
 class DurationConverter {

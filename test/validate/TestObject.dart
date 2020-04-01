@@ -2,22 +2,22 @@ import './TestSubObject.dart';
 
 class TestObject {
   TestObject() {
-    this.mapProperty["Key1"] = 111;
-    this.mapProperty["Key2"] = 222;
+    this.mapProperty['Key1'] = 111;
+    this.mapProperty['Key2'] = 222;
   }
 
   int _privateField = 124;
-  String _privateProperty = "XYZ";
+  String _privateProperty = 'XYZ';
 
   int intField = 12345;
-  String stringProperty = "ABC";
+  String stringProperty = 'ABC';
   dynamic nullProperty = null;
   List<int> intArrayProperty = [1, 2, 3];
-  List<String> stringListProperty = ["AAA", "BBB"];
+  List<String> stringListProperty = ['AAA', 'BBB'];
   Map<String, int> mapProperty = {};
-  TestSubObject subObjectProperty = new TestSubObject("1");
+  TestSubObject subObjectProperty = new TestSubObject('1');
   List<TestSubObject> subArrayProperty = [
-    new TestSubObject("2"),
-    new TestSubObject("3")
+    new TestSubObject('2'),
+    new TestSubObject('3')
   ];
 }

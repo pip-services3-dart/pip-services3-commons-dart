@@ -7,8 +7,8 @@ import '../../lib/src/validate/ValueComparisonRule.dart';
 void main() {
   group('Logical Rules', () {
     test('OrRule', () {
-      var schema = new Schema().withRule(new OrRule(
-          [new ValueComparisonRule("=", 1), new ValueComparisonRule("=", 2)]));
+      var schema =  Schema().withRule( OrRule(
+          [ ValueComparisonRule('=', 1),  ValueComparisonRule('=', 2)]));
 
       var results = schema.validate(-100);
       expect(results.length, 2);
@@ -21,9 +21,9 @@ void main() {
     });
 
     test('AndRule', () {
-      var schema = new Schema().withRule(new AndRule([
-        new ValueComparisonRule(">", 0),
-        new ValueComparisonRule("<", 200)
+      var schema =  Schema().withRule( AndRule([
+         ValueComparisonRule('>', 0),
+         ValueComparisonRule('<', 200)
       ]));
 
       var results1 = schema.validate(-100);

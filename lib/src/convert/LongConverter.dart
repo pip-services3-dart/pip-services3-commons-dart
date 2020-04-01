@@ -6,8 +6,8 @@
 /// 
 /// ### Example ###
 /// 
-///     var value1 = LongConverter.toNullableLong("ABC"); // Result: null
-///     var value2 = LongConverter.toNullableLong("123.456"); // Result: 123
+///     var value1 = LongConverter.toNullableLong('ABC'); // Result: null
+///     var value2 = LongConverter.toNullableLong('123.456'); // Result: 123
 ///     var value3 = LongConverter.toNullableLong(true); // Result: 1
 ///     var value4 = LongConverter.toNullableLong(new Date()); // Result: current milliseconds
  

@@ -13,13 +13,13 @@ import './IEventListener.dart';
 /// 
 /// ### Example ###
 /// 
-///     var event = new Event("my_event");
+///     var event = new Event('my_event');
 ///      
 ///     event.addListener(myListener);
 ///     
-///     event.notify("123", Parameters.fromTuples(
-///       ["param1", "ABC",
-///       "param2", 123]
+///     event.notify('123', Parameters.fromTuples(
+///       ['param1', 'ABC',
+///       'param2', 123]
 ///     ));
  
 class Event implements IEvent {
@@ -33,7 +33,7 @@ class Event implements IEvent {
     /// @throws an Error if the name is null.
      
   Event(String name) {
-    if (name == null) throw ("Name cannot be null");
+    if (name == null) throw ('Name cannot be null');
 
     this._name = name;
   }
@@ -89,9 +89,9 @@ class Event implements IEvent {
         var listener = this._listeners[i];
         listener.onEvent(correlationId, this, args);
       } catch (ex) {
-        throw new InvocationException(correlationId, "EXEC_FAILED",
-                "Raising event " + this.getName() + " failed: " + ex)
-            .withDetails("event", this.getName())
+        throw new InvocationException(correlationId, 'EXEC_FAILED',
+                'Raising event ' + this.getName() + ' failed: ' + ex)
+            .withDetails('event', this.getName())
             .wrap(ex);
       }
     }

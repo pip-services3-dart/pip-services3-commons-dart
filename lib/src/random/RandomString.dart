@@ -6,14 +6,14 @@ import './RandomBoolean.dart';
 
 /// ### Example ###
 
-///     var value1 = RandomString.pickChar("ABC");     // Possible result: "C"
-///     var value2 = RandomString.pick(["A","B","C"]); // Possible result: "gBW"
+///     var value1 = RandomString.pickChar('ABC');     // Possible result: 'C'
+///     var value2 = RandomString.pick(['A','B','C']); // Possible result: 'gBW'
  
 class RandomString {
-  static var _digits = "01234956789";
-  static var _symbols = "_,.:-/.[].{},#-!,\$=%.+^.&*-() ";
-  static var _alphaLower = "abcdefghijklmnopqrstuvwxyz";
-  static var _alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  static var _digits = '01234956789';
+  static var _symbols = '_,.:-/.[].{},#-!,\$=%.+^.&*-() ';
+  static var _alphaLower = 'abcdefghijklmnopqrstuvwxyz';
+  static var _alphaUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   static var _alpha = RandomString._alphaUpper + RandomString._alphaLower;
   static var _chars =
       RandomString._alpha + RandomString._digits + RandomString._symbols;
@@ -76,7 +76,7 @@ class RandomString {
 
   
     /// Generates a random string, consisting of upper and lower case letters (of the English alphabet),
-    /// digits (0-9), and symbols ("_,.:-/.[].{},#-!,$=%.+^.&*-() ").
+    /// digits (0-9), and symbols ('_,.:-/.[].{},#-!,$=%.+^.&*-() ').
     
     /// - [minLength]     (optional) minimum string length.
     /// - [maxLength]     maximum string length.
