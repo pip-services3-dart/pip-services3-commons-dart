@@ -58,10 +58,12 @@ class SortParams extends ListBase<SortField> {
   @override
   int get length => _values.length;
 
+  @override
   SortField operator [](int index) {
     return _values[index];
   }
 
+  @override
   void operator []=(int index, SortField item) {
     _values[index] = item;
   }

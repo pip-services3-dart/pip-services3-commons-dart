@@ -11,10 +11,10 @@ void main() {
       var array = [1, 2];
       var map = MapConverter.toNullableMap(array);
       expect(map, isNotNull);
-      expect(map["0"], equals(1));
-      expect(map["1"], equals(2));
+      expect(map['0'], equals(1));
+      expect(map['1'], equals(2));
 
-      var obj = {"field1": "abc", "field2": 123};
+      var obj = {'field1': 'abc', 'field2': 123};
       map = MapConverter.toNullableMap(obj);
       expect(map, isNotNull);
       expect(map['field1'], equals('abc'));

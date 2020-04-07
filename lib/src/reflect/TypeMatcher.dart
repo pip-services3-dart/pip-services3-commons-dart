@@ -39,8 +39,7 @@ class TypeMatcher {
   /// See [matchTypeByName]
   /// See [matchTypeByName] (for matching by types' string names)
 
-  static bool matchType(expectedType, TypeCode actualType,
-      [actualValue = null]) {
+  static bool matchType(expectedType, TypeCode actualType, [actualValue]) {
     if (expectedType == null) return true;
     if (actualType == null) throw Exception('Actual type cannot be null');
 
@@ -65,13 +64,15 @@ class TypeMatcher {
               actualType == TypeCode.Float)) return true;
       if (expectedType == TypeCode.DateTime &&
           (actualType == TypeCode.String &&
-              DateTimeConverter.toNullableDateTime(actualValue) != null))
+              DateTimeConverter.toNullableDateTime(actualValue) != null)) {
         return true;
+      }
       return false;
     }
 
-    if (expectedType is String)
+    if (expectedType is String) {
       return matchTypeByName(expectedType, actualType, actualValue);
+    }
 
     return false;
   }
@@ -97,15 +98,15 @@ class TypeMatcher {
   /// Returns true if types are matching and false if they don't.
 
   static bool matchTypeByName(String expectedType, TypeCode actualType,
-      [actualValue = null]) {
+      [actualValue]) {
     if (expectedType == null) return true;
     if (actualType == null) throw Exception('Actual type cannot be null');
 
     expectedType = expectedType.toLowerCase();
 
-    if (expectedType == 'object')
+    if (expectedType == 'object') {
       return true;
-    else if (expectedType == 'int' || expectedType == 'integer') {
+    } else if (expectedType == 'int' || expectedType == 'integer') {
       return actualType == TypeCode.Integer
           // Special provisions for dynamic data
           ||
@@ -154,7 +155,8 @@ class TypeMatcher {
     } else if (expectedType.endsWith('[]')) {
       // Todo: Check subtype
       return actualType == TypeCode.Array;
-    } else
+    } else {
       return false;
+    }
   }
 }

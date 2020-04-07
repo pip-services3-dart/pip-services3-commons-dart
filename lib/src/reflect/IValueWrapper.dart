@@ -2,5 +2,5 @@
 ///
 
 abstract class IValueWrapper {
-  innerValue();
+  dynamic innerValue();
 }

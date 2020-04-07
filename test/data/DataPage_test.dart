@@ -4,7 +4,7 @@ import '../../lib/src/data/DataPage.dart';
 void main() {
   group('DataPage', () {
     test('JSON DataPage<Map<String,String>> convert', () {
-      var data = Map<String, String>();
+      var data = <String, String>{};
       data['key1'] = 'value1';
       data['key2'] = 'value2';
       var page = DataPage<Map<String, String>>([data], 1);

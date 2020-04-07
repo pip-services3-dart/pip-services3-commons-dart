@@ -705,10 +705,12 @@ class AnyValueMap extends MapBase<String, dynamic>
     return result;
   }
 
-  operator [](dynamic key) {
+  @override
+  dynamic operator [](dynamic key) {
     return _values[key];
   }
 
+  @override
   void operator []=(String key, dynamic value) {
     _values[key] = value;
   }

@@ -48,7 +48,7 @@ class PropertySchema extends Schema {
   ///
   /// - [value]     a new property name.
 
-  setName(String value) {
+  void setName(String value) {
     _name = value;
   }
 
@@ -65,7 +65,7 @@ class PropertySchema extends Schema {
   ///
   /// - [value]     a new property type.
 
-  setType(dynamic value) {
+  void setType(dynamic value) {
     _type = value;
   }
 
@@ -75,6 +75,7 @@ class PropertySchema extends Schema {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
     path = path != '' ? path + '.' + getName() : getName();

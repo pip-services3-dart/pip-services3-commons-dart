@@ -13,7 +13,7 @@ import './RecursiveObjectReader.dart';
 /// See [ObjectWriter]
 
 class RecursiveObjectWriter {
-  static _createProperty(obj, List<String> names, int nameIndex) {
+  static dynamic _createProperty(obj, List<String> names, int nameIndex) {
     // If next field is index then create an array
     var subField = names.length > nameIndex + 1 ? names[nameIndex + 1] : null;
     var subFieldIndex = IntegerConverter.toNullableInteger(subField);
@@ -23,13 +23,14 @@ class RecursiveObjectWriter {
     return {};
   }
 
-  static _performSetProperty(obj, List<String> names, int nameIndex, value) {
+  static dynamic _performSetProperty(
+      obj, List<String> names, int nameIndex, value) {
     if (nameIndex < names.length - 1) {
       var subObj = ObjectReader.getProperty(obj, names[nameIndex]);
-      if (subObj != null)
+      if (subObj != null) {
         RecursiveObjectWriter._performSetProperty(
             subObj, names, nameIndex + 1, value);
-      else {
+      } else {
         subObj = RecursiveObjectWriter._createProperty(obj, names, nameIndex);
         if (subObj != null) {
           RecursiveObjectWriter._performSetProperty(
@@ -37,8 +38,9 @@ class RecursiveObjectWriter {
           ObjectWriter.setProperty(obj, names[nameIndex], subObj);
         }
       }
-    } else
+    } else {
       ObjectWriter.setProperty(obj, names[nameIndex], value);
+    }
   }
 
   /// Recursively sets value of object and its subobjects property specified by its name.
@@ -58,7 +60,7 @@ class RecursiveObjectWriter {
     if (obj == null || name == null) return;
 
     var names = name.split('.');
-    if (names == null || names.length == 0) return;
+    if (names == null || names.isEmpty) return;
 
     RecursiveObjectWriter._performSetProperty(obj, names, 0, value);
   }

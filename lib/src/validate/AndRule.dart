@@ -27,7 +27,7 @@ class AndRule implements IValidationRule {
   ///
   /// - [rules]     a list of rules to join with AND operator
 
-  AndRule(List<IValidationRule> rules) : _rules = rules {}
+  AndRule(List<IValidationRule> rules) : _rules = rules;
 
   /// Validates a given value against this rule.
   ///
@@ -36,6 +36,7 @@ class AndRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
     if (_rules == null) return;

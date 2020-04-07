@@ -14,8 +14,7 @@ class BadRequestException extends ApplicationException {
   ///
   /// See [[ErrorCategory]]
 
-  BadRequestException(
-      [String correlation_id , String code , String message ])
+  BadRequestException([String correlation_id, String code, String message])
       : super(ErrorCategory.BadRequest, correlation_id, code, message) {
     status = 400;
   }

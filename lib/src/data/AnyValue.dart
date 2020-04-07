@@ -364,8 +364,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [TypeConverter.toTypeWithDefault]
   T getAsTypeWithDefault<T>(TypeCode typeCode, T defaultValue) {
-    return TypeConverter.toTypeWithDefault<T>(
-        typeCode, _value, defaultValue);
+    return TypeConverter.toTypeWithDefault<T>(typeCode, _value, defaultValue);
   }
 
   /// Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.

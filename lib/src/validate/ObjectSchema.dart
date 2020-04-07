@@ -69,7 +69,7 @@ class ObjectSchema extends Schema {
   ///
   /// - [value]     true to allow undefined properties and false to disallow.
 
-  void set isUndefinedAllowed(bool value) {
+  set isUndefinedAllowed(bool value) {
     _allowUndefined = value;
   }
 
@@ -96,9 +96,8 @@ class ObjectSchema extends Schema {
   ///
   /// See [PropertySchema]
 
-  withProperty(PropertySchema schema) {
-    _properties =
-        _properties != null ? _properties : List<PropertySchema>();
+  dynamic withProperty(PropertySchema schema) {
+    _properties = _properties ?? <PropertySchema>[];
     _properties.add(schema);
     return this;
   }
@@ -144,19 +143,20 @@ class ObjectSchema extends Schema {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
     super.performValidation(path, value, results);
 
     if (value == null) return;
 
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
     var properties = ObjectReader.getProperties(value);
 
     if (_properties != null) {
       for (var i = 0; i < _properties.length; i++) {
         var propertySchema = _properties[i];
-        var processedName = null;
+        var processedName;
 
         for (var key in properties.keys) {
           var propertyName = key;
@@ -170,14 +170,15 @@ class ObjectSchema extends Schema {
           }
         }
 
-        if (processedName != null)
+        if (processedName != null) {
           properties.remove(processedName);
-        else
+        } else {
           propertySchema.performValidation(path, null, results);
+        }
       }
     }
 
-    if (_allowUndefined == null || _allowUndefined == false)
+    if (_allowUndefined == null || _allowUndefined == false) {
       for (var key in properties.keys) {
         var propertyPath = key != null && path != '' ? path + '.' + key : key;
 
@@ -189,5 +190,6 @@ class ObjectSchema extends Schema {
             null,
             key));
       }
+    }
   }
 }

@@ -12,8 +12,7 @@ class InvocationException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  InvocationException(
-      [String correlation_id, String code, String message ])
+  InvocationException([String correlation_id, String code, String message])
       : super(ErrorCategory.FailedInvocation, correlation_id, code, message) {
     status = 500;
   }

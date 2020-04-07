@@ -12,8 +12,7 @@ class NotFoundException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  NotFoundException(
-      [String correlation_id , String code , String message ])
+  NotFoundException([String correlation_id, String code, String message])
       : super(ErrorCategory.NotFound, correlation_id, code, message) {
     status = 404;
   }

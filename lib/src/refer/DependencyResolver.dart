@@ -36,16 +36,16 @@ import './Descriptor.dart';
 ///         ...
 ///
 ///          MyComponent() {
-///             this._dependencyResolver.put('persistence', new Descriptor('mygroup', 'persistence', '*', '*', '1.0'));
+///             _dependencyResolver.put('persistence', new Descriptor('mygroup', 'persistence', '*', '*', '1.0'));
 ///         }
 ///
 ///         configure(ConfigParams config ) {
-///             this._dependencyResolver.configure(config);
+///             _dependencyResolver.configure(config);
 ///         }
 ///
 ///         setReferences(IReferences references) {
-///             this._dependencyResolver.setReferences(references);
-///             this._persistence = this._dependencyResolver.getOneRequired<IMyPersistence>('persistence');
+///             _dependencyResolver.setReferences(references);
+///             _persistence = _dependencyResolver.getOneRequired<IMyPersistence>('persistence');
 ///         }
 ///     }
 ///
@@ -64,7 +64,7 @@ import './Descriptor.dart';
 /// See [IReferences]
 
 class DependencyResolver implements IReferenceable, IReconfigurable {
-  var _dependencies = Map<String, dynamic>();
+  var _dependencies = <String, dynamic>{};
   IReferences _references;
 
   /// Creates a new instance of the dependency resolver.
@@ -77,10 +77,9 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// See [IReferences]
   /// See [setReferences]
 
-  DependencyResolver(
-      [ConfigParams config = null, IReferences references = null]) {
-    if (config != null) this.configure(config);
-    if (references != null) this.setReferences(references);
+  DependencyResolver([ConfigParams config, IReferences references]) {
+    if (config != null) configure(config);
+    if (references != null) setReferences(references);
   }
 
   /// Configures the component with specified parameters.
@@ -89,6 +88,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   ///
   /// See [ConfigParams]
 
+  @override
   void configure(ConfigParams config) {
     var dependencies = config.getSection('dependencies');
     var names = dependencies.getKeys();
@@ -99,12 +99,13 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 
       try {
         var descriptor = Descriptor.fromString(locator);
-        if (descriptor != null)
-          this._dependencies[name] = descriptor;
-        else
-          this._dependencies[name] = locator;
+        if (descriptor != null) {
+          _dependencies[name] = descriptor;
+        } else {
+          _dependencies[name] = locator;
+        }
       } catch (ex) {
-        this._dependencies[name] = locator;
+        _dependencies[name] = locator;
       }
     }
   }
@@ -113,8 +114,9 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   ///
   /// - [references] 	references to set.
 
+  @override
   void setReferences(IReferences references) {
-    this._references = references;
+    _references = references;
   }
 
   /// Adds a new dependency into this resolver.
@@ -123,7 +125,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// - [locator] 	the locator to find the dependency by.
 
   void put(String name, locator) {
-    this._dependencies[name] = locator;
+    _dependencies[name] = locator;
   }
 
   /// Gets a dependency locator by its name.
@@ -131,11 +133,11 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// - [name] 	the name of the dependency to locate.
   /// Returns the dependency locator or null if locator was not configured.
 
-  locate(String name) {
+  dynamic locate(String name) {
     if (name == null) throw Exception('Dependency name cannot be null');
-    if (this._references == null) throw Exception('References shall be set');
+    if (_references == null) throw Exception('References shall be set');
 
-    return this._dependencies[name];
+    return _dependencies[name];
   }
 
   /// Gets all optional dependencies by their name.
@@ -144,8 +146,8 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// Returns a list with found dependencies or empty list of no dependencies was found.
 
   List<T> getOptional<T>(String name) {
-    var locator = this.locate(name);
-    return locator != null ? this._references.getOptional<T>(locator) : null;
+    var locator = locate(name);
+    return locator != null ? _references.getOptional<T>(locator) : null;
   }
 
   /// Gets all required dependencies by their name.
@@ -158,10 +160,10 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// Throws a [ReferenceException] if no dependencies were found.
 
   List<T> getRequired<T>(String name) {
-    var locator = this.locate(name);
+    var locator = locate(name);
     if (locator == null) throw ReferenceException(null, name);
 
-    return this._references.getRequired<T>(locator);
+    return _references.getRequired<T>(locator);
   }
 
   /// Gets one optional dependency by its name.
@@ -170,8 +172,8 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// Returns a dependency reference or null of the dependency was not found
 
   T getOneOptional<T>(String name) {
-    var locator = this.locate(name);
-    return locator != null ? this._references.getOneOptional<T>(locator) : null;
+    var locator = locate(name);
+    return locator != null ? _references.getOneOptional<T>(locator) : null;
   }
 
   /// Gets one required dependency by its name.
@@ -184,10 +186,10 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// Throws a [ReferenceException] if dependency was not found.
 
   T getOneRequired<T>(String name) {
-    var locator = this.locate(name);
+    var locator = locate(name);
     if (locator == null) throw ReferenceException(null, name);
 
-    return this._references.getOneRequired<T>(locator);
+    return _references.getOneRequired<T>(locator);
   }
 
   /// Finds all matching dependencies by their name.
@@ -201,13 +203,13 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   List<T> find<T>(String name, bool required) {
     if (name == null) throw Exception('Name cannot be null');
 
-    var locator = this.locate(name);
+    var locator = locate(name);
     if (locator == null) {
       if (required) throw ReferenceException(null, name);
       return null;
     }
 
-    return this._references.find<T>(locator, required);
+    return _references.find<T>(locator, required);
   }
 
   /// Creates a new DependencyResolver from a list of key-value pairs called tuples
@@ -220,7 +222,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 
   static DependencyResolver fromTuples(List tuples) {
     var result = DependencyResolver();
-    if (tuples == null || tuples.length == 0) return result;
+    if (tuples == null || tuples.isEmpty) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;

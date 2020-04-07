@@ -71,10 +71,7 @@ class ApplicationException implements Exception {
   /// - [message]           (optional) a human-readable description of the error.
 
   ApplicationException(
-      [String category ,
-      String correlation_id ,
-      String code ,
-      String message]) {
+      [String category, String correlation_id, String code, String message]) {
     this.category = category ?? ErrorCategory.Unknown;
     this.correlation_id = correlation_id;
     this.code = code ?? 'UNKNOWN';

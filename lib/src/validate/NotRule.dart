@@ -26,7 +26,7 @@ class NotRule implements IValidationRule {
   ///
   /// - [rule]     a rule to be negated.
 
-  NotRule(IValidationRule rule) : _rule = rule {}
+  NotRule(IValidationRule rule) : _rule = rule;
 
   /// Validates a given value against this rule.
   ///
@@ -35,16 +35,17 @@ class NotRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
     if (_rule == null) return;
 
-    var name = path != null ? path : 'value';
-    var localResults = List<ValidationResult>();
+    var name = path ?? 'value';
+    var localResults = <ValidationResult>[];
 
     _rule.validate(path, schema, value, localResults);
 
-    if (localResults.length > 0) return;
+    if (localResults.isNotEmpty) return;
 
     results.add(ValidationResult(path, ValidationResultType.Error, 'NOT_FAILED',
         'Negative check for ' + name + ' failed', null, null));

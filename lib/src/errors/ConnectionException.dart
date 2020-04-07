@@ -13,8 +13,7 @@ class ConnectionException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  ConnectionException(
-      [String correlation_id , String code , String message ])
+  ConnectionException([String correlation_id, String code, String message])
       : super(ErrorCategory.NoResponse, correlation_id, code, message) {
     status = 500;
   }

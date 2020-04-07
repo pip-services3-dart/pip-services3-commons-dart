@@ -12,8 +12,7 @@ class UnsupportedException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  UnsupportedException(
-      [String correlation_id, String code, String message])
+  UnsupportedException([String correlation_id, String code, String message])
       : super(ErrorCategory.Unsupported, correlation_id, code, message) {
     status = 500;
   }

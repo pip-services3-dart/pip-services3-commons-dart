@@ -37,7 +37,8 @@ class Cleaner {
   static Future clear(String correlationId, List components) async {
     if (components == null) return;
 
-    for (var component in components)
+    for (var component in components) {
       await Cleaner.clearOne(correlationId, component);
+    }
   }
 }

@@ -1,6 +1,5 @@
 import 'package:test/test.dart';
 import './TestObject.dart';
-import './TestSubObject.dart';
 
 import '../../lib/src/validate/Schema.dart';
 import '../../lib/src/validate/ObjectSchema.dart';

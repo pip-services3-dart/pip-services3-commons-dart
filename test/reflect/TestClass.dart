@@ -3,7 +3,7 @@ class TestClass {
   String publicField = 'ABC';
   DateTime _publicProp = DateTime.now();
 
-  TestClass([int arg1 = null]) {}
+  TestClass([int arg1]);
 
   int get _privateProp {
     return 543;
@@ -12,11 +12,11 @@ class TestClass {
   set _privateProp(int value) {}
 
   DateTime get publicProp {
-    return this._publicProp;
+    return _publicProp;
   }
 
   set publicProp(DateTime value) {
-    this._publicProp = value;
+    _publicProp = value;
   }
 
   void _privateMethod() {}

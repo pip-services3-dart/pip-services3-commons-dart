@@ -25,13 +25,13 @@ void main() {
 
     test('Sequence', () {
       var list = RandomInteger.sequence(1, 5);
-      expect(list.length <= 5 && list.length >= 1, isTrue);
+      expect(list.length <= 5 && list.isNotEmpty, isTrue);
 
       list = RandomInteger.sequence(-1, 0);
-      expect(list.length == 0, isTrue);
+      expect(list.isEmpty, isTrue);
 
       list = RandomInteger.sequence(-1, -4);
-      expect(list.length == 0, isTrue);
+      expect(list.isEmpty, isTrue);
 
       list = RandomInteger.sequence(4, 4);
       expect(list.length == 4, isTrue);

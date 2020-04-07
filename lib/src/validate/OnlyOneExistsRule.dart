@@ -24,7 +24,7 @@ class OnlyOneExistsRule implements IValidationRule {
   ///
   /// - [properties]    a list of property names where at only one property must exist
 
-  OnlyOneExistsRule(List<String> properties) : _properties = properties {}
+  OnlyOneExistsRule(List<String> properties) : _properties = properties;
 
   /// Validates a given value against this rule.
   ///
@@ -33,10 +33,11 @@ class OnlyOneExistsRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : 'value';
-    var found = List<String>();
+    var name = path ?? 'value';
+    var found = <String>[];
 
     for (var i = 0; i < _properties.length; i++) {
       var property = _properties[i];
@@ -46,7 +47,7 @@ class OnlyOneExistsRule implements IValidationRule {
       if (propertyValue != null) found.add(property);
     }
 
-    if (found.length == 0) {
+    if (found.isEmpty) {
       results.add(ValidationResult(
           path,
           ValidationResultType.Error,
@@ -61,9 +62,7 @@ class OnlyOneExistsRule implements IValidationRule {
           path,
           ValidationResultType.Error,
           'VALUE_ONLY_ONE',
-          name +
-              ' must have only one property from ' +
-              _properties.join(','),
+          name + ' must have only one property from ' + _properties.join(','),
           _properties,
           null));
     }

@@ -24,10 +24,8 @@ class ValidationException extends BadRequestException {
 
   ValidationException(String correlationId,
       [String message, List<ValidationResult> results])
-      : super(
-            correlationId,
-            'INVALID_DATA',
-             message ?? ValidationException.composeMessage(results)) {
+      : super(correlationId, 'INVALID_DATA',
+            message ?? ValidationException.composeMessage(results)) {
     if (results != null) withDetails('results', results);
   }
 

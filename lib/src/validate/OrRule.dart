@@ -27,7 +27,7 @@ class OrRule implements IValidationRule {
   ///
   /// - [rules]     a list of rules to join with OR operator
 
-  OrRule(List<IValidationRule> rules) : _rules = rules {}
+  OrRule(List<IValidationRule> rules) : _rules = rules;
 
   /// Validates a given value against this rule.
   ///
@@ -36,11 +36,12 @@ class OrRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    if (_rules == null || _rules.length == 0) return;
+    if (_rules == null || _rules.isEmpty) return;
 
-    var localResults = List<ValidationResult>();
+    var localResults = <ValidationResult>[];
 
     for (var i = 0; i < _rules.length; i++) {
       var resultCount = localResults.length;

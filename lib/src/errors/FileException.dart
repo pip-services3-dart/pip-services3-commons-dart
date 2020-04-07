@@ -12,8 +12,7 @@ class FileException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  FileException(
-      [String correlation_id, String code , String message])
+  FileException([String correlation_id, String code, String message])
       : super(ErrorCategory.FileError, correlation_id, code, message) {
     status = 500;
   }

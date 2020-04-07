@@ -74,7 +74,7 @@ class JsonConverter {
 
   static Map<String, dynamic> toMap(String value) {
     var result = JsonConverter.toNullableMap(value);
-    return  result ?? <String, dynamic>{};
+    return result ?? <String, dynamic>{};
   }
 
   /// Converts JSON string into map object or returns default value when conversion is not possible.

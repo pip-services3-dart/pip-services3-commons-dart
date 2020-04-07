@@ -22,12 +22,12 @@ class ValidationResult {
   /// See [ValidationResultType]
 
   ValidationResult(
-      [String path = null,
-      ValidationResultType type = null,
-      String code = null,
-      String message = null,
-      dynamic expected = null,
-      dynamic actual = null]) {
+      [String path,
+      ValidationResultType type,
+      String code,
+      String message,
+      dynamic expected,
+      dynamic actual]) {
     _path = path;
     _type = type;
     _code = code;

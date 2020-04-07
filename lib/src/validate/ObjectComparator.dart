@@ -20,20 +20,26 @@ class ObjectComparator {
   static bool compare(dynamic value1, String operation, dynamic value2) {
     operation = operation.toUpperCase();
 
-    if (operation == '=' || operation == '==' || operation == 'EQ')
+    if (operation == '=' || operation == '==' || operation == 'EQ') {
       return ObjectComparator.areEqual(value1, value2);
-    if (operation == '!=' || operation == '<>' || operation == 'NE')
+    }
+    if (operation == '!=' || operation == '<>' || operation == 'NE') {
       return ObjectComparator.areNotEqual(value1, value2);
-    if (operation == '<' || operation == 'LT')
+    }
+    if (operation == '<' || operation == 'LT') {
       return ObjectComparator.isLess(value1, value2);
-    if (operation == '<=' || operation == 'LE' || operation == 'LTE')
+    }
+    if (operation == '<=' || operation == 'LE' || operation == 'LTE') {
       return ObjectComparator.areEqual(value1, value2) ||
           ObjectComparator.isLess(value1, value2);
-    if (operation == '>' || operation == 'GT')
+    }
+    if (operation == '>' || operation == 'GT') {
       return ObjectComparator.isGreater(value1, value2);
-    if (operation == '>=' || operation == 'GE' || operation == 'GTE')
+    }
+    if (operation == '>=' || operation == 'GE' || operation == 'GTE') {
       return ObjectComparator.areEqual(value1, value2) ||
           ObjectComparator.isGreater(value1, value2);
+    }
     if (operation == 'LIKE') return ObjectComparator.match(value1, value2);
 
     return false;

@@ -1,12 +1,11 @@
-import "package:test/test.dart";
-import "dart:convert";
-import "../../lib/src/convert/JsonConverter.dart";
-import "../../lib/src/validate/ObjectSchema.dart";
-import "../../lib/src/convert/TypeCode.dart";
+import 'package:test/test.dart';
+import 'dart:convert';
+import '../../lib/src/validate/ObjectSchema.dart';
+import '../../lib/src/convert/TypeCode.dart';
 
 void main() {
-  group("DynamicData", () {
-    test("Validate dynamic data", () {
+  group('DynamicData', () {
+    test('Validate dynamic data', () {
       var dynamicString =
           '{ "string_field": "ABC", "date_field": "2019-01-01T11:30:00.00", "int_field": 123, "float_field": 123.456 }';
       var dynamicObject = json.decode(dynamicString);

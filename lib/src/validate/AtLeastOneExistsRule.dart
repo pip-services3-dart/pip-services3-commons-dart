@@ -24,8 +24,7 @@ class AtLeastOneExistsRule implements IValidationRule {
   ///
   /// - properties    a list of property names where at least one property must exist
 
-  AtLeastOneExistsRule(List<String> properties)
-      : _properties = properties {}
+  AtLeastOneExistsRule(List<String> properties) : _properties = properties;
 
   /// Validates a given value against this rule.
   ///
@@ -34,17 +33,18 @@ class AtLeastOneExistsRule implements IValidationRule {
   /// - value     a value to be validated.
   /// - results   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : 'value';
-    var found = List<String>();
+    var name = path ?? 'value';
+    var found = <String>[];
 
     for (var i = 0; i < _properties.length; i++) {
       var propertyValue = ObjectReader.getProperty(value, _properties[i]);
       if (propertyValue != null) found.add(_properties[i]);
     }
 
-    if (found.length == 0) {
+    if (found.isEmpty) {
       results.add(ValidationResult(
           path,
           ValidationResultType.Error,

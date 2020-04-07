@@ -23,8 +23,9 @@ class Executor {
 
   static Future<dynamic> executeOne(
       String correlationId, component, Parameters args) async {
-    if (component is IExecutable)
+    if (component is IExecutable) {
       return await component.execute(correlationId, args);
+    }
   }
 
   /// Executes multiple components.
@@ -43,7 +44,7 @@ class Executor {
 
   static Future<List> execute(
       String correlationId, List components, Parameters args) async {
-    var results = List();
+    var results = [];
 
     if (components == null) return results;
 

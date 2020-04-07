@@ -12,8 +12,7 @@ class UnauthorizedException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  UnauthorizedException(
-      [String correlation_id , String code , String message ])
+  UnauthorizedException([String correlation_id, String code, String message])
       : super(ErrorCategory.Unauthorized, correlation_id, code, message) {
     status = 401;
   }

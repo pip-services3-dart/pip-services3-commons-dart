@@ -23,7 +23,7 @@ class IncludedRule implements IValidationRule {
   ///
   /// - [values]    a list of constants that value must be included to
 
-  IncludedRule(List<dynamic> values) : _values = values {}
+  IncludedRule(List<dynamic> values) : _values = values;
 
   /// Validates a given value against this rule.
   ///
@@ -32,11 +32,12 @@ class IncludedRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
     if (_values == null) return;
 
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
     var found = false;
 
     for (var i = 0; i < _values.length && !found; i++) {

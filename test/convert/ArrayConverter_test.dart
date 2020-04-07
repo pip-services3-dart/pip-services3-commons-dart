@@ -30,7 +30,7 @@ void main() {
       expect(value[0], equals('123'));
       expect(value[1], equals('456'));
 
-      value = ArrayConverter.toArray({"field1": "abc", "field2": 123});
+      value = ArrayConverter.toArray({'field1': 'abc', 'field2': 123});
       expect(value, isList);
       expect(value.length, equals(2));
       expect(value[0], equals('abc'));

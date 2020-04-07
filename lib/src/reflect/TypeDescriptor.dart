@@ -80,7 +80,7 @@ class TypeDescriptor {
   /// See [toString]
 
   static TypeDescriptor fromString(String value) {
-    if (value == null || value.length == 0) return null;
+    if (value == null || value.isEmpty) return null;
 
     var tokens = value.split(',');
     if (tokens.length == 1) {

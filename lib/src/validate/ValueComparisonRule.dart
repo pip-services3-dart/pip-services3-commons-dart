@@ -27,7 +27,7 @@ class ValueComparisonRule implements IValidationRule {
 
   ValueComparisonRule(String operation, dynamic value)
       : _operation = operation,
-        _value = value {}
+        _value = value;
 
   /// Validates a given value against this rule.
   ///
@@ -36,9 +36,10 @@ class ValueComparisonRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
 
     if (!ObjectComparator.compare(value, _operation, _value)) {
       results.add(ValidationResult(

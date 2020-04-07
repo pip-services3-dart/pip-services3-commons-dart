@@ -18,10 +18,11 @@ class Opener {
   /// See [IOpenable]
 
   static bool isOpenOne(component) {
-    if (component is IOpenable)
+    if (component is IOpenable) {
       return component.isOpen();
-    else
+    } else {
       return true;
+    }
   }
 
   /// Checks if all components are opened.
@@ -39,8 +40,9 @@ class Opener {
     if (components == null) return true;
 
     var result = true;
-    for (var component in components)
+    for (var component in components) {
       result = result && Opener.isOpenOne(component);
+    }
 
     return result;
   }

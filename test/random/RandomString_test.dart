@@ -13,7 +13,7 @@ void main() {
       var charVariable = RandomString.pickChar(chars);
       expect(chars.indexOf(charVariable) != -1, isTrue);
 
-      var valuesEmpty = List<String>();
+      var valuesEmpty = <String>[];
       expect(RandomString.pick(valuesEmpty) == '', isTrue);
 
       var values = ['ab', 'cd'];
@@ -27,8 +27,9 @@ void main() {
       expect(value.substring(0, 3) == 'Abc' || value.substring(0, 3) == 'abc',
           isTrue);
 
-      if (value.length == 4)
+      if (value.length == 4) {
         expect(symbols.indexOf(value.substring(3)) != -1, isTrue);
+      }
     });
 
     test('Next Alpha Char', () {

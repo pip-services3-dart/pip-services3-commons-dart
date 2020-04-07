@@ -17,7 +17,7 @@ void main() {
     test('Execute', () async {
       var command = Command('name', null, CommandExec());
 
-      var map = Map();
+      var map = {};
       map[8] = 'title 8';
       map[11] = 'title 11';
       var param = Parameters(map);

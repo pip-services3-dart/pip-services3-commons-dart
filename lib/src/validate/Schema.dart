@@ -30,7 +30,7 @@ class Schema {
 
   Schema([bool req, List<IValidationRule> rules]) {
     _required = req;
-    _required = _required != null ? _required : false;
+    _required = _required ?? false;
     _rules = rules;
   }
 
@@ -47,7 +47,7 @@ class Schema {
   ///
   /// - [value] true to always require non-null values and false to allow null values.
 
-  setRequired(bool value) {
+  void setRequired(bool value) {
     _required = value;
   }
 
@@ -63,7 +63,7 @@ class Schema {
   ///
   /// - [value] a list with validation rules.
 
-  setRules(List<IValidationRule> value) {
+  void setRules(List<IValidationRule> value) {
     _rules = value;
   }
 
@@ -106,9 +106,7 @@ class Schema {
   /// Returns this validation schema.
 
   Schema withRule(IValidationRule rule) {
-    if (_rules == null) {
-      _rules = List<IValidationRule>();
-    }
+    _rules ??= <IValidationRule>[];
     _rules.add(rule);
     return this;
   }
@@ -121,7 +119,7 @@ class Schema {
 
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
 
     if (value == null) {
       if (isRequired()) {
@@ -174,7 +172,7 @@ class Schema {
     value = ObjectReader.getValue(value);
     if (value == null) return;
 
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
     var valueType = TypeConverter.toTypeCode(value);
 
     // Match types
@@ -201,7 +199,7 @@ class Schema {
   /// See [ValidationResult]
 
   List<ValidationResult> validate(dynamic value) {
-    var results = List<ValidationResult>();
+    var results = <ValidationResult>[];
     performValidation('', value, results);
     return results;
   }
@@ -215,7 +213,7 @@ class Schema {
   ValidationException validateAndReturnException(
       String correlationId, dynamic value,
       [bool strict = false]) {
-    List<ValidationResult> results = validate(value);
+    var results = validate(value);
     return ValidationException.fromResults(correlationId, results, strict);
   }
 
@@ -229,7 +227,7 @@ class Schema {
 
   void validateAndThrowException(String correlationId, dynamic value,
       [bool strict = false]) {
-    List<ValidationResult> results = validate(value);
+    var results = validate(value);
     ValidationException.throwExceptionIfNeeded(correlationId, results, strict);
   }
 }

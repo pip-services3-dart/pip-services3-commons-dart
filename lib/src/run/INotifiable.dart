@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import './Parameters.dart';
 
 /// Interface for components that can be asynchronously notified.

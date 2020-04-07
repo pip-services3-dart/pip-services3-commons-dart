@@ -59,7 +59,7 @@ class ArraySchema extends Schema {
   @override
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
     value = ObjectReader.getValue(value);
 
     super.performValidation(path, value, results);

@@ -8,5 +8,5 @@ import './ArraySchema.dart';
 class ProjectionParamsSchema extends ArraySchema {
   /// Creates a new instance of validation schema.
 
-  ProjectionParamsSchema() : super(TypeCode.String) {}
+  ProjectionParamsSchema() : super(TypeCode.String);
 }

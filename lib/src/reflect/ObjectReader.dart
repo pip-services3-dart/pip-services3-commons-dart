@@ -41,7 +41,7 @@ class ObjectReader {
   /// - [obj]   an object to unwrap..
   /// Returns an actual (unwrapped) object value.
 
-  static getValue(obj) {
+  static dynamic getValue(obj) {
     if (obj is IValueWrapper) return obj.innerValue();
     return obj;
   }
@@ -88,7 +88,7 @@ class ObjectReader {
   /// - [name] 	a name of the property to get.
   /// Returns the property value or null if property doesn't exist or introspection failed.
 
-  static getProperty(obj, String name) {
+  static dynamic getProperty(obj, String name) {
     if (obj == null || name == null) {
       return null;
     }
@@ -120,7 +120,7 @@ class ObjectReader {
   /// Returns a list with property names.
 
   static List<String> getPropertyNames(obj) {
-    var properties = List<String>();
+    var properties = <String>[];
 
     if (obj is IValueWrapper) obj = obj.innerValue();
 
@@ -152,7 +152,7 @@ class ObjectReader {
   /// Returns a map, containing the names of the object's properties and their values.
 
   static Map<String, dynamic> getProperties(obj) {
-    var map = Map<String, dynamic>();
+    var map = <String, dynamic>{};
 
     if (obj is IValueWrapper) obj = obj.innerValue();
 

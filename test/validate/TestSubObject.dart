@@ -1,26 +1,26 @@
 class TestSubObject {
   String _id;
-  dynamic _nullProperty = null;
+  dynamic _nullProperty;
 
   TestSubObject(String id) {
     this.id = id;
   }
 
   String get id {
-    return this._id;
+    return _id;
   }
 
   set id(String value) {
-    this._id = value;
+    _id = value;
   }
 
   double floatField = 432.1;
 
   dynamic get nullProperty {
-    return this._nullProperty;
+    return _nullProperty;
   }
 
   set nullProperty(dynamic value) {
-    this._nullProperty = value;
+    _nullProperty = value;
   }
 }

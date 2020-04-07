@@ -655,10 +655,12 @@ class AnyValueArray extends ListBase<dynamic>
     return result;
   }
 
+  @override
   dynamic operator [](int index) {
     return _values[index];
   }
 
+  @override
   void operator []=(int index, dynamic item) {
     _values[index] = item;
   }

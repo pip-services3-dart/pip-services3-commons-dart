@@ -36,8 +36,7 @@ class PagingParams {
   /// - [take] 		the number of items to return.
   /// - [total] 	true to return the total number of items.
 
-  PagingParams(
-      [dynamic skip = null, dynamic take = null, dynamic total = null]) {
+  PagingParams([dynamic skip, dynamic take, dynamic total]) {
     this.skip = IntegerConverter.toNullableInteger(skip);
     this.take = IntegerConverter.toNullableInteger(take);
     this.total = BooleanConverter.toBooleanWithDefault(total, false);
@@ -57,19 +56,15 @@ class PagingParams {
   /// Initialize this object from JSON Map object
 
   void fromJson(Map<String, dynamic> json) {
-    this.skip = json['skip'];
-    this.take = json['take'];
-    this.total = json['total'];
+    skip = json['skip'];
+    take = json['take'];
+    total = json['total'];
   }
 
   /// Returned JSON Map object from values of this object
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'skip': this.skip,
-      'take': this.take,
-      'total': this.total
-    };
+    return <String, dynamic>{'skip': skip, 'take': take, 'total': total};
   }
 
   /// Gets the number of items to skip.
@@ -78,9 +73,9 @@ class PagingParams {
   /// Returns 		the number of items to skip.
 
   int getSkip(int minSkip) {
-    if (this.skip == null) return minSkip;
-    if (this.skip < minSkip) return minSkip;
-    return this.skip;
+    if (skip == null) return minSkip;
+    if (skip < minSkip) return minSkip;
+    return skip;
   }
 
   /// Gets the number of items to return in a page.
@@ -89,10 +84,10 @@ class PagingParams {
   /// Returns 		the number of items to return.
 
   int getTake(int maxTake) {
-    if (this.take == null) return maxTake;
-    if (this.take < 0) return 0;
-    if (this.take > maxTake) return maxTake;
-    return this.take;
+    if (take == null) return maxTake;
+    if (take < 0) return 0;
+    if (take > maxTake) return maxTake;
+    return take;
   }
 
   /// Converts specified value into PagingParams.
@@ -126,6 +121,6 @@ class PagingParams {
     var skip = map.getAsNullableInteger('skip');
     var take = map.getAsNullableInteger('take');
     var total = map.getAsBooleanWithDefault('total', false);
-    return new PagingParams(skip, take, total);
+    return PagingParams(skip, take, total);
   }
 }

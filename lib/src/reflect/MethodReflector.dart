@@ -69,7 +69,7 @@ class MethodReflector {
   /// - [args] 	a list of method arguments.
   /// Returns the result of the method invocation or null if method returns void.
 
-  static invokeMethod(obj, String name, List args) {
+  static dynamic invokeMethod(obj, String name, List args) {
     if (obj == null) throw Exception('Object cannot be null');
     if (name == null) throw Exception('Method name cannot be null');
 
@@ -92,11 +92,11 @@ class MethodReflector {
   /// Returns a list with method names.
 
   static List<String> getMethodNames(obj) {
-    var methods = List<String>();
+    var methods = <String>[];
 
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.instanceMembers.values) {
-      Symbol foundName = null;
+      Symbol foundName;
 
       if (dm is MethodMirror &&
           !dm.isGetter &&

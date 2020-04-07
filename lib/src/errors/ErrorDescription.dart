@@ -59,8 +59,7 @@ class ErrorDescription {
     code = StringConverter.toNullableString(json['code']);
     message = StringConverter.toNullableString(json['message']);
     details = StringValueMap.fromValue(json['details']);
-    correlation_id =
-        StringConverter.toNullableString(json['correlation_id']);
+    correlation_id = StringConverter.toNullableString(json['correlation_id']);
     cause = StringConverter.toNullableString(json['cause']);
     stack_trace = StringConverter.toNullableString(json['stack_trace']);
   }

@@ -2,8 +2,8 @@ import './TestSubObject.dart';
 
 class TestObject {
   TestObject() {
-    this.mapProperty['Key1'] = 111;
-    this.mapProperty['Key2'] = 222;
+    mapProperty['Key1'] = 111;
+    mapProperty['Key2'] = 222;
   }
 
   int _privateField = 124;
@@ -11,7 +11,7 @@ class TestObject {
 
   int intField = 12345;
   String stringProperty = 'ABC';
-  dynamic nullProperty = null;
+  dynamic nullProperty;
   List<int> intArrayProperty = [1, 2, 3];
   List<String> stringListProperty = ['AAA', 'BBB'];
   Map<String, int> mapProperty = {};

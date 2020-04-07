@@ -56,6 +56,7 @@ class Event implements IEvent {
   ///
   /// - [listener] the listener reference to add.
 
+  @override
   void addListener(IEventListener listener) {
     _listeners.add(listener);
   }
@@ -64,6 +65,7 @@ class Event implements IEvent {
   ///
   /// - [listener]      the listener reference to remove.
 
+  @override
   void removeListener(IEventListener listener) {
     var index = _listeners.indexOf(listener);
 
@@ -76,6 +78,7 @@ class Event implements IEvent {
   /// - [args]              the parameters to raise this event with.
   /// throws an [InvocationException] if the event fails to be raised.
 
+  @override
   void notify(String correlationId, Parameters args) {
     for (var i = 0; i < _listeners.length; i++) {
       try {

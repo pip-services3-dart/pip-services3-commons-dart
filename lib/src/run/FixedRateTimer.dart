@@ -4,7 +4,6 @@ import 'dart:async';
 import './IClosable.dart';
 import './INotifiable.dart';
 import './Parameters.dart';
-import '../reflect/ObjectReader.dart';
 
 /// Timer that is triggered in equal time intervals.
 ///
@@ -56,12 +55,12 @@ class FixedRateTimer implements IClosable {
   /// See [setInterval]
   /// See [setDelay]
 
-  FixedRateTimer(
-      [dynamic taskOrCallback = null, int interval = null, int delay = null]) {
-    if (taskOrCallback != null && (taskOrCallback is INotifiable)) //
+  FixedRateTimer([dynamic taskOrCallback, int interval, int delay]) {
+    if (taskOrCallback != null && (taskOrCallback is INotifiable)) {
       setTask(taskOrCallback);
-    else
+    } else {
       setCallback(taskOrCallback);
+    }
 
     setInterval(interval);
     setDelay(delay);
@@ -98,7 +97,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// - [value] the callback function to be called.
 
-  setCallback(Function() value) {
+  void setCallback(Function() value) {
     _callback = value;
     _task = null;
   }
@@ -164,8 +163,7 @@ class FixedRateTimer implements IClosable {
       _timeout = null;
 
       // Set a new timer
-      _timer =
-          Timer.periodic(Duration(milliseconds: _interval), (Timer tm) {
+      _timer = Timer.periodic(Duration(milliseconds: _interval), (Timer tm) {
         try {
           if (_callback != null) _callback();
         } catch (ex) {
@@ -179,7 +177,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// See [start]
 
-  stop() {
+  void stop() {
     if (_timeout != null) {
       _timeout.cancel();
       _timeout = null;
@@ -201,6 +199,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// See [stop]
 
+  @override
   Future close(String correlationId) {
     stop();
 

@@ -715,7 +715,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
 
   static StringValueMap fromMaps(List maps) {
     var result = StringValueMap();
-    if (maps != null && maps.length > 0) {
+    if (maps != null && maps.isNotEmpty) {
       for (var index = 0; index < maps.length; index++) {
         result.append(maps[index]);
       }

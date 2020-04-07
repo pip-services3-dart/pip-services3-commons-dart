@@ -36,7 +36,8 @@ class Notifier {
   static void notify(String correlationId, List components, Parameters args) {
     if (components == null) return;
 
-    for (var component in components)
+    for (var component in components) {
       Notifier.notifyOne(correlationId, component, args);
+    }
   }
 }

@@ -48,7 +48,7 @@ void main() {
       var obj = TestClass();
 
       var value = DateTime(1975, 4, 8);
-      var map = Map<String, dynamic>();
+      var map = <String, dynamic>{};
       map['publicField'] = 'XYZ';
       map['PublicProp'] = value;
       PropertyReflector.setProperties(obj, map);

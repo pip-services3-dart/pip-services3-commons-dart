@@ -8,11 +8,11 @@ class TestClass {
 
   var value1;
 
-  get value2 {
-    return this._value2;
+  dynamic get value2 {
+    return _value2;
   }
 
   set value2(value) {
-    this._value2 = value;
+    _value2 = value;
   }
 }

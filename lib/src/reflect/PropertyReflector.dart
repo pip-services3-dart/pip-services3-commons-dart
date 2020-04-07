@@ -87,7 +87,7 @@ class PropertyReflector {
   /// - [name] 	a name of the property to get.
   /// Returns the property value or null if property doesn't exist or introspection failed.
 
-  static getProperty(obj, String name) {
+  static dynamic getProperty(obj, String name) {
     if (obj == null) throw Exception('Object cannot be null');
     if (name == null) throw Exception('Property name cannot be null');
 
@@ -110,15 +110,15 @@ class PropertyReflector {
   /// Returns a list with property names.
 
   static List<String> getPropertyNames(obj) {
-    var properties = List<String>();
+    var properties = <String>[];
 
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
-      Symbol foundName = null;
+      Symbol foundName;
 
-      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate)
+      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
         foundName = dm.simpleName;
-      else if (dm is MethodMirror &&
+      } else if (dm is MethodMirror &&
           dm.isGetter &&
           !dm.isStatic &&
           !dm.isPrivate) foundName = dm.simpleName;
@@ -136,16 +136,16 @@ class PropertyReflector {
   /// Returns a map, containing the names of the object's properties and their values.
 
   static Map<String, dynamic> getProperties(obj) {
-    var map = Map<String, dynamic>();
+    var map = <String, dynamic>{};
 
     var cm = reflectClass(obj.runtimeType);
     var im = reflect(obj);
     for (var dm in cm.declarations.values) {
-      Symbol foundName = null;
+      Symbol foundName;
 
-      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate)
+      if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
         foundName = dm.simpleName;
-      else if (dm is MethodMirror &&
+      } else if (dm is MethodMirror &&
           dm.isGetter &&
           !dm.isStatic &&
           !dm.isPrivate) foundName = dm.simpleName;

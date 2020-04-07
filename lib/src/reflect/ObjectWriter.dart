@@ -52,7 +52,7 @@ class ObjectWriter {
     if (obj is Map) {
       try {
         var targetKey = name.toLowerCase();
-        var foundKey = null;
+        var foundKey;
         for (var key in obj.keys) {
           if (key.toString().toString() == targetKey) {
             foundKey = key;

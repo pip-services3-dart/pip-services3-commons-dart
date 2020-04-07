@@ -55,7 +55,7 @@ class MapSchema extends Schema {
   ///
   /// - [value]     a type of map keys.
 
-  setKeyType(dynamic value) {
+  void setKeyType(dynamic value) {
     _keyType = value;
   }
 
@@ -73,7 +73,7 @@ class MapSchema extends Schema {
   ///
   /// - [value]     a type of map values.
 
-  setValueType(dynamic value) {
+  void setValueType(dynamic value) {
     _valueType = value;
   }
 
@@ -83,6 +83,7 @@ class MapSchema extends Schema {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
     value = ObjectReader.getValue(value);
@@ -91,7 +92,7 @@ class MapSchema extends Schema {
 
     if (value == null) return;
 
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
     var valueType = TypeConverter.toTypeCode(value);
     var map = valueType == TypeCode.Map ? Map.from(value) : null;
 
@@ -100,10 +101,8 @@ class MapSchema extends Schema {
         var elementPath =
             path != '' ? path + '.' + key : StringConverter.toString2(key);
 
-        performTypeValidation(
-            elementPath, getKeyType(), key, results);
-        performTypeValidation(
-            elementPath, getValueType(), map[key], results);
+        performTypeValidation(elementPath, getKeyType(), key, results);
+        performTypeValidation(elementPath, getValueType(), map[key], results);
       }
     } else {
       if (isRequired()) {

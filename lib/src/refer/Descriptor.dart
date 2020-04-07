@@ -164,7 +164,7 @@ class Descriptor {
   }
 
   @override
-  bool operator == (value) {
+  bool operator ==(value) {
     return equals(value);
   }
 

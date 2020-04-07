@@ -23,7 +23,7 @@ class Parameters extends AnyValueMap {
   ///
   /// - [values]     (optional) values to initialize this map.
 
-  Parameters([values = null]) : super(values);
+  Parameters([values]) : super(values);
 
   factory Parameters.fromJson(Map<String, dynamic> json) {
     return Parameters(json);
@@ -36,14 +36,14 @@ class Parameters extends AnyValueMap {
   ///
   /// - [key]     a key of the element to get.
   /// Returns       the value of the map element.
-
-  get(String key) {
-    if (key == null)
+  dynamic get(String key) {
+    if (key == null) {
       return null;
-    else if (key.indexOf('.') > 0)
+    } else if (key.indexOf('.') > 0) {
       return RecursiveObjectReader.getProperty(this, key);
-    else
+    } else {
       return super.get(key);
+    }
   }
 
   /// Puts a new value into map element specified by its key.
@@ -55,12 +55,13 @@ class Parameters extends AnyValueMap {
   /// - [value]     a new value for map element.
 
   void put(String key, value) {
-    if (key == null)
+    if (key == null) {
       return;
-    else if (key.indexOf('.') > 0)
+    } else if (key.indexOf('.') > 0) {
       RecursiveObjectWriter.setProperty(this, key, value);
-    else
+    } else {
       super.put(key, value);
+    }
   }
 
   /// Converts map element into an Parameters or returns null if conversion is not possible.
@@ -91,7 +92,7 @@ class Parameters extends AnyValueMap {
 
   Parameters getAsParametersWithDefault(String key, Parameters defaultValue) {
     var result = getAsNullableParameters(key);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 
   /// Checks if this map contains an element with specified key.

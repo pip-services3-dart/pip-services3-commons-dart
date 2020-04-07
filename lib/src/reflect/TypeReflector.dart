@@ -43,7 +43,7 @@ class TypeReflector {
   /// - [library] 	a library where the type is defined
   /// Returns the object type or null is the type wasn't found.
 
-  static Type getType(String name, [String library = null]) {
+  static Type getType(String name, [String library]) {
     // If library is not defined then scan all loaded libraries
     if (library == null) {
       for (var lib in currentMirrorSystem().libraries.values) {
@@ -66,8 +66,9 @@ class TypeReflector {
       // Otherwise treat it as a file
       else {
         // Add current directory to the relative path
-        if (library.startsWith('.'))
+        if (library.startsWith('.')) {
           library = Directory.current.path + '/' + library;
+        }
         libraryUri = Uri.file(library);
       }
 
@@ -101,7 +102,7 @@ class TypeReflector {
   /// - [args]		arguments for the object constructor.
   /// Returns the created object instance.
 
-  static createInstanceByType(Type type, List args) {
+  static dynamic createInstanceByType(Type type, List args) {
     if (type == null) throw Exception('Type constructor cannot be null');
 
     var cm = reflectClass(type);
@@ -120,7 +121,7 @@ class TypeReflector {
   /// See [getType]
   /// See [createInstanceByType]
 
-  static createInstance(String name, String library, List args) {
+  static dynamic createInstance(String name, String library, List args) {
     var type = TypeReflector.getType(name, library);
     if (type == null) {
       throw NotFoundException(null, 'TYPE_NOT_FOUND',
@@ -141,7 +142,8 @@ class TypeReflector {
   /// See [createInstance]
   /// See [TypeDescriptor]
 
-  static createInstanceByDescriptor(TypeDescriptor descriptor, List args) {
+  static dynamic createInstanceByDescriptor(
+      TypeDescriptor descriptor, List args) {
     if (descriptor == null) throw Exception('Type descriptor cannot be null');
 
     return TypeReflector.createInstance(

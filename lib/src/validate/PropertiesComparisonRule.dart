@@ -34,7 +34,7 @@ class PropertiesComparisonRule implements IValidationRule {
   PropertiesComparisonRule(String property1, String operation, String property2)
       : _property1 = property1,
         _property2 = property2,
-        _operation = operation {}
+        _operation = operation;
 
   /// Validates a given value against this rule.
   ///
@@ -43,9 +43,10 @@ class PropertiesComparisonRule implements IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
+  @override
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    var name = path != null ? path : 'value';
+    var name = path ?? 'value';
     var value1 = ObjectReader.getProperty(value, _property1);
     var value2 = ObjectReader.getProperty(value, _property2);
 

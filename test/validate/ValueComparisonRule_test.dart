@@ -1,6 +1,4 @@
 import 'package:test/test.dart';
-
-import './TestObject.dart';
 import '../../lib/src/validate/Schema.dart';
 import '../../lib/src/validate/ValueComparisonRule.dart';
 

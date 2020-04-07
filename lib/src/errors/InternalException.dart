@@ -12,8 +12,7 @@ class InternalException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  InternalException(
-      [String correlation_id , String code , String message ])
+  InternalException([String correlation_id, String code, String message])
       : super(ErrorCategory.Internal, correlation_id, code, message) {
     status = 500;
   }

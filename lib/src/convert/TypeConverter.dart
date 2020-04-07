@@ -117,8 +117,7 @@ class TypeConverter {
       value = 0;
     } else if (type == TypeCode.Double) {
       value = 0;
-    } else if (type ==
-        TypeCode.Boolean) {
+    } else if (type == TypeCode.Boolean) {
       value = false;
     } else if (type == TypeCode.String) {
       value = '';
