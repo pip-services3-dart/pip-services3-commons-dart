@@ -33,8 +33,9 @@ class Referencer {
   /// See [IReferenceable]
 
   static void setReferences(IReferences references, List components) {
-    for (var component in components)
+    for (var component in components) {
       Referencer.setReferencesForOne(references, component);
+    }
   }
 
   /// Unsets references in specific component.
@@ -60,7 +61,8 @@ class Referencer {
   /// See [IUnreferenceable]
 
   static void unsetReferences(List components) {
-    for (var component in components)
+    for (var component in components) {
       Referencer.unsetReferencesForOne(component);
+    }
   }
 }

@@ -29,7 +29,7 @@ class ArraySchema extends Schema {
 
   ArraySchema([dynamic valueType, bool req, List<IValidationRule> rules])
       : super(req, rules) {
-    this._valueType = valueType;
+    _valueType = valueType;
   }
 
   /// Gets the type of array elements.
@@ -38,7 +38,7 @@ class ArraySchema extends Schema {
   /// Returns the type of array elements.
 
   dynamic getValueType() {
-    return this._valueType;
+    return _valueType;
   }
 
   /// Sets the type of array elements.
@@ -47,7 +47,7 @@ class ArraySchema extends Schema {
   /// - [value]     a type of array elements.
 
   void setValueType(dynamic value) {
-    this._valueType = value;
+    _valueType = value;
   }
 
   /// Validates a given value against the schema and configured validation rules.
@@ -70,8 +70,8 @@ class ArraySchema extends Schema {
       for (var index = 0; index < value.length; index++) {
         var elementPath =
             path != '' ? path + '.' + index.toString() : index.toString();
-        this.performTypeValidation(
-            elementPath, this.getValueType(), value[index], results);
+        performTypeValidation(
+            elementPath, getValueType(), value[index], results);
       }
     } else {
       results.add(ValidationResult(

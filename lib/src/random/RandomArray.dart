@@ -13,7 +13,7 @@ class RandomArray {
   /// Returns         a randomly picked item.
 
   static T pick<T>(List<T> values) {
-    if (values == null || values.length == 0) return null;
+    if (values == null || values.isEmpty) return null;
 
     return values[RandomInteger.nextInteger(values.length)];
   }

@@ -89,7 +89,7 @@ class TagsProcessor {
   /// Returns        a list with extracted and compressed tags.
 
   static List<String> extractHashTags(String text) {
-    var tags = List<String>();
+    var tags = <String>[];
 
     if (text != '') {
       //var hashTags = text.match(HASHTAG_REGEX);
@@ -133,7 +133,7 @@ class TagsProcessor {
       if (text != '') {
         var regexp = RegExp(_HASHTAG_REGEX);
         var matches = regexp.allMatches(text);
-        var hashTags = List<String>();
+        var hashTags = <String>[];
         matches.forEach((RegExpMatch match) {
           hashTags.add(text.substring(match.start, match.end));
         });

@@ -20,5 +20,5 @@ abstract class ICloneable {
   ///
   /// Returns a clone of this object.
 
-  clone();
+  dynamic clone();
 }

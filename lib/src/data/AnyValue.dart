@@ -34,37 +34,37 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// - [value]     (optional) value to initialize this object.
 
-  AnyValue([value = null]) {
-    if (value is AnyValue)
-      this._value = value._value;
-    else
-      this._value = value;
+  AnyValue([value]) {
+    if (value is AnyValue) {
+      _value = value._value;
+    } else {
+      _value = value;
+    }
   }
 
   /// Creates a new instance of the object from json.
   ///
   /// - [json]     json to initialize this object.
-
   factory AnyValue.fromJson(Map<String, dynamic> json) {
     return AnyValue(json['value']);
   }
 
   /// Returned inner values in Map object
-
-  innerValue() {
-    return this._value;
+  @override
+  dynamic innerValue() {
+    return _value;
   }
 
   /// Returned JSON Map object from values of this object
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{'value': this._value};
+    return <String, dynamic>{'value': _value};
   }
 
   /// Initialize this object from JSON Map object
 
   void fromJson(Map<String, dynamic> json) {
-    this._value = json['value'];
+    _value = json['value'];
   }
 
   /// Gets type code for the value stored in this object.
@@ -74,26 +74,26 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [TypeConverter.toTypeCode]
 
   TypeCode getTypeCode() {
-    return TypeConverter.toTypeCode(this._value);
+    return TypeConverter.toTypeCode(_value);
   }
 
   /// Gets the value stored in this object without any conversions
   ///
   /// Returns the object value.
 
-  getAsObject() {
-    return this._value;
+  dynamic getAsObject() {
+    return _value;
   }
 
   /// Sets a new value for this object
   ///
   /// - [value]     the new object value.
-
   void setAsObject(value) {
-    if (value is AnyValue)
-      this._value = value._value;
-    else
-      this._value = value;
+    if (value is AnyValue) {
+      _value = value._value;
+    } else {
+      _value = value;
+    }
   }
 
   /// Converts object value into a string or returns null if conversion is not possible.
@@ -101,9 +101,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns string value or null if conversion is not supported.
   ///
   /// See [StringConverter.toNullableString]
-
   String getAsNullableString() {
-    return StringConverter.toNullableString(this._value);
+    return StringConverter.toNullableString(_value);
   }
 
   /// Converts object value into a string or returns '' if conversion is not possible.
@@ -111,9 +110,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns string value or '' if conversion is not supported.
   ///
   /// See [getAsStringWithDefault]
-
   String getAsString() {
-    return this.getAsStringWithDefault(null);
+    return getAsStringWithDefault(null);
   }
 
   /// Converts object value into a string or returns default value if conversion is not possible.
@@ -122,9 +120,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns string value or default if conversion is not supported.
   ///
   /// See [StringConverter.toStringWithDefault]
-
   String getAsStringWithDefault(String defaultValue) {
-    return StringConverter.toStringWithDefault(this._value, defaultValue);
+    return StringConverter.toStringWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a boolean or returns null if conversion is not possible.
@@ -134,7 +131,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [BooleanConverter.toNullableBoolean]
 
   bool getAsNullableBoolean() {
-    return BooleanConverter.toNullableBoolean(this._value);
+    return BooleanConverter.toNullableBoolean(_value);
   }
 
   /// Converts object value into a boolean or returns false if conversion is not possible.
@@ -144,7 +141,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [getAsBooleanWithDefault]
 
   bool getAsBoolean() {
-    return this.getAsBooleanWithDefault(false);
+    return getAsBooleanWithDefault(false);
   }
 
   /// Converts object value into a boolean or returns default value if conversion is not possible.
@@ -155,7 +152,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [BooleanConverter.toBooleanWithDefault]
 
   bool getAsBooleanWithDefault(bool defaultValue) {
-    return BooleanConverter.toBooleanWithDefault(this._value, defaultValue);
+    return BooleanConverter.toBooleanWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into an integer or returns null if conversion is not possible.
@@ -165,7 +162,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [IntegerConverter.toNullableInteger]
 
   int getAsNullableInteger() {
-    return IntegerConverter.toNullableInteger(this._value);
+    return IntegerConverter.toNullableInteger(_value);
   }
 
   /// Converts object value into an integer or returns 0 if conversion is not possible.
@@ -175,7 +172,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [getAsIntegerWithDefault]
 
   int getAsInteger() {
-    return this.getAsIntegerWithDefault(0);
+    return getAsIntegerWithDefault(0);
   }
 
   /// Converts object value into a integer or returns default value if conversion is not possible.
@@ -186,7 +183,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [IntegerConverter.toIntegerWithDefault]
 
   int getAsIntegerWithDefault(int defaultValue) {
-    return IntegerConverter.toIntegerWithDefault(this._value, defaultValue);
+    return IntegerConverter.toIntegerWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a long or returns null if conversion is not possible.
@@ -196,7 +193,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [LongConverter.toNullableLong]
 
   int getAsNullableLong() {
-    return LongConverter.toNullableLong(this._value);
+    return LongConverter.toNullableLong(_value);
   }
 
   /// Converts object value into a long or returns 0 if conversion is not possible.
@@ -206,7 +203,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [getAsLongWithDefault]
 
   int getAsLong() {
-    return this.getAsLongWithDefault(0);
+    return getAsLongWithDefault(0);
   }
 
   /// Converts object value into a long or returns default value if conversion is not possible.
@@ -217,7 +214,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [LongConverter.toLongWithDefault]
 
   int getAsLongWithDefault(int defaultValue) {
-    return LongConverter.toLongWithDefault(this._value, defaultValue);
+    return LongConverter.toLongWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a float or returns null if conversion is not possible.
@@ -227,7 +224,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [FloatConverter.toNullableFloat]
 
   double getAsNullableFloat() {
-    return FloatConverter.toNullableFloat(this._value);
+    return FloatConverter.toNullableFloat(_value);
   }
 
   /// Converts object value into a float or returns 0 if conversion is not possible.
@@ -237,7 +234,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [getAsFloatWithDefault]
 
   double getAsFloat() {
-    return this.getAsFloatWithDefault(0);
+    return getAsFloatWithDefault(0);
   }
 
   /// Converts object value into a float or returns default value if conversion is not possible.
@@ -248,7 +245,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [FloatConverter.toFloatWithDefault]
 
   double getAsFloatWithDefault(double defaultValue) {
-    return FloatConverter.toFloatWithDefault(this._value, defaultValue);
+    return FloatConverter.toFloatWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a double or returns null if conversion is not possible.
@@ -258,7 +255,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [DoubleConverter.toNullableDouble]
 
   double getAsNullableDouble() {
-    return DoubleConverter.toNullableDouble(this._value);
+    return DoubleConverter.toNullableDouble(_value);
   }
 
   /// Converts object value into a double or returns 0 if conversion is not possible.
@@ -266,9 +263,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns double value or 0 if conversion is not supported.
   ///
   /// See [getAsDoubleWithDefault]
-
   double getAsDouble() {
-    return this.getAsDoubleWithDefault(0);
+    return getAsDoubleWithDefault(0);
   }
 
   /// Converts object value into a double or returns default value if conversion is not possible.
@@ -277,9 +273,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns double value or default if conversion is not supported.
   ///
   /// See [DoubleConverter.toDoubleWithDefault]
-
   double getAsDoubleWithDefault(double defaultValue) {
-    return DoubleConverter.toDoubleWithDefault(this._value, defaultValue);
+    return DoubleConverter.toDoubleWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a DateTime or returns null if conversion is not possible.
@@ -287,9 +282,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns DateTime value or null if conversion is not supported.
   ///
   /// See [DateTimeConverter.toNullableDateTime]
-
   DateTime getAsNullableDateTime() {
-    return DateTimeConverter.toNullableDateTime(this._value);
+    return DateTimeConverter.toNullableDateTime(_value);
   }
 
   /// Converts object value into a DateTime or returns current date if conversion is not possible.
@@ -297,9 +291,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns DateTime value or current date if conversion is not supported.
   ///
   /// See [getAsDateTimeWithDefault]
-
   DateTime getAsDateTime() {
-    return this.getAsDateTimeWithDefault(DateTime.now());
+    return getAsDateTimeWithDefault(DateTime.now());
   }
 
   /// Converts object value into a DateTime or returns default value if conversion is not possible.
@@ -308,9 +301,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns DateTime value or default if conversion is not supported.
   ///
   /// See [DateTimeConverter.toDateTimeWithDefault]
-
   DateTime getAsDateTimeWithDefault(DateTime defaultValue) {
-    return DateTimeConverter.toDateTimeWithDefault(this._value, defaultValue);
+    return DateTimeConverter.toDateTimeWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a Duration or returns null if conversion is not possible.
@@ -318,9 +310,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns Duration value or null if conversion is not supported.
   ///
   /// See [DurationConverter.toNullableDuration]
-
   Duration getAsNullableDuration() {
-    return DurationConverter.toNullableDuration(this._value);
+    return DurationConverter.toNullableDuration(_value);
   }
 
   /// Converts object value into a Duration or returns current date if conversion is not possible.
@@ -328,9 +319,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns Duration value or current date if conversion is not supported.
   ///
   /// See [getAsDurationWithDefault]
-
   Duration getAsDuration() {
-    return this.getAsDurationWithDefault(new Duration());
+    return getAsDurationWithDefault(Duration());
   }
 
   /// Converts object value into a Duration or returns default value if conversion is not possible.
@@ -339,9 +329,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns Duration value or default if conversion is not supported.
   ///
   /// See [DurationConverter.toDurationWithDefault]
-
   Duration getAsDurationWithDefault(Duration defaultValue) {
-    return DurationConverter.toDurationWithDefault(this._value, defaultValue);
+    return DurationConverter.toDurationWithDefault(_value, defaultValue);
   }
 
   /// Converts object value into a value defined by specied typecode.
@@ -351,9 +340,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns value defined by the typecode or null if conversion is not supported.
   ///
   /// See [TypeConverter.toNullableType]
-
   T getAsNullableType<T>(TypeCode type) {
-    return TypeConverter.toNullableType<T>(type, this._value);
+    return TypeConverter.toNullableType<T>(type, _value);
   }
 
   /// Converts object value into a value defined by specied typecode.
@@ -363,9 +351,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns value defined by the typecode or type default value if conversion is not supported.
   ///
   /// See [getAsTypeWithDefault]
-
   T getAsType<T>(TypeCode typeCode) {
-    return this.getAsTypeWithDefault<T>(typeCode, null);
+    return getAsTypeWithDefault<T>(typeCode, null);
   }
 
   /// Converts object value into a value defined by specied typecode.
@@ -376,10 +363,9 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns value defined by the typecode or type default value if conversion is not supported.
   ///
   /// See [TypeConverter.toTypeWithDefault]
-
   T getAsTypeWithDefault<T>(TypeCode typeCode, T defaultValue) {
     return TypeConverter.toTypeWithDefault<T>(
-        typeCode, this._value, defaultValue);
+        typeCode, _value, defaultValue);
   }
 
   /// Converts object value into an AnyArray or returns empty AnyArray if conversion is not possible.
@@ -387,9 +373,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns AnyArray value or empty AnyArray if conversion is not supported.
   ///
   /// See [AnyValueArray.fromValue]
-
   AnyValueArray getAsArray() {
-    return AnyValueArray.fromValue(this._value);
+    return AnyValueArray.fromValue(_value);
   }
 
   /// Converts object value into AnyMap or returns empty AnyMap if conversion is not possible.
@@ -397,9 +382,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns AnyMap value or empty AnyMap if conversion is not supported.
   ///
   /// See [AnyValueMap.fromValue]
-
   AnyValueMap getAsMap() {
-    return AnyValueMap.fromValue(this._value);
+    return AnyValueMap.fromValue(_value);
   }
 
   /// Compares this object value to specified specified value.
@@ -408,14 +392,13 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// - [obj]   the value to be compared with.
   /// Returns     true when objects are equal and false otherwise.
-
   bool equals(obj) {
-    if (obj == null && this._value == null) return true;
-    if (obj == null || this._value == null) return false;
+    if (obj == null && _value == null) return true;
+    if (obj == null || _value == null) return false;
 
     if (obj is AnyValue) obj = obj.value;
 
-    var strThisValue = StringConverter.toNullableString(this._value);
+    var strThisValue = StringConverter.toNullableString(_value);
     var strValue = StringConverter.toNullableString(obj);
 
     if (strThisValue == null && strValue == null) return true;
@@ -431,14 +414,13 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns     true when objects are equal and false otherwise.
   ///
   /// See [TypeConverter.toType]
-
   bool equalsAsType<T>(TypeCode type, obj) {
-    if (obj == null && this._value == null) return true;
-    if (obj == null || this._value == null) return false;
+    if (obj == null && _value == null) return true;
+    if (obj == null || _value == null) return false;
 
     if (obj is AnyValue) obj = obj.value;
 
-    var typedThisValue = TypeConverter.toType<T>(type, this._value);
+    var typedThisValue = TypeConverter.toType<T>(type, _value);
     var typedValue = TypeConverter.toType<T>(type, obj);
 
     if (typedThisValue == null && typedValue == null) return true;
@@ -449,28 +431,25 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Creates a binary clone of this object.
   ///
   /// Returns a clone of this object.
-
-  clone() {
-    return AnyValue(this._value);
+  @override
+  dynamic clone() {
+    return AnyValue(_value);
   }
 
   /// Gets a string representation of the object.
   ///
   /// Returns a string representation of the object.
-
   /// See [StringConverter.toString]
-
   @override
   String toString() {
-    return StringConverter.toNullableString(this._value);
+    return StringConverter.toNullableString(_value);
   }
 
   /// Gets an object hash code which can be used to optimize storing and searching.
   ///
   /// Returns an object hash code.
-
   @override
   int get hashCode {
-    return this._value != null ? this._value.hashCode : 0;
+    return _value.hashCode ?? 0;
   }
 }

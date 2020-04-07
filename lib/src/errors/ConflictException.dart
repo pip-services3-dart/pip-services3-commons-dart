@@ -14,8 +14,8 @@ class ConflictException extends ApplicationException {
   /// See [ErrorCategory]
 
   ConflictException(
-      [String correlation_id = null, String code = null, String message = null])
+      [String correlation_id , String code , String message ])
       : super(ErrorCategory.Conflict, correlation_id, code, message) {
-    this.status = 409;
+    status = 409;
   }
 }

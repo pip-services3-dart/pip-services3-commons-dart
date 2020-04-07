@@ -21,6 +21,7 @@ abstract class ITrackable implements IChangeable {
   DateTime create_time;
 
   /// The UTC time at which the object was last changed (created, updated, or deleted).
+  @override
   DateTime change_time;
 
   /// The logical deletion flag. True when object is deleted and null or false otherwise

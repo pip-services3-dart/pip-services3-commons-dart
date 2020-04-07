@@ -16,11 +16,11 @@ import './IClosable.dart';
 ///         dynamic _client;
 ///         ...
 ///         bool isOpen() {
-///             return this._client != null;
+///             return _client != null;
 ///         }
 ///
 ///         Future open(String correlationId) {
-///             if (this.isOpen()) {
+///             if (isOpen()) {
 ///                 return Future(Duration(), (){
 ///
 ///                  })
@@ -29,9 +29,9 @@ import './IClosable.dart';
 ///         }
 ///
 ///         Future close(String correlationId) async {
-///             if (this._client != null) {
-///                 result = await this._client.close();
-///                 this._client = null;
+///             if (_client != null) {
+///                 result = await _client.close();
+///                 _client = null;
 ///                Future(Duration(), (){ return result})
 ///             }
 ///         }

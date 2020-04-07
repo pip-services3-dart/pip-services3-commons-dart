@@ -32,8 +32,8 @@ class PropertySchema extends Schema {
   PropertySchema(
       [String name, dynamic type, bool req, List<IValidationRule> rules])
       : super(req, rules) {
-    this._name = name;
-    this._type = type;
+    _name = name;
+    _type = type;
   }
 
   /// Gets the property name.
@@ -41,7 +41,7 @@ class PropertySchema extends Schema {
   /// Returns the property name.
 
   String getName() {
-    return this._name;
+    return _name;
   }
 
   /// Sets the property name.
@@ -49,7 +49,7 @@ class PropertySchema extends Schema {
   /// - [value]     a new property name.
 
   setName(String value) {
-    this._name = value;
+    _name = value;
   }
 
   /// Gets the property type.
@@ -57,7 +57,7 @@ class PropertySchema extends Schema {
   /// Returns the property type.
 
   dynamic getType() {
-    return this._type;
+    return _type;
   }
 
   /// Sets a new property type.
@@ -66,7 +66,7 @@ class PropertySchema extends Schema {
   /// - [value]     a new property type.
 
   setType(dynamic value) {
-    this._type = value;
+    _type = value;
   }
 
   /// Validates a given value against the schema and configured validation rules.
@@ -77,10 +77,10 @@ class PropertySchema extends Schema {
 
   void performValidation(
       String path, dynamic value, List<ValidationResult> results) {
-    path = path != '' ? path + '.' + this.getName() : this.getName();
+    path = path != '' ? path + '.' + getName() : getName();
 
     super.performValidation(path, value, results);
 
-    super.performTypeValidation(path, this.getType(), value, results);
+    super.performTypeValidation(path, getType(), value, results);
   }
 }

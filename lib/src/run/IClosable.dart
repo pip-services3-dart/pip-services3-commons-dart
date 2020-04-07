@@ -16,9 +16,9 @@ import 'dart:async';
 ///         ... // The _client can be lazy created
 ///
 ///         Future close(String correlationId){
-///             if (this._client != null) {
-///                 this._client.close();
-///                 this._client = null;
+///             if (_client != null) {
+///                 _client.close();
+///                 _client = null;
 ///             }
 ///             return  Future.delayed( Duration());
 ///         }

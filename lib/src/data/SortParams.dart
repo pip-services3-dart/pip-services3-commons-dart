@@ -20,10 +20,11 @@ class SortParams extends ListBase<SortField> {
   ///
   /// - [fields]    a list of fields to sort by.
 
-  SortParams(List<SortField> fields) : this._values = List<SortField>() {
+  SortParams(List<SortField> fields) : _values = <SortField>[] {
     if (fields != null) {
-      for (var index = 0; index < fields.length; index++)
-        this.add(fields[index]);
+      for (var index = 0; index < fields.length; index++) {
+        add(fields[index]);
+      }
     }
   }
 
@@ -38,30 +39,30 @@ class SortParams extends ListBase<SortField> {
   /// Initialize this object from JSON Map object
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{'values': this._values};
+    return <String, dynamic>{'values': _values};
   }
 
   /// Returned JSON Map object from values of this object
 
   void fromJson(Map<String, dynamic> json) {
-    this._values = null;
+    _values = null;
     addAll(json['values']);
   }
 
   // Todo: add fromTuples factory method.
   @override
-  void set length(int l) {
-    this._values.length = l;
+  set length(int l) {
+    _values.length = l;
   }
 
   @override
   int get length => _values.length;
 
   SortField operator [](int index) {
-    return this._values[index];
+    return _values[index];
   }
 
   void operator []=(int index, SortField item) {
-    this._values[index] = item;
+    _values[index] = item;
   }
 }

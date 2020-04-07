@@ -109,26 +109,26 @@ class TypeConverter {
     if (result != null) return result;
 
     // Define and return default value based on type
-    if (type == TypeCode.Integer)
+    if (type == TypeCode.Integer) {
       value = 0;
-    else if (type == TypeCode.Long)
+    } else if (type == TypeCode.Long) {
       value = 0;
-    else if (type == TypeCode.Float)
+    } else if (type == TypeCode.Float) {
       value = 0;
-    else if (type == TypeCode.Double)
+    } else if (type == TypeCode.Double) {
       value = 0;
-    else if (type ==
-        TypeCode.Boolean) // cases from here down were added by Mark Makarychev.
+    } else if (type ==
+        TypeCode.Boolean) {
       value = false;
-    else if (type == TypeCode.String)
+    } else if (type == TypeCode.String) {
       value = '';
-    else if (type == TypeCode.DateTime)
+    } else if (type == TypeCode.DateTime) {
       value = DateTime.now();
-    else if (type == TypeCode.Duration)
+    } else if (type == TypeCode.Duration) {
       value = Duration();
-    else if (type == TypeCode.Map)
-      value = Map<String, dynamic>();
-    else if (type == TypeCode.Array) value = [];
+    } else if (type == TypeCode.Map) {
+      value = <String, dynamic>{};
+    } else if (type == TypeCode.Array) value = [];
 
     return value as T;
   }
@@ -145,7 +145,7 @@ class TypeConverter {
 
   static T toTypeWithDefault<T>(TypeCode type, value, T defaultValue) {
     var result = TypeConverter.toNullableType<T>(type, value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 
   /// Converts a TypeCode into its string name.

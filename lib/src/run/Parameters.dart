@@ -69,7 +69,7 @@ class Parameters extends AnyValueMap {
   /// Returns Parameters value of the element or null if conversion is not supported.
 
   Parameters getAsNullableParameters(String key) {
-    var value = this.getAsNullableMap(key);
+    var value = getAsNullableMap(key);
     return value != null ? Parameters(value) : null;
   }
 
@@ -79,7 +79,7 @@ class Parameters extends AnyValueMap {
   /// Returns Parameters value of the element or empty Parameters if conversion is not supported.
 
   Parameters getAsParameters(String key) {
-    var value = this.getAsMap(key);
+    var value = getAsMap(key);
     return Parameters(value);
   }
 
@@ -90,7 +90,7 @@ class Parameters extends AnyValueMap {
   /// Returns Parameters value of the element or default value if conversion is not supported.
 
   Parameters getAsParametersWithDefault(String key, Parameters defaultValue) {
-    var result = this.getAsNullableParameters(key);
+    var result = getAsNullableParameters(key);
     return result != null ? result : defaultValue;
   }
 
@@ -118,10 +118,10 @@ class Parameters extends AnyValueMap {
   Parameters override(Parameters parameters, [bool recursive = false]) {
     var result = Parameters();
     if (recursive) {
-      RecursiveObjectWriter.copyProperties(result, this.innerValue());
+      RecursiveObjectWriter.copyProperties(result, innerValue());
       RecursiveObjectWriter.copyProperties(result, parameters);
     } else {
-      ObjectWriter.setProperties(result, this.innerValue());
+      ObjectWriter.setProperties(result, innerValue());
       ObjectWriter.setProperties(result, parameters.innerValue());
     }
     return result;
@@ -141,10 +141,10 @@ class Parameters extends AnyValueMap {
     if (recursive) {
       RecursiveObjectWriter.copyProperties(
           result, defaultParameters.innerValue());
-      RecursiveObjectWriter.copyProperties(result, this.innerValue());
+      RecursiveObjectWriter.copyProperties(result, innerValue());
     } else {
       ObjectWriter.setProperties(result, defaultParameters.innerValue());
-      ObjectWriter.setProperties(result, this.innerValue());
+      ObjectWriter.setProperties(result, innerValue());
     }
     return result;
   }
@@ -155,7 +155,7 @@ class Parameters extends AnyValueMap {
 
   void assignTo(value) {
     if (value == null) return;
-    RecursiveObjectWriter.copyProperties(value, this.innerValue());
+    RecursiveObjectWriter.copyProperties(value, innerValue());
   }
 
   /// Picks select parameters from this Parameters and returns them as a new Parameters object.
@@ -167,7 +167,7 @@ class Parameters extends AnyValueMap {
     var result = Parameters();
     for (var index = 0; index < paths.length; index++) {
       var path = paths[index];
-      if (this.containsKey(path)) result.put(path, this.get(path));
+      if (containsKey(path)) result.put(path, get(path));
     }
     return result;
   }
@@ -191,7 +191,7 @@ class Parameters extends AnyValueMap {
   /// Returns	a JSON representation of this map.
 
   String toJsonString() {
-    return JsonConverter.toJson(this.innerValue());
+    return JsonConverter.toJson(innerValue());
   }
 
   /// Creates a new Parameters object filled with key-value pairs from specified object.

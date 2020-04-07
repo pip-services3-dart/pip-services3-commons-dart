@@ -27,10 +27,11 @@ class ProjectionParams extends ListBase<String> {
   ///
   /// - [value]     (optional) values to initialize this object.
 
-  ProjectionParams([List<dynamic> values = null])
-      : this._values = List<String>() {
+  ProjectionParams([List<dynamic> values]) : _values = <String>[] {
     if (values != null) {
-      for (var value in values) this._values.add('' + value);
+      for (var value in values) {
+        _values.add('' + value);
+      }
     }
   }
 
@@ -45,13 +46,13 @@ class ProjectionParams extends ListBase<String> {
   /// Initialize this object from JSON Map object
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{'values': this._values};
+    return <String, dynamic>{'values': _values};
   }
 
   /// Returned JSON Map object from values of this object
 
   void fromJson(Map<String, dynamic> json) {
-    this._values = null;
+    _values = null;
     addAll(json['values']);
   }
 
@@ -61,15 +62,16 @@ class ProjectionParams extends ListBase<String> {
   ///
   /// Returns a string representation of the object.
 
+  @override
   String toString() {
     var builder = '';
 
-    for (var index = 0; index < this._values.length; index++) {
+    for (var index = 0; index < _values.length; index++) {
       if (index > 0) {
         builder += ',';
       }
 
-      builder += this._values[index];
+      builder += _values[index];
     }
 
     return builder;
@@ -103,7 +105,7 @@ class ProjectionParams extends ListBase<String> {
             if (openBracketIndex >= 0 && closeBracketIndex > 0) {
               var previousPrefix = prefix;
 
-              if (prefix != null && prefix.length > 0) {
+              if (prefix != null && prefix.isNotEmpty) {
                 prefix = prefix + '.' + value.substring(0, openBracketIndex);
               } else {
                 prefix = value.substring(0, openBracketIndex);
@@ -125,8 +127,8 @@ class ProjectionParams extends ListBase<String> {
 
             var subValue = value.substring(0, commaIndex);
 
-            if (subValue != null && subValue.length > 0) {
-              if (prefix != null && prefix.length > 0) {
+            if (subValue != null && subValue.isNotEmpty) {
+              if (prefix != null && prefix.isNotEmpty) {
                 result._values.add(prefix + '.' + subValue);
               } else {
                 result._values.add(subValue);
@@ -135,7 +137,7 @@ class ProjectionParams extends ListBase<String> {
 
             subValue = value.substring(commaIndex + 1);
 
-            if (subValue != null && subValue.length > 0) {
+            if (subValue != null && subValue.isNotEmpty) {
               ProjectionParams._parseValue(prefix, result, subValue);
               breakCycleRequired = true;
             }
@@ -149,10 +151,10 @@ class ProjectionParams extends ListBase<String> {
     }
 
     if (value != null &&
-        value.length > 0 &&
+        value.isNotEmpty &&
         openBracketIndex == -1 &&
         commaIndex == -1) {
-      if (prefix != null && prefix.length > 0) {
+      if (prefix != null && prefix.isNotEmpty) {
         result._values.add(prefix + '.' + value);
       } else {
         result._values.add(value);
@@ -170,7 +172,7 @@ class ProjectionParams extends ListBase<String> {
   static ProjectionParams fromValue(dynamic value) {
     if (!(value is List)) value = AnyValueArray.fromValue(value);
 
-    return new ProjectionParams(value);
+    return ProjectionParams(value);
   }
 
   /// Parses comma-separated list of projection fields.
@@ -178,8 +180,8 @@ class ProjectionParams extends ListBase<String> {
   /// - values    one or more comma-separated lists of projection fields
   /// Returns         a newly created ProjectionParams.
 
-  static fromString(List<dynamic> values) {
-    var result = new ProjectionParams();
+  static ProjectionParams fromString(List<dynamic> values) {
+    var result = ProjectionParams();
 
     for (var value in values) {
       ProjectionParams._parseValue('', result, value);
@@ -189,21 +191,20 @@ class ProjectionParams extends ListBase<String> {
   }
 
   @override
-  void set length(int l) {
-    this._values.length = l;
+  set length(int l) {
+    _values.length = l;
   }
 
   @override
-  int get length => this._values.length;
+  int get length => _values.length;
 
   @override
   String operator [](int index) {
-    // TODO: implement []
-    return this._values[index];
+    return _values[index];
   }
 
   @override
   void operator []=(int index, String value) {
-    this._values[index] = value;
+    _values[index] = value;
   }
 }

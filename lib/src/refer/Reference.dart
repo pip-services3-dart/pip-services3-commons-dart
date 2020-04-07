@@ -15,8 +15,8 @@ class Reference {
   Reference(locator, component) {
     if (component == null) throw Exception('Component cannot be null');
 
-    this._locator = locator;
-    this._component = component;
+    _locator = locator;
+    _component = component;
   }
 
   /// Matches locator to this reference locator.
@@ -31,31 +31,30 @@ class Reference {
 
   bool match(locator) {
     // Locate by direct reference matching
-    if (this._component == locator)
+    if (_component == locator) {
       return true;
-    // Locate by direct locator matching
-    else if (this._locator is Descriptor)
-      return this._locator.equals(locator);
-    // Locate by direct locator matching
-    else if (this._locator != null)
-      return this._locator == locator;
-    else
+    } else if (_locator is Descriptor) {
+      return _locator.equals(locator);
+    } else if (_locator != null) {
+      return _locator == locator;
+    } else {
       return false;
+    }
   }
 
   /// Gets the stored component reference.
   ///
   /// Return the component's references.
 
-  getComponent() {
-    return this._component;
+  dynamic getComponent() {
+    return _component;
   }
 
   /// Gets the stored component locator.
   ///
   /// Return the component's locator.
 
-  getLocator() {
-    return this._locator;
+  dynamic getLocator() {
+    return _locator;
   }
 }

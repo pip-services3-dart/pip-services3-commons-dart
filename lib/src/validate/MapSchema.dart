@@ -37,8 +37,8 @@ class MapSchema extends Schema {
       bool req,
       List<IValidationRule> rules])
       : super(req, rules) {
-    this._keyType = keyType;
-    this._valueType = valueType;
+    _keyType = keyType;
+    _valueType = valueType;
   }
 
   /// Gets the type of map keys.
@@ -47,7 +47,7 @@ class MapSchema extends Schema {
   /// Returns the type of map keys.
 
   dynamic getKeyType() {
-    return this._keyType;
+    return _keyType;
   }
 
   /// Sets the type of map keys.
@@ -56,7 +56,7 @@ class MapSchema extends Schema {
   /// - [value]     a type of map keys.
 
   setKeyType(dynamic value) {
-    this._keyType = value;
+    _keyType = value;
   }
 
   /// Gets the type of map values.
@@ -65,7 +65,7 @@ class MapSchema extends Schema {
   /// Returns the type of map values.
 
   dynamic getValueType() {
-    return this._valueType;
+    return _valueType;
   }
 
   /// Sets the type of map values.
@@ -74,7 +74,7 @@ class MapSchema extends Schema {
   /// - [value]     a type of map values.
 
   setValueType(dynamic value) {
-    this._valueType = value;
+    _valueType = value;
   }
 
   /// Validates a given value against the schema and configured validation rules.
@@ -100,13 +100,13 @@ class MapSchema extends Schema {
         var elementPath =
             path != '' ? path + '.' + key : StringConverter.toString2(key);
 
-        this.performTypeValidation(
-            elementPath, this.getKeyType(), key, results);
-        this.performTypeValidation(
-            elementPath, this.getValueType(), map[key], results);
+        performTypeValidation(
+            elementPath, getKeyType(), key, results);
+        performTypeValidation(
+            elementPath, getValueType(), map[key], results);
       }
     } else {
-      if (this.isRequired()) {
+      if (isRequired()) {
         results.add(ValidationResult(
             path,
             ValidationResultType.Error,

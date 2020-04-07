@@ -27,7 +27,7 @@ class OrRule implements IValidationRule {
   ///
   /// - [rules]     a list of rules to join with OR operator
 
-  OrRule(List<IValidationRule> rules) : this._rules = rules {}
+  OrRule(List<IValidationRule> rules) : _rules = rules {}
 
   /// Validates a given value against this rule.
   ///
@@ -38,14 +38,14 @@ class OrRule implements IValidationRule {
 
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    if (this._rules == null || this._rules.length == 0) return;
+    if (_rules == null || _rules.length == 0) return;
 
     var localResults = List<ValidationResult>();
 
-    for (var i = 0; i < this._rules.length; i++) {
+    for (var i = 0; i < _rules.length; i++) {
       var resultCount = localResults.length;
 
-      this._rules[i].validate(path, schema, value, localResults);
+      _rules[i].validate(path, schema, value, localResults);
 
       if (resultCount == localResults.length) return;
     }

@@ -13,7 +13,7 @@ import 'dart:async';
 ///         dynamic _state = {};
 ///         ...
 ///         Future clear(String correlationId) {
-///            this._state = {};
+///            _state = {};
 ///            return  Future();
 ///         }
 ///     }

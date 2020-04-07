@@ -23,7 +23,7 @@ class NameResolver {
   /// - [defaultName]   (optional) a default component name.
   /// Returns             resolved name or default name if the name cannot be determined.
 
-  static String resolve(ConfigParams config, [String defaultName = null]) {
+  static String resolve(ConfigParams config, [String defaultName]) {
     var name =
         config.getAsNullableString('name') ?? config.getAsNullableString('id');
 

@@ -29,8 +29,8 @@ import '../data/IdGenerator.dart';
 ///          IMyDataController _controller ;
 
 ///         MyDataCommandSet(IMyDataController controller): super() { // Any data controller interface
-///             this._controller = controller;
-///             this.addCommand(this.makeGetMyDataCommand());
+///             _controller = controller;
+///             addCommand(makeGetMyDataCommand());
 ///         }
 
 ///         ICommand _makeGetMyDataCommand()  {
@@ -39,22 +39,22 @@ import '../data/IdGenerator.dart';
 ///               null,
 ///               (String correlationId, Parameters args) {
 ///                   var param = args.getAsString('param');
-///                   return this._controller.getMyData(correlationId, param);
+///                   return _controller.getMyData(correlationId, param);
 ///               }
 ///             );
 ///         }
 ///     }
 
 class CommandSet {
-  var _commands = List<ICommand>();
-  var _events = List<IEvent>();
-  var _interceptors = List<ICommandInterceptor>();
-  var _commandsByName = Map<String, ICommand>();
-  var _eventsByName = Map<String, IEvent>();
+  final _commands = <ICommand>[];
+  final _events = <IEvent>[];
+  final _interceptors = <ICommandInterceptor>[];
+  var _commandsByName = <String, ICommand>{};
+  final _eventsByName = <String, IEvent>{};
 
   /// Creates an empty CommandSet object.
 
-  CommandSet() {}
+  CommandSet();
 
   /// Gets all commands registered in this command set.
 
@@ -63,7 +63,7 @@ class CommandSet {
   /// See [ICommand]
 
   List<ICommand> getCommands() {
-    return this._commands;
+    return _commands;
   }
 
   /// Gets all events registred in this command set.
@@ -73,7 +73,7 @@ class CommandSet {
   /// See [IEvent]
 
   List<IEvent> getEvents() {
-    return this._events;
+    return _events;
   }
 
   /// Searches for a command by its name.
@@ -84,7 +84,7 @@ class CommandSet {
   /// See [ICommand]
 
   ICommand findCommand(String commandName) {
-    return this._commandsByName[commandName];
+    return _commandsByName[commandName];
   }
 
   /// Searches for an event by its name in this command set.
@@ -95,23 +95,24 @@ class CommandSet {
   /// See [IEvent]
 
   IEvent findEvent(String eventName) {
-    return this._eventsByName[eventName];
+    return _eventsByName[eventName];
   }
 
   void _buildCommandChain(ICommand command) {
     var next = command;
 
-    for (var i = this._interceptors.length - 1; i >= 0; i--)
-      next = InterceptedCommand(this._interceptors[i], next);
+    for (var i = _interceptors.length - 1; i >= 0; i--) {
+      next = InterceptedCommand(_interceptors[i], next);
+    }
 
-    this._commandsByName[next.getName()] = next;
+    _commandsByName[next.getName()] = next;
   }
 
   void _rebuildAllCommandChains() {
-    this._commandsByName = {};
+    _commandsByName = {};
 
-    for (var i = 0; i < this._commands.length; i++) {
-      var command = this._commands[i];
+    for (var i = 0; i < _commands.length; i++) {
+      var command = _commands[i];
       _buildCommandChain(command);
     }
   }
@@ -123,7 +124,7 @@ class CommandSet {
   /// See [ICommand]
 
   void addCommand(ICommand command) {
-    this._commands.add(command);
+    _commands.add(command);
     _buildCommandChain(command);
   }
 
@@ -134,7 +135,9 @@ class CommandSet {
   /// See [ICommand]
 
   void addCommands(List<ICommand> commands) {
-    for (var i = 0; i < commands.length; i++) this.addCommand(commands[i]);
+    for (var i = 0; i < commands.length; i++) {
+      addCommand(commands[i]);
+    }
   }
 
   /// Adds an [IEvent event] to this command set.
@@ -143,8 +146,8 @@ class CommandSet {
   /// See [IEvent]
 
   void addEvent(IEvent event) {
-    this._events.add(event);
-    this._eventsByName[event.getName()] = event;
+    _events.add(event);
+    _eventsByName[event.getName()] = event;
   }
 
   /// Adds multiple [IEvent events] to this command set.
@@ -154,7 +157,9 @@ class CommandSet {
   /// See [IEvent]
 
   void addEvents(List<IEvent> events) {
-    for (var i = 0; i < events.length; i++) this.addEvent(events[i]);
+    for (var i = 0; i < events.length; i++) {
+      addEvent(events[i]);
+    }
   }
 
   /// Adds all of the commands and events from specified [CommandSet command set]
@@ -163,8 +168,8 @@ class CommandSet {
   /// - [commandSet] the CommandSet to add.
 
   void addCommandSet(CommandSet commandSet) {
-    this.addCommands(commandSet.getCommands());
-    this.addEvents(commandSet.getEvents());
+    addCommands(commandSet.getCommands());
+    addEvents(commandSet.getEvents());
   }
 
   /// Adds a [IEventListener listener] to receive notifications on fired events.
@@ -174,8 +179,9 @@ class CommandSet {
   /// See [IEventListener]
 
   void addListener(IEventListener listener) {
-    for (var i = 0; i < this._events.length; i++)
-      this._events[i].addListener(listener);
+    for (var i = 0; i < _events.length; i++) {
+      _events[i].addListener(listener);
+    }
   }
 
   /// Removes previosly added [IEventListener listener].
@@ -185,8 +191,9 @@ class CommandSet {
   /// See [IEventListener]
 
   void removeListener(IEventListener listener) {
-    for (var i = 0; i < this._events.length; i++)
-      this._events[i].removeListener(listener);
+    for (var i = 0; i < _events.length; i++) {
+      _events[i].removeListener(listener);
+    }
   }
 
   /// Adds a [ICommandInterceptor command interceptor] to this command set.
@@ -196,7 +203,7 @@ class CommandSet {
   /// See [ICommandInterceptor]
 
   void addInterceptor(ICommandInterceptor interceptor) {
-    this._interceptors.add(interceptor);
+    _interceptors.add(interceptor);
     _rebuildAllCommandChains();
   }
 
@@ -213,7 +220,7 @@ class CommandSet {
 
   Future<dynamic> execute(
       String correlationId, String commandName, Parameters args) async {
-    var cref = this.findCommand(commandName);
+    var cref = findCommand(commandName);
 
     if (cref == null) {
       throw BadRequestException(
@@ -221,7 +228,7 @@ class CommandSet {
           .withDetails('command', commandName);
     }
 
-    if (correlationId == null) correlationId = IdGenerator.nextShort();
+    correlationId ??= IdGenerator.nextShort();
 
     var results = cref.validate(args);
     ValidationException.throwExceptionIfNeeded(correlationId, results, false);
@@ -243,10 +250,10 @@ class CommandSet {
   /// See [ValidationResult]
 
   List<ValidationResult> validate(String commandName, Parameters args) {
-    var cref = this.findCommand(commandName);
+    var cref = findCommand(commandName);
 
     if (cref != null) {
-      var result = List<ValidationResult>();
+      var result = <ValidationResult>[];
       result.add(ValidationResult(null, ValidationResultType.Error,
           'CMD_NOT_FOUND', 'Requested command does not exist', null, null));
       return result;
@@ -263,7 +270,7 @@ class CommandSet {
   /// - [args]              the event arguments (parameters).
 
   void notify(String correlationId, String eventName, Parameters args) {
-    var event = this.findEvent(eventName);
+    var event = findEvent(eventName);
 
     if (event != null) event.notify(correlationId, args);
   }

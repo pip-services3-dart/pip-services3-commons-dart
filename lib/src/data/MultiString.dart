@@ -17,14 +17,14 @@ import '../convert/StringConverter.dart';
 ///     var value2 = values.get('pt'); // Result: 'Hello World!'
 
 class MultiString implements IValueWrapper {
-  var _values = Map<String, String>();
+  var _values = <String, String>{};
 
   /// Creates a new MultiString object and initializes it with values.
   ///
   /// - [map]    a map with language-text pairs.
 
-  MultiString([map = null]) {
-    if (map != null) this.append(map);
+  MultiString([map]) {
+    if (map != null) append(map);
   }
 
   /// Creates a new MultiString object and initializes it from json values.
@@ -37,20 +37,21 @@ class MultiString implements IValueWrapper {
 
   /// Returned inner values in Map object
 
-  innerValue() {
+  @override
+  dynamic innerValue() {
     return _values;
   }
 
   /// Returned JSON Map object from values of this object
 
   Map<String, dynamic> toJson() {
-    return this._values;
+    return _values;
   }
 
   /// Initialize this object from JSON Map object
 
   void fromJson(Map<String, dynamic> json) {
-    this._values = null;
+    _values = null;
     append(json);
   }
 
@@ -63,16 +64,16 @@ class MultiString implements IValueWrapper {
 
   String get(String language) {
     // Get specified language
-    var value = this._values[language];
+    var value = _values[language];
 
     // Default to english
-    if (value == null) value = this._values['en'];
+    value ??= _values['en'];
 
     // Default to the first property
     if (value == null) {
-      for (var language in this._values.keys) {
-        //if (this.hasOwnProperty(language))
-        value = this._values[language];
+      for (var language in _values.keys) {
+        //if (hasOwnProperty(language))
+        value = _values[language];
         break;
       }
     }
@@ -85,9 +86,9 @@ class MultiString implements IValueWrapper {
   /// Returns a list with language codes.
 
   List<String> getLanguages() {
-    var languages = List<String>();
+    var languages = <String>[];
 
-    for (var key in this._values.keys) {
+    for (var key in _values.keys) {
       languages.add(key);
     }
 
@@ -99,8 +100,8 @@ class MultiString implements IValueWrapper {
   /// - [language]  a language two-symbol code.
   /// - [value]     a new translation for the specified language.
 
-  put(String language, value) {
-    this._values[language] = StringConverter.toNullableString(value);
+  void put(String language, value) {
+    _values[language] = StringConverter.toNullableString(value);
   }
 
   /// Removes translation for the specified language.
@@ -108,7 +109,7 @@ class MultiString implements IValueWrapper {
   /// - [language]  a language two-symbol code.
 
   void remove(String language) {
-    this._values.remove(language);
+    _values.remove(language);
   }
 
   /// Appends a map with language-translation pairs.
@@ -123,7 +124,7 @@ class MultiString implements IValueWrapper {
     if (map is Map) {
       for (var key in map.keys) {
         var value = map[key];
-        this._values[key] = StringConverter.toNullableString(value);
+        _values[key] = StringConverter.toNullableString(value);
       }
     }
   }
@@ -131,7 +132,7 @@ class MultiString implements IValueWrapper {
   /// Clears all translations from this MultiString object.
 
   void clear() {
-    this._values.clear();
+    _values.clear();
   }
 
   /// Returns the number of translations stored in this MultiString object.
@@ -139,7 +140,7 @@ class MultiString implements IValueWrapper {
   /// Returns the number of translations.
 
   int length() {
-    return this._values.length;
+    return _values.length;
   }
 
   /// Creates a new MultiString object from a value that contains language-translation pairs.
@@ -171,7 +172,7 @@ class MultiString implements IValueWrapper {
 
   static MultiString fromTuplesArray(List<dynamic> tuples) {
     var result = MultiString();
-    if (tuples == null || tuples.length == 0) return result;
+    if (tuples == null || tuples.isEmpty) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;

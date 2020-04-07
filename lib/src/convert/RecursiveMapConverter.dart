@@ -11,11 +11,11 @@ import '../reflect/ObjectReader.dart';
 ///     var value3 = RecursiveMapConverted.toNullableMap([1,[2,3]); // Result: { '0': 1, { '0': 2, '1': 3 } }
 
 class RecursiveMapConverter {
-  static _objectToMap(value) {
+  static dynamic _objectToMap(value) {
     if (value == null) return null;
 
     // Todo: Complete implementation...
-    var result = Map<String, dynamic>();
+    var result = <String, dynamic>{};
     var props = ObjectReader.getPropertyNames(value);
 
     for (var i = 0; i < props.length; i++) {
@@ -28,23 +28,23 @@ class RecursiveMapConverter {
     return null;
   }
 
-  static _isPrimitive(value) {
-    if (value == null)
+  static bool _isPrimitive(value) {
+    if (value == null) {
       return true;
-    else if (value is num)
+    } else if (value is num) {
       return true;
-    else if (value is DateTime)
+    } else if (value is DateTime) {
       return true;
-    else if (value is Duration)
+    } else if (value is Duration) {
       return true;
-    else if (value is String)
+    } else if (value is String) {
       return true;
-    else if (value is bool) return true;
+    } else if (value is bool) return true;
 
     return false;
   }
 
-  static _valueToMap(value) {
+  static dynamic _valueToMap(value) {
     if (value == null) return null;
 
     // Skip expected non-primitive values
@@ -61,16 +61,16 @@ class RecursiveMapConverter {
     return _objectToMap(value);
   }
 
-  static _mapToMap(Map value) {
-    var result = Map<String, dynamic>();
+  static dynamic _mapToMap(Map value) {
+    var result = <String, dynamic>{};
     for (var key in value.keys) {
       result[key.toString()] = _valueToMap(value[key]);
     }
     return result;
   }
 
-  static _arrayToMap(List value) {
-    var result = Map<String, dynamic>();
+  static dynamic _arrayToMap(List value) {
+    var result = <String, dynamic>{};
 
     for (var i = 0; i < value.length; i++) {
       result[i.toString()] = _valueToMap(value[i]);
@@ -84,7 +84,7 @@ class RecursiveMapConverter {
   /// - [value]     the value to convert.
   /// Returns         map object or null when conversion is not supported.
 
-  static toNullableMap(value) {
+  static dynamic toNullableMap(value) {
     return _valueToMap(value);
   }
 
@@ -95,9 +95,9 @@ class RecursiveMapConverter {
   ///
   /// See [[toNullableMap]]
 
-  static toMap(value) {
+  static dynamic toMap(value) {
     var result = RecursiveMapConverter.toNullableMap(value);
-    return result != null ? result : Map<String, dynamic>();
+    return result ?? <String, dynamic>{};
   }
 
   /// Converts value into map object or returns default when conversion is not possible
@@ -108,8 +108,8 @@ class RecursiveMapConverter {
   ///
   /// See [[toNullableMap]]
 
-  static toMapWithDefault(value, Map<String, dynamic> defaultValue) {
+  static dynamic toMapWithDefault(value, Map<String, dynamic> defaultValue) {
     var result = RecursiveMapConverter.toNullableMap(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

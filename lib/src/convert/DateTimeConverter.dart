@@ -45,6 +45,6 @@ class DateTimeConverter {
 
   static DateTime toDateTimeWithDefault(value, DateTime defaultValue) {
     var result = DateTimeConverter.toNullableDateTime(value);
-    return result != null ? result : defaultValue;
+    return  result ?? defaultValue;
   }
 }

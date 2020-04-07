@@ -29,9 +29,9 @@ class Schema {
   /// See [IValidationRule]
 
   Schema([bool req, List<IValidationRule> rules]) {
-    this._required = req;
-    this._required = this._required != null ? this._required : false;
-    this._rules = rules;
+    _required = req;
+    _required = _required != null ? _required : false;
+    _rules = rules;
   }
 
   /// Gets a flag that always requires non-null values.
@@ -40,7 +40,7 @@ class Schema {
   /// Returns true to always require non-null values and false to allow null values.
 
   bool isRequired() {
-    return this._required;
+    return _required;
   }
 
   /// Sets a flag that always requires non-null values.
@@ -48,7 +48,7 @@ class Schema {
   /// - [value] true to always require non-null values and false to allow null values.
 
   setRequired(bool value) {
-    this._required = value;
+    _required = value;
   }
 
   /// Gets validation rules to check values against.
@@ -56,7 +56,7 @@ class Schema {
   /// Returns a list with validation rules.
 
   List<IValidationRule> getRules() {
-    return this._rules;
+    return _rules;
   }
 
   /// Sets validation rules to check values against.
@@ -64,7 +64,7 @@ class Schema {
   /// - [value] a list with validation rules.
 
   setRules(List<IValidationRule> value) {
-    this._rules = value;
+    _rules = value;
   }
 
   /// Makes validated values always required (non-null).
@@ -78,7 +78,7 @@ class Schema {
   /// See [makeOptional]
 
   Schema makeRequired() {
-    this._required = true;
+    _required = true;
     return this;
   }
 
@@ -93,7 +93,7 @@ class Schema {
   /// See [makeRequired]
 
   Schema makeOptional() {
-    this._required = false;
+    _required = false;
     return this;
   }
 
@@ -106,10 +106,10 @@ class Schema {
   /// Returns this validation schema.
 
   Schema withRule(IValidationRule rule) {
-    if (this._rules == null) {
-      this._rules = List<IValidationRule>();
+    if (_rules == null) {
+      _rules = List<IValidationRule>();
     }
-    this._rules.add(rule);
+    _rules.add(rule);
     return this;
   }
 
@@ -124,7 +124,7 @@ class Schema {
     var name = path != null ? path : 'value';
 
     if (value == null) {
-      if (this.isRequired()) {
+      if (isRequired()) {
         results.add(ValidationResult(path, ValidationResultType.Error,
             'VALUE_IS_NULL', name + ' must not be null', 'NOT NULL', null));
       }
@@ -132,9 +132,9 @@ class Schema {
       value = ObjectReader.getValue(value);
 
       // Check validation rules
-      if (this._rules != null) {
-        for (var i = 0; i < this._rules.length; i++) {
-          var rule = this._rules[i];
+      if (_rules != null) {
+        for (var i = 0; i < _rules.length; i++) {
+          var rule = _rules[i];
           rule.validate(path, this, value, results);
         }
       }
@@ -186,9 +186,9 @@ class Schema {
         'TYPE_MISMATCH',
         name +
             ' type must be ' +
-            this._typeToString(type) +
+            _typeToString(type) +
             ' but found ' +
-            this._typeToString(valueType),
+            _typeToString(valueType),
         type,
         valueType));
   }
@@ -202,7 +202,7 @@ class Schema {
 
   List<ValidationResult> validate(dynamic value) {
     var results = List<ValidationResult>();
-    this.performValidation('', value, results);
+    performValidation('', value, results);
     return results;
   }
 
@@ -215,7 +215,7 @@ class Schema {
   ValidationException validateAndReturnException(
       String correlationId, dynamic value,
       [bool strict = false]) {
-    List<ValidationResult> results = this.validate(value);
+    List<ValidationResult> results = validate(value);
     return ValidationException.fromResults(correlationId, results, strict);
   }
 
@@ -229,7 +229,7 @@ class Schema {
 
   void validateAndThrowException(String correlationId, dynamic value,
       [bool strict = false]) {
-    List<ValidationResult> results = this.validate(value);
+    List<ValidationResult> results = validate(value);
     ValidationException.throwExceptionIfNeeded(correlationId, results, strict);
   }
 }

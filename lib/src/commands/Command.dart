@@ -50,23 +50,25 @@ class Command implements ICommand {
     if (name == null) throw Exception('Name cannot be null');
     if (func == null) throw Exception('Function cannot be null');
 
-    this._name = name;
-    this._schema = schema;
+    _name = name;
+    _schema = schema;
 
-    if (func is IExecutable)
-      this._function = func.execute;
-    else
-      this._function = func;
+    if (func is IExecutable) {
+      _function = func.execute;
+    } else {
+      _function = func;
+    }
 
-    if (!(this._function is Function))
+    if (!(_function is Function)) {
       throw Exception('Function doesn\'t have function type');
+    }
   }
 
   /// Gets the command name.
   /// Returns the name of this command.
-
+  @override
   String getName() {
-    return this._name;
+    return _name;
   }
 
   /// Executes the command. Before execution it validates [[Parameters args]] using
@@ -75,37 +77,33 @@ class Command implements ICommand {
 
   /// - correlationId (optional) transaction id to trace execution through call chain.
   /// - args          the parameters (arguments) to pass to this command for execution.
-  /// - callback      function to be called when command is complete
-
+  /// Return          Future when command is complete
   /// See [[Parameters]]
-
+  @override
   Future<dynamic> execute(String correlationId, Parameters args) async {
-    if (this._schema != null) {
-      this._schema.validateAndThrowException(correlationId, args);
+    if (_schema != null) {
+      _schema.validateAndThrowException(correlationId, args);
     }
 
     try {
-      var result = await this._function(correlationId, args);
+      var result = await _function(correlationId, args);
       return result;
     } catch (ex) {
       throw InvocationException(correlationId, 'EXEC_FAILED',
-              'Execution ' + this.getName() + ' failed: ' + ex)
-          .withDetails('command', this.getName())
+              'Execution ' + getName() + ' failed: ' + ex)
+          .withDetails('command', getName())
           .wrap(ex);
     }
   }
 
   /// Validates the command [[Parameters args]] before execution using the defined schema.
-
   /// - args  the parameters (arguments) to validate using this command's schema.
   /// Returns     an array of ValidationResults or an empty array (if no schema is set).
-
   /// See [[Parameters]]
   /// See [[ValidationResult]]
-
+  @override
   List<ValidationResult> validate(Parameters args) {
-    if (this._schema != null) return this._schema.validate(args);
-
+    if (_schema != null) return _schema.validate(args);
     return [];
   }
 }

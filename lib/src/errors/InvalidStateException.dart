@@ -15,8 +15,8 @@ class InvalidStateException extends ApplicationException {
   /// See [ErrorCategory]
 
   InvalidStateException(
-      [String correlation_id = null, String code = null, String message = null])
+      [String correlation_id, String code , String message ])
       : super(ErrorCategory.InvalidState, correlation_id, code, message) {
-    this.status = 500;
+    status = 500;
   }
 }

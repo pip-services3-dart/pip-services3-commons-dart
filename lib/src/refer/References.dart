@@ -12,7 +12,7 @@ import './ReferenceException.dart';
 ///         IMyPersistence persistence;
 ///         ...
 ///         void setReferences(IReferences references) {
-///             this.persistence = references.getOneRequired<IMyPersistence>(
+///             persistence = references.getOneRequired<IMyPersistence>(
 ///                  Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
@@ -30,18 +30,18 @@ import './ReferenceException.dart';
 ///     controller.setReferences(references);
 
 class References implements IReferences {
-  var _references = List<Reference>();
+  final _references = <Reference>[];
 
   /// Creates a new instance of references and initializes it with references.
   ///
   /// - [tuples]    (optional) a list of values where odd elements are locators and the following even elements are component references
 
-  References([List tuples = null]) {
+  References([List tuples]) {
     if (tuples != null) {
       for (var index = 0; index < tuples.length; index += 2) {
         if (index + 1 >= tuples.length) break;
 
-        this.put(tuples[index], tuples[index + 1]);
+        put(tuples[index], tuples[index + 1]);
       }
     }
   }
@@ -50,11 +50,11 @@ class References implements IReferences {
   ///
   /// - [locator] 	a locator to find the reference by.
   /// - [component] a component reference to be added.
-
+  @override
   void put(locator, component) {
     if (component == null) throw Exception('Component cannot be null');
 
-    this._references.add(Reference(locator, component));
+    _references.add(Reference(locator, component));
   }
 
   /// Removes a previously added reference that matches specified locator.
@@ -66,13 +66,14 @@ class References implements IReferences {
   ///
   /// See [removeAll]
 
-  remove(locator) {
+  @override
+  dynamic remove(locator) {
     if (locator == null) return null;
 
-    for (var index = this._references.length - 1; index >= 0; index--) {
-      var reference = this._references[index];
+    for (var index = _references.length - 1; index >= 0; index--) {
+      var reference = _references[index];
       if (reference.match(locator)) {
-        this._references.removeAt(index);
+        _references.removeAt(index);
         return reference.getComponent();
       }
     }
@@ -85,15 +86,16 @@ class References implements IReferences {
   /// - [locator] 	the locator to remove references by.
   /// Returns a list, containing all removed references.
 
+  @override
   List removeAll(locator) {
-    var components = List();
+    var components = [];
 
     if (locator == null) return components;
 
-    for (var index = this._references.length - 1; index >= 0; index--) {
-      var reference = this._references[index];
+    for (var index = _references.length - 1; index >= 0; index--) {
+      var reference = _references[index];
       if (reference.match(locator)) {
-        this._references.removeAt(index);
+        _references.removeAt(index);
         components.add(reference.getComponent());
       }
     }
@@ -104,11 +106,12 @@ class References implements IReferences {
   /// Gets locators for all registered component references in this reference map.
   ///
   /// Returns a list with component locators.
+  @override
   List getAllLocators() {
-    var locators = List();
+    var locators = [];
 
-    for (var index = 0; index < this._references.length; index++) {
-      var reference = this._references[index];
+    for (var index = 0; index < _references.length; index++) {
+      var reference = _references[index];
       locators.add(reference.getLocator());
     }
 
@@ -119,11 +122,12 @@ class References implements IReferences {
   ///
   /// Returns a list with component references.
 
+  @override
   List getAll() {
-    var components = List();
+    var components = [];
 
-    for (var index = 0; index < this._references.length; index++) {
-      var reference = this._references[index];
+    for (var index = 0; index < _references.length; index++) {
+      var reference = _references[index];
       components.add(reference.getComponent());
     }
 
@@ -135,10 +139,11 @@ class References implements IReferences {
   /// - [locator] 	the locator to find references by.
   /// Returns a matching component reference or null if nothing was found.
 
+  @override
   T getOneOptional<T>(locator) {
     try {
-      var components = this.find<T>(locator, false);
-      return components.length > 0 ? components[0] : null;
+      var components = find<T>(locator, false);
+      return components.isEmpty ? components[0] : null;
     } catch (ex) {
       return null;
     }
@@ -150,9 +155,10 @@ class References implements IReferences {
   /// Returns a matching component reference.
   /// Throws a [ReferenceException] when no references found.
 
+  @override
   T getOneRequired<T>(locator) {
-    var components = this.find<T>(locator, true);
-    return components.length > 0 ? components[0] : null;
+    var components = find<T>(locator, true);
+    return components.isNotEmpty ? components[0] : null;
   }
 
   /// Gets all component references that match specified locator.
@@ -160,11 +166,12 @@ class References implements IReferences {
   /// - [locator] 	the locator to find references by.
   /// Returns a list with matching component references or empty list if nothing was found.
 
+  @override
   List<T> getOptional<T>(locator) {
     try {
-      return this.find<T>(locator, false);
+      return find<T>(locator, false);
     } catch (ex) {
-      return List<T>();
+      return <T>[];
     }
   }
 
@@ -177,8 +184,9 @@ class References implements IReferences {
   ///
   /// Throws a [ReferenceException] when no references found.
 
+  @override
   List<T> getRequired<T>(locator) {
-    return this.find<T>(locator, true);
+    return find<T>(locator, true);
   }
 
   /// Gets all component references that match specified locator.
@@ -189,22 +197,24 @@ class References implements IReferences {
   ///
   /// Throws a [ReferenceException] when required is set to true but no references found.
 
+  @override
   List<T> find<T>(locator, bool required) {
     if (locator == null) throw Exception('Locator cannot be null');
 
-    var components = List<T>();
+    var components = <T>[];
 
     // Search all references
-    for (var index = this._references.length - 1; index >= 0; index--) {
-      var reference = this._references[index];
+    for (var index = _references.length - 1; index >= 0; index--) {
+      var reference = _references[index];
       if (reference.match(locator)) {
         var component = reference.getComponent() as T;
         if (component != null) components.add(component);
       }
     }
 
-    if (components.length == 0 && required)
+    if (components.isEmpty && required) {
       throw ReferenceException(null, locator);
+    }
 
     return components;
   }

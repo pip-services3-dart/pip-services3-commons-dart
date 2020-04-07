@@ -58,5 +58,5 @@ class DataPage<T> {
   /// Returned JSON Map object from values of this object
 
   Map<String, dynamic> toJson() =>
-      <String, dynamic>{'total': this.total, 'data': this.data};
+      <String, dynamic>{'total': total, 'data': data};
 }

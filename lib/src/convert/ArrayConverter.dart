@@ -18,21 +18,25 @@ class ArrayConverter {
     if (value == null) return null;
 
     // Convert list
-    if (value is List)
+    if (value is List) {
       return value;
-    // Convert map
-    else if (value is Map) {
+    } else if (value is Map) {
       var result = [];
-      for (var item in value.values) result.add(item);
+      for (var item in value.values) {
+        result.add(item);
+      }
       return result;
     } else if (value is Iterable) {
       var result = [];
-      for (var item in value) result.add(item);
+      for (var item in value) {
+        result.add(item);
+      }
       return result;
     }
     // Convert single values
-    else
+    else {
       return [value];
+    }
   }
 
   /// Converts value into array object with empty array as default.
@@ -45,7 +49,7 @@ class ArrayConverter {
 
   static List toArray(value) {
     var result = ArrayConverter.toNullableArray(value);
-    return result != null ? result : [];
+    return result ?? [];
   }
 
   /// Converts value into array object with specified default.
@@ -59,7 +63,7 @@ class ArrayConverter {
 
   static List toArrayWithDefault(value, List defaultValue) {
     var result = ArrayConverter.toNullableArray(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 
   /// Converts value into array object with empty array as default.

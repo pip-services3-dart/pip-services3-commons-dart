@@ -15,12 +15,12 @@ class MapConverter {
   /// Returns         map object or null when conversion is not supported.
 
   static Map<String, dynamic> toNullableMap(value) {
-    if (value == null)
+    if (value == null) {
       return null;
-    else if (value is Map<String, dynamic>) return value;
+    } else if (value is Map<String, dynamic>) return value;
 
     if (value is Map) {
-      var result = Map<String, dynamic>();
+      var result = <String, dynamic>{};
       for (var key in value.keys) {
         result[key.toString()] = value[key];
       }
@@ -28,8 +28,10 @@ class MapConverter {
     }
 
     if (value is List) {
-      var result = Map<String, dynamic>();
-      for (var i = 0; i < value.length; i++) result[i.toString()] = value[i];
+      var result = <String, dynamic>{};
+      for (var i = 0; i < value.length; i++) {
+        result[i.toString()] = value[i];
+      }
       return result;
     }
 
@@ -51,7 +53,7 @@ class MapConverter {
 
   static Map<String, dynamic> toMap(value) {
     var result = MapConverter.toNullableMap(value);
-    return result != null ? result : Map<String, dynamic>();
+    return result ?? <String, dynamic>{};
   }
 
   /// Converts value into map object or returns default when conversion is not possible
@@ -65,6 +67,6 @@ class MapConverter {
   static Map<String, dynamic> toMapWithDefault(
       value, Map<String, dynamic> defaultValue) {
     var result = MapConverter.toNullableMap(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

@@ -27,7 +27,7 @@ class AndRule implements IValidationRule {
   ///
   /// - [rules]     a list of rules to join with AND operator
 
-  AndRule(List<IValidationRule> rules) : this._rules = rules {}
+  AndRule(List<IValidationRule> rules) : _rules = rules {}
 
   /// Validates a given value against this rule.
   ///
@@ -38,10 +38,10 @@ class AndRule implements IValidationRule {
 
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    if (this._rules == null) return;
+    if (_rules == null) return;
 
-    for (var i = 0; i < this._rules.length; i++) {
-      var rule = this._rules[i];
+    for (var i = 0; i < _rules.length; i++) {
+      var rule = _rules[i];
       rule.validate(path, schema, value, results);
     }
   }

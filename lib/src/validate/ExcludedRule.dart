@@ -23,7 +23,7 @@ class ExcludedRule implements IValidationRule {
   ///
   /// - [values]    a list of constants that value must be excluded from
 
-  ExcludedRule(List<dynamic> values) : this._values = values {}
+  ExcludedRule(List<dynamic> values) : _values = values {}
 
   /// Validates the given value. None of the values set in this ExcludedRule object must exist
   /// in the value that is given for validation to pass.
@@ -35,13 +35,13 @@ class ExcludedRule implements IValidationRule {
 
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    if (this._values == null) return;
+    if (_values == null) return;
 
     var name = path != null ? path : 'value';
     var found = false;
 
-    for (var i = 0; i < this._values.length && !found; i++) {
-      var thisValue = this._values[i];
+    for (var i = 0; i < _values.length && !found; i++) {
+      var thisValue = _values[i];
 
       if (ObjectComparator.compare(value, 'EQ', thisValue)) {
         found = true;
@@ -54,8 +54,8 @@ class ExcludedRule implements IValidationRule {
           path,
           ValidationResultType.Error,
           'VALUE_INCLUDED',
-          name + ' must not be one of ' + this._values.join(','),
-          this._values,
+          name + ' must not be one of ' + _values.join(','),
+          _values,
           null));
     }
   }

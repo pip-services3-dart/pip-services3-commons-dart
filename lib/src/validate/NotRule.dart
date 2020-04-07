@@ -26,7 +26,7 @@ class NotRule implements IValidationRule {
   ///
   /// - [rule]     a rule to be negated.
 
-  NotRule(IValidationRule rule) : this._rule = rule {}
+  NotRule(IValidationRule rule) : _rule = rule {}
 
   /// Validates a given value against this rule.
   ///
@@ -37,12 +37,12 @@ class NotRule implements IValidationRule {
 
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    if (this._rule == null) return;
+    if (_rule == null) return;
 
     var name = path != null ? path : 'value';
     var localResults = List<ValidationResult>();
 
-    this._rule.validate(path, schema, value, localResults);
+    _rule.validate(path, schema, value, localResults);
 
     if (localResults.length > 0) return;
 

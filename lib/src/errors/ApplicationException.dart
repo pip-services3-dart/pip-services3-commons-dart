@@ -71,15 +71,15 @@ class ApplicationException implements Exception {
   /// - [message]           (optional) a human-readable description of the error.
 
   ApplicationException(
-      [String category = null,
-      String correlation_id = null,
-      String code = null,
-      String message = null]) {
+      [String category ,
+      String correlation_id ,
+      String code ,
+      String message]) {
     this.category = category ?? ErrorCategory.Unknown;
     this.correlation_id = correlation_id;
     this.code = code ?? 'UNKNOWN';
     if (this.message == null) this.message = message ?? 'Unknown error';
-    this.stack_trace = StackTrace.current.toString();
+    stack_trace = StackTrace.current.toString();
   }
 
   /// Gets original error wrapped by this exception as a string message.
@@ -87,7 +87,7 @@ class ApplicationException implements Exception {
   /// Returns an original error message.
 
   String getCauseString() {
-    return this.cause != null ? this.cause.toString() : null;
+    return cause != null ? cause.toString() : null;
   }
 
   /// Sets original error wrapped by this exception as a string message.
@@ -95,7 +95,7 @@ class ApplicationException implements Exception {
   /// - [value] an original error message.
 
   void setCauseString(String value) {
-    this.cause = value;
+    cause = value;
   }
 
   /// Gets a stack trace where this exception occured.
@@ -103,7 +103,7 @@ class ApplicationException implements Exception {
   /// Returns a stack trace as a string.
 
   String getStackTraceString() {
-    return this.stack_trace; // ?? super.stack;
+    return stack_trace; // ?? super.stack;
   }
 
   /// Sets a stack trace where this exception occured.
@@ -111,7 +111,7 @@ class ApplicationException implements Exception {
   /// - [value] a stack trace as a string
 
   void setStackTraceString(String value) {
-    this.stack_trace = value;
+    stack_trace = value;
   }
 
   /// Sets a unique error code.
@@ -164,8 +164,8 @@ class ApplicationException implements Exception {
   /// Returns this exception object
 
   ApplicationException withDetails(String key, value) {
-    this.details = this.details ?? StringValueMap();
-    this.details.setAsObject(key, value);
+    details = details ?? StringValueMap();
+    details.setAsObject(key, value);
     return this;
   }
 
@@ -178,7 +178,7 @@ class ApplicationException implements Exception {
   /// Returns this exception object
 
   ApplicationException withCorrelationId(String correlationId) {
-    this.correlation_id = correlationId;
+    correlation_id = correlationId;
     return this;
   }
 
@@ -191,7 +191,7 @@ class ApplicationException implements Exception {
   /// Returns this exception object
 
   ApplicationException withStackTrace(String stackTrace) {
-    this.stack_trace = stackTrace;
+    stack_trace = stackTrace;
     return this;
   }
 
@@ -208,13 +208,13 @@ class ApplicationException implements Exception {
 
     if (cause is ApplicationException) return cause;
 
-    this.withCause(cause);
+    withCause(cause);
     return this;
   }
 
   @override
   String toString() {
-    return this.message ?? this.code;
+    return message ?? code;
   }
 
   /// Wraps another exception into specified application exception object.
@@ -246,7 +246,7 @@ class ApplicationException implements Exception {
   /// - [error]     an error object
   /// Returns         an original error object
 
-  static unwrapError(error) {
+  static dynamic unwrapError(error) {
     if (error == null) return null;
 
     // // Unwrapping restify exceptions

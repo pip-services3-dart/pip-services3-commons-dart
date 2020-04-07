@@ -9,8 +9,8 @@ class PagingParamsSchema extends ObjectSchema {
   /// Creates a new instance of validation schema.
 
   PagingParamsSchema() : super() {
-    this.withOptionalProperty('skip', TypeCode.Long);
-    this.withOptionalProperty('take', TypeCode.Long);
-    this.withOptionalProperty('total', TypeCode.Boolean);
+    withOptionalProperty('skip', TypeCode.Long);
+    withOptionalProperty('take', TypeCode.Long);
+    withOptionalProperty('total', TypeCode.Boolean);
   }
 }

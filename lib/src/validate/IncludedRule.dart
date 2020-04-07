@@ -23,7 +23,7 @@ class IncludedRule implements IValidationRule {
   ///
   /// - [values]    a list of constants that value must be included to
 
-  IncludedRule(List<dynamic> values) : this._values = values {}
+  IncludedRule(List<dynamic> values) : _values = values {}
 
   /// Validates a given value against this rule.
   ///
@@ -34,13 +34,13 @@ class IncludedRule implements IValidationRule {
 
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
-    if (this._values == null) return;
+    if (_values == null) return;
 
     var name = path != null ? path : 'value';
     var found = false;
 
-    for (var i = 0; i < this._values.length && !found; i++) {
-      var thisValue = this._values[i];
+    for (var i = 0; i < _values.length && !found; i++) {
+      var thisValue = _values[i];
 
       if (ObjectComparator.compare(value, 'EQ', thisValue)) {
         found = true;
@@ -53,8 +53,8 @@ class IncludedRule implements IValidationRule {
           path,
           ValidationResultType.Error,
           'VALUE_NOT_INCLUDED',
-          name + ' must be one of ' + this._values.join(','),
-          this._values,
+          name + ' must be one of ' + _values.join(','),
+          _values,
           null));
     }
   }

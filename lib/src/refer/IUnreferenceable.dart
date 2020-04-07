@@ -9,13 +9,13 @@
 ///        IMyPersistence persistence;
 ///        ...
 ///        void  setReferences(IReferences references) {
-///            this.persistence = references.getOneRequired<IMyPersistence>(
+///            persistence = references.getOneRequired<IMyPersistence>(
 ///                 Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///            );
 ///        }
 ///
 ///        void unsetReferences() {
-///            this.persistence = null;
+///            persistence = null;
 ///        }
 ///        ...
 ///     }

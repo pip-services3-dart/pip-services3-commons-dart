@@ -16,8 +16,8 @@ class TypeDescriptor {
   /// - [library] 	a library or module where this object type is implemented.
 
   TypeDescriptor(String name, String library) {
-    this._name = name;
-    this._library = library;
+    _name = name;
+    _library = library;
   }
 
   /// Get the name of the object type.
@@ -25,7 +25,7 @@ class TypeDescriptor {
   /// Returns the name of the object type.
 
   String getName() {
-    return this._name;
+    return _name;
   }
 
   /// Gets the name of the library or module where the object type is defined.
@@ -33,7 +33,7 @@ class TypeDescriptor {
   /// Returns the name of the library or module.
 
   String getLibrary() {
-    return this._library;
+    return _library;
   }
 
   /// Compares this descriptor to a value.
@@ -46,11 +46,11 @@ class TypeDescriptor {
   bool equals(value) {
     if (value is TypeDescriptor) {
       TypeDescriptor otherType = value;
-      if (this.getName() == null || otherType.getName() == null) return false;
-      if (this.getName() != otherType.getName()) return false;
-      if (this.getLibrary() == null ||
+      if (getName() == null || otherType.getName() == null) return false;
+      if (getName() != otherType.getName()) return false;
+      if (getLibrary() == null ||
           otherType.getLibrary() == null ||
-          this.getLibrary() == otherType.getLibrary()) return true;
+          getLibrary() == otherType.getLibrary()) return true;
     }
 
     return false;
@@ -65,8 +65,8 @@ class TypeDescriptor {
 
   @override
   String toString() {
-    var builder = '' + this._name;
-    if (this._library != null) builder += ',' + this._library;
+    var builder = '' + _name;
+    if (_library != null) builder += ',' + _library;
     return builder.toString();
   }
 

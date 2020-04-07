@@ -23,7 +23,7 @@ class OptionResolver {
       [bool configAsDefault = false]) {
     var options = config.getSection('options');
 
-    if (options.length == 0 && configAsDefault) options = config;
+    if (options.isEmpty && configAsDefault) options = config;
 
     return options;
   }

@@ -30,38 +30,38 @@ class ApplicationExceptionFactory {
   static ApplicationException create(ErrorDescription description) {
     if (description == null) throw Exception('Description cannot be null');
 
-    ApplicationException error = null;
+    ApplicationException error;
     var category = description.category;
     var code = description.code;
     var message = description.message;
     var correlationId = description.correlation_id;
 
     // Create well-known exception type based on error category
-    if (ErrorCategory.Unknown == category)
+    if (ErrorCategory.Unknown == category) {
       error = UnknownException(correlationId, code, message);
-    else if (ErrorCategory.Internal == category)
+    } else if (ErrorCategory.Internal == category) {
       error = InternalException(correlationId, code, message);
-    else if (ErrorCategory.Misconfiguration == category)
+    } else if (ErrorCategory.Misconfiguration == category) {
       error = ConfigException(correlationId, code, message);
-    else if (ErrorCategory.NoResponse == category)
+    } else if (ErrorCategory.NoResponse == category) {
       error = ConnectionException(correlationId, code, message);
-    else if (ErrorCategory.FailedInvocation == category)
+    } else if (ErrorCategory.FailedInvocation == category) {
       error = InvocationException(correlationId, code, message);
-    else if (ErrorCategory.FileError == category)
+    } else if (ErrorCategory.FileError == category) {
       error = FileException(correlationId, code, message);
-    else if (ErrorCategory.BadRequest == category)
+    } else if (ErrorCategory.BadRequest == category) {
       error = BadRequestException(correlationId, code, message);
-    else if (ErrorCategory.Unauthorized == category)
+    } else if (ErrorCategory.Unauthorized == category) {
       error = UnauthorizedException(correlationId, code, message);
-    else if (ErrorCategory.Conflict == category)
+    } else if (ErrorCategory.Conflict == category) {
       error = ConflictException(correlationId, code, message);
-    else if (ErrorCategory.NotFound == category)
+    } else if (ErrorCategory.NotFound == category) {
       error = NotFoundException(correlationId, code, message);
-    else if (ErrorCategory.InvalidState == category)
+    } else if (ErrorCategory.InvalidState == category) {
       error = InvalidStateException(correlationId, code, message);
-    else if (ErrorCategory.Unsupported == category)
+    } else if (ErrorCategory.Unsupported == category) {
       error = UnsupportedException(correlationId, code, message);
-    else {
+    } else {
       error = UnknownException();
       error.category = category;
       error.status = description.status;

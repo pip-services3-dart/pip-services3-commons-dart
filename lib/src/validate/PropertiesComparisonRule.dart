@@ -32,9 +32,9 @@ class PropertiesComparisonRule implements IValidationRule {
   /// See [ObjectComparator.compare]
 
   PropertiesComparisonRule(String property1, String operation, String property2)
-      : this._property1 = property1,
-        this._property2 = property2,
-        this._operation = operation {}
+      : _property1 = property1,
+        _property2 = property2,
+        _operation = operation {}
 
   /// Validates a given value against this rule.
   ///
@@ -46,21 +46,21 @@ class PropertiesComparisonRule implements IValidationRule {
   void validate(String path, Schema schema, dynamic value,
       List<ValidationResult> results) {
     var name = path != null ? path : 'value';
-    var value1 = ObjectReader.getProperty(value, this._property1);
-    var value2 = ObjectReader.getProperty(value, this._property2);
+    var value1 = ObjectReader.getProperty(value, _property1);
+    var value2 = ObjectReader.getProperty(value, _property2);
 
-    if (!ObjectComparator.compare(value1, this._operation, value2)) {
+    if (!ObjectComparator.compare(value1, _operation, value2)) {
       results.add(ValidationResult(
           path,
           ValidationResultType.Error,
           'PROPERTIES_NOT_MATCH',
           name +
               ' must have ' +
-              this._property1.toString() +
+              _property1.toString() +
               ' ' +
-              this._operation.toString() +
+              _operation.toString() +
               ' ' +
-              this._property2.toString(),
+              _property2.toString(),
           value2,
           value1));
     }

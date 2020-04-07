@@ -47,9 +47,9 @@ class AnyValueMap extends MapBase<String, dynamic>
   ///
   /// - value     (optional) values to initialize this map.
 
-  AnyValueMap([values = null]) {
-    this._values = Map<String, dynamic>();
-    this.append(values);
+  AnyValueMap([values]) {
+    _values = <String, dynamic>{};
+    append(values);
   }
 
   /// Creates a new instance of the map from JSON.
@@ -61,21 +61,20 @@ class AnyValueMap extends MapBase<String, dynamic>
   }
 
   /// Returned inner values in Map object
-
-  innerValue() {
-    return this._values;
+  @override
+  dynamic innerValue() {
+    return _values;
   }
 
   /// Returned JSON Map object from values of this object
-
   Map<String, dynamic> toJson() {
-    return this._values;
+    return _values;
   }
 
   /// Initialize this object from JSON Map object
 
   void fromJson(Map<String, dynamic> json) {
-    this._values = null;
+    _values = null;
     append(json);
   }
 
@@ -84,7 +83,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// Returns     the value of the map elements.
 
   Map<String, dynamic> getValue() {
-    return this._values;
+    return _values;
   }
 
   /// Gets a map element specified by its key.
@@ -92,7 +91,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// - [key]     a key of the element to get.
   /// Returns       the value of the map element.
 
-  get(String key) {
+  dynamic get(String key) {
     return this[key];
   }
 
@@ -101,9 +100,9 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// Returns a list with all map keys.
 
   List<String> getKeys() {
-    var keys = List<String>();
+    var keys = <String>[];
 
-    for (var key in this._values.keys) {
+    for (var key in _values.keys) {
       keys.add(key);
     }
 
@@ -146,7 +145,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   }
 
   /// Clears this map by removing all its elements.
-
+  @override
   void clear() {
     _values.clear();
   }
@@ -157,16 +156,16 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// - key       (optional) a key of the element to get
   /// Returns the element value or value of the map when index is not defined.
 
-  getAsObject([String key = null]) {
+  dynamic getAsObject([String key]) {
     if (key == null) {
-      var result = Map<String, dynamic>();
-      for (var key in this._values.keys) {
+      var result = <String, dynamic>{};
+      for (var key in _values.keys) {
         var value = this[key];
         result[key] = value;
       }
       return result;
     } else {
-      return this._values[key];
+      return _values[key];
     }
   }
 
@@ -179,13 +178,13 @@ class AnyValueMap extends MapBase<String, dynamic>
   ///
   /// See [MapConverter.toMap]
 
-  void setAsObject(key, [value = null]) {
+  void setAsObject(key, [value]) {
     if (value == null) {
-      this.clear();
+      clear();
       var values = MapConverter.toMap(key);
-      this.append(values);
+      append(values);
     } else {
-      this._values[key] = value;
+      _values[key] = value;
     }
   }
 
@@ -197,7 +196,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [StringConverter.toNullableString]
 
   String getAsNullableString(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return StringConverter.toNullableString(value);
   }
 
@@ -209,7 +208,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsStringWithDefault]
 
   String getAsString(String key) {
-    return this.getAsStringWithDefault(key, null);
+    return getAsStringWithDefault(key, null);
   }
 
   /// Converts map element into a String or returns default value if conversion is not possible.
@@ -221,7 +220,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [StringConverter.toStringWithDefault]
 
   String getAsStringWithDefault(String key, String defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return StringConverter.toStringWithDefault(value, defaultValue);
   }
 
@@ -233,7 +232,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [BooleanConverter.toNullableBoolean]
 
   bool getAsNullableBoolean(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return BooleanConverter.toNullableBoolean(value);
   }
 
@@ -245,7 +244,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsBooleanWithDefault]
 
   bool getAsBoolean(String key) {
-    return this.getAsBooleanWithDefault(key, false);
+    return getAsBooleanWithDefault(key, false);
   }
 
   /// Converts map element into a boolean or returns default value if conversion is not possible.
@@ -257,7 +256,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [BooleanConverter.toBooleanWithDefault]
 
   bool getAsBooleanWithDefault(String key, bool defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return BooleanConverter.toBooleanWithDefault(value, defaultValue);
   }
 
@@ -269,7 +268,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [IntegerConverter.toNullableInteger]
 
   int getAsNullableInteger(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return IntegerConverter.toNullableInteger(value);
   }
 
@@ -281,7 +280,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsIntegerWithDefault]
 
   int getAsInteger(String key) {
-    return this.getAsIntegerWithDefault(key, 0);
+    return getAsIntegerWithDefault(key, 0);
   }
 
   /// Converts map element into an integer or returns default value if conversion is not possible.
@@ -293,7 +292,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [IntegerConverter.toIntegerWithDefault]
 
   int getAsIntegerWithDefault(String key, int defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return IntegerConverter.toIntegerWithDefault(value, defaultValue);
   }
 
@@ -305,7 +304,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [LongConverter.toNullableLong]
 
   int getAsNullableLong(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return LongConverter.toNullableLong(value);
   }
 
@@ -317,7 +316,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsLongWithDefault]
 
   int getAsLong(String key) {
-    return this.getAsLongWithDefault(key, 0);
+    return getAsLongWithDefault(key, 0);
   }
 
   /// Converts map element into a long or returns default value if conversion is not possible.
@@ -329,7 +328,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [LongConverter.toLongWithDefault]
 
   int getAsLongWithDefault(String key, int defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return LongConverter.toLongWithDefault(value, defaultValue);
   }
 
@@ -341,7 +340,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [FloatConverter.toNullableFloat]
 
   double getAsNullableFloat(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return FloatConverter.toNullableFloat(value);
   }
 
@@ -353,7 +352,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsFloatWithDefault]
 
   double getAsFloat(String key) {
-    return this.getAsFloatWithDefault(key, 0);
+    return getAsFloatWithDefault(key, 0);
   }
 
   /// Converts map element into a flot or returns default value if conversion is not possible.
@@ -365,7 +364,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [FloatConverter.toFloatWithDefault]
 
   double getAsFloatWithDefault(String key, double defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return FloatConverter.toFloatWithDefault(value, defaultValue);
   }
 
@@ -377,7 +376,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [DoubleConverter.toNullableDouble]
 
   double getAsNullableDouble(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return DoubleConverter.toNullableDouble(value);
   }
 
@@ -389,7 +388,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsDoubleWithDefault]
 
   double getAsDouble(String key) {
-    return this.getAsDoubleWithDefault(key, 0);
+    return getAsDoubleWithDefault(key, 0);
   }
 
   /// Converts map element into a double or returns default value if conversion is not possible.
@@ -401,7 +400,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [DoubleConverter.toDoubleWithDefault]
 
   double getAsDoubleWithDefault(String key, double defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return DoubleConverter.toDoubleWithDefault(value, defaultValue);
   }
 
@@ -413,7 +412,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [DateTimeConverter.toNullableDateTime]
 
   DateTime getAsNullableDateTime(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return DateTimeConverter.toNullableDateTime(value);
   }
 
@@ -425,7 +424,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsDateTimeWithDefault]
 
   DateTime getAsDateTime(String key) {
-    return this.getAsDateTimeWithDefault(key, null);
+    return getAsDateTimeWithDefault(key, null);
   }
 
   /// Converts map element into a DateTime or returns default value if conversion is not possible.
@@ -437,7 +436,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [DateTimeConverter.toDateTimeWithDefault]
 
   DateTime getAsDateTimeWithDefault(String key, DateTime defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return DateTimeConverter.toDateTimeWithDefault(value, defaultValue);
   }
 
@@ -449,7 +448,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [DurationConverter.toNullableDuration]
 
   Duration getAsNullableDuration(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return DurationConverter.toNullableDuration(value);
   }
 
@@ -461,7 +460,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsDurationWithDefault]
 
   Duration getAsDuration(String key) {
-    return this.getAsDurationWithDefault(key, null);
+    return getAsDurationWithDefault(key, null);
   }
 
   /// Converts map element into a Duration or returns default value if conversion is not possible.
@@ -473,7 +472,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [DurationConverter.toDurationWithDefault]
 
   Duration getAsDurationWithDefault(String key, Duration defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return DurationConverter.toDurationWithDefault(value, defaultValue);
   }
 
@@ -487,7 +486,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [TypeConverter.toNullabvarype]
 
   T getAsNullabvarype<T>(TypeCode type, String key) {
-    var value = this.get(key);
+    var value = get(key);
     return TypeConverter.toNullableType<T>(type, value);
   }
 
@@ -501,7 +500,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsTypeWithDefault]
 
   T getAsType<T>(TypeCode type, String key) {
-    return this.getAsTypeWithDefault<T>(type, key, null);
+    return getAsTypeWithDefault<T>(type, key, null);
   }
 
   /// Converts map element into a value defined by specied typecode.
@@ -515,7 +514,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [TypeConverter.toTypeWithDefault]
 
   T getAsTypeWithDefault<T>(TypeCode type, String key, T defaultValue) {
-    var value = this.get(key);
+    var value = get(key);
     return TypeConverter.toTypeWithDefault(type, value, defaultValue);
   }
 
@@ -528,7 +527,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [AnyValue.constructor]
 
   AnyValue getAsValue(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return AnyValue(value);
   }
 
@@ -541,7 +540,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [AnyValueArray.fromValue]
 
   AnyValueArray getAsNullableArray(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return value != null ? AnyValueArray.fromValue(value) : null;
   }
 
@@ -554,7 +553,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [AnyValueArray.fromValue]
 
   AnyValueArray getAsArray(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return AnyValueArray.fromValue(value);
   }
 
@@ -568,8 +567,8 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsNullableArray]
 
   AnyValueArray getAsArrayWithDefault(String key, AnyValueArray defaultValue) {
-    var result = this.getAsNullableArray(key);
-    return result != null ? result : defaultValue;
+    var result = getAsNullableArray(key);
+    return result ?? defaultValue;
   }
 
   /// Converts map element into an AnyValueMap or returns null if conversion is not possible.
@@ -580,7 +579,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [fromValue]
 
   AnyValueMap getAsNullableMap(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return value != null ? AnyValueMap.fromValue(value) : null;
   }
 
@@ -592,7 +591,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [fromValue]
 
   AnyValueMap getAsMap(String key) {
-    var value = this.get(key);
+    var value = get(key);
     return AnyValueMap.fromValue(value);
   }
 
@@ -605,8 +604,8 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// See [getAsNullableMap]
 
   AnyValueMap getAsMapWithDefault(String key, AnyValueMap defaultValue) {
-    var result = this.getAsNullableMap(key);
-    return result != null ? result : defaultValue;
+    var result = getAsNullableMap(key);
+    return result ?? defaultValue;
   }
 
   /// Gets a String representation of the object.
@@ -620,15 +619,16 @@ class AnyValueMap extends MapBase<String, dynamic>
     var builder = '';
 
     // Todo: User encoder
-    for (var key in this._values.keys) {
+    for (var key in _values.keys) {
       var value = this[key];
 
-      if (builder.length > 0) builder += ';';
+      if (builder.isNotEmpty) builder += ';';
 
-      if (value != null)
+      if (value != null) {
         builder += key + '=' + value;
-      else
+      } else {
         builder += key;
+      }
     }
 
     return builder;
@@ -638,8 +638,9 @@ class AnyValueMap extends MapBase<String, dynamic>
   ///
   /// Returns a clone of this object.
 
-  clone() {
-    return new AnyValueMap(this._values);
+  @override
+  dynamic clone() {
+    return AnyValueMap(_values);
   }
 
   /// Converts specified value into AnyValueMap.
@@ -674,7 +675,7 @@ class AnyValueMap extends MapBase<String, dynamic>
 
   static AnyValueMap fromTuplesArray(List tuples) {
     var result = AnyValueMap();
-    if (tuples == null || tuples.length == 0) return result;
+    if (tuples == null || tuples.isEmpty) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;
@@ -696,24 +697,25 @@ class AnyValueMap extends MapBase<String, dynamic>
 
   static AnyValueMap fromMaps(List maps) {
     var result = AnyValueMap();
-    if (maps != null && maps.length > 0) {
-      for (var index = 0; index < maps.length; index++)
+    if (maps != null && maps.isNotEmpty) {
+      for (var index = 0; index < maps.length; index++) {
         result.append(maps[index]);
+      }
     }
     return result;
   }
 
   operator [](dynamic key) {
-    return this._values[key];
+    return _values[key];
   }
 
   void operator []=(String key, dynamic value) {
-    this._values[key] = value;
+    _values[key] = value;
   }
 
   @override
-  Iterable<String> get keys => this._values.keys;
+  Iterable<String> get keys => _values.keys;
 
   @override
-  Iterable<String> get values => this._values.values;
+  Iterable<String> get values => _values.values;
 }

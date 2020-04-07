@@ -48,6 +48,6 @@ class DoubleConverter {
 
   static double toDoubleWithDefault(value, double defaultValue) {
     var result = DoubleConverter.toNullableDouble(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

@@ -24,7 +24,7 @@ class OnlyOneExistsRule implements IValidationRule {
   ///
   /// - [properties]    a list of property names where at only one property must exist
 
-  OnlyOneExistsRule(List<String> properties) : this._properties = properties {}
+  OnlyOneExistsRule(List<String> properties) : _properties = properties {}
 
   /// Validates a given value against this rule.
   ///
@@ -38,8 +38,8 @@ class OnlyOneExistsRule implements IValidationRule {
     var name = path != null ? path : 'value';
     var found = List<String>();
 
-    for (var i = 0; i < this._properties.length; i++) {
-      var property = this._properties[i];
+    for (var i = 0; i < _properties.length; i++) {
+      var property = _properties[i];
 
       var propertyValue = ObjectReader.getProperty(value, property);
 
@@ -53,8 +53,8 @@ class OnlyOneExistsRule implements IValidationRule {
           'VALUE_NULL',
           name +
               ' must have at least one property from ' +
-              this._properties.join(','),
-          this._properties,
+              _properties.join(','),
+          _properties,
           null));
     } else if (found.length > 1) {
       results.add(ValidationResult(
@@ -63,8 +63,8 @@ class OnlyOneExistsRule implements IValidationRule {
           'VALUE_ONLY_ONE',
           name +
               ' must have only one property from ' +
-              this._properties.join(','),
-          this._properties,
+              _properties.join(','),
+          _properties,
           null));
     }
   }

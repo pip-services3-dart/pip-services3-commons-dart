@@ -22,7 +22,7 @@ class SortField {
   /// - [name] 			the name of the field to sort by.
   /// - [ascending] 	true to sort in ascending order, and false to sort in descending order.
 
-  SortField([String name = null, bool ascending = true]) {
+  SortField([String name, bool ascending = true]) {
     this.name = name;
     this.ascending = ascending;
   }
@@ -38,13 +38,13 @@ class SortField {
   /// Initialize this object from JSON Map object
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{'name': this.name, 'ascending': this.ascending};
+    return <String, dynamic>{'name': name, 'ascending': ascending};
   }
 
   /// Returned JSON Map object from values of this object
 
   void fromJson(Map<String, dynamic> json) {
-    this.name = json['name'];
-    this.ascending = json['ascending'];
+    name = json['name'];
+    ascending = json['ascending'];
   }
 }

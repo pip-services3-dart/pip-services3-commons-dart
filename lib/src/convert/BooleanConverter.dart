@@ -59,6 +59,6 @@ class BooleanConverter {
 
   static bool toBooleanWithDefault(value, bool defaultValue) {
     var result = BooleanConverter.toNullableBoolean(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

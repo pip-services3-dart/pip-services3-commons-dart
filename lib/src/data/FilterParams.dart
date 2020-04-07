@@ -21,7 +21,7 @@ class FilterParams extends StringValueMap {
   ///
   /// - [map] 	a map to initialize this instance.
 
-  FilterParams([map = null]) : super(map);
+  FilterParams([map]) : super(map);
 
   /// Creates a new instance and initalizes it with elements from the specified map.
   ///

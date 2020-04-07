@@ -41,44 +41,38 @@ class InterceptedCommand implements ICommand {
 
   /// Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
   /// about the interceptor that is being used and the next command in the chain.
-
-  /// - interceptor   the interceptor that is intercepting the command.
-  /// - next          (link to) the next command in the command's execution chain.
-
+  /// - [interceptor]   the interceptor that is intercepting the command.
+  /// - [next]          (link to) the next command in the command's execution chain.
   InterceptedCommand(ICommandInterceptor interceptor, ICommand next) {
-    this._interceptor = interceptor;
-    this._next = next;
+    _interceptor = interceptor;
+    _next = next;
   }
 
   /// Returns the name of the command that is being intercepted.
-
+  @override
   String getName() {
-    return this._interceptor.getName(this._next);
+    return _interceptor.getName(_next);
   }
 
   /// Executes the next command in the execution chain using the given [Parameters parameters] (arguments).
-
-  /// - correlationId unique transaction id to trace calls across components.
-  /// - args          the parameters (arguments) to pass to the command for execution.
-  /// - callback      the function that is to be called once execution is complete. If an exception is raised, then
-  ///                      it will be called with the error.
-
+  /// - [correlationId] unique transaction id to trace calls across components.
+  /// - [args]          the parameters (arguments) to pass to the command for execution.
+  /// Returns           the function that is to be called once execution is complete. If an exception is raised, then
+  ///                   it will be called with the error.
   /// See [Parameters]
-
+  @override
   Future<dynamic> execute(String correlationId, Parameters args) async {
-    return await this._interceptor.execute(correlationId, this._next, args);
+    return await _interceptor.execute(correlationId, _next, args);
   }
 
   /// Validates the [Parameters parameters] (arguments) that are to be passed to the command that is next
   /// in the execution chain.
-
-  /// - args      the parameters (arguments) to validate for the next command.
+  /// - [args]      the parameters (arguments) to validate for the next command.
   /// Returns         an array of ValidationResults.
-
   /// See [Parameters]
   /// See [ValidationResult]
-
+  @override
   List<ValidationResult> validate(Parameters args) {
-    return this._interceptor.validate(this._next, args);
+    return _interceptor.validate(_next, args);
   }
 }

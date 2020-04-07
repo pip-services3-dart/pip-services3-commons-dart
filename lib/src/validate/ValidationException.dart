@@ -27,10 +27,8 @@ class ValidationException extends BadRequestException {
       : super(
             correlationId,
             'INVALID_DATA',
-            message != null
-                ? message
-                : ValidationException.composeMessage(results)) {
-    if (results != null) this.withDetails('results', results);
+             message ?? ValidationException.composeMessage(results)) {
+    if (results != null) withDetails('results', results);
   }
 
   /// Composes human readable error message based on validation results.
@@ -43,7 +41,7 @@ class ValidationException extends BadRequestException {
   static String composeMessage(List<ValidationResult> results) {
     var builder = 'Validation failed';
 
-    if (results != null && results.length > 0) {
+    if (results != null && results.isNotEmpty) {
       var first = true;
       for (var i = 0; i < results.length; i++) {
         var result = results[i];
@@ -78,8 +76,9 @@ class ValidationException extends BadRequestException {
 
       if (result.getType() == ValidationResultType.Error) hasErrors = true;
 
-      if (strict && result.getType() == ValidationResultType.Warning)
+      if (strict && result.getType() == ValidationResultType.Warning) {
         hasErrors = true;
+      }
     }
 
     return hasErrors ? ValidationException(correlationId, null, results) : null;

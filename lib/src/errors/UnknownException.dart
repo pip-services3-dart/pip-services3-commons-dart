@@ -13,8 +13,8 @@ class UnknownException extends ApplicationException {
   /// See [ErrorCategory]
 
   UnknownException(
-      [String correlation_id = null, String code = null, String message = null])
+      [String correlation_id, String code , String message ])
       : super(ErrorCategory.Unknown, correlation_id, code, message) {
-    this.status = 500;
+    status = 500;
   }
 }

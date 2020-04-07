@@ -8,7 +8,7 @@ import 'dart:math';
 ///     var value2 = RandomBoolean.chance(1,3);      // Possible result: false
 
 class RandomBoolean {
-  static Random _random = Random();
+  static final _random = Random();
 
   /// Calculates 'chance' out of 'max chances'.
   /// Example: 1 chance out of 3 chances (or 33.3%)

@@ -9,12 +9,12 @@ import './RandomBoolean.dart';
 ///     var value2 = RandomString.pick(['A','B','C']); // Possible result: 'gBW'
 
 class RandomString {
-  static var _digits = '01234956789';
-  static var _symbols = '_,.:-/.[].{},#-!,\$=%.+^.&*-() ';
-  static var _alphaLower = 'abcdefghijklmnopqrstuvwxyz';
-  static var _alphaUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  static var _alpha = RandomString._alphaUpper + RandomString._alphaLower;
-  static var _chars =
+  static final _digits = '01234956789';
+  static final _symbols = '_,.:-/.[].{},#-!,\$=%.+^.&*-() ';
+  static final _alphaLower = 'abcdefghijklmnopqrstuvwxyz';
+  static final _alphaUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  static final _alpha = RandomString._alphaUpper + RandomString._alphaLower;
+  static final _chars =
       RandomString._alpha + RandomString._digits + RandomString._symbols;
 
   /// Picks a random character from a string.
@@ -23,7 +23,7 @@ class RandomString {
   /// Returns         a randomly picked char.
 
   static String pickChar(String values) {
-    if (values == null || values.length == 0) return '';
+    if (values == null || values.isEmpty) return '';
 
     var index = RandomInteger.nextInteger(values.length);
     return values.substring(index, index + 1);
@@ -35,7 +35,7 @@ class RandomString {
   /// Returns         a randomly picked string.
 
   static String pick(List<String> values) {
-    if (values == null || values.length == 0) return '';
+    if (values == null || values.isEmpty) return '';
 
     var index = RandomInteger.nextInteger(values.length);
     return values[index];
@@ -50,12 +50,14 @@ class RandomString {
     value = value.toLowerCase();
 
     //Capitalize the first letter of the string 'value'.
-    if (RandomBoolean.chance(1, 5))
+    if (RandomBoolean.chance(1, 5)) {
       value = value.substring(0, 1).toUpperCase() + value.substring(1);
+    }
 
     //Add a symbol to the end of the string 'value'
-    if (RandomBoolean.chance(1, 3))
+    if (RandomBoolean.chance(1, 3)) {
       value = value + RandomString.pickChar(RandomString._symbols);
+    }
 
     return value;
   }

@@ -28,12 +28,12 @@ class ValidationResult {
       String message = null,
       dynamic expected = null,
       dynamic actual = null]) {
-    this._path = path;
-    this._type = type;
-    this._code = code;
-    this._message = message;
-    this._expected = expected;
-    this._actual = actual;
+    _path = path;
+    _type = type;
+    _code = code;
+    _message = message;
+    _expected = expected;
+    _actual = actual;
   }
 
   /// Gets dot notation path of the validated element.
@@ -41,7 +41,7 @@ class ValidationResult {
   /// Returns the path of the validated element.
 
   String getPath() {
-    return this._path;
+    return _path;
   }
 
   /// Gets the type of the validation result: Information, Warning, or Error.
@@ -51,7 +51,7 @@ class ValidationResult {
   /// See [ValidationResultType]
 
   ValidationResultType getType() {
-    return this._type;
+    return _type;
   }
 
   /// Gets the error code.
@@ -59,7 +59,7 @@ class ValidationResult {
   /// Returns the error code
 
   String getCode() {
-    return this._code;
+    return _code;
   }
 
   /// Gets the human readable message.
@@ -67,7 +67,7 @@ class ValidationResult {
   /// Returns the result message.
 
   String getMessage() {
-    return this._message;
+    return _message;
   }
 
   /// Gets the value expected by schema validation.
@@ -75,7 +75,7 @@ class ValidationResult {
   /// Returns the expected value.
 
   dynamic getExpected() {
-    return this._expected;
+    return _expected;
   }
 
   /// Gets the actual value found by schema validation.
@@ -83,6 +83,6 @@ class ValidationResult {
   /// Returns the actual value.
 
   dynamic getActual() {
-    return this._actual;
+    return _actual;
   }
 }

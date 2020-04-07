@@ -10,7 +10,7 @@ class ReferenceException extends InternalException {
 
   ReferenceException(String correlationId, locator)
       : super(correlationId, 'REF_ERROR',
-            'Failed to obtain reference to ' + locator) {
-    this.withDetails('locator', locator);
+            'Failed to obtain reference to ' + locator.toString()) {
+    withDetails('locator', locator);
   }
 }

@@ -26,8 +26,8 @@ class ValueComparisonRule implements IValidationRule {
   /// - [value]        a constant value to compare to
 
   ValueComparisonRule(String operation, dynamic value)
-      : this._operation = operation,
-        this._value = value {}
+      : _operation = operation,
+        _value = value {}
 
   /// Validates a given value against this rule.
   ///
@@ -40,19 +40,19 @@ class ValueComparisonRule implements IValidationRule {
       List<ValidationResult> results) {
     var name = path != null ? path : 'value';
 
-    if (!ObjectComparator.compare(value, this._operation, this._value)) {
+    if (!ObjectComparator.compare(value, _operation, _value)) {
       results.add(ValidationResult(
           path,
           ValidationResultType.Error,
           'BAD_VALUE',
           name +
               ' must ' +
-              this._operation.toString() +
+              _operation.toString() +
               ' ' +
-              this._value.toString() +
+              _value.toString() +
               ' but found ' +
               value.toString(),
-          this._operation.toString() + ' ' + this._value.toString(),
+          _operation.toString() + ' ' + _value.toString(),
           value));
     }
   }

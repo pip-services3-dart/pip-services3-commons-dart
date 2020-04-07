@@ -49,6 +49,6 @@ class LongConverter {
 
   static int toLongWithDefault(value, int defaultValue) {
     var result = LongConverter.toNullableLong(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

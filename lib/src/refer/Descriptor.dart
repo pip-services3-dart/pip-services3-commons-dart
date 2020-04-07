@@ -47,11 +47,11 @@ class Descriptor {
     if ('*' == name) name = null;
     if ('*' == version) version = null;
 
-    this._group = group;
-    this._type = type;
-    this._kind = kind;
-    this._name = name;
-    this._version = version;
+    _group = group;
+    _type = type;
+    _kind = kind;
+    _name = name;
+    _version = version;
   }
 
   /// Gets the component's logical group.
@@ -59,7 +59,7 @@ class Descriptor {
   /// Returns the component's logical group
 
   String getGroup() {
-    return this._group;
+    return _group;
   }
 
   /// Gets the component's logical type.
@@ -67,7 +67,7 @@ class Descriptor {
   /// Returns the component's logical type.
 
   String getType() {
-    return this._type;
+    return _type;
   }
 
   /// Gets the component's implementation type.
@@ -75,7 +75,7 @@ class Descriptor {
   /// Returns the component's implementation type.
 
   String getKind() {
-    return this._kind;
+    return _kind;
   }
 
   /// Gets the unique component's name.
@@ -83,7 +83,7 @@ class Descriptor {
   /// Returns the unique component's name.
 
   String getName() {
-    return this._name;
+    return _name;
   }
 
   /// Gets the component's implementation version.
@@ -91,7 +91,7 @@ class Descriptor {
   /// Returns the component's implementation version.
 
   String getVersion() {
-    return this._version;
+    return _version;
   }
 
   bool _matchField(String field1, String field2) {
@@ -107,11 +107,11 @@ class Descriptor {
   /// See [exactMatch]
 
   bool match(Descriptor descriptor) {
-    return this._matchField(this._group, descriptor.getGroup()) &&
-        this._matchField(this._type, descriptor.getType()) &&
-        this._matchField(this._kind, descriptor.getKind()) &&
-        this._matchField(this._name, descriptor.getName()) &&
-        this._matchField(this._version, descriptor.getVersion());
+    return _matchField(_group, descriptor.getGroup()) &&
+        _matchField(_type, descriptor.getType()) &&
+        _matchField(_kind, descriptor.getKind()) &&
+        _matchField(_name, descriptor.getName()) &&
+        _matchField(_version, descriptor.getVersion());
   }
 
   bool _exactMatchField(String field1, String field2) {
@@ -129,11 +129,11 @@ class Descriptor {
   /// See [match]
 
   bool exactMatch(Descriptor descriptor) {
-    return this._exactMatchField(this._group, descriptor.getGroup()) &&
-        this._exactMatchField(this._type, descriptor.getType()) &&
-        this._exactMatchField(this._kind, descriptor.getKind()) &&
-        this._exactMatchField(this._name, descriptor.getName()) &&
-        this._exactMatchField(this._version, descriptor.getVersion());
+    return _exactMatchField(_group, descriptor.getGroup()) &&
+        _exactMatchField(_type, descriptor.getType()) &&
+        _exactMatchField(_kind, descriptor.getKind()) &&
+        _exactMatchField(_name, descriptor.getName()) &&
+        _exactMatchField(_version, descriptor.getVersion());
   }
 
   /// Checks whether all descriptor fields are set.
@@ -142,11 +142,11 @@ class Descriptor {
   /// Returns true if all descriptor fields are defined and false otherwise.
 
   bool isComplete() {
-    return this._group != null &&
-        this._type != null &&
-        this._kind != null &&
-        this._name != null &&
-        this._version != null;
+    return _group != null &&
+        _type != null &&
+        _kind != null &&
+        _name != null &&
+        _version != null;
   }
 
   /// Compares this descriptor to a value.
@@ -159,11 +159,12 @@ class Descriptor {
   /// See [match]
 
   bool equals(value) {
-    if (value is Descriptor) return this.match(value);
+    if (value is Descriptor) return match(value);
     return false;
   }
 
-  bool operator ==(value) {
+  @override
+  bool operator == (value) {
     return equals(value);
   }
 
@@ -175,15 +176,15 @@ class Descriptor {
 
   @override
   String toString() {
-    return (this._group ?? '*') +
+    return (_group ?? '*') +
         ':' +
-        (this._type ?? '*') +
+        (_type ?? '*') +
         ':' +
-        (this._kind ?? '*') +
+        (_kind ?? '*') +
         ':' +
-        (this._name ?? '*') +
+        (_name ?? '*') +
         ':' +
-        (this._version ?? '*');
+        (_version ?? '*');
   }
 
   /// Parses colon-separated list of descriptor fields and returns them as a Descriptor.
@@ -193,7 +194,7 @@ class Descriptor {
   /// @throws a [ConfigException] if the descriptor string is of a wrong format.
 
   static Descriptor fromString(String value) {
-    if (value == null || value.length == 0) return null;
+    if (value == null || value.isEmpty) return null;
 
     var tokens = value.split(':');
     if (tokens.length != 5) {

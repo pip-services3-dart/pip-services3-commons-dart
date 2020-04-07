@@ -9,7 +9,7 @@ import 'dart:math';
 ///     var value3 = RandomDouble.updateDouble(10, 3);   // Possible result: 9.2
 
 class RandomDouble {
-  static var _random = Random();
+  static final _random = Random();
 
   /// Generates a random double value in the range ['minYear', 'maxYear'].
 
@@ -17,7 +17,7 @@ class RandomDouble {
   /// - [max]   max range value
   /// Returns     a random double value.
 
-  static double nextDouble(double min, [double max = null]) {
+  static double nextDouble(double min, [double max]) {
     if (max == null) {
       max = min;
       min = 0;
@@ -33,8 +33,8 @@ class RandomDouble {
   /// - [value]     a double value to drift.
   /// - [range]     (optional) a range. Default: 10% of the value
 
-  static double updateDouble(double value, [double range = null]) {
-    if (range == null) range = 0;
+  static double updateDouble(double value, [double range]) {
+    range ??= 0;
     range = range == 0 ? 0.1 * value : range;
     var minValue = value - range;
     var maxValue = value + range;

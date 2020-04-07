@@ -34,7 +34,7 @@ class ObjectSchema extends Schema {
 
   ObjectSchema([bool allowUndefined, bool req, List<IValidationRule> rules])
       : super(req, rules) {
-    this._allowUndefined = allowUndefined;
+    _allowUndefined = allowUndefined;
   }
 
   /// Gets validation schemas for object properties.
@@ -44,7 +44,7 @@ class ObjectSchema extends Schema {
   /// See [PropertySchema]
 
   List<PropertySchema> getProperties() {
-    return this._properties;
+    return _properties;
   }
 
   /// Sets validation schemas for object properties.
@@ -54,7 +54,7 @@ class ObjectSchema extends Schema {
   /// See [PropertySchema]
 
   void setProperties(List<PropertySchema> value) {
-    this._properties = value;
+    _properties = value;
   }
 
   /// Gets flag to allow undefined properties
@@ -62,7 +62,7 @@ class ObjectSchema extends Schema {
   /// Returns true to allow undefined properties and false to disallow.
 
   bool get isUndefinedAllowed {
-    return this._allowUndefined;
+    return _allowUndefined;
   }
 
   /// Sets flag to allow undefined properties
@@ -70,7 +70,7 @@ class ObjectSchema extends Schema {
   /// - [value]     true to allow undefined properties and false to disallow.
 
   void set isUndefinedAllowed(bool value) {
-    this._allowUndefined = value;
+    _allowUndefined = value;
   }
 
   /// Sets flag to allow undefined properties
@@ -82,7 +82,7 @@ class ObjectSchema extends Schema {
   /// Returns this validation schema.
 
   ObjectSchema allowUndefined(bool value) {
-    this.isUndefinedAllowed = value;
+    isUndefinedAllowed = value;
     return this;
   }
 
@@ -97,9 +97,9 @@ class ObjectSchema extends Schema {
   /// See [PropertySchema]
 
   withProperty(PropertySchema schema) {
-    this._properties =
-        this._properties != null ? this._properties : List<PropertySchema>();
-    this._properties.add(schema);
+    _properties =
+        _properties != null ? _properties : List<PropertySchema>();
+    _properties.add(schema);
     return this;
   }
 
@@ -118,7 +118,7 @@ class ObjectSchema extends Schema {
 
     schema.makeRequired();
 
-    return this.withProperty(schema);
+    return withProperty(schema);
   }
 
   /// Adds a validation schema for an optional object property.
@@ -135,7 +135,7 @@ class ObjectSchema extends Schema {
     }
     schema.makeOptional();
 
-    return this.withProperty(schema);
+    return withProperty(schema);
   }
 
   /// Validates a given value against the schema and configured validation rules.
@@ -153,9 +153,9 @@ class ObjectSchema extends Schema {
     var name = path != null ? path : 'value';
     var properties = ObjectReader.getProperties(value);
 
-    if (this._properties != null) {
-      for (var i = 0; i < this._properties.length; i++) {
-        var propertySchema = this._properties[i];
+    if (_properties != null) {
+      for (var i = 0; i < _properties.length; i++) {
+        var propertySchema = _properties[i];
         var processedName = null;
 
         for (var key in properties.keys) {
@@ -177,7 +177,7 @@ class ObjectSchema extends Schema {
       }
     }
 
-    if (this._allowUndefined == null || this._allowUndefined == false)
+    if (_allowUndefined == null || _allowUndefined == false)
       for (var key in properties.keys) {
         var propertyPath = key != null && path != '' ? path + '.' + key : key;
 

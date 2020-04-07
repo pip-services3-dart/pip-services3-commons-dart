@@ -44,8 +44,8 @@ class StringConverter {
   ///
   /// See [[toNullableString]]
 
-  static toStringWithDefault(value, String defaultValue) {
+  static String toStringWithDefault(value, String defaultValue) {
     var result = StringConverter.toNullableString(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

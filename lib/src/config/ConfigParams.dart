@@ -43,16 +43,16 @@ class ConfigParams extends StringValueMap {
   ///
   /// See [StringValueMap.constructor]
 
-  ConfigParams([values = null]) : super(values);
+  ConfigParams([values]) : super(values);
 
   /// Gets a list with all 1st level section names.
   ///
   /// Returns a list of section names stored in this ConfigMap.
 
   List<String> getSectionNames() {
-    var sections = List<String>();
+    var sections = <String>[];
 
-    for (var key in this.getKeys()) {
+    for (var key in getKeys()) {
       var pos = key.indexOf('.');
       var section = key;
       if (pos > 0) section = key.substring(0, pos);
@@ -82,7 +82,7 @@ class ConfigParams extends StringValueMap {
     var result = ConfigParams();
     var prefix = section + '.';
 
-    for (var key in this.getKeys()) {
+    for (var key in getKeys()) {
       // Prevents exception on the next line
       if (key.length < prefix.length) continue;
 
@@ -110,13 +110,15 @@ class ConfigParams extends StringValueMap {
       for (var key in sectionParams.getKeys()) {
         var name = key;
 
-        if (name.length > 0 && section.length > 0)
+        if (name.isNotEmpty && section.isNotEmpty) {
           name = section + '.' + name;
-        else if (name.length == 0) name = section;
+        } else if (name.isEmpty) {
+          name = section;
+        }
 
         var value = sectionParams[key];
 
-        this.put(name, value);
+        put(name, value);
       }
     }
   }

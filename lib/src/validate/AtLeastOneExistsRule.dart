@@ -25,7 +25,7 @@ class AtLeastOneExistsRule implements IValidationRule {
   /// - properties    a list of property names where at least one property must exist
 
   AtLeastOneExistsRule(List<String> properties)
-      : this._properties = properties {}
+      : _properties = properties {}
 
   /// Validates a given value against this rule.
   ///
@@ -39,9 +39,9 @@ class AtLeastOneExistsRule implements IValidationRule {
     var name = path != null ? path : 'value';
     var found = List<String>();
 
-    for (var i = 0; i < this._properties.length; i++) {
-      var propertyValue = ObjectReader.getProperty(value, this._properties[i]);
-      if (propertyValue != null) found.add(this._properties[i]);
+    for (var i = 0; i < _properties.length; i++) {
+      var propertyValue = ObjectReader.getProperty(value, _properties[i]);
+      if (propertyValue != null) found.add(_properties[i]);
     }
 
     if (found.length == 0) {
@@ -51,8 +51,8 @@ class AtLeastOneExistsRule implements IValidationRule {
           'VALUE_NULL',
           name +
               ' must have at least one property from ' +
-              this._properties.join(','),
-          this._properties,
+              _properties.join(','),
+          _properties,
           null));
     }
   }

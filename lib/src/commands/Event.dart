@@ -33,23 +33,23 @@ class Event implements IEvent {
   Event(String name) {
     if (name == null) throw ('Name cannot be null');
 
-    this._name = name;
+    _name = name;
   }
 
   /// Gets the name of the event.
   ///
   /// Returns the name of this event.
-
+  @override
   String getName() {
-    return this._name;
+    return _name;
   }
 
   /// Gets all listeners registred in this event.
   ///
   /// Returns a list of listeners.
-
+  @override
   List<IEventListener> getListeners() {
-    return this._listeners;
+    return _listeners;
   }
 
   /// Adds a listener to receive notifications when this event is fired.
@@ -57,7 +57,7 @@ class Event implements IEvent {
   /// - [listener] the listener reference to add.
 
   void addListener(IEventListener listener) {
-    this._listeners.add(listener);
+    _listeners.add(listener);
   }
 
   /// Removes a listener, so that it no longer receives notifications for this event.
@@ -65,9 +65,9 @@ class Event implements IEvent {
   /// - [listener]      the listener reference to remove.
 
   void removeListener(IEventListener listener) {
-    var index = this._listeners.indexOf(listener);
+    var index = _listeners.indexOf(listener);
 
-    if (index > -1) this._listeners.removeAt(index);
+    if (index > -1) _listeners.removeAt(index);
   }
 
   /// Fires this event and notifies all registred listeners.
@@ -77,14 +77,14 @@ class Event implements IEvent {
   /// throws an [InvocationException] if the event fails to be raised.
 
   void notify(String correlationId, Parameters args) {
-    for (var i = 0; i < this._listeners.length; i++) {
+    for (var i = 0; i < _listeners.length; i++) {
       try {
-        var listener = this._listeners[i];
+        var listener = _listeners[i];
         listener.onEvent(correlationId, this, args);
       } catch (ex) {
         throw InvocationException(correlationId, 'EXEC_FAILED',
-                'Raising event ' + this.getName() + ' failed: ' + ex)
-            .withDetails('event', this.getName())
+                'Raising event ' + getName() + ' failed: ' + ex)
+            .withDetails('event', getName())
             .wrap(ex);
       }
     }

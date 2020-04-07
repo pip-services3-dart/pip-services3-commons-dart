@@ -20,7 +20,7 @@
 ///         IMyPersistence persistence;
 ///         ...
 ///         void setReferences(IReferences references) {
-///             this.persistence = references.getOneRequired<IMyPersistence>(
+///             persistence = references.getOneRequired<IMyPersistence>(
 ///                  Descriptor('mygroup', 'persistence', '*', '*', '1.0')
 ///             );
 ///         }
@@ -44,7 +44,7 @@ abstract class IReferences {
   /// - [locator] 	a locator to find the reference by.
   /// - component a component reference to be added.
 
-  put(locator, component);
+  void put(locator, component);
 
   /// Removes a previously added reference that matches specified locator.
   /// If many references match the locator, it removes only the first one.
@@ -55,7 +55,7 @@ abstract class IReferences {
   ///
   /// See [removeAll]
 
-  remove(locator);
+  dynamic remove(locator);
 
   /// Removes all component references that match the specified locator.
   ///

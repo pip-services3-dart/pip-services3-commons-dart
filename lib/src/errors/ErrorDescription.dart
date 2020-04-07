@@ -39,29 +39,29 @@ class ErrorDescription {
   String stack_trace;
 
   Map<String, dynamic> toJson() {
-    var json = Map<String, dynamic>();
-    json['type'] = this.type;
-    json['category'] = this.category;
-    json['status'] = this.status;
-    json['code'] = this.code;
-    json['message'] = this.message;
-    json['details'] = this.details != null ? this.details.toJson() : null;
-    json['correlation_id'] = this.correlation_id;
-    json['cause'] = this.cause;
-    json['stack_trace'] = this.stack_trace;
+    var json = <String, dynamic>{};
+    json['type'] = type;
+    json['category'] = category;
+    json['status'] = status;
+    json['code'] = code;
+    json['message'] = message;
+    json['details'] = details != null ? details.toJson() : null;
+    json['correlation_id'] = correlation_id;
+    json['cause'] = cause;
+    json['stack_trace'] = stack_trace;
     return json;
   }
 
   void fromJson(Map<String, dynamic> json) {
-    this.type = StringConverter.toNullableString(json['type']);
-    this.category = StringConverter.toNullableString(json['category']);
-    this.status = IntegerConverter.toNullableInteger(json['status']);
-    this.code = StringConverter.toNullableString(json['code']);
-    this.message = StringConverter.toNullableString(json['message']);
-    this.details = StringValueMap.fromValue(json['details']);
-    this.correlation_id =
+    type = StringConverter.toNullableString(json['type']);
+    category = StringConverter.toNullableString(json['category']);
+    status = IntegerConverter.toNullableInteger(json['status']);
+    code = StringConverter.toNullableString(json['code']);
+    message = StringConverter.toNullableString(json['message']);
+    details = StringValueMap.fromValue(json['details']);
+    correlation_id =
         StringConverter.toNullableString(json['correlation_id']);
-    this.cause = StringConverter.toNullableString(json['cause']);
-    this.stack_trace = StringConverter.toNullableString(json['stack_trace']);
+    cause = StringConverter.toNullableString(json['cause']);
+    stack_trace = StringConverter.toNullableString(json['stack_trace']);
   }
 }

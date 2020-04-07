@@ -45,6 +45,6 @@ class DurationConverter {
 
   static Duration toDurationWithDefault(value, Duration defaultValue) {
     var result = DurationConverter.toNullableDuration(value);
-    return result != null ? result : defaultValue;
+    return result ?? defaultValue;
   }
 }

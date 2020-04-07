@@ -15,7 +15,7 @@ import './ConfigParams.dart';
 ///         var _myParam = 'default value';
 ///
 ///         void configure(ConfigParams config) {
-///             this._myParam = config.getAsStringWithDefault('options.param', myParam);
+///             _myParam = config.getAsStringWithDefault('options.param', myParam);
 ///             ...
 ///         }
 ///     }

@@ -13,9 +13,9 @@ import './RandomBoolean.dart';
 ///     var value3 = RandomText.Text(50);    // Possible result: 'Run jorge. Red high scream?'
 
 class RandomText {
-  static var _namePrefixes = ['Dr.', 'Mr.', 'Mrs'];
-  static var _nameSuffixes = ['Jr.', 'Sr.', 'II', 'III'];
-  static var _firstNames = [
+  static final _namePrefixes = ['Dr.', 'Mr.', 'Mrs'];
+  static final _nameSuffixes = ['Jr.', 'Sr.', 'II', 'III'];
+  static final _firstNames = [
     'John',
     'Bill',
     'Andrew',
@@ -30,7 +30,7 @@ class RandomText {
     'Terry',
     'Patrick'
   ];
-  static var _lastNames = [
+  static final _lastNames = [
     'Doe',
     'Smith',
     'Johns',
@@ -45,7 +45,7 @@ class RandomText {
     'White',
     'Black'
   ];
-  static var _colors = [
+  static final _colors = [
     'Black',
     'White',
     'Red',
@@ -57,7 +57,7 @@ class RandomText {
     'Magenta',
     'Cian'
   ];
-  static var _stuffs = [
+  static final _stuffs = [
     'Game',
     'Ball',
     'Home',
@@ -71,7 +71,7 @@ class RandomText {
     'Table',
     'Chair'
   ];
-  static var _adjectives = [
+  static final _adjectives = [
     'Large',
     'Small',
     'High',
@@ -82,7 +82,7 @@ class RandomText {
     'Faster',
     'Slower'
   ];
-  static var _verbs = [
+  static final _verbs = [
     'Run',
     'Stay',
     'Breeze',
@@ -131,7 +131,7 @@ class RandomText {
   //     'Winding', 'Windsor', 'Wintergreen', 'Wood', 'Woodland', 'Woodside', 'Woodsman', 'Wrangler', 'York',
   // ];
 
-  static var _allWords =
+  static final _allWords =
       _firstNames + _lastNames + _colors + _stuffs + _adjectives + _verbs;
 
   /// Generates a random color name.
@@ -177,7 +177,7 @@ class RandomText {
   /// - [maxLength]     maximum string length.
   /// Returns a random phrase.
 
-  static String phrase(int minLength, [int maxLength = null]) {
+  static String phrase(int minLength, [int maxLength]) {
     maxLength = max(minLength, maxLength ?? minLength);
     var size = RandomInteger.nextInteger(minLength, maxLength);
     if (size <= 0) return '';
@@ -199,15 +199,17 @@ class RandomText {
   static String fullName() {
     var result = '';
 
-    if (RandomBoolean.chance(3, 5))
+    if (RandomBoolean.chance(3, 5)) {
       result += RandomString.pick(RandomText._namePrefixes) + ' ';
+    }
 
     result += RandomString.pick(RandomText._firstNames) +
         ' ' +
         RandomString.pick(RandomText._lastNames);
 
-    if (RandomBoolean.chance(5, 10))
+    if (RandomBoolean.chance(5, 10)) {
       result += ' ' + RandomString.pick(RandomText._nameSuffixes);
+    }
 
     return result;
   }
@@ -226,7 +228,7 @@ class RandomText {
   /// - [max]   a maximum number of words.
   /// Returns     a random text.
 
-  static String words(int min, [int max = null]) {
+  static String words(int min, [int max]) {
     var result = '';
 
     var count = RandomInteger.nextInteger(min, max ?? min);
@@ -270,7 +272,7 @@ class RandomText {
   /// - [maxLength]   (optional) maximum amount of words to generate.
   /// Returns         a random text.
 
-  static String text(int minLength, [int maxLength = null]) {
+  static String text(int minLength, [int maxLength]) {
     maxLength = max(minLength, maxLength ?? minLength);
     var size = RandomInteger.nextInteger(minLength, maxLength);
 
@@ -279,14 +281,15 @@ class RandomText {
 
     while (result.length < size) {
       var next = RandomString.pick(RandomText._allWords);
-      if (RandomBoolean.chance(4, 6))
+      if (RandomBoolean.chance(4, 6)) {
         next = ' ' + next.toLowerCase();
-      else if (RandomBoolean.chance(2, 5))
+      } else if (RandomBoolean.chance(2, 5)) {
         next = RandomString.pickChar(':,-') + next.toLowerCase();
-      else if (RandomBoolean.chance(3, 5))
+      } else if (RandomBoolean.chance(3, 5)) {
         next = RandomString.pickChar(':,-') + ' ' + next.toLowerCase();
-      else
+      } else {
         next = RandomString.pickChar('.!?') + ' ' + next;
+      }
 
       result += next;
     }
