@@ -207,8 +207,8 @@ See <a href="pip_services3_commons/ICommandable-class.html">ICommandable</a></p>
 <pre class="language-dart"><code>class MyDataCommandSet extends CommandSet {
      IMyDataController _controller ;
     MyDataCommandSet(IMyDataController controller): super() { // Any data controller interface
-        this._controller = controller;
-        this.addCommand(this.makeGetMyDataCommand());
+        _controller = controller;
+        addCommand(makeGetMyDataCommand());
     }
     ICommand _makeGetMyDataCommand()  {
         return  Command(
@@ -216,7 +216,7 @@ See <a href="pip_services3_commons/ICommandable-class.html">ICommandable</a></p>
           null,
           (String correlationId, Parameters args) {
               var param = args.getAsString('param');
-              return this._controller.getMyData(correlationId, param);
+              return _controller.getMyData(correlationId, param);
           }
         );
     }
@@ -493,7 +493,7 @@ It returns validation error if the command is not found. <a href="pip_services3_
 <footer>
   <span class="no-break">
     pip_services3_commons
-      1.0.1
+      1.0.2
   </span>
 
   <!-- footer-text placeholder -->

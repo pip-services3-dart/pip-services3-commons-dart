@@ -84,6 +84,11 @@
       <div><h1><span class="kind-method">execute</span> method</h1></div>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">Future</span>
             <span class="name ">execute</span>
 (<wbr><span class="parameter" id="execute-param-correlationId"><span class="type-annotation">String</span> <span class="parameter-name">correlationId</span>, </span> <span class="parameter" id="execute-param-args"><span class="type-annotation"><a href="pip_services3_commons/Parameters-class.html">Parameters</a></span> <span class="parameter-name">args</span></span>)
@@ -95,8 +100,8 @@ the defined schema. The command execution intercepts exceptions raised
 by the called function and returns them as an error in callback.</p>
 <ul>
 <li>correlationId (optional) transaction id to trace execution through call chain.</li>
-<li>args          the parameters (arguments) to pass to this command for execution.</li>
-<li>callback      function to be called when command is complete
+<li>args          the parameters (arguments) to pass to this command for execution.
+Return          Future when command is complete
 See [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]</li>
 </ul>
     </section>
@@ -113,7 +118,7 @@ See [<a href="pip_services3_commons/Parameters-class.html">Parameters</a>]</li>
 <footer>
   <span class="no-break">
     pip_services3_commons
-      1.0.1
+      1.0.2
   </span>
 
   <!-- footer-text placeholder -->

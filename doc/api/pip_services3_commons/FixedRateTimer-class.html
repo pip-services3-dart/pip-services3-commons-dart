@@ -202,7 +202,7 @@ perform periodic processing and cleanup in microservices.</p>
 <p>See <a href="pip_services3_commons/INotifiable-class.html">INotifiable</a></p>
 <h3 id="example">Example</h3>
 <pre class="language-dart"><code>class MyComponent {
-    FixedRateTimer timer  = new FixedRateTimer(() { this.cleanup }, 60000);
+    FixedRateTimer timer  = new FixedRateTimer(() { cleanup }, 60000);
     ...
     void open(String correlationId, callback (dynamic err)) {
         ...
@@ -245,7 +245,7 @@ perform periodic processing and cleanup in microservices.</p>
 
       <dl class="constructor-summary-list">
         <dt id="FixedRateTimer" class="callable">
-          <span class="name"><a href="pip_services3_commons/FixedRateTimer/FixedRateTimer.html">FixedRateTimer</a></span><span class="signature">([<span class="parameter" id="-param-taskOrCallback"><span class="type-annotation">dynamic</span> <span class="parameter-name">taskOrCallback</span> = <span class="default-value">null</span>, </span> <span class="parameter" id="-param-interval"><span class="type-annotation">int</span> <span class="parameter-name">interval</span> = <span class="default-value">null</span></span> <span class="parameter" id="-param-delay"><span class="type-annotation">int</span> <span class="parameter-name">delay</span> = <span class="default-value">null</span></span> ])</span>
+          <span class="name"><a href="pip_services3_commons/FixedRateTimer/FixedRateTimer.html">FixedRateTimer</a></span><span class="signature">([<span class="parameter" id="-param-taskOrCallback"><span class="type-annotation">dynamic</span> <span class="parameter-name">taskOrCallback</span>, </span> <span class="parameter" id="-param-interval"><span class="type-annotation">int</span> <span class="parameter-name">interval</span></span> <span class="parameter" id="-param-delay"><span class="type-annotation">int</span> <span class="parameter-name">delay</span></span> ])</span>
         </dt>
         <dd>
           Creates new instance of the timer and sets its values. <a href="pip_services3_commons/FixedRateTimer/FixedRateTimer.html">[...]</a>
@@ -335,7 +335,7 @@ perform periodic processing and cleanup in microservices.</p>
 </dd>
         <dt id="setCallback" class="callable">
           <span class="name"><a href="pip_services3_commons/FixedRateTimer/setCallback.html">setCallback</a></span><span class="signature">(<wbr><span class="parameter" id="setCallback-param-value"><span class="type-annotation">dynamic</span> <span class="parameter-name">value</span>()</span>)
-            <span class="returntype parameter">&#8594; dynamic</span>
+            <span class="returntype parameter">&#8594; void</span>
           </span>
                   </dt>
         <dd>
@@ -380,7 +380,7 @@ perform periodic processing and cleanup in microservices.</p>
 </dd>
         <dt id="stop" class="callable">
           <span class="name"><a href="pip_services3_commons/FixedRateTimer/stop.html">stop</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; dynamic</span>
+            <span class="returntype parameter">&#8594; void</span>
           </span>
                   </dt>
         <dd>
@@ -470,7 +470,7 @@ perform periodic processing and cleanup in microservices.</p>
 <footer>
   <span class="no-break">
     pip_services3_commons
-      1.0.1
+      1.0.2
   </span>
 
   <!-- footer-text placeholder -->

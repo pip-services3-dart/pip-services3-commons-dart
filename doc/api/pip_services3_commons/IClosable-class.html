@@ -207,9 +207,9 @@ See <a href="pip_services3_commons/Closer-class.html">Closer</a></p>
     ... // The _client can be lazy created
 
     Future close(String correlationId){
-        if (this._client != null) {
-            this._client.close();
-            this._client = null;
+        if (_client != null) {
+            _client.close();
+            _client = null;
         }
         return  Future.delayed( Duration());
     }
@@ -352,7 +352,7 @@ See <a href="pip_services3_commons/Closer-class.html">Closer</a></p>
 <footer>
   <span class="no-break">
     pip_services3_commons
-      1.0.1
+      1.0.2
   </span>
 
   <!-- footer-text placeholder -->

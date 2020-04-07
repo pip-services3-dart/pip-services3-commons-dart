@@ -205,11 +205,11 @@ See <a href="pip_services3_commons/Opener-class.html">Opener</a></p>
     dynamic _client;
     ...
     bool isOpen() {
-        return this._client != null;
+        return _client != null;
     }
 
     Future open(String correlationId) {
-        if (this.isOpen()) {
+        if (isOpen()) {
             return Future(Duration(), (){
 
              })
@@ -218,9 +218,9 @@ See <a href="pip_services3_commons/Opener-class.html">Opener</a></p>
     }
 
     Future close(String correlationId) async {
-        if (this._client != null) {
-            result = await this._client.close();
-            this._client = null;
+        if (_client != null) {
+            result = await _client.close();
+            _client = null;
            Future(Duration(), (){ return result})
         }
     }
@@ -386,7 +386,7 @@ See <a href="pip_services3_commons/Opener-class.html">Opener</a></p>
 <footer>
   <span class="no-break">
     pip_services3_commons
-      1.0.1
+      1.0.2
   </span>
 
   <!-- footer-text placeholder -->

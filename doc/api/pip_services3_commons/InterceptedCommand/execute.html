@@ -84,6 +84,11 @@
       <div><h1><span class="kind-method">execute</span> method</h1></div>
 
     <section class="multi-line-signature">
+      <div>
+        <ol class="annotation-list">
+          <li>@override</li>
+        </ol>
+      </div>
       <span class="returntype">Future</span>
             <span class="name ">execute</span>
 (<wbr><span class="parameter" id="execute-param-correlationId"><span class="type-annotation">String</span> <span class="parameter-name">correlationId</span>, </span> <span class="parameter" id="execute-param-args"><span class="type-annotation"><a href="pip_services3_commons/Parameters-class.html">Parameters</a></span> <span class="parameter-name">args</span></span>)
@@ -92,9 +97,9 @@
     <section class="desc markdown">
       <p>Executes the next command in the execution chain using the given <code>Parameters parameters</code> (arguments).</p>
 <ul>
-<li>correlationId unique transaction id to trace calls across components.</li>
-<li>args          the parameters (arguments) to pass to the command for execution.</li>
-<li>callback      the function that is to be called once execution is complete. If an exception is raised, then
+<li><code>correlationId</code> unique transaction id to trace calls across components.</li>
+<li><code>args</code>          the parameters (arguments) to pass to the command for execution.
+Returns           the function that is to be called once execution is complete. If an exception is raised, then
 it will be called with the error.
 See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></li>
 </ul>
@@ -112,7 +117,7 @@ See <a href="pip_services3_commons/Parameters-class.html">Parameters</a></li>
 <footer>
   <span class="no-break">
     pip_services3_commons
-      1.0.1
+      1.0.2
   </span>
 
   <!-- footer-text placeholder -->
