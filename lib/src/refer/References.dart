@@ -143,7 +143,7 @@ class References implements IReferences {
   T getOneOptional<T>(locator) {
     try {
       var components = find<T>(locator, false);
-      return components.isEmpty ? components[0] : null;
+      return components.isNotEmpty ? components[0] : null;
     } catch (ex) {
       return null;
     }

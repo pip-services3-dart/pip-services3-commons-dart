@@ -8,8 +8,8 @@ import '../../lib/src/config/ConfigParams.dart';
 void main() {
   group('DependencyResolver', () {
     test('Resolve depedencies', () {
-      var ref1 = {};
-      var ref2 = {};
+      var ref1 = {'test': 'val1'};
+      var ref2 = {'temp': 'value'};
       var refs = References.fromTuples([
         'Reference1',
         ref1,
@@ -32,8 +32,8 @@ void main() {
     });
 
     test('Configure depedencies', () {
-      var ref1 = {};
-      var ref2 = {};
+      var ref1 = {'test': 'val1'};
+      var ref2 = {'temp': 'value'};
       var refs = References.fromTuples([
         'Reference1',
         ref1,
@@ -56,6 +56,7 @@ void main() {
 
       expect(resolver.getOneRequired('ref1'), equals(ref1));
       expect(resolver.getOneRequired('ref2'), equals(ref2));
+      expect(resolver.getOneOptional('ref1'), equals(ref1));
       expect(resolver.getOneOptional('ref3'), isNull);
     });
   });

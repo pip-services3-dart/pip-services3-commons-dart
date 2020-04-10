@@ -13,3 +13,7 @@
 ## 1.0.3
 
 - Fix all code style by Dmitry Levichev
+
+## 1.0.4
+
+- Fix getOneOptional method in References
