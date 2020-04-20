@@ -22,6 +22,14 @@ class StringConverter {
     if (value == null) return null;
     if (value is String) return value;
     if (value is DateTime) return value.toIso8601String();
+    if (value is List) {
+      var result = '';
+      for (var i = 0; i < value.length - 1; i++) {
+        result += value[i].toString() + ',';
+      }
+      result += value[value.length - 1].toString();
+      return result;
+    }
     return value.toString();
   }
 

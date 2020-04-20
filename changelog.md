@@ -17,3 +17,7 @@
 ## 1.0.4
 
 - Fix getOneOptional method in References
+
+## 1.0.5
+
+- Fix toNullableString method in StringConverter for properly works with Lists. Was added tests.
