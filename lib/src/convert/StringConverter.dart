@@ -23,12 +23,12 @@ class StringConverter {
     if (value is String) return value;
     if (value is DateTime) return value.toIso8601String();
     if (value is List) {
-      var result = '';
+      var result = StringBuffer();
       for (var i = 0; i < value.length - 1; i++) {
-        result += value[i].toString() + ',';
+        result.write(value[i].toString() + ',');
       }
-      result += value[value.length - 1].toString();
-      return result;
+      result.write(value[value.length - 1].toString());
+      return result.toString();
     }
     return value.toString();
   }

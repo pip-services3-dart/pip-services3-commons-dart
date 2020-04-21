@@ -21,3 +21,7 @@
 ## 1.0.5
 
 - Fix toNullableString method in StringConverter for properly works with Lists. Was added tests.
+
+## 1.0.6
+
+- Optimize toNullableString method in StringConverter for properly works with Lists. Added examples.
