@@ -2,8 +2,10 @@
 /.git
 /.gitignore
 /.dockerignore
-/docs
-/Dockerfile*
-/docker-compose*.yml
+/doc
+/node_modules
+/docker
 /*.sh
 /*.ps1
+/.packages
+/pubspec.lock
