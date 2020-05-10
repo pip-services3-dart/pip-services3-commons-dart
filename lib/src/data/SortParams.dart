@@ -45,7 +45,7 @@ class SortParams extends ListBase<SortField> {
   /// Returned JSON Map object from values of this object
 
   void fromJson(Map<String, dynamic> json) {
-    _values = null;
+    _values = <SortField>[];
     addAll(json['values']);
   }
 

@@ -52,7 +52,7 @@ class ProjectionParams extends ListBase<String> {
   /// Returned JSON Map object from values of this object
 
   void fromJson(Map<String, dynamic> json) {
-    _values = null;
+    _values = <String>[];
     addAll(json['values']);
   }
 

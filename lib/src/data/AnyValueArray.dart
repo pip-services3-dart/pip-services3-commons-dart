@@ -74,7 +74,7 @@ class AnyValueArray extends ListBase<dynamic>
 
   /// Initialize this object from JSON Map object
   void fromJson(Map<String, dynamic> json) {
-    _values = null;
+    _values = [];
     append(json['values']);
   }
 

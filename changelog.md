@@ -25,3 +25,7 @@
 ## 1.0.6
 
 - Optimize toNullableString method in StringConverter for properly works with Lists. Added examples.
+
+## 1.0.7
+
+- Fix methods [fromJson] in classes from data package.

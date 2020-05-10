@@ -51,7 +51,7 @@ class MultiString implements IValueWrapper {
   /// Initialize this object from JSON Map object
 
   void fromJson(Map<String, dynamic> json) {
-    _values = null;
+    _values = <String, String>{};
     append(json);
   }
 

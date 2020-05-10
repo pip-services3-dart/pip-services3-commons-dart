@@ -74,7 +74,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   /// Initialize this object from JSON Map object
 
   void fromJson(Map<String, dynamic> json) {
-    _values = null;
+    _values = <String, dynamic>{};
     append(json);
   }
 

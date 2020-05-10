@@ -732,7 +732,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// Returned JSON Map object from values of this object
 
   void fromJson(Map<String, dynamic> json) {
-    _values = null;
+    _values = <String, String>{};
     append(json);
   }
 
@@ -751,7 +751,6 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
 
   @override
   String remove(Object key) {
-    _values.remove(key);
-    return null;
+    return _values.remove(key);
   }
 }
