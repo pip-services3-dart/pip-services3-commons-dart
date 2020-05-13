@@ -122,7 +122,7 @@ class TypeConverter {
     } else if (type == TypeCode.String) {
       value = '';
     } else if (type == TypeCode.DateTime) {
-      value = DateTime.now();
+      value = DateTime.now().toUtc();
     } else if (type == TypeCode.Duration) {
       value = Duration();
     } else if (type == TypeCode.Map) {

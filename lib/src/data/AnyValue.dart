@@ -292,7 +292,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [getAsDateTimeWithDefault]
   DateTime getAsDateTime() {
-    return getAsDateTimeWithDefault(DateTime.now());
+    return getAsDateTimeWithDefault(DateTime.now().toUtc());
   }
 
   /// Converts object value into a DateTime or returns default value if conversion is not possible.

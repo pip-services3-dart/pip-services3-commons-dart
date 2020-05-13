@@ -1,7 +1,7 @@
 class TestClass {
   int _privateField = 123;
   String publicField = 'ABC';
-  DateTime _publicProp = DateTime.now();
+  DateTime _publicProp = DateTime.now().toUtc();
 
   TestClass([int arg1]);
 

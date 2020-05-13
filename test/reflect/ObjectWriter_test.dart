@@ -13,7 +13,7 @@ void main() {
       ObjectWriter.setProperty(obj, 'publicField', 'AAAA');
       expect(obj.publicField, equals('AAAA'));
 
-      var now = DateTime.now();
+      var now = DateTime.now().toUtc();
       ObjectWriter.setProperty(obj, 'publicProp', now);
       expect(obj.publicProp, equals(now));
 

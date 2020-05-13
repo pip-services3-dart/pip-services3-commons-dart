@@ -422,7 +422,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// See [getAsDateTimeWithDefault]
 
   DateTime getAsDateTime(String key) {
-    return getAsDateTimeWithDefault(key, DateTime.now());
+    return getAsDateTimeWithDefault(key, DateTime.now().toUtc());
   }
 
   /// Converts map element into a DateTime or returns default value if conversion is not possible.

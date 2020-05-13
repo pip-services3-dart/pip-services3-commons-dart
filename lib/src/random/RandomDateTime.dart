@@ -26,7 +26,7 @@ class RandomDateTime {
     if (diff <= 0) return min;
 
     var time = min.millisecondsSinceEpoch + RandomInteger.nextInteger(0, diff);
-    var date = DateTime.fromMillisecondsSinceEpoch(time);
+    var date = DateTime.fromMillisecondsSinceEpoch(time).toUtc();
 
     return date;
   }
@@ -48,7 +48,7 @@ class RandomDateTime {
     if (diff <= 0) return min;
 
     var time = min.millisecondsSinceEpoch + RandomInteger.nextInteger(0, diff);
-    return DateTime.fromMillisecondsSinceEpoch(time);
+    return DateTime.fromMillisecondsSinceEpoch(time).toUtc();
   }
 
   /// Updates (drifts) a Date value within specified range defined
@@ -62,6 +62,6 @@ class RandomDateTime {
 
     var time =
         value.millisecondsSinceEpoch + RandomInteger.nextInteger(-range, range);
-    return DateTime.fromMillisecondsSinceEpoch(time);
+    return DateTime.fromMillisecondsSinceEpoch(time).toUtc();
   }
 }

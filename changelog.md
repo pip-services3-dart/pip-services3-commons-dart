@@ -29,3 +29,7 @@
 ## 1.0.7
 
 - Fix methods [fromJson] in classes from data package.
+
+## 1.0.8
+
+- Fix work with time, make convert to UTC.

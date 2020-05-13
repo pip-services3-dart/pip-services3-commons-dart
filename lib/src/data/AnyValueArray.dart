@@ -378,7 +378,7 @@ class AnyValueArray extends ListBase<dynamic>
   ///
   /// See [getAsDateTimeWithDefault]
   DateTime getAsDateTime(int index) {
-    return getAsDateTimeWithDefault(index, DateTime.now());
+    return getAsDateTimeWithDefault(index, DateTime.now().toUtc());
   }
 
   /// Converts array element into a DateTime or returns default value if conversion is not possible.

@@ -13,9 +13,9 @@ void main() {
       expect(DateTimeConverter.toDateTime(DateTime(1975, 4, 8)),
           equals(DateTime(1975, 4, 8)));
       expect(DateTimeConverter.toDateTime(123456),
-          equals(DateTime.fromMillisecondsSinceEpoch(123456)));
+          equals(DateTime.fromMillisecondsSinceEpoch(123456).toUtc()));
       expect(DateTimeConverter.toDateTime('1975-04-08'),
-          equals(DateTime(1975, 4, 8)));
+          equals(DateTime(1975, 4, 8).toUtc()));
       expect(DateTimeConverter.toNullableDateTime('XYZ'), isNull);
     });
   });

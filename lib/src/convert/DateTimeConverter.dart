@@ -12,34 +12,35 @@ class DateTimeConverter {
   /// Converts value into Date or returns null when conversion is not possible.
   ///
   /// - [value]     the value to convert.
-  /// Returns         Date value or null when conversion is not supported.
+  /// Returns         Date value  in UTC or null when conversion is not supported.
 
   static DateTime toNullableDateTime(value) {
     if (value == null) return null;
     if (value is DateTime) return value;
     if (value is Duration) value = value.millisecondsSinceEpoch;
-    if (value is num) return DateTime.fromMillisecondsSinceEpoch(value);
+    if (value is num) return DateTime.fromMillisecondsSinceEpoch(value).toUtc();
 
     var result = DateTime.tryParse(value.toString());
-    return result;
+    return result == null ? null : result.toUtc();
   }
 
   /// Converts value into Date or returns current date when conversion is not possible.
   ///
   /// - [value]     the value to convert.
-  /// Returns         Date value or current date when conversion is not supported.
+  /// Returns         Date value in UTC or current date when conversion is not supported.
   ///
   /// See [[toDateTimeWithDefault]]
 
   static DateTime toDateTime(value) {
-    return DateTimeConverter.toDateTimeWithDefault(value, DateTime.now());
+    return DateTimeConverter.toDateTimeWithDefault(
+        value, DateTime.now().toUtc());
   }
 
   /// Converts value into Date or returns default when conversion is not possible.
   ///
   /// - [value]         the value to convert.
   /// - [defaultValue]  the default value.
-  /// Returns             Date value or default when conversion is not supported.
+  /// Returns           Date value in UTC or default when conversion is not supported.
   ///
   /// See [[toNullableDateTime]]
 

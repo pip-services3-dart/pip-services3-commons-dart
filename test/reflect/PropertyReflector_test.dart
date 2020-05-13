@@ -38,7 +38,7 @@ void main() {
       var value1 = PropertyReflector.getProperty(obj, 'publicField');
       expect(value1, equals('XYZ'));
 
-      var value = DateTime(1975, 4, 8);
+      var value = DateTime(1975, 4, 8).toUtc();
       PropertyReflector.setProperty(obj, 'PublicProp', value);
       var value2 = PropertyReflector.getProperty(obj, 'PublicProp');
       expect(value2, equals(value));
@@ -47,7 +47,7 @@ void main() {
     test('Set Properties', () {
       var obj = TestClass();
 
-      var value = DateTime(1975, 4, 8);
+      var value = DateTime(1975, 4, 8).toUtc();
       var map = <String, dynamic>{};
       map['publicField'] = 'XYZ';
       map['PublicProp'] = value;
