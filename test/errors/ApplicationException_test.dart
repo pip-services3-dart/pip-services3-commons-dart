@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:test/test.dart';
 
 import '../../lib/src/errors/ApplicationException.dart';
@@ -73,6 +74,33 @@ void main() {
 
       expect(appEx, equals(_appEx));
       expect(appEx.stack_trace, equals(newTrace));
+    });
+
+    test('JSON serialization', () {
+      var key = 'key';
+      var details = 'details';
+
+      _appEx.category = 'category';
+      _appEx.correlation_id = 'correlationId';
+      _appEx.code = 'code';
+      _appEx.message = 'message';
+      _appEx.status = 777;
+      _appEx.cause = 'cause';
+      _appEx.stack_trace = 'stackTrace';
+      _appEx.withDetails(key, details);
+
+      var json = jsonEncode(_appEx);
+      var appEx2 = ApplicationException.fromJson(jsonDecode(json));
+
+      expect(appEx2, isNotNull);
+      expect(appEx2.category, equals(_appEx.category));
+      expect(appEx2.correlation_id, equals(_appEx.correlation_id));
+      expect(appEx2.code, equals(_appEx.code));
+      expect(appEx2.message, equals(_appEx.message));
+      expect(appEx2.status, equals(_appEx.status));
+      expect(appEx2.cause, equals(_appEx.cause));
+      expect(appEx2.stack_trace, equals(_appEx.stack_trace));
+      expect(appEx2.details, equals(_appEx.details.getValue()));
     });
   });
 }

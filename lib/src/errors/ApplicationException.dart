@@ -79,6 +79,12 @@ class ApplicationException implements Exception {
     stack_trace = StackTrace.current.toString();
   }
 
+  factory ApplicationException.fromJson(Map<String, dynamic> json) {
+    var appEx = ApplicationException();
+    appEx.fromJson(json);
+    return appEx;
+  }
+
   /// Gets original error wrapped by this exception as a string message.
   ///
   /// Returns an original error message.
@@ -251,5 +257,32 @@ class ApplicationException implements Exception {
     //     error = error.body;
 
     return error;
+  }
+
+  void fromJson(Map<String, dynamic> json) {
+    message = json['message'];
+    category = json['category'];
+    status = json['status'] ?? 500;
+
+    /// A unique error code
+    code = json['code'] ?? 'UNKNOWN';
+    details = details ?? StringValueMap();
+    details.fromJson(json['details']);
+    correlation_id = json['correlation_id'];
+    stack_trace = json['stack_trace'];
+    cause = json['cause'];
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'message': message,
+      'category': category,
+      'status': status,
+      'code': code,
+      'details': details.toJson(),
+      'correlation_id': correlation_id,
+      'stack_trace': stack_trace,
+      'cause': cause
+    };
   }
 }

@@ -33,3 +33,7 @@
 ## 1.0.8
 
 - Fix work with time, make convert to UTC.
+
+## 1.0.9
+
+ - Add converting to/from JSON for ApplicationException
