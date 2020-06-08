@@ -16,15 +16,15 @@ import './Parameters.dart';
 /// ### Example ###
 ///
 ///     class MyComponent {
-///         FixedRateTimer timer  = new FixedRateTimer(() { cleanup }, 60000);
+///         FixedRateTimer timer  = FixedRateTimer(() { cleanup }, 60000);
 ///         ...
-///         void open(String correlationId, callback (dynamic err)) {
+///         Future open(String correlationId) {
 ///             ...
 ///             timer.start();
 ///             ...
 ///         }
 ///
-///         void close(String correlationId, callback (dynamic err)) {
+///         Future close(String correlationId) {
 ///             ...
 ///             timer.stop();
 ///             ...
@@ -115,6 +115,7 @@ class FixedRateTimer implements IClosable {
   /// - [value] a delay in milliseconds.
 
   void setDelay(int value) {
+    value ??= 0;
     _delay = value;
   }
 
@@ -131,6 +132,7 @@ class FixedRateTimer implements IClosable {
   /// - [value] an interval in milliseconds.
 
   void setInterval(int value) {
+    value ??= 0;
     _interval = value;
   }
 

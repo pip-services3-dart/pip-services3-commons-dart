@@ -15,7 +15,7 @@ void main() {
   group('FixedRateTimer', () {
     test('Run with task', () async {
       var notifier = TestTimer();
-      var timer = FixedRateTimer(notifier, 100, 0);
+      var timer = FixedRateTimer(notifier, 100);
 
       timer.start();
 
@@ -31,7 +31,7 @@ void main() {
 
       var timer = FixedRateTimer(() {
         counter++;
-      }, 100, 0);
+      }, 100);
 
       timer.start();
 
