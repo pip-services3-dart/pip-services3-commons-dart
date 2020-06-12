@@ -29,6 +29,6 @@ Quick Links:
 
 ## Acknowledgements
 
-The library is created and maintained by **Sergey Seroukhov** and **Levichev Dmitry**.
+The library is created and maintained by **Sergey Seroukhov**, **Levichev Dmitry**, **Alexey Dvoykin**.
 
 The documentation is written by **Egor Nuzhnykh**, **Alexey Dvoykin**, **Mark Makarychev**, **Levichev Dmitry**.

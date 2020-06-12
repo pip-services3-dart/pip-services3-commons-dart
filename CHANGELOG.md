@@ -41,3 +41,7 @@
 ## 1.0.10
 
  - Fix setInterval and setDelay methods in FixedRateTimer
+
+## 1.0.11
+
+ - Fix ApplicationException to JSON converting issue

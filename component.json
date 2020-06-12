@@ -1,6 +1,6 @@
 {
     "name": "pip_services3_commons",
     "registry": "pipdevs",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "build": "0"
 }

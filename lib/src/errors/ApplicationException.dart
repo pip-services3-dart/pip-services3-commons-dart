@@ -279,7 +279,7 @@ class ApplicationException implements Exception {
       'category': category,
       'status': status,
       'code': code,
-      'details': details.toJson(),
+      'details': details != null ? details.toJson() : null,
       'correlation_id': correlation_id,
       'stack_trace': stack_trace,
       'cause': cause
