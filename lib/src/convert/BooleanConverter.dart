@@ -43,7 +43,7 @@ class BooleanConverter {
   /// - [value]     the value to convert.
   /// Returns         boolean value or false when conversion is not supported.
   ///
-  /// See [[toBooleanWithDefault]]
+  /// See [toBooleanWithDefault]
 
   static bool toBoolean(value) {
     return BooleanConverter.toBooleanWithDefault(value, false);
@@ -55,7 +55,7 @@ class BooleanConverter {
   /// - [defaultValue]  the default value
   /// Returns             boolean value or default when conversion is not supported.
   ///
-  /// See [[toNullableBoolean]]
+  /// See [toNullableBoolean]
 
   static bool toBooleanWithDefault(value, bool defaultValue) {
     var result = BooleanConverter.toNullableBoolean(value);

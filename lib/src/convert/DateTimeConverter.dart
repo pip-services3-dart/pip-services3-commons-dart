@@ -29,7 +29,7 @@ class DateTimeConverter {
   /// - [value]     the value to convert.
   /// Returns         Date value in UTC or current date when conversion is not supported.
   ///
-  /// See [[toDateTimeWithDefault]]
+  /// See [toDateTimeWithDefault]
 
   static DateTime toDateTime(value) {
     return DateTimeConverter.toDateTimeWithDefault(
@@ -42,7 +42,7 @@ class DateTimeConverter {
   /// - [defaultValue]  the default value.
   /// Returns           Date value in UTC or default when conversion is not supported.
   ///
-  /// See [[toNullableDateTime]]
+  /// See [toNullableDateTime]
 
   static DateTime toDateTimeWithDefault(value, DateTime defaultValue) {
     var result = DateTimeConverter.toNullableDateTime(value);

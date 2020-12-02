@@ -45,7 +45,7 @@ class ArrayConverter {
   /// - [value]     the value to convert.
   /// Returns			array object or empty array when value is null.
   ///
-  /// See [[toNullableArray]]
+  /// See [toNullableArray]
 
   static List toArray(value) {
     var result = ArrayConverter.toNullableArray(value);
@@ -59,7 +59,7 @@ class ArrayConverter {
   /// - [defaultValue]  default array object.
   /// Returns				array object or default array when value is null.
   ///
-  /// See [[toNullableArray]]
+  /// See [toNullableArray]
 
   static List toArrayWithDefault(value, List defaultValue) {
     var result = ArrayConverter.toNullableArray(value);
@@ -72,7 +72,7 @@ class ArrayConverter {
   /// - [value] 	the list to convert.
   /// Returns			array object or empty array when value is null
   ///
-  /// See [[toArray]]
+  /// See [toArray]
 
   static List listToArray(value) {
     if (value == null) return [];

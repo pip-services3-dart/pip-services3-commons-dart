@@ -148,7 +148,7 @@ class MultiString implements IValueWrapper {
   /// - [value]     the value to initialize MultiString.
   /// Returns         a MultiString object.
   ///
-  /// @see [[StringValueMap]]
+  /// @see [StringValueMap]
 
   static MultiString fromValue(dynamic value) {
     return MultiString(value);
@@ -159,7 +159,7 @@ class MultiString implements IValueWrapper {
   /// - [tuples]    an array that contains language-translation tuples.
   /// Returns         a MultiString Object.
   ///
-  /// @see [[fromTuplesArray]]
+  /// @see [fromTuplesArray]
 
   static MultiString fromTuples(List<dynamic> tuples) {
     return MultiString.fromTuplesArray(tuples);

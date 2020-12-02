@@ -1,7 +1,7 @@
 import '../reflect/ObjectReader.dart';
 
 /// Converts arbitrary values into map objects using extended conversion rules.
-/// This class is similar to [[MapConverter]], but is recursively converts all values
+/// This class is similar to [MapConverter], but is recursively converts all values
 /// stored in objects and arrays.
 ///
 /// ### Example ###
@@ -93,7 +93,7 @@ class RecursiveMapConverter {
   /// - [value]     the value to convert.
   /// Returns         map object or empty map when conversion is not supported.
   ///
-  /// See [[toNullableMap]]
+  /// See [toNullableMap]
 
   static dynamic toMap(value) {
     var result = RecursiveMapConverter.toNullableMap(value);
@@ -106,7 +106,7 @@ class RecursiveMapConverter {
   /// - defaultValue  the default value.
   /// Returns             map object or emptu map when conversion is not supported.
   ///
-  /// See [[toNullableMap]]
+  /// See [toNullableMap]
 
   static dynamic toMapWithDefault(value, Map<String, dynamic> defaultValue) {
     var result = RecursiveMapConverter.toNullableMap(value);

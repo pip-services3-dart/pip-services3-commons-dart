@@ -49,7 +49,7 @@ class MapConverter {
   /// - [value]     the value to convert.
   /// Returns         map object or empty map when conversion is not supported.
   ///
-  /// See [[toNullableMap]]
+  /// See [toNullableMap]
 
   static Map<String, dynamic> toMap(value) {
     var result = MapConverter.toNullableMap(value);
@@ -62,7 +62,7 @@ class MapConverter {
   /// - defaultValue  the default value.
   /// Returns             map object or emptu map when conversion is not supported.
   ///
-  /// See [[toNullableMap]]
+  /// See [toNullableMap]
 
   static Map<String, dynamic> toMapWithDefault(
       value, Map<String, dynamic> defaultValue) {

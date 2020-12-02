@@ -32,7 +32,7 @@ class DoubleConverter {
   /// - [value]     the value to convert.
   /// Returns         double value or 0 when conversion is not supported.
   ///
-  /// See [[toDoubleWithDefault]]
+  /// See [toDoubleWithDefault]
 
   static double toDouble(value) {
     return DoubleConverter.toDoubleWithDefault(value, 0);
@@ -44,7 +44,7 @@ class DoubleConverter {
   /// - defaultValue  the default value.
   /// Returns             double value or default when conversion is not supported.
   ///
-  /// See [[toNullableDouble]]
+  /// See [toNullableDouble]
 
   static double toDoubleWithDefault(value, double defaultValue) {
     var result = DoubleConverter.toNullableDouble(value);

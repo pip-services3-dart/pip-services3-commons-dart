@@ -7,7 +7,7 @@ import '../run/Parameters.dart';
 import '../validate/ValidationResult.dart';
 import './ICommand.dart';
 
-/// Concrete implementation of [[ICommand ICommand]] interface. Command allows to call a method
+/// Concrete implementation of [ICommand ICommand] interface. Command allows to call a method
 /// or function using Command pattern.
 
 /// ### Example ###
@@ -32,8 +32,8 @@ import './ICommand.dart';
 
 ///     // Console output: 2 + 2 = 4
 
-/// See [[ICommand]]
-/// See [[CommandSet]]
+/// See [ICommand]
+/// See [CommandSet]
 
 class Command implements ICommand {
   String _name;
@@ -71,14 +71,14 @@ class Command implements ICommand {
     return _name;
   }
 
-  /// Executes the command. Before execution it validates [[Parameters args]] using
+  /// Executes the command. Before execution it validates [Parameters args] using
   /// the defined schema. The command execution intercepts exceptions raised
   /// by the called function and returns them as an error in callback.
 
   /// - correlationId (optional) transaction id to trace execution through call chain.
   /// - args          the parameters (arguments) to pass to this command for execution.
   /// Return          Future when command is complete
-  /// See [[Parameters]]
+  /// See [Parameters]
   @override
   Future<dynamic> execute(String correlationId, Parameters args) async {
     if (_schema != null) {
@@ -96,11 +96,11 @@ class Command implements ICommand {
     }
   }
 
-  /// Validates the command [[Parameters args]] before execution using the defined schema.
+  /// Validates the command [Parameters args] before execution using the defined schema.
   /// - args  the parameters (arguments) to validate using this command's schema.
   /// Returns     an array of ValidationResults or an empty array (if no schema is set).
-  /// See [[Parameters]]
-  /// See [[ValidationResult]]
+  /// See [Parameters]
+  /// See [ValidationResult]
   @override
   List<ValidationResult> validate(Parameters args) {
     if (_schema != null) return _schema.validate(args);

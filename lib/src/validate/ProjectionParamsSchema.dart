@@ -1,7 +1,7 @@
 import '../convert/TypeCode.dart';
 import './ArraySchema.dart';
 
-/// Schema to validate [[ProjectionParams]]
+/// Schema to validate [ProjectionParams]
 ///
 /// See [ProjectionParams]
 

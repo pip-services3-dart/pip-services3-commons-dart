@@ -29,7 +29,7 @@ class DurationConverter {
   /// - [value]     the value to convert.
   /// Returns         Date value or current date when conversion is not supported.
   ///
-  /// See [[toDurationWithDefault]]
+  /// See [toDurationWithDefault]
 
   static Duration toDuration(value) {
     return DurationConverter.toDurationWithDefault(value, Duration());
@@ -41,7 +41,7 @@ class DurationConverter {
   /// - defaultValue  the default value.
   /// Returns             Date value or default when conversion is not supported.
   ///
-  /// See [[toNullableDuration]]
+  /// See [toNullableDuration]
 
   static Duration toDurationWithDefault(value, Duration defaultValue) {
     var result = DurationConverter.toNullableDuration(value);

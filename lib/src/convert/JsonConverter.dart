@@ -11,7 +11,7 @@ import './MapConverter.dart';
 ///     var value1 = JsonConverter.fromJson('{\'key\':123}'); // Result: { 'key': 123 }
 ///     var value2 = JsonConverter.toMap({ 'key': 123 }); // Result: '{ 'key': 123 }'
 ///
-/// See [[TypeCode]]
+/// See [TypeCode]
 
 class JsonConverter {
   /// Converts JSON string into a value of type specified by a TypeCode.
@@ -52,7 +52,7 @@ class JsonConverter {
   /// - [value] 	the JSON string to convert.
   /// Returns			Map object value or null when conversion is not supported.
   ///
-  /// See [[MapConverter.toNullableMap]]
+  /// See [MapConverter.toNullableMap]
 
   static Map<String, dynamic> toNullableMap(String value) {
     if (value == null) return null;
@@ -70,7 +70,7 @@ class JsonConverter {
   /// - [value] 	the JSON string to convert.
   /// Returns 		Map object value or empty object when conversion is not supported.
   ///
-  /// See [[toNullableMap]]
+  /// See [toNullableMap]
 
   static Map<String, dynamic> toMap(String value) {
     var result = JsonConverter.toNullableMap(value);
@@ -83,7 +83,7 @@ class JsonConverter {
   /// - defaultValue  the default value.
   /// Returns				Map object value or default when conversion is not supported.
   ///
-  /// See [[toNullableMap]]
+  /// See [toNullableMap]
 
   static Map<String, dynamic> toMapWithDefault(
       String value, Map<String, dynamic> defaultValue) {

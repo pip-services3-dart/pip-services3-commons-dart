@@ -18,7 +18,7 @@ class FloatConverter {
   /// - [value]     the value to convert.
   /// Returns         float value or null when conversion is not supported.
   ///
-  /// See [[DoubleConverter.toNullableDouble]]
+  /// See [DoubleConverter.toNullableDouble]
 
   static double toNullableFloat(value) {
     return DoubleConverter.toNullableDouble(value);
@@ -29,8 +29,8 @@ class FloatConverter {
   /// - [value]     the value to convert.
   /// Returns         float value or 0 when conversion is not supported.
   ///
-  /// See [[DoubleConverter.toDouble]]
-  /// See [[DoubleConverter.toDoubleWithDefault]]
+  /// See [DoubleConverter.toDouble]
+  /// See [DoubleConverter.toDoubleWithDefault]
 
   static double toFloat(value) {
     return DoubleConverter.toDouble(value);
@@ -42,8 +42,8 @@ class FloatConverter {
   /// - defaultValue  the default value.
   /// Returns             float value or default value when conversion is not supported.
   ///
-  /// See [[DoubleConverter.toDoubleWithDefault]]
-  /// See [[DoubleConverter.toNullableDouble]]
+  /// See [DoubleConverter.toDoubleWithDefault]
+  /// See [DoubleConverter.toNullableDouble]
 
   static double toFloatWithDefault(value, double defaultValue) {
     return DoubleConverter.toDoubleWithDefault(value, defaultValue);

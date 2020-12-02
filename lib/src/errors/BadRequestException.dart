@@ -12,7 +12,7 @@ class BadRequestException extends ApplicationException {
   /// - [code]              (optional) a unique error code. Default: 'UNKNOWN'
   /// - [message]           (optional) a human-readable description of the error.
   ///
-  /// See [[ErrorCategory]]
+  /// See [ErrorCategory]
 
   BadRequestException([String correlation_id, String code, String message])
       : super(ErrorCategory.BadRequest, correlation_id, code, message) {

@@ -1,7 +1,7 @@
 import '../convert/TypeCode.dart';
 import './ObjectSchema.dart';
 
-/// Schema to validate [[PagingParams]].
+/// Schema to validate [PagingParams].
 ///
 /// See [PagingParams]
 

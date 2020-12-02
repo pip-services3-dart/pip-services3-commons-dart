@@ -33,7 +33,7 @@ class LongConverter {
   /// - [value]     the value to convert.
   /// Returns         long value or 0 when conversion is not supported.
   ///
-  /// See [[toLongWithDefault]]
+  /// See [toLongWithDefault]
 
   static int toLong(value) {
     return LongConverter.toLongWithDefault(value, 0);
@@ -45,7 +45,7 @@ class LongConverter {
   /// - defaultValue  the default value.
   /// Returns             long value or default when conversion is not supported
   ///
-  /// See [[toNullableLong]]
+  /// See [toNullableLong]
 
   static int toLongWithDefault(value, int defaultValue) {
     var result = LongConverter.toNullableLong(value);

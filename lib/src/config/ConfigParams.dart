@@ -15,8 +15,8 @@ import '../reflect/RecursiveObjectReader.dart';
 /// <code>'key1=123;key2=ABC;key3=2016-09-16T00:00:00.00Z'</code>
 ///
 /// ConfigParams are used to pass configurations to [IConfigurable] objects.
-/// They also serve as a basis for more concrete configurations such as [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams]
-/// or [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams] (in the Pip.Services components package).
+/// They also serve as a basis for more concrete configurations such as [ConnectionParams](https://pub.dev/documentation/pip_services3_components/latest/pip_services3_components/ConnectionParams-class.html)
+/// or [CredentialParams](https://pub.dev/documentation/pip_services3_components/latest/pip_services3_components/CredentialParams-class.html) (in the Pip.Services components package).
 ///
 /// See [IConfigurable]
 /// See [StringValueMap]

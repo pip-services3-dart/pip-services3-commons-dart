@@ -198,7 +198,7 @@ class PropertyReflector {
   /// - [obj] 		 an object to write properties to.
   /// - [values] 	a map, containing property names and their values.
   ///
-  /// See [[setProperty]]
+  /// See [setProperty]
 
   static void setProperties(obj, Map<String, dynamic> values) {
     if (values == null) return;

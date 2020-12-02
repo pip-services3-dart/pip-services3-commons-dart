@@ -18,7 +18,7 @@ class IntegerConverter {
   /// - [value]     the value to convert.
   /// Returns         integer value or null when conversion is not supported.
   ///
-  /// See [[LongConverter.toNullableLong]]
+  /// See [LongConverter.toNullableLong]
 
   static int toNullableInteger(value) {
     return LongConverter.toNullableLong(value);
@@ -29,8 +29,8 @@ class IntegerConverter {
   /// - [value]     the value to convert.
   /// Returns         integer value or 0 when conversion is not supported.
   ///
-  /// See [[LongConverter.toLong]]
-  /// See [[LongConverter.toLongWithDefault]]
+  /// See [LongConverter.toLong]
+  /// See [LongConverter.toLongWithDefault]
 
   static int toInteger(value) {
     return LongConverter.toLong(value);
@@ -42,8 +42,8 @@ class IntegerConverter {
   /// - defaultValue  the default value.
   /// Returns             integer value or default when conversion is not supported.
   ///
-  /// See [[LongConverter.toLongWithDefault]]
-  /// See [[LongConverter.toNullableLong]]
+  /// See [LongConverter.toLongWithDefault]
+  /// See [LongConverter.toNullableLong]
 
   static int toIntegerWithDefault(value, int defaultValue) {
     return LongConverter.toLongWithDefault(value, defaultValue);

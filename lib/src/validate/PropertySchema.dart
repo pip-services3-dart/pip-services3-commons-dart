@@ -61,7 +61,7 @@ class PropertySchema extends Schema {
   }
 
   /// Sets a new property type.
-  /// The type can be defined as type, type name or [[TypeCode]]
+  /// The type can be defined as type, type name or [TypeCode]
   ///
   /// - [value]     a new property type.
 

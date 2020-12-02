@@ -38,7 +38,7 @@ class StringConverter {
   /// - [value]     the value to convert.
   /// Returns         string value or '' when value is null.
   ///
-  /// See [[toStringWithDefault]]
+  /// See [toStringWithDefault]
 
   static String toString2(value) {
     return StringConverter.toStringWithDefault(value, '');
@@ -50,7 +50,7 @@ class StringConverter {
   /// - defaultValue  the default value.
   /// Returns             string value or default when value is null.
   ///
-  /// See [[toNullableString]]
+  /// See [toNullableString]
 
   static String toStringWithDefault(value, String defaultValue) {
     var result = StringConverter.toNullableString(value);

@@ -24,8 +24,8 @@ import 'dart:collection';
 /// sent over the wire.
 ///
 /// This class is widely used in Pip.Services as a basis for variety of classes, such as
-/// [ConfigParams], [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/connect.connectionparams.html ConnectionParams],
-/// [https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/classes/auth.credentialparams.html CredentialParams] and others.
+/// [ConfigParams], [ConnectionParams](https://pub.dev/documentation/pip_services3_commons/latest/pip_services3_commons/ConfigParams-class.html),
+/// [CredentialParams](https://pub.dev/documentation/pip_services3_components/latest/pip_services3_components/CredentialParams-class.html) and others.
 ///
 /// ### Example ###
 ///

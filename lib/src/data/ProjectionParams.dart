@@ -167,7 +167,7 @@ class ProjectionParams extends ListBase<String> {
   /// - value     value to be converted
   /// Returns         a newly created ProjectionParams.
   ///
-  /// See [[AnyValueArray.fromValue]]
+  /// See [AnyValueArray.fromValue]
 
   static ProjectionParams fromValue(dynamic value) {
     if (!(value is List)) value = AnyValueArray.fromValue(value);
