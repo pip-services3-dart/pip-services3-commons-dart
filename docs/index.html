@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 0.30.3">
+  <meta name="description" content="pip_services3_commons API docs, for the Dart programming language.">
+  <title>pip_services3_commons - Dart API docs</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/pip-services3-dart/pip-services3-commons-dart">pip_services3_commons package</a></li>
+  </ol>
+  <div class="self-name">pip_services3_commons</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="https://github.com/pip-services3-dart/pip-services3-commons-dart">pip_services3_commons package</a></li>
+    </ol>
+    
+    <h5 class="hidden-xs"><span class="package-name">pip_services3_commons</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="pip_services3_commons/pip_services3_commons-library.html">pip_services3_commons</a></li>
+    </ol>
+  </div>
+
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <section class="desc markdown">
+        <h1 id="img-srchttpsuploads-sslwebflowcom5ea5d3315186cf5ec60c3ee45edf1c94ce4c859f2b188094_logosvg-altpipservices-logo-width200-br-portable-abstractions-and-patterns-for-dart"><img src="https://uploads-ssl.webflow.com/5ea5d3315186cf5ec60c3ee4/5edf1c94ce4c859f2b188094_logo.svg" alt="Pip.Services Logo" width="200"> &lt;br/&gt; Portable Abstractions and Patterns for Dart</h1>
+<p>This module is a part of the <a href="http://pip.services.org">Pip.Services</a> polyglot microservices toolkit.
+It provides a set of basic patterns used in microservices or backend services.
+Also the module implemenets a reasonably thin abstraction layer over most fundamental functions across
+all languages supported by the toolkit to facilitate symmetric implementation.</p>
+<p>The module contains the following packages:</p>
+<ul>
+<li><strong>Commands</strong> - commanding and eventing patterns</li>
+<li><strong>Config</strong> - configuration framework</li>
+<li><strong>Convert</strong> - soft value converters</li>
+<li><strong>Data</strong> - data patterns</li>
+<li><strong>Errors</strong> - application errors</li>
+<li><strong>Random</strong> - random data generators</li>
+<li><strong>Refer</strong> - locator (IoC) pattern</li>
+<li><strong>Reflect</strong> - reflection framework</li>
+<li><strong>Run</strong> - execution framework</li>
+<li><strong>Validate</strong> - validation framework</li>
+</ul>
+<p><a name="links"></a> Quick links:</p>
+<ul>
+<li><a href="https://www.pipservices.org/recipies/configuration">Configuration Pattern</a> </li>
+<li><a href="https://www.pipservices.org/recipies/references">Locator Pattern</a></li>
+<li><a href="https://www.pipservices.org/recipies/component-lifecycle">Component Lifecycle</a></li>
+<li><a href="https://www.pipservices.org/recipies/active-logic">Components with Active Logic</a></li>
+<li><a href="https://www.pipservices.org/recipies/memory-persistence">Data Patterns</a></li>
+<li><a href="https://pub.dev/documentation/pip_services3_commons/latest/pip_services3_commons/pip_services3_commons-library.html">API Reference</a></li>
+<li><a href="CHANGELOG.md">Change Log</a></li>
+<li><a href="https://www.pipservices.org/community/help">Get Help</a></li>
+<li><a href="https://www.pipservices.org/community/contribute">Contribute</a></li>
+</ul>
+<h2 id="use">Use</h2>
+<p>Add this to your package's pubspec.yaml file:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  pip_services3_commons: version
+</code></pre>
+<p>Now you can install package from the command line:</p>
+<pre class="language-bash"><code class="language-bash">pub get
+</code></pre>
+<p>Then you are ready to start using the Pip.Services patterns to augment your backend code.</p>
+<p>For instance, here is how you can implement a component, that receives configuration, get assigned references,
+can be opened and closed using the patterns from this module.</p>
+<pre class="language-dart"><code class="language-dart">import 'package:pip_services3_commons/src/config/IConfigurable.dart';
+import 'package:pip_services3_commons/src/config/ConfigParams.dart';
+import 'package:pip_services3_commons/src/refer/IReferenceable.dart';
+import 'package:pip_services3_commons/src/refer/IReferences.dart';
+import 'package:pip_services3_commons/src/refer/Descriptor.dart';
+import 'package:pip_services3_commons/src/run/IOpenable.dart';
+
+class MyComponentA implements IConfigurable, IReferenceable, IOpenable {
+  MyComponentA();
+
+  String _param1 = "ABC";
+  int _param2 = 123;
+  MyComponentB _anotherComponent;
+  bool _opened = true;
+
+  configure(ConfigParams config) {
+    this._param1 = config.getAsStringWithDefault("param1", this._param1);
+    this._param2 = config.getAsIntegerWithDefault("param2", this._param2);
+  }
+
+  setReferences(IReferences refs) {
+    this._anotherComponent = refs.getOneRequired&lt;MyComponentB&gt;(
+        new Descriptor("myservice", "mycomponent-b", "*", "*", "1.0"));
+  }
+
+  isOpen() {
+    return this._opened;
+  }
+
+  open(String correlationId) {
+    return Future(() {
+      this._opened = true;
+      print("MyComponentA has been opened.");
+    });
+  }
+
+  close(String correlationId) {
+    return Future(() {
+      this._opened = true;
+      print("MyComponentA has been closed.");
+    });
+  }
+}
+</code></pre>
+<p>Then here is how the component can be used in the code</p>
+<pre class="language-dart"><code class="language-dart">import 'package:pip_services3_commons/src/config/ConfigParams.dart';
+import 'package:pip_services3_commons/src/refer/References.dart';
+import 'package:pip_services3_commons/src/refer/DependencyResolver.dart';
+
+MyComponentA myComponentA = MyComponentA();
+
+// Configure the component
+myComponentA.configure(ConfigParams.fromTuples([
+  'param1', 'XYZ',
+  'param2', 987
+]));
+
+// Set references to the component
+myComponentA.setReferences(References.fromTuples([
+   Descriptor("myservice", "mycomponent-b", "default", "default", "1.0",) myComponentB
+]));
+
+// Open the component
+myComponentA.open("123");
+</code></pre>
+<h2 id="develop">Develop</h2>
+<p>For development you shall install the following prerequisites:</p>
+<ul>
+<li>Dart SDK 2</li>
+<li>Visual Studio Code or another IDE of your choice</li>
+<li>Docker</li>
+</ul>
+<p>Install dependencies:</p>
+<pre class="language-bash"><code class="language-bash">pub get
+</code></pre>
+<p>Run automated tests:</p>
+<pre class="language-bash"><code class="language-bash">pub run test
+</code></pre>
+<p>Generate API documentation:</p>
+<pre class="language-bash"><code class="language-bash">./docgen.ps1
+</code></pre>
+<p>Before committing changes run dockerized build and test as:</p>
+<pre class="language-bash"><code class="language-bash">./build.ps1
+./test.ps1
+./clear.ps1
+</code></pre>
+<h2 id="contacts">Contacts</h2>
+<p>The library is created and maintained by <strong>Sergey Seroukhov</strong>, <strong>Levichev Dmitry</strong>, <strong>Alexey Dvoykin</strong>.</p>
+<p>The documentation is written by <strong>Egor Nuzhnykh</strong>, <strong>Alexey Dvoykin</strong>, <strong>Mark Makarychev</strong>, <strong>Levichev Dmitry</strong>.</p>
+      </section>
+      
+        <section class="summary">
+            <h2>Libraries</h2>
+          <dl>
+            <dt id="pip_services3_commons">
+              <span class="name"><a href="pip_services3_commons/pip_services3_commons-library.html">pip_services3_commons</a></span>             
+            </dt>
+            <dd>
+               
+            </dd>
+          </dl>
+        </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    pip_services3_commons
+      1.0.11
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/URI.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>
