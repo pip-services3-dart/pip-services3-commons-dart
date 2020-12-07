@@ -7,7 +7,7 @@ import '../run/Parameters.dart';
 import '../validate/ValidationResult.dart';
 import './ICommand.dart';
 
-/// Concrete implementation of [ICommand ICommand] interface. Command allows to call a method
+/// Concrete implementation of [ICommand] interface. Command allows to call a method
 /// or function using Command pattern.
 
 /// ### Example ###

@@ -4,7 +4,7 @@ import '../run/Parameters.dart';
 import './IEvent.dart';
 import './IEventListener.dart';
 
-/// Concrete implementation of [IEvent IEvent] interface.
+/// Concrete implementation of [IEvent] interface.
 /// It allows to send asynchronous notifications to multiple subscribed listeners.
 ///
 /// See [IEvent]
