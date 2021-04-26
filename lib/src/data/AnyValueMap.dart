@@ -485,7 +485,7 @@ class AnyValueMap extends MapBase<String, dynamic>
   ///
   /// See [TypeConverter.toNullabvarype]
 
-  T getAsNullabvarype<T>(TypeCode type, String key) {
+  T getAsNullableType<T>(TypeCode type, String key) {
     var value = get(key);
     return TypeConverter.toNullableType<T>(type, value);
   }

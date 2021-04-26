@@ -47,3 +47,7 @@
 ## 1.0.11
 
  - Fix ApplicationException to JSON converting issue
+
+## 1.0.12
+
+ - Added TokenizedPagingParams and TokenizedDataPage classes
