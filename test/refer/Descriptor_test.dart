@@ -84,5 +84,17 @@ void main() {
         // Ok...
       }
     });
+
+    test('Equals', () {
+      var descriptor1 =
+          Descriptor.fromString('pip-dummies:controller:default:default:1.0');
+      var descriptor2 =
+          Descriptor.fromString('pip-dummies:controller:default:default:1.0');
+
+      expect(descriptor1, isNotNull);
+      expect(descriptor2, isNotNull);
+
+      expect(descriptor1!.equals(descriptor2), isTrue);
+    });
   });
 }

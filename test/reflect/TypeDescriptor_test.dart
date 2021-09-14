@@ -25,5 +25,15 @@ void main() {
         // Ok...
       }
     });
+
+    test('Equals', () {
+      var descriptor1 = TypeDescriptor.fromString('xxx,yyy');
+      var descriptor2 = TypeDescriptor.fromString('xxx,yyy');
+
+      expect(descriptor1, isNotNull);
+      expect(descriptor2, isNotNull);
+
+      expect(descriptor1!.equals(descriptor2), isTrue);
+    });
   });
 }
