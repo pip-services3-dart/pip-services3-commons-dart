@@ -51,3 +51,9 @@
 ## 1.0.12
 
  - Added TokenizedPagingParams and TokenizedDataPage classes
+
+## 1.1.0
+
+ - Added null-safety supports
+
+

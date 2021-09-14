@@ -24,14 +24,14 @@ var result = await command.execute('a', param); // Result 123
 * Example:
 
 ```dart
- var config = ConfigParams.fromTuples([
-        'Section1.Key1',
-        'Value1',
-        'Section1.Key2',
-        'Value2',
-        'Section1.Key3',
-        'Value3'
-      ]);
+var config = ConfigParams.fromTuples([
+       'Section1.Key1',
+       'Value1',
+       'Section1.Key2',
+       'Value2',
+       'Section1.Key3',
+       'Value3'
+     ]);
 
 config.get('Section1.Key1'); // 'Value1'
 config.get('Section1.Key2'); // 'Value2'
@@ -99,7 +99,7 @@ var value = RandomArray.pick<int>(array);
 ```dart
 var descriptor =
           Descriptor('pip-dummies', 'controller', 'default', 'default', '1.0');
-var res = descriptor1.toString(); // pip-dummies:controller:default:default:1.0
+var res = descriptor.toString(); // pip-dummies:controller:default:default:1.0
 //-----------------------------------------------------------------------------
 
 var ref1 = {'test': 'val1'};
@@ -143,7 +143,7 @@ value = ObjectReader.getProperty(obj, 'PublicProp');  // not null
 // FixedRateTimer
 class TestTimer implements INotifiable {
   int counter = 0;
-  void notify(String correlationId, Parameters args) {
+  void notify(String? correlationId, Parameters args) {
     counter++;
   }
 }
@@ -189,6 +189,8 @@ class TestObject {
 }
 //------------------------------------------
 var schema = ObjectSchema()
+          .withOptionalProperty('_privateField')
+          .withOptionalProperty('_privateProperty')
           .withOptionalProperty('intField')
           .withOptionalProperty('stringProperty')
           .withOptionalProperty('nullProperty')
