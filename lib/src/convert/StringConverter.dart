@@ -18,7 +18,7 @@ class StringConverter {
   /// - [value]     the value to convert.
   /// Returns         string value or null when value is null.
 
-  static String toNullableString(value) {
+  static String? toNullableString(value) {
     if (value == null) return null;
     if (value is String) return value;
     if (value is DateTime) return value.toIso8601String();

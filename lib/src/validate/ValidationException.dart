@@ -22,8 +22,8 @@ class ValidationException extends BadRequestException {
   ///
   /// See [ValidationResult]
 
-  ValidationException(String correlationId,
-      [String message, List<ValidationResult> results])
+  ValidationException(String? correlationId,
+      [String? message, List<ValidationResult>? results])
       : super(correlationId, 'INVALID_DATA',
             message ?? ValidationException.composeMessage(results)) {
     if (results != null) withDetails('results', results);
@@ -36,7 +36,7 @@ class ValidationException extends BadRequestException {
   ///
   /// See [ValidationResult]
 
-  static String composeMessage(List<ValidationResult> results) {
+  static String composeMessage(List<ValidationResult>? results) {
     var builder = 'Validation failed';
 
     if (results != null && results.isNotEmpty) {
@@ -65,8 +65,8 @@ class ValidationException extends BadRequestException {
   ///
   /// See [ValidationResult]
 
-  static ValidationException fromResults(
-      String correlationId, List<ValidationResult> results, bool strict) {
+  static ValidationException? fromResults(
+      String? correlationId, List<ValidationResult> results, bool strict) {
     var hasErrors = false;
 
     for (var i = 0; i < results.length; i++) {
@@ -93,7 +93,7 @@ class ValidationException extends BadRequestException {
   /// See [ValidationException]
 
   static void throwExceptionIfNeeded(
-      String correlationId, List<ValidationResult> results, bool strict) {
+      String? correlationId, List<ValidationResult> results, bool strict) {
     var ex = ValidationException.fromResults(correlationId, results, strict);
     if (ex != null) throw ex;
   }

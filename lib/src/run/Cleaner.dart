@@ -18,7 +18,7 @@ class Cleaner {
   ///
   /// See [ICleanable]
 
-  static Future clearOne(String correlationId, component) async {
+  static Future clearOne(String? correlationId, component) async {
     if (component is ICleanable) await component.clear(correlationId);
   }
 
@@ -34,7 +34,7 @@ class Cleaner {
   /// See [clearOne]
   /// See [ICleanable]
 
-  static Future clear(String correlationId, List components) async {
+  static Future clear(String? correlationId, List? components) async {
     if (components == null) return;
 
     for (var component in components) {

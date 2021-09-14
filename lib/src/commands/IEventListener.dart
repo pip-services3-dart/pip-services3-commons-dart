@@ -27,5 +27,5 @@ abstract class IEventListener {
   /// - [correlationId] 	(optional) transaction id to trace execution through call chain.
   /// - [args] 			    event arguments.
 
-  void onEvent(String correlationId, IEvent event, Parameters args);
+  void onEvent(String? correlationId, IEvent event, Parameters args);
 }

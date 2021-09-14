@@ -7,18 +7,17 @@ import '../errors/ConfigException.dart';
 /// by Pip.Services toolkit and used to support dynamic data processing.
 
 class TypeDescriptor {
-  String _name;
-  String _library;
+  final String _name;
+  final String? _library;
 
   /// Creates a new instance of the type descriptor and sets its values.
   ///
   /// - [name] 		a name of the object type.
   /// - [library] 	a library or module where this object type is implemented.
 
-  TypeDescriptor(String name, String library) {
-    _name = name;
-    _library = library;
-  }
+  TypeDescriptor(String name, String? library)
+      : _name = name,
+        _library = library;
 
   /// Get the name of the object type.
   ///
@@ -32,7 +31,7 @@ class TypeDescriptor {
   ///
   /// Returns the name of the library or module.
 
-  String getLibrary() {
+  String? getLibrary() {
     return _library;
   }
 
@@ -45,8 +44,7 @@ class TypeDescriptor {
 
   bool equals(value) {
     if (value is TypeDescriptor) {
-      TypeDescriptor otherType = value;
-      if (getName() == null || otherType.getName() == null) return false;
+      var otherType = value;
       if (getName() != otherType.getName()) return false;
       if (getLibrary() == null ||
           otherType.getLibrary() == null ||
@@ -66,7 +64,7 @@ class TypeDescriptor {
   @override
   String toString() {
     var builder = '' + _name;
-    if (_library != null) builder += ',' + _library;
+    if (_library != null) builder += ',' + _library!;
     return builder.toString();
   }
 
@@ -79,9 +77,8 @@ class TypeDescriptor {
   ///
   /// See [toString]
 
-  static TypeDescriptor fromString(String value) {
+  static TypeDescriptor? fromString(String? value) {
     if (value == null || value.isEmpty) return null;
-
     var tokens = value.split(',');
     if (tokens.length == 1) {
       return TypeDescriptor(tokens[0].trim(), null);

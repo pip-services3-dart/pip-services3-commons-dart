@@ -26,7 +26,7 @@ class PropertyReflector {
     return name;
   }
 
-  static bool _matchField(Symbol field, String expectedName) {
+  static bool _matchField(Symbol field, String? expectedName) {
     if (expectedName == null) return true;
 
     var fieldName = field.toString().toLowerCase();
@@ -34,7 +34,7 @@ class PropertyReflector {
     return fieldName == matchName;
   }
 
-  static Symbol _findReadField(obj, String name) {
+  static Symbol? _findReadField(obj, String name) {
     name = name.toLowerCase();
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
@@ -50,7 +50,7 @@ class PropertyReflector {
     return null;
   }
 
-  static Symbol _findWriteField(obj, String name) {
+  static Symbol? _findWriteField(obj, String name) {
     name = name.toLowerCase();
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
@@ -114,7 +114,7 @@ class PropertyReflector {
 
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.declarations.values) {
-      Symbol foundName;
+      Symbol? foundName;
 
       if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
         foundName = dm.simpleName;
@@ -141,7 +141,7 @@ class PropertyReflector {
     var cm = reflectClass(obj.runtimeType);
     var im = reflect(obj);
     for (var dm in cm.declarations.values) {
-      Symbol foundName;
+      Symbol? foundName;
 
       if (dm is VariableMirror && !dm.isStatic && !dm.isPrivate) {
         foundName = dm.simpleName;
@@ -200,7 +200,7 @@ class PropertyReflector {
   ///
   /// See [setProperty]
 
-  static void setProperties(obj, Map<String, dynamic> values) {
+  static void setProperties(obj, Map<String, dynamic>? values) {
     if (values == null) return;
 
     for (var field in values.keys) {

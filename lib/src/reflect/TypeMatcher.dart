@@ -97,7 +97,7 @@ class TypeMatcher {
   /// - [actualValue]   an optional value to match its type to the expected one.
   /// Returns true if types are matching and false if they don't.
 
-  static bool matchTypeByName(String expectedType, TypeCode actualType,
+  static bool matchTypeByName(String? expectedType, TypeCode actualType,
       [actualValue]) {
     if (expectedType == null) return true;
     if (actualType == null) throw Exception('Actual type cannot be null');

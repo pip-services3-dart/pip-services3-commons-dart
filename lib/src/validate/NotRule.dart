@@ -20,13 +20,13 @@ import './ValidationResultType.dart';
 ///     schema.validate(5);          // Result: no error
 
 class NotRule implements IValidationRule {
-  final IValidationRule _rule;
+  final IValidationRule? _rule;
 
   /// Creates a new validation rule and sets its values
   ///
   /// - [rule]     a rule to be negated.
 
-  NotRule(IValidationRule rule) : _rule = rule;
+  NotRule(IValidationRule? rule) : _rule = rule;
 
   /// Validates a given value against this rule.
   ///
@@ -36,14 +36,14 @@ class NotRule implements IValidationRule {
   /// - [results]   a list with validation results to add new results.
 
   @override
-  void validate(String path, Schema schema, dynamic value,
+  void validate(String? path, Schema schema, dynamic value,
       List<ValidationResult> results) {
     if (_rule == null) return;
 
     var name = path ?? 'value';
     var localResults = <ValidationResult>[];
 
-    _rule.validate(path, schema, value, localResults);
+    _rule!.validate(path, schema, value, localResults);
 
     if (localResults.isNotEmpty) return;
 

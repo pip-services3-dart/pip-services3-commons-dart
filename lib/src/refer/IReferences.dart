@@ -99,7 +99,7 @@ abstract class IReferences {
   /// - [locator] 	the locator to find references by.
   /// Returns a matching component reference or null if nothing was found.
 
-  T getOneOptional<T>(locator);
+  T? getOneOptional<T>(locator);
 
   /// Gets a required component reference that matches specified locator.
   ///

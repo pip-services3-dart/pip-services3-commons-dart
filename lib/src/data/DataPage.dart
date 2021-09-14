@@ -36,10 +36,9 @@ class DataPage<T> {
   /// - [data]      a list of items from the retrieved page.
   /// - [total]     (optional) .
 
-  DataPage(List<T> data, int total) {
-    this.total = total;
-    this.data = data;
-  }
+  DataPage(List<T> data, int total)
+      : data = data,
+        total = total;
 
   /// Creates a new instance of data page and assigns its values.
   ///

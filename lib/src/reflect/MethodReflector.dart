@@ -25,7 +25,7 @@ class MethodReflector {
     return name;
   }
 
-  static bool _matchMethod(Symbol field, String expectedName) {
+  static bool _matchMethod(Symbol field, String? expectedName) {
     if (expectedName == null) return true;
 
     var fieldName = field.toString().toLowerCase();
@@ -33,7 +33,7 @@ class MethodReflector {
     return fieldName == matchName;
   }
 
-  static Symbol _findMethod(obj, String name) {
+  static Symbol? _findMethod(obj, String name) {
     name = name.toLowerCase();
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.instanceMembers.values) {
@@ -96,7 +96,7 @@ class MethodReflector {
 
     var cm = reflectClass(obj.runtimeType);
     for (var dm in cm.instanceMembers.values) {
-      Symbol foundName;
+      Symbol? foundName;
 
       if (dm is MethodMirror &&
           !dm.isGetter &&

@@ -16,7 +16,7 @@ import './Schema.dart';
 ///     schema.validate({ id: 1, name: 'ABC' });         // Result: id type mismatch
 
 class PropertySchema extends Schema {
-  String _name;
+  String? _name;
   dynamic _type;
 
   /// Creates a new validation schema and sets its values.
@@ -30,7 +30,7 @@ class PropertySchema extends Schema {
   /// See [TypeCode]
 
   PropertySchema(
-      [String name, dynamic type, bool req, List<IValidationRule> rules])
+      [String? name, dynamic type, bool? req, List<IValidationRule>? rules])
       : super(req, rules) {
     _name = name;
     _type = type;
@@ -40,7 +40,7 @@ class PropertySchema extends Schema {
   ///
   /// Returns the property name.
 
-  String getName() {
+  String? getName() {
     return _name;
   }
 
@@ -77,8 +77,10 @@ class PropertySchema extends Schema {
 
   @override
   void performValidation(
-      String path, dynamic value, List<ValidationResult> results) {
-    path = path != '' ? path + '.' + getName() : getName();
+      String? path, dynamic value, List<ValidationResult> results) {
+    if (getName() != null) {
+      path = path != '' && path != null ? path + '.' + getName()! : getName()!;
+    }
 
     super.performValidation(path, value, results);
 

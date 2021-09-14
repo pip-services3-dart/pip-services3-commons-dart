@@ -36,17 +36,16 @@ import './ICommandInterceptor.dart';
 ///     // Each called command will output: Executed command <command name>
 
 class InterceptedCommand implements ICommand {
-  ICommandInterceptor _interceptor;
-  ICommand _next;
+  final ICommandInterceptor _interceptor;
+  final ICommand _next;
 
   /// Creates a new InterceptedCommand, which serves as a link in an execution chain. Contains information
   /// about the interceptor that is being used and the next command in the chain.
   /// - [interceptor]   the interceptor that is intercepting the command.
   /// - [next]          (link to) the next command in the command's execution chain.
-  InterceptedCommand(ICommandInterceptor interceptor, ICommand next) {
-    _interceptor = interceptor;
-    _next = next;
-  }
+  InterceptedCommand(ICommandInterceptor interceptor, ICommand next)
+      : _interceptor = interceptor,
+        _next = next;
 
   /// Returns the name of the command that is being intercepted.
   @override
@@ -61,7 +60,7 @@ class InterceptedCommand implements ICommand {
   ///                   it will be called with the error.
   /// See [Parameters]
   @override
-  Future<dynamic> execute(String correlationId, Parameters args) async {
+  Future<dynamic> execute(String? correlationId, Parameters args) async {
     return await _interceptor.execute(correlationId, _next, args);
   }
 

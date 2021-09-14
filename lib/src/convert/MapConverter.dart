@@ -14,7 +14,7 @@ class MapConverter {
   /// - [value]     the value to convert.
   /// Returns         map object or null when conversion is not supported.
 
-  static Map<String, dynamic> toNullableMap(value) {
+  static Map<String, dynamic>? toNullableMap(value) {
     if (value == null) {
       return null;
     } else if (value is Map<String, dynamic>) return value;

@@ -12,7 +12,7 @@ class ConfigException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  ConfigException([String correlation_id, String code, String message])
+  ConfigException([String? correlation_id, String? code, String? message])
       : super(ErrorCategory.Misconfiguration, correlation_id, code, message) {
     status = 500;
   }

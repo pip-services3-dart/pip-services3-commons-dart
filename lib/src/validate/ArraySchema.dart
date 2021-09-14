@@ -27,7 +27,7 @@ class ArraySchema extends Schema {
   ///
   /// See [TypeCode]
 
-  ArraySchema([dynamic valueType, bool req, List<IValidationRule> rules])
+  ArraySchema([dynamic valueType, bool? req, List<IValidationRule>? rules])
       : super(req, rules) {
     _valueType = valueType;
   }
@@ -58,7 +58,7 @@ class ArraySchema extends Schema {
 
   @override
   void performValidation(
-      String path, dynamic value, List<ValidationResult> results) {
+      String? path, dynamic value, List<ValidationResult> results) {
     var name = path ?? 'value';
     value = ObjectReader.getValue(value);
 
@@ -68,8 +68,9 @@ class ArraySchema extends Schema {
 
     if (value is List) {
       for (var index = 0; index < value.length; index++) {
-        var elementPath =
-            path != '' ? path + '.' + index.toString() : index.toString();
+        var elementPath = path != '' && path != null
+            ? path + '.' + index.toString()
+            : index.toString();
         performTypeValidation(
             elementPath, getValueType(), value[index], results);
       }

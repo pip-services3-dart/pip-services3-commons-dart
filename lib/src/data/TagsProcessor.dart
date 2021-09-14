@@ -15,9 +15,7 @@ class TagsProcessor {
   /// Returns      a normalized tag.
 
   static String normalizeTag(String tag) {
-    return tag != null
-        ? tag.replaceAll(RegExp(_NORMALIZE_REGEX), ' ').trim()
-        : null;
+    return tag.replaceAll(RegExp(_NORMALIZE_REGEX), ' ').trim();
   }
 
   /// Compress a tag by removing special symbols like spaces, '_' and '#'
@@ -28,9 +26,7 @@ class TagsProcessor {
   /// Returns      a compressed tag.
 
   static String compressTag(String tag) {
-    return tag != null
-        ? tag.replaceAll(RegExp(_COMPRESS_REGEX), '').toLowerCase()
-        : null;
+    return tag.replaceAll(RegExp(_COMPRESS_REGEX), '').toLowerCase();
   }
 
   /// Compares two tags using their compressed form.
@@ -39,7 +35,7 @@ class TagsProcessor {
   /// - [tag2]  the second tag.
   /// Returns      true if the tags are equal and false otherwise.
 
-  static bool equalTags(String tag1, String tag2) {
+  static bool equalTags(String? tag1, String? tag2) {
     if (tag1 == null && tag2 == null) return true;
     if (tag1 == null || tag2 == null) return false;
     return compressTag(tag1) == compressTag(tag2);

@@ -16,7 +16,7 @@ class RandomDateTime {
   /// - [max]   max range value
   /// Returns     a random Date value.
 
-  static DateTime nextDate(DateTime min, [DateTime max]) {
+  static DateTime nextDate(DateTime min, [DateTime? max]) {
     if (max == null) {
       max = min;
       min = DateTime(max.year - 10, 1, 1);
@@ -38,7 +38,7 @@ class RandomDateTime {
   /// - [max]   max range value
   /// Returns     a random Date and time value.
 
-  static DateTime nextDateTime(DateTime min, [DateTime max]) {
+  static DateTime nextDateTime(DateTime min, [DateTime? max]) {
     if (max == null) {
       max = min;
       min = DateTime(2000, 0, 1);
@@ -56,7 +56,7 @@ class RandomDateTime {
   /// - [value]     a Date value to drift.
   /// - [range]     (optional) a range in milliseconds. Default: 10 days
 
-  static DateTime updateDateTime(DateTime value, [int range]) {
+  static DateTime updateDateTime(DateTime value, [int? range]) {
     range = range != 0 && range != null ? range : 10 * 24 * 3600000;
     if (range < 0) return value;
 

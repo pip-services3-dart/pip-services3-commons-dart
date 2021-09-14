@@ -22,10 +22,10 @@ import './AnyValueMap.dart';
 
 class PagingParams {
   ///The number of items to skip.
-  int skip;
+  int? skip;
 
   ///The number of items to return.
-  int take;
+  int? take;
 
   ///The flag to return the total number of items.
   bool total;
@@ -36,10 +36,11 @@ class PagingParams {
   /// - [take] 		the number of items to return.
   /// - [total] 	true to return the total number of items.
 
-  PagingParams([dynamic skip, dynamic take, dynamic total]) {
+  PagingParams([dynamic skip, dynamic take, dynamic total])
+      : total = BooleanConverter.toBooleanWithDefault(total, false) {
     this.skip = IntegerConverter.toNullableInteger(skip);
     this.take = IntegerConverter.toNullableInteger(take);
-    this.total = BooleanConverter.toBooleanWithDefault(total, false);
+
     // This is for correctly using PagingParams with gRPC. gRPC defaults to 0 when take is null,
     // so we have to set it back to null if we get 0 in the constructor.
     if (this.take == 0) this.take = null;
@@ -74,8 +75,8 @@ class PagingParams {
 
   int getSkip(int minSkip) {
     if (skip == null) return minSkip;
-    if (skip < minSkip) return minSkip;
-    return skip;
+    if (skip! < minSkip) return minSkip;
+    return skip!;
   }
 
   /// Gets the number of items to return in a page.
@@ -85,9 +86,9 @@ class PagingParams {
 
   int getTake(int maxTake) {
     if (take == null) return maxTake;
-    if (take < 0) return 0;
-    if (take > maxTake) return maxTake;
-    return take;
+    if (take! < 0) return 0;
+    if (take! > maxTake) return maxTake;
+    return take!;
   }
 
   /// Converts specified value into PagingParams.

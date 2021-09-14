@@ -14,14 +14,16 @@ class DurationConverter {
   /// - [value]     the value to convert.
   /// Returns         Date value or null when conversion is not supported.
 
-  static Duration toNullableDuration(value) {
+  static Duration? toNullableDuration(value) {
     if (value == null) return null;
     if (value is Duration) return value;
-    if (value is Duration) value = value.millisecondsSinceEpoch;
-    if (value is num) return Duration(milliseconds: value);
+    if (value is Duration) value = value.inMilliseconds;
+    if (value is num) return Duration(milliseconds: value.toInt());
 
-    var result = double.tryParse(value.toString()).truncate();
-    return result != null ? Duration(milliseconds: result) : null;
+    var parsed = double.tryParse(value.toString());
+    var result = parsed != null ? parsed.truncate() : parsed;
+
+    return result != null ? Duration(milliseconds: result.toInt()) : null;
   }
 
   /// Converts value into Date or returns current date when conversion is not possible.

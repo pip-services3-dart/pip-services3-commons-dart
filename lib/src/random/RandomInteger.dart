@@ -18,7 +18,7 @@ class RandomInteger {
   /// - [max]   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
   /// Returns     generated random integer value.
 
-  static int nextInteger(int min, [int max]) {
+  static int nextInteger(int min, [int? max]) {
     if (max == null) {
       max = min;
       min = 0;
@@ -34,7 +34,7 @@ class RandomInteger {
   /// - [value]     a integer value to drift.
   /// - [range]     (optional) a range. Default: 10% of the value
 
-  static int updateInteger(int value, [int range]) {
+  static int updateInteger(int value, [int? range]) {
     range ??= 0;
     range = range == 0 ? (0.1 * value).floor() : range;
     var minValue = value - range;
@@ -49,7 +49,7 @@ class RandomInteger {
   /// - [max]   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
   /// Returns     generated array of integers.
 
-  static List<int> sequence(int min, [int max]) {
+  static List<int> sequence(int min, [int? max]) {
     max = max ?? min;
     var count = RandomInteger.nextInteger(min, max);
 

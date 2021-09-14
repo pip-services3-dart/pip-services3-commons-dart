@@ -20,10 +20,10 @@ class SortParams extends ListBase<SortField> {
   ///
   /// - [fields]    a list of fields to sort by.
 
-  SortParams(List<SortField> fields) : _values = <SortField>[] {
+  SortParams(List<SortField>? fields) : _values = <SortField>[] {
     if (fields != null) {
       for (var index = 0; index < fields.length; index++) {
-        add(fields[index]);
+        _values.add(fields[index]);
       }
     }
   }
@@ -46,7 +46,12 @@ class SortParams extends ListBase<SortField> {
 
   void fromJson(Map<String, dynamic> json) {
     _values = <SortField>[];
-    addAll(json['values']);
+    _values.addAll(json['values']);
+  }
+
+  @override
+  void add(SortField element) {
+    _values.add(element);
   }
 
   // Todo: add fromTuples factory method.

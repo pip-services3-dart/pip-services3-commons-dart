@@ -64,8 +64,8 @@ import './Descriptor.dart';
 /// See [IReferences]
 
 class DependencyResolver implements IReferenceable, IReconfigurable {
-  var _dependencies = <String, dynamic>{};
-  IReferences _references;
+  final _dependencies = <String, dynamic>{};
+  IReferences? _references;
 
   /// Creates a new instance of the dependency resolver.
   ///
@@ -77,7 +77,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// See [IReferences]
   /// See [setReferences]
 
-  DependencyResolver([ConfigParams config, IReferences references]) {
+  DependencyResolver([ConfigParams? config, IReferences? references]) {
     if (config != null) configure(config);
     if (references != null) setReferences(references);
   }
@@ -133,7 +133,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// - [name] 	the name of the dependency to locate.
   /// Returns the dependency locator or null if locator was not configured.
 
-  dynamic locate(String name) {
+  dynamic locate(String? name) {
     if (name == null) throw Exception('Dependency name cannot be null');
     if (_references == null) throw Exception('References shall be set');
 
@@ -147,7 +147,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 
   List<T> getOptional<T>(String name) {
     var locator = locate(name);
-    return locator != null ? _references.getOptional<T>(locator) : null;
+    return locator != null ? _references!.getOptional<T>(locator) : [];
   }
 
   /// Gets all required dependencies by their name.
@@ -163,7 +163,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
     var locator = locate(name);
     if (locator == null) throw ReferenceException(null, name);
 
-    return _references.getRequired<T>(locator);
+    return _references!.getRequired<T>(locator);
   }
 
   /// Gets one optional dependency by its name.
@@ -171,9 +171,9 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// - [name] 		the dependency name to locate.
   /// Returns a dependency reference or null of the dependency was not found
 
-  T getOneOptional<T>(String name) {
+  T? getOneOptional<T>(String name) {
     var locator = locate(name);
-    return locator != null ? _references.getOneOptional<T>(locator) : null;
+    return locator != null ? _references!.getOneOptional<T>(locator) : null;
   }
 
   /// Gets one required dependency by its name.
@@ -189,7 +189,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
     var locator = locate(name);
     if (locator == null) throw ReferenceException(null, name);
 
-    return _references.getOneRequired<T>(locator);
+    return _references!.getOneRequired<T>(locator);
   }
 
   /// Finds all matching dependencies by their name.
@@ -201,15 +201,13 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
   /// Throws a [ReferenceException] of required is true and no dependencies found.
 
   List<T> find<T>(String name, bool required) {
-    if (name == null) throw Exception('Name cannot be null');
-
     var locator = locate(name);
     if (locator == null) {
       if (required) throw ReferenceException(null, name);
-      return null;
+      return [];
     }
 
-    return _references.find<T>(locator, required);
+    return _references!.find<T>(locator, required);
   }
 
   /// Creates a new DependencyResolver from a list of key-value pairs called tuples
@@ -222,7 +220,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
 
   static DependencyResolver fromTuples(List tuples) {
     var result = DependencyResolver();
-    if (tuples == null || tuples.isEmpty) return result;
+    if (tuples.isEmpty) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;
@@ -230,7 +228,7 @@ class DependencyResolver implements IReferenceable, IReconfigurable {
       var name = StringConverter.toNullableString(tuples[index]);
       var locator = tuples[index + 1];
 
-      result.put(name, locator);
+      if (name != null) result.put(name, locator);
     }
 
     return result;

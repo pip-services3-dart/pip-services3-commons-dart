@@ -16,7 +16,7 @@ class BooleanConverter {
   /// - [value]     the value to convert.
   /// Returns         boolean value or null when convertion is not supported.
 
-  static bool toNullableBoolean(value) {
+  static bool? toNullableBoolean(value) {
     if (value == null) return null;
     if (value is bool) return value;
     if (value is num) return value != 0;

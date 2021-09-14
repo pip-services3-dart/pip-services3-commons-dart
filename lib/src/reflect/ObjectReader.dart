@@ -56,7 +56,7 @@ class ObjectReader {
   /// - [name] 	a name of the property to check.
   /// Returns true if the object has the property and false if it doesn't.
 
-  static bool hasProperty(obj, String name) {
+  static bool hasProperty(obj, String? name) {
     if (obj == null || name == null) {
       return false;
     }

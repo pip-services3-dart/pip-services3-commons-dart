@@ -101,7 +101,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns string value or null if conversion is not supported.
   ///
   /// See [StringConverter.toNullableString]
-  String getAsNullableString() {
+  String? getAsNullableString() {
     return StringConverter.toNullableString(_value);
   }
 
@@ -111,7 +111,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [getAsStringWithDefault]
   String getAsString() {
-    return getAsStringWithDefault(null);
+    return getAsStringWithDefault('');
   }
 
   /// Converts object value into a string or returns default value if conversion is not possible.
@@ -130,7 +130,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [BooleanConverter.toNullableBoolean]
 
-  bool getAsNullableBoolean() {
+  bool? getAsNullableBoolean() {
     return BooleanConverter.toNullableBoolean(_value);
   }
 
@@ -161,7 +161,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [IntegerConverter.toNullableInteger]
 
-  int getAsNullableInteger() {
+  int? getAsNullableInteger() {
     return IntegerConverter.toNullableInteger(_value);
   }
 
@@ -192,7 +192,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [LongConverter.toNullableLong]
 
-  int getAsNullableLong() {
+  int? getAsNullableLong() {
     return LongConverter.toNullableLong(_value);
   }
 
@@ -223,7 +223,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [FloatConverter.toNullableFloat]
 
-  double getAsNullableFloat() {
+  double? getAsNullableFloat() {
     return FloatConverter.toNullableFloat(_value);
   }
 
@@ -254,7 +254,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [DoubleConverter.toNullableDouble]
 
-  double getAsNullableDouble() {
+  double? getAsNullableDouble() {
     return DoubleConverter.toNullableDouble(_value);
   }
 
@@ -282,7 +282,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns DateTime value or null if conversion is not supported.
   ///
   /// See [DateTimeConverter.toNullableDateTime]
-  DateTime getAsNullableDateTime() {
+  DateTime? getAsNullableDateTime() {
     return DateTimeConverter.toNullableDateTime(_value);
   }
 
@@ -310,7 +310,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns Duration value or null if conversion is not supported.
   ///
   /// See [DurationConverter.toNullableDuration]
-  Duration getAsNullableDuration() {
+  Duration? getAsNullableDuration() {
     return DurationConverter.toNullableDuration(_value);
   }
 
@@ -340,7 +340,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns value defined by the typecode or null if conversion is not supported.
   ///
   /// See [TypeConverter.toNullableType]
-  T getAsNullableType<T>(TypeCode type) {
+  T? getAsNullableType<T>(TypeCode type) {
     return TypeConverter.toNullableType<T>(type, _value);
   }
 
@@ -352,7 +352,8 @@ class AnyValue implements ICloneable, IValueWrapper {
   ///
   /// See [getAsTypeWithDefault]
   T getAsType<T>(TypeCode typeCode) {
-    return getAsTypeWithDefault<T>(typeCode, null);
+    var defaultValue = T as T;
+    return getAsTypeWithDefault<T>(typeCode, defaultValue);
   }
 
   /// Converts object value into a value defined by specied typecode.
@@ -395,7 +396,7 @@ class AnyValue implements ICloneable, IValueWrapper {
     if (obj == null && _value == null) return true;
     if (obj == null || _value == null) return false;
 
-    if (obj is AnyValue) obj = obj.value;
+    if (obj is AnyValue) obj = obj._value;
 
     var strThisValue = StringConverter.toNullableString(_value);
     var strValue = StringConverter.toNullableString(obj);
@@ -417,7 +418,7 @@ class AnyValue implements ICloneable, IValueWrapper {
     if (obj == null && _value == null) return true;
     if (obj == null || _value == null) return false;
 
-    if (obj is AnyValue) obj = obj.value;
+    if (obj is AnyValue) obj = obj._value;
 
     var typedThisValue = TypeConverter.toType<T>(type, _value);
     var typedValue = TypeConverter.toType<T>(type, obj);
@@ -441,7 +442,7 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// See [StringConverter.toString]
   @override
   String toString() {
-    return StringConverter.toNullableString(_value);
+    return StringConverter.toNullableString(_value) ?? '';
   }
 
   /// Gets an object hash code which can be used to optimize storing and searching.
@@ -449,6 +450,6 @@ class AnyValue implements ICloneable, IValueWrapper {
   /// Returns an object hash code.
   @override
   int get hashCode {
-    return _value.hashCode ?? 0;
+    return _value.hashCode;
   }
 }

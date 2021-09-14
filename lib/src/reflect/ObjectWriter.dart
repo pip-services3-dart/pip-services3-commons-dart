@@ -1,3 +1,5 @@
+import 'package:pip_services3_commons/src/convert/StringConverter.dart';
+
 import './IValueWrapper.dart';
 import './PropertyReflector.dart';
 import '../convert/IntegerConverter.dart';
@@ -66,10 +68,12 @@ class ObjectWriter {
       }
     } else if (obj is List) {
       try {
-        var index = IntegerConverter.toNullableInteger(name);
+        var index = IntegerConverter.toNullableInteger(name) ?? 0;
+        var listLength = obj.length - 1;
         if (index >= 0) {
-          while (index > obj.length - 1) {
-            obj.add(null);
+          while (index > listLength) {
+            obj.add(Object());
+            listLength++;
           }
           obj[index] = value;
         }
@@ -95,10 +99,9 @@ class ObjectWriter {
   ///
   /// See [setProperty]
 
-  static void setProperties(obj, Map<String, dynamic> values) {
-    if (values == null) return;
-
+  static void setProperties(obj, Map<dynamic, dynamic> values) {
     for (var key in values.keys) {
+      key = StringConverter.toStringWithDefault(key, key.toString());
       var value = values[key];
       ObjectWriter.setProperty(obj, key, value);
     }

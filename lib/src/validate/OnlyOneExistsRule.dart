@@ -34,7 +34,7 @@ class OnlyOneExistsRule implements IValidationRule {
   /// - [results]   a list with validation results to add new results.
 
   @override
-  void validate(String path, Schema schema, dynamic value,
+  void validate(String? path, Schema schema, dynamic value,
       List<ValidationResult> results) {
     var name = path ?? 'value';
     var found = <String>[];

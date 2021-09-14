@@ -36,11 +36,11 @@ class RecursiveObjectReader {
   /// - [name] 	a name of the property to check.
   /// Returns true if the object has the property and false if it doesn't.
 
-  static bool hasProperty(obj, String name) {
+  static bool hasProperty(obj, String? name) {
     if (obj == null || name == null) return false;
 
     var names = name.split('.');
-    if (names == null || names.isEmpty) return false;
+    if (name == '' || names.isEmpty) return false;
 
     return RecursiveObjectReader._performHasProperty(obj, names, 0);
   }
@@ -69,11 +69,11 @@ class RecursiveObjectReader {
   /// - [name] 	a name of the property to get.
   /// Returns the property value or null if property doesn't exist or introspection failed.
 
-  static dynamic getProperty(obj, String name) {
+  static dynamic getProperty(obj, String? name) {
     if (obj == null || name == null) return null;
 
     var names = name.split('.');
-    if (names == null || names.isEmpty) return null;
+    if (name == '' || names.isEmpty) return null;
 
     return RecursiveObjectReader._performGetProperty(obj, names, 0);
   }
@@ -86,7 +86,7 @@ class RecursiveObjectReader {
   }
 
   static dynamic _performGetPropertyNames(
-      obj, String path, List<String> result, List cycleDetect) {
+      obj, String? path, List<String> result, List cycleDetect) {
     var map = ObjectReader.getProperties(obj);
 
     if (map.isNotEmpty && cycleDetect.length < 100) {
@@ -96,7 +96,7 @@ class RecursiveObjectReader {
           var value = map[key];
 
           // Prevent cycles
-          if (cycleDetect.indexOf(value) >= 0) continue;
+          if (cycleDetect.contains(value)) continue;
 
           var newPath = path != null ? path + '.' + key : key;
 
@@ -140,7 +140,7 @@ class RecursiveObjectReader {
   }
 
   static void _performGetProperties(
-      obj, String path, result, List cycleDetect) {
+      obj, String? path, result, List cycleDetect) {
     var map = ObjectReader.getProperties(obj);
 
     if (map.isNotEmpty && cycleDetect.length < 100) {
@@ -150,7 +150,7 @@ class RecursiveObjectReader {
           var value = map[key];
 
           // Prevent cycles
-          if (cycleDetect.indexOf(value) >= 0) continue;
+          if (cycleDetect.contains(value)) continue;
 
           var newPath = path != null ? path + '.' + key : key;
 

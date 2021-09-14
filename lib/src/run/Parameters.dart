@@ -36,7 +36,7 @@ class Parameters extends AnyValueMap {
   ///
   /// - [key]     a key of the element to get.
   /// Returns       the value of the map element.
-  dynamic get(String key) {
+  dynamic get(String? key) {
     if (key == null) {
       return null;
     } else if (key.indexOf('.') > 0) {
@@ -54,7 +54,7 @@ class Parameters extends AnyValueMap {
   /// - [key]       a key of the element to put.
   /// - [value]     a new value for map element.
 
-  void put(String key, value) {
+  void put(String? key, value) {
     if (key == null) {
       return;
     } else if (key.indexOf('.') > 0) {
@@ -69,7 +69,7 @@ class Parameters extends AnyValueMap {
   /// - [key]       a key of element to get.
   /// Returns Parameters value of the element or null if conversion is not supported.
 
-  Parameters getAsNullableParameters(String key) {
+  Parameters? getAsNullableParameters(String key) {
     var value = getAsNullableMap(key);
     return value != null ? Parameters(value) : null;
   }
@@ -103,7 +103,7 @@ class Parameters extends AnyValueMap {
   /// - [key]     a key to be checked
   /// Returns       true if this map contains the key or false otherwise.
 
-  bool containsKey(Object key) {
+  bool containsKey(Object? key) {
     return RecursiveObjectReader.hasProperty(this, key.toString());
   }
 
@@ -116,14 +116,15 @@ class Parameters extends AnyValueMap {
   ///
   /// See [setDefaults]
 
-  Parameters override(Parameters parameters, [bool recursive = false]) {
+  Parameters override(Parameters? parameters, [bool recursive = false]) {
     var result = Parameters();
     if (recursive) {
       RecursiveObjectWriter.copyProperties(result, innerValue());
       RecursiveObjectWriter.copyProperties(result, parameters);
     } else {
       ObjectWriter.setProperties(result, innerValue());
-      ObjectWriter.setProperties(result, parameters.innerValue());
+      ObjectWriter.setProperties(result,
+          parameters != null ? parameters.innerValue() : <String, dynamic>{});
     }
     return result;
   }
@@ -191,7 +192,7 @@ class Parameters extends AnyValueMap {
   ///
   /// Returns	a JSON representation of this map.
 
-  String toJsonString() {
+  String? toJsonString() {
     return JsonConverter.toJson(innerValue());
   }
 
@@ -249,7 +250,7 @@ class Parameters extends AnyValueMap {
   ///
   /// See [ConfigParams]
 
-  static Parameters fromConfig(ConfigParams config) {
+  static Parameters fromConfig(ConfigParams? config) {
     var result = Parameters();
 
     if (config == null) return result;

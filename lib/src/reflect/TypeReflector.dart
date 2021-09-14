@@ -27,7 +27,7 @@ import '../convert/TypeConverter.dart';
 ///     TypeDescriptor.isPrimitive(123);				// Result: true
 
 class TypeReflector {
-  static Type _findType(LibraryMirror lib, String name) {
+  static Type? _findType(LibraryMirror lib, String name) {
     var typeName = Symbol(name);
     for (var declaration in lib.declarations.values) {
       if (declaration is ClassMirror && declaration.simpleName == typeName) {
@@ -43,7 +43,7 @@ class TypeReflector {
   /// - [library] 	a library where the type is defined
   /// Returns the object type or null is the type wasn't found.
 
-  static Type getType(String name, [String library]) {
+  static Type? getType(String name, [String? library]) {
     // If library is not defined then scan all loaded libraries
     if (library == null) {
       for (var lib in currentMirrorSystem().libraries.values) {
@@ -90,9 +90,7 @@ class TypeReflector {
   /// See [getType]
   /// See [TypeDescriptor]
 
-  static Type getTypeByDescriptor(TypeDescriptor descriptor) {
-    if (descriptor == null) throw Exception('Type descriptor cannot be null');
-
+  static Type? getTypeByDescriptor(TypeDescriptor descriptor) {
     return TypeReflector.getType(descriptor.getName(), descriptor.getLibrary());
   }
 
@@ -102,7 +100,7 @@ class TypeReflector {
   /// - [args]		arguments for the object constructor.
   /// Returns the created object instance.
 
-  static dynamic createInstanceByType(Type type, List args) {
+  static dynamic createInstanceByType(Type? type, List? args) {
     if (type == null) throw Exception('Type constructor cannot be null');
 
     var cm = reflectClass(type);
@@ -121,11 +119,11 @@ class TypeReflector {
   /// See [getType]
   /// See [createInstanceByType]
 
-  static dynamic createInstance(String name, String library, List args) {
+  static dynamic createInstance(String name, String? library, List args) {
     var type = TypeReflector.getType(name, library);
     if (type == null) {
       throw NotFoundException(null, 'TYPE_NOT_FOUND',
-              'Type ' + name + ',' + library + ' was not found')
+              'Type ' + name + ',' + library.toString() + ' was not found')
           .withDetails('type', name)
           .withDetails('library', library);
     }
@@ -144,8 +142,6 @@ class TypeReflector {
 
   static dynamic createInstanceByDescriptor(
       TypeDescriptor descriptor, List args) {
-    if (descriptor == null) throw Exception('Type descriptor cannot be null');
-
     return TypeReflector.createInstance(
         descriptor.getName(), descriptor.getLibrary(), args);
   }

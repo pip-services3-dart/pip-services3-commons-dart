@@ -18,8 +18,8 @@ import '../convert/TypeConverter.dart';
 /// See [MapSchema]
 
 class Schema {
-  bool _required;
-  List<IValidationRule> _rules;
+  bool? _required;
+  List<IValidationRule>? _rules;
 
   /// Creates a new instance of validation schema and sets its values.
   ///
@@ -28,7 +28,7 @@ class Schema {
   ///
   /// See [IValidationRule]
 
-  Schema([bool req, List<IValidationRule> rules]) {
+  Schema([bool? req, List<IValidationRule>? rules]) {
     _required = req;
     _required = _required ?? false;
     _rules = rules;
@@ -40,7 +40,7 @@ class Schema {
   /// Returns true to always require non-null values and false to allow null values.
 
   bool isRequired() {
-    return _required;
+    return _required == true;
   }
 
   /// Sets a flag that always requires non-null values.
@@ -55,7 +55,7 @@ class Schema {
   ///
   /// Returns a list with validation rules.
 
-  List<IValidationRule> getRules() {
+  List<IValidationRule>? getRules() {
     return _rules;
   }
 
@@ -107,7 +107,7 @@ class Schema {
 
   Schema withRule(IValidationRule rule) {
     _rules ??= <IValidationRule>[];
-    _rules.add(rule);
+    _rules!.add(rule);
     return this;
   }
 
@@ -118,7 +118,7 @@ class Schema {
   /// - [results]   a list with validation results to add new results.
 
   void performValidation(
-      String path, dynamic value, List<ValidationResult> results) {
+      String? path, dynamic value, List<ValidationResult> results) {
     var name = path ?? 'value';
 
     if (value == null) {
@@ -131,8 +131,8 @@ class Schema {
 
       // Check validation rules
       if (_rules != null) {
-        for (var i = 0; i < _rules.length; i++) {
-          var rule = _rules[i];
+        for (var i = 0; i < _rules!.length; i++) {
+          var rule = _rules![i];
           rule.validate(path, this, value, results);
         }
       }
@@ -156,14 +156,14 @@ class Schema {
   ///
   /// See [performValidation]
 
-  void performTypeValidation(String path, dynamic type, dynamic value,
+  void performTypeValidation(String? path, dynamic type, dynamic value,
       List<ValidationResult> results) {
     // If type it not defined then skip
     if (type == null) return;
 
     // Perform validation against the schema
     if (type is Schema) {
-      var schema = type as Schema;
+      var schema = type;
       schema.performValidation(path, value, results);
       return;
     }
@@ -210,8 +210,8 @@ class Schema {
   /// - [value]             a value to be validated.
   /// - [strict]            true to treat warnings as errors.
 
-  ValidationException validateAndReturnException(
-      String correlationId, dynamic value,
+  ValidationException? validateAndReturnException(
+      String? correlationId, dynamic value,
       [bool strict = false]) {
     var results = validate(value);
     return ValidationException.fromResults(correlationId, results, strict);
@@ -225,7 +225,7 @@ class Schema {
   ///
   /// See [ValidationException.throwExceptionIfNeeded]
 
-  void validateAndThrowException(String correlationId, dynamic value,
+  void validateAndThrowException(String? correlationId, dynamic value,
       [bool strict = false]) {
     var results = validate(value);
     ValidationException.throwExceptionIfNeeded(correlationId, results, strict);

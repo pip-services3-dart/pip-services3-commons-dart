@@ -20,7 +20,7 @@ class IntegerConverter {
   ///
   /// See [LongConverter.toNullableLong]
 
-  static int toNullableInteger(value) {
+  static int? toNullableInteger(value) {
     return LongConverter.toNullableLong(value);
   }
 

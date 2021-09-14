@@ -103,7 +103,7 @@ class ConfigParams extends StringValueMap {
   /// - [section] 			name of the section where add new parameters
   /// - [sectionParams] 	new parameters to be added.
 
-  void addSection(String section, ConfigParams sectionParams) {
+  void addSection(String? section, ConfigParams? sectionParams) {
     if (section == null) throw Exception('Section name cannot be null');
 
     if (sectionParams != null) {

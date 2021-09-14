@@ -40,7 +40,7 @@ import './ErrorCategory.dart';
 
 class ApplicationException implements Exception {
   /// A human-readable error description (usually written in English)
-  String message;
+  String? message;
 
   /// Standard error category
   String category;
@@ -53,15 +53,15 @@ class ApplicationException implements Exception {
 
   /// A map with additional details that can be used to restore error description in other languages
   // Todo: Complete implementation!
-  StringValueMap details;
+  StringValueMap? details;
 
   /// A unique transaction id to trace execution throug call chain
-  String correlation_id;
+  String? correlation_id;
 
   /// Stack trace of the exception
-  String stack_trace;
+  String? stack_trace;
   // Original error wrapped by this exception
-  String cause;
+  String? cause;
 
   /// Creates a new instance of application exception and assigns its values.
   ///
@@ -71,8 +71,8 @@ class ApplicationException implements Exception {
   /// - [message]           (optional) a human-readable description of the error.
 
   ApplicationException(
-      [String category, String correlation_id, String code, String message]) {
-    this.category = category ?? ErrorCategory.Unknown;
+      [String? category, String? correlation_id, String? code, String? message])
+      : category = category ?? ErrorCategory.Unknown {
     this.correlation_id = correlation_id;
     this.code = code ?? 'UNKNOWN';
     if (this.message == null) this.message = message ?? 'Unknown error';
@@ -89,7 +89,7 @@ class ApplicationException implements Exception {
   ///
   /// Returns an original error message.
 
-  String getCauseString() {
+  String? getCauseString() {
     return cause != null ? cause.toString() : null;
   }
 
@@ -105,7 +105,7 @@ class ApplicationException implements Exception {
   ///
   /// Returns a stack trace as a string.
 
-  String getStackTraceString() {
+  String? getStackTraceString() {
     return stack_trace; // ?? super.stack;
   }
 
@@ -126,7 +126,7 @@ class ApplicationException implements Exception {
   /// Returns this exception object
 
   ApplicationException withCode(String code) {
-    this.code = code ?? 'UNKNOWN';
+    this.code = code;
     return this;
   }
 
@@ -152,7 +152,7 @@ class ApplicationException implements Exception {
   /// Returns this exception object
 
   ApplicationException withStatus(int status) {
-    this.status = status ?? 500;
+    this.status = status;
     return this;
   }
 
@@ -168,7 +168,7 @@ class ApplicationException implements Exception {
 
   ApplicationException withDetails(String key, value) {
     details = details ?? StringValueMap();
-    details.setAsObject(key, value);
+    details!.setAsObject(key, value);
     return this;
   }
 
@@ -180,7 +180,7 @@ class ApplicationException implements Exception {
   /// - [correlationId] a unique transaction id to trace error through call chain
   /// Returns this exception object
 
-  ApplicationException withCorrelationId(String correlationId) {
+  ApplicationException withCorrelationId(String? correlationId) {
     correlation_id = correlationId;
     return this;
   }
@@ -267,7 +267,7 @@ class ApplicationException implements Exception {
     /// A unique error code
     code = json['code'] ?? 'UNKNOWN';
     details = details ?? StringValueMap();
-    details.fromJson(json['details']);
+    details!.fromJson(json['details']);
     correlation_id = json['correlation_id'];
     stack_trace = json['stack_trace'];
     cause = json['cause'];
@@ -279,7 +279,7 @@ class ApplicationException implements Exception {
       'category': category,
       'status': status,
       'code': code,
-      'details': details != null ? details.toJson() : null,
+      'details': details != null ? details!.toJson() : null,
       'correlation_id': correlation_id,
       'stack_trace': stack_trace,
       'cause': cause

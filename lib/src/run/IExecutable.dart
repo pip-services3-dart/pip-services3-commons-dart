@@ -34,5 +34,5 @@ abstract class IExecutable {
   /// - [args] 				execution arguments.
   /// Return 			  Future that receives execution result or error.
 
-  Future<dynamic> execute(String correlationId, Parameters args);
+  Future<dynamic> execute(String? correlationId, Parameters args);
 }

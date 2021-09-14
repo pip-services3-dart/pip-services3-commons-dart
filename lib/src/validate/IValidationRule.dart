@@ -18,6 +18,6 @@ abstract class IValidationRule {
   /// - [value]     a value to be validated.
   /// - [results]   a list with validation results to add new results.
 
-  void validate(String path, Schema schema, dynamic value,
+  void validate(String? path, Schema schema, dynamic value,
       List<ValidationResult> results);
 }

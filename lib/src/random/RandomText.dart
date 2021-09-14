@@ -177,7 +177,7 @@ class RandomText {
   /// - [maxLength]     maximum string length.
   /// Returns a random phrase.
 
-  static String phrase(int minLength, [int maxLength]) {
+  static String phrase(int minLength, [int? maxLength]) {
     maxLength = max(minLength, maxLength ?? minLength);
     var size = RandomInteger.nextInteger(minLength, maxLength);
     if (size <= 0) return '';
@@ -228,7 +228,7 @@ class RandomText {
   /// - [max]   a maximum number of words.
   /// Returns     a random text.
 
-  static String words(int min, [int max]) {
+  static String words(int min, [int? max]) {
     var result = '';
 
     var count = RandomInteger.nextInteger(min, max ?? min);
@@ -272,7 +272,7 @@ class RandomText {
   /// - [maxLength]   (optional) maximum amount of words to generate.
   /// Returns         a random text.
 
-  static String text(int minLength, [int maxLength]) {
+  static String text(int minLength, [int? maxLength]) {
     maxLength = max(minLength, maxLength ?? minLength);
     var size = RandomInteger.nextInteger(minLength, maxLength);
 

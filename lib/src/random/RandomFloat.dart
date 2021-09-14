@@ -18,7 +18,7 @@ class RandomFloat {
   /// - [max]   (optional) maximum value of the float that will be generated. Defaults to 'min' if omitted.
   /// Returns     generated random float value.
 
-  static double nextFloat(double min, [double max]) {
+  static double nextFloat(double min, [double? max]) {
     if (max == null) {
       max = min;
       min = 0;
@@ -34,7 +34,7 @@ class RandomFloat {
   /// - [value]     a float value to drift.
   /// - [range]     (optional) a range. Default: 10% of the value
 
-  static double updateFloat(double value, [double range]) {
+  static double updateFloat(double value, [double? range]) {
     range ??= 0;
     range = range == 0 ? 0.1 * value : range;
     var minValue = value - range;

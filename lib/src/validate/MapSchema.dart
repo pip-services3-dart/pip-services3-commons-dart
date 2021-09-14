@@ -34,8 +34,8 @@ class MapSchema extends Schema {
   MapSchema(
       [dynamic keyType,
       dynamic valueType,
-      bool req,
-      List<IValidationRule> rules])
+      bool? req,
+      List<IValidationRule>? rules])
       : super(req, rules) {
     _keyType = keyType;
     _valueType = valueType;
@@ -85,7 +85,7 @@ class MapSchema extends Schema {
 
   @override
   void performValidation(
-      String path, dynamic value, List<ValidationResult> results) {
+      String? path, dynamic value, List<ValidationResult> results) {
     value = ObjectReader.getValue(value);
 
     super.performValidation(path, value, results);
@@ -98,8 +98,9 @@ class MapSchema extends Schema {
 
     if (map != null) {
       for (var key in map.keys) {
-        var elementPath =
-            path != '' ? path + '.' + key : StringConverter.toString2(key);
+        var elementPath = path != '' && path != null
+            ? path + '.' + key
+            : StringConverter.toString2(key);
 
         performTypeValidation(elementPath, getKeyType(), key, results);
         performTypeValidation(elementPath, getValueType(), map[key], results);

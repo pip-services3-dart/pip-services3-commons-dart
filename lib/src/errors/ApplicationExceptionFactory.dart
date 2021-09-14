@@ -28,8 +28,6 @@ class ApplicationExceptionFactory {
   /// - [description]	a serialized error description received as a result of remote call
 
   static ApplicationException create(ErrorDescription description) {
-    if (description == null) throw Exception('Description cannot be null');
-
     ApplicationException error;
     var category = description.category;
     var code = description.code;
@@ -63,14 +61,16 @@ class ApplicationExceptionFactory {
       error = UnsupportedException(correlationId, code, message);
     } else {
       error = UnknownException();
-      error.category = category;
-      error.status = description.status;
+      error.category = category ?? error.category;
+      error.status = description.status ?? error.status;
     }
 
     // Fill error with details
     error.details = StringValueMap.fromValue(description.details);
-    error.setCauseString(description.cause);
-    error.setStackTraceString(description.stack_trace);
+    if (description.cause != null) error.setCauseString(description.cause!);
+    if (description.stack_trace != null) {
+      error.setStackTraceString(description.stack_trace!);
+    }
 
     return error;
   }

@@ -18,7 +18,7 @@ class Closer {
   ///
   /// See [IClosable]
 
-  static Future closeOne(String correlationId, component) async {
+  static Future closeOne(String? correlationId, component) async {
     if (component is IClosable) await component.close(correlationId);
   }
 
@@ -34,7 +34,7 @@ class Closer {
   /// See [closeOne]
   /// See [IClosable]
 
-  static Future close(String correlationId, List components) async {
+  static Future close(String? correlationId, List? components) async {
     if (components == null) return;
 
     for (var component in components) {

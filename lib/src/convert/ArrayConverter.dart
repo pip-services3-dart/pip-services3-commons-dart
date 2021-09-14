@@ -13,7 +13,7 @@ class ArrayConverter {
   /// - [value]     the value to convert.
   /// Returns         array object or null when value is null.
 
-  static List toNullableArray(value) {
+  static List? toNullableArray(value) {
     // Return null when nothing found
     if (value == null) return null;
 

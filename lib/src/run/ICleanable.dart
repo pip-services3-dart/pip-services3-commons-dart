@@ -25,5 +25,5 @@ abstract class ICleanable {
   /// - [correlationId] 	(optional) transaction id to trace execution through call chain.
   /// Return 			Future that receives error or null no errors occured.
 
-  Future clear(String correlationId);
+  Future clear(String? correlationId);
 }

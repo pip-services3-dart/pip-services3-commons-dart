@@ -36,9 +36,10 @@ import './ICommand.dart';
 /// See [CommandSet]
 
 class Command implements ICommand {
-  String _name;
-  Schema _schema;
-  Future<dynamic> Function(String correlationId, Parameters args) _function;
+  final String _name;
+  final Schema? _schema;
+  final Future<dynamic> Function(String? correlationId, Parameters args)
+      _function;
 
   /// Creates a new command object and assigns it's parameters.
 
@@ -46,18 +47,11 @@ class Command implements ICommand {
   /// - schema    the schema to validate command arguments.
   /// - func      the function to be executed by this command.
 
-  Command(String name, Schema schema, func) {
-    if (name == null) throw Exception('Name cannot be null');
+  Command(String name, Schema? schema, func)
+      : _name = name,
+        _schema = schema,
+        _function = func is IExecutable ? func.execute : func {
     if (func == null) throw Exception('Function cannot be null');
-
-    _name = name;
-    _schema = schema;
-
-    if (func is IExecutable) {
-      _function = func.execute;
-    } else {
-      _function = func;
-    }
 
     if (!(_function is Function)) {
       throw Exception('Function doesn\'t have function type');
@@ -80,9 +74,9 @@ class Command implements ICommand {
   /// Return          Future when command is complete
   /// See [Parameters]
   @override
-  Future<dynamic> execute(String correlationId, Parameters args) async {
+  Future<dynamic> execute(String? correlationId, Parameters args) async {
     if (_schema != null) {
-      _schema.validateAndThrowException(correlationId, args);
+      _schema!.validateAndThrowException(correlationId, args);
     }
 
     try {
@@ -90,7 +84,7 @@ class Command implements ICommand {
       return result;
     } catch (ex) {
       throw InvocationException(correlationId, 'EXEC_FAILED',
-              'Execution ' + getName() + ' failed: ' + ex)
+              'Execution ' + getName() + ' failed: ' + ex.toString())
           .withDetails('command', getName())
           .wrap(ex);
     }
@@ -103,7 +97,7 @@ class Command implements ICommand {
   /// See [ValidationResult]
   @override
   List<ValidationResult> validate(Parameters args) {
-    if (_schema != null) return _schema.validate(args);
+    if (_schema != null) return _schema!.validate(args);
     return [];
   }
 }

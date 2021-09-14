@@ -37,12 +37,12 @@ import './Parameters.dart';
 ///     }
 
 class FixedRateTimer implements IClosable {
-  INotifiable _task;
-  void Function() _callback;
-  int _delay;
-  int _interval;
-  Timer _timer;
-  Timer _timeout;
+  INotifiable? _task;
+  void Function()? _callback;
+  int? _delay;
+  int? _interval;
+  Timer? _timer;
+  Timer? _timeout;
 
   /// Creates new instance of the timer and sets its values.
   ///
@@ -55,7 +55,7 @@ class FixedRateTimer implements IClosable {
   /// See [setInterval]
   /// See [setDelay]
 
-  FixedRateTimer([dynamic taskOrCallback, int interval, int delay]) {
+  FixedRateTimer([dynamic taskOrCallback, int? interval, int? delay]) {
     if (taskOrCallback != null && (taskOrCallback is INotifiable)) {
       setTask(taskOrCallback);
     } else {
@@ -70,7 +70,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// Returns the INotifiable object or null if it is not set.
 
-  INotifiable getTask() {
+  INotifiable? getTask() {
     return _task;
   }
 
@@ -81,7 +81,9 @@ class FixedRateTimer implements IClosable {
   void setTask(INotifiable value) {
     _task = value;
     _callback = () {
-      _task.notify('pip-commons-timer', Parameters());
+      if (_task != null) {
+        _task!.notify('pip-commons-timer', Parameters());
+      }
     };
   }
 
@@ -89,7 +91,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// Returns the callback function or null if it is not set.
 
-  Function() getCallback() {
+  Function()? getCallback() {
     return _callback;
   }
 
@@ -106,7 +108,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// Returns the delay in milliseconds.
 
-  int getDelay() {
+  int? getDelay() {
     return _delay;
   }
 
@@ -114,7 +116,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// - [value] a delay in milliseconds.
 
-  void setDelay(int value) {
+  void setDelay(int? value) {
     value ??= 0;
     _delay = value;
   }
@@ -123,7 +125,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// Returns the interval in milliseconds
 
-  int getInterval() {
+  int? getInterval() {
     return _interval;
   }
 
@@ -131,7 +133,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// - [value] an interval in milliseconds.
 
-  void setInterval(int value) {
+  void setInterval(int? value) {
     value ??= 0;
     _interval = value;
   }
@@ -156,18 +158,18 @@ class FixedRateTimer implements IClosable {
     stop();
 
     // Exit if interval is not defined
-    if (_interval == null || _interval <= 0) return;
+    if (_interval == null || _interval! <= 0) return;
 
     // Introducing delay
-    var delay = max(0, _delay - _interval);
+    var delay = max(0, _delay! - _interval!);
 
     _timeout = Timer(Duration(milliseconds: delay), () {
       _timeout = null;
 
       // Set a new timer
-      _timer = Timer.periodic(Duration(milliseconds: _interval), (Timer tm) {
+      _timer = Timer.periodic(Duration(milliseconds: _interval!), (Timer tm) {
         try {
-          if (_callback != null) _callback();
+          if (_callback != null) _callback!();
         } catch (ex) {
           // Ignore or better log!
         }
@@ -181,12 +183,12 @@ class FixedRateTimer implements IClosable {
 
   void stop() {
     if (_timeout != null) {
-      _timeout.cancel();
+      _timeout!.cancel();
       _timeout = null;
     }
 
     if (_timer != null) {
-      _timer.cancel();
+      _timer!.cancel();
       _timer = null;
     }
   }
@@ -202,7 +204,7 @@ class FixedRateTimer implements IClosable {
   /// See [stop]
 
   @override
-  Future close(String correlationId) {
+  Future close(String? correlationId) {
     stop();
 
     return Future.delayed(Duration());

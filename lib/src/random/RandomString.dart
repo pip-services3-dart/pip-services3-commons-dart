@@ -22,7 +22,7 @@ class RandomString {
   /// - [values]    a string to pick a char from
   /// Returns         a randomly picked char.
 
-  static String pickChar(String values) {
+  static String pickChar(String? values) {
     if (values == null || values.isEmpty) return '';
 
     var index = RandomInteger.nextInteger(values.length);
@@ -34,7 +34,7 @@ class RandomString {
   /// - [values]    strings to pick from.
   /// Returns         a randomly picked string.
 
-  static String pick(List<String> values) {
+  static String pick(List<String>? values) {
     if (values == null || values.isEmpty) return '';
 
     var index = RandomInteger.nextInteger(values.length);

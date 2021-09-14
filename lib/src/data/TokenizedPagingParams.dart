@@ -8,12 +8,12 @@ import './AnyValueMap.dart';
 /// It can be used for complex paging scenarios, like paging across multiple databases
 /// where the previous state is encoded in a token. The token is usually retrieved from
 /// the previous response. The initial request shall go with token == <code>null</code>
-/// 
+///
 /// The page is defined by two parameters:
 /// - the <code>token</code> token that defines a starting point for the search.
 /// - the <code>take</code> parameter sets how many items to return in a page.
 /// - additionally, the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
+///
 /// Remember: not all implementations support the <code>total</code> parameter
 /// because its generation may lead to severe performance implications.
 ///
@@ -26,10 +26,10 @@ import './AnyValueMap.dart';
 
 class TokenizedPagingParams {
   ///The start token.
-  String token;
+  String? token;
 
   ///The number of items to return.
-  int take;
+  int? take;
 
   ///The flag to return the total number of items.
   bool total;
@@ -40,10 +40,10 @@ class TokenizedPagingParams {
   /// - [take] 		the number of items to return.
   /// - [total] 	true to return the total number of items.
 
-  TokenizedPagingParams([dynamic token, dynamic take, dynamic total]) {
+  TokenizedPagingParams([dynamic token, dynamic take, dynamic total])
+      : total = BooleanConverter.toBooleanWithDefault(total, false) {
     this.token = StringConverter.toNullableString(token);
     this.take = IntegerConverter.toNullableInteger(take);
-    this.total = BooleanConverter.toBooleanWithDefault(total, false);
     // This is for correctly using PagingParams with gRPC. gRPC defaults to 0 when take is null,
     // so we have to set it back to null if we get 0 in the constructor.
     if (this.take == 0) this.take = null;
@@ -78,9 +78,9 @@ class TokenizedPagingParams {
 
   int getTake(int maxTake) {
     if (take == null) return maxTake;
-    if (take < 0) return 0;
-    if (take > maxTake) return maxTake;
-    return take;
+    if (take! < 0) return 0;
+    if (take! > maxTake) return maxTake;
+    return take!;
   }
 
   /// Converts specified value into TokenizedPagingParams.

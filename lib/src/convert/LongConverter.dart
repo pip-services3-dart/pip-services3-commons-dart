@@ -16,7 +16,7 @@ class LongConverter {
   /// - [value]     the value to convert.
   /// Returns         long value or null when conversion is not supported.
 
-  static int toNullableLong(value) {
+  static int? toNullableLong(value) {
     if (value == null) return null;
     if (value is int) return value;
     if (value is double) return value.ceil();

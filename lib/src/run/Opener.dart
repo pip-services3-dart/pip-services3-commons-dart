@@ -36,7 +36,7 @@ class Opener {
   /// See [isOpenOne]
   /// See [IOpenable]
 
-  static bool isOpen(List components) {
+  static bool isOpen(List? components) {
     if (components == null) return true;
 
     var result = true;
@@ -58,7 +58,7 @@ class Opener {
   ///
   /// See [IOpenable]
 
-  static Future openOne(String correlationId, component) async {
+  static Future openOne(String? correlationId, component) async {
     if (component is IOpenable) await component.open(correlationId);
   }
 
@@ -74,7 +74,7 @@ class Opener {
   /// See [openOne]
   /// See [IOpenable]
 
-  static Future open(String correlationId, List components) async {
+  static Future open(String? correlationId, List? components) async {
     if (components == null) return true;
 
     for (var component in components) {

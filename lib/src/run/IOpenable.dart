@@ -51,5 +51,5 @@ abstract class IOpenable implements IClosable {
   /// - [correlationId] 	(optional) transaction id to trace execution through call chain.
   /// Return 			    Future that receives error or null no errors occured.
 
-  Future open(String correlationId);
+  Future open(String? correlationId);
 }

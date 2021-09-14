@@ -31,5 +31,5 @@ abstract class IClosable {
   /// - correlationId 	(optional) transaction id to trace execution through call chain.
   /// Return 			  Future that receives error or null no errors occured.
 
-  Future close(String correlationId);
+  Future close(String? correlationId);
 }

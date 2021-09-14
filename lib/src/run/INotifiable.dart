@@ -26,5 +26,5 @@ abstract class INotifiable {
   /// - correlationId 	(optional) transaction id to trace execution through call chain.
   /// - args 				notification arguments.
 
-  void notify(String correlationId, Parameters args);
+  void notify(String? correlationId, Parameters args);
 }

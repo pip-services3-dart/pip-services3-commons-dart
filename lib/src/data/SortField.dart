@@ -12,7 +12,7 @@
 
 class SortField {
   ///The field name to sort by
-  String name;
+  String? name;
 
   ///The flag to define sorting order. True to sort ascending, false to sort descending
   bool ascending;
@@ -22,10 +22,9 @@ class SortField {
   /// - [name] 			the name of the field to sort by.
   /// - [ascending] 	true to sort in ascending order, and false to sort in descending order.
 
-  SortField([String name, bool ascending = true]) {
-    this.name = name;
-    this.ascending = ascending;
-  }
+  SortField([String? name, bool ascending = true])
+      : name = name,
+        ascending = ascending;
 
   /// Creates a new instance from json.
   ///

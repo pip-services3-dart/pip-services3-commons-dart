@@ -17,7 +17,7 @@ import '../convert/StringConverter.dart';
 ///     var value2 = values.get('pt'); // Result: 'Hello World!'
 
 class MultiString implements IValueWrapper {
-  var _values = <String, String>{};
+  var _values = <String, String?>{};
 
   /// Creates a new MultiString object and initializes it with values.
   ///
@@ -62,7 +62,7 @@ class MultiString implements IValueWrapper {
   /// - [language]  a language two-symbol code.
   /// Returns         a translation for the specified language or default translation.
 
-  String get(String language) {
+  String? get(String language) {
     // Get specified language
     var value = _values[language];
 
@@ -170,17 +170,18 @@ class MultiString implements IValueWrapper {
   /// - [tuples]    an array that contains language-translation tuples.
   /// Returns         a MultiString Object.
 
-  static MultiString fromTuplesArray(List<dynamic> tuples) {
+  static MultiString fromTuplesArray(List<dynamic>? tuples) {
     var result = MultiString();
     if (tuples == null || tuples.isEmpty) return result;
 
     for (var index = 0; index < tuples.length; index += 2) {
       if (index + 1 >= tuples.length) break;
 
-      var name = StringConverter.toString2(tuples[index]);
+      var name = StringConverter.toNullableString(tuples[index]);
       var value = StringConverter.toNullableString(tuples[index + 1]);
-
-      result._values[name] = value;
+      if (name != null && value != null) {
+        result._values[name] = value;
+      }
     }
 
     return result;

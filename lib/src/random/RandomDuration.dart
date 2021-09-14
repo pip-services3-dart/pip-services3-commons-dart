@@ -14,7 +14,7 @@ class RandomDuration {
   /// - [max]   max range value
   /// Returns     a random Date value.
 
-  static Duration nextDuration(Duration min, [Duration max]) {
+  static Duration nextDuration(Duration min, [Duration? max]) {
     if (max == null) {
       max = min;
       min = Duration(milliseconds: max.inMilliseconds - 10000);
@@ -32,7 +32,7 @@ class RandomDuration {
   /// - [value]     a Date value to drift.
   /// - [range]     (optional) a range in milliseconds. Default: 10 days
 
-  static Duration updateDuration(Duration value, [int range]) {
+  static Duration updateDuration(Duration value, [int? range]) {
     range = range ?? (value.inMilliseconds / 10).truncate();
     if (range < 0) return value;
 

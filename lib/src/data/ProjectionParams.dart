@@ -27,7 +27,7 @@ class ProjectionParams extends ListBase<String> {
   ///
   /// - [value]     (optional) values to initialize this object.
 
-  ProjectionParams([List<dynamic> values]) : _values = <String>[] {
+  ProjectionParams([List<dynamic>? values]) : _values = <String>[] {
     if (values != null) {
       for (var value in values) {
         _values.add('' + value);
@@ -78,7 +78,7 @@ class ProjectionParams extends ListBase<String> {
   }
 
   static void _parseValue(
-      String prefix, ProjectionParams result, String value) {
+      String? prefix, ProjectionParams result, String value) {
     value = value.trim();
 
     var openBracket = 0;

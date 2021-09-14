@@ -21,8 +21,8 @@ import './PropertySchema.dart';
 ///     schema.validate('ABC');                          // Result: type mismatch
 
 class ObjectSchema extends Schema {
-  List<PropertySchema> _properties;
-  bool _allowUndefined;
+  List<PropertySchema>? _properties;
+  bool? _allowUndefined;
 
   /// Creates a new validation schema and sets its values.
   ///
@@ -32,7 +32,7 @@ class ObjectSchema extends Schema {
   ///
   /// See [IValidationRule]
 
-  ObjectSchema([bool allowUndefined, bool req, List<IValidationRule> rules])
+  ObjectSchema([bool? allowUndefined, bool? req, List<IValidationRule>? rules])
       : super(req, rules) {
     _allowUndefined = allowUndefined;
   }
@@ -44,7 +44,7 @@ class ObjectSchema extends Schema {
   /// See [PropertySchema]
 
   List<PropertySchema> getProperties() {
-    return _properties;
+    return _properties ?? [];
   }
 
   /// Sets validation schemas for object properties.
@@ -62,7 +62,7 @@ class ObjectSchema extends Schema {
   /// Returns true to allow undefined properties and false to disallow.
 
   bool get isUndefinedAllowed {
-    return _allowUndefined;
+    return _allowUndefined == true;
   }
 
   /// Sets flag to allow undefined properties
@@ -98,7 +98,7 @@ class ObjectSchema extends Schema {
 
   dynamic withProperty(PropertySchema schema) {
     _properties = _properties ?? <PropertySchema>[];
-    _properties.add(schema);
+    _properties!.add(schema);
     return this;
   }
 
@@ -109,7 +109,7 @@ class ObjectSchema extends Schema {
   /// - [rules]     (optional) a list of property validation rules.
 
   ObjectSchema withRequiredProperty(String name,
-      [dynamic type, List<IValidationRule> rules]) {
+      [dynamic type, List<IValidationRule>? rules]) {
     var schema = PropertySchema(name, type);
     if (rules != null) {
       schema.setRules(List.from(rules));
@@ -127,7 +127,7 @@ class ObjectSchema extends Schema {
   /// - [rules]     (optional) a list of property validation rules.
 
   ObjectSchema withOptionalProperty(String name,
-      [dynamic type, List<IValidationRule> rules]) {
+      [dynamic type, List<IValidationRule>? rules]) {
     var schema = PropertySchema(name, type);
     if (rules != null) {
       schema.setRules(List.from(rules));
@@ -145,7 +145,7 @@ class ObjectSchema extends Schema {
 
   @override
   void performValidation(
-      String path, dynamic value, List<ValidationResult> results) {
+      String? path, dynamic value, List<ValidationResult> results) {
     super.performValidation(path, value, results);
 
     if (value == null) return;
@@ -154,8 +154,8 @@ class ObjectSchema extends Schema {
     var properties = ObjectReader.getProperties(value);
 
     if (_properties != null) {
-      for (var i = 0; i < _properties.length; i++) {
-        var propertySchema = _properties[i];
+      for (var i = 0; i < _properties!.length; i++) {
+        var propertySchema = _properties![i];
         var processedName;
 
         for (var key in properties.keys) {
@@ -180,7 +180,7 @@ class ObjectSchema extends Schema {
 
     if (_allowUndefined == null || _allowUndefined == false) {
       for (var key in properties.keys) {
-        var propertyPath = key != null && path != '' ? path + '.' + key : key;
+        var propertyPath = path != null && path != '' ? path + '.' + key : key;
 
         results.add(ValidationResult(
             propertyPath,

@@ -17,7 +17,7 @@ class RandomDouble {
   /// - [max]   max range value
   /// Returns     a random double value.
 
-  static double nextDouble(double min, [double max]) {
+  static double nextDouble(double min, [double? max]) {
     if (max == null) {
       max = min;
       min = 0;
@@ -33,7 +33,7 @@ class RandomDouble {
   /// - [value]     a double value to drift.
   /// - [range]     (optional) a range. Default: 10% of the value
 
-  static double updateDouble(double value, [double range]) {
+  static double updateDouble(double value, [double? range]) {
     range ??= 0;
     range = range == 0 ? 0.1 * value : range;
     var minValue = value - range;

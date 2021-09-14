@@ -17,7 +17,7 @@ class Notifier {
   ///
   /// See [INotifiable]
 
-  static void notifyOne(String correlationId, component, Parameters args) {
+  static void notifyOne(String? correlationId, component, Parameters args) {
     if (component is INotifiable) component.notify(correlationId, args);
   }
 
@@ -33,7 +33,7 @@ class Notifier {
   /// See [notifyOne]
   /// See [INotifiable]
 
-  static void notify(String correlationId, List components, Parameters args) {
+  static void notify(String? correlationId, List? components, Parameters args) {
     if (components == null) return;
 
     for (var component in components) {

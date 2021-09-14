@@ -13,7 +13,7 @@ class ConflictException extends ApplicationException {
   ///
   /// See [ErrorCategory]
 
-  ConflictException([String correlation_id, String code, String message])
+  ConflictException([String? correlation_id, String? code, String? message])
       : super(ErrorCategory.Conflict, correlation_id, code, message) {
     status = 409;
   }

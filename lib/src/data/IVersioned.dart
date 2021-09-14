@@ -27,5 +27,5 @@
 
 abstract class IVersioned {
   /// The object's version.
-  String version;
+  abstract String version;
 }

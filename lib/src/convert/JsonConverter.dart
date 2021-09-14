@@ -20,8 +20,7 @@ class JsonConverter {
   /// - value 	the JSON string to convert.
   /// Returns			converted object value or null when value is null.
 
-  static T fromJson<T>(TypeCode type, String value) {
-    if (value == null) return null;
+  static T? fromJson<T>(TypeCode? type, String value) {
     try {
       var temp = jsonDecode(value);
       return TypeConverter.toType<T>(type, temp);
@@ -30,7 +29,7 @@ class JsonConverter {
     }
   }
 
-  static Object _toEncodable(Object value) {
+  static Object? _toEncodable(Object? value) {
     if (value is DateTime) return value.toIso8601String();
     if (value is Duration) return value.inMilliseconds;
 
@@ -42,7 +41,7 @@ class JsonConverter {
   /// - [value] 	the value to convert.
   /// Returns			JSON string or null when value is null.
 
-  static String toJson(value) {
+  static String? toJson(value) {
     if (value == null) return null;
     return jsonEncode(value, toEncodable: _toEncodable);
   }
@@ -54,7 +53,7 @@ class JsonConverter {
   ///
   /// See [MapConverter.toNullableMap]
 
-  static Map<String, dynamic> toNullableMap(String value) {
+  static Map<String, dynamic>? toNullableMap(String? value) {
     if (value == null) return null;
 
     try {

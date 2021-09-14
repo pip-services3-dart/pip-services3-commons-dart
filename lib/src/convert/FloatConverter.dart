@@ -20,7 +20,7 @@ class FloatConverter {
   ///
   /// See [DoubleConverter.toNullableDouble]
 
-  static double toNullableFloat(value) {
+  static double? toNullableFloat(value) {
     return DoubleConverter.toNullableDouble(value);
   }
 

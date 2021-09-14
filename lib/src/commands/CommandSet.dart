@@ -83,7 +83,7 @@ class CommandSet {
 
   /// See [ICommand]
 
-  ICommand findCommand(String commandName) {
+  ICommand? findCommand(String commandName) {
     return _commandsByName[commandName];
   }
 
@@ -94,7 +94,7 @@ class CommandSet {
 
   /// See [IEvent]
 
-  IEvent findEvent(String eventName) {
+  IEvent? findEvent(String eventName) {
     return _eventsByName[eventName];
   }
 
@@ -219,7 +219,7 @@ class CommandSet {
   /// See [Parameters]
 
   Future<dynamic> execute(
-      String correlationId, String commandName, Parameters args) async {
+      String? correlationId, String commandName, Parameters args) async {
     var cref = findCommand(commandName);
 
     if (cref == null) {
@@ -252,7 +252,7 @@ class CommandSet {
   List<ValidationResult> validate(String commandName, Parameters args) {
     var cref = findCommand(commandName);
 
-    if (cref != null) {
+    if (cref == null) {
       var result = <ValidationResult>[];
       result.add(ValidationResult(null, ValidationResultType.Error,
           'CMD_NOT_FOUND', 'Requested command does not exist', null, null));
@@ -269,7 +269,7 @@ class CommandSet {
   /// - [eventName]         the name of the event that is to be fired.
   /// - [args]              the event arguments (parameters).
 
-  void notify(String correlationId, String eventName, Parameters args) {
+  void notify(String? correlationId, String eventName, Parameters args) {
     var event = findEvent(eventName);
 
     if (event != null) event.notify(correlationId, args);

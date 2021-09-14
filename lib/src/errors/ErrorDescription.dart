@@ -12,31 +12,31 @@ import '../data/StringValueMap.dart';
 
 class ErrorDescription {
   /// Data type of the original error
-  String type;
+  String? type;
 
   /// Standard error category
-  String category;
+  String? category;
 
   /// HTTP status code associated with this error type
-  int status;
+  int? status;
 
   /// A unique error code
-  String code;
+  String? code;
 
   /// A human-readable error description (usually written in English)
-  String message;
+  String? message;
 
   /// A map with additional details that can be used to restore error description in other languages
-  StringValueMap details;
+  StringValueMap? details;
 
   /// A unique transaction id to trace execution throug call chain
-  String correlation_id;
+  String? correlation_id;
 
   /// Original error wrapped by this exception
-  String cause;
+  String? cause;
 
   /// Stack trace of the exception
-  String stack_trace;
+  String? stack_trace;
 
   Map<String, dynamic> toJson() {
     var json = <String, dynamic>{};
@@ -45,7 +45,7 @@ class ErrorDescription {
     json['status'] = status;
     json['code'] = code;
     json['message'] = message;
-    json['details'] = details != null ? details.toJson() : null;
+    json['details'] = details != null ? details!.toJson() : null;
     json['correlation_id'] = correlation_id;
     json['cause'] = cause;
     json['stack_trace'] = stack_trace;

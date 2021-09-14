@@ -67,7 +67,7 @@ class TypeConverter {
   ///
   /// See [toTypeCode]
 
-  static T toNullableType<T>(TypeCode type, value) {
+  static T? toNullableType<T>(TypeCode? type, value) {
     if (value == null) return null;
 
     // Convert to known types
@@ -103,7 +103,7 @@ class TypeConverter {
   /// See [toNullableType]
   /// See [toTypeCode]
 
-  static T toType<T>(TypeCode type, value) {
+  static T toType<T>(TypeCode? type, value) {
     // Convert to the specified type
     var result = TypeConverter.toNullableType<T>(type, value);
     if (result != null) return result;

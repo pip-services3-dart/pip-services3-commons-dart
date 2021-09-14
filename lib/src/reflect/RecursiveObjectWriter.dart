@@ -56,11 +56,11 @@ class RecursiveObjectWriter {
   /// - [name] 	a name of the property to set.
   /// - [value] a new value for the property to set.
 
-  static void setProperty(obj, String name, value) {
+  static void setProperty(obj, String? name, value) {
     if (obj == null || name == null) return;
 
     var names = name.split('.');
-    if (names == null || names.isEmpty) return;
+    if (names.isEmpty) return;
 
     RecursiveObjectWriter._performSetProperty(obj, names, 0, value);
   }
@@ -79,7 +79,7 @@ class RecursiveObjectWriter {
   ///
   /// See [setProperty]
 
-  static void setProperties(obj, Map<String, dynamic> values) {
+  static void setProperties(obj, Map<String, dynamic>? values) {
     if (values == null) return;
 
     for (var key in values.keys) {

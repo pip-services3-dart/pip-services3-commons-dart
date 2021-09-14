@@ -38,7 +38,7 @@ abstract class ICommandInterceptor {
   /// See [Parameters]
 
   Future<dynamic> execute(
-      String correlationId, ICommand command, Parameters args);
+      String? correlationId, ICommand command, Parameters args);
 
   /// Validates arguments of the wrapped command before its execution.
   ///

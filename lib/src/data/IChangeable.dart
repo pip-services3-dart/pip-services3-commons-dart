@@ -12,5 +12,5 @@
 
 abstract class IChangeable {
   /// The UTC time at which the object was last changed (created or updated).
-  DateTime change_time;
+  abstract DateTime change_time;
 }

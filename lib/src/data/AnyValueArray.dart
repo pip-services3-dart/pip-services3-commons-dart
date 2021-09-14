@@ -46,9 +46,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Creates a new instance of the array and assigns its value.
   ///
   /// - value     (optional) values to initialize this array.
-  AnyValueArray([Iterable values]) {
-    _values = [];
-
+  AnyValueArray([Iterable? values]) : _values = [] {
     if (values != null) {
       _values.addAll(values);
     }
@@ -132,7 +130,7 @@ class AnyValueArray extends ListBase<dynamic>
   ///
   /// - index     (optional) an index of the element to get
   /// Returns the element value or value of the array when index is not defined.
-  dynamic getAsObject([int index]) {
+  dynamic getAsObject([int? index]) {
     if (index == null) {
       var result = [];
       for (var item in _values) {
@@ -168,7 +166,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns string value of the element or null if conversion is not supported.
   ///
   /// See [StringConverter.toNullableString]
-  String getAsNullableString(int index) {
+  String? getAsNullableString(int index) {
     var value = _values[index];
     return StringConverter.toNullableString(value);
   }
@@ -180,7 +178,7 @@ class AnyValueArray extends ListBase<dynamic>
   ///
   /// See [getAsStringWithDefault]
   String getAsString(int index) {
-    return getAsStringWithDefault(index, null);
+    return getAsStringWithDefault(index, '');
   }
 
   /// Converts array element into a string or returns default value if conversion is not possible.
@@ -201,7 +199,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns boolean value of the element or null if conversion is not supported.
   ///
   /// See [BooleanConverter.toNullableBoolean]
-  bool getAsNullableBoolean(int index) {
+  bool? getAsNullableBoolean(int index) {
     var value = _values[index];
     return BooleanConverter.toNullableBoolean(value);
   }
@@ -234,7 +232,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns integer value of the element or null if conversion is not supported.
   ///
   /// See [IntegerConverter.toNullableInteger]
-  int getAsNullableInteger(int index) {
+  int? getAsNullableInteger(int index) {
     var value = _values[index];
     return IntegerConverter.toNullableInteger(value);
   }
@@ -267,7 +265,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns long value of the element or null if conversion is not supported.
   ///
   /// See [LongConverter.toNullableLong]
-  int getAsNullableLong(int index) {
+  int? getAsNullableLong(int index) {
     var value = _values[index];
     return LongConverter.toNullableLong(value);
   }
@@ -300,7 +298,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns float value of the element or null if conversion is not supported.
   ///
   /// See [FloatConverter.toNullableFloat]
-  double getAsNullableFloat(int index) {
+  double? getAsNullableFloat(int index) {
     var value = _values[index];
     return FloatConverter.toNullableFloat(value);
   }
@@ -333,7 +331,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns double value of the element or null if conversion is not supported.
   ///
   /// See [DoubleConverter.toNullableDouble]
-  double getAsNullableDouble(int index) {
+  double? getAsNullableDouble(int index) {
     var value = _values[index];
     return DoubleConverter.toNullableDouble(value);
   }
@@ -366,7 +364,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns DateTime value of the element or null if conversion is not supported.
   ///
   /// See [DateTimeConverter.toNullableDateTime]
-  DateTime getAsNullableDateTime(int index) {
+  DateTime? getAsNullableDateTime(int index) {
     var value = _values[index];
     return DateTimeConverter.toNullableDateTime(value);
   }
@@ -399,7 +397,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns Duration value of the element or null if conversion is not supported.
   ///
   /// See [DurationConverter.toNullableDuration]
-  Duration getAsNullableDuration(int index) {
+  Duration? getAsNullableDuration(int index) {
     var value = _values[index];
     return DurationConverter.toNullableDuration(value);
   }
@@ -434,7 +432,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns element value defined by the typecode or null if conversion is not supported.
   ///
   /// See [TypeConverter.toNullableType]
-  T getAsNullableType<T>(TypeCode type, int index) {
+  T? getAsNullableType<T>(TypeCode type, int index) {
     var value = _values[index];
     return TypeConverter.toNullableType<T>(type, value);
   }
@@ -448,7 +446,8 @@ class AnyValueArray extends ListBase<dynamic>
   ///
   /// See [getAsTypeWithDefault]
   T getAsType<T>(TypeCode type, int index) {
-    return getAsTypeWithDefault(type, index, null);
+    var defaultValue = T as T;
+    return getAsTypeWithDefault<T>(type, index, defaultValue);
   }
 
   /// Converts array element into a value defined by specied typecode.
@@ -483,7 +482,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// Returns AnyValueArray value of the element or null if conversion is not supported.
   ///
   /// See [fromValue]
-  AnyValueArray getAsNullableArray(int index) {
+  AnyValueArray? getAsNullableArray(int index) {
     var value = _values[index];
     return value != null ? AnyValueArray.fromValue(value) : null;
   }
@@ -518,7 +517,7 @@ class AnyValueArray extends ListBase<dynamic>
   ///
   /// See [AnyValueMap]
   /// See [AnyValueMap.fromValue]
-  AnyValueMap getAsNullableMap(int index) {
+  AnyValueMap? getAsNullableMap(int index) {
     var value = _values[index];
     return value != null ? AnyValueMap.fromValue(value) : null;
   }
@@ -639,7 +638,7 @@ class AnyValueArray extends ListBase<dynamic>
   /// - [separator]         a separator to split the string
   /// - [removeDuplicates]  (optional) true to remove duplicated elements
   /// Returns                 a newly created AnyValueArray.
-  static AnyValueArray fromString(String values, String separator,
+  static AnyValueArray fromString(String? values, String separator,
       [bool removeDuplicates = false]) {
     var result = AnyValueArray();
 
@@ -648,8 +647,8 @@ class AnyValueArray extends ListBase<dynamic>
     var items = values.split(separator);
     for (var index = 0; index < items.length; index++) {
       var item = items[index];
-      if ((item != null && item.isNotEmpty) || removeDuplicates == false) {
-        result._values.add(item != null ? AnyValue(item) : null);
+      if ((item.isNotEmpty) || removeDuplicates == false) {
+        result._values.add(AnyValue(item));
       }
     }
     return result;

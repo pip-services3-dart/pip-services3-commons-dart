@@ -14,11 +14,13 @@ class DateTimeConverter {
   /// - [value]     the value to convert.
   /// Returns         Date value  in UTC or null when conversion is not supported.
 
-  static DateTime toNullableDateTime(value) {
+  static DateTime? toNullableDateTime(value) {
     if (value == null) return null;
     if (value is DateTime) return value;
-    if (value is Duration) value = value.millisecondsSinceEpoch;
-    if (value is num) return DateTime.fromMillisecondsSinceEpoch(value).toUtc();
+    if (value is Duration) value = value.inMilliseconds;
+    if (value is num) {
+      return DateTime.fromMillisecondsSinceEpoch(value.toInt()).toUtc();
+    }
 
     var result = DateTime.tryParse(value.toString());
     return result == null ? null : result.toUtc();

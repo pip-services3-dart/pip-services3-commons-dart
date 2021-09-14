@@ -25,11 +25,11 @@ import '../errors/ConfigException.dart';
 ///     locator1.exactMatch(locator2);	// Result: false
 
 class Descriptor {
-  String _group;
-  String _type;
-  String _kind;
-  String _name;
-  String _version;
+  String? _group;
+  String? _type;
+  String? _kind;
+  String? _name;
+  String? _version;
 
   /// Creates a new instance of the descriptor.
   ///
@@ -39,26 +39,20 @@ class Descriptor {
   /// - [name]		a unique component name
   /// - [version] 	a component implementation version
 
-  Descriptor(
-      String group, String type, String kind, String name, String version) {
-    if ('*' == group) group = null;
-    if ('*' == type) type = null;
-    if ('*' == kind) kind = null;
-    if ('*' == name) name = null;
-    if ('*' == version) version = null;
-
-    _group = group;
-    _type = type;
-    _kind = kind;
-    _name = name;
-    _version = version;
+  Descriptor(String? group, String? type, String? kind, String? name,
+      String? version) {
+    _group = '*' == group ? null : group;
+    _type = '*' == type ? null : type;
+    _kind = '*' == kind ? null : kind;
+    _name = '*' == name ? null : name;
+    _version = '*' == version ? null : version;
   }
 
   /// Gets the component's logical group.
   ///
   /// Returns the component's logical group
 
-  String getGroup() {
+  String? getGroup() {
     return _group;
   }
 
@@ -66,7 +60,7 @@ class Descriptor {
   ///
   /// Returns the component's logical type.
 
-  String getType() {
+  String? getType() {
     return _type;
   }
 
@@ -74,7 +68,7 @@ class Descriptor {
   ///
   /// Returns the component's implementation type.
 
-  String getKind() {
+  String? getKind() {
     return _kind;
   }
 
@@ -82,7 +76,7 @@ class Descriptor {
   ///
   /// Returns the unique component's name.
 
-  String getName() {
+  String? getName() {
     return _name;
   }
 
@@ -90,11 +84,11 @@ class Descriptor {
   ///
   /// Returns the component's implementation version.
 
-  String getVersion() {
+  String? getVersion() {
     return _version;
   }
 
-  bool _matchField(String field1, String field2) {
+  bool _matchField(String? field1, String? field2) {
     return field1 == null || field2 == null || field1 == field2;
   }
 
@@ -114,7 +108,7 @@ class Descriptor {
         _matchField(_version, descriptor.getVersion());
   }
 
-  bool _exactMatchField(String field1, String field2) {
+  bool _exactMatchField(String? field1, String? field2) {
     if (field1 == null && field2 == null) return true;
     if (field1 == null || field2 == null) return false;
     return field1 == field2;
@@ -193,7 +187,7 @@ class Descriptor {
   /// Returns         a newly created Descriptor.
   /// @throws a [ConfigException] if the descriptor string is of a wrong format.
 
-  static Descriptor fromString(String value) {
+  static Descriptor? fromString(String? value) {
     if (value == null || value.isEmpty) return null;
 
     var tokens = value.split(':');

@@ -47,15 +47,13 @@ import 'dart:collection';
 ///
 
 class StringValueMap extends MapBase<String, String> implements IValueWrapper {
-  Map<String, String> _values;
+  Map<String, String?> _values;
 
   /// Creates a new instance of the map and assigns its value.
   ///
   /// - [value]     (optional) values to initialize this map.
 
-  StringValueMap([map]) {
-    _values = <String, String>{};
-
+  StringValueMap([map]) : _values = <String, String?>{} {
     if (map is IValueWrapper) {
       map = map.innerValue();
     }
@@ -86,7 +84,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// Returns         the value of the map elements.
 
-  Map<String, String> getValue() {
+  Map<String, String?> getValue() {
     return _values;
   }
 
@@ -95,7 +93,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// - [key]     a key of the element to get.
   /// Returns       the value of the map element.
 
-  String get(String key) {
+  String? get(String key) {
     return _values[key];
   }
 
@@ -134,8 +132,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
     if (map is Map) {
       for (var key in map.keys) {
         var value = map[key];
-        _values[StringConverter.toNullableString(key)] =
-            StringConverter.toNullableString(value);
+        var keyVal = StringConverter.toNullableString(key);
+        if (keyVal != null) {
+          _values[keyVal] = StringConverter.toNullableString(value);
+        }
       }
     }
   }
@@ -153,16 +153,16 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// - [key]       (optional) a key of the element to get
   /// Returns the element value or value of the map when index is not defined.
 
-  dynamic getAsObject([String key]) {
+  dynamic getAsObject([String? key]) {
     if (key == null) {
-      var result = <String, String>{};
+      var result = <String, String?>{};
       for (var key in _values.keys) {
         var value = _values[key];
         result[key] = value;
       }
       return result;
     } else {
-      return this[key];
+      return _values[key];
     }
   }
 
@@ -181,8 +181,10 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
       var values = MapConverter.toMap(key);
       append(values);
     } else {
-      _values[StringConverter.toNullableString(key)] =
-          StringConverter.toNullableString(value);
+      var keyObj = StringConverter.toNullableString(key);
+      if (keyObj != null) {
+        _values[keyObj] = StringConverter.toNullableString(value);
+      }
     }
   }
 
@@ -193,7 +195,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [StringConverter.toNullableString]
 
-  String getAsNullableString(String key) {
+  String? getAsNullableString(String key) {
     var value = get(key);
     return StringConverter.toNullableString(value);
   }
@@ -206,7 +208,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// See [getAsStringWithDefault]
 
   String getAsString(key) {
-    return getAsStringWithDefault(key, null);
+    return getAsStringWithDefault(key, '');
   }
 
   /// Converts map element into a string or returns default value if conversion is not possible.
@@ -229,7 +231,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [BooleanConverter.toNullableBoolean]
 
-  bool getAsNullableBoolean(String key) {
+  bool? getAsNullableBoolean(String key) {
     var value = get(key);
     return BooleanConverter.toNullableBoolean(value);
   }
@@ -265,7 +267,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [IntegerConverter.toNullableInteger]
 
-  int getAsNullableInteger(String key) {
+  int? getAsNullableInteger(String key) {
     var value = get(key);
     return IntegerConverter.toNullableInteger(value);
   }
@@ -301,7 +303,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [LongConverter.toNullableLong]
 
-  int getAsNullableLong(String key) {
+  int? getAsNullableLong(String key) {
     var value = get(key);
     return LongConverter.toNullableLong(value);
   }
@@ -337,7 +339,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [FloatConverter.toNullableFloat]
 
-  double getAsNullableFloat(String key) {
+  double? getAsNullableFloat(String key) {
     var value = get(key);
     return FloatConverter.toNullableFloat(value);
   }
@@ -373,7 +375,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [DoubleConverter.toNullableDouble]
 
-  double getAsNullableDouble(String key) {
+  double? getAsNullableDouble(String key) {
     var value = get(key);
     return DoubleConverter.toNullableDouble(value);
   }
@@ -409,7 +411,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [DateTimeConverter.toNullableDateTime]
 
-  DateTime getAsNullableDateTime(String key) {
+  DateTime? getAsNullableDateTime(String key) {
     var value = get(key);
     return DateTimeConverter.toNullableDateTime(value);
   }
@@ -445,7 +447,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [DurationConverter.toNullableDuration]
 
-  Duration getAsNullableDuration(String key) {
+  Duration? getAsNullableDuration(String key) {
     var value = get(key);
     return DurationConverter.toNullableDuration(value);
   }
@@ -483,7 +485,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [TypeConverter.toNullableType]
 
-  T getAsNullableType<T>(TypeCode type, String key) {
+  T? getAsNullableType<T>(TypeCode type, String key) {
     var value = get(key);
     return TypeConverter.toNullableType<T>(type, value);
   }
@@ -497,8 +499,9 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [getAsTypeWithDefault]
 
-  T getAsType<T>(TypeCode type, String key) {
-    return getAsTypeWithDefault<T>(type, key, null);
+  T? getAsType<T>(TypeCode type, String key) {
+    var defaultValue = T as T;
+    return getAsTypeWithDefault<T>(type, key, defaultValue);
   }
 
   /// Converts map element into a value defined by specied typecode.
@@ -537,7 +540,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// See [AnyValueArray]
   /// See [AnyValueArray.fromValue]
 
-  AnyValueArray getAsNullableArray(String key) {
+  AnyValueArray? getAsNullableArray(String key) {
     var value = get(key);
     return value != null ? AnyValueArray.fromValue(value) : null;
   }
@@ -576,7 +579,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   ///
   /// See [fromValue]
 
-  AnyValueMap getAsNullableMap(String key) {
+  AnyValueMap? getAsNullableMap(String key) {
     var value = get(key);
     return value != null ? AnyValueMap.fromValue(value) : null;
   }
@@ -668,7 +671,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// - [tuples]    a list of values where odd elements are keys and the following even elements are values
   /// Returns         a newly created StringValueMap.
 
-  static StringValueMap fromTuplesArray(List tuples) {
+  static StringValueMap fromTuplesArray(List? tuples) {
     var result = StringValueMap();
     if (tuples == null || tuples.isEmpty) return result;
 
@@ -678,7 +681,9 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
       var name = StringConverter.toNullableString(tuples[index]);
       var value = StringConverter.toNullableString(tuples[index + 1]);
 
-      result[name] = value;
+      if (name != null && value != null) {
+        result[name] = value;
+      }
     }
 
     return result;
@@ -689,7 +694,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// - [line]      semicolon-separated key-value list to initialize StringValueMap.
   /// Returns         a newly created StringValueMap.
 
-  static StringValueMap fromString(String line) {
+  static StringValueMap fromString(String? line) {
     var result = StringValueMap();
     if (line == null || line.isEmpty) return result;
 
@@ -713,7 +718,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   /// - [maps]  an array of maps to be merged
   /// Returns     a newly created AnyValueMap.
 
-  static StringValueMap fromMaps(List maps) {
+  static StringValueMap fromMaps(List? maps) {
     var result = StringValueMap();
     if (maps != null && maps.isNotEmpty) {
       for (var index = 0; index < maps.length; index++) {
@@ -737,7 +742,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   }
 
   @override
-  String operator [](Object key) {
+  String? operator [](Object? key) {
     return _values[key];
   }
 
@@ -750,7 +755,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   Iterable<String> get keys => _values.keys;
 
   @override
-  String remove(Object key) {
+  String? remove(Object? key) {
     return _values.remove(key);
   }
 }

@@ -36,7 +36,7 @@ class References implements IReferences {
   ///
   /// - [tuples]    (optional) a list of values where odd elements are locators and the following even elements are component references
 
-  References([List tuples]) {
+  References([List? tuples]) {
     if (tuples != null) {
       for (var index = 0; index < tuples.length; index += 2) {
         if (index + 1 >= tuples.length) break;
@@ -140,7 +140,7 @@ class References implements IReferences {
   /// Returns a matching component reference or null if nothing was found.
 
   @override
-  T getOneOptional<T>(locator) {
+  T? getOneOptional<T>(locator) {
     try {
       var components = find<T>(locator, false);
       return components.isNotEmpty ? components[0] : null;
@@ -158,7 +158,8 @@ class References implements IReferences {
   @override
   T getOneRequired<T>(locator) {
     var components = find<T>(locator, true);
-    return components.isNotEmpty ? components[0] : null;
+    if (components.isEmpty) throw ReferenceException(null, locator);
+    return components[0];
   }
 
   /// Gets all component references that match specified locator.

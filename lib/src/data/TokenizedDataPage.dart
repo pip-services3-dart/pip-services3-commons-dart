@@ -1,14 +1,14 @@
 /// Data transfer object that is used to pass results of paginated queries.
 /// It contains items of retrieved page and optional total number of items.
-/// 
+///
 /// Most often this object type is used to send responses to paginated queries.
 /// Pagination parameters are defined by [[TokenizedPagingParams]] object.
 /// The <code>token</code> parameter in the TokenizedPagingParams there means where to start the searxh.
 /// The <code>takes</code> parameter sets number of items to return in the page.
 /// And the optional <code>total</code> parameter tells to return total number of items in the query.
-/// 
+///
 /// The data page returns a token that shall be passed to the next search as a starting point.
-/// 
+///
 /// Remember: not all implementations support the <code>total</code> parameter
 /// because its generation may lead to severe performance implications.
 ///
@@ -31,10 +31,10 @@ class TokenizedDataPage<T> {
   List<T> data;
 
   /// The starting point for the next search.
-  String token;
+  String? token;
 
   /// The total amount of items in a request.
-  int total;
+  int? total;
 
   /// Creates a new instance of data page and assigns its values.
   ///
@@ -42,9 +42,8 @@ class TokenizedDataPage<T> {
   /// - [token]     (optional) a token to define astarting point for the next search.
   /// - [total]     (optional) a total number of objects in the result.
 
-  TokenizedDataPage(List<T> data, [String token, int total]) {
+  TokenizedDataPage(List<T> data, [String? token, int? total]) : data = data {
     this.total = total;
-    this.data = data;
     this.token = token;
   }
 
@@ -53,7 +52,8 @@ class TokenizedDataPage<T> {
   /// - [json]    json values to initialize this object.
   /// - [fromJson]  convert function for convert from json into <T>
 
-  factory TokenizedDataPage.fromJson(Map<String, dynamic> json, Function fromJson) {
+  factory TokenizedDataPage.fromJson(
+      Map<String, dynamic> json, Function fromJson) {
     //final items = json['data'].cast<Map<String, dynamic>>();
     final items = json['data'];
 

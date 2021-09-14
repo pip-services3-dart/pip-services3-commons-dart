@@ -22,19 +22,17 @@ import './IEventListener.dart';
 ///     ));
 
 class Event implements IEvent {
-  String _name;
-  List<IEventListener> _listeners;
+  final String _name;
+  final List<IEventListener> _listeners;
 
   /// Creates a new event and assigns its name.
   ///
   /// - name  the name of the event that is to be created.
   /// @throws an Error if the name is null.
 
-  Event(String name) {
-    if (name == null) throw ('Name cannot be null');
-
-    _name = name;
-  }
+  Event(String name)
+      : _name = name,
+        _listeners = [];
 
   /// Gets the name of the event.
   ///
@@ -79,14 +77,14 @@ class Event implements IEvent {
   /// throws an [InvocationException] if the event fails to be raised.
 
   @override
-  void notify(String correlationId, Parameters args) {
+  void notify(String? correlationId, Parameters args) {
     for (var i = 0; i < _listeners.length; i++) {
       try {
         var listener = _listeners[i];
         listener.onEvent(correlationId, this, args);
       } catch (ex) {
         throw InvocationException(correlationId, 'EXEC_FAILED',
-                'Raising event ' + getName() + ' failed: ' + ex)
+                'Raising event ' + getName() + ' failed: ' + ex.toString())
             .withDetails('event', getName())
             .wrap(ex);
       }
