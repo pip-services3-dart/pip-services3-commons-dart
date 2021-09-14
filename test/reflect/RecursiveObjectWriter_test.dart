@@ -45,7 +45,7 @@ void main() {
         ]
       };
 
-      Map<String, dynamic> values = {
+      var values = <String, dynamic>{
         //'', null,
         'value1': 'AAA',
         'value2': 'BBB',

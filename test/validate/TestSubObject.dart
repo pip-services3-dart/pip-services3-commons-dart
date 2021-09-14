@@ -2,9 +2,7 @@ class TestSubObject {
   String _id;
   dynamic _nullProperty;
 
-  TestSubObject(String id) {
-    this.id = id;
-  }
+  TestSubObject(String id) : _id = id;
 
   String get id {
     return _id;

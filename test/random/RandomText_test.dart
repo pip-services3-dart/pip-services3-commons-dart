@@ -18,20 +18,20 @@ void main() {
 
     test('FullName', () {
       var text = RandomText.fullName();
-      expect(text.indexOf(' ') != -1, isTrue);
+      expect(text.contains(' '), isTrue);
     });
 
     test('Phone', () {
       var text = RandomText.phone();
-      expect(text.indexOf('(') != -1, isTrue);
-      expect(text.indexOf(')') != -1, isTrue);
-      expect(text.indexOf('-') != -1, isTrue);
+      expect(text.contains('('), isTrue);
+      expect(text.contains(')'), isTrue);
+      expect(text.contains('-'), isTrue);
     });
 
     test('Email', () {
       var text = RandomText.email();
-      expect(text.indexOf('@') != -1, isTrue);
-      expect(text.indexOf('.com') != -1, isTrue);
+      expect(text.contains('@'), isTrue);
+      expect(text.contains('.com'), isTrue);
     });
   });
 }

@@ -34,7 +34,8 @@ void main() {
       expect(filter, isMap);
 
       var array = JsonConverter.fromJson<List>(TypeCode.Array, '[123,\"ABC\"]');
-      expect(array.length, equals(2));
+      expect(array, isNotNull);
+      expect(array!.length, equals(2));
 
       var date = DateTimeConverter.toDateTime('1975-04-08T00:00:00.000Z');
       var jsonDate = JsonConverter.fromJson<DateTime>(
@@ -46,7 +47,8 @@ void main() {
       // Handling simple objects
       var value = '{ \"value1\":123, \"value2\":234 }';
       var result = JsonConverter.toNullableMap(value);
-      expect(result['value1'], equals(123));
+      expect(result, isNotNull);
+      expect(result!['value1'], equals(123));
       expect(result['value2'], equals(234));
 
       // Recursive conversion
@@ -54,14 +56,14 @@ void main() {
           '{ \"value1\":123, \"value2\": { \"value1\": 111, \"value2\": 222 } }';
       result = JsonConverter.toNullableMap(value);
       expect(result, isNotNull);
-      expect(result['value1'], equals(123));
+      expect(result!['value1'], equals(123));
       expect(result['value2'], isMap);
 
       // Handling arrays
       value = '{ \"value1\": [{ \"value1\": 111, \"value2\": 222 }] }';
       result = JsonConverter.toNullableMap(value);
       expect(result, isNotNull);
-      expect(result['value1'], isList);
+      expect(result!['value1'], isList);
       var resultElements = result['value1'];
       var resultElement0 = resultElements[0];
       expect(resultElement0, isMap);

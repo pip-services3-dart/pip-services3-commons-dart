@@ -11,7 +11,7 @@ void main() {
     test('Pick', () {
       expect(RandomString.pickChar('') == '', isTrue);
       var charVariable = RandomString.pickChar(chars);
-      expect(chars.indexOf(charVariable) != -1, isTrue);
+      expect(chars.contains(charVariable), isTrue);
 
       var valuesEmpty = <String>[];
       expect(RandomString.pick(valuesEmpty) == '', isTrue);
@@ -28,12 +28,12 @@ void main() {
           isTrue);
 
       if (value.length == 4) {
-        expect(symbols.indexOf(value.substring(3)) != -1, isTrue);
+        expect(symbols.contains(value.substring(3)), isTrue);
       }
     });
 
     test('Next Alpha Char', () {
-      expect(chars.indexOf(RandomString.nextAlphaChar()) != -1, isTrue);
+      expect(chars.contains(RandomString.nextAlphaChar()), isTrue);
     });
 
     test('Next String', () {
@@ -42,9 +42,9 @@ void main() {
 
       for (var i = 0; i < value.length; i++) {
         expect(
-            chars.indexOf(value.substring(i, i + 1)) != -1 ||
-                symbols.indexOf(value.substring(i, i + 1)) != -1 ||
-                digits.indexOf(value.substring(i, i + 1)) != -1,
+            chars.contains(value.substring(i, i + 1)) ||
+                symbols.contains(value.substring(i, i + 1)) ||
+                digits.contains(value.substring(i, i + 1)),
             isTrue);
       }
     });

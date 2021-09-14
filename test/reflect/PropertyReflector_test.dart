@@ -22,8 +22,8 @@ void main() {
       var obj = TestClass();
       var names = PropertyReflector.getPropertyNames(obj);
       expect(names.length, equals(2));
-      expect(names.indexOf('publicField') >= 0, isTrue);
-      expect(names.indexOf('publicProp') >= 0, isTrue);
+      expect(names.contains('publicField'), isTrue);
+      expect(names.contains('publicProp'), isTrue);
 
       var map = PropertyReflector.getProperties(obj);
       expect(map.length, equals(2));

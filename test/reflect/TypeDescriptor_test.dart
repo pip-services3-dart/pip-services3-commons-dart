@@ -9,11 +9,13 @@ void main() {
       expect(descriptor, isNull);
 
       descriptor = TypeDescriptor.fromString('xxx,yyy');
-      expect(descriptor.getName(), equals('xxx'));
+      expect(descriptor, isNotNull);
+      expect(descriptor!.getName(), equals('xxx'));
       expect(descriptor.getLibrary(), equals('yyy'));
 
       descriptor = TypeDescriptor.fromString('xxx');
-      expect(descriptor.getName(), equals('xxx'));
+      expect(descriptor, isNotNull);
+      expect(descriptor!.getName(), equals('xxx'));
       expect(descriptor.getLibrary(), isNull);
 
       try {

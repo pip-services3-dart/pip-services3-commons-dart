@@ -3,7 +3,7 @@ class TestClass {
   String publicField = 'ABC';
   DateTime _publicProp = DateTime.now().toUtc();
 
-  TestClass([int arg1]);
+  TestClass([int? arg1]);
 
   int get _privateProp {
     return 543;

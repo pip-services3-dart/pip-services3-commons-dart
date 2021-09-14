@@ -45,7 +45,7 @@ void main() {
           equals(DateTimeConverter.toDateTime('1975-04-08T17:30:00.00Z')));
       expect(TypeConverter.toNullableType<Duration>(TypeCode.Duration, '123'),
           equals(Duration(milliseconds: 123)));
-      expect(TypeConverter.toNullableType<List>(TypeCode.Array, 123).length,
+      expect(TypeConverter.toNullableType<List>(TypeCode.Array, 123)!.length,
           equals(1));
       //assert.equal(1, TypeConverter.toNullableType<any>(TypeCode.Map, StringValueMap.fromString('abc=123')).length);
     });

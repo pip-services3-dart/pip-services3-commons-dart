@@ -48,8 +48,8 @@ void main() {
       var obj = TestClass();
       var names = ObjectReader.getPropertyNames(obj);
       //assert.equal(2, names.length);
-      expect(names.indexOf('publicField') >= 0, isTrue);
-      expect(names.indexOf('publicProp') >= 0, isTrue);
+      expect(names.contains('publicField'), isTrue);
+      expect(names.contains('publicProp'), isTrue);
 
       var map = ObjectReader.getProperties(obj);
       //assert.equals(2, map.length);
@@ -61,8 +61,8 @@ void main() {
       var map = {'key1': 123, 'key2': 'ABC'};
       var names = ObjectReader.getPropertyNames(map);
       expect(names.length, equals(2));
-      expect(names.indexOf('key1') >= 0, isTrue);
-      expect(names.indexOf('key2') >= 0, isTrue);
+      expect(names.contains('key1'), isTrue);
+      expect(names.contains('key2'), isTrue);
 
       var values = ObjectReader.getProperties(map);
       //assert.equal(2, values.lemgth);
@@ -75,8 +75,8 @@ void main() {
 
       var names = ObjectReader.getPropertyNames(list);
       expect(names.length, equals(2));
-      expect(names.indexOf('0') >= 0, isTrue);
-      expect(names.indexOf('1') >= 0, isTrue);
+      expect(names.contains('0'), isTrue);
+      expect(names.contains('1'), isTrue);
 
       var values = ObjectReader.getProperties(list);
       //assert.equal(2, values.lenth);
@@ -87,8 +87,8 @@ void main() {
 
       names = ObjectReader.getPropertyNames(array);
       expect(names.length, equals(2));
-      expect(names.indexOf('0') >= 0, isTrue);
-      expect(names.indexOf('1') >= 0, isTrue);
+      expect(names.contains('0'), isTrue);
+      expect(names.contains('1'), isTrue);
 
       values = ObjectReader.getProperties(array);
       //assert.equal(2, values.length);

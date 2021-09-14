@@ -150,7 +150,7 @@ void main() {
       expect(2, parameters.length);
       expect('ABC', parameters.get('field2'));
 
-      var value = parameters.getAsMap("field1");
+      var value = parameters.getAsMap('field1');
       expect(2, value.length);
       expect('123', value.get('field11'));
       expect('XYZ', value.get('field12'));

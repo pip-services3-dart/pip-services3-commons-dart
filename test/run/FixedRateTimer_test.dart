@@ -6,7 +6,7 @@ import '../../lib/src/run/FixedRateTimer.dart';
 
 class TestTimer implements INotifiable {
   int counter = 0;
-  void notify(String correlationId, Parameters args) {
+  void notify(String? correlationId, Parameters args) {
     counter++;
   }
 }

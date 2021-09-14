@@ -73,7 +73,7 @@ void main() {
       descriptor =
           Descriptor.fromString('pip-dummies:controller:default:default:1.0');
       expect(
-          descriptor.exactMatch(Descriptor(
+          descriptor!.exactMatch(Descriptor(
               'pip-dummies', 'controller', 'default', 'default', '1.0')),
           isTrue);
 

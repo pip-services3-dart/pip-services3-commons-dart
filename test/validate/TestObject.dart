@@ -16,7 +16,7 @@ class TestObject {
   List<String> stringListProperty = ['AAA', 'BBB'];
   Map<String, int> mapProperty = {};
   TestSubObject subObjectProperty = TestSubObject('1');
-  List<TestSubObject> subArrayProperty = [
+  List<TestSubObject>? subArrayProperty = [
     TestSubObject('2'),
     TestSubObject('3')
   ];

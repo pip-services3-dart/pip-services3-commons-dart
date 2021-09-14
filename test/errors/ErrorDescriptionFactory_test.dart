@@ -28,7 +28,7 @@ void main() {
       expect(descr.status, equals(ex.status));
       expect(descr.cause, equals(ex.cause));
       expect(descr.stack_trace, equals(ex.stack_trace));
-      expect(descr.details.getValue(), equals(ex.details.getValue()));
+      expect(descr.details!.getValue(), equals(ex.details!.getValue()));
     });
 
     test('Create From Error', () {
@@ -68,7 +68,7 @@ void main() {
       expect(descr2['status'], equals(ex.status));
       expect(descr2['cause'], equals(ex.cause));
       expect(descr2['stack_trace'], equals(ex.stack_trace));
-      expect(descr2['details'], equals(ex.details.getValue()));
+      expect(descr2['details'], equals(ex.details!.getValue()));
     });
   });
 }

@@ -35,7 +35,7 @@ void main() {
     });
 
     test('Set Array Property', () {
-      var list = [123, 'ABC'];
+      var list = <dynamic>[123, 'ABC'];
 
       ObjectWriter.setProperty(list, '3', 'AAAA');
       expect(list.length, equals(4));

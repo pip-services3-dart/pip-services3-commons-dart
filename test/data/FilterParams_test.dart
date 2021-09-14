@@ -13,7 +13,7 @@ void main() {
     });
 
     test('Create FilterParams with set values', () {
-      var keys = Map<String, dynamic>();
+      var keys = <String, dynamic>{};
       keys['key'] = 'key1';
       keys['id'] = '1234';
       var filter = FilterParams(keys);
@@ -22,7 +22,7 @@ void main() {
     });
 
     test('JSON convert', () {
-      var keys = Map<String, dynamic>();
+      var keys = <String, dynamic>{};
       keys['key'] = 'key1';
       keys['id'] = '1234';
       var filter = FilterParams(keys);

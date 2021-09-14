@@ -6,8 +6,8 @@ import '../../lib/src/errors/ApplicationException.dart';
 
 void main() {
   group('ApplicationException', () {
-    ApplicationException _appEx;
-    Exception _ex;
+    ApplicationException? _appEx;
+    Exception? _ex;
 
     var Category = 'category';
     var CorrelationId = 'correlationId';
@@ -21,21 +21,22 @@ void main() {
     });
 
     test('With Cause', () {
-      _appEx.withCause(_ex);
+      _appEx!.withCause(_ex);
 
-      expect(_appEx.cause, equals(_ex.toString()));
+      expect(_appEx!.cause, equals(_ex.toString()));
     });
 
     test('Check Parameters', () {
-      expect(_appEx.category, equals(Category));
-      expect(_appEx.correlation_id, equals(CorrelationId));
-      expect(_appEx.code, equals(Code));
-      expect(_appEx.message, equals(Message));
+      expect(_appEx, isNotNull);
+      expect(_appEx!.category, equals(Category));
+      expect(_appEx!.correlation_id, equals(CorrelationId));
+      expect(_appEx!.code, equals(Code));
+      expect(_appEx!.message, equals(Message));
     });
 
     test('With Code', () {
       var newCode = 'newCode';
-      var appEx = _appEx.withCode(newCode);
+      var appEx = _appEx!.withCode(newCode);
 
       expect(appEx, equals(_appEx));
       expect(appEx.code, equals(newCode));
@@ -43,7 +44,7 @@ void main() {
 
     test('With CorrelationId', () {
       var newCorrelationId = 'newCorrelationId';
-      var appEx = _appEx.withCorrelationId(newCorrelationId);
+      var appEx = _appEx!.withCorrelationId(newCorrelationId);
 
       expect(appEx, equals(_appEx));
       expect(appEx.correlation_id, equals(newCorrelationId));
@@ -51,7 +52,7 @@ void main() {
 
     test('With Status', () {
       var newStatus = 777;
-      var appEx = _appEx.withStatus(newStatus);
+      var appEx = _appEx!.withStatus(newStatus);
 
       expect(appEx, equals(_appEx));
       expect(appEx.status, equals(newStatus));
@@ -61,7 +62,7 @@ void main() {
       var key = 'key';
       var obj = {};
 
-      var appEx = _appEx.withDetails(key, obj);
+      var appEx = _appEx!.withDetails(key, obj);
 
       //var newObj = appEx.details.getAsObject(key);
 
@@ -70,7 +71,7 @@ void main() {
 
     test('With Stack Trace', () {
       var newTrace = 'newTrace';
-      var appEx = _appEx.withStackTrace(newTrace);
+      var appEx = _appEx!.withStackTrace(newTrace);
 
       expect(appEx, equals(_appEx));
       expect(appEx.stack_trace, equals(newTrace));
@@ -80,27 +81,29 @@ void main() {
       var key = 'key';
       var details = 'details';
 
-      _appEx.category = 'category';
-      _appEx.correlation_id = 'correlationId';
-      _appEx.code = 'code';
-      _appEx.message = 'message';
-      _appEx.status = 777;
-      _appEx.cause = 'cause';
-      _appEx.stack_trace = 'stackTrace';
-      _appEx.withDetails(key, details);
+      expect(_appEx, isNotNull);
+
+      _appEx!.category = 'category';
+      _appEx!.correlation_id = 'correlationId';
+      _appEx!.code = 'code';
+      _appEx!.message = 'message';
+      _appEx!.status = 777;
+      _appEx!.cause = 'cause';
+      _appEx!.stack_trace = 'stackTrace';
+      _appEx!.withDetails(key, details);
 
       var json = jsonEncode(_appEx);
       var appEx2 = ApplicationException.fromJson(jsonDecode(json));
 
       expect(appEx2, isNotNull);
-      expect(appEx2.category, equals(_appEx.category));
-      expect(appEx2.correlation_id, equals(_appEx.correlation_id));
-      expect(appEx2.code, equals(_appEx.code));
-      expect(appEx2.message, equals(_appEx.message));
-      expect(appEx2.status, equals(_appEx.status));
-      expect(appEx2.cause, equals(_appEx.cause));
-      expect(appEx2.stack_trace, equals(_appEx.stack_trace));
-      expect(appEx2.details, equals(_appEx.details.getValue()));
+      expect(appEx2.category, equals(_appEx!.category));
+      expect(appEx2.correlation_id, equals(_appEx!.correlation_id));
+      expect(appEx2.code, equals(_appEx!.code));
+      expect(appEx2.message, equals(_appEx!.message));
+      expect(appEx2.status, equals(_appEx!.status));
+      expect(appEx2.cause, equals(_appEx!.cause));
+      expect(appEx2.stack_trace, equals(_appEx!.stack_trace));
+      expect(appEx2.details, equals(_appEx!.details!.getValue()));
     });
   });
 }
