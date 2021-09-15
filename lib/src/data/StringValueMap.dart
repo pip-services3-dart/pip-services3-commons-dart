@@ -46,7 +46,7 @@ import 'dart:collection';
 /// See [DateTimeConverter]
 ///
 
-class StringValueMap extends MapBase<String, String> implements IValueWrapper {
+class StringValueMap extends MapBase<String, String?> implements IValueWrapper {
   Map<String, String?> _values;
 
   /// Creates a new instance of the map and assigns its value.
@@ -681,7 +681,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
       var name = StringConverter.toNullableString(tuples[index]);
       var value = StringConverter.toNullableString(tuples[index + 1]);
 
-      if (name != null && value != null) {
+      if (name != null) {
         result[name] = value;
       }
     }
@@ -747,7 +747,7 @@ class StringValueMap extends MapBase<String, String> implements IValueWrapper {
   }
 
   @override
-  void operator []=(String key, String value) {
+  void operator []=(String key, String? value) {
     _values[key] = value;
   }
 

@@ -56,4 +56,8 @@
 
  - Added null-safety supports
 
+ ## 1.1.1
+
+ - Make StringValueMap nullable type
+
 
