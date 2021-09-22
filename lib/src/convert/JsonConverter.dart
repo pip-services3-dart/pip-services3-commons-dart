@@ -33,7 +33,11 @@ class JsonConverter {
     if (value is DateTime) return value.toIso8601String();
     if (value is Duration) return value.inMilliseconds;
 
-    return null;
+    try {
+      return (value as dynamic).toJson();
+    } on NoSuchMethodError {
+      return null;
+    }
   }
 
   /// Converts value into JSON string.

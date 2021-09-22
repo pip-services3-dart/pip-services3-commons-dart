@@ -56,8 +56,13 @@
 
  - Added null-safety supports
 
- ## 1.1.1
+## 1.1.1
 
  - Make StringValueMap nullable type
+
+## 1.1.2
+
+ - Fixed **JsonConverter** toJson method
+
 
 
