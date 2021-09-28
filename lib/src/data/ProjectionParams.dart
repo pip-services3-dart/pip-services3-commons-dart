@@ -125,7 +125,9 @@ class ProjectionParams extends ListBase<String> {
           if (openBracket == 0) {
             commaIndex = index;
 
-            var subValue = value.substring(0, commaIndex);
+            var subValue = commaIndex <= value.length
+                ? value.substring(0, commaIndex)
+                : null;
 
             if (subValue != null && subValue.isNotEmpty) {
               if (prefix != null && prefix.isNotEmpty) {
@@ -135,7 +137,9 @@ class ProjectionParams extends ListBase<String> {
               }
             }
 
-            subValue = value.substring(commaIndex + 1);
+            subValue = commaIndex < value.length
+                ? value.substring(commaIndex + 1)
+                : null;
 
             if (subValue != null && subValue.isNotEmpty) {
               ProjectionParams._parseValue(prefix, result, subValue);

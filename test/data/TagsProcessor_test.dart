@@ -1,5 +1,5 @@
+import 'package:pip_services3_commons/src/data/TagsProcessor.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/TagsProcessor.dart';
 
 void main() {
   group('TagsProcessor', () {

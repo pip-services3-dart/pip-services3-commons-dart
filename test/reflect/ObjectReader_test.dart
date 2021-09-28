@@ -1,7 +1,7 @@
+import 'package:pip_services3_commons/src/reflect/ObjectReader.dart';
 import 'package:test/test.dart';
 
 import './TestClass.dart';
-import '../../lib/src/reflect/ObjectReader.dart';
 
 void main() {
   group('ObjectReader', () {

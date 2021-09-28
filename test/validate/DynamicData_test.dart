@@ -1,7 +1,7 @@
+import 'package:pip_services3_commons/src/convert/TypeCode.dart';
+import 'package:pip_services3_commons/src/validate/ObjectSchema.dart';
 import 'package:test/test.dart';
 import 'dart:convert';
-import '../../lib/src/validate/ObjectSchema.dart';
-import '../../lib/src/convert/TypeCode.dart';
 
 void main() {
   group('DynamicData', () {

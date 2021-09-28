@@ -1,7 +1,7 @@
+import 'package:pip_services3_commons/src/config/ConfigParams.dart';
+import 'package:pip_services3_commons/src/run/Parameters.dart';
 import 'package:test/test.dart';
 import './TestClass.dart';
-import '../../lib/src/config/ConfigParams.dart';
-import '../../lib/src/run/Parameters.dart';
 
 void main() {
   group('Parameters', () {

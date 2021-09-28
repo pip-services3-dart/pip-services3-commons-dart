@@ -56,7 +56,7 @@ class MethodReflector {
 
   static bool hasMethod(obj, String name) {
     if (obj == null) throw Exception('Object cannot be null');
-    if (name == null) throw Exception('Method name cannot be null');
+    // if (name == null) throw Exception('Method name cannot be null');
 
     var foundName = _findMethod(obj, name);
     return foundName != null;
@@ -71,7 +71,7 @@ class MethodReflector {
 
   static dynamic invokeMethod(obj, String name, List args) {
     if (obj == null) throw Exception('Object cannot be null');
-    if (name == null) throw Exception('Method name cannot be null');
+    // if (name == null) throw Exception('Method name cannot be null');
 
     var foundName = _findMethod(obj, name);
     if (foundName != null) {

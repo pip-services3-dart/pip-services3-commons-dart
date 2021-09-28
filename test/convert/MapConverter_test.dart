@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/MapConverter.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/MapConverter.dart';
 
 void main() {
   group('MapConverter', () {

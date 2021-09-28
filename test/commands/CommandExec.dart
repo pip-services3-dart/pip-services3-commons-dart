@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import '../../lib/src/run/IExecutable.dart';
-import '../../lib/src/run/Parameters.dart';
+import 'package:pip_services3_commons/src/run/run.dart';
 
 class CommandExec implements IExecutable {
   @override

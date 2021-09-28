@@ -1,7 +1,5 @@
+import 'package:pip_services3_commons/src/config/config.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/config/ConfigParams.dart';
-import '../../lib/src/config/NameResolver.dart';
 
 void main() {
   group('NameResolver', () {

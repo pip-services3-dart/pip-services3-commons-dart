@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/random/RandomDuration.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/random/RandomDuration.dart';
 
 void main() {
   group('RandomDuration', () {

@@ -1,5 +1,5 @@
+import 'package:pip_services3_commons/src/data/MultiString.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/MultiString.dart';
 
 void main() {
   group('MultiString', () {

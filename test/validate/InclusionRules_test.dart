@@ -1,7 +1,5 @@
+import 'package:pip_services3_commons/src/validate/validate.dart';
 import 'package:test/test.dart';
-import '../../lib/src/validate/Schema.dart';
-import '../../lib/src/validate/IncludedRule.dart';
-import '../../lib/src/validate/ExcludedRule.dart';
 
 void main() {
   group('Inclusion Rules', () {

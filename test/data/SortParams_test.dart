@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/data/data.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/SortField.dart';
-import '../../lib/src/data/SortParams.dart';
 
 void main() {
   group('SortParams', () {

@@ -88,7 +88,7 @@ class ObjectReader {
   /// - [name] 	a name of the property to get.
   /// Returns the property value or null if property doesn't exist or introspection failed.
 
-  static dynamic getProperty(obj, String name) {
+  static dynamic getProperty(obj, String? name) {
     if (obj == null || name == null) {
       return null;
     }

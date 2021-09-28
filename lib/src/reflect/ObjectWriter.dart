@@ -47,7 +47,7 @@ class ObjectWriter {
 
   static void setProperty(obj, String name, value) {
     if (obj == null) throw Exception('Object cannot be null');
-    if (name == null) throw Exception('Property name cannot be null');
+    // if (name == null) throw Exception('Property name cannot be null');
 
     if (obj is IValueWrapper) obj = obj.innerValue();
 

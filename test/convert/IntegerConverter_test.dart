@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/IntegerConverter.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/IntegerConverter.dart';
 
 void main() {
   group('IntegerConverter', () {

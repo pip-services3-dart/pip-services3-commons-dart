@@ -1,7 +1,6 @@
+import 'package:pip_services3_commons/src/validate/validate.dart';
 import 'package:test/test.dart';
 import './TestObject.dart';
-import '../../lib/src/validate/Schema.dart';
-import '../../lib/src/validate/AtLeastOneExistsRule.dart';
 
 void main() {
   group('AtLeastOneExistsRule', () {

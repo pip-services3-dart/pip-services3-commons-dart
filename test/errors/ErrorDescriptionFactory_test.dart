@@ -1,9 +1,6 @@
 import 'dart:convert';
+import 'package:pip_services3_commons/src/errors/errors.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/errors/ErrorCategory.dart';
-import '../../lib/src/errors/ErrorDescriptionFactory.dart';
-import '../../lib/src/errors/ApplicationException.dart';
 
 void main() {
   group('ErrorDescriptionFactory', () {

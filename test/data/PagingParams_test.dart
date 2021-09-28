@@ -1,5 +1,5 @@
+import 'package:pip_services3_commons/src/data/PagingParams.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/PagingParams.dart';
 
 void main() {
   group('PagingParams', () {

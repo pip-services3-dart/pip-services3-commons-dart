@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/random/RandomText.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/random/RandomText.dart';
 
 void main() {
   group('RandomText', () {

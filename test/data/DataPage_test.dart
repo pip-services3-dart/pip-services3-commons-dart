@@ -1,5 +1,5 @@
+import 'package:pip_services3_commons/src/data/DataPage.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/DataPage.dart';
 
 void main() {
   group('DataPage', () {

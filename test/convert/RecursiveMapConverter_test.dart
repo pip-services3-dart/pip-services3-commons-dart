@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/RecursiveMapConverter.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/RecursiveMapConverter.dart';
 
 void main() {
   group('RecursiveMapConverter', () {

@@ -1,5 +1,5 @@
+import 'package:pip_services3_commons/src/data/IdGenerator.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/IdGenerator.dart';
 
 void main() {
   group('IdGenerator', () {

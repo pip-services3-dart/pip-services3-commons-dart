@@ -1,8 +1,6 @@
+import 'package:pip_services3_commons/src/config/config.dart';
+import 'package:pip_services3_commons/src/data/data.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/config/ConfigParams.dart';
-import '../../lib/src/data/AnyValueMap.dart';
-import '../../lib/src/data/AnyValueArray.dart';
 
 void main() {
   group('ConfigParams', () {

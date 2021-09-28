@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/FloatConverter.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/FloatConverter.dart';
 
 void main() {
   group('FloatConverter', () {

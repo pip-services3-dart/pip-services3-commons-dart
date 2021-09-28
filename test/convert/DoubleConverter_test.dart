@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/DoubleConverter.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/DoubleConverter.dart';
 
 void main() {
   group('DoubleConverter', () {

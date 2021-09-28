@@ -1,7 +1,7 @@
 import 'dart:convert';
+import 'package:pip_services3_commons/src/errors/errors.dart';
 import 'package:test/test.dart';
 
-import '../../lib/src/errors/ApplicationException.dart';
 //import '../../lib/src/data/StringValueMap.dart';
 
 void main() {

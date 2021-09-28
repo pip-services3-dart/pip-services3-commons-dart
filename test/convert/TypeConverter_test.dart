@@ -1,8 +1,5 @@
+import 'package:pip_services3_commons/src/convert/convert.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/TypeCode.dart';
-import '../../lib/src/convert/TypeConverter.dart';
-import '../../lib/src/convert/DateTimeConverter.dart';
 
 void main() {
   group('TypeConverter', () {

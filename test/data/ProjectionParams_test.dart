@@ -1,5 +1,5 @@
+import 'package:pip_services3_commons/src/data/ProjectionParams.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/ProjectionParams.dart';
 
 void main() {
   group('ProjectionParams', () {

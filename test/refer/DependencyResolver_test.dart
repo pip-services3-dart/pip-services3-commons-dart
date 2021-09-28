@@ -1,9 +1,6 @@
+import 'package:pip_services3_commons/src/config/ConfigParams.dart';
+import 'package:pip_services3_commons/src/refer/refer.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/refer/References.dart';
-import '../../lib/src/refer/DependencyResolver.dart';
-import '../../lib/src/refer/Descriptor.dart';
-import '../../lib/src/config/ConfigParams.dart';
 
 void main() {
   group('DependencyResolver', () {

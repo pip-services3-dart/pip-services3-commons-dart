@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/convert.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/BooleanConverter.dart';
 
 void main() {
   group('BooleanConverter', () {

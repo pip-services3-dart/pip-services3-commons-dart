@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/reflect/TypeReflector.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/reflect/TypeReflector.dart';
 
 void main() {
   group('TypeReflector', () {

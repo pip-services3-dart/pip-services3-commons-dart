@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/random/RandomFloat.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/random/RandomFloat.dart';
 
 void main() {
   group('RandomFloat', () {

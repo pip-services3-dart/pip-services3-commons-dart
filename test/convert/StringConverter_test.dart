@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/convert/StringConverter.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/StringConverter.dart';
 
 void main() {
   group('StringConverter', () {

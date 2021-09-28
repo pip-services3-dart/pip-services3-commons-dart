@@ -1,7 +1,5 @@
+import 'package:pip_services3_commons/src/reflect/reflect.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/reflect/RecursiveObjectReader.dart';
-import '../../lib/src/reflect/RecursiveObjectWriter.dart';
 
 void main() {
   group('RecursiveObjectWriter', () {

@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/refer/Descriptor.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/refer/Descriptor.dart';
 
 void main() {
   group('Descriptor', () {

@@ -1,11 +1,10 @@
+import 'package:pip_services3_commons/src/run/run.dart';
 import 'package:test/test.dart';
 import 'dart:async';
-import '../../lib/src/run/INotifiable.dart';
-import '../../lib/src/run/Parameters.dart';
-import '../../lib/src/run/FixedRateTimer.dart';
 
 class TestTimer implements INotifiable {
   int counter = 0;
+  @override
   void notify(String? correlationId, Parameters args) {
     counter++;
   }

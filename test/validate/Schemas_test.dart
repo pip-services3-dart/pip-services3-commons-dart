@@ -1,11 +1,7 @@
+import 'package:pip_services3_commons/src/convert/TypeCode.dart';
+import 'package:pip_services3_commons/src/validate/validate.dart';
 import 'package:test/test.dart';
 import './TestObject.dart';
-
-import '../../lib/src/validate/Schema.dart';
-import '../../lib/src/validate/ObjectSchema.dart';
-import '../../lib/src/validate/ArraySchema.dart';
-import '../../lib/src/validate/MapSchema.dart';
-import '../../lib/src/convert/TypeCode.dart';
 
 void main() {
   group('SchemasTest', () {

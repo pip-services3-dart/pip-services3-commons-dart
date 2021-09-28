@@ -1,7 +1,7 @@
+import 'package:pip_services3_commons/src/reflect/MethodReflector.dart';
 import 'package:test/test.dart';
 
 import './TestClass.dart';
-import '../../lib/src/reflect/MethodReflector.dart';
 
 void main() {
   group('MethodReflector', () {

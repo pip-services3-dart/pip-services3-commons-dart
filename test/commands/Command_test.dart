@@ -1,8 +1,8 @@
+import 'package:pip_services3_commons/src/commands/commands.dart';
+import 'package:pip_services3_commons/src/run/run.dart';
 import 'package:test/test.dart';
 
 import './CommandExec.dart';
-import '../../lib/src/commands/Command.dart';
-import '../../lib/src/run/Parameters.dart';
 
 void main() {
   group('Command', () {

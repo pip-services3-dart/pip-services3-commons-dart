@@ -1,7 +1,6 @@
+import 'package:pip_services3_commons/src/convert/TypeCode.dart';
+import 'package:pip_services3_commons/src/reflect/TypeMatcher.dart' as reflect;
 import 'package:test/test.dart';
-
-import '../../lib/src/convert/TypeCode.dart';
-import '../../lib/src/reflect/TypeMatcher.dart' as reflect;
 
 void main() {
   group('TypeMatcher', () {

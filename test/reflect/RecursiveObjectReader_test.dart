@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/reflect/RecursiveObjectReader.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/reflect/RecursiveObjectReader.dart';
 
 void main() {
   group('RecursiveObjectReader', () {

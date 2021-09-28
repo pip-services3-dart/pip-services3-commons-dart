@@ -74,7 +74,7 @@ class PropertyReflector {
 
   static bool hasProperty(obj, String name) {
     if (obj == null) throw Exception('Object cannot be null');
-    if (name == null) throw Exception('Property name cannot be null');
+    // if (name == null) throw Exception('Property name cannot be null');
 
     var foundName = _findReadField(obj, name);
 
@@ -89,7 +89,7 @@ class PropertyReflector {
 
   static dynamic getProperty(obj, String name) {
     if (obj == null) throw Exception('Object cannot be null');
-    if (name == null) throw Exception('Property name cannot be null');
+    // if (name == null) throw Exception('Property name cannot be null');
 
     var foundName = _findReadField(obj, name);
     if (foundName != null) {
@@ -175,7 +175,7 @@ class PropertyReflector {
 
   static void setProperty(obj, String name, value) {
     if (obj == null) throw Exception('Object cannot be null');
-    if (name == null) throw Exception('Property name cannot be null');
+    // if (name == null) throw Exception('Property name cannot be null');
 
     var foundName = _findWriteField(obj, name);
     if (foundName != null) {

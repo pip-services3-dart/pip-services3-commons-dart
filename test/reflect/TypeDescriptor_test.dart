@@ -1,6 +1,5 @@
+import 'package:pip_services3_commons/src/reflect/TypeDescriptor.dart';
 import 'package:test/test.dart';
-
-import '../../lib/src/reflect/TypeDescriptor.dart';
 
 void main() {
   group('TypeDescriptor', () {

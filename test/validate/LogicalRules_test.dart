@@ -1,8 +1,5 @@
+import 'package:pip_services3_commons/src/validate/validate.dart';
 import 'package:test/test.dart';
-import '../../lib/src/validate/Schema.dart';
-import '../../lib/src/validate/OrRule.dart';
-import '../../lib/src/validate/AndRule.dart';
-import '../../lib/src/validate/ValueComparisonRule.dart';
 
 void main() {
   group('Logical Rules', () {

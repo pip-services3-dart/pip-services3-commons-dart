@@ -1,6 +1,6 @@
+import 'package:pip_services3_commons/src/convert/TypeCode.dart';
+import 'package:pip_services3_commons/src/data/AnyValue.dart';
 import 'package:test/test.dart';
-import '../../lib/src/data/AnyValue.dart';
-import '../../lib/src/convert/TypeCode.dart';
 
 void main() {
   group('AnyValue', () {
