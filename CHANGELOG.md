@@ -64,5 +64,10 @@
 
  - Fixed **JsonConverter** toJson method
 
+ 
+## 1.1.3
+
+ - Parameter **id** for **IIdentifiable** made optional
+
 
 
