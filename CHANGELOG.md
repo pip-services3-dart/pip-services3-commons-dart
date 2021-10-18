@@ -69,5 +69,6 @@
 
  - Parameter **id** for **IIdentifiable** made optional
 
+## 1.1.4
 
-
+ - Fixed FixedRateTimer.setCallback params

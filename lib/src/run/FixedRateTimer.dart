@@ -99,7 +99,7 @@ class FixedRateTimer implements IClosable {
   ///
   /// - [value] the callback function to be called.
 
-  void setCallback(Function() value) {
+  void setCallback(Function()? value) {
     _callback = value;
     _task = null;
   }
