@@ -91,7 +91,7 @@ class TypeConverter {
       value = ArrayConverter.toNullableArray(value);
     } else if (type == TypeCode.Map) value = MapConverter.toNullableMap(value);
 
-    return value as T;
+    return value;
   }
 
   /// Converts value into an object type specified by Type Code or returns type default when conversion is not possible.

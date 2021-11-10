@@ -72,3 +72,7 @@
 ## 1.1.4
 
  - Fixed FixedRateTimer.setCallback params
+
+## 1.1.5
+
+ - Fixed TypeConverter.toNullableType type cast
