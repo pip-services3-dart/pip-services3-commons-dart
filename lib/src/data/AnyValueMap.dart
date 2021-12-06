@@ -628,7 +628,7 @@ class AnyValueMap extends MapBase<dynamic, dynamic>
       if (builder.isNotEmpty) builder += ';';
 
       if (value != null) {
-        builder += key + '=' + value;
+        builder += key + '=' + value.toString();
       } else {
         builder += key;
       }

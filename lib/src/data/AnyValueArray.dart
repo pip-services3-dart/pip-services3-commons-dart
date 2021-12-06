@@ -518,8 +518,8 @@ class AnyValueArray extends ListBase<dynamic>
   /// See [AnyValueMap]
   /// See [AnyValueMap.fromValue]
   AnyValueMap? getAsNullableMap(int index) {
-    var value = _values[index];
-    return value != null ? AnyValueMap.fromValue(value) : null;
+    var value = AnyValueMap.fromValue(_values[index]);
+    return value.values.isNotEmpty ? value : null;
   }
 
   /// Converts array element into an AnyValueMap or returns empty AnyValueMap if conversion is not possible.
