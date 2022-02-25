@@ -76,3 +76,7 @@
 ## 1.1.5
 
  - Fixed TypeConverter.toNullableType type cast
+
+## 1.1.6
+
+ - Changed visibility of Command schema property

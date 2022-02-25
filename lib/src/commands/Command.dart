@@ -37,7 +37,7 @@ import './ICommand.dart';
 
 class Command implements ICommand {
   final String _name;
-  final Schema? _schema;
+  final Schema? schema_;
   final Future<dynamic> Function(String? correlationId, Parameters args)
       _function;
 
@@ -49,7 +49,7 @@ class Command implements ICommand {
 
   Command(String name, Schema? schema, func)
       : _name = name,
-        _schema = schema,
+        schema_ = schema,
         _function = func is IExecutable ? func.execute : func {
     if (func == null) throw Exception('Function cannot be null');
 
@@ -75,8 +75,8 @@ class Command implements ICommand {
   /// See [Parameters]
   @override
   Future<dynamic> execute(String? correlationId, Parameters args) async {
-    if (_schema != null) {
-      _schema!.validateAndThrowException(correlationId, args);
+    if (schema_ != null) {
+      schema_!.validateAndThrowException(correlationId, args);
     }
 
     try {
@@ -97,7 +97,7 @@ class Command implements ICommand {
   /// See [ValidationResult]
   @override
   List<ValidationResult> validate(Parameters args) {
-    if (_schema != null) return _schema!.validate(args);
+    if (schema_ != null) return schema_!.validate(args);
     return [];
   }
 }
