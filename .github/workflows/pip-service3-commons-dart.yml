@@ -19,6 +19,12 @@ jobs:
       id: build_info
       uses: pip-devops/actions/dart/prepare@v1
 
+    - name: Verify Dart install
+      run: |
+        which dart
+        dart --version
+      shell: bash
+
     ############# Test #############
 
     - name: Test the component
