@@ -16,13 +16,14 @@ dart format lib test
 # Publish to global repository
 dart pub get
 Write-Host "Pushing package to pub.dev registry..."
-dart pub publish -f 2>&1
-
-if ($LastExitCode -ne 0) {
-    # Verify if publish failed because of allready existed version
-    if ($Error[0].ToString().IndexOf("already exists") -gt 0) {
-        Write-Host "Package $($component.name):$($component.version) allready exists on pub.dev"
-    } else {
-        Write-Error "Release failed. Watch logs above."
+try {
+    dart pub publish -f 2>&1
+}
+catch {
+    if ("$_".IndexOf("already exists") -gt 0) {
+        Write-Host "Package $($component.name):$($component.version) already exists on pub.dev. Release skipped."
+    }
+    else {
+        Write-Error "Release failed.`n$_"
     }
 }
