@@ -1,18 +1,28 @@
 #!/usr/bin/env pwsh
 
 Set-StrictMode -Version latest
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 
 $component = Get-Content -Path "component.json" | ConvertFrom-Json
-$version = (Get-Content -Path pubspec.yaml | ConvertFrom-yaml ).version
+$version = $(Get-Content -Path pubspec.yaml) -match "version:" -replace "version: " -replace "'"
 
 if ($component.version -ne $version) {
     throw "Versions in component.json and pubspec.yaml do not match"
 }
 
-Write-Output "Formating code before publish"
-dart format -w lib test
+Write-Host "Formating code before publish"
+dart format lib test
 
 # Publish to global repository
-Write-Output "Pushing package to [pub.dev] registry"
-pub publish
+pub get
+Write-Host "Pushing package to [pub.dev] registry..."
+dart pub publish -f 2>&1
+
+if ($LastExitCode -ne 0) {
+    # Verify if publish failed because of allready existed version
+    if ($Error[0].ToString().IndexOf("already exists") -gt 0) {
+        Write-Host "Package $($component.name):$($component.version) allready exists on pub.dev"
+    } else {
+        Write-Error "Release failed. Watch logs above."
+    }
+}

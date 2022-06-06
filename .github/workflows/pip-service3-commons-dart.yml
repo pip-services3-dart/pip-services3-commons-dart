@@ -17,14 +17,14 @@ jobs:
 
     - name: Install prereq and save build number
       id: build_info
-      uses: pip-devops/actions/go/prepare@v1
+      uses: pip-devops/actions/dart/prepare@v1
 
     ############# Test #############
 
     - name: Test the component
-      uses: pip-devops/actions/go/test@v1
+      uses: pip-devops/actions/dart/test@v1
 
-    ############# Release #############
+    ############# Tag #############
 
     - name: Delete existing tag
       uses: dev-drprasad/delete-tag-and-release@v0.1.2
@@ -40,10 +40,15 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         tag: "v${{ steps.build_info.outputs.component_version }}-${{ steps.build_info.outputs.build_number }}"
 
+    ############# Release #############
+
+    - name: Release binary artifacts
+      uses: pip-devops/actions/dart/release@v1
+
     ############# Clear #############
 
     - name: Clean up
-      uses: pip-devops/actions/node/clear@v1
+      uses: pip-devops/actions/dart/clear@v1
 
   metrics:
     needs: ci
