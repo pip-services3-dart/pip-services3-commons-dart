@@ -21,7 +21,6 @@ jobs:
 
     - name: Verify Dart install
       run: |
-        which dart
         dart --version
       shell: bash
 
