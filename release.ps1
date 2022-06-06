@@ -14,7 +14,7 @@ Write-Host "Formating code before publish..."
 dart format lib test
 
 # Publish to global repository
-pub get
+dart pub get
 Write-Host "Pushing package to pub.dev registry..."
 dart pub publish -f 2>&1
 
