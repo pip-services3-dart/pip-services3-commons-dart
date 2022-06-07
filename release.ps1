@@ -10,12 +10,31 @@ if ($component.version -ne $pubSpecVersion) {
     throw "Versions in component.json and pubspec.yaml do not match"
 }
 
+# Login to pub.dev
+if (-not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_ACCESS_TOKEN) -and`
+    -not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_REFRESH_TOKEN) -and`
+    -not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_TOKEN_ENDPOINT) -and`
+    -not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_EXPIRATION)) {
+    $pubCredentialsPath = "~/.pub-cache/credentials.json"
+    # TODO: add path for windows
+    $pubCredentials = @{
+        "accessToken" = $env:PUB_DEV_PUBLISH_ACCESS_TOKEN;
+        "refreshToken" = $env:PUB_DEV_PUBLISH_REFRESH_TOKEN;
+        "tokenEndpoint" = $env:PUB_DEV_PUBLISH_TOKEN_ENDPOINT;
+        "scopes" = @("https://www.googleapis.com/auth/userinfo.email","openid");
+        "expiration" = $env:PUB_DEV_PUBLISH_EXPIRATION
+    }
+    # Create credentials.json
+    Write-Host "Creating '$pubCredentialsPath' with 'PUB_DEV_PUBLISH_*' env variables values..."
+    $pubCredentials | ConvertTo-Json | Set-Content -Path $pubCredentialsPath
+}
+
 Write-Host "Formating code before publish..."
 dart format lib test
 
 # Publish to global repository
 dart pub get
-Write-Host "Pushing package to pub.dev registry..."
+Write-Host "`nPushing package to pub.dev registry..."
 try {
     dart pub publish -f 2>&1
 }

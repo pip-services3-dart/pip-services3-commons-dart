@@ -19,11 +19,6 @@ jobs:
       id: build_info
       uses: pip-devops/actions/dart/prepare@v1
 
-    - name: Verify Dart install
-      run: |
-        dart --version
-      shell: bash
-
     ############# Test #############
 
     - name: Test the component
@@ -49,6 +44,11 @@ jobs:
 
     - name: Release binary artifacts
       uses: pip-devops/actions/dart/release@v1
+      with:
+        pub-dev-publish-access-token: ${{ secrets.PUB_DEV_PUBLISH_ACCESS_TOKEN }}
+        pub-dev-publish-refresh-token: ${{ secrets.PUB_DEV_PUBLISH_REFRESH_TOKEN }}
+        pub-dev-publish-token-endpoint: ${{ secrets.PUB_DEV_PUBLISH_TOKEN_ENDPOINT }}
+        pub-dev-publish-expiration: ${{ secrets.PUB_DEV_PUBLISH_EXPIRATION }}
 
     ############# Clear #############
 
