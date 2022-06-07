@@ -15,7 +15,7 @@ if (-not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_ACCESS_TOKEN) -and`
     -not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_REFRESH_TOKEN) -and`
     -not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_TOKEN_ENDPOINT) -and`
     -not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_EXPIRATION)) {
-    $pubCredentialsPath = "~/.pub-cache/credentials.json"
+    $pubCredentialsPath = "~/.pub-cache"
     # TODO: add path for windows
     $pubCredentials = @{
         "accessToken" = $env:PUB_DEV_PUBLISH_ACCESS_TOKEN;
@@ -25,8 +25,11 @@ if (-not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_ACCESS_TOKEN) -and`
         "expiration" = $env:PUB_DEV_PUBLISH_EXPIRATION
     }
     # Create credentials.json
-    Write-Host "Creating '$pubCredentialsPath' with 'PUB_DEV_PUBLISH_*' env variables values..."
-    $pubCredentials | ConvertTo-Json | Set-Content -Path $pubCredentialsPath
+    Write-Host "Creating '$pubCredentialsPath/credentials.json' with 'PUB_DEV_PUBLISH_*' env variables values..."
+    if (-not Test-Path $pubCredentialsPath) {
+        $null = New-Item -ItemType Directory -Force -Path $pubCredentialsPath
+    }
+    $pubCredentials | ConvertTo-Json | Set-Content -Path "$pubCredentialsPath/credentials.json"
 }
 
 Write-Host "Formating code before publish..."
