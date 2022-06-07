@@ -22,7 +22,7 @@ if (-not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_ACCESS_TOKEN) -and`
         "refreshToken" = $env:PUB_DEV_PUBLISH_REFRESH_TOKEN;
         "tokenEndpoint" = $env:PUB_DEV_PUBLISH_TOKEN_ENDPOINT;
         "scopes" = @("https://www.googleapis.com/auth/userinfo.email","openid");
-        "expiration" = $env:PUB_DEV_PUBLISH_EXPIRATION
+        "expiration" = [int]$env:PUB_DEV_PUBLISH_EXPIRATION
     }
     # Create credentials.json
     Write-Host "Creating '$pubCredentialsPath/credentials.json' with 'PUB_DEV_PUBLISH_*' env variables values..."
