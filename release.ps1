@@ -26,7 +26,7 @@ if (-not [string]::IsNullOrEmpty($env:PUB_DEV_PUBLISH_ACCESS_TOKEN) -and`
     }
     # Create credentials.json
     Write-Host "Creating '$pubCredentialsPath/credentials.json' with 'PUB_DEV_PUBLISH_*' env variables values..."
-    if (-not Test-Path $pubCredentialsPath) {
+    if (-not (Test-Path -Path $pubCredentialsPath)) {
         $null = New-Item -ItemType Directory -Force -Path $pubCredentialsPath
     }
     $pubCredentials | ConvertTo-Json | Set-Content -Path "$pubCredentialsPath/credentials.json"
