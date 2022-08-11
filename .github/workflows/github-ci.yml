@@ -42,7 +42,7 @@ jobs:
   # Authoring job
   authoring:
     needs: setup
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Install Dart
@@ -78,8 +78,10 @@ jobs:
       shell: bash
       run: ./script-delivery-ps/authoring/publish/publish.ps1
       env:
-        PYPI_USER: ${{ secrets.PYPI_USER }}
-        PYPI_PASS: ${{ secrets.PYPI_PASS }}
+        PUB_DEV_PUBLISH_ACCESS_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_ACCESS_TOKEN }}
+        PUB_DEV_PUBLISH_REFRESH_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_REFRESH_TOKEN }}
+        PUB_DEV_PUBLISH_TOKEN_ENDPOINT: ${{ secrets.PUB_DEV_PUBLISH_TOKEN_ENDPOINT }}
+        PUB_DEV_PUBLISH_EXPIRATION: ${{ secrets.PUB_DEV_PUBLISH_EXPIRATION }}
 
     - name: Execute tag script
       shell: bash
@@ -94,7 +96,7 @@ jobs:
   measure:
     needs: authoring
     if: always()
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps: 
     - name: Get cached intermediate data
