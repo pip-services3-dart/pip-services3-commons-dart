@@ -45,6 +45,9 @@ jobs:
     runs-on: ubuntu-18.04
 
     steps:
+    - name: Install Dart
+      uses: dart-lang/setup-dart@v1.3
+
     - name: Checkout source code
       uses: actions/checkout@main
 
