@@ -1,9 +1,9 @@
 FROM google/dart
 
-# set working directory
+# Set a working directory
 WORKDIR /app
 
-# copy the entire project
+# Copy the entire project
 COPY . .
 
 RUN pub global activate dartdoc
