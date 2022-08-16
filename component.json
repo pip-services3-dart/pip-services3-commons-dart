@@ -1,6 +1,6 @@
 {
     "name": "pip_services3_commons",
-    "type": "microservice",
+    "type": "module",
     "language": "dart",
     "version": "1.1.7",
     "build": 0,
